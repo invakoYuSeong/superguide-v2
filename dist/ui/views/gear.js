@@ -190,7 +190,6 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title' } = {})
       <span>${L('자료 확인', 'Checked')} ${personalWeaponsCheckedAt}</span>
       ${external(w.source, L('위키 항목', 'Wiki page'))}
       ${image ? external(image.source, L('이미지 원본', 'Image source')) : ''}
-      ${w.name && lang !== 'en' ? html`<span>한국어 이름: 나무위키</span>` : ''}
     </div>
     <p class="faint" style="font-size:12.5px">${L('기본 상태(부착물·함선 강화 제외) 기준입니다. 실제 피해는 맞은 부위의 장갑·내구도와 거리, 각도에 따라 달라집니다.', 'Base values without attachments or ship modules. Real damage depends on the armor and durability of the part you hit, range and angle.')}</p>
   </div>`;

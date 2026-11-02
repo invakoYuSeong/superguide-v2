@@ -224,7 +224,7 @@ export async function itemDetailContent(warbondId, value, mode = '') {
   const ref = resolveWarbondItem(warbondId, value);
   if (!ref) return '';
   const header = html`<div class="sheet-top wb-item-toolbar">
-    <button class="button ghost" type="button" data-wb-item-close>${icon('back', 16)} ${L('뒤로', 'Back')}</button>
+    <button class="button ghost wb-item-back" type="button" data-wb-item-close>${icon('back', 16)} ${L('뒤로', 'Back')}</button>
     <a class="wb-full-page" href="${formatRoute({ view: ref.view, id: ref.id, query: { m: mode } })}">${L('전체 페이지로 열기', 'Open full page')} ${icon('expand', 14)}</a>
     <button class="icon-button" type="button" data-wb-item-close aria-label="${L('항목 상세 닫기', 'Close item details')}">${icon('close', 18)}</button>
   </div>`;

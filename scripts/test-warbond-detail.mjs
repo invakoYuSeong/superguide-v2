@@ -1,6 +1,7 @@
 // Embedded warbond details: URL validation, shared renderers, list order and
 // navigation/scroll preservation. No browser or third-party DOM is required.
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { warbonds } from '../dist/data/warbonds.js';
 import { parseRoute, formatRoute } from '../dist/core/route.js';
 import { setLang } from '../dist/core/i18n.js';
@@ -32,6 +33,8 @@ for (const bond of warbonds) for (const item of bond.pages.flatMap(p => p.items)
   const content = String(await itemDetailContent(bond.id, value));
   ok(content.includes('id="wb-item-title"') && content.includes('class="detail-grid"'), `${value}: existing detail stats rendered`);
   ok(content.includes(`href="#/${value}"`) && content.includes('전체 페이지로 열기'), `${value}: full-page link`);
+  ok(/<button class="button ghost wb-item-back" type="button" data-wb-item-close>[\s\S]*?뒤로<\/button>/.test(content), `${value}: narrow-screen Back button keeps its close action`);
+  ok(/<button class="icon-button" type="button" data-wb-item-close aria-label="항목 상세 닫기">/.test(content), `${value}: accessible X button stays separate from responsive Back button`);
   ok(!content.includes('id="sheet-title"') && !content.includes('data-close') && !content.includes('data-compare'), `${value}: no duplicate title or unrelated sheet actions`);
   ok(content.includes(escape(ref.target.en || ref.target.name)), `${value}: expected weapon/stratagem is shown`);
 }
@@ -40,6 +43,18 @@ for (const [value, renderer] of [['gear/sightliner', weaponDetail], ['arsenal/no
   const content = String(renderer(ref.target));
   ok(content.includes('id="sheet-title"') && content.includes('data-close'), `${value}: ordinary full-page detail still has its original header`);
 }
+const css = await readFile(new URL('../dist/ui/app.css', import.meta.url), 'utf8');
+ok(/@media\s*\(min-width:\s*1100px\)\s*\{\s*\.wb-item-back\s*\{\s*display:\s*none;\s*\}\s*\}/.test(css), 'wide-screen Back button is hidden from display and keyboard focus at 1100px');
+for (const language of ['ko', 'en']) {
+  setLang(language);
+  const ref = resolveWarbondItem('scope-of-authority', 'gear/sightliner');
+  for (const content of [String(weaponDetail(ref.target)), String(await itemDetailContent('scope-of-authority', 'gear/sightliner'))]) {
+    const sources = content.match(/<div class="sources">([\s\S]*?)<\/div>/)?.[1];
+    ok(sources?.includes(language === 'en' ? 'Checked' : '자료 확인') && /\d{4}-\d{2}-\d{2}/.test(sources) && sources.includes(escape(ref.target.source)), `${language}: ordinary and embedded gear sources keep the checked date and wiki link`);
+    ok(!/한국어 이름|나무위키|Korean name|Namuwiki/i.test(sources), `${language}: gear sources omit Korean-name attribution`);
+  }
+}
+setLang('ko');
 const modeHtml = String(await itemDetailContent('control-group', 'arsenal/epoch', 'charged'));
 ok(modeHtml.includes('data-variant="charged" aria-pressed="true"'), 'embedded stratagem selects URL mode');
 ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preserves mode');
