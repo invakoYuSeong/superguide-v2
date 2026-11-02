@@ -158,6 +158,27 @@ export function matchItems(items, rows, { typos = false, pairs = new Map() } = {
   return { pairs, unmatchedItems: free(), unmatchedRows: freeRows() };
 }
 
+// The in-game page board: 5 columns × 3 rows, every cell covered by exactly one tile.
+export const BOARD = { cols: 5, rows: 3 };
+
+/** Problems with a page's tile layout (empty list = every cell filled once, nothing outside the board). */
+export function layoutProblems(items, { cols, rows } = BOARD) {
+  const problems = [];
+  const owner = new Map();
+  for (const item of items) {
+    const { col, row, colspan, rowspan } = item;
+    const label = item.name ?? `slot ${item.slot}`;
+    if (![col, row, colspan, rowspan].every(n => Number.isInteger(n) && n > 0)) { problems.push(`${label}: position or size missing`); continue; }
+    if (col + colspan - 1 > cols || row + rowspan - 1 > rows) problems.push(`${label}: outside the ${cols}×${rows} board`);
+    for (let r = row; r < row + rowspan; r++) for (let c = col; c < col + colspan; c++) {
+      if (owner.has(`${r}:${c}`)) problems.push(`${label}: overlaps ${owner.get(`${r}:${c}`)} at row ${r}, column ${c}`);
+      owner.set(`${r}:${c}`, label);
+    }
+  }
+  for (let r = 1; r <= rows; r++) for (let c = 1; c <= cols; c++) if (!owner.has(`${r}:${c}`)) problems.push(`row ${r}, column ${c} is empty`);
+  return problems;
+}
+
 /** Parses one warbond page's wikitext. Never throws on content problems; reports them. */
 export function parseWarbondPage(wikitext, title) {
   const discrepancies = [];
@@ -194,6 +215,9 @@ export function parseWarbondPage(wikitext, title) {
         image: (params[`${n}_image`] || '').trim() || null,
         row: Number(params[`${n}_row`]) || null,
         col: Number(params[`${n}_col`]) || null,
+        // Tile size on the 5×3 page board; the template omits a span of 1 on some pages.
+        colspan: params[`${n}_colspan`] == null || params[`${n}_colspan`] === '' ? 1 : Number(params[`${n}_colspan`]) || null,
+        rowspan: params[`${n}_rowspan`] == null || params[`${n}_rowspan`] === '' ? 1 : Number(params[`${n}_rowspan`]) || null,
         cost: /^\d[\d,]*$/.test(cost || '') ? Number(cost.replaceAll(',', '')) : null,
         rawCost: cost ?? null,
       };
@@ -259,7 +283,8 @@ export function parseWarbondPage(wikitext, title) {
       const amount = Number((row || moved?.row)?.name.match(/^([\d,]+)\s+Super Credits?$/i)?.[1].replaceAll(',', ''));
       return {
         slot: item.slot, name: item.name, link: item.link || row?.link || null, type: (row || moved?.row)?.type ?? null,
-        row: item.row, col: item.col, cost, costStatus, templateCost: item.cost, tableCost: row?.cost ?? moved?.row.cost ?? null,
+        row: item.row, col: item.col, colspan: item.colspan, rowspan: item.rowspan, image: item.image,
+        cost, costStatus, templateCost: item.cost, tableCost: row?.cost ?? moved?.row.cost ?? null,
         ...(pageStatus !== 'confirmed' ? { pageStatus, tablePage: moved.page } : {}),
         ...(nameStatus !== 'confirmed' ? { nameStatus, tableName } : {}),
         ...(Number.isFinite(amount) ? { superCredits: amount } : {}),

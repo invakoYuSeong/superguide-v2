@@ -3,6 +3,8 @@ export const warbondsCheckedAt = "2026-11-02";
 
 export const warbondsSource = {"source":"https://helldivers.wiki.gg/wiki/Category:Warbonds","site":"https://helldivers.wiki.gg/","license":"CC BY-NC-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-nc-sa/4.0/","file":"db/source/wiki_warbonds.json","koreanNamesFile":"db/source/warbond_korean_names.json"};
 
+export const warbondBoard = {"cols":5,"rows":3};
+
 export const warbondTiers = [
   {"id":"standard","name":"기본"},
   {"id":"premium","name":"프리미엄"},
@@ -37,15 +39,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 16,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Independence Bringer","type":"Player Card","kind":"player-card","cost":1,"costStatus":"confirmed"},
-          {"name":"G-6 Frag","type":"Throwable","kind":"throwable","cost":2,"costStatus":"confirmed","ref":{"view":"gear","id":"frag"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":1,"costStatus":"confirmed","superCredits":100},
-          {"name":"SG-8 Punisher","type":"Shotgun","kind":"primary","cost":4,"costStatus":"confirmed","ref":{"view":"gear","id":"punisher"}},
-          {"name":"SC-34 Infiltrator","type":"Light Armor","kind":"armor","weight":"light","cost":3,"costStatus":"confirmed"},
-          {"name":"SC-34 Infiltrator","type":"Helmet","kind":"helmet","cost":2,"costStatus":"confirmed"},
-          {"name":"Clapping","type":"Victory Pose","kind":"victory-pose","cost":1,"costStatus":"confirmed"},
-          {"name":"Independence Bringer","type":"Cape","kind":"cape","cost":2,"costStatus":"confirmed"}
+          {"name":"Independence Bringer","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Independence Bringer Player Card Icon.png","cost":1,"costStatus":"confirmed"},
+          {"name":"G-6 Frag","type":"Throwable","kind":"throwable","col":2,"row":1,"colspan":1,"rowspan":2,"image":"G-6 Frag Throwable Render.png","cost":2,"costStatus":"confirmed","ref":{"view":"gear","id":"frag"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":1,"costStatus":"confirmed","superCredits":100},
+          {"name":"SG-8 Punisher","type":"Shotgun","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"SG-8 Punisher Primary Render.png","cost":4,"costStatus":"confirmed","ref":{"view":"gear","id":"punisher"}},
+          {"name":"SC-34 Infiltrator","type":"Light Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SC-34 Infiltrator Armor Render.png","weight":"light","cost":3,"costStatus":"confirmed"},
+          {"name":"SC-34 Infiltrator","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"SC-34 Infiltrator Helmet Render.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Clapping","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Clapping Victory Pose Icon.png","cost":1,"costStatus":"confirmed"},
+          {"name":"Independence Bringer","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Independence Bringer Cape Render.png","cost":2,"costStatus":"confirmed"}
         ]
       },
       {
@@ -55,15 +58,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 32,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Finger Guns","type":"Victory Pose","kind":"victory-pose","cost":2,"costStatus":"confirmed"},
-          {"name":"FS-05 Marksman","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":6,"costStatus":"confirmed"},
-          {"name":"FS-05 Marksman","type":"Helmet","kind":"helmet","cost":5,"costStatus":"confirmed"},
-          {"name":"Liberty's Herald","type":"Player Card","kind":"player-card","cost":1,"costStatus":"confirmed"},
-          {"name":"P-19 Redeemer","type":"Pistol","kind":"secondary","cost":5,"costStatus":"confirmed","ref":{"view":"gear","id":"redeemer"}},
-          {"name":"Liberty's Herald","type":"Cape","kind":"cape","cost":3,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":2,"costStatus":"confirmed","superCredits":100},
-          {"name":"R-63 Diligence","type":"Marksman Rifle","kind":"primary","cost":8,"costStatus":"confirmed","ref":{"view":"gear","id":"diligence"}}
+          {"name":"Finger Guns","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Finger Guns Victory Pose Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"FS-05 Marksman","type":"Heavy Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"FS-05 Marksman Body Icon.png","weight":"heavy","cost":6,"costStatus":"confirmed"},
+          {"name":"FS-05 Marksman","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"FS-05 Marksman Helmet Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Liberty's Herald","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Liberty's Herald Player Card Icon.png","cost":1,"costStatus":"confirmed"},
+          {"name":"P-19 Redeemer","type":"Pistol","kind":"secondary","col":2,"row":2,"colspan":1,"rowspan":2,"image":"P-19 Redeemer Secondary Render.png","cost":5,"costStatus":"confirmed","ref":{"view":"gear","id":"redeemer"}},
+          {"name":"Liberty's Herald","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Liberty's Herald Cape Render.png","cost":3,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":2,"costStatus":"confirmed","superCredits":100},
+          {"name":"R-63 Diligence","type":"Marksman Rifle","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"R-63 Diligence Primary Render.png","cost":8,"costStatus":"confirmed","ref":{"view":"gear","id":"diligence"}}
         ]
       },
       {
@@ -73,15 +77,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 65,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Tideturner","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Hellpod Space Optimization","type":"Booster","kind":"booster","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":3,"costStatus":"confirmed","superCredits":100},
-          {"name":"SMG-37 Defender","type":"Submachine Gun","kind":"primary","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"defender"}},
-          {"name":"CE-35 Trench Engineer","type":"Medium Armor","kind":"armor","weight":"medium","cost":10,"costStatus":"confirmed"},
-          {"name":"CE-35 Trench Engineer","type":"Helmet","kind":"helmet","cost":7,"costStatus":"confirmed"},
-          {"name":"Explosive Handshake","type":"Emote","kind":"emote","cost":8,"costStatus":"confirmed"},
-          {"name":"Tideturner","type":"Cape","kind":"cape","cost":5,"costStatus":"confirmed"}
+          {"name":"Tideturner","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Tideturner Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Hellpod Space Optimization","type":"Booster","kind":"booster","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":3,"costStatus":"confirmed","superCredits":100},
+          {"name":"SMG-37 Defender","type":"Submachine Gun","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"SMG-37 Defender Primary Render.png","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"defender"}},
+          {"name":"CE-35 Trench Engineer","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"CE-35 Trench Engineer Armor Render.png","weight":"medium","cost":10,"costStatus":"confirmed"},
+          {"name":"CE-35 Trench Engineer","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"CE-35 Trench Engineer Helmet Render.png","cost":7,"costStatus":"confirmed"},
+          {"name":"Explosive Handshake","type":"Emote","kind":"emote","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Explosive Handshake Emote Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Tideturner","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Tideturner Cape Render.png","cost":5,"costStatus":"confirmed"}
         ]
       },
       {
@@ -91,15 +96,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 103,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Hug","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"CM-09 Bonesnapper","type":"Medium Armor","kind":"armor","weight":"medium","cost":15,"costStatus":"confirmed"},
-          {"name":"CM-09 Bonesnapper","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"Stars and Suffrage","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Vitality Enhancement","type":"Booster","kind":"booster","cost":20,"costStatus":"confirmed"},
-          {"name":"Stars and Suffrage","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":6,"costStatus":"confirmed","superCredits":100},
-          {"name":"SG-225 Breaker","type":"Shotgun","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker"}}
+          {"name":"Hug","type":"Emote","kind":"emote","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Hug Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"CM-09 Bonesnapper","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"CM-09 Bonesnapper Armor Render.png","weight":"medium","cost":15,"costStatus":"confirmed"},
+          {"name":"CM-09 Bonesnapper","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"CM-09 Bonesnapper Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"Stars and Suffrage","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Stars and Suffrage Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Vitality Enhancement","type":"Booster","kind":"booster","col":2,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Stars and Suffrage","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"The Cape of Stars and Suffrage Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":6,"costStatus":"confirmed","superCredits":100},
+          {"name":"SG-225 Breaker","type":"Shotgun","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"SG-225 Breaker Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker"}}
         ]
       },
       {
@@ -109,15 +115,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 141,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"G-16 Impact","type":"Throwable","kind":"throwable","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"impact"}},
-          {"name":"Unblemished Allegiance","type":"Player Card","kind":"player-card","cost":4,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":10,"costStatus":"confirmed","superCredits":100},
-          {"name":"LAS-5 Scythe","type":"Energy-Based","kind":"primary","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"scythe"}},
-          {"name":"DP-40 Hero of the Federation","type":"Medium Armor","kind":"armor","weight":"medium","cost":25,"costStatus":"confirmed"},
-          {"name":"DP-40 Hero of the Federation","type":"Helmet","kind":"helmet","cost":20,"costStatus":"confirmed"},
-          {"name":"High-Five","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"Unblemished Allegiance","type":"Cape","kind":"cape","cost":12,"costStatus":"confirmed"}
+          {"name":"G-16 Impact","type":"Throwable","kind":"throwable","col":1,"row":1,"colspan":1,"rowspan":2,"image":"G-16 Impact Throwable Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"impact"}},
+          {"name":"Unblemished Allegiance","type":"Player Card","kind":"player-card","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Unblemished Allegiance Player Card Icon.png","cost":4,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":10,"costStatus":"confirmed","superCredits":100},
+          {"name":"LAS-5 Scythe","type":"Energy-Based","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"LAS-5 Scythe Primary Render.png","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"scythe"}},
+          {"name":"DP-40 Hero of the Federation","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"DP-40 Hero of the Federation Armor Render.png","weight":"medium","cost":25,"costStatus":"confirmed"},
+          {"name":"DP-40 Hero of the Federation","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"DP-40 Hero of the Federation Helmet Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"High-Five","type":"Emote","kind":"emote","col":1,"row":3,"colspan":2,"rowspan":1,"image":"High-Five Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Unblemished Allegiance","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Unblemished Allegiance Cape Render.png","cost":12,"costStatus":"confirmed"}
         ]
       },
       {
@@ -127,15 +134,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 186,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Flex","type":"Victory Pose","kind":"victory-pose","cost":10,"costStatus":"confirmed"},
-          {"name":"FS-23 Battle Master","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":35,"costStatus":"confirmed"},
-          {"name":"FS-23 Battle Master","type":"Helmet","kind":"helmet","cost":25,"costStatus":"confirmed"},
-          {"name":"Judgment Day","type":"Player Card","kind":"player-card","cost":6,"costStatus":"confirmed"},
-          {"name":"UAV Recon Booster","type":"Booster","kind":"booster","cost":40,"costStatus":"confirmed"},
-          {"name":"Judgment Day","type":"Cape","kind":"cape","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":15,"costStatus":"confirmed","superCredits":50},
-          {"name":"AR-23P Liberator Penetrator","type":"Assault Rifle","kind":"primary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-penetrator"}}
+          {"name":"Flex","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Flex Victory Pose Icon.png","cost":10,"costStatus":"confirmed"},
+          {"name":"FS-23 Battle Master","type":"Heavy Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"FS-23 Battle Master Armor Render.png","weight":"heavy","cost":35,"costStatus":"confirmed"},
+          {"name":"FS-23 Battle Master","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"FS-23 Battle Master Helmet Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Judgment Day","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Judgment Day Player Card Icon.png","cost":6,"costStatus":"confirmed"},
+          {"name":"UAV Recon Booster","type":"Booster","kind":"booster","col":2,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":40,"costStatus":"confirmed"},
+          {"name":"Judgment Day","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Judgment Day Cape Render.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":15,"costStatus":"confirmed","superCredits":50},
+          {"name":"AR-23P Liberator Penetrator","type":"Assault Rifle","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"AR-23P Liberator Penetrator Primary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-penetrator"}}
         ]
       },
       {
@@ -145,15 +153,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 272,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Stamina Enhancement","type":"Booster","kind":"booster","cost":75,"costStatus":"confirmed"},
-          {"name":"Cresting Honor","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":15,"costStatus":"confirmed","superCredits":50},
-          {"name":"R-63CS Diligence Counter Sniper","type":"Marksman Rifle","kind":"primary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"diligence-counter-sniper"}},
-          {"name":"SC-30 Trailblazer Scout","type":"Light Armor","kind":"armor","weight":"light","cost":50,"costStatus":"confirmed"},
-          {"name":"SC-30 Trailblazer Scout","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Scout Handshake","type":"Emote","kind":"emote","cost":35,"costStatus":"confirmed"},
-          {"name":"Cresting Honor","type":"Cape","kind":"cape","cost":15,"costStatus":"confirmed"}
+          {"name":"Stamina Enhancement","type":"Booster","kind":"booster","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":75,"costStatus":"confirmed"},
+          {"name":"Cresting Honor","type":"Player Card","kind":"player-card","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Cresting Honor Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":15,"costStatus":"confirmed","superCredits":50},
+          {"name":"R-63CS Diligence Counter Sniper","type":"Marksman Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"R-63CS Diligence Counter Sniper Primary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"diligence-counter-sniper"}},
+          {"name":"SC-30 Trailblazer Scout","type":"Light Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SC-30 Trailblazer Scout Armor Render.png","weight":"light","cost":50,"costStatus":"confirmed"},
+          {"name":"SC-30 Trailblazer Scout","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"SC-30 Trailblazer Scout Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Scout Handshake","type":"Emote","kind":"emote","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Scout Handshake Emote Icon.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Cresting Honor","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Cresting Honor Cape Render.png","cost":15,"costStatus":"confirmed"}
         ]
       },
       {
@@ -163,15 +172,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 290,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Rock Paper Scissors","type":"Emote","kind":"emote","cost":50,"costStatus":"confirmed"},
-          {"name":"SA-04 Combat Technician","type":"Medium Armor","kind":"armor","weight":"medium","cost":60,"costStatus":"confirmed"},
-          {"name":"SA-04 Combat Technician","type":"Helmet","kind":"helmet","cost":40,"costStatus":"confirmed"},
-          {"name":"Mantle of True Citizenship","type":"Player Card","kind":"player-card","cost":10,"costStatus":"confirmed"},
-          {"name":"G-3 Smoke","type":"Throwable","kind":"throwable","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"smoke"}},
-          {"name":"Mantle of True Citizenship","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":20,"costStatus":"confirmed","superCredits":50},
-          {"name":"SG-8S Slugger","type":"Shotgun","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"slugger"}}
+          {"name":"Rock Paper Scissors","type":"Emote","kind":"emote","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Rock Paper Scissors Emote Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"SA-04 Combat Technician","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"SA-04 Combat Technician Armor Render.png","weight":"medium","cost":60,"costStatus":"confirmed"},
+          {"name":"SA-04 Combat Technician","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"SA-04 Combat Technician Helmet Render.png","cost":40,"costStatus":"confirmed"},
+          {"name":"Mantle of True Citizenship","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Mantle of True Citizenship Player Card Icon.png","cost":10,"costStatus":"confirmed"},
+          {"name":"G-3 Smoke","type":"Throwable","kind":"throwable","col":2,"row":2,"colspan":1,"rowspan":2,"image":"G-3 Smoke Throwable Render.png","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"smoke"}},
+          {"name":"Mantle of True Citizenship","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Mantle of True Citizenship Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":20,"costStatus":"confirmed","superCredits":50},
+          {"name":"SG-8S Slugger","type":"Shotgun","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"SG-8S Slugger Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"slugger"}}
         ]
       },
       {
@@ -181,15 +191,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 350,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Muscle Enhancement","type":"Booster","kind":"booster","cost":70,"costStatus":"confirmed"},
-          {"name":"Blazing Samaritan","type":"Player Card","kind":"player-card","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":25,"costStatus":"confirmed","superCredits":50},
-          {"name":"SG-225SP Breaker Spray&Pray","type":"Shotgun","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker-spray-pray"}},
-          {"name":"CM-14 Physician","type":"Medium Armor","kind":"armor","weight":"medium","cost":70,"costStatus":"confirmed"},
-          {"name":"CM-14 Physician","type":"Helmet","kind":"helmet","cost":50,"costStatus":"confirmed"},
-          {"name":"Loosen Up","type":"Victory Pose","kind":"victory-pose","cost":30,"costStatus":"confirmed"},
-          {"name":"Blazing Samaritan","type":"Cape","kind":"cape","cost":30,"costStatus":"confirmed"}
+          {"name":"Muscle Enhancement","type":"Booster","kind":"booster","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":70,"costStatus":"confirmed"},
+          {"name":"Blazing Samaritan","type":"Player Card","kind":"player-card","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Blazing Samaritan Player Card Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":25,"costStatus":"confirmed","superCredits":50},
+          {"name":"SG-225SP Breaker Spray&Pray","type":"Shotgun","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"SG-225SP Breaker Spray&Pray Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker-spray-pray"}},
+          {"name":"CM-14 Physician","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"CM-14 Physician Armor Render.png","weight":"medium","cost":70,"costStatus":"confirmed"},
+          {"name":"CM-14 Physician","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"CM-14 Physician Helmet Render.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Loosen Up","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Loosen Up Victory Pose Icon.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Blazing Samaritan","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Blazing Samaritan Cape Render.png","cost":30,"costStatus":"confirmed"}
         ]
       },
       {
@@ -199,15 +210,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 560,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Big Whoop","type":"Victory Pose","kind":"victory-pose","cost":50,"costStatus":"confirmed"},
-          {"name":"DP-11 Champion of the People","type":"Medium Armor","kind":"armor","weight":"medium","cost":100,"costStatus":"confirmed"},
-          {"name":"DP-11 Champion of the People","type":"Helmet","kind":"helmet","cost":75,"costStatus":"confirmed"},
-          {"name":"Increased Reinforcement Budget","type":"Booster","kind":"booster","cost":150,"costStatus":"confirmed"},
-          {"name":"Light of Eternal Liberty","type":"Player Card","kind":"player-card","cost":20,"costStatus":"confirmed"},
-          {"name":"Light of Eternal Liberty","type":"Cape","kind":"cape","cost":40,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":50,"costStatus":"confirmed","superCredits":50},
-          {"name":"PLAS-1 Scorcher","type":"Energy-Based","kind":"primary","cost":75,"costStatus":"confirmed","ref":{"view":"gear","id":"scorcher"}}
+          {"name":"Big Whoop","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Big Whoop Victory Pose Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"DP-11 Champion of the People","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"DP-11 Champion of the People Armor Render.png","weight":"medium","cost":100,"costStatus":"confirmed"},
+          {"name":"DP-11 Champion of the People","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"DP-11 Champion of the People Helmet Render.png","cost":75,"costStatus":"confirmed"},
+          {"name":"Increased Reinforcement Budget","type":"Booster","kind":"booster","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":150,"costStatus":"confirmed"},
+          {"name":"Light of Eternal Liberty","type":"Player Card","kind":"player-card","col":2,"row":2,"colspan":1,"rowspan":2,"image":"Light of Eternal Liberty Player Card Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Light of Eternal Liberty","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Light of Eternal Liberty Cape Render.png","cost":40,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":50,"costStatus":"confirmed","superCredits":50},
+          {"name":"PLAS-1 Scorcher","type":"Energy-Based","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"PLAS-1 Scorcher Primary Render.png","cost":75,"costStatus":"confirmed","ref":{"view":"gear","id":"scorcher"}}
         ]
       }
     ]
@@ -239,14 +251,15 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"R-40 Sightliner","type":"Marksman Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"sightliner"}},
-          {"name":"SS-33 Mimetic Marshal","type":"Light Armor","kind":"armor","weight":"light","cost":null,"costStatus":"미확인","templateCost":45,"tableCost":30},
-          {"name":"Mimetic Mesh","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"G-11 Caltrops","type":"Special Throwable","kind":"throwable","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"caltrops"}},
-          {"name":"SS-33 Mimetic Marshal","type":"Helmet","kind":"helmet","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":45},
-          {"name":"Mimetic Mesh","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"R-40 Sightliner","type":"Marksman Rifle","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":2,"image":"R-40 Sightliner Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"sightliner"}},
+          {"name":"SS-33 Mimetic Marshal","type":"Light Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"SS-33 Mimetic Marshal Armor Render.png","weight":"light","cost":null,"costStatus":"미확인","templateCost":45,"tableCost":30},
+          {"name":"Mimetic Mesh","type":"Player Card","kind":"player-card","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Mimetic Mesh Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"G-11 Caltrops","type":"Special Throwable","kind":"throwable","col":1,"row":3,"colspan":2,"rowspan":1,"image":"G-11 Caltrops Throwable Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"caltrops"}},
+          {"name":"SS-33 Mimetic Marshal","type":"Helmet","kind":"helmet","col":3,"row":3,"colspan":1,"rowspan":1,"image":"SS-33 Mimetic Marshal Helmet Render.png","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":45},
+          {"name":"Mimetic Mesh","type":"Cape","kind":"cape","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Mimetic Mesh Cape Promo.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -256,13 +269,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 194,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SS-15 Focal Point","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"AMW-20 Apex","type":"Support Weapon","kind":"stratagem","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"apex"}},
-          {"name":"Boundary Banner","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed","nameStatus":"미확인","tableName":"Boundary Banker"},
-          {"name":"SS-15 Focal Point","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Boundary Banner","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed","nameStatus":"미확인","tableName":"Boundary Banker"}
+          {"name":"SS-15 Focal Point","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":2,"rowspan":2,"image":"SS-15 Focal Point Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"AMW-20 Apex","type":"Support Weapon","kind":"stratagem","col":3,"row":1,"colspan":2,"rowspan":1,"image":"Apex Stratagem Icon.svg","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"apex"}},
+          {"name":"Boundary Banner","type":"Cape","kind":"cape","col":5,"row":1,"colspan":1,"rowspan":3,"image":"Boundary Banner Cape Render.png","cost":25,"costStatus":"confirmed","nameStatus":"미확인","tableName":"Boundary Banker"},
+          {"name":"SS-15 Focal Point","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SS-15 Focal Point Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Boundary Banner","type":"Player Card","kind":"player-card","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Boundary Banner Player Card Icon.png","cost":7,"costStatus":"confirmed","nameStatus":"미확인","tableName":"Boundary Banker"}
         ]
       },
       {
@@ -272,12 +286,13 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 247,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Manual Ballistic Projection Protocol","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"LAS-44 Nova","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"nova"}},
-          {"name":"Longshot","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"P-44 Mist","type":"Secondary Pistol","kind":"secondary","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"mist"}}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Manual Ballistic Projection Protocol","type":"Emote","kind":"emote","col":2,"row":1,"colspan":2,"rowspan":3,"image":"Manual Ballistic Projection Protocol Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"LAS-44 Nova","type":"Support Weapon","kind":"stratagem","col":4,"row":1,"colspan":2,"rowspan":2,"image":"Nova Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"nova"}},
+          {"name":"Longshot","type":"Title","kind":"title","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Longshot Title Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"P-44 Mist","type":"Secondary Pistol","kind":"secondary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"P-44 Mist Secondary Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"mist"}}
         ]
       }
     ]
@@ -309,15 +324,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 182,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"BFM-16 Tanker","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"BFM-16 Tanker","type":"Light Armor","kind":"armor","weight":"light","cost":45,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Verdant Camouflage","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"G-8 Immolation","type":"Special Throwable","kind":"throwable","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"immolation"}},
-          {"name":"Standard of Rapid Evacuation","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Standard of Rapid Evacuation","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"AR-11 Arbitrator","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"arbitrator"}}
+          {"name":"BFM-16 Tanker","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":1,"rowspan":1,"image":"BFM-16 Tanker Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"BFM-16 Tanker","type":"Light Armor","kind":"armor","col":2,"row":1,"colspan":1,"rowspan":2,"image":"BFM-16 Tanker Armor Render.png","weight":"light","cost":45,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Verdant Camouflage","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":2,"image":"Verdant Camouflage Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"G-8 Immolation","type":"Special Throwable","kind":"throwable","col":1,"row":2,"colspan":1,"rowspan":2,"image":"G-8 Immolation Throwable Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"immolation"}},
+          {"name":"Standard of Rapid Evacuation","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Standard of Rapid Evacuation Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Standard of Rapid Evacuation","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Standard of Rapid Evacuation Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"AR-11 Arbitrator","type":"Assault Rifle","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"AR-11 Arbitrator Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"arbitrator"}}
         ]
       },
       {
@@ -327,15 +343,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"P-34 Breacher","type":"Special Secondary","kind":"secondary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"breacher"}},
-          {"name":"Shroud of the Juggernaut","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"BFM-220 Ironclad","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed"},
-          {"name":"BFM-220 Ironclad","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Shroud of the Juggernaut","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Glacial Polymer","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Surplus EAT Allocation","type":"Booster","kind":"booster","cost":null,"costStatus":"미확인","templateCost":55,"tableCost":65,"pageStatus":"미확인","tablePage":3}
+          {"name":"P-34 Breacher","type":"Special Secondary","kind":"secondary","col":1,"row":1,"colspan":2,"rowspan":2,"image":"P-34 Breacher Secondary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"breacher"}},
+          {"name":"Shroud of the Juggernaut","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Shroud of the Juggernaut Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"BFM-220 Ironclad","type":"Heavy Armor","kind":"armor","col":4,"row":1,"colspan":1,"rowspan":2,"image":"BFM-220 Ironclad Armor Render.png","weight":"heavy","cost":55,"costStatus":"confirmed"},
+          {"name":"BFM-220 Ironclad","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"BFM-220 Ironclad Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Shroud of the Juggernaut","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Shroud of the Juggernaut Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Glacial Polymer","type":"Pattern","kind":"pattern","col":2,"row":3,"colspan":2,"rowspan":1,"image":"Glacial Polymer Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Surplus EAT Allocation","type":"Booster","kind":"booster","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium.png","cost":null,"costStatus":"미확인","templateCost":55,"tableCost":65,"pageStatus":"미확인","tablePage":3}
         ]
       },
       {
@@ -345,14 +362,15 @@ export const warbonds = [
         "unlockSource": null,
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Executive Onyx","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Helmet Durability Check","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"GL-15 Evictor","type":"Explosive Primary","kind":"primary","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"evictor"}},
-          {"name":"G-60 Anti-Tank Seeker","type":"Special Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"anti-tank-seeker"}},
-          {"name":"Treadhead","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Integrated Extinguishers","type":"Booster","kind":"booster","cost":null,"costStatus":"미확인","templateCost":65,"tableCost":55,"pageStatus":"미확인","tablePage":2}
+          {"name":"Executive Onyx","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Executive Onyx Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Helmet Durability Check","type":"Emote","kind":"emote","col":3,"row":1,"colspan":1,"rowspan":3,"image":"Helmet Durability Check Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"GL-15 Evictor","type":"Explosive Primary","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"GL-15 Evictor Primary Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"evictor"}},
+          {"name":"G-60 Anti-Tank Seeker","type":"Special Throwable","kind":"throwable","col":4,"row":2,"colspan":2,"rowspan":1,"image":"G-60 Anti-Tank Seeker Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"anti-tank-seeker"}},
+          {"name":"Treadhead","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Treadhead Title Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Integrated Extinguishers","type":"Booster","kind":"booster","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Booster Warbond Premium.png","cost":null,"costStatus":"미확인","templateCost":65,"tableCost":55,"pageStatus":"미확인","tablePage":2}
         ]
       }
     ]
@@ -384,15 +402,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 222,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SMG-203 Gallant","type":"Submachine Gun","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"gallant"}},
-          {"name":"O-3 Free Spirit","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Free-Spirited Spangles","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"MGX-42 Bullet Storm","type":"Support Weapon","kind":"stratagem","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"bullet-storm"}},
-          {"name":"Free-Spirited Spangles","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"O-3 Free Spirit","type":"Light Armor","kind":"armor","weight":"light","cost":45,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"SMG-203 Gallant","type":"Submachine Gun","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"SMG-203 Gallant Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"gallant"}},
+          {"name":"O-3 Free Spirit","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"O-3 Free Spirit Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Free-Spirited Spangles","type":"Cape","kind":"cape","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Free-Spirited Spangles Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Mobile White Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"MGX-42 Bullet Storm","type":"Support Weapon","kind":"stratagem","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Bullet Storm Stratagem Icon.svg","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"bullet-storm"}},
+          {"name":"Free-Spirited Spangles","type":"Player Card","kind":"player-card","col":2,"row":2,"colspan":1,"rowspan":2,"image":"Free Spirited Spangles Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"O-3 Free Spirit","type":"Light Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"O-3 Free Spirit Armor Render.png","weight":"light","cost":45,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -402,15 +421,16 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 294,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"EXO-51 Lumberer Exosuit","type":"Vehicle","kind":"stratagem","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"lumberer"}},
-          {"name":"P-33 Missile Pistol","type":"Special Secondary","kind":"secondary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"missile-pistol"}},
-          {"name":"Watchful Compatriot","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"O-2 Heavy Operator","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed"},
-          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"O-2 Heavy Operator","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Watchful Compatriot","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"}
+          {"name":"EXO-51 Lumberer Exosuit","type":"Vehicle","kind":"stratagem","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Lumberer Exosuit Stratagem Icon.svg","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"lumberer"}},
+          {"name":"P-33 Missile Pistol","type":"Special Secondary","kind":"secondary","col":2,"row":1,"colspan":1,"rowspan":1,"image":"P-33 Missile Pistol Secondary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"missile-pistol"}},
+          {"name":"Watchful Compatriot","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Watchful Compatriot Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"O-2 Heavy Operator","type":"Heavy Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"O-2 Heavy Operator Armor Render.png","weight":"heavy","cost":55,"costStatus":"confirmed"},
+          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Mobile White Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"O-2 Heavy Operator","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"O-2 Heavy Operator Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Watchful Compatriot","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Watchful Compatriot Cape Render.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -420,13 +440,14 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 262,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Thumb of Approval","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"Exosuit Certified","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"EXO-55 Breakthrough Exosuit","type":"Vehicle","kind":"stratagem","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"breakthrough"}}
+          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Mobile White Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Mobile White Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Mobile White Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Thumb of Approval","type":"Emote","kind":"emote","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Thumb of Approval Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Exosuit Certified","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Exosuit Certified Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"EXO-55 Breakthrough Exosuit","type":"Vehicle","kind":"stratagem","col":2,"row":3,"colspan":2,"rowspan":1,"image":"Breakthrough Exosuit Stratagem Icon.svg","cost":50,"costStatus":"confirmed","ref":{"view":"arsenal","id":"breakthrough"}}
         ]
       }
     ]
@@ -458,15 +479,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SMG/FLAM-34 Stoker","type":"Primary Weapon","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"stoker"}},
-          {"name":"CPG-48 Sapper","type":"Helmet","kind":"helmet","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":35},
-          {"name":"Dignity of Toil","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"CQC-73 Entrenchment Tool","type":"Secondary Weapon","kind":"secondary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"entrenchment-tool"}},
-          {"name":"Dignity of Toil","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"CPG-48 Sapper","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"SMG/FLAM-34 Stoker","type":"Primary Weapon","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"SMGFLAM-34 Stoker Primary Icon.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"stoker"}},
+          {"name":"CPG-48 Sapper","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"CPG-48 Sapper Helmet Render.png","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":35},
+          {"name":"Dignity of Toil","type":"Cape","kind":"cape","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Dignity of Toil Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Heritage Olive Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"CQC-73 Entrenchment Tool","type":"Secondary Weapon","kind":"secondary","col":1,"row":2,"colspan":1,"rowspan":2,"image":"CQC-73 Entrenchment Tool Secondary Render Angled.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"entrenchment-tool"}},
+          {"name":"Dignity of Toil","type":"Player Card","kind":"player-card","col":2,"row":2,"colspan":1,"rowspan":2,"image":"Dignity of Toil Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"CPG-48 Sapper","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"CPG-48 Sapper Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -476,15 +498,16 @@ export const warbonds = [
         "unlockSource": null,
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"CPH-26 Commandant","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"CPH-26 Commandant","type":"Light Armor","kind":"armor","weight":"light","cost":55,"costStatus":"confirmed"},
-          {"name":"Crest of the Unsullied","type":"Player Card","kind":"player-card","cost":null,"costStatus":"미확인","templateCost":7,"tableCost":6},
-          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Crest of the Unsullied","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"A/GM-17 Gas Mortar Sentry","type":"Mortar","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"gas-mortar"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"G-48 Giga Grenade","type":"Throwable","kind":"throwable","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"giga-grenade"}}
+          {"name":"CPH-26 Commandant","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":1,"rowspan":1,"image":"CPH-26 Commandant Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"CPH-26 Commandant","type":"Light Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":2,"image":"CPH-26_Commandant_Armor_Render.png","weight":"light","cost":55,"costStatus":"confirmed"},
+          {"name":"Crest of the Unsullied","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":2,"image":"Crest of the Unsullied Player Card Icon.png","cost":null,"costStatus":"미확인","templateCost":7,"tableCost":6},
+          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Heritage Olive Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Crest of the Unsullied","type":"Cape","kind":"cape","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Crest of the Unsullied Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"A/GM-17 Gas Mortar Sentry","type":"Mortar","kind":"stratagem","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Gas Mortar Sentry Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"gas-mortar"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"G-48 Giga Grenade","type":"Throwable","kind":"throwable","col":3,"row":3,"colspan":2,"rowspan":1,"image":"G-48 Giga Grenade Throwable Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"giga-grenade"}}
         ]
       },
       {
@@ -494,14 +517,15 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 392,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"B/FLAM-80 Cremator","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"cremator"}},
-          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Mudskipper","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"Diplomatic Handshake","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"P-69 Veto","type":"Secondary Weapon","kind":"secondary","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"veto"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"}
+          {"name":"B/FLAM-80 Cremator","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Cremator Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"cremator"}},
+          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","col":3,"row":1,"colspan":2,"rowspan":1,"image":"Heritage Olive Shuttle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Mudskipper","type":"Title","kind":"title","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Mudskipper Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"Diplomatic Handshake","type":"Emote","kind":"emote","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Diplomatic Handshake Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"P-69 Veto","type":"Secondary Weapon","kind":"secondary","col":4,"row":2,"colspan":2,"rowspan":2,"image":"P-69 Veto Secondary Icon.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"veto"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Heritage Olive Pattern","type":"Pattern","kind":"pattern","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Heritage Olive Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -533,15 +557,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 222,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"LAS-16 Trident","type":"Energy-Based","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"trident"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Rags of the Fashionable","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"SA-7 Headfirst","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"SA-7 Headfirst","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Rags of the Fashionable","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"CQC-20 Breaching Hammer","type":"Support Weapon","kind":"stratagem","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"breaching-hammer"}}
+          {"name":"LAS-16 Trident","type":"Energy-Based","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"LAS-16 Trident Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"trident"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Rags of the Fashionable","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":2,"image":"Rags of The Fashionable Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Churned Earth Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"SA-7 Headfirst","type":"Medium Armor","kind":"armor","col":1,"row":2,"colspan":2,"rowspan":2,"image":"SA-7 Headfirst Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"SA-7 Headfirst","type":"Helmet","kind":"helmet","col":3,"row":2,"colspan":1,"rowspan":1,"image":"SA-7 Headfirst Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Rags of the Fashionable","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Rags of the Fashionable Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"CQC-20 Breaching Hammer","type":"Support Weapon","kind":"stratagem","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Breaching Hammer Stratagem Icon.svg","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"breaching-hammer"}}
         ]
       },
       {
@@ -551,14 +576,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 279,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"EAT-411 Leveller","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"leveller"}},
-          {"name":"Wedgeful Tricorn","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"SA-8 Ram","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed"},
-          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"SA-8 Ram","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Wedgeful Tricorn","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"}
+          {"name":"EAT-411 Leveller","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Leveller Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"leveller"}},
+          {"name":"Wedgeful Tricorn","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Wedgeful Tricorn Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"SA-8 Ram","type":"Heavy Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"SA-8 Ram Armor Render.png","weight":"heavy","cost":55,"costStatus":"confirmed"},
+          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Churned Earth Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"SA-8 Ram","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"SA-8 Ram Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Wedgeful Tricorn","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Wedgeful Tricorn Cape Render.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -568,14 +594,15 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 352,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Display of Brawn","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"Bunker Buster","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"GL-28 Belt-Fed Grenade Launcher","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"belt-fed-gl"}},
-          {"name":"G/SH-39 Shield","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"shield"}}
+          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Churned Earth Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Churned Earth Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Churned Earth Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Display of Brawn","type":"Emote","kind":"emote","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Display of Brawn Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Bunker Buster","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Bunker Buster Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"GL-28 Belt-Fed Grenade Launcher","type":"Support Weapon","kind":"stratagem","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Belt-Fed Grenade Launcher Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"belt-fed-gl"}},
+          {"name":"G/SH-39 Shield","type":"Throwable","kind":"throwable","col":3,"row":3,"colspan":1,"rowspan":1,"image":"G-SH-39 Shield Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"shield"}}
         ]
       }
     ]
@@ -607,14 +634,15 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 147,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"RS-89 Shadow Paragon","type":"Light Armor","kind":"armor","weight":"light","cost":45,"costStatus":"confirmed"},
-          {"name":"RS-89 Shadow Paragon","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Pillar of the Abyss","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Pillar of the Abyss","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"R-72 Censor","type":"Marksman Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"censor"}},
-          {"name":"P-35 Re-Educator","type":"Pistol","kind":"secondary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"re-educator"}}
+          {"name":"RS-89 Shadow Paragon","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"RS-89 Shadow Paragon Armor Render.png","weight":"light","cost":45,"costStatus":"confirmed"},
+          {"name":"RS-89 Shadow Paragon","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"RS-89 Shadow Paragon Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Pillar of the Abyss","type":"Cape","kind":"cape","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Pillar of the Abyss Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Pillar of the Abyss","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Pillar of the Abyss Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"R-72 Censor","type":"Marksman Rifle","kind":"primary","col":4,"row":2,"colspan":2,"rowspan":2,"image":"R-72 Censor Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"censor"}},
+          {"name":"P-35 Re-Educator","type":"Pistol","kind":"secondary","col":1,"row":3,"colspan":2,"rowspan":1,"image":"P-35 Re-Educator Secondary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"re-educator"}}
         ]
       },
       {
@@ -624,13 +652,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 194,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"RS-67 Null Cipher","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"AR-59 Suppressor","type":"Assault Rifle","kind":"primary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"suppressor"}},
-          {"name":"Triangulation Veil","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"RS-67 Null Cipher","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Triangulation Veil","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"}
+          {"name":"RS-67 Null Cipher","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":2,"rowspan":2,"image":"RS-67 Null Cipher Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"AR-59 Suppressor","type":"Assault Rifle","kind":"primary","col":3,"row":1,"colspan":2,"rowspan":1,"image":"AR-59 Suppressor Primary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"suppressor"}},
+          {"name":"Triangulation Veil","type":"Cape","kind":"cape","col":5,"row":1,"colspan":1,"rowspan":3,"image":"Triangulation Veil Cape Icon.png","cost":25,"costStatus":"confirmed"},
+          {"name":"RS-67 Null Cipher","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"RS-67 Null Cipher Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Triangulation Veil","type":"Player Card","kind":"player-card","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Triangulation Veil Player Card Icon.png","cost":7,"costStatus":"confirmed"}
         ]
       },
       {
@@ -640,13 +669,14 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 287,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"[REDACTED]","type":"Title","kind":"title","cost":20,"costStatus":"confirmed","link":"Redacted"},
-          {"name":"Target Sighted","type":"Victory Pose","kind":"victory-pose","cost":20,"costStatus":"confirmed"},
-          {"name":"B/MD C4 Pack","type":"Stratagems","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"c4-pack"}},
-          {"name":"TM-1 Lure Mine","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"lure-mine"}},
-          {"name":"Concealed Insertion","type":"Booster","kind":"booster","cost":40,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"[REDACTED]","type":"Title","kind":"title","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Redacted Title Icon.svg","cost":20,"costStatus":"confirmed","link":"Redacted"},
+          {"name":"Target Sighted","type":"Victory Pose","kind":"victory-pose","col":2,"row":1,"colspan":2,"rowspan":3,"image":"Target Sighted Victory Pose.png","cost":20,"costStatus":"confirmed"},
+          {"name":"B/MD C4 Pack","type":"Stratagems","kind":"stratagem","col":4,"row":1,"colspan":2,"rowspan":2,"image":"C4 Pack Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"c4-pack"}},
+          {"name":"TM-1 Lure Mine","type":"Throwable","kind":"throwable","col":1,"row":2,"colspan":1,"rowspan":2,"image":"TM-1 Lure Mine Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"lure-mine"}},
+          {"name":"Concealed Insertion","type":"Booster","kind":"booster","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium 1x1.png","cost":40,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -678,15 +708,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 222,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"AR/GL-21 One-Two","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"one-two"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Mark of the Constrictor","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"RS-20 Constrictor","type":"Light Armor","kind":"armor","weight":"light","cost":45,"costStatus":"confirmed"},
-          {"name":"RS-20 Constrictor","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Mark of the Constrictor","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"AX/FLAM-75 \"Guard Dog\" Hot Dog","type":"Backpack Weapon","kind":"stratagem","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"hot-dog"}}
+          {"name":"AR/GL-21 One-Two","type":"Assault Rifle","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"AR-GL-21 One Two Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"one-two"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Mark of the Constrictor","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":2,"image":"Mark of the Constrictor Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Chameleon Camo Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"RS-20 Constrictor","type":"Light Armor","kind":"armor","col":1,"row":2,"colspan":2,"rowspan":2,"image":"RS-20 Constrictor Body Icon.png","weight":"light","cost":45,"costStatus":"confirmed"},
+          {"name":"RS-20 Constrictor","type":"Helmet","kind":"helmet","col":3,"row":2,"colspan":1,"rowspan":1,"image":"RS-20 Constrictor Helmet Icon.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Mark of the Constrictor","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Mark of the Constrictor Cape Armory.png","cost":8,"costStatus":"confirmed"},
+          {"name":"AX/FLAM-75 \"Guard Dog\" Hot Dog","type":"Backpack Weapon","kind":"stratagem","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Hot Dog Stratagem Icon.svg","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"hot-dog"}}
         ]
       },
       {
@@ -696,14 +727,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 279,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"CQC-9 Defoliation Tool","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"defoliation-tool"}},
-          {"name":"Foe Rent Asunder","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"RS-40 Beast of Prey","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed"},
-          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"RS-40 Beast of Prey","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Foe Rent Asunder","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"}
+          {"name":"CQC-9 Defoliation Tool","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Defoliation Tool Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"defoliation-tool"}},
+          {"name":"Foe Rent Asunder","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Foe Rent Asunder Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"RS-40 Beast of Prey","type":"Heavy Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"RS-40 Beast of Prey Body Icon.png","weight":"heavy","cost":55,"costStatus":"confirmed"},
+          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Chameleon Camo Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"RS-40 Beast of Prey","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"RS-40 Beast of Prey Helmet Icon.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Foe Rent Asunder","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Foe Rent Asunder Cape Armory.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -713,13 +745,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 287,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Front-Leaning Rest Position","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"Python Commando","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"M-1000 Maxigun","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"maxigun"}}
+          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Chameleon Camo Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Chameleon Camo Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Chameleon Camo Emancipator Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Front-Leaning Rest Position","type":"Emote","kind":"emote","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Front-Leaning Rest Position Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Python Commando","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Python Commando Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"M-1000 Maxigun","type":"Support Weapon","kind":"stratagem","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Maxigun Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"maxigun"}}
         ]
       }
     ]
@@ -751,14 +784,15 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 147,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Rightful Occupier","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"DS-42 Federation's Blade","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"DS-42 Federation's Blade","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":45,"costStatus":"confirmed"},
-          {"name":"Rightful Occupier","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"AR-2 Coyote","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"coyote"}}
+          {"name":"Rightful Occupier","type":"Cape","kind":"cape","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Rightful Occupier Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"DS-42 Federation's Blade","type":"Helmet","kind":"helmet","col":2,"row":1,"colspan":1,"rowspan":1,"image":"DS-42 Federation's Blade Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":2,"image":"Rattlesnake Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"DS-42 Federation's Blade","type":"Heavy Armor","kind":"armor","col":1,"row":2,"colspan":2,"rowspan":2,"image":"DS-42 Federation's Blade Armor Render.png","weight":"heavy","cost":45,"costStatus":"confirmed"},
+          {"name":"Rightful Occupier","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Rightful Occupier Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"AR-2 Coyote","type":"Assault Rifle","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"AR-2 Coyote Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"coyote"}}
         ]
       },
       {
@@ -768,15 +802,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 364,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"S-11 Speargun","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"speargun"}},
-          {"name":"DS-191 Scorpion","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"DS-191 Scorpion","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Windswept Wayfinder","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"Windswept Wayfinder","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"EAT-700 Expendable Napalm","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"expendable-napalm"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100}
+          {"name":"S-11 Speargun","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Speargun Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"speargun"}},
+          {"name":"DS-191 Scorpion","type":"Helmet","kind":"helmet","col":2,"row":1,"colspan":1,"rowspan":1,"image":"DS-191 Scorpion Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"DS-191 Scorpion","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"DS-191 Scorpion Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Windswept Wayfinder","type":"Player Card","kind":"player-card","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Windswept Wayfinder Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"Windswept Wayfinder","type":"Cape","kind":"cape","col":2,"row":2,"colspan":1,"rowspan":1,"image":"Windswept Wayfinder Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Rattlesnake Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"EAT-700 Expendable Napalm","type":"Support Weapon","kind":"stratagem","col":3,"row":3,"colspan":2,"rowspan":1,"image":"Expendable Napalm Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"expendable-napalm"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -786,14 +821,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 352,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"MS-11 Solo Silo","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"solo-silo"}},
-          {"name":"Raider's Cheer","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"G-7 Pineapple","type":"Special Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"pineapple"}},
-          {"name":"Burier of Heads","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"MS-11 Solo Silo","type":"Support Weapon","kind":"stratagem","col":2,"row":1,"colspan":1,"rowspan":1,"image":"Solo Silo Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"solo-silo"}},
+          {"name":"Raider's Cheer","type":"Emote","kind":"emote","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Raider's Cheer Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Rattlesnake Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Rattlesnake Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Rattlesnake Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"G-7 Pineapple","type":"Special Throwable","kind":"throwable","col":3,"row":2,"colspan":1,"rowspan":1,"image":"G-7 Pineapple Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"pineapple"}},
+          {"name":"Burier of Heads","type":"Title","kind":"title","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Burier of Heads Title Icon.svg","cost":20,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -825,14 +861,15 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 202,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"AD-26 Bleeding Edge","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Conductor of Brilliance","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"VG-70 Variable","type":"Special Primary","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"variable"}},
-          {"name":"PLAS-45 Epoch","type":"Support Weapon","kind":"stratagem","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"epoch"}},
-          {"name":"AD-26 Bleeding Edge","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Conductor of Brilliance","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"AD-26 Bleeding Edge","type":"Medium Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"AD-26 Bleeding Edge Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Conductor of Brilliance","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Conductor of Brilliance_Player_Card_Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"VG-70 Variable","type":"Special Primary","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"VG-70 Variable Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"variable"}},
+          {"name":"PLAS-45 Epoch","type":"Support Weapon","kind":"stratagem","col":4,"row":2,"colspan":2,"rowspan":2,"image":"Epoch Stratagem Icon.svg","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"epoch"}},
+          {"name":"AD-26 Bleeding Edge","type":"Helmet","kind":"helmet","col":1,"row":3,"colspan":1,"rowspan":1,"image":"AD-26 Bleeding Edge Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Conductor of Brilliance","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Conductor of Brilliance Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -842,13 +879,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 229,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"AD-49 Apollonian","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"AD-49 Apollonian","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed"},
-          {"name":"Over Artifice Triumphant","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"A/LAS-98 Laser Sentry","type":"Sentry","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"laser-sentry"}},
-          {"name":"Over Artifice Triumphant","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"AD-49 Apollonian","type":"Helmet","kind":"helmet","col":2,"row":1,"colspan":1,"rowspan":1,"image":"AD-49 Apollonian Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"AD-49 Apollonian","type":"Heavy Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":3,"image":"AD-49 Apollonian Armor Render.png","weight":"heavy","cost":55,"costStatus":"confirmed"},
+          {"name":"Over Artifice Triumphant","type":"Cape","kind":"cape","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Over Artifice Triumphant Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"A/LAS-98 Laser Sentry","type":"Sentry","kind":"stratagem","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Laser Sentry Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"laser-sentry"}},
+          {"name":"Over Artifice Triumphant","type":"Player Card","kind":"player-card","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Over Artifice Triumphant Player Card Icon.png","cost":7,"costStatus":"confirmed"}
         ]
       },
       {
@@ -858,12 +896,13 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 282,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Protect Eardrums","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"Exemplary Subject","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"G-31 Arc","type":"Special Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"arc"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"LIFT-182 Warp Pack","type":"Backpack","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"warp-pack"}}
+          {"name":"Protect Eardrums","type":"Emote","kind":"emote","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Protect Eardrums Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Exemplary Subject","type":"Title","kind":"title","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Exemplary Subject Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"G-31 Arc","type":"Special Throwable","kind":"throwable","col":4,"row":1,"colspan":2,"rowspan":3,"image":"G-31 ARC Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"arc"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"LIFT-182 Warp Pack","type":"Backpack","kind":"stratagem","col":2,"row":3,"colspan":2,"rowspan":1,"image":"Warp Pack Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"warp-pack"}}
         ]
       }
     ]
@@ -895,15 +934,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 167,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"BP-20 Correct Officer","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Signal Hold","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"AR-32 Pacifier","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"pacifier"}},
-          {"name":"Miranda's Legacy","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"BP-20 Correct Officer","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Miranda's Legacy","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"BP-20 Correct Officer","type":"Medium Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"BP-20 Correct Officer Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Signal Hold","type":"Emote","kind":"emote","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Signal Hold Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"AR-32 Pacifier","type":"Assault Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"AR-32 Pacifier Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"pacifier"}},
+          {"name":"Miranda's Legacy","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Miranda's Legacy Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","col":4,"row":2,"colspan":2,"rowspan":2,"image":"True Blue Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"BP-20 Correct Officer","type":"Helmet","kind":"helmet","col":1,"row":3,"colspan":1,"rowspan":1,"image":"BP-20 Correct Officer Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Miranda's Legacy","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Miranda's Legacy Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -913,16 +953,17 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 354,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Stun Pods","type":"Booster","kind":"booster","cost":55,"costStatus":"confirmed"},
-          {"name":"GL-52 De-Escalator","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"de-escalator"}},
-          {"name":"BP-32 Jackboot","type":"Light Armor","kind":"armor","weight":"light","cost":55,"costStatus":"confirmed"},
-          {"name":"Signal Silence","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Mother Eagle's Wings","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"BP-32 Jackboot","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Mother Eagle's Wings","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100}
+          {"name":"Stun Pods","type":"Booster","kind":"booster","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium 1x1.png","cost":55,"costStatus":"confirmed"},
+          {"name":"GL-52 De-Escalator","type":"Support Weapon","kind":"stratagem","col":2,"row":1,"colspan":1,"rowspan":1,"image":"De-Escalator Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"de-escalator"}},
+          {"name":"BP-32 Jackboot","type":"Light Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"BP-32 Jackboot Armor Render.png","weight":"light","cost":55,"costStatus":"confirmed"},
+          {"name":"Signal Silence","type":"Emote","kind":"emote","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Signal Silence Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"True Blue Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Mother Eagle's Wings","type":"Player Card","kind":"player-card","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Mother Eagle's Wings Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"BP-32 Jackboot","type":"Helmet","kind":"helmet","col":3,"row":3,"colspan":1,"rowspan":1,"image":"BP-32 Jackboot Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Mother Eagle's Wings","type":"Cape","kind":"cape","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Mother Eagle's Wings Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -932,14 +973,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 352,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Extra Judicial","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"AX/ARC-3 K-9","type":"Backpack","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"k9"}},
-          {"name":"Signal Group_Up","type":"Emote","kind":"emote","cost":20,"costStatus":"confirmed"},
-          {"name":"G-109 Urchin","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"urchin"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"True Blue Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Extra Judicial","type":"Title","kind":"title","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Extra Judicial Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"True Blue Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"True Blue Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"AX/ARC-3 K-9","type":"Backpack","kind":"stratagem","col":3,"row":2,"colspan":1,"rowspan":1,"image":"K-9 Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"k9"}},
+          {"name":"Signal Group_Up","type":"Emote","kind":"emote","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Signal Group Up Emote Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"G-109 Urchin","type":"Throwable","kind":"throwable","col":2,"row":3,"colspan":1,"rowspan":1,"image":"G-109 Urchin Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"urchin"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -971,13 +1013,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 127,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"RE-2310 Honorary Guard","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"RE-2310 Honorary Guard","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Federation's Embrace","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Federation's Embrace","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"R-2 Amendment","type":"Marksman Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"amendment"}}
+          {"name":"RE-2310 Honorary Guard","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":1,"rowspan":1,"image":"RE-2310 Honorary Guard Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"RE-2310 Honorary Guard","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":3,"image":"RE-2310 Honorary Guard Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Federation's Embrace","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Federation's Embrace Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Federation's Embrace","type":"Cape","kind":"cape","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Federation's Embrace Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"R-2 Amendment","type":"Marksman Rifle","kind":"primary","col":4,"row":2,"colspan":2,"rowspan":2,"image":"R-2 Amendment Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"amendment"}}
         ]
       },
       {
@@ -987,13 +1030,14 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 162,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Humble Regalia","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"RE-1861 Parade Commander","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"RE-1861 Parade Commander","type":"Light Armor","kind":"armor","weight":"light","cost":55,"costStatus":"confirmed"},
-          {"name":"CQC-2 Saber","type":"Melee","kind":"secondary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"saber"}},
-          {"name":"Humble Regalia","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Humble Regalia","type":"Cape","kind":"cape","col":2,"row":1,"colspan":1,"rowspan":1,"image":"Humble Regalia Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"RE-1861 Parade Commander","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"RE-1861 Parade Commander Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"RE-1861 Parade Commander","type":"Light Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":3,"image":"RE-1861 Parade Commander Armor Render.png","weight":"light","cost":55,"costStatus":"confirmed"},
+          {"name":"CQC-2 Saber","type":"Melee","kind":"secondary","col":1,"row":2,"colspan":2,"rowspan":2,"image":"CQC-2 Saber Secondary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"saber"}},
+          {"name":"Humble Regalia","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Humble Regalia Player Card Icon.png","cost":2,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1003,13 +1047,14 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 352,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"CQC-1 One True Flag","type":"Support Weapon","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"one-true-flag"}},
-          {"name":"Lockstep","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"G-142 Pyrotech","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"pyrotech"}},
-          {"name":"Sample Scanner","type":"Booster","kind":"booster","cost":65,"costStatus":"confirmed"},
-          {"name":"Decorated Hero","type":"Title","kind":"title","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"CQC-1 One True Flag","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":2,"rowspan":2,"image":"One True Flag Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"one-true-flag"}},
+          {"name":"Lockstep","type":"Emote","kind":"emote","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Lockstep Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"G-142 Pyrotech","type":"Throwable","kind":"throwable","col":4,"row":1,"colspan":2,"rowspan":3,"image":"G-142_Pyrotech_Throwable_Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"pyrotech"}},
+          {"name":"Sample Scanner","type":"Booster","kind":"booster","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":65,"costStatus":"confirmed"},
+          {"name":"Decorated Hero","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Decorated Hero Title Icon.svg","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -1041,13 +1086,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 127,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Reaper of Bounties","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"GS-17 Frontier Marshal","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"GS-17 Frontier Marshal","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"R-6 Deadeye","type":"Energy-Based","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"deadeye"}},
-          {"name":"Reaper of Bounties","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Reaper of Bounties","type":"Cape","kind":"cape","col":2,"row":1,"colspan":1,"rowspan":1,"image":"Reaper of Bounties Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"GS-17 Frontier Marshal","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"GS-17 Frontier Marshal Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"GS-17 Frontier Marshal","type":"Medium Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":3,"image":"GS-17 Frontier Marshal Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"R-6 Deadeye","type":"Energy-Based","kind":"primary","col":1,"row":2,"colspan":2,"rowspan":2,"image":"R-6 Deadeye Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"deadeye"}},
+          {"name":"Reaper of Bounties","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Reaper of Bounties Player Card Icon.png","cost":2,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1057,13 +1103,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 184,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"GS-66 Lawmaker","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"GS-66 Lawmaker","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Way of the Bandolier","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Way of the Bandolier","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"LAS-58 Talon","type":"Special Secondary","kind":"secondary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"talon"}}
+          {"name":"GS-66 Lawmaker","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":1,"rowspan":1,"image":"GS-66 Lawmaker Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"GS-66 Lawmaker","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":3,"image":"GS-66 Lawmaker Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Way of the Bandolier","type":"Cape","kind":"cape","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Way of the Bandolier Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Way of the Bandolier","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Way of the Bandolier Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"LAS-58 Talon","type":"Special Secondary","kind":"secondary","col":4,"row":2,"colspan":2,"rowspan":2,"image":"LAS-58 Talon Secondary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"talon"}}
         ]
       },
       {
@@ -1073,13 +1120,14 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 352,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"TED-63 Dynamite","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"dynamite"}},
-          {"name":"Tip Hat","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"LIFT-860 Hover Pack","type":"Backpack","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"hover-pack"}},
-          {"name":"Sample Extricator","type":"Booster","kind":"booster","cost":65,"costStatus":"confirmed"},
-          {"name":"Super Sheriff","type":"Title","kind":"title","cost":25,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"TED-63 Dynamite","type":"Throwable","kind":"throwable","col":1,"row":1,"colspan":2,"rowspan":3,"image":"TED-63 Dynamite Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"dynamite"}},
+          {"name":"Tip Hat","type":"Emote","kind":"emote","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Tip Hat Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"LIFT-860 Hover Pack","type":"Backpack","kind":"stratagem","col":4,"row":1,"colspan":2,"rowspan":2,"image":"Hover Pack Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"hover-pack"}},
+          {"name":"Sample Extricator","type":"Booster","kind":"booster","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":65,"costStatus":"confirmed"},
+          {"name":"Super Sheriff","type":"Title","kind":"title","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Super Sheriff Title Icon.svg","cost":25,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -1111,13 +1159,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 127,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"IE-3 Martyr","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"IE-3 Martyr","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Fre Liberam","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Fre Liberam","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"LAS-17 Double-Edge Sickle","type":"Energy-Based","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"double-edge-sickle"}}
+          {"name":"IE-3 Martyr","type":"Helmet","kind":"helmet","col":1,"row":1,"colspan":1,"rowspan":1,"image":"IE-3 Martyr Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"IE-3 Martyr","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":3,"image":"IE-3 Martyr Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Fre Liberam","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":1,"image":"Fre Liberam Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Fre Liberam","type":"Cape","kind":"cape","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Fre Liberam Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"LAS-17 Double-Edge Sickle","type":"Energy-Based","kind":"primary","col":4,"row":2,"colspan":2,"rowspan":2,"image":"LAS-17 Double-Edge Sickle Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"double-edge-sickle"}}
         ]
       },
       {
@@ -1127,13 +1176,14 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 184,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"IE-12 Righteous","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"IE-12 Righteous","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Per Democrasum","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"},
-          {"name":"GP-20 Ultimatum","type":"Special Secondary","kind":"secondary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"ultimatum"}},
-          {"name":"Per Democrasum","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"IE-12 Righteous","type":"Helmet","kind":"helmet","col":2,"row":1,"colspan":1,"rowspan":1,"image":"IE-12 Righteous Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"IE-12 Righteous","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":3,"image":"IE-12 Righteous Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Per Democrasum","type":"Cape","kind":"cape","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Per Democrasum Cape Render.png","cost":25,"costStatus":"confirmed"},
+          {"name":"GP-20 Ultimatum","type":"Special Secondary","kind":"secondary","col":1,"row":2,"colspan":2,"rowspan":2,"image":"GP-20 Ultimatum Secondary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"ultimatum"}},
+          {"name":"Per Democrasum","type":"Player Card","kind":"player-card","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Per Democrasum Player Card Icon.png","cost":7,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1143,12 +1193,13 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 287,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Raise Weapon","type":"Emote","kind":"emote","cost":55,"costStatus":"confirmed"},
-          {"name":"Servant of Freedom","type":"Title","kind":"title","cost":25,"costStatus":"confirmed"},
-          {"name":"G-50 Seeker","type":"Throwable","kind":"throwable","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"seeker"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Portable Hellbomb","type":"Backpack","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"portable-hellbomb"}}
+          {"name":"Raise Weapon","type":"Emote","kind":"emote","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Raise Weapon Emote Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Servant of Freedom","type":"Title","kind":"title","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Servant of Freedom Title Icon.svg","cost":25,"costStatus":"confirmed"},
+          {"name":"G-50 Seeker","type":"Throwable","kind":"throwable","col":4,"row":1,"colspan":2,"rowspan":3,"image":"G-50 Seeker Throwable Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"seeker"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Portable Hellbomb","type":"Backpack","kind":"stratagem","col":2,"row":3,"colspan":2,"rowspan":1,"image":"Portable Hellbomb Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"portable-hellbomb"}}
         ]
       }
     ]
@@ -1180,15 +1231,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 212,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SR-24 Street Scout","type":"Light Armor","kind":"armor","weight":"light","cost":40,"costStatus":"confirmed"},
-          {"name":"Rebar Resolve","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Directional Shield","type":"Backpack","kind":"stratagem","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"directional-shield"}},
-          {"name":"CQC-19 Stun Lance","type":"Melee","kind":"secondary","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"stun-lance"}},
-          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"SR-24 Street Scout","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Rebar Resolve","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100}
+          {"name":"SR-24 Street Scout","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"SR-24 Street Scout Armor Render.png","weight":"light","cost":40,"costStatus":"confirmed"},
+          {"name":"Rebar Resolve","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Rebar Resolve Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Directional Shield","type":"Backpack","kind":"stratagem","col":4,"row":1,"colspan":2,"rowspan":1,"image":"SH-51 Directional Shield Stratagem Icon.svg","cost":75,"costStatus":"confirmed","ref":{"view":"arsenal","id":"directional-shield"}},
+          {"name":"CQC-19 Stun Lance","type":"Melee","kind":"secondary","col":4,"row":2,"colspan":1,"rowspan":2,"image":"CQC-19 Stun Lance Secondary Render.png","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"stun-lance"}},
+          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Concrete Jungle Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"SR-24 Street Scout","type":"Helmet","kind":"helmet","col":1,"row":3,"colspan":1,"rowspan":1,"image":"SR-24 Street Scout Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Rebar Resolve","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Greatcloak of Rebar Resolve Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -1198,15 +1250,16 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 307,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Armed Resupply Pods","type":"Booster","kind":"booster","cost":55,"costStatus":"confirmed"},
-          {"name":"Flame Sentry","type":"Sentry","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"flame-sentry"}},
-          {"name":"SR-18 Roadblock","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":45,"costStatus":"confirmed"},
-          {"name":"Holder of the Yellow Line","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"SR-18 Roadblock","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Holder of the Yellow Line","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100}
+          {"name":"Armed Resupply Pods","type":"Booster","kind":"booster","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium 1x1.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Flame Sentry","type":"Sentry","kind":"stratagem","col":2,"row":1,"colspan":1,"rowspan":1,"image":"Flame Sentry Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"flame-sentry"}},
+          {"name":"SR-18 Roadblock","type":"Heavy Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"SR-18 Roadblock Armor Render.png","weight":"heavy","cost":45,"costStatus":"confirmed"},
+          {"name":"Holder of the Yellow Line","type":"Player Card","kind":"player-card","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Holder of the Yellow Line Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Concrete Jungle Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"SR-18 Roadblock","type":"Helmet","kind":"helmet","col":3,"row":3,"colspan":1,"rowspan":1,"image":"SR-18 Roadblock Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Holder of the Yellow Line","type":"Cape","kind":"cape","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Holder of the Yellow Line Cape Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100}
         ]
       },
       {
@@ -1216,13 +1269,14 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 317,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Anti-Tank Emplacement","type":"Emplacement","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"at-emplacement"}},
-          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"This Is Democracy","type":"Emote","kind":"emote","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Pedestrian","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"}
+          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Concrete Jungle Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Anti-Tank Emplacement","type":"Emplacement","kind":"stratagem","col":3,"row":1,"colspan":1,"rowspan":2,"image":"Anti-Tank Emplacement Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"at-emplacement"}},
+          {"name":"Concrete Jungle Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Concrete Jungle Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"This Is Democracy","type":"Emote","kind":"emote","col":2,"row":3,"colspan":1,"rowspan":1,"image":"This Is Democracy Emote Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Pedestrian","type":"Title","kind":"title","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Pedestrian Title Icon.svg","cost":20,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1254,12 +1308,13 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 122,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Dead Sprint","type":"Booster","kind":"booster","cost":35,"costStatus":"confirmed"},
-          {"name":"SG-20 Halt","type":"Shotgun","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"halt"}},
-          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","cost":10,"costStatus":"confirmed"}
+          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":3,"image":"Inconspicuous Black Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Dead Sprint","type":"Booster","kind":"booster","col":4,"row":1,"colspan":2,"rowspan":1,"image":"Booster Warbond Premium.png","cost":35,"costStatus":"confirmed"},
+          {"name":"SG-20 Halt","type":"Shotgun","kind":"primary","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SG-20 Halt Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"halt"}},
+          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Inconspicuous Black Hellpod Pattern Icon.png","cost":10,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1269,14 +1324,15 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 207,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SMG-32 Reprimand","type":"Submachine Gun","kind":"primary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"reprimand"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"UF-50 Bloodhound","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Pride of the Whistleblower","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"UF-50 Bloodhound","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Pride of the Whistleblower","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"}
+          {"name":"SMG-32 Reprimand","type":"Submachine Gun","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"SMG-32 Reprimand Primary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"reprimand"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"UF-50 Bloodhound","type":"Medium Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"UF-50 Bloodhound Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Inconspicuous Black Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Pride of the Whistleblower","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Pride of the Whistleblower Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"UF-50 Bloodhound","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"UF-50 Bloodhound Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Pride of the Whistleblower","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Pride of the Whistleblower Cape Render.png","cost":20,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1286,16 +1342,17 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 357,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"UF-16 Inspector","type":"Light Armor","kind":"armor","weight":"light","cost":65,"costStatus":"confirmed"},
-          {"name":"Proof of Faultless Virtue","type":"Player Card","kind":"player-card","cost":15,"costStatus":"confirmed"},
-          {"name":"At Ease","type":"Emote","kind":"emote","cost":50,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"PLAS-15 Loyalist","type":"Special Secondary","kind":"secondary","cost":45,"costStatus":"confirmed","ref":{"view":"gear","id":"loyalist"}},
-          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Proof of Faultless Virtue","type":"Cape","kind":"cape","cost":30,"costStatus":"confirmed"},
-          {"name":"UF-16 Inspector","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Free of Thought","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"}
+          {"name":"UF-16 Inspector","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"UF-16 Inspector Armor Render.png","weight":"light","cost":65,"costStatus":"confirmed"},
+          {"name":"Proof of Faultless Virtue","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Proof of Faultless Virtue Player Card Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"At Ease","type":"Emote","kind":"emote","col":4,"row":1,"colspan":1,"rowspan":1,"image":"At Ease Emote Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"PLAS-15 Loyalist","type":"Special Secondary","kind":"secondary","col":3,"row":2,"colspan":1,"rowspan":1,"image":"PLAS-15 Loyalist Secondary Render.png","cost":45,"costStatus":"confirmed","ref":{"view":"gear","id":"loyalist"}},
+          {"name":"Inconspicuous Black Pattern","type":"Pattern","kind":"pattern","col":4,"row":2,"colspan":2,"rowspan":2,"image":"Inconspicuous Black Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Proof of Faultless Virtue","type":"Cape","kind":"cape","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Proof of Faultless Virtue Cape Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"UF-16 Inspector","type":"Helmet","kind":"helmet","col":2,"row":3,"colspan":1,"rowspan":1,"image":"UF-16 Inspector Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Free of Thought","type":"Title","kind":"title","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Free of Thought Title Icon.svg","cost":20,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1327,15 +1384,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 145,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"AF-50 Noxious Ranger","type":"Light Armor","kind":"armor","weight":"light","cost":40,"costStatus":"confirmed"},
-          {"name":"AF-50 Noxious Ranger","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Ew","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"},
-          {"name":"Standard of Safe Distance","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Standard of Safe Distance","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"G-4 Gas","type":"Throwable","kind":"throwable","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"gas"}}
+          {"name":"AF-50 Noxious Ranger","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"AF-50 Noxious Ranger Armor Render.png","weight":"light","cost":40,"costStatus":"confirmed"},
+          {"name":"AF-50 Noxious Ranger","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"AF-50 Noxious Ranger Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Ew","type":"Victory Pose","kind":"victory-pose","col":4,"row":1,"colspan":2,"rowspan":1,"image":"Ew Victory Pose Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Standard of Safe Distance","type":"Cape","kind":"cape","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Standard of Safe Distance Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Standard of Safe Distance","type":"Player Card","kind":"player-card","col":4,"row":2,"colspan":1,"rowspan":2,"image":"Standard of Safe Distance Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Mustard Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"G-4 Gas","type":"Throwable","kind":"throwable","col":2,"row":3,"colspan":2,"rowspan":1,"image":"G-4 Gas Throwable Render.png","cost":30,"costStatus":"confirmed","ref":{"view":"gear","id":"gas"}}
         ]
       },
       {
@@ -1345,14 +1403,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 252,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"TX-41 Sterilizer","type":"Support Weapon","kind":"stratagem","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"sterilizer"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"AF-02 Haz-Master","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Patient Zero's Remembrance","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"Patient Zero's Remembrance","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"AF-02 Haz-Master","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"}
+          {"name":"TX-41 Sterilizer","type":"Support Weapon","kind":"stratagem","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Sterilizer Stratagem Icon.svg","cost":85,"costStatus":"confirmed","ref":{"view":"arsenal","id":"sterilizer"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"AF-02 Haz-Master","type":"Medium Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"AF-02 Haz-Master Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Mustard Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Patient Zero's Remembrance","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"Patient Zero's Remembrance Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Patient Zero's Remembrance","type":"Cape","kind":"cape","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Patient Zero's Remembrance Cape Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"AF-02 Haz-Master","type":"Helmet","kind":"helmet","col":5,"row":3,"colspan":1,"rowspan":1,"image":"AF-02 Haz-Master Helmet Render.png","cost":35,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1362,14 +1421,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 417,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"P-11 Stim Pistol","type":"Special Secondary","kind":"secondary","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"stim-pistol"}},
-          {"name":"AX/TX-13 Dog Breath","type":"Backpack","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"dog-breath"}},
-          {"name":"Expert Exterminator","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"Natural Gas Extraction","type":"Emote","kind":"emote","cost":70,"costStatus":"confirmed"}
+          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":2,"image":"Mustard Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"Mustard Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Mustard Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"P-11 Stim Pistol","type":"Special Secondary","kind":"secondary","col":3,"row":2,"colspan":1,"rowspan":1,"image":"P-11 Stim Pistol Secondary Render.png","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"stim-pistol"}},
+          {"name":"AX/TX-13 Dog Breath","type":"Backpack","kind":"stratagem","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Dog Breath Stratagem Icon.svg","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"dog-breath"}},
+          {"name":"Expert Exterminator","type":"Title","kind":"title","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Expert Exterminator Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"Natural Gas Extraction","type":"Emote","kind":"emote","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Natural Gas Extraction Emote Icon.png","cost":70,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1401,15 +1461,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 85,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Purifying Eclipse","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"I-09 Heatseeker","type":"Light Armor","kind":"armor","weight":"light","cost":18,"costStatus":"confirmed"},
-          {"name":"I-09 Heatseeker","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","cost":10,"costStatus":"confirmed"},
-          {"name":"Purifying Eclipse","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"SG-451 Cookout","type":"Shotgun","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"cookout"}},
-          {"name":"Big Stretch","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Purifying Eclipse","type":"Player Card","kind":"player-card","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Purifying Eclipse Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"I-09 Heatseeker","type":"Light Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"I-09 Heatseeker Armor Render.png","weight":"light","cost":18,"costStatus":"confirmed"},
+          {"name":"I-09 Heatseeker","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"I-09 Heatseeker Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Safety Orange Hellpod Pattern Icon.png","cost":10,"costStatus":"confirmed"},
+          {"name":"Purifying Eclipse","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Purifying Eclipse Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"SG-451 Cookout","type":"Shotgun","kind":"primary","col":2,"row":3,"colspan":2,"rowspan":1,"image":"SG-451 Cookout Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"cookout"}},
+          {"name":"Big Stretch","type":"Victory Pose","kind":"victory-pose","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Big Stretch Victory Pose Icon.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1419,15 +1480,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 197,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Deep Reflection","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"},
-          {"name":"FLAM-66 Torcher","type":"Special Primary","kind":"primary","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"torcher"}},
-          {"name":"The Breach","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"I-102 Draconaught","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"I-102 Draconaught","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"The Breach","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","cost":25,"costStatus":"confirmed"}
+          {"name":"Deep Reflection","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Deep Reflection Victory Pose Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"FLAM-66 Torcher","type":"Special Primary","kind":"primary","col":3,"row":1,"colspan":2,"rowspan":1,"image":"FLAM-66 Torcher Primary Render.png","cost":40,"costStatus":"confirmed","ref":{"view":"gear","id":"torcher"}},
+          {"name":"The Breach","type":"Player Card","kind":"player-card","col":5,"row":1,"colspan":1,"rowspan":2,"image":"The Breach Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"I-102 Draconaught","type":"Medium Armor","kind":"armor","col":1,"row":2,"colspan":2,"rowspan":2,"image":"I-102 Draconaught Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"I-102 Draconaught","type":"Helmet","kind":"helmet","col":3,"row":2,"colspan":1,"rowspan":1,"image":"I-102 Draconaught Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":4,"row":2,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"The Breach","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"The Breach Cape Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Safety Orange Shuttle Pattern Icon.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1437,14 +1499,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 287,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","cost":40,"costStatus":"confirmed"},
-          {"name":"Firebomb Hellpods","type":"Booster","kind":"booster","cost":60,"costStatus":"confirmed"},
-          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"P-72 Crisper","type":"Special Secondary","kind":"secondary","cost":45,"costStatus":"confirmed","ref":{"view":"gear","id":"crisper"}},
-          {"name":"Thoracic Collision Exultation Maneuver","type":"Emote","kind":"emote","cost":35,"costStatus":"confirmed"},
-          {"name":"Fire Safety Officer","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":2,"rowspan":3,"image":"Safety Orange Exosuit Pattern Icon.png","cost":40,"costStatus":"confirmed"},
+          {"name":"Firebomb Hellpods","type":"Booster","kind":"booster","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium 1x1.png","cost":60,"costStatus":"confirmed"},
+          {"name":"safety Orange Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":2,"image":"Safety Orange Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"P-72 Crisper","type":"Special Secondary","kind":"secondary","col":3,"row":2,"colspan":1,"rowspan":1,"image":"P-72 Crisper Secondary Render.png","cost":45,"costStatus":"confirmed","ref":{"view":"gear","id":"crisper"}},
+          {"name":"Thoracic Collision Exultation Maneuver","type":"Emote","kind":"emote","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Thoracic Collision Exultation Maneuver Emote Icon.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Fire Safety Officer","type":"Title","kind":"title","col":4,"row":3,"colspan":1,"rowspan":1,"image":"Fire Safety Officer Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -1476,15 +1539,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 135,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"PH-9 Predator","type":"Light Armor","kind":"armor","weight":"light","cost":40,"costStatus":"confirmed"},
-          {"name":"PH-9 Predator","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Mark of the Crimson Fang","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"Mark of the Crimson Fang","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"AR-23A Liberator Carbine","type":"Assault Rifle","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-carbine"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Welcome Adoration","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"}
+          {"name":"PH-9 Predator","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"PH-9 Predator Body Icon.png","weight":"light","cost":40,"costStatus":"confirmed"},
+          {"name":"PH-9 Predator","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"PH-9 Predator Helmet Icon.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Mark of the Crimson Fang","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":2,"image":"Mark of the Crimson Fang Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Undergrowth Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Mark of the Crimson Fang","type":"Cape","kind":"cape","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Mark of the Crimson Fang Cape Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"AR-23A Liberator Carbine","type":"Assault Rifle","kind":"primary","col":1,"row":3,"colspan":2,"rowspan":1,"image":"AR-23A Liberator Carbine Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-carbine"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Welcome Adoration","type":"Victory Pose","kind":"victory-pose","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Welcome Adoration Victory Pose Icon.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1494,15 +1558,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 232,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Guns of Liberty","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"SG-22 Bushwhacker","type":"Special Secondary","kind":"secondary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"bushwhacker"}},
-          {"name":"Executioner's Canopy","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"Executioner's Canopy","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"PH-202 Twigsnapper","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"PH-202 Twigsnapper","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":45,"costStatus":"confirmed"},
-          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"}
+          {"name":"Guns of Liberty","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Guns of Liberty Victory Pose Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"SG-22 Bushwhacker","type":"Special Secondary","kind":"secondary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"SG-22 Bushwhacker Secondary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"bushwhacker"}},
+          {"name":"Executioner's Canopy","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Executioner's Canopy Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Executioner's Canopy","type":"Cape","kind":"cape","col":2,"row":2,"colspan":1,"rowspan":1,"image":"Executioner's Canopy Cape Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"PH-202 Twigsnapper","type":"Helmet","kind":"helmet","col":3,"row":2,"colspan":1,"rowspan":1,"image":"PH-202 Twigsnapper Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"PH-202 Twigsnapper","type":"Heavy Armor","kind":"armor","col":4,"row":2,"colspan":2,"rowspan":2,"image":"PH-202 Twigsnapper Armor Render.png","weight":"heavy","cost":45,"costStatus":"confirmed"},
+          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","col":2,"row":3,"colspan":2,"rowspan":1,"image":"Undergrowth Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1512,14 +1577,15 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 367,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Viper Commando","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"K-2 Throwing Knife","type":"Throwable","kind":"throwable","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"throwing-knife"}},
-          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"Test of Conviction","type":"Emote","kind":"emote","cost":70,"costStatus":"confirmed"},
-          {"name":"Experimental Infusion","type":"Booster","kind":"booster","cost":80,"costStatus":"confirmed"}
+          {"name":"Viper Commando","type":"Title","kind":"title","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Viper Commando Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":2,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"K-2 Throwing Knife","type":"Throwable","kind":"throwable","col":3,"row":1,"colspan":1,"rowspan":1,"image":"K-2 Throwing Knife Throwable Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"throwing-knife"}},
+          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Undergrowth Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Undergrowth Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Undergrowth Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Test of Conviction","type":"Emote","kind":"emote","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Test of Conviction Emote Icon.png","cost":70,"costStatus":"confirmed"},
+          {"name":"Experimental Infusion","type":"Booster","kind":"booster","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Booster Warbond Premium.png","cost":80,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1551,15 +1617,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 90,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"CW-36 Winter Warrior","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":18,"costStatus":"confirmed"},
-          {"name":"CW-36 Winter Warrior","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"Mime Instrumentation","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"},
-          {"name":"Dissident's Nightmare","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"Dissident's Nightmare","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Motivational Shocks","type":"Booster","kind":"booster","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"AR-61 Tenderizer","type":"Assault Rifle","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"tenderizer"}}
+          {"name":"CW-36 Winter Warrior","type":"Heavy Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"CW-36 Winter Warrior Armor Render.png","weight":"heavy","cost":18,"costStatus":"confirmed"},
+          {"name":"CW-36 Winter Warrior","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"CW-36 Winter Warrior Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"Mime Instrumentation","type":"Victory Pose","kind":"victory-pose","col":4,"row":1,"colspan":2,"rowspan":1,"image":"Mime Instrumentation Victory Pose Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Dissident's Nightmare","type":"Cape","kind":"cape","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Dissident's Nightmare Cape Armory.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Dissident's Nightmare","type":"Player Card","kind":"player-card","col":4,"row":2,"colspan":1,"rowspan":2,"image":"Dissident's Nightmare Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Motivational Shocks","type":"Booster","kind":"booster","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium Tall.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"AR-61 Tenderizer","type":"Assault Rifle","kind":"primary","col":2,"row":3,"colspan":2,"rowspan":1,"image":"AR-61 Tenderizer Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"tenderizer"}}
         ]
       },
       {
@@ -1569,15 +1636,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 217,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"SMG-72 Pummeler","type":"Submachine Gun","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"pummeler"}},
-          {"name":"Call the Helldivers","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"G-13 Incendiary Impact","type":"Throwable","kind":"throwable","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"incendiary-impact"}},
-          {"name":"CW-22 Kodiak","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"CW-22 Kodiak","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":45,"costStatus":"confirmed"},
-          {"name":"Pinions of Everlasting Glory","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"Pinions of Everlasting Glory","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"}
+          {"name":"SMG-72 Pummeler","type":"Submachine Gun","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"SMG-72 Pummeler Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"pummeler"}},
+          {"name":"Call the Helldivers","type":"Victory Pose","kind":"victory-pose","col":3,"row":1,"colspan":2,"rowspan":1,"image":"Call the Helldivers Victory Pose Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":5,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"G-13 Incendiary Impact","type":"Throwable","kind":"throwable","col":1,"row":2,"colspan":1,"rowspan":2,"image":"G-13 Incendiary Impact Throwable Render.png","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"incendiary-impact"}},
+          {"name":"CW-22 Kodiak","type":"Helmet","kind":"helmet","col":2,"row":2,"colspan":1,"rowspan":1,"image":"CW-22 Kodiak Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"CW-22 Kodiak","type":"Heavy Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"CW-22 Kodiak Armor Render.png","weight":"heavy","cost":45,"costStatus":"confirmed"},
+          {"name":"Pinions of Everlasting Glory","type":"Player Card","kind":"player-card","col":5,"row":2,"colspan":1,"rowspan":2,"image":"Pinions of Everlasting Glory Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Pinions of Everlasting Glory","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Pinions of Everlasting Glory Cape Render.png","cost":20,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1587,15 +1655,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 362,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"CW-4 Arctic Ranger","type":"Light Armor","kind":"armor","weight":"light","cost":64,"costStatus":"confirmed"},
-          {"name":"CW-4 Arctic Ranger","type":"Helmet","kind":"helmet","cost":48,"costStatus":"confirmed"},
-          {"name":"PLAS-101 Purifier","type":"Energy-Based","kind":"primary","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"purifier"}},
-          {"name":"Order of the Venerated Ballot","type":"Cape","kind":"cape","cost":30,"costStatus":"confirmed"},
-          {"name":"Order of the Venerated Ballot","type":"Player Card","kind":"player-card","cost":16,"costStatus":"confirmed"},
-          {"name":"P-113 Verdict","type":"Pistol","kind":"secondary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"verdict"}},
-          {"name":"Distribute Ballots","type":"Victory Pose","kind":"victory-pose","cost":32,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100}
+          {"name":"CW-4 Arctic Ranger","type":"Light Armor","kind":"armor","col":1,"row":1,"colspan":2,"rowspan":2,"image":"CW-4 Arctic Ranger Armor Render.png","weight":"light","cost":64,"costStatus":"confirmed"},
+          {"name":"CW-4 Arctic Ranger","type":"Helmet","kind":"helmet","col":3,"row":1,"colspan":1,"rowspan":1,"image":"CW-4 Arctic Ranger Helmet Render.png","cost":48,"costStatus":"confirmed"},
+          {"name":"PLAS-101 Purifier","type":"Energy-Based","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"PLAS-101 Purifier Primary Render.png","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"purifier"}},
+          {"name":"Order of the Venerated Ballot","type":"Cape","kind":"cape","col":3,"row":2,"colspan":1,"rowspan":1,"image":"Order of the Venerated Ballot Cape Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Order of the Venerated Ballot","type":"Player Card","kind":"player-card","col":4,"row":2,"colspan":1,"rowspan":2,"image":"Order of the Venerated Ballot Player Card Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"P-113 Verdict","type":"Pistol","kind":"secondary","col":5,"row":2,"colspan":1,"rowspan":2,"image":"P-113 Verdict Secondary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"verdict"}},
+          {"name":"Distribute Ballots","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Distribute Ballots Victory Pose Icon.png","cost":32,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100}
         ]
       }
     ]
@@ -1627,15 +1696,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 90,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"Squat","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"},
-          {"name":"Harbinger of True Equality","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"G-123 Thermite","type":"Throwable","kind":"throwable","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"thermite"}},
-          {"name":"CE-27 Ground Breaker","type":"Medium Armor","kind":"armor","weight":"medium","cost":18,"costStatus":"confirmed"},
-          {"name":"CE-27 Ground Breaker","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"Harbinger of True Equality","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"},
-          {"name":"BR-14 Adjudicator","type":"Assault Rifle","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"adjudicator"}}
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"Squat","type":"Victory Pose","kind":"victory-pose","col":2,"row":1,"colspan":2,"rowspan":1,"image":"Squat Victory Pose Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Harbinger of True Equality","type":"Player Card","kind":"player-card","col":4,"row":1,"colspan":1,"rowspan":2,"image":"Harbinger of True Equality Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"G-123 Thermite","type":"Throwable","kind":"throwable","col":5,"row":1,"colspan":1,"rowspan":2,"image":"G-123 Thermite Throwable Render.png","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"thermite"}},
+          {"name":"CE-27 Ground Breaker","type":"Medium Armor","kind":"armor","col":1,"row":2,"colspan":2,"rowspan":2,"image":"CE-27 Ground Breaker Armor Render.png","weight":"medium","cost":18,"costStatus":"confirmed"},
+          {"name":"CE-27 Ground Breaker","type":"Helmet","kind":"helmet","col":3,"row":2,"colspan":1,"rowspan":1,"image":"CE-27 Ground Breaker Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"Harbinger of True Equality","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Harbinger of True Equality Cape Render.png","cost":8,"costStatus":"confirmed"},
+          {"name":"BR-14 Adjudicator","type":"Assault Rifle","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"BR-14 Adjudicator Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"adjudicator"}}
         ]
       },
       {
@@ -1645,15 +1715,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 247,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Eagle's Fury","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"CE-07 Demolition Specialist","type":"Light Armor","kind":"armor","weight":"light","cost":45,"costStatus":"confirmed"},
-          {"name":"CE-07 Demolition Specialist","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Expert Extraction Pilot","type":"Booster","kind":"booster","cost":55,"costStatus":"confirmed"},
-          {"name":"Eagle's Fury","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"R-36 Eruptor","type":"Explosive","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"eruptor"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"Courtly Bow","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"}
+          {"name":"Eagle's Fury","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Eagle's Fury Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"CE-07 Demolition Specialist","type":"Light Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":2,"image":"CE-07 Demolition Specialist Armor Render.png","weight":"light","cost":45,"costStatus":"confirmed"},
+          {"name":"CE-07 Demolition Specialist","type":"Helmet","kind":"helmet","col":4,"row":1,"colspan":1,"rowspan":1,"image":"CE-07 Demolition Specialist Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Expert Extraction Pilot","type":"Booster","kind":"booster","col":5,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium Tall.png","cost":55,"costStatus":"confirmed"},
+          {"name":"Eagle's Fury","type":"Cape","kind":"cape","col":4,"row":2,"colspan":1,"rowspan":1,"image":"Eagle's Fury Cape Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"R-36 Eruptor","type":"Explosive","kind":"primary","col":1,"row":3,"colspan":2,"rowspan":1,"image":"R-36 Eruptor Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"eruptor"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"Courtly Bow","type":"Victory Pose","kind":"victory-pose","col":4,"row":3,"colspan":2,"rowspan":1,"image":"Courtly Bow Victory Pose Icon.png","cost":15,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1663,15 +1734,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 362,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Boxer","type":"Victory Pose","kind":"victory-pose","cost":32,"costStatus":"confirmed"},
-          {"name":"FS-55 Devastator","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":64,"costStatus":"confirmed"},
-          {"name":"FS-55 Devastator","type":"Helmet","kind":"helmet","cost":48,"costStatus":"confirmed"},
-          {"name":"Freedom's Tapestry","type":"Player Card","kind":"player-card","cost":16,"costStatus":"confirmed"},
-          {"name":"GP-31 Grenade Pistol","type":"Special Secondary","kind":"secondary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"grenade-pistol"}},
-          {"name":"Freedom's Tapestry","type":"Cape","kind":"cape","cost":30,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"CB-9 Exploding Crossbow","type":"Explosive","kind":"primary","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"exploding-crossbow"}}
+          {"name":"Boxer","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Boxer Victory Pose Icon.png","cost":32,"costStatus":"confirmed"},
+          {"name":"FS-55 Devastator","type":"Heavy Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"FS-55 Devastator Armor Render.png","weight":"heavy","cost":64,"costStatus":"confirmed"},
+          {"name":"FS-55 Devastator","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"FS-55 Devastator Helmet Render.png","cost":48,"costStatus":"confirmed"},
+          {"name":"Freedom's Tapestry","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Freedom's Tapestry Player Card Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"GP-31 Grenade Pistol","type":"Special Secondary","kind":"secondary","col":2,"row":2,"colspan":1,"rowspan":2,"image":"GP-31 Grenade Pistol Secondary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"grenade-pistol"}},
+          {"name":"Freedom's Tapestry","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Freedom's Tapestry Cape Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"CB-9 Exploding Crossbow","type":"Explosive","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"CB-9 Exploding Crossbow Primary Render.png","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"exploding-crossbow"}}
         ]
       }
     ]
@@ -1703,15 +1775,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 93,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Botslayer","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"Localization Confusion","type":"Booster","kind":"booster","cost":18,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"LAS-16 Sickle","type":"Energy-Based","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"sickle"}},
-          {"name":"EX-03 Prototype 3","type":"Medium Armor","kind":"armor","weight":"medium","cost":18,"costStatus":"confirmed"},
-          {"name":"EX-03 Prototype 3","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"Head Tap","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"},
-          {"name":"Botslayer","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"}
+          {"name":"Botslayer","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Botslayer Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"Localization Confusion","type":"Booster","kind":"booster","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium Tall.png","cost":18,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"LAS-16 Sickle","type":"Energy-Based","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"LAS-16 Sickle Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"sickle"}},
+          {"name":"EX-03 Prototype 3","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"EX-03 Prototype 3 Armor Render.png","weight":"medium","cost":18,"costStatus":"confirmed"},
+          {"name":"EX-03 Prototype 3","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"EX-03 Prototype 3 Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"Head Tap","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Head Tap Victory Pose Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Botslayer","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Botslayer Cape Render.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1721,15 +1794,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 217,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Shotgun Show","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"},
-          {"name":"EX-16 Prototype 16","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"EX-16 Prototype 16","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Martyris Rex","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"G-23 Stun","type":"Throwable","kind":"throwable","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"stun"}},
-          {"name":"Martyris Rex","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"SG-8P Punisher Plasma","type":"Energy-Based","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"punisher-plasma"}}
+          {"name":"Shotgun Show","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":2,"rowspan":1,"image":"Shotgun Show Victory Pose Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"EX-16 Prototype 16","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"EX-16 Prototype 16 Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"EX-16 Prototype 16","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"EX-16 Prototype 16 Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Martyris Rex","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Martyris Rex Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"G-23 Stun","type":"Throwable","kind":"throwable","col":2,"row":2,"colspan":1,"rowspan":2,"image":"G-23 Stun Throwable Render.png","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"stun"}},
+          {"name":"Martyris Rex","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Martyris Rex Cape Render.png","cost":20,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"SG-8P Punisher Plasma","type":"Energy-Based","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"SG-8P Punisher Plasma Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"punisher-plasma"}}
         ]
       },
       {
@@ -1739,15 +1813,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 362,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Agent of Oblivion","type":"Player Card","kind":"player-card","cost":16,"costStatus":"confirmed"},
-          {"name":"LAS-7 Dagger","type":"Special Secondary","kind":"secondary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"dagger"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"ARC-12 Blitzer","type":"Energy-Based","kind":"primary","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"blitzer"}},
-          {"name":"EX-00 Prototype X","type":"Light Armor","kind":"armor","weight":"light","cost":64,"costStatus":"confirmed"},
-          {"name":"EX-00 Prototype X","type":"Helmet","kind":"helmet","cost":48,"costStatus":"confirmed"},
-          {"name":"Presentable","type":"Victory Pose","kind":"victory-pose","cost":32,"costStatus":"confirmed"},
-          {"name":"Agent of Oblivion","type":"Cape","kind":"cape","cost":30,"costStatus":"confirmed"}
+          {"name":"Agent of Oblivion","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Agent of Oblivion Player Card Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"LAS-7 Dagger","type":"Special Secondary","kind":"secondary","col":2,"row":1,"colspan":1,"rowspan":2,"image":"LAS-7 Dagger Secondary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"dagger"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"ARC-12 Blitzer","type":"Energy-Based","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"ARC-12 Blitzer Primary Render.png","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"blitzer"}},
+          {"name":"EX-00 Prototype X","type":"Light Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"EX-00 Prototype X Armor Render.png","weight":"light","cost":64,"costStatus":"confirmed"},
+          {"name":"EX-00 Prototype X","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"EX-00 Prototype X Helmet Render.png","cost":48,"costStatus":"confirmed"},
+          {"name":"Presentable","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Presentable Victory Pose Icon.png","cost":32,"costStatus":"confirmed"},
+          {"name":"Agent of Oblivion","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Agent of Oblivion Cape Render.png","cost":30,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1779,15 +1854,16 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 90,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Tyrant Hunter","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"P-4 Senator","type":"Pistol","kind":"secondary","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"senator"}},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":7,"costStatus":"confirmed","superCredits":100},
-          {"name":"AR-23C Liberator Concussive","type":"Assault Rifle","kind":"primary","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-concussive"}},
-          {"name":"SA-25 Steel Trooper","type":"Medium Armor","kind":"armor","weight":"medium","cost":18,"costStatus":"confirmed"},
-          {"name":"SA-25 Steel Trooper","type":"Helmet","kind":"helmet","cost":12,"costStatus":"confirmed"},
-          {"name":"Super Person","type":"Victory Pose","kind":"victory-pose","cost":8,"costStatus":"confirmed"},
-          {"name":"Tyrant Hunter","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"}
+          {"name":"Tyrant Hunter","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Tyrant Hunter Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"P-4 Senator","type":"Pistol","kind":"secondary","col":2,"row":1,"colspan":1,"rowspan":2,"image":"P-4 Senator Secondary Render.png","cost":15,"costStatus":"confirmed","ref":{"view":"gear","id":"senator"}},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":7,"costStatus":"confirmed","superCredits":100},
+          {"name":"AR-23C Liberator Concussive","type":"Assault Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"AR-23C Liberator Concussive Primary Render.png","cost":20,"costStatus":"confirmed","ref":{"view":"gear","id":"liberator-concussive"}},
+          {"name":"SA-25 Steel Trooper","type":"Medium Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SA-25 Steel Trooper Armor Render.png","weight":"medium","cost":18,"costStatus":"confirmed"},
+          {"name":"SA-25 Steel Trooper","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"SA-25 Steel Trooper Helmet Render.png","cost":12,"costStatus":"confirmed"},
+          {"name":"Super Person","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"Super Person Victory Pose Icon.png","cost":8,"costStatus":"confirmed"},
+          {"name":"Tyrant Hunter","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Tyrant Hunter Cape Icon.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1797,16 +1873,17 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 229,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Roll 'Em","type":"Victory Pose","kind":"victory-pose","cost":15,"costStatus":"confirmed"},
-          {"name":"G-10 Incendiary","type":"Throwable","kind":"throwable","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"incendiary"}},
-          {"name":"SA-12 Servo Assisted","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"SA-12 Servo Assisted","type":"Helmet","kind":"helmet","cost":35,"costStatus":"confirmed"},
-          {"name":"Cloak of Posterity's Gratitude","type":"Player Card","kind":"player-card","cost":5,"costStatus":"confirmed"},
-          {"name":"Cloak of Posterity's Gratitude","type":"Cape","kind":"cape","cost":16,"costStatus":"confirmed"},
-          {"name":"Drape of Glory","type":"Cape","kind":"cape","cost":16,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":12,"costStatus":"confirmed","superCredits":100},
-          {"name":"SG-225IE Breaker Incendiary","type":"Shotgun","kind":"primary","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker-incendiary"}}
+          {"name":"Roll 'Em","type":"Victory Pose","kind":"victory-pose","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Roll 'Em Victory Pose Icon.png","cost":15,"costStatus":"confirmed"},
+          {"name":"G-10 Incendiary","type":"Throwable","kind":"throwable","col":2,"row":1,"colspan":1,"rowspan":2,"image":"G-10 Incendiary Throwable Render.png","cost":25,"costStatus":"confirmed","ref":{"view":"gear","id":"incendiary"}},
+          {"name":"SA-12 Servo Assisted","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"SA-12 Servo Assisted Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"SA-12 Servo Assisted","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"SA-12 Servo Assisted Helmet Render.png","cost":35,"costStatus":"confirmed"},
+          {"name":"Cloak of Posterity's Gratitude","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Cloak of Posterity's Gratitude Player Card Icon.png","cost":5,"costStatus":"confirmed"},
+          {"name":"Cloak of Posterity's Gratitude","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Cloak of Posterity's Gratitude Cape Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"Drape of Glory","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Drape of Glory Cape Render.png","cost":16,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
+          {"name":"SG-225IE Breaker Incendiary","type":"Shotgun","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"SG-225IE Breaker Incendiary Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker-incendiary"}}
         ]
       },
       {
@@ -1816,15 +1893,16 @@ export const warbonds = [
         "unlockSource": "template",
         "cost": 367,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Bastion of Integrity","type":"Player Card","kind":"player-card","cost":16,"costStatus":"confirmed"},
-          {"name":"Flexible Reinforcement Budget","type":"Booster","kind":"booster","cost":75,"costStatus":"confirmed"},
-          {"name":"Super Credits","type":"Currency","kind":"super-credits","cost":32,"costStatus":"confirmed","superCredits":100},
-          {"name":"JAR-5 Dominator","type":"Special Primary","kind":"primary","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"dominator"}},
-          {"name":"SA-32 Dynamo","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":64,"costStatus":"confirmed"},
-          {"name":"SA-32 Dynamo","type":"Helmet","kind":"helmet","cost":48,"costStatus":"confirmed"},
-          {"name":"You're Next","type":"Victory Pose","kind":"victory-pose","cost":32,"costStatus":"confirmed"},
-          {"name":"Bastion of Integrity","type":"Cape","kind":"cape","cost":20,"costStatus":"confirmed"}
+          {"name":"Bastion of Integrity","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":2,"image":"Bastion of Integrity Player Card Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"Flexible Reinforcement Budget","type":"Booster","kind":"booster","col":2,"row":1,"colspan":1,"rowspan":2,"image":"Booster Warbond Premium.png","cost":75,"costStatus":"confirmed"},
+          {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":1,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":32,"costStatus":"confirmed","superCredits":100},
+          {"name":"JAR-5 Dominator","type":"Special Primary","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"JAR-5 Dominator Primary Render.png","cost":80,"costStatus":"confirmed","ref":{"view":"gear","id":"dominator"}},
+          {"name":"SA-32 Dynamo","type":"Heavy Armor","kind":"armor","col":3,"row":2,"colspan":2,"rowspan":2,"image":"SA-32 Dynamo Armor Render.png","weight":"heavy","cost":64,"costStatus":"confirmed"},
+          {"name":"SA-32 Dynamo","type":"Helmet","kind":"helmet","col":5,"row":2,"colspan":1,"rowspan":1,"image":"SA-32 Dynamo Helmet Render.png","cost":48,"costStatus":"confirmed"},
+          {"name":"You're Next","type":"Victory Pose","kind":"victory-pose","col":1,"row":3,"colspan":2,"rowspan":1,"image":"You're Next Victory Pose Icon.png","cost":32,"costStatus":"confirmed"},
+          {"name":"Bastion of Integrity","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Bastion of Integrity Cape Render.png","cost":20,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1856,13 +1934,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": null,
         "costStatus": "미확인",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Camo Cloak Player Card","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed","link":"Camo Cloak"},
-          {"name":"TG-8 Sharpshooter Armor","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed","link":"TG-8 Sharpshooter"},
-          {"name":"R/40-K Hot-Shot Marksman Rifle","type":"Marksman Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"hot-shot-marksman-rifle"}},
-          {"name":"Castellans Green Hellpod Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed","link":"Castellans Green Pattern"},
-          {"name":"Camo Cloak Cape","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed","link":"Camo Cloak"},
-          {"name":"TG-8 Sharpshooter Helmet","type":"Helmet","kind":"helmet","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":39,"link":"TG-8 Sharpshooter"}
+          {"name":"Camo Cloak Player Card","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":3,"image":"Camo Cloak Player Card.png","cost":2,"costStatus":"confirmed","link":"Camo Cloak"},
+          {"name":"TG-8 Sharpshooter Armor","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":2,"image":"TG-8 Sharpshooter Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed","link":"TG-8 Sharpshooter"},
+          {"name":"R/40-K Hot-Shot Marksman Rifle","type":"Marksman Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"R-40-K Hot-Shot Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"hot-shot-marksman-rifle"}},
+          {"name":"Castellans Green Hellpod Pattern","type":"Pattern","kind":"pattern","col":4,"row":2,"colspan":2,"rowspan":2,"image":"Castellans Green Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed","link":"Castellans Green Pattern"},
+          {"name":"Camo Cloak Cape","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Camo Cloak Cape Icon.png","cost":8,"costStatus":"confirmed","link":"Camo Cloak"},
+          {"name":"TG-8 Sharpshooter Helmet","type":"Helmet","kind":"helmet","col":3,"row":3,"colspan":1,"rowspan":1,"image":"TG-8 Sharpshooter Helmet Render.png","cost":null,"costStatus":"미확인","templateCost":30,"tableCost":39,"link":"TG-8 Sharpshooter"}
         ]
       },
       {
@@ -1872,14 +1951,15 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 282,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"G/40-K Melta Mine","type":"Throwable","kind":"throwable","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"melta-mine"}},
-          {"name":"P/40-K Bolt Pistol","type":"Pistol","kind":"secondary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"bolt-pistol"}},
-          {"name":"TG-122 Demo-Trooper Armor","type":"Heavy Armor","kind":"armor","weight":"heavy","cost":55,"costStatus":"confirmed","link":"TG-122 Demo-Trooper"},
-          {"name":"Castellans Green Shuttle Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed","link":"Castellans Green Pattern"},
-          {"name":"City Fighter's Resolve Player Card","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed","link":"City Fighter's Resolve"},
-          {"name":"City Fighter's Resolve Cape","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed","link":"City Fighter's Resolve"},
-          {"name":"TG-122 Demo-Trooper Helmet","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed","link":"TG-122 Demo-Trooper"}
+          {"name":"G/40-K Melta Mine","type":"Throwable","kind":"throwable","col":1,"row":1,"colspan":1,"rowspan":1,"image":"G-40-K Meltamine Throwable Icon.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"melta-mine"}},
+          {"name":"P/40-K Bolt Pistol","type":"Pistol","kind":"secondary","col":2,"row":1,"colspan":2,"rowspan":1,"image":"P-40-K Bolt Pistol Secondary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"bolt-pistol"}},
+          {"name":"TG-122 Demo-Trooper Armor","type":"Heavy Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"TG-122 Demo-Trooper Armor Render.png","weight":"heavy","cost":55,"costStatus":"confirmed","link":"TG-122 Demo-Trooper"},
+          {"name":"Castellans Green Shuttle Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Castellans Green Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed","link":"Castellans Green Pattern"},
+          {"name":"City Fighter's Resolve Player Card","type":"Player Card","kind":"player-card","col":3,"row":2,"colspan":1,"rowspan":2,"image":"City Fighter's Resolve Player Card.png","cost":7,"costStatus":"confirmed","link":"City Fighter's Resolve"},
+          {"name":"City Fighter's Resolve Cape","type":"Cape","kind":"cape","col":4,"row":3,"colspan":1,"rowspan":1,"image":"City Fighter's Resolve Cape Icon.png","cost":25,"costStatus":"confirmed","link":"City Fighter's Resolve"},
+          {"name":"TG-122 Demo-Trooper Helmet","type":"Helmet","kind":"helmet","col":5,"row":3,"colspan":1,"rowspan":1,"image":"TG-122 Demo-Trooper Helmet Render.png","cost":45,"costStatus":"confirmed","link":"TG-122 Demo-Trooper"}
         ]
       },
       {
@@ -1889,11 +1969,12 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 235,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Castellans Green Exosuit","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed","link":"Castellans Green Pattern"},
-          {"name":"Castellans Green Vehicle","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed","link":"Castellans Green Pattern"},
-          {"name":"Still Standing","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"40-K Meltagun","type":"Stratagem","kind":"stratagem","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"meltagun"}}
+          {"name":"Castellans Green Exosuit","type":"Pattern","kind":"pattern","col":1,"row":1,"colspan":3,"rowspan":2,"image":"Castellans Green Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed","link":"Castellans Green Pattern"},
+          {"name":"Castellans Green Vehicle","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Castellans Green Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed","link":"Castellans Green Pattern"},
+          {"name":"Still Standing","type":"Title","kind":"title","col":1,"row":3,"colspan":1,"rowspan":1,"image":"Still Standing Title Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"40-K Meltagun","type":"Stratagem","kind":"stratagem","col":2,"row":3,"colspan":2,"rowspan":1,"image":"40-K Meltagun Stratagem Render.png","cost":110,"costStatus":"confirmed","ref":{"view":"arsenal","id":"meltagun"}}
         ]
       }
     ]
@@ -1925,13 +2006,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 140,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Strength in Our Arms","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"AC-1 Dutiful","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"StA-52 Assault Rifle","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"assault-rifle-sta-52"}},
-          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"AC-1 Dutiful","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Strength in Our Arms","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"}
+          {"name":"Strength in Our Arms","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":3,"image":"Strength in Our Arms Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"AC-1 Dutiful","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":2,"image":"AC-1 Dutiful Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"StA-52 Assault Rifle","type":"Assault Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"StA-52 Assault Rifle Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"assault-rifle-sta-52"}},
+          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","col":4,"row":2,"colspan":2,"rowspan":2,"image":"Extrasolar Ash Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"AC-1 Dutiful","type":"Helmet","kind":"helmet","col":2,"row":3,"colspan":1,"rowspan":1,"image":"AC-1 Dutiful Helmet Render.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Strength in Our Arms","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Strength in Our Arms Cape Render.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1941,13 +2023,14 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 232,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"PLAS-39 Accelerator Rifle","type":"Energy-Based","kind":"primary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"accelerator-rifle"}},
-          {"name":"Defender of Our Dream","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"AC-2 Obedient","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"AC-2 Obedient","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Defender of Our Dream","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"}
+          {"name":"PLAS-39 Accelerator Rifle","type":"Energy-Based","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"PLAS-39 Accelerator Rifle Primary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"accelerator-rifle"}},
+          {"name":"Defender of Our Dream","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":3,"image":"Defender of Our Dream Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"AC-2 Obedient","type":"Medium Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"AC-2 Obedient Armor Render.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Extrasolar Ash Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"AC-2 Obedient","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"AC-2 Obedient Helmet Render.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Defender of Our Dream","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Defender of Our Dream Cape Render.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -1957,11 +2040,12 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 190,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Assault Infantry","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"StA-11 SMG","type":"Submachine Gun","kind":"primary","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"smg-sta-11"}},
-          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"}
+          {"name":"Assault Infantry","type":"Title","kind":"title","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Assault Infantry Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"StA-11 SMG","type":"Submachine Gun","kind":"primary","col":2,"row":1,"colspan":2,"rowspan":1,"image":"StA-11 SMG Primary Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"smg-sta-11"}},
+          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Extrasolar Ash Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Extrasolar Ash Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":3,"rowspan":2,"image":"Extrasolar Ash Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"}
         ]
       }
     ]
@@ -1993,13 +2077,14 @@ export const warbonds = [
         "unlockSource": "start",
         "cost": 140,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Honored Heirloom","type":"Player Card","kind":"player-card","cost":2,"costStatus":"confirmed"},
-          {"name":"A-9 Helljumper","type":"Medium Armor","kind":"armor","weight":"medium","cost":45,"costStatus":"confirmed"},
-          {"name":"MA5C Assault Rifle","type":"Assault Rifle","kind":"primary","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"assault-rifle"}},
-          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","cost":20,"costStatus":"confirmed"},
-          {"name":"A-9 Helljumper","type":"Helmet","kind":"helmet","cost":30,"costStatus":"confirmed"},
-          {"name":"Honored Heirloom","type":"Cape","kind":"cape","cost":8,"costStatus":"confirmed"}
+          {"name":"Honored Heirloom","type":"Player Card","kind":"player-card","col":1,"row":1,"colspan":1,"rowspan":3,"image":"Honored Heirloom Player Card Icon.png","cost":2,"costStatus":"confirmed"},
+          {"name":"A-9 Helljumper","type":"Medium Armor","kind":"armor","col":2,"row":1,"colspan":2,"rowspan":2,"image":"A-9 Helljumper Body Icon.png","weight":"medium","cost":45,"costStatus":"confirmed"},
+          {"name":"MA5C Assault Rifle","type":"Assault Rifle","kind":"primary","col":4,"row":1,"colspan":2,"rowspan":1,"image":"MA5C Assault Rifle Primary Render.png","cost":35,"costStatus":"confirmed","ref":{"view":"gear","id":"assault-rifle"}},
+          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","col":4,"row":2,"colspan":2,"rowspan":2,"image":"Mean Green Hellpod Pattern Icon.png","cost":20,"costStatus":"confirmed"},
+          {"name":"A-9 Helljumper","type":"Helmet","kind":"helmet","col":2,"row":3,"colspan":1,"rowspan":1,"image":"A-9 Helljumper Helmet Icon.png","cost":30,"costStatus":"confirmed"},
+          {"name":"Honored Heirloom","type":"Cape","kind":"cape","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Honored Heirloom Cape Render.png","cost":8,"costStatus":"confirmed"}
         ]
       },
       {
@@ -2009,13 +2094,14 @@ export const warbonds = [
         "unlockSource": null,
         "cost": 232,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"M7S SMG","type":"Submachine Gun","kind":"primary","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"smg"}},
-          {"name":"Eye of the Clandestine","type":"Player Card","kind":"player-card","cost":7,"costStatus":"confirmed"},
-          {"name":"A-35 Recon","type":"Medium Armor","kind":"armor","weight":"medium","cost":55,"costStatus":"confirmed"},
-          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"A-35 Recon","type":"Helmet","kind":"helmet","cost":45,"costStatus":"confirmed"},
-          {"name":"Eye of the Clandestine","type":"Cape","kind":"cape","cost":25,"costStatus":"confirmed"}
+          {"name":"M7S SMG","type":"Submachine Gun","kind":"primary","col":1,"row":1,"colspan":2,"rowspan":1,"image":"M7S SMG Primary Render.png","cost":50,"costStatus":"confirmed","ref":{"view":"gear","id":"smg"}},
+          {"name":"Eye of the Clandestine","type":"Player Card","kind":"player-card","col":3,"row":1,"colspan":1,"rowspan":3,"image":"Eye of the Clandestine Player Card Icon.png","cost":7,"costStatus":"confirmed"},
+          {"name":"A-35 Recon","type":"Medium Armor","kind":"armor","col":4,"row":1,"colspan":2,"rowspan":2,"image":"A-35 Recon Body Icon.png","weight":"medium","cost":55,"costStatus":"confirmed"},
+          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Mean Green Shuttle Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"A-35 Recon","type":"Helmet","kind":"helmet","col":4,"row":3,"colspan":1,"rowspan":1,"image":"A-35 Recon Helmet Icon.png","cost":45,"costStatus":"confirmed"},
+          {"name":"Eye of the Clandestine","type":"Cape","kind":"cape","col":5,"row":3,"colspan":1,"rowspan":1,"image":"Eye of the Clandestine Cape Render.png","cost":25,"costStatus":"confirmed"}
         ]
       },
       {
@@ -2025,12 +2111,13 @@ export const warbonds = [
         "unlockSource": "infobox",
         "cost": 265,
         "costStatus": "confirmed",
+        "layoutStatus": "confirmed",
         "items": [
-          {"name":"Rookie","type":"Title","kind":"title","cost":20,"costStatus":"confirmed"},
-          {"name":"M90A Shotgun","type":"Shotgun","kind":"primary","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"shotgun"}},
-          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","cost":50,"costStatus":"confirmed"},
-          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","cost":55,"costStatus":"confirmed"},
-          {"name":"M6C/SOCOM Pistol","type":"Pistol","kind":"secondary","cost":75,"costStatus":"confirmed","ref":{"view":"gear","id":"pistol"}}
+          {"name":"Rookie","type":"Title","kind":"title","col":1,"row":1,"colspan":1,"rowspan":1,"image":"Rookie Title Icon.svg","cost":20,"costStatus":"confirmed"},
+          {"name":"M90A Shotgun","type":"Shotgun","kind":"primary","col":2,"row":1,"colspan":2,"rowspan":1,"image":"M90A Shotgun Primary Render.png","cost":65,"costStatus":"confirmed","ref":{"view":"gear","id":"shotgun"}},
+          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","col":4,"row":1,"colspan":2,"rowspan":3,"image":"Mean Green Exosuit Pattern Icon.png","cost":50,"costStatus":"confirmed"},
+          {"name":"Mean Green Pattern","type":"Pattern","kind":"pattern","col":1,"row":2,"colspan":2,"rowspan":2,"image":"Mean Green Vehicle Pattern Icon.png","cost":55,"costStatus":"confirmed"},
+          {"name":"M6C/SOCOM Pistol","type":"Pistol","kind":"secondary","col":3,"row":2,"colspan":1,"rowspan":2,"image":"M6C-SOCOM Pistol Secondary Render.png","cost":75,"costStatus":"confirmed","ref":{"view":"gear","id":"pistol"}}
         ]
       }
     ]

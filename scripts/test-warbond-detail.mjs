@@ -44,7 +44,7 @@ for (const [value, renderer] of [['gear/sightliner', weaponDetail], ['arsenal/no
   ok(content.includes('id="sheet-title"') && content.includes('data-close'), `${value}: ordinary full-page detail still has its original header`);
 }
 const css = await readFile(new URL('../dist/ui/app.css', import.meta.url), 'utf8');
-ok(/@media\s*\(min-width:\s*1100px\)\s*\{\s*\.wb-item-toolbar\s+\.wb-item-back\s*\{\s*display:\s*none;\s*\}\s*\}/.test(css), 'wide-screen Back button uses two classes to outrank .button and hide from display and keyboard focus at 1100px');
+ok(/@media\s*\(min-width:\s*760px\)\s*\{\s*\.wb-item-toolbar\s+\.wb-item-back\s*\{\s*display:\s*none;\s*\}\s*\}/.test(css), 'wide-screen Back button uses two classes to outrank .button and hide from display and keyboard focus at 760px');
 for (const language of ['ko', 'en']) {
   setLang(language);
   const ref = resolveWarbondItem('scope-of-authority', 'gear/sightliner');
