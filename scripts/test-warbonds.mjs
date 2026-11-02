@@ -334,4 +334,27 @@ ok(/\.wb-board\[data-tier="premium"\], \.wb-board\[data-tier="legendary"\]\s*\{[
 ok(/\.wb-tile-img\s*\{[^}]*object-fit:\s*contain/.test(css), 'raster and SVG tiles preserve their aspect ratio');
 ok(/\.wb-tile\[data-kind="title"\] \.wb-tile-img\s*\{[^}]*brightness\(0\) invert\(1\) drop-shadow/.test(css), 'title glyphs stay white with a dark shadow on black and teal tiles');
 
+// CSS/markup contract: SC rewards have no detail link, so their amount must stay
+// visible on touch screens. Keep the compact treatment inside the narrow query.
+const narrowBoardCss = css.match(/@container \(max-width: 520px\) \{([\s\S]*?)\n\}/)?.[1];
+ok(narrowBoardCss, 'narrow board CSS exists for the SC visibility contract');
+const hiddenNameSelectors = [...narrowBoardCss.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+  .filter(([, selector, rules]) => selector.includes('.wb-tile-name') && /clip:\s*rect\(/.test(rules))
+  .flatMap(([, selector]) => selector.split(',').filter(part => part.includes('.wb-tile-name')).map(part => part.trim()));
+eq(hiddenNameSelectors, ['.wb-tile:not([data-kind="super-credits"]) .wb-tile-name'], 'narrow name-hiding rule explicitly excludes SC tiles');
+ok(/\.wb-tile\[data-kind="super-credits"\] \.wb-tile-name\s*\{[^}]*inset:\s*auto 3px 2px var\(--pad-l\);[^}]*font-size:\s*11px;[^}]*white-space:\s*nowrap;/.test(narrowBoardCss), 'SC amount uses a compact single line inside a 1×1 tile');
+ok(/\.wb-tile\[data-kind="super-credits"\] \.wb-tile-img\s*\{[^}]*height:\s*calc\(100% - 32px\)/.test(narrowBoardCss), 'narrow SC image leaves room below it for the amount');
+for (const language of ['ko', 'en']) {
+  setLang(language);
+  for (const amount of [50, 100]) {
+    const reward = warbonds.flatMap(w => w.pages.flatMap(p => p.items))
+      .find(i => i.kind === 'super-credits' && i.superCredits === amount && i.colspan === 1 && i.rowspan === 1);
+    ok(reward, `${language}: real ${amount} SC reward on a 1×1 tile`);
+    const text = String(tile(reward, warbonds[0].id));
+    ok(text.includes('data-kind="super-credits"') && text.includes('<div class="wb-tile-body"') && text.includes('<img class="wb-tile-img"'), `${language}: ${amount} SC uses the visible-name exception on an image tile without a detail link`);
+    ok(text.includes(`<span class="wb-tile-name"><b>${amount} SC</b></span>`), `${language}: ${amount} SC is in the name element excluded from narrow hiding`);
+  }
+}
+setLang('ko');
+
 console.log(`PASS warbonds: ${checks} checks (${warbonds.length} warbonds, ${warbondDiscrepancies.length} wiki discrepancies left 미확인, ${warbondLinks.weapons} weapon + ${warbondLinks.stratagems} stratagem links).`);

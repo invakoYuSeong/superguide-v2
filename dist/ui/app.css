@@ -209,18 +209,21 @@ a.wb-tile-body:hover .wb-tile-name b, .wb-tile-body[aria-current] .wb-tile-name 
 .wb-tile-flag { position: absolute; z-index: 1; top: 20px; left: var(--pad-l); }
 .wb-tile[data-no-image] .wb-tile-name { top: 24px; bottom: 6px; justify-content: center; }
 .wb-tile[data-no-image] .wb-tile-name b { -webkit-line-clamp: 4; }
-/* Narrow board (phones, ~360 px): keep image and price; the text is hidden but still read out. */
+/* Narrow board (phones, ~360 px): keep image, price and SC reward amount; other text is still read out. */
 @container (max-width: 520px) {
   .wb-board { padding: 4px; gap: 3px; }
   .wb-board[data-tier="premium"], .wb-board[data-tier="legendary"] { --pad-l: 9px; }
   .wb-tile-body::before { top: 2px; bottom: 2px; left: 2px; width: 5px; background: repeating-linear-gradient(-45deg, var(--tile-hatch) 0 2px, transparent 2px 5px); }
-  .wb-tile-kind, .wb-tile-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wb-tile-kind, .wb-tile:not([data-kind="super-credits"]) .wb-tile-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .wb-tile[data-no-image] .wb-tile-name { width: auto; height: auto; clip: auto; inset: 16px 3px 3px var(--pad-l); white-space: normal; font-size: 9.5px; }
+  .wb-tile[data-kind="super-credits"] .wb-tile-name { inset: auto 3px 2px var(--pad-l); font-size: 11px; white-space: nowrap; }
+  .wb-tile[data-kind="super-credits"] .wb-tile-name b { display: block; overflow-wrap: normal; }
   .wb-tile-cost { top: 3px; right: 3px; gap: 2px; font-size: 10.5px; }
   .wb-medal { width: 11px; height: 11px; }
   .wb-tile-cost, .wb-tile-flag { max-width: calc(100% - 6px); }
   .wb-tile-cost .badge, .wb-tile-flag .badge { height: auto; min-height: 14px; max-width: 100%; padding: 1px 3px; font-size: 9px; line-height: 1.1; white-space: normal; overflow-wrap: anywhere; border-radius: 3px; }
   .wb-tile-img { top: 15px; left: calc(var(--pad-l) - 2px); width: calc(100% - var(--pad-l)); height: calc(100% - 18px); }
+  .wb-tile[data-kind="super-credits"] .wb-tile-img { height: calc(100% - 32px); }
   .wb-tile-flag { top: auto; bottom: 2px; left: auto; right: 2px; }
 }
 .wb-credit { margin-top: 24px; }
