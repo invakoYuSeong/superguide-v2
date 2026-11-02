@@ -180,7 +180,7 @@ function detailContent(warbond) {
   <div class="sheet-content">
     <div class="wb-hero">${cover(warbond, 'wb-hero-cover')}<div><h2 id="sheet-title">${warbond.name}</h2>${lang === 'en' ? '' : html`<p>${warbond.en}</p>`}
       <div class="chips" style="margin-top:6px">${badge(tierName(warbond.tier), 'outline')}${badge(L(`${warbond.pages.length}페이지 · ${warbond.itemCount}개`, `${warbond.pages.length} pages · ${warbond.itemCount} items`))}</div></div></div>
-    <dl class="detail-grid">
+    <dl class="detail-grid wb-info">
       ${fact(L('출시일', 'Release date'), warbond.date || UNCONFIRMED)}
       ${fact(L('가격', 'Price'), sc(warbond.price))}
       ${fact(L('모든 항목 구매', 'Every item'), warbond.totalCost != null ? medals(warbond.totalCost) : UNCONFIRMED, L('위키 인포박스 합계 (항목 비용 합과 대조)', 'Wiki infobox total (checked against the item costs)'))}
