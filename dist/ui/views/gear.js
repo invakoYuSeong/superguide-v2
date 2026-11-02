@@ -168,14 +168,14 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-function detailContent(w) {
+export function weaponDetail(w, { header = null, titleId = 'sheet-title' } = {}) {
   const group = groupOf(w.category);
   const conflicts = w.infoboxConflicts || [];
   const image = weaponImages[w.id];
-  return html`<div class="sheet-top"><span>${group.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
+  return html`${header ?? html`<div class="sheet-top"><span>${group.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`}
   <div class="sheet-content">
     ${weaponArt(w, 'gear-art large')}
-    <div class="detail-id gear-id"><div><h2 id="sheet-title">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
+    <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
     <dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>
     ${blastFigure(w)}
@@ -190,7 +190,6 @@ function detailContent(w) {
       <span>${L('자료 확인', 'Checked')} ${personalWeaponsCheckedAt}</span>
       ${external(w.source, L('위키 항목', 'Wiki page'))}
       ${image ? external(image.source, L('이미지 원본', 'Image source')) : ''}
-      ${w.name && lang !== 'en' ? html`<span>한국어 이름: 나무위키</span>` : ''}
     </div>
     <p class="faint" style="font-size:12.5px">${L('기본 상태(부착물·함선 강화 제외) 기준입니다. 실제 피해는 맞은 부위의 장갑·내구도와 거리, 각도에 따라 달라집니다.', 'Base values without attachments or ship modules. Real damage depends on the armor and durability of the part you hit, range and angle.')}</p>
   </div>`;
@@ -199,7 +198,7 @@ function detailContent(w) {
 function openDetail(id) {
   const w = weaponById.get(id);
   if (!w) return;
-  ctx.openSheet(detailContent(w), {
+  ctx.openSheet(weaponDetail(w), {
     label: `${T(displayName(w))} ${L('상세', 'details')}`,
     onClose: () => {
       if (state.detail !== id) return;
