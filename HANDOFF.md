@@ -2,18 +2,16 @@
 
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
-- 마지막 갱신: 2026-11-02, superguide 담당(Claude Code)
-- 기준 커밋: `f8ea945` (이 작업은 브랜치 `auto/2026-11-02-warbonds`의 PR #3용이며 master에는 push하지 않음)
-- 진행 중인 작업: 없음 (PR #3 검토 대기)
+- 마지막 갱신: 2026-11-02, Codex 담당
+- 기준 커밋: `aa214e7` (브랜치 `auto/2026-11-02-warbond-item-detail`, PR pending)
+- 진행 중인 작업: 없음 (이 PR 검토 대기)
 
 ## 최근에 끝난 일
 
-- 전쟁 채권 페이지 추가 및 메인 화면 전환 ([PR #3](https://github.com/modocracy/superguide-v2/pull/3)): 위키 Category:Warbonds의 전쟁 채권 26종(기본 1·프리미엄 22·전설 3)을 출시일·가격·페이지별 해금 메달·항목별 메달 비용과 함께 보여 줍니다. 빈 주소·알 수 없는 주소는 이제 `#/warbonds`로 열리고, 기존 주소·`?lang=en`·Ctrl+K 검색은 그대로입니다.
-  - 스크립트: `scripts/fetch-warbonds.mjs`(위키 → `db/source/wiki_warbonds.json`) → `scripts/build-warbonds.mjs`(→ `dist/data/warbonds.js`, 파서 `scripts/warbond-parse.mjs`) → `scripts/test-warbonds.mjs`(`npm run check`에 포함). 한국어 이름은 `db/source/warbond_korean_names.json`.
-  - 항목 연결: 무기 92개·스트라타젬 31개가 사이트 상세 화면으로 연결되고 미연결 0개입니다.
-  - 위키 전쟁 채권 문서의 `LAS-16 Trident`는 사이트의 LAS-13 Trident와 같은 무기입니다. 무기 문서 revision 140438에 출처 Siege Breakers 1페이지·35메달, 1.006.003 변경 기록에 'LAS-16 Trident'에서 이름 변경이 적혀 있어 `RENAMED`로 명시 연결했습니다.
-  - 표지 이미지 26장: `scripts/tools/fetch-warbond-covers.py` → `dist/assets/warbonds/`(240px WebP).
-- 전쟁 채권 첫 화면 위에 '최신 출시 채권' 배너 추가(사용자 시안: 전체 폭 표지 띠 + 아래 한 줄에 이름과 '페이지별 목록 보기' 버튼, 수치 칸 없음): 빌드가 출시일이 가장 늦은 채권을 고르고(같은 날이면 영문 제목 순, `latestWarbondId`), 큰 표지는 `python3 scripts/tools/fetch-warbond-covers.py --latest-large`로 그 채권만 받습니다(현재 Scope of Authority, 1600×800·118,888바이트). 데이터 갱신으로 최신 채권이 바뀌면 이 명령을 다시 실행해야 검사가 통과합니다.
+- 전쟁 채권의 무기·스트라타젬 링크를 누르면 기존 상세 렌더러를 재사용해 같은 창에 표시합니다. 1100px 이상은 왼쪽 상세·오른쪽 채권을 각각 스크롤하며, 좁은 화면은 상세로 전환하고 ‘뒤로’로 페이지별 목록과 스크롤을 복원합니다. 전체 페이지 링크도 제공합니다.
+- `?item=gear%2F무기ID` / `?item=arsenal%2F항목ID`와 `m`(모드)으로 상세를 공유합니다. 첫 항목은 방문 기록을 추가하고 다른 항목은 교체하므로 브라우저 뒤로 가기는 항목부터 닫습니다. 채권을 닫으면 둘 다 닫히며, 직접 연 링크는 이전 외부 페이지로 보내지 않고 채권 목록으로 돌아옵니다.
+- 채권 목록을 출시일 오름차순의 연속 그리드로 바꾸고 종류 칩은 필터로 유지했습니다. 새 UI는 `L(한국어, 영어)`로 번역하며, 상세·주소·정렬·뒤로 가기·스크롤 검사를 `npm run check`에 추가했습니다.
+- 기존 채권 데이터·표지·최신 채권 배너 작업: [PR #3](https://github.com/modocracy/superguide-v2/pull/3), master 반영 완료.
 
 ## 남은 일 (각각 사용자 승인 후 진행)
 
@@ -21,7 +19,8 @@
 - Caustic Strain 팩션 안내 추가: 위키 하위 팩션 Caustic Strain(revision 140771)에는 Bile Spitter·Bile Warrior·Bile Spewer·Spore Charger가 속하고, 부위 데이터는 저장소에 이미 있습니다. `factionGuides`에 항목 1개, 유닛 4종의 한국어 설명, `faction-loadouts.js` 무기 추천, 영어 사전이 필요합니다. 위키 전술 정보가 아직 비어 있어서("Missing information") 무기 추천 근거가 부족합니다. 사용자가 추천 방향을 정해 주면 진행합니다.
 - 반영하지 않은 것: Eagle Fly By / Orbital Confetti(피해 없음), LAS-44 Nova의 Anti-Tank 태그.
 - 전쟁 채권 위키 불일치 '미확인' 21건(전체 목록은 PR #3 설명과 `warbondDiscrepancies`): 비용 차이 Scope of Authority 2·Entrenched Division 2·Castellan's Creed 1, 이름 표기 Boundary Banner/Banker 2, Ironclad Democracy 부스터 2종의 페이지 뒤바뀜 2, 마지막 페이지 해금 ≠ all-pages 3(Ironclad·Redacted·Siege Breakers), 2페이지 해금 메달 없음 9. 위키가 고쳐지면 다시 받아 빌드합니다.
-- 휴대폰 하단 탭 6칸(전쟁 채권 추가)과 전쟁 채권 화면 배치를 실제 브라우저로 확인하지 못했습니다. 확인이 필요합니다.
+- 휴대폰 하단 탭 6칸과 전쟁 채권 화면 배치, 이번 항목 상세 전환(뒤로·스크롤 복원)은 실제 기기에서 확인이 필요합니다. 헤드리스 Chrome 360·1280px 화면 캡처로는 겹침·가로 넘침이 없음을 확인했습니다.
+- 다른 페이지도 채권 페이지와 같은 레이아웃으로 맞추기 (이번 PR 범위 밖).
 
 ## 사용자가 이미 정한 것 (다시 묻지 않기)
 
@@ -32,6 +31,10 @@
 - 사이트 메인 화면은 전쟁 채권 페이지입니다.
 - Exo Experts의 한국어 이름은 '외계 전문가(오역)'입니다(게임 공식 오역을 그대로 보여 줌).
 - 한국어 전쟁 채권 이름은 게임 내 표기와 같으므로 출처를 표기하지 않습니다.
+- 다음 목표는 다른 페이지도 채권 페이지와 동일한 레이아웃으로 맞추기.
+- 전쟁 채권 목록은 기본/프리미엄/전설 구역으로 나누지 않고 한 개의 연속된 그리드로 빈칸 없이 채운다.
+- 목록은 출시일 오름차순(오래된 것 먼저)으로 정렬한다. 같은 날짜는 기존 순서를 유지한다.
+- 위쪽 종류 칩(전체/기본/프리미엄/전설)은 필터로 유지한다.
 
 ## 다음 AI에게
 

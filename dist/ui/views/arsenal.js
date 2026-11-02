@@ -161,17 +161,17 @@ function spreadBlock(item) {
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${item.cooldown ? html`<div><dt>${L('재사용 대기', 'Cooldown')}</dt><dd>${num(item.cooldown)}<small>${L('초', 's')}</small></dd><div class="caption">${L('함선 강화 제외', 'Without ship modules')}</div></div>` : ''}</dl>`;
 
-function detailContent(item, { demolition = false } = {}) {
+export function stratagemDetail(item, { demolition = false, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
   const cat = categoryOf(item.category);
   const variants = item.variants?.length > 1 ? item.variants : null;
-  const current = variantOf(item, state.variant);
+  const current = variantOf(item, variant);
   const combat = item.category === 'support';
   const notes = [item.rangeNote, item.notes, ...(item.modes || [])].filter(Boolean);
   const inCompare = state.compare.has(item.id);
-  return html`<div class="sheet-top"><span>${cat.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
+  return html`${header ?? html`<div class="sheet-top"><span>${cat.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`}
   <div class="sheet-content">
     <div class="detail-id"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
-      <div><h2 id="sheet-title">${item.name}</h2><p>${subtitle(item)}</p>
+      <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
       <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}</div></div></div>
     ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
     <p style="font-size:16px">${item.summary}</p>
@@ -186,7 +186,7 @@ function detailContent(item, { demolition = false } = {}) {
     <div class="links">
       ${combat ? html`<a class="button primary" href="#/enemy?w=${item.id}">${icon('enemy', 18)} ${L('적 대응 계산', 'Shots to kill')}</a>` : ''}
       ${demolition ? html`<a class="button" href="#/demolition?w=${item.id}">${icon('demolition', 18)} ${L('철거 가능 시설', 'What it can demolish')}</a>` : ''}
-      <button class="button ghost" type="button" data-compare="${item.id}" aria-pressed="${inCompare}">${icon(inCompare ? 'check' : 'plus', 18)} ${inCompare ? L('비교에 담김', 'Added to compare') : L('비교에 담기', 'Add to compare')}</button>
+      ${compare ? html`<button class="button ghost" type="button" data-compare="${item.id}" aria-pressed="${inCompare}">${icon(inCompare ? 'check' : 'plus', 18)} ${inCompare ? L('비교에 담김', 'Added to compare') : L('비교에 담기', 'Add to compare')}</button>` : ''}
     </div>
     <div class="sources">
       <span>${L('자료 확인', 'Checked')} ${item.defense?.checkedAt || CHECKED_AT}${item.patch ? L(` · 위키 갱신 패치 ${item.patch}`, ` · wiki updated for patch ${item.patch}`) : ''}</span>
@@ -202,7 +202,7 @@ let demolitionIds = null;
 function openDetail(id) {
   const item = stratagemById.get(id);
   if (!item) return;
-  const show = () => ctx.openSheet(detailContent(item, { demolition: demolitionIds?.has(id) }), {
+  const show = () => ctx.openSheet(stratagemDetail(item, { demolition: demolitionIds?.has(id) }), {
     label: `${T(item.name)} ${L('상세', 'details')}`,
     onClose: () => {
       if (state.detail !== id) return;

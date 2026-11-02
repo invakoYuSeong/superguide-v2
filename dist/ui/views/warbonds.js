@@ -1,17 +1,18 @@
-// Warbond guide (the site's main page): every warbond grouped by tier with its
-// release date, price and per-page medal costs. Weapons and stratagems link to
-// their own detail views; other items keep their wiki (English) names.
-//   #/warbonds[/<warbond>]?t=<tier>
+// Warbond guide: one release-ordered grid, with a warbond sheet and an optional
+// item detail alongside it (or in its place on narrow screens).
+//   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal>/<id>&m=<mode>
 import { warbonds, warbondTiers, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
 import { warbondImages } from '../../data/warbond-images.js';
 import { warbondBannerImages } from '../../data/warbond-banner-images.js';
 import { personalWeapons } from '../../data/personal-weapons.js';
+import { formatRoute } from '../../core/route.js';
 import { stratagemById } from '../../core/catalog.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang, locale, plural } from '../../core/i18n.js';
 
 let root, ctx;
-const state = { tier: '', detail: null, pushedDetail: false };
+const state = { tier: '', detail: null, item: null, mode: '', bondScroll: 0 };
+let itemRender = 0, sheetListener = false;
 const byId = new Map(warbonds.map(item => [item.id, item]));
 const weaponById = new Map(personalWeapons.map(item => [item.id, item]));
 const UNCONFIRMED = '미확인';
@@ -93,24 +94,42 @@ export function latestBanner() {
   </section>`;
 }
 
+// Array.sort is stable: releases on the same date keep their existing order.
+export function listContent(tier = '') {
+  const items = warbonds.filter(item => !tier || item.tier === tier)
+    .sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
+  return html`<div class="grid wb-grid">${items.map(card)}</div>`;
+}
+
 function renderList() {
-  const tiers = warbondTiers.filter(tier => !state.tier || tier.id === state.tier);
-  render($('#wb-list', root), tiers.map(tier => {
-    const items = warbonds.filter(item => item.tier === tier.id);
-    return html`<section class="wb-tier" aria-labelledby="wb-tier-${tier.id}"><h2 id="wb-tier-${tier.id}">${tier.name} <span class="faint">${items.length}</span></h2>
-      <div class="grid wb-grid">${items.map(card)}</div></section>`;
-  }));
+  render($('#wb-list', root), listContent(state.tier));
   for (const chip of $$('[data-tier-filter]', root)) chip.setAttribute('aria-pressed', String(chip.dataset.tierFilter === state.tier));
 }
 
+// Only real links belonging to this warbond may be embedded. Ignore malformed,
+// unknown and unrelated item parameters without breaking the warbond itself.
+export function resolveWarbondItem(warbondId, value) {
+  if (typeof value !== 'string') return null;
+  const [view, id, extra] = value.split('/');
+  if (extra != null || !id || !['gear', 'arsenal'].includes(view)) return null;
+  const ref = byId.get(warbondId)?.pages.flatMap(page => page.items)
+    .find(item => item.ref?.view === view && item.ref.id === id)?.ref;
+  const target = view === 'gear' ? weaponById.get(id) : stratagemById.get(id);
+  return ref && target ? { view, id, target } : null;
+}
+
+export function itemRoute(route, item, mode = '') {
+  return { view: 'warbonds', id: route.id, query: { ...route.query, item, m: mode } };
+}
+
 // --- Detail sheet -----------------------------------------------------------------------
-function itemRow(item) {
+function itemRow(item, warbondId) {
   const target = item.ref?.view === 'gear' ? weaponById.get(item.ref.id) : item.ref?.view === 'arsenal' ? stratagemById.get(item.ref.id) : null;
   // Official English directly (not via the dictionary: a Korean name can be shared, e.g. 스토커).
   const shownName = target ? L(target.name || target.en, target.en || target.name) : item.kind === 'super-credits' && item.superCredits ? `${count(item.superCredits)} SC` : item.name;
   const sub = target && lang !== 'en' && target.name ? target.en : '';
   const name = target
-    ? html`<a class="wb-link" href="#/${item.ref.view}/${encodeURIComponent(item.ref.id)}"><b>${shownName}</b>${sub ? html`<small>${sub}</small>` : ''}</a>`
+    ? html`<a class="wb-link" data-wb-item="${item.ref.view}/${item.ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${item.ref.view}/${item.ref.id}` } })}"><b>${shownName}</b>${sub ? html`<small>${sub}</small>` : ''}</a>`
     : html`<span><b>${shownName}</b></span>`;
   const notes = [];
   if (item.pageStatus) notes.push(L(`표에는 ${item.tablePage}페이지`, `table: page ${item.tablePage}`));
@@ -124,7 +143,7 @@ function itemRow(item) {
   </li>`;
 }
 
-function pageBlock(page) {
+function pageBlock(page, warbondId) {
   const items = [...page.items].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind));
   const unlock = page.number === 1 ? L('처음부터 열림', 'Open from the start')
     : page.unlock != null ? L(html`이 전쟁 채권에서 메달 <b>${count(page.unlock)}</b>개 사용 시 열림`, html`Opens after spending <b>${count(page.unlock)}</b> medals in this warbond`)
@@ -132,7 +151,7 @@ function pageBlock(page) {
   return html`<section class="block wb-page"><div class="wb-page-head"><h3>${L(`${page.number}페이지`, `Page ${page.number}`)}</h3>
       <span class="faint">${unlock}</span>
       <span class="wb-page-total">${page.cost != null ? html`${L('합계', 'Total')} ${medals(page.cost)}` : html`${L('합계', 'Total')} ${unconfirmed()}`}</span></div>
-    <ul class="wb-items">${items.map(itemRow)}</ul></section>`;
+    <ul class="wb-items">${items.map(item => itemRow(item, warbondId))}</ul></section>`;
 }
 
 function detailContent(warbond) {
@@ -149,9 +168,9 @@ function detailContent(warbond) {
       ${fact(L('모든 항목 구매', 'Every item'), warbond.totalCost != null ? medals(warbond.totalCost) : UNCONFIRMED, L('위키 인포박스 합계 (항목 비용 합과 대조)', 'Wiki infobox total (checked against the item costs)'))}
       ${fact(L('모든 페이지 해금', 'Unlock every page'), warbond.allPages != null ? medals(warbond.allPages) : UNCONFIRMED, L('이 전쟁 채권에서 사용한 메달 누계', 'Medals spent in this warbond'))}
       ${fact(L('슈퍼 크레딧 회수', 'Super Credits inside'), warbond.creditClaim == null ? UNCONFIRMED : warbond.creditClaim === 0 ? L('없음', 'None') : sc(warbond.creditClaim), L('항목으로 얻는 슈퍼 크레딧 합계', 'Super Credits you can claim as items'))}
-      ${fact(L('무기 · 스트라타젬', 'Weapons · stratagems'), html`${count(warbond.counts.weapons)}<small> · </small>${count(warbond.counts.stratagems)}`, L('누르면 상세 화면으로 이동', 'Tap one to open its details'))}
+      ${fact(L('무기 · 스트라타젬', 'Weapons · stratagems'), html`${count(warbond.counts.weapons)}<small> · </small>${count(warbond.counts.stratagems)}`, L('누르면 이 창에서 상세 보기', 'Tap one to view its details here'))}
     </dl>
-    ${warbond.pages.map(pageBlock)}
+    ${warbond.pages.map(page => pageBlock(page, warbond.id))}
     ${notes.length ? html`<div class="callout warn"><h3>${L('위키 자료 불일치', 'Wiki sources disagree')}</h3><ul class="notes">${notes.map(d => html`<li>${discrepancyText(d)}</li>`)}</ul></div>` : ''}
     <div class="sources">
       <span>${L('위키 확인', 'Checked')} ${warbondsCheckedAt} · revision ${warbond.revision} (${String(warbond.revisionTimestamp).slice(0, 10)})</span>
@@ -162,26 +181,133 @@ function detailContent(warbond) {
   </div>`;
 }
 
-function syncUrl() { ctx.replace({ view: 'warbonds', id: state.detail, query: { t: state.tier } }); }
+function listRoute() { return { view: 'warbonds', query: { ...ctx.route.query, t: state.tier, item: '', m: '' } }; }
+function syncUrl() { ctx.replace({ ...listRoute(), id: state.detail }); }
+
+// Mark only navigation created here. A copied URL must never send the visitor
+// back to an unrelated site when they use one of the close controls.
+function pushRoute(route, navigation) {
+  ctx.go(route);
+  history.replaceState({ ...history.state, warbondNavigation: navigation }, '');
+}
+function replaceRoute(route) { ctx.replace(route); update(route); }
+
+function closeItem() {
+  const route = itemRoute(ctx.route, '');
+  if (history.state?.warbondNavigation?.itemParent === formatRoute(route)) history.back();
+  else replaceRoute(route);
+}
+
+function closeWarbond() {
+  const list = listRoute();
+  const navigation = history.state?.warbondNavigation;
+  if (navigation?.list === formatRoute(list) && navigation.depth > 0) history.go(-navigation.depth);
+  else replaceRoute(list);
+}
 
 function openDetail(id) {
   const warbond = byId.get(id);
   if (!warbond) return;
-  ctx.openSheet(detailContent(warbond), {
+  ctx.openSheet(html`<div class="wb-workspace">
+    <section class="wb-item-pane" tabindex="-1" aria-label="${L('항목 상세', 'Item details')}" hidden></section>
+    <section class="wb-bond-pane" aria-labelledby="sheet-title">${detailContent(warbond)}</section>
+  </div>`, {
     wide: true,
     label: `${T(warbond.name)} ${L('상세', 'details')}`,
-    onClose: () => {
-      if (state.detail !== id) return;
-      state.detail = null;
-      if (state.pushedDetail) { state.pushedDetail = false; history.back(); } else syncUrl();
-    },
+    onClose: () => { if (state.detail === id) closeWarbond(); },
   });
+}
+
+// Reuse the full-page detail renderers, with a local toolbar and a unique title.
+// They are imported only after an item is opened, keeping the grid lightweight.
+export async function itemDetailContent(warbondId, value, mode = '') {
+  const ref = resolveWarbondItem(warbondId, value);
+  if (!ref) return '';
+  const header = html`<div class="sheet-top wb-item-toolbar">
+    <button class="button ghost" type="button" data-wb-item-close>${icon('back', 16)} ${L('뒤로', 'Back')}</button>
+    <a class="wb-full-page" href="${formatRoute({ view: ref.view, id: ref.id, query: { m: mode } })}">${L('전체 페이지로 열기', 'Open full page')} ${icon('expand', 14)}</a>
+    <button class="icon-button" type="button" data-wb-item-close aria-label="${L('항목 상세 닫기', 'Close item details')}">${icon('close', 18)}</button>
+  </div>`;
+  const options = { header, titleId: 'wb-item-title', variant: mode, compare: false };
+  if (ref.view === 'gear') {
+    const { weaponDetail } = await import('./gear.js');
+    return weaponDetail(ref.target, options);
+  }
+  const [{ stratagemDetail }, { demolitionProfiles }] = await Promise.all([
+    import('./arsenal.js'), import('../../data/demolition-data.js'),
+  ]);
+  return stratagemDetail(ref.target, { ...options, demolition: Object.hasOwn(demolitionProfiles, ref.id) });
+}
+
+async function showItem(value, mode) {
+  const version = ++itemRender;
+  const sheet = $('#sheet'), pane = $('.wb-item-pane', sheet), bondPane = $('.wb-bond-pane', sheet);
+  if (!pane) return;
+  const previous = state.item;
+  // Snapshot before the narrow layout hides the page list. Do not overwrite
+  // it with the zero some browsers report while that pane is display:none.
+  if (bondPane.getClientRects().length) state.bondScroll = bondPane.scrollTop;
+  state.item = value; state.mode = mode;
+  sheet.classList.toggle('split', !!value);
+  pane.hidden = !value;
+  for (const link of $$('[data-wb-item]', sheet)) {
+    if (link.dataset.wbItem === value) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  }
+  if (!value) {
+    bondPane.scrollTop = state.bondScroll;
+    render(pane, '');
+    if (previous) $$('[data-wb-item]', sheet).find(link => link.dataset.wbItem === previous)?.focus({ preventScroll: true });
+    return;
+  }
+  pane.scrollTop = 0;
+  render(pane, html`<p class="sheet-content" role="status">${L('상세 불러오는 중…', 'Loading details…')}</p>`);
+  pane.focus({ preventScroll: true });
+  try {
+    const content = await itemDetailContent(state.detail, value, mode);
+    if (version !== itemRender || ctx.route.view !== 'warbonds' || !sheet.open) return;
+    render(pane, content);
+  } catch (error) {
+    if (version !== itemRender || ctx.route.view !== 'warbonds' || !sheet.open) return;
+    render(pane, html`<div class="sheet-content"><p>${L('상세를 불러오지 못했습니다.', 'Details could not be loaded.')}</p>
+      <button class="button" type="button" data-wb-item-close>${L('뒤로', 'Back')}</button></div>`);
+    console.error(error);
+  }
+}
+
+function onSheetClick(event) {
+  if (ctx.route.view !== 'warbonds' || !event.target.closest('.wb-workspace')) return;
+  if (event.target.closest('[data-wb-item-close]')) { closeItem(); return; }
+  const link = event.target.closest('[data-wb-item]');
+  if (link && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+    event.preventDefault();
+    const route = itemRoute(ctx.route, link.dataset.wbItem);
+    if (state.item) replaceRoute(route); // another item replaces the current one
+    else {
+      const navigation = history.state?.warbondNavigation;
+      const list = formatRoute(listRoute());
+      pushRoute(route, {
+        itemParent: formatRoute(itemRoute(ctx.route, '')),
+        ...(navigation?.list === list ? { list, depth: navigation.depth + 1 } : {}),
+      });
+    }
+  }
+  const variant = event.target.closest('[data-variant]');
+  if (variant && state.item) {
+    state.mode = variant.dataset.variant;
+    for (const button of $$('[data-variant]', $('#sheet'))) button.setAttribute('aria-pressed', String(button === variant));
+    for (const panel of $$('[data-variant-panel]', $('#sheet'))) panel.hidden = panel.dataset.variantPanel !== state.mode;
+    ctx.replace(itemRoute(ctx.route, state.item, state.mode));
+    const fullPage = $('.wb-full-page', $('#sheet'));
+    const ref = resolveWarbondItem(state.detail, state.item);
+    fullPage.href = formatRoute({ view: ref.view, id: ref.id, query: { m: state.mode } });
+  }
 }
 
 // --- View lifecycle -------------------------------------------------------------------
 export function mount(container, context) {
   root = container; ctx = context;
-  state.detail = null; state.pushedDetail = false; // a fresh visit (e.g. Back from a weapon) reopens the sheet from the URL
+  state.detail = null; state.item = null; state.mode = ''; state.bondScroll = 0; ++itemRender;
   const items = warbonds.reduce((sum, item) => sum + item.itemCount, 0);
   render(root, html`<div class="page-head"><div><div class="eyebrow">Warbonds</div><h1>${L('전쟁 채권', 'Warbonds')}</h1>
       <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일·가격과 페이지별 메달 비용, 들어 있는 무기와 스트라타젬(${items}개 항목). 카드를 누르면 페이지별 목록이 열립니다.`, `Release date, price and per-page medal costs of all ${warbonds.length} warbonds, with the weapons and stratagems inside (${items} items). Open a card for the page-by-page list.`)}</p></div></div>
@@ -197,14 +323,29 @@ export function mount(container, context) {
     const target = event.target.closest('button');
     if (!target) return;
     if (target.dataset.tierFilter != null) { state.tier = state.tier === target.dataset.tierFilter ? '' : target.dataset.tierFilter; renderList(); syncUrl(); }
-    else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'warbonds', id: target.dataset.open, query: ctx.route.query }); }
+    else if (target.dataset.open) {
+      const list = listRoute();
+      pushRoute({ ...list, id: target.dataset.open }, { list: formatRoute(list), depth: 1 });
+    }
   });
+  if (!sheetListener) {
+    sheetListener = true;
+    $('#sheet').addEventListener('click', onSheetClick);
+    $('#sheet').addEventListener('cancel', event => {
+      if (ctx.route.view === 'warbonds' && state.item) { event.preventDefault(); closeItem(); }
+    });
+  }
 }
 
 export function update(route) {
   state.tier = warbondTiers.some(tier => tier.id === route.query.t) ? route.query.t : '';
   renderList();
   const id = byId.has(route.id) ? route.id : null;
-  if (id && id !== state.detail) { state.detail = id; openDetail(id); }
-  else if (!id && state.detail) { state.detail = null; state.pushedDetail = false; ctx.closeSheet(); }
+  if (id && id !== state.detail) { state.detail = id; state.item = null; state.mode = ''; state.bondScroll = 0; ++itemRender; openDetail(id); }
+  else if (!id && state.detail) { state.detail = null; state.item = null; ++itemRender; ctx.closeSheet(); }
+  if (!id) return;
+  const ref = resolveWarbondItem(id, route.query.item);
+  const value = ref ? `${ref.view}/${ref.id}` : null;
+  const mode = ref?.view === 'arsenal' && ref.target.variants?.some(v => v.id === route.query.m) ? route.query.m : '';
+  if (value !== state.item || mode !== state.mode) showItem(value, mode);
 }

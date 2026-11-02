@@ -57,6 +57,7 @@ let onSheetClose = null;
 export function openSheet(content, { wide = false, onClose = null, label = '' } = {}) {
   render($('#sheet-body'), content);
   sheet.classList.toggle('wide', wide);
+  sheet.classList.remove('split');
   if (label) sheet.setAttribute('aria-label', label);
   onSheetClose = onClose;
   if (!sheet.open) sheet.showModal();
@@ -83,7 +84,8 @@ export const ctx = {
   /** Update the URL for the current state without a new history entry or re-render. */
   replace(route) {
     const hash = formatRoute(route);
-    if (hash !== location.hash) history.replaceState(null, '', hash);
+    // Keep navigation metadata when a view replaces filters or an open item.
+    if (hash !== location.hash) history.replaceState(history.state, '', hash);
     current.route = parseRoute(hash);
   },
   get route() { return current.route; },

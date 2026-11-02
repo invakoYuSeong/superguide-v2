@@ -156,9 +156,6 @@ kbd { font: 600 11px/1 var(--mono); padding: 3px 5px; border: 1px solid var(--li
 .wb-latest-name h2 { font-size: 30px; font-weight: 850; line-height: 1.15; overflow-wrap: anywhere; }
 .wb-latest-name .en { color: var(--text-3); font-size: 14px; margin-top: 2px; }
 .wb-latest-cta { flex: none; }
-.wb-tier + .wb-tier { margin-top: 28px; }
-.wb-tier > h2 { font-size: 18px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: baseline; gap: 8px; }
-.wb-tier > h2 .faint { font-size: 14px; font-weight: 600; }
 .wb-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
 .wb-card { --cat: var(--line-strong); padding: 12px; }
 .wb-card[data-tier="premium"] { --cat: var(--accent); }
@@ -192,6 +189,22 @@ kbd { font: 600 11px/1 var(--mono); padding: 3px 5px; border: 1px solid var(--li
 .wb-name .ext { font-size: 12px; }
 .wb-cost { text-align: right; font-weight: 750; font-size: 14px; white-space: nowrap; display: grid; justify-items: end; }
 .wb-credit { margin-top: 24px; }
+/* Both panes live inside the same modal, so the left detail remains interactive. */
+.wb-workspace { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; overflow: hidden; }
+.wb-bond-pane, .wb-item-pane { min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.wb-item-pane { border-right: 1px solid var(--line); background: var(--bg-raise); }
+.wb-item-pane[hidden] { display: none; }
+.sheet.wide.split { width: 100vw; }
+.sheet.split .wb-workspace { grid-template-columns: minmax(0, 1fr) min(980px, 52vw); }
+.wb-item-toolbar { gap: 6px; flex-wrap: wrap; }
+.wb-item-toolbar .button { padding: 6px 8px; }
+.wb-full-page { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; font-size: 12px; }
+.wb-link[aria-current] b { color: var(--accent-text); border-color: currentColor; }
+@media (max-width: 1099px) {
+  .sheet.split .wb-workspace { grid-template-columns: minmax(0, 1fr); }
+  .sheet.split .wb-bond-pane { display: none; }
+  .wb-item-pane { border-right: 0; }
+}
 
 /* --- Page ------------------------------------------------------------------- */
 main { flex: 1; width: 100%; max-width: var(--page); margin: 0 auto; padding: 28px 20px 64px; outline: none; }
