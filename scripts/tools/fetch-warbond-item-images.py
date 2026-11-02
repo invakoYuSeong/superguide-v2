@@ -6,14 +6,16 @@ rowspan). For each distinct file:
   - asks the MediaWiki API (imageinfo, iiurlwidth) for a thumbnail a bit larger than needed,
   - trims transparent margins, then fits it inside the largest tile it is used in
     (CELL px per board cell; never upscales),
-  - saves rasters to dist/assets/warbond-items/<slug>.webp (unchanged raster pipeline),
+  - saves rasters to dist/assets/warbond-items/<slug>.webp (360 px per cell for 2x screens),
   - reuses an existing stratagem SVG only when its recorded wiki identity, SHA-256 and the
     current wiki SHA-1 agree; otherwise saves a safety-checked original <slug>.svg (max 50 KB).
 and writes dist/data/warbond-item-images.js (file name → src/size/source URL and sha1) plus the list of
 files that could not be fetched (the page shows those tiles with their name only).
 
 Files whose wiki sha1 and tile box did not change are kept as they are (no re-encoding), so a
-refresh only touches new or changed images. --force re-encodes everything.
+refresh only touches new or changed images. Increasing CELL invalidates old bitmap boxes
+automatically; --force also re-encodes all bitmaps. Unreferenced owned WebP/SVG files are
+removed from warbond-items after a refresh; shared stratagem files are never removed.
 Images: Helldivers Wiki, CC BY-NC-SA 4.0. The wiki rejects browser User-Agents.
 Usage: python3 scripts/tools/fetch-warbond-item-images.py [--force]   (requires curl and Pillow with WebP)
        python3 scripts/tools/fetch-warbond-item-images.py --reuse-local
@@ -29,11 +31,11 @@ root = pathlib.Path(__file__).resolve().parents[2]
 out_dir = root / 'dist' / 'assets' / 'warbond-items'
 module_path = root / 'dist' / 'data' / 'warbond-item-images.js'
 API = 'https://helldivers.wiki.gg/api.php'
-CELL = 180          # px per board cell: ~1.2x the widest CSS cell (~150 px), sharp enough on most screens
-QUALITY = 74        # WebP quality (alpha kept); the largest tiles are lowered step by step to MAX_BYTES
-MAX_BYTES = 45_000
+CELL = 360          # 2-span tiles get 720 px, at least 2x their ~335 CSS px long side
+QUALITY = 78        # WebP quality (alpha kept); the largest tiles are lowered step by step to MAX_BYTES
+MAX_BYTES = 140_000
 MAX_SVG_BYTES = 50_000
-BUCKETS = (160, 240, 320, 480, 640, 800, 1000)  # thumbnail widths requested from the wiki
+BUCKETS = (160, 240, 320, 480, 640, 800, 1000, 1200, 1600, 2000)  # wiki thumbnail widths
 
 
 def get(url):
@@ -95,7 +97,8 @@ def bucket(meta, box):
     if not w or not h:
         return BUCKETS[-1]
     need = max(box[0], box[1] * w / h) * 1.3
-    return next((b for b in BUCKETS if b >= need), BUCKETS[-1])
+    # Cap at the original; use it as well when even the largest bucket lacks trimming headroom.
+    return min(w, next((b for b in BUCKETS if b >= need), w))
 
 
 def encode(raw, box):
@@ -116,6 +119,8 @@ def encode(raw, box):
             image.save(buffer, 'WEBP', quality=quality, alpha_quality=80, method=6)
             if buffer.tell() <= MAX_BYTES:
                 break
+        else:
+            raise ValueError(f'WebP exceeds {MAX_BYTES:,} bytes even at quality {quality}')
         return buffer.getvalue(), image.size, quality
 
 
@@ -284,7 +289,8 @@ def main():
                 if not m:
                     raise ValueError('No imageinfo returned for the thumbnail')
                 svg = name.lower().endswith('.svg')
-                raw = get(m['url'] if svg else m.get('thumburl') or m['url'])
+                use_original = svg or width >= (m.get('width') or 0)
+                raw = get(m['url'] if use_original else m.get('thumburl') or m['url'])
                 time.sleep(0.15)
                 if svg:
                     w, h = safe_svg(raw, m)
@@ -306,7 +312,7 @@ def main():
     keep = {pathlib.Path(e['src']).name for e in entries.values()
             if e['src'].startswith('./assets/warbond-items/')}
     for stale in out_dir.iterdir():
-        if stale.suffix in ('.webp', '.svg') and stale.name not in keep:
+        if stale.is_file() and stale.suffix in ('.webp', '.svg') and stale.name not in keep:
             stale.unlink()
     write_module(entries, missing)
     total = sum(p.stat().st_size for p in out_dir.iterdir())

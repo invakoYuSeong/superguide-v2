@@ -164,7 +164,8 @@ for (const ref of warbonds.flatMap(w => w.pages.flatMap(p => p.items.map(i => i.
 // Cover images.
 for (const warbond of warbonds) {
   const image = warbondImages[warbond.id];
-  ok(image && image.width <= 240, `${warbond.id}: small cover`);
+  ok(image && image.originalWidth > 0 && image.width > 0 && image.width <= 720, `${warbond.id}: small cover (re-run fetch-warbond-covers.py)`);
+  eq(image.width, Math.min(720, image.originalWidth), `${warbond.id}: 720 px cover or smaller original, never upscaled`);
   await access(new URL(`dist/${image.src.slice(2)}`, root)); checks++;
 }
 // Generated output is current, deterministic, LF only, and independent of snapshot key order.
@@ -189,22 +190,49 @@ const tie = [{ id: 'b', en: 'Bravo', date: '2026-05-01' }, { id: 'a', en: 'Alpha
 for (const order of [tie, [...tie].reverse(), [tie[2], tie[0], tie[3], tie[1]]]) eq(pickLatest(order), 'a', 'tie-break by English title regardless of order');
 eq(pickLatest([{ id: 'x', en: 'X', date: null }]), null, 'no dated warbond → no banner');
 eq(pickLatest(warbonds.toReversed()), latestWarbondId, 'real data: order does not change the pick');
-// Large banner cover: only for the latest warbond, wide enough for the full-width strip and within budget; the 26 small covers are unchanged.
+// Large banner cover: original size up to 2048 px, within budget; smaller originals stay small.
 const banner = warbondBannerImages[latestWarbondId];
 ok(banner, `no large banner cover for ${latestWarbondId}: run python scripts/tools/fetch-warbond-covers.py --latest-large (the page falls back to the small cover meanwhile)`);
 for (const [id, image] of Object.entries(warbondBannerImages)) {
   const bytes = await readFile(new URL(`dist/${image.src.slice(2)}`, root));
-  ok(image.src === `./assets/warbonds/${id}-large.webp` && image.width >= 1200 && image.width <= 1600 && image.width > warbondImages[id].width, `${id}: large cover path and size (wide enough for the full-width strip)`);
-  ok(bytes.length <= 120000, `${id}: large cover is ${bytes.length} bytes (≤ 120,000)`);
+  ok(image.src === `./assets/warbonds/${id}-large.webp` && image.originalWidth > 0 && image.width > 0 && image.width <= 2048
+    && (image.width >= 1600 || image.width === image.originalWidth), `${id}: large cover path and size (1600–2048 px or smaller original)`);
+  eq(image.width, Math.min(2048, image.originalWidth), `${id}: banner uses the original up to 2048 px, never upscaled`);
+  ok(bytes.length <= 350_000, `${id}: large cover is ${bytes.length} bytes (≤ 350,000)`);
   eq(createHash('sha256').update(bytes).digest('hex'), image.sha256, `${id}: large cover file matches its record`);
 }
 for (const [id, image] of Object.entries(warbondImages)) {
-  eq(createHash('sha256').update(await readFile(new URL(`dist/${image.src.slice(2)}`, root))).digest('hex'), image.sha256, `${id}: small cover unchanged`);
+  eq(createHash('sha256').update(await readFile(new URL(`dist/${image.src.slice(2)}`, root))).digest('hex'), image.sha256, `${id}: small cover matches its record`);
 }
-const { latestBanner } = await import('../dist/ui/views/warbonds.js');
+const { latestBanner, listContent } = await import('../dist/ui/views/warbonds.js');
 const { escape } = await import('../dist/ui/dom.js');
 const bannerHtml = String(latestBanner());
 ok(bannerHtml.includes(`src="${banner.src}"`) && !bannerHtml.includes('is-small'), 'banner uses the large cover');
+const bannerImg = bannerHtml.match(/<img\b[^>]*>/)?.[0];
+ok(bannerImg?.includes('decoding="async"') && !bannerImg.includes('loading="lazy"'), 'above-the-fold banner decodes asynchronously without lazy loading');
+const smallBanner = warbondImages[latestWarbondId];
+if (smallBanner.width < banner.width) {
+  ok(bannerImg.includes(`srcset="${smallBanner.src} ${smallBanner.width}w, ${banner.src} ${banner.width}w"`), 'banner srcset uses the real small/large widths');
+  ok(bannerImg.includes('sizes="(min-width: 1280px) 1240px, 100vw"'), 'banner sizes follows the content width');
+}
+for (const candidate of (bannerImg.match(/srcset="([^"]+)"/)?.[1] || '').split(',').filter(Boolean)) {
+  const [, src, width] = candidate.trim().match(/^(\S+) (\d+)w$/) || [];
+  ok(src && [smallBanner, banner].some(image => image.src === src && image.width === Number(width)), 'banner srcset candidate has a recorded width');
+  await access(new URL(`dist/${src.slice(2)}`, root)); checks++;
+}
+// Missing either image must leave a usable single-image banner without a partial srcset.
+try {
+  delete warbondBannerImages[latestWarbondId];
+  const fallback = String(latestBanner());
+  ok(fallback.includes(`src="${smallBanner.src}"`) && fallback.includes('is-small') && !fallback.includes('srcset='), 'small-only banner fallback');
+  warbondBannerImages[latestWarbondId] = banner;
+  delete warbondImages[latestWarbondId];
+  const largeOnly = String(latestBanner());
+  ok(largeOnly.includes(`src="${banner.src}"`) && !largeOnly.includes('srcset='), 'large-only banner fallback');
+} finally {
+  warbondBannerImages[latestWarbondId] = banner;
+  warbondImages[latestWarbondId] = smallBanner;
+}
 const ctas = [...bannerHtml.matchAll(/<button class="button primary wb-latest-cta"[^>]*data-open="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
 ok(ctas.length === 1 && ctas[0][1] === latestWarbondId && ctas[0][2].includes('페이지별 목록 보기'), 'one "view pages" button opens the same detail route as the cards');
 ok([...bannerHtml.matchAll(/data-open="([^"]+)"/g)].every(m => m[1] === latestWarbondId), 'every clickable part of the banner opens the latest warbond');
@@ -261,8 +289,11 @@ for (const [file, image] of Object.entries(warbondItemImages)) {
       eq(decodeURIComponent(new URL(icon.source).pathname), `/wiki/File:${icon.title.replaceAll(' ', '_')}`, `${file}: shared wiki source confirms identity`);
     }
   } else {
+    const uses = warbonds.flatMap(w => w.pages.flatMap(p => p.items)).filter(item => item.image === file);
+    eq(image.box, [Math.max(...uses.map(item => item.colspan * 360)), Math.max(...uses.map(item => item.rowspan * 360))], `${file}: raster encoded for 360 px cells (run fetch-warbond-item-images.py)`);
     ok(image.width <= image.box[0] && image.height <= image.box[1], `${file}: raster no larger than its largest tile box`);
     ok(bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP', `${file}: WebP bytes`);
+    ok(bytes.length <= 140_000, `${file}: raster within 140,000 bytes`);
   }
   const source = new URL(image.source);
   eq(source.origin, 'https://helldivers.wiki.gg', `${file}: wiki image source`);
@@ -272,7 +303,8 @@ for (const file of usedImages) ok(Object.hasOwn(warbondItemImages, file) !== war
 const dedicatedSources = new Set(Object.values(warbondItemImages).map(image => image.src).filter(src => src.startsWith('./assets/warbond-items/')));
 eq(new Set([...onDiskImages].map(name => `./assets/warbond-items/${name}`)), dedicatedSources, 'every file in warbond-items is referenced and every dedicated mapping file exists');
 for (const src of dedicatedSources) imageBytes += (await readFile(new URL(`dist/${src.slice(2)}`, root))).length;
-ok(imageBytes <= 4_000_000, `item images total ${imageBytes} bytes (budget 4,000,000)`);
+// Estimated ~10 MB after doubling cells and raising quality; allow 25% pending the real refresh.
+ok(imageBytes <= 12_500_000, `item images total ${imageBytes} bytes (budget 12,500,000)`);
 const mappingText = await readFile(new URL('dist/data/warbond-item-images.js', root), 'utf8');
 ok(!mappingText.includes('\r'), 'item image mapping uses LF');
 ok(mappingText.includes('CC BY-NC-SA 4.0') && mappingText.includes('Trimmed, resized, WebP') && mappingText.includes('SVGs: original bytes'), 'image license, raster modifications and original SVG reuse are recorded');
@@ -280,6 +312,14 @@ ok(mappingText.includes('CC BY-NC-SA 4.0') && mappingText.includes('Trimmed, res
 // --- Board rendering: CSS grid spans, links, unconfirmed markers, English -------------------------
 const { pageBlock, tile } = await import('../dist/ui/views/warbonds.js');
 const { setLang, addEnglish } = await import('../dist/core/i18n.js');
+// Before loading dictionaries, L() must still choose the current language on every render.
+const unknownItem = { name: 'Unknown', kind: 'other', cost: null, costStatus: UNCONFIRMED };
+for (const [language, marker] of [['en', 'Unconfirmed'], ['ko', '미확인'], ['en', 'Unconfirmed'], ['ko', '미확인']]) {
+  setLang(language);
+  ok(String(tile(unknownItem, warbonds[0].id)).includes(`>${marker}</span>`), `${language}: unconfirmed text follows language switches without a dictionary`);
+}
+const cardsHtml = String(listContent());
+ok(!cardsHtml.includes('srcset=') && [...cardsHtml.matchAll(/<img\b[^>]*>/g)].every(([img]) => img.includes('loading="lazy"')), 'cards use one image file and lazy loading');
 const tilesOf = text => [...text.matchAll(/<li class="wb-tile"([^>]*)>([\s\S]*?)<\/li>/g)];
 // Exercise SVG rendering before the network refresh fills the real SVG mapping.
 const svgFixture = '__SVG rendering fixture__';
@@ -301,7 +341,7 @@ for (const warbond of warbonds) for (const p of warbond.pages) {
     const [, attrs, body] = tiles[index];
     ok(attrs.includes(`style="grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}"`), `${warbond.id} p${p.number} ${item.name}: placed with grid spans`);
     const image = warbondItemImages[item.image];
-    ok(image ? body.includes(`src="${image.src}"`) : !body.includes('<img') && attrs.includes('data-no-image'), `${warbond.id} p${p.number} ${item.name}: image or name-only tile`);
+    ok(image ? body.includes(`src="${image.src}"`) && body.includes('loading="lazy"') && !body.includes('srcset=') : !body.includes('<img') && attrs.includes('data-no-image'), `${warbond.id} p${p.number} ${item.name}: single lazy image or name-only tile`);
     ok(item.ref ? body.includes(`data-wb-item="${item.ref.view}/${item.ref.id}"`) : !body.includes('data-wb-item'), `${warbond.id} p${p.number} ${item.name}: detail link only for site entries`);
     if (!item.ref && !['super-credits', 'title'].includes(item.kind)) ok(body.includes('href="https://helldivers.wiki.gg/wiki/'), `${warbond.id} p${p.number} ${item.name}: wiki link kept`);
     const unsure = item.costStatus !== 'confirmed' || item.nameStatus || item.pageStatus;

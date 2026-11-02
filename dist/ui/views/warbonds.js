@@ -16,12 +16,12 @@ const state = { tier: '', detail: null, item: null, mode: '', bondScroll: 0 };
 let itemRender = 0, sheetListener = false;
 const byId = new Map(warbonds.map(item => [item.id, item]));
 const weaponById = new Map(personalWeapons.map(item => [item.id, item]));
-const UNCONFIRMED = '미확인';
+const unconfirmedText = () => L('미확인', 'Unconfirmed');
 
 const count = value => value.toLocaleString(locale());
 const tierName = id => warbondTiers.find(tier => tier.id === id)?.name || id;
 const wikiUrl = title => `https://helldivers.wiki.gg/wiki/${encodeURIComponent(title.replaceAll(' ', '_')).replace(/%2F/g, '/')}`;
-const unconfirmed = (title = '') => html`<span class="badge unknown" ${title ? html`title="${title}"` : ''}>${UNCONFIRMED}</span>`;
+const unconfirmed = (title = '') => html`<span class="badge unknown" ${title ? html`title="${title}"` : ''}>${unconfirmedText()}</span>`;
 const sc = value => value === 0 ? L('무료', 'Free') : html`${count(value)}<small> SC</small>`;
 const medals = value => html`${count(value)}<small>${L(' 메달', ' medals')}</small>`;
 
@@ -64,9 +64,9 @@ function card(warbond) {
     ${cover(warbond)}
     <div><h3>${warbond.name}</h3>${lang === 'en' ? '' : html`<div class="en">${warbond.en}</div>`}</div>
     <dl class="wb-facts">
-      <div><dt>${L('출시', 'Released')}</dt><dd>${warbond.date || UNCONFIRMED}</dd></div>
+      <div><dt>${L('출시', 'Released')}</dt><dd>${warbond.date || unconfirmedText()}</dd></div>
       <div><dt>${L('가격', 'Price')}</dt><dd>${sc(warbond.price)}</dd></div>
-      <div><dt>${L('전체 메달', 'All items')}</dt><dd>${warbond.totalCost != null ? medals(warbond.totalCost) : UNCONFIRMED}</dd></div>
+      <div><dt>${L('전체 메달', 'All items')}</dt><dd>${warbond.totalCost != null ? medals(warbond.totalCost) : unconfirmedText()}</dd></div>
     </dl>
     <div class="chips">${badge(L(`${warbond.pages.length}페이지 · ${warbond.itemCount}개`, `${warbond.pages.length} pages · ${warbond.itemCount} items`), 'outline')}
       ${warbond.counts.weapons ? badge(L(`무기 ${warbond.counts.weapons}`, `${warbond.counts.weapons} ${plural(warbond.counts.weapons, 'weapon')}`), 'accent') : ''}
@@ -78,15 +78,18 @@ function card(warbond) {
 // "Latest release" banner. latestWarbondId is chosen by the build (newest release date,
 // ties by English title — scripts/build-warbonds.mjs pickLatest), so it follows data refreshes.
 // Layout: the cover as a full-width strip (cropped top/bottom), then one row with the name on
-// the left and the "view pages" button on the right. The 1600 px large cover exists only for the
-// latest warbond; without it the 240 px small cover is shown at its own size (never upscaled).
+// the left and the "view pages" button on the right. The up to 2048 px cover exists only for the
+// latest warbond; without it the small cover is shown at its own size (never upscaled).
 export function latestBanner() {
   const warbond = warbonds.find(item => item.id === latestWarbondId);
   if (!warbond) return '';
   const large = warbondBannerImages[warbond.id];
-  const image = large || warbondImages[warbond.id];
+  const small = warbondImages[warbond.id];
+  const image = large || small;
+  const responsive = small && large && small.width < large.width
+    ? html`srcset="${small.src} ${small.width}w, ${large.src} ${large.width}w" sizes="(min-width: 1280px) 1240px, 100vw"` : '';
   return html`<section class="wb-latest" aria-labelledby="wb-latest-title">
-    ${image ? html`<button class="wb-latest-image" type="button" data-open="${warbond.id}" tabindex="-1" aria-hidden="true"><img class="wb-latest-cover ${large ? '' : 'is-small'}" src="${image.src}" alt="" width="${image.width}" height="${image.height}" decoding="async"></button>` : ''}
+    ${image ? html`<button class="wb-latest-image" type="button" data-open="${warbond.id}" tabindex="-1" aria-hidden="true"><img class="wb-latest-cover ${large ? '' : 'is-small'}" src="${image.src}" ${responsive} alt="" width="${image.width}" height="${image.height}" decoding="async"></button>` : ''}
     <div class="wb-latest-row">
       <div class="wb-latest-name"><div class="eyebrow">${L('최신 출시 채권', 'Latest warbond')}</div>
         <h2 id="wb-latest-title">${warbond.name}</h2>${lang === 'en' ? '' : html`<p class="en">${warbond.en}</p>`}</div>
@@ -181,11 +184,11 @@ function detailContent(warbond) {
     <div class="wb-hero">${cover(warbond, 'wb-hero-cover')}<div><h2 id="sheet-title">${warbond.name}</h2>${lang === 'en' ? '' : html`<p>${warbond.en}</p>`}
       <div class="chips" style="margin-top:6px">${badge(tierName(warbond.tier), 'outline')}${badge(L(`${warbond.pages.length}페이지 · ${warbond.itemCount}개`, `${warbond.pages.length} pages · ${warbond.itemCount} items`))}</div></div></div>
     <dl class="detail-grid wb-info">
-      ${fact(L('출시일', 'Release date'), warbond.date || UNCONFIRMED)}
+      ${fact(L('출시일', 'Release date'), warbond.date || unconfirmedText())}
       ${fact(L('가격', 'Price'), sc(warbond.price))}
-      ${fact(L('모든 항목 구매', 'Every item'), warbond.totalCost != null ? medals(warbond.totalCost) : UNCONFIRMED, L('위키 인포박스 합계 (항목 비용 합과 대조)', 'Wiki infobox total (checked against the item costs)'))}
-      ${fact(L('모든 페이지 해금', 'Unlock every page'), warbond.allPages != null ? medals(warbond.allPages) : UNCONFIRMED, L('이 전쟁 채권에서 사용한 메달 누계', 'Medals spent in this warbond'))}
-      ${fact(L('슈퍼 크레딧 회수', 'Super Credits inside'), warbond.creditClaim == null ? UNCONFIRMED : warbond.creditClaim === 0 ? L('없음', 'None') : sc(warbond.creditClaim), L('항목으로 얻는 슈퍼 크레딧 합계', 'Super Credits you can claim as items'))}
+      ${fact(L('모든 항목 구매', 'Every item'), warbond.totalCost != null ? medals(warbond.totalCost) : unconfirmedText(), L('위키 인포박스 합계 (항목 비용 합과 대조)', 'Wiki infobox total (checked against the item costs)'))}
+      ${fact(L('모든 페이지 해금', 'Unlock every page'), warbond.allPages != null ? medals(warbond.allPages) : unconfirmedText(), L('이 전쟁 채권에서 사용한 메달 누계', 'Medals spent in this warbond'))}
+      ${fact(L('슈퍼 크레딧 회수', 'Super Credits inside'), warbond.creditClaim == null ? unconfirmedText() : warbond.creditClaim === 0 ? L('없음', 'None') : sc(warbond.creditClaim), L('항목으로 얻는 슈퍼 크레딧 합계', 'Super Credits you can claim as items'))}
       ${fact(L('무기 · 스트라타젬', 'Weapons · stratagems'), html`${count(warbond.counts.weapons)}<small> · </small>${count(warbond.counts.stratagems)}`, L('누르면 이 창에서 상세 보기', 'Tap one to view its details here'))}
     </dl>
     ${warbond.pages.map(page => pageBlock(page, warbond))}

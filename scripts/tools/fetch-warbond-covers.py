@@ -1,10 +1,10 @@
 """Download warbond cover art from the Helldivers Wiki as WebP files.
 
-Default: for every warbond in db/source/wiki_warbonds.json, a 240 px wide thumbnail of the
+Default: for every warbond in db/source/wiki_warbonds.json, a 720 px wide thumbnail of the
 infobox `image=` → dist/assets/warbonds/<id>.webp plus dist/data/warbond-images.js.
 
 --latest-large: only for the warbond in the "latest release" banner (latestWarbondId of
-dist/data/warbonds.js, so run scripts/build-warbonds.mjs first) a ~1600 px wide version →
+dist/data/warbonds.js, so run scripts/build-warbonds.mjs first) an up to 2048 px wide version →
 dist/assets/warbonds/<id>-large.webp plus dist/data/warbond-banner-images.js. Never upscales
 past the original; lowers WebP quality step by step to stay within MAX_BYTES. The small
 covers are left untouched in this mode.
@@ -20,9 +20,9 @@ root = pathlib.Path(__file__).resolve().parents[2]
 out_dir = root / 'dist' / 'assets' / 'warbonds'
 API = 'https://helldivers.wiki.gg/api.php'
 UA = 'HD2FieldGuide/2.0 (fan site data check; contact via github modocracy)'
-WIDTH = 240
-LARGE_WIDTH = 1600  # the banner spans the full content width (up to ~1240 px CSS), cropped to a wide strip
-MAX_BYTES = 120_000
+WIDTH = 720  # at least 2x the widest card (344 CSS px); detail covers are smaller
+LARGE_WIDTH = 2048  # 1240 CSS px at 2x exceeds the wiki original; use that original, never upscale
+MAX_BYTES = 350_000  # large banner only; begin at quality 72 and lower only when needed
 
 
 def get(url):
@@ -64,9 +64,15 @@ def image_info(names, width):
 def entry(target, name, meta, width, height):
     return {
         'src': f'./assets/warbonds/{target.name}', 'width': width, 'height': height,
+        'originalWidth': meta['width'], 'originalHeight': meta['height'],
         'file': name, 'source': 'https://helldivers.wiki.gg/wiki/File:' + urllib.parse.quote(name.replace(' ', '_')),
         'sourceSha1': meta.get('sha1'), 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
     }
+
+
+def image_url(meta, width):
+    # MediaWiki can return an enlarged thumbnail; explicitly choose the original at its limit.
+    return meta['url'] if width >= meta['width'] else meta.get('thumburl') or meta['url']
 
 
 def write_module(path, export, header, entries):
@@ -84,14 +90,14 @@ def small_covers(pages):
         meta = info.get(files.get(title))
         if not meta:
             missing.append(title); continue
-        raw = get(meta.get('thumburl') or meta['url'])
+        raw = get(image_url(meta, WIDTH))
         time.sleep(0.2)
         with Image.open(io.BytesIO(raw)) as image:
             image = image.convert('RGB')
             if image.width > WIDTH:
                 image = image.resize((WIDTH, round(image.height * WIDTH / image.width)), Image.LANCZOS)
             buffer = io.BytesIO()
-            image.save(buffer, 'WEBP', quality=78, method=6)
+            image.save(buffer, 'WEBP', quality=80, method=6)
             width, height = image.size
         target = out_dir / f'{warbond_id(title)}.webp'
         target.write_bytes(buffer.getvalue())
@@ -111,16 +117,18 @@ def latest_large(pages):
     meta = image_info([name], LARGE_WIDTH).get(name) if name else None
     if not meta:
         sys.exit(f'No cover image for {title}')
-    raw = get(meta.get('thumburl') or meta['url'])
+    raw = get(image_url(meta, LARGE_WIDTH))
     with Image.open(io.BytesIO(raw)) as image:
         image = image.convert('RGB')
         if image.width > LARGE_WIDTH:  # never upscale: a smaller original stays at its own size
             image = image.resize((LARGE_WIDTH, round(image.height * LARGE_WIDTH / image.width)), Image.LANCZOS)
-        for quality in range(70, 40, -5):
+        for quality in range(72, 41, -5):
             buffer = io.BytesIO()
             image.save(buffer, 'WEBP', quality=quality, method=6)
             if buffer.tell() <= MAX_BYTES:
                 break
+        else:
+            sys.exit(f'Banner exceeds {MAX_BYTES:,} bytes even at quality {quality}; no file written')
         width, height = image.size
     out_dir.mkdir(parents=True, exist_ok=True)
     target = out_dir / f'{latest}-large.webp'
