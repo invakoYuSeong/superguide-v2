@@ -1,13 +1,14 @@
 // Warbond guide: one release-ordered grid, with a warbond sheet and an optional
 // item detail alongside it (or in its place on narrow screens).
 //   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal>/<id>&m=<mode>
-import { warbonds, warbondTiers, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
+import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
 import { warbondImages } from '../../data/warbond-images.js';
+import { warbondItemImages } from '../../data/warbond-item-images.js';
 import { warbondBannerImages } from '../../data/warbond-banner-images.js';
 import { personalWeapons } from '../../data/personal-weapons.js';
 import { formatRoute } from '../../core/route.js';
 import { stratagemById } from '../../core/catalog.js';
-import { html, render, $, $$, badge, external, icon } from '../dom.js';
+import { html, raw, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang, locale, plural } from '../../core/i18n.js';
 
 let root, ctx;
@@ -25,14 +26,14 @@ const sc = value => value === 0 ? L('무료', 'Free') : html`${count(value)}<sma
 const medals = value => html`${count(value)}<small>${L(' 메달', ' medals')}</small>`;
 
 const KIND = {
-  primary: L('주무기', 'Primary'), secondary: L('보조무기', 'Secondary'), throwable: L('투척', 'Throwable'), weapon: L('무기', 'Weapon'),
-  stratagem: L('스트라타젬', 'Stratagem'), booster: L('부스터', 'Booster'), helmet: L('헬멧', 'Helmet'), armor: L('아머', 'Armor'),
-  cape: L('망토', 'Cape'), 'player-card': L('플레이어 카드', 'Player card'), pattern: L('패턴', 'Pattern'), emote: L('감정 표현', 'Emote'),
-  'victory-pose': L('승리 포즈', 'Victory pose'), title: L('칭호', 'Title'), 'super-credits': L('슈퍼 크레딧', 'Super Credits'), other: L('기타', 'Other'),
+  primary: ['주무기', 'Primary'], secondary: ['보조무기', 'Secondary'], throwable: ['투척', 'Throwable'], weapon: ['무기', 'Weapon'],
+  stratagem: ['스트라타젬', 'Stratagem'], booster: ['부스터', 'Booster'], helmet: ['헬멧', 'Helmet'], armor: ['아머', 'Armor'],
+  cape: ['망토', 'Cape'], 'player-card': ['플레이어 카드', 'Player card'], pattern: ['패턴', 'Pattern'], emote: ['감정 표현', 'Emote'],
+  'victory-pose': ['승리 포즈', 'Victory pose'], title: ['칭호', 'Title'], 'super-credits': ['슈퍼 크레딧', 'Super Credits'], other: ['기타', 'Other'],
 };
-const WEIGHT = { light: L('경량', 'Light'), medium: L('중간', 'Medium'), heavy: L('중량', 'Heavy') };
-const KIND_ORDER = Object.keys(KIND);
-const kindLabel = item => item.kind === 'armor' && WEIGHT[item.weight] ? `${KIND.armor} · ${WEIGHT[item.weight]}` : KIND[item.kind] || KIND.other;
+const WEIGHT = { light: ['경량', 'Light'], medium: ['중간', 'Medium'], heavy: ['중량', 'Heavy'] };
+const kindLabel = item => item.kind === 'armor' && WEIGHT[item.weight]
+  ? `${L(...KIND.armor)} · ${L(...WEIGHT[item.weight])}` : L(...(KIND[item.kind] || KIND.other));
 
 // What each wiki discrepancy code means, for the per-warbond notes.
 function discrepancyText(d) {
@@ -123,35 +124,52 @@ export function itemRoute(route, item, mode = '') {
 }
 
 // --- Detail sheet -----------------------------------------------------------------------
-function itemRow(item, warbondId) {
+// Medal mark for tile prices (decorative; the price itself is read out as "N medals").
+const MEDAL = raw('<svg class="wb-medal" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1h5l-1 3h-3z" fill="currentColor"/><circle cx="8" cy="10" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7.1c-1.5 0-2.4.9-2.4 2.1 0 .8.4 1.3.9 1.6v1.2h3v-1.2c.5-.3.9-.8.9-1.6 0-1.2-.9-2.1-2.4-2.1zM6.9 9.3a.6.6 0 1 1 0 .1zm2.2 0a.6.6 0 1 1 0 .1z" fill="currentColor"/></svg>');
+
+// One reward tile at its in-game board position (Acquisitions Page template: col/row/span).
+// Weapons and stratagems with a site entry open in the item pane; other items link to the wiki.
+export function tile(item, warbondId, { placed = true } = {}) {
   const target = item.ref?.view === 'gear' ? weaponById.get(item.ref.id) : item.ref?.view === 'arsenal' ? stratagemById.get(item.ref.id) : null;
   // Official English directly (not via the dictionary: a Korean name can be shared, e.g. 스토커).
   const shownName = target ? L(target.name || target.en, target.en || target.name) : item.kind === 'super-credits' && item.superCredits ? `${count(item.superCredits)} SC` : item.name;
   const sub = target && lang !== 'en' && target.name ? target.en : '';
-  const name = target
-    ? html`<a class="wb-link" data-wb-item="${item.ref.view}/${item.ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${item.ref.view}/${item.ref.id}` } })}"><b>${shownName}</b>${sub ? html`<small>${sub}</small>` : ''}</a>`
-    : html`<span><b>${shownName}</b></span>`;
+  const image = item.image ? warbondItemImages[item.image] : null;
   const notes = [];
-  if (item.pageStatus) notes.push(L(`표에는 ${item.tablePage}페이지`, `table: page ${item.tablePage}`));
-  if (item.nameStatus) notes.push(L(`표 이름: ${item.tableName}`, `table name: ${item.tableName}`));
-  const costTitle = item.costStatus === 'confirmed' ? '' : L(`템플릿 ${item.templateCost ?? '—'} · 표 ${item.tableCost ?? '—'}`, `template ${item.templateCost ?? '—'} · table ${item.tableCost ?? '—'}`);
-  return html`<li class="wb-item" data-kind="${item.kind}">
-    <span class="wb-kind">${kindLabel(item)}</span>
-    <span class="wb-name">${name}${item.nameStatus ? unconfirmed(L('이름 표기 미확인', 'Name spelling unconfirmed')) : ''}${notes.length ? html`<small class="faint">${notes.join(' · ')}</small>` : ''}
-      ${!target && item.kind !== 'super-credits' && item.kind !== 'title' ? external(wikiUrl(item.link || item.name), L('위키', 'Wiki')) : ''}</span>
-    <span class="wb-cost">${item.cost != null ? medals(item.cost) : html`${unconfirmed(costTitle)}<small class="faint">${costTitle}</small>`}</span>
-  </li>`;
+  if (item.costStatus !== 'confirmed') notes.push(L(`비용 미확인: 템플릿 ${item.templateCost ?? '—'} · 표 ${item.tableCost ?? '—'}`, `Cost unconfirmed: template ${item.templateCost ?? '—'} · table ${item.tableCost ?? '—'}`));
+  if (item.pageStatus) notes.push(L(`페이지 미확인: 표에는 ${item.tablePage}페이지`, `Page unconfirmed: the table puts it on page ${item.tablePage}`));
+  if (item.nameStatus) notes.push(L(`이름 표기 미확인: 표에는 ${item.tableName}`, `Name spelling unconfirmed: the table says ${item.tableName}`));
+  const title = [shownName, sub, kindLabel(item), ...notes].filter(Boolean).join('\n');
+  const cost = item.cost != null
+    ? html`<span class="wb-tile-cost">${MEDAL}<span>${count(item.cost)}</span><span class="sr-only">${L(' 메달', ' medals')}</span></span>`
+    : html`<span class="wb-tile-cost">${unconfirmed()}</span>`;
+  const body = html`${cost}
+    <span class="wb-tile-kind">${kindLabel(item)}</span>
+    ${image ? html`<img class="wb-tile-img" src="${image.src}" alt="" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : ''}
+    <span class="wb-tile-name"><b>${shownName}</b>${sub ? html`<small>${sub}</small>` : ''}</span>
+    ${item.costStatus === 'confirmed' && notes.length ? html`<span class="wb-tile-flag">${unconfirmed()}</span>` : ''}`;
+  const wiki = !target && item.kind !== 'super-credits' && item.kind !== 'title';
+  const inner = target
+    ? html`<a class="wb-tile-body" data-wb-item="${item.ref.view}/${item.ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${item.ref.view}/${item.ref.id}` } })}" title="${title}">${body}</a>`
+    : wiki ? html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`
+      : html`<div class="wb-tile-body" title="${title}">${body}</div>`;
+  const area = placed ? `grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}` : '';
+  return html`<li class="wb-tile" data-kind="${item.kind}" data-span="${item.colspan}x${item.rowspan}" ${area ? html`style="${area}"` : ''} ${notes.length ? 'data-unsure' : ''} ${image ? '' : 'data-no-image'}>${inner}</li>`;
 }
 
-function pageBlock(page, warbondId) {
-  const items = [...page.items].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind));
-  const unlock = page.number === 1 ? L('처음부터 열림', 'Open from the start')
-    : page.unlock != null ? L(html`이 전쟁 채권에서 메달 <b>${count(page.unlock)}</b>개 사용 시 열림`, html`Opens after spending <b>${count(page.unlock)}</b> medals in this warbond`)
+// One page as the in-game 5×3 board. A page whose template layout does not fill the board
+// (layoutStatus 미확인 — none at the moment) falls back to one cell per item.
+export function pageBlock(page, warbond) {
+  const unlock = page.number === 1 ? L('처음부터 해금', 'Unlocked from the start')
+    : page.unlock != null ? L(html`이 채권에서 메달 <b>${count(page.unlock)}</b>개 사용 시 해금`, html`Unlocks after spending <b>${count(page.unlock)}</b> medals in this warbond`)
       : html`${L('해금 조건', 'Unlock')} ${unconfirmed()}`;
-  return html`<section class="block wb-page"><div class="wb-page-head"><h3>${L(`${page.number}페이지`, `Page ${page.number}`)}</h3>
+  const placed = page.layoutStatus === 'confirmed';
+  return html`<section class="block wb-page" aria-labelledby="wb-page-${page.number}"><div class="wb-page-head">
+      <h3 id="wb-page-${page.number}"><span aria-hidden="true">PAGE_${page.number}</span><span class="sr-only">${L(`${page.number}페이지`, `Page ${page.number}`)}</span></h3>
       <span class="faint">${unlock}</span>
       <span class="wb-page-total">${page.cost != null ? html`${L('합계', 'Total')} ${medals(page.cost)}` : html`${L('합계', 'Total')} ${unconfirmed()}`}</span></div>
-    <ul class="wb-items">${items.map(item => itemRow(item, warbondId))}</ul></section>`;
+    <ul class="wb-board ${placed ? '' : 'is-unplaced'}" data-tier="${warbond.tier}" style="--wb-cols: ${warbondBoard.cols}; --wb-rows: ${warbondBoard.rows}">${page.items.map(item => tile(item, warbond.id, { placed }))}</ul>
+    ${placed ? '' : html`<p class="faint">${L('위키의 타일 배치가 5×3 칸과 맞지 않아 순서대로 놓았습니다(배치 미확인).', 'The wiki tile layout does not fit the 5×3 board, so the tiles are listed in order (layout unconfirmed).')}</p>`}</section>`;
 }
 
 function detailContent(warbond) {
@@ -170,7 +188,7 @@ function detailContent(warbond) {
       ${fact(L('슈퍼 크레딧 회수', 'Super Credits inside'), warbond.creditClaim == null ? UNCONFIRMED : warbond.creditClaim === 0 ? L('없음', 'None') : sc(warbond.creditClaim), L('항목으로 얻는 슈퍼 크레딧 합계', 'Super Credits you can claim as items'))}
       ${fact(L('무기 · 스트라타젬', 'Weapons · stratagems'), html`${count(warbond.counts.weapons)}<small> · </small>${count(warbond.counts.stratagems)}`, L('누르면 이 창에서 상세 보기', 'Tap one to view its details here'))}
     </dl>
-    ${warbond.pages.map(page => pageBlock(page, warbond.id))}
+    ${warbond.pages.map(page => pageBlock(page, warbond))}
     ${notes.length ? html`<div class="callout warn"><h3>${L('위키 자료 불일치', 'Wiki sources disagree')}</h3><ul class="notes">${notes.map(d => html`<li>${discrepancyText(d)}</li>`)}</ul></div>` : ''}
     <div class="sources">
       <span>${L('위키 확인', 'Checked')} ${warbondsCheckedAt} · revision ${warbond.revision} (${String(warbond.revisionTimestamp).slice(0, 10)})</span>
@@ -318,7 +336,7 @@ export function mount(container, context) {
     </div>
     <div id="wb-list"></div>
     <p class="sources wb-credit">${L('자료', 'Data')}: ${external(warbondsSource.site, 'Helldivers Wiki')} <span>(helldivers.wiki.gg) ${L('기여자들', 'contributors')}, ${external(lang === 'en' ? warbondsSource.licenseUrl : `${warbondsSource.licenseUrl}deed.ko`, warbondsSource.license)}</span>
-      <span>${L(`위키 확인 ${warbondsCheckedAt} · 표지는 webp 변환·축소`, `Checked on the wiki ${warbondsCheckedAt} · covers converted to WebP and resized`)}</span></p>`);
+      <span>${L(`위키 확인 ${warbondsCheckedAt} · 표지는 webp 변환·축소, 비트맵 항목 이미지는 여백 제거·webp 변환·축소, SVG는 원본 사용`, `Checked on the wiki ${warbondsCheckedAt} · covers converted to WebP and resized; raster item images trimmed, converted to WebP and resized; original SVGs used`)}</span></p>`);
   root.addEventListener('click', event => {
     const target = event.target.closest('button');
     if (!target) return;
