@@ -149,7 +149,7 @@ eq(personalWeapons.length, 107);
 eq(new Set([...personalWeapons, ...stratagems].map(w => w.id)).size, personalWeapons.length + stratagems.length, 'no personal/stratagem ID collisions');
 eq(personalGroups.map(g => g.id), ['primary', 'secondary', 'throwable']);
 ok(/^\d{4}-\d{2}-\d{2}$/.test(personalWeaponsCheckedAt), 'checkedAt format');
-eq(personalWeaponsSource.attacksRevision, 140989);
+eq(personalWeaponsSource.attacksRevision, 141275);
 const playerCopy = [...Object.values(personalUnsupported)];
 const collectModeCopy = attack => {
   playerCopy.push(...[attack.name, attack.note, attack.unsupported, attack.hitCondition?.projectileName].filter(Boolean));

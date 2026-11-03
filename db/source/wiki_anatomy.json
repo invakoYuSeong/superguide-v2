@@ -1,9 +1,9 @@
 {
- "retrievedAt": "2026-10-31",
+ "retrievedAt": "2026-11-03",
  "pages": {
   "Agitator": {
    "source": "https://helldivers.wiki.gg/wiki/Agitator",
-   "revision": 136527,
+   "revision": 141134,
    "rows": [
     {
      "part_name": "Main",
@@ -138,7 +138,7 @@
   },
   "Alpha Commander": {
    "source": "https://helldivers.wiki.gg/wiki/Alpha_Commander",
-   "revision": 136691,
+   "revision": 141214,
    "rows": [
     {
      "part_name": "Main",
@@ -176,7 +176,7 @@
      "percent_to_main": "50%",
      "dmg_cap_main": "No",
      "bleed": "None",
-     "fatal": "No",
+     "fatal": "Yes (When<br>both are<br>destroyed)",
      "exdr": "100%"
     },
     {
@@ -1105,7 +1105,7 @@
   },
   "Brood Commander": {
    "source": "https://helldivers.wiki.gg/wiki/Brood_Commander",
-   "revision": 136690,
+   "revision": 141213,
    "rows": [
     {
      "part_name": "Main",
@@ -1143,7 +1143,7 @@
      "percent_to_main": "50%",
      "dmg_cap_main": "No",
      "bleed": "None",
-     "fatal": "No",
+     "fatal": "Yes (When<br>both are<br>destroyed)",
      "exdr": "100%"
     },
     {
@@ -3624,7 +3624,7 @@
   },
   "Hive Guard": {
    "source": "https://helldivers.wiki.gg/wiki/Hive_Guard",
-   "revision": 137924,
+   "revision": 141215,
    "rows": [
     {
      "part_name": "Main",
@@ -3662,7 +3662,7 @@
      "percent_to_main": "25%",
      "dmg_cap_main": "No",
      "bleed": "None",
-     "fatal": "No",
+     "fatal": "Yes (When<br>both are<br>destroyed)",
      "exdr": "100%"
     },
     {
@@ -8569,7 +8569,7 @@
   },
   "Vox Engine": {
    "source": "https://helldivers.wiki.gg/wiki/Vox_Engine",
-   "revision": 140053,
+   "revision": 141210,
    "rows": [
     {
      "part_name": "Main",
@@ -8622,7 +8622,7 @@
      "durability": "70%",
      "percent_to_main": "-",
      "bleed": "None",
-     "fatal": "No",
+     "fatal": "Yes (When<br>both are<br>destroyed)",
      "exdr": "60%"
     },
     {

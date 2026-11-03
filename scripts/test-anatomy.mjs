@@ -57,10 +57,15 @@ function matches(part, row, label, main, enemy) {
   // "Yes (Downs)" is fatal, "No (Downs)" only knocks it down. When the bleed
   // cell holds that flag, the page gives no bleed amount.
   const downs = [row.fatal, row.bleed].find(cell => /Downs/.test(cell ?? ''));
+  const both = /When.*both are.*destroyed/i.test(clean(row.fatal));
   const fatal = downs ? /^Yes/.test(downs) : /^Yes/.test(row.fatal);
   // "No (Downs)" on a flyer is the site's "down" (brought down, not a kill).
-  const allowed = fatal ? ['kill', 'bleed', 'down'] : ['break', 'armor', ...(downs ? ['down'] : [])];
+  const allowed = both ? (part.copies === 2 ? ['kill'] : ['break']) : fatal ? ['kill', 'bleed', 'down'] : ['break', 'armor', ...(downs ? ['down'] : [])];
   ok(allowed.includes(part.effect), `${label}: fatal ${row.fatal} vs ${part.effect}`);
+  if (both) {
+    ok(partsOf(enemy).some(other => other.sourcePart === part.sourcePart && other.effect === 'break' && !other.copies), `${label}: single copy breaks`);
+    ok(partsOf(enemy).some(other => other.sourcePart === part.sourcePart && other.effect === 'kill' && other.copies === 2), `${label}: both copies kill`);
+  }
   const bleedCell = /Downs/.test(row.bleed ?? '') ? null : row.bleed;
   const bleed = bleedCell?.match(/^([\d,]+) \[-?([\d.]+)\/s\]$/);
   if (bleedCell === null) return;

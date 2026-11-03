@@ -80,7 +80,11 @@ for (const expected of golden.combat) {
   const options = addedHitConditions.has(key) ? { ...expected.options, hitCount: 0 } : expected.options;
   const { rows, best } = solveMatchup(enemy, withHitAssumption(mode, options), options);
   const label = `${expected.enemy} × ${expected.weapon}/${expected.mode} ${JSON.stringify(expected.options)}`;
-  const actual = rows.map(view);
+  const pairIds = { 'hive-guard': 'claw-both', 'brood-commander': 'claw-both', 'alpha-commander': 'claw-both', 'vox-engine': 'cannon-both' };
+  const pairRows = rows.filter(row => row.target.id === pairIds[enemy.id]);
+  const actual = rows.filter(row => !pairRows.includes(row)).map(view);
+  const legacyBestCurrent = rows.filter(row => !pairRows.includes(row) && !row.conditional && ['kill', 'bleed', 'down'].includes(row.outcome)).sort((a, b) => a.hits - b.hits || Number(a.outcome !== 'kill') - Number(b.outcome !== 'kill'))[0] || null;
+  if (best !== legacyBestCurrent) assert(pairRows.includes(best), `${label}: only a new pair route can change best`);
   // Deliberate change: the legacy engine stopped a beam at a broken armor
   // layer. A beam held on the spot now carries on into the exposed layer, so
   // those rows keep the legacy armor stage exactly and only extend past it.
@@ -98,8 +102,8 @@ for (const expected of golden.combat) {
   assert(actual.length === expected.rows.length || enemy.anatomyRevision && added.size, `${label}: part rows`);
   if (added.size) addedRows += added.size;
   const legacyBest = expected.rows.find(row => row.t === expected.best);
-  const improved = id => (carried.has(id) || added.has(id)) && (!legacyBest || best.hits <= legacyBest.h);
-  assert((best?.target.id ?? null) === expected.best || improved(best?.target.id), `${label}: best route`);
+  const improved = id => (carried.has(id) || added.has(id)) && (!legacyBest || legacyBestCurrent.hits <= legacyBest.h);
+  assert((legacyBestCurrent?.target.id ?? null) === expected.best || improved(legacyBestCurrent?.target.id), `${label}: best route`);
   checked++;
 }
 assert.equal(checked, golden.combat.length);

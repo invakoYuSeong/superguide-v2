@@ -6,7 +6,7 @@ import { pickerEnemyImages } from '../../data/selector-images.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { stratagemById } from '../../core/catalog.js';
 import { recommend, findEnemy } from '../../core/factions.js';
-import { num, unitOf, outcomeOf, countText, aimText, routeNotes, josa } from '../../core/explain.js';
+import { num, unitOf, outcomeOf, countText, aimText, routeNotes, josa, stageName } from '../../core/explain.js';
 import { html, render, $, $$, badge, external } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
@@ -28,7 +28,7 @@ function routeBlock(pick) {
   const outcome = outcomeOf(route);
   return html`<div><p class="how" style="font-weight:700">${redirected ? L('본체 폭발 피해 · 단일 판정 가정', 'Main explosion damage · assumes one check per blast') : route.target.name} — ${countText(route, mode)} ${outcome.label}</p>
     ${redirected ? html`<p>${L(`‘${route.target.name}’는 폭발 피해를 받지 않아, 폭발이 닿을 때마다 본체에 한 번 들어가는 피해만 반복한 값입니다. 이 부위를 노리는 게 가장 좋다는 뜻은 아닙니다.`, `The ${T(route.target.name)} takes no explosion damage, so this repeats only the damage that reaches main health once per blast. It does not mean this is the best part to aim for.`)}</p>` : aimText(route, mode).map(line => html`<p>${line}</p>`)}
-    ${route.stages.length > 1 ? html`<p class="faint">${route.stages.map(stage => Number.isFinite(stage.contactSeconds) ? T(stage.part.name) : `${T(stage.part.name)} ${num(stage.hits)}${unitFor(stage.hits)}`).join(' → ')} ${L('(장갑 제거 포함)', '(armor removal included)')}</p>` : ''}
+    ${route.stages.length > 1 ? html`<p class="faint">${route.stages.map(stage => Number.isFinite(stage.contactSeconds) ? stageName(stage) : `${stageName(stage)} ${num(stage.hits)}${unitFor(stage.hits)}`).join(' → ')} ${route.target.copies > 1 ? '' : L('(장갑 제거 포함)', '(armor removal included)')}</p>` : ''}
     ${routeNotes(route, mode).length ? html`<ul class="notes" style="margin-top:6px">${routeNotes(route, mode).map(note => html`<li>${note}</li>`)}</ul>` : ''}</div>`;
 }
 

@@ -8,8 +8,8 @@ export const expandedEnemies = [
     "sourceRevision": 135089,
     "note": "기본 브루드 커맨더와 머리 내구도·본체 전달률이 다릅니다. 머리 파괴 후에도 잠시 돌진·증원 호출이 가능하며, 출혈 시작과 처치를 나눠 표시합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 136691,
-    "anatomyCheckedAt": "2026-09-28",
+    "anatomyRevision": 141214,
+    "anatomyCheckedAt": "2026-11-03",
     "main": {
       "hp": 1000,
       "armor": 2,
@@ -44,6 +44,20 @@ export const expandedEnemies = [
         "effect": "break",
         "tip": "한쪽 앞발의 파괴입니다. 양쪽 앞발 파괴 시 처치되는 조건은 이 단일 부위 계산에 합산하지 않습니다.",
         "sourcePart": "Claws (2)"
+      },
+      {
+        "id": "claw-both",
+        "name": "앞발 양쪽",
+        "hp": 200,
+        "armor": 2,
+        "durability": 50,
+        "exdr": 100,
+        "toMain": 50,
+        "overflowCap": false,
+        "effect": "kill",
+        "tip": "양쪽 앞발을 모두 부수면 처치됩니다(위키 2026-11-02 기준). 한쪽을 부순 뒤 다른 쪽을 새로 조준하는 횟수입니다.",
+        "sourcePart": "Claws (2)",
+        "copies": 2
       },
       {
         "id": "leg",
@@ -3284,8 +3298,8 @@ export const expandedEnemies = [
     "sourceRevision": 134992,
     "note": "머리 투구와 흉부 장갑을 먼저 벗겨야 합니다. 장갑을 부수는 피해와 내부 부위 피해를 따로 계산합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 136527,
-    "anatomyCheckedAt": "2026-09-28",
+    "anatomyRevision": 141134,
+    "anatomyCheckedAt": "2026-11-03",
     "main": {
       "hp": 750,
       "armor": 1,
@@ -3571,8 +3585,8 @@ export const expandedEnemies = [
     ],
     "note": "본체 체력이 소진된 뒤 추가 체력 50,000이 초당 10,000씩 감소하여 폭발합니다. 무장·방열판 파괴의 별도 본체 피해와 해치 수류탄 조건이 있습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140053,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141210,
+    "anatomyCheckedAt": "2026-11-03",
     "main": {
       "hp": 9000,
       "armor": 5,
@@ -3654,6 +3668,24 @@ export const expandedEnemies = [
         "partOnly": true,
         "partOnlyNote": "독립 장치 자체의 파괴 기준입니다. 본체로 전달되는 피해와 후속 폭발에 의한 처치 횟수는 합산하지 않습니다.",
         "sourcePart": "Cannons (2)"
+      },
+      {
+        "id": "cannon-both",
+        "name": "대포 양쪽",
+        "hp": 3500,
+        "armor": 4,
+        "durability": 70,
+        "exdr": 60,
+        "toMain": null,
+        "overflowCap": null,
+        "effect": "kill",
+        "tip": "양쪽 대포를 모두 부수면 처치됩니다(위키 2026-11-02 기준). 한쪽을 부순 뒤 다른 쪽을 새로 조준하는 횟수입니다.",
+        "constitution": 0,
+        "destroyMainDamage": 2000,
+        "partOnly": true,
+        "partOnlyNote": "독립 장치 자체의 파괴 기준입니다. 본체로 전달되는 피해와 후속 폭발에 의한 처치 횟수는 합산하지 않습니다.",
+        "sourcePart": "Cannons (2)",
+        "copies": 2
       },
       {
         "id": "missile-launcher",

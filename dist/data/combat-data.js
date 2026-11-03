@@ -263,14 +263,15 @@ const originalEnemies = [
   warrior('warrior-hardened', '워리어', 325, 150, 100),
   {
     id: 'hive-guard', name: '하이브 가드', faction: '테르미니드', source: wiki('Hive_Guard'), sourceRevision: 135085,
-    // Every part matches Wiki Anatomy revision 137924 (checked 2026-10-22).
-    // Parts after the first three were added then.
-    anatomyRevision: 137924, anatomyCheckedAt: '2026-10-22',
+    // Every part matches Wiki Anatomy revision 141215 (checked 2026-11-03).
+    // Additional anatomy parts were first reviewed on 2026-10-22.
+    anatomyRevision: 141215, anatomyCheckedAt: '2026-11-03',
     main: main(500, 2, 30, 0),
     note: '머리 장갑은 3, 노출된 사지는 1입니다. 머리 파괴 후에도 출혈 중 공격할 수 있습니다. 사지 한쪽의 파괴를 처치와 구분합니다.',
     parts: [
       part('head', '머리 장갑', 250, 3, 35, 100, 75, false, 'bleed', '정면의 넓은 머리 장갑을 뚫으려면 AP 3 이상이 필요합니다.', { constitution: 200, sourcePart: 'Head' }),
       part('claw', '앞발 한쪽', 100, 1, 0, 100, 25, false, 'break', '머리 아래의 노출된 앞발을 맞히세요. 장갑판에 빗맞으면 관통 조건이 달라집니다.', { sourcePart: 'Claws (2)' }),
+      part('claw-both', '앞발 양쪽', 100, 1, 0, 100, 25, false, 'kill', '양쪽 앞발을 모두 부수면 처치됩니다(위키 2026-11-02 기준). 한쪽을 부순 뒤 다른 쪽을 새로 조준하는 횟수입니다.', { sourcePart: 'Claws (2)', copies: 2 }),
       part('rear-leg', '뒷다리 한쪽', 125, 1, 0, 100, 35, false, 'break', '옆이나 뒤에서 장갑으로 가리지 않은 뒷다리를 노리세요.', { sourcePart: 'Rear Legs (2)' }),
       part('front-tarsal-plate', '앞다리 족판 한쪽', 125, 3, 0, 100, 45, false, 'break', '앞다리 앞을 덮은 두꺼운 족판입니다. 장갑 3이며 부숴도 죽지 않습니다.', { sourcePart: 'Frontal Tarsal Plate Armor (2)' }),
       part('front-leg', '앞다리 한쪽', 125, 1, 0, 100, 45, false, 'break', '족판에 가리지 않은 앞다리 부분입니다. 부숴도 죽지 않습니다.', { sourcePart: 'Front Legs (2)' }),
@@ -280,11 +281,12 @@ const originalEnemies = [
     id: 'brood-commander', name: '브루드 커맨더', faction: '테르미니드', source: wiki('Brood_Commander'), sourceRevision: 135088,
     main: main(800, 2, 60, 0),
     note: '기본 브루드 커맨더 기준이며 알파 커맨더와 다릅니다. 머리를 잃어도 출혈이 끝나기 전까지 돌진할 수 있습니다.',
-    // Every part matches Wiki Anatomy revision 136690 (checked 2026-09-28).
-    anatomyRevision: 136690, anatomyCheckedAt: '2026-09-28',
+    // Every part matches Wiki Anatomy revision 141213 (checked 2026-11-03).
+    anatomyRevision: 141213, anatomyCheckedAt: '2026-11-03',
     parts: [
       part('head', '머리', 200, 2, 60, 100, 50, false, 'bleed', '머리가 떨어져도 즉시 멈추지 않습니다. 출혈이 끝날 때까지 접근을 피하세요.', { constitution: 300, sourcePart: 'Head' }),
       part('claw', '앞발 한쪽', 200, 2, 50, 100, 50, false, 'break', '몸 앞의 큰 앞발 하나에 집중하는 계산입니다.', { sourcePart: 'Claws (2)' }),
+      part('claw-both', '앞발 양쪽', 200, 2, 50, 100, 50, false, 'kill', '양쪽 앞발을 모두 부수면 처치됩니다(위키 2026-11-02 기준). 한쪽을 부순 뒤 다른 쪽을 새로 조준하는 횟수입니다.', { sourcePart: 'Claws (2)', copies: 2 }),
       part('leg', '다리 한쪽', 170, 1, 40, 100, 60, false, 'break', '장갑이 얇은 옆 다리를 노려 이동과 돌진 속도를 낮추세요.', { sourcePart: 'Legs (4)' }),
     ],
   },
@@ -596,7 +598,7 @@ export const weaponProfiles = {
   'autocannon': profile('AC-8_Autocannon', [
     shot('aphet', '철갑고폭예광탄(APHET)', 325, 260, 4, 150, 3, { falloff: true }),
     shot('flak', '대공포탄 모드', 150, 150, 2, 190, 3, {
-      source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 140989, checkedAt: '2026-10-31',
+      source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 141275, checkedAt: '2026-11-03',
       sourceRecords: { projectile: 'AC-8_P1', explosion: 'AC-8_P1_IE', fragment: 'AC-8_P2' },
       delivery: 'explosive', directKind: 'none', explosionDurable: 190, innerRadius: 2, radius: 7,
       hitCondition: { kind: 'shrapnel', min: 0, max: 30, default: 6, defaultPct: 20 },
@@ -605,7 +607,7 @@ export const weaponProfiles = {
     }),
   ]),
   'wasp': {
-    source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 140989, checkedAt: '2026-10-31',
+    source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 141275, checkedAt: '2026-11-03',
     sourceRecords: { weapon: 'STA-X3 W.A.S.P. LAUNCHER', projectile: 'StA-X3_P1', explosion: 'StA-X3_P1_IE', bomblet: 'StA-X3_P', bombletExplosion: 'StA-X3_P_IE' },
     note: '분산탄 한 발에서 나온 작은 미사일이 같은 부위에 맞는다고 가정한 피해 계산입니다. 실제 유도 가능 대상이나 명중 부위를 보장하지 않습니다. 탄창 소모량과 여러 부위 동시 피해는 계산하지 않습니다.',
     modes: [

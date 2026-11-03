@@ -6,6 +6,7 @@ import { L, T, lang, locale, plural } from './i18n.js';
 
 export const num = value => Number.isFinite(value) ? value.toLocaleString(locale(), { maximumFractionDigits: 2 }) : L('미확인', 'Unverified');
 export const pct = value => Number.isFinite(value) ? `${num(value)}%` : L('미확인', 'Unverified');
+export const stageName = stage => stage.copy ? `${T(stage.part.name)} (${L(`${stage.copy}번째`, `copy ${stage.copy}`)})` : T(stage.part.name);
 
 // --- Units -------------------------------------------------------------------
 
@@ -164,6 +165,7 @@ export function assumptionText(mode) {
 export function aimText(row, mode) {
   const target = row.target;
   const lines = [target.tip];
+  if (target.copies > 1) lines.push(L('한쪽을 부순 사격에서 남은 피해(산탄·파편 등)는 다른 쪽에 넘기지 않고 계산합니다.', 'Damage left in the shot that destroys one copy does not carry over to the other.'));
   if (mode?.hitCondition) lines.push(assumptionSummary(mode));
   const radius = explosionsOf(mode || {}).map(blast => blast.innerRadius).filter(Number.isFinite);
   if (mode?.delivery === 'adhesive' && radius.length) lines.push(L(`기폭 시 이 부위가 폭발 중심 ${num(Math.min(...radius))}m 안에 들어오게 붙이세요.`, `Stick it so this part is within ${num(Math.min(...radius))}m of the blast center when it goes off.`));

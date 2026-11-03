@@ -73,6 +73,23 @@ ok(countText({ hits: 3, lowerBound: true }, aphet) === '3발 이상', 'lower bou
 ok(outcomeOf({ outcome: 'break', target: { resultLabel: '담즙낭 파괴' } }).label === '담즙낭 파괴', 'custom break labels');
 ok(reasonText({ reason: 'shield', detail: 'X' }) === 'X', 'data-provided reasons pass through');
 
+const testPart = { id: 'test', name: 'test', hp: 100, armor: 0, durability: 0, exdr: 0, toMain: 0, overflowCap: true, effect: 'kill' };
+const testEnemy = { main: { hp: 1000, armor: 0, exdr: 0 }, parts: [testPart] };
+const shot = { standard: 40, durable: 40, ap: 1, explosion: 0 };
+const routeFor = (part, attack = shot, mainHp = 1000) => solveMatchup({ ...testEnemy, main: { ...testEnemy.main, hp: mainHp }, parts: [part] }, attack).rows[0];
+const single = routeFor(testPart);
+const pair = routeFor({ ...testPart, copies: 2 });
+ok(single.hits === 3 && pair.hits === 6 && pair.stages.map(stage => stage.hits).join(',') === '3,3', 'two copies each require a full pool');
+const pellets = { ...shot, events: [{ attack: shot, times: 4, directHit: true }] };
+ok(routeFor({ ...testPart, copies: 2 }, pellets).hits === 2, 'leftover pellets do not hit the next copy');
+const transferPair = routeFor({ ...testPart, copies: 2, toMain: 100 }, shot, 150);
+ok(transferPair.hits === 5 && transferPair.via === 'main', 'main damage accumulates across copies with a fresh cap');
+const beam = { ...shot, standard: 60, durable: 60, beam: { duration: 1, standardPerSecond: 60, durablePerSecond: 60 } };
+const beamPair = routeFor({ ...testPart, copies: 2 }, beam);
+ok(beamPair.hits === 4 && beamPair.stages.length === 2 && beamPair.stages.every(stage => stage.hits === 2), 'beam starts a new whole shot for each copy');
+const implicit = routeFor(testPart), explicit = routeFor({ ...testPart, copies: 1 });
+ok(JSON.stringify([implicit.hits, implicit.outcome, implicit.via, implicit.stages.map(s => [s.hits, s.damage])]) === JSON.stringify([explicit.hits, explicit.outcome, explicit.via, explicit.stages.map(s => [s.hits, s.damage])]), 'default copy count preserves results');
+
 // --- Search ------------------------------------------------------------------------
 const names = query => search(stratagems, query, stratagemFields).map(item => item.name);
 ok(names('ㄱㄷㅈㅁ')[0] === '궤도 정밀 타격', 'initial-consonant search');

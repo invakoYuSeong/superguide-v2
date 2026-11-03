@@ -15,7 +15,7 @@ import { enemySize, isLargeEnemy, SIZE_NAMES } from '../../core/enemy-size.js';
 import { solveAccumulation, noFatalPart } from '../../core/accumulate.js';
 import { wikiReference } from '../../core/factions.js';
 import { search } from '../../core/search.js';
-import { num, pct, unitOf, outcomeOf, countText, attackStats, assumptionText, aimText, routeNotes, assumptionSummary, assumptionTag, deliveryOf, josa } from '../../core/explain.js';
+import { num, pct, unitOf, outcomeOf, countText, attackStats, assumptionText, aimText, routeNotes, assumptionSummary, assumptionTag, deliveryOf, josa, stageName } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { displayName } from '../gear-shared.js';
@@ -255,8 +255,8 @@ function photoButton(enemy, target) {
 
 function stageLines(row, enemy, mode) {
   const main = row.target.main || enemy.main;
-  let part = row.target;
   return row.stages.map((stage, index) => {
+    const part = stage.part;
     const events = stage.events || [];
     const lines = events.map(event => {
       const d = event.damage;
@@ -267,8 +267,7 @@ function stageLines(row, enemy, mode) {
     });
     const transfer = part.partOnly ? L('독립 장치 — 본체 전달 없음', 'Separate device — nothing passes to main') : `${L('본체 전달', 'To main')} ${num(part.toMain)}%${part.overflowCap == null ? L(' · 상한 미확인', ' · cap unverified') : part.overflowCap ? L(` · 누적 상한 ${num(partPool(part) + (part.constitution || 0) + (part.transferExtraHealth || 0))}`, ` · total cap ${num(partPool(part) + (part.constitution || 0) + (part.transferExtraHealth || 0))}`) : L(' · 상한 없음', ' · no cap')}`;
     const beam = Number.isFinite(stage.contactSeconds) ? html`<div>${L('광선 접촉 약', 'Beam contact about')} <code>${num(stage.contactSeconds)}${L('초', 's')}</code> · ${L('부위 누적', 'part total')} <code>${num(stage.partTotal)}</code> · ${L('본체 전달', 'to main')} <code>${num(stage.mainTotal)}</code></div>` : '';
-    const header = html`<b>${stage.part.name}</b> — ${L('체력', 'health')} ${num(partPool(stage.part))}, ${L('장갑', 'armor')} ${num(stage.part.armor)}, ${L('내구도', 'durability')} ${pct(stage.part.durability)}${row.stages.length > 1 && !Number.isFinite(stage.contactSeconds) ? html` → <b>${num(stage.hits)}${unitOf(mode, stage.hits).unit}</b>` : ''}`;
-    part = part.next;
+    const header = html`<b>${stageName(stage)}</b> — ${L('체력', 'health')} ${num(partPool(stage.part))}, ${L('장갑', 'armor')} ${num(stage.part.armor)}, ${L('내구도', 'durability')} ${pct(stage.part.durability)}${row.stages.length > 1 && !Number.isFinite(stage.contactSeconds) ? html` → <b>${num(stage.hits)}${unitOf(mode, stage.hits).unit}</b>` : ''}`;
     return html`<li>${header}${lines}${beam}<div class="faint">${transfer}${index === 0 ? L(` · 본체 체력 ${num(main.hp)}`, ` · main health ${num(main.hp)}`) : ''}</div></li>`;
   });
 }
@@ -361,7 +360,7 @@ function verdict(enemy, weapon, mode, matchup, reference) {
     const outcome = outcomeOf(best);
     return html`<div class="verdict" data-tone="${outcome.tone}">${label}
       <h3><span class="big">${num(best.hits)}${L('', best.lowerBound ? '+' : '')}${unitFor(best.hits)}</span>${best.lowerBound ? L(' 이상', '') : ''} · ${best.target.name} · ${outcome.label}</h3>
-      <p>${best.stages.length > 1 ? best.stages.map(stage => Number.isFinite(stage.contactSeconds) ? T(stage.part.name) : `${T(stage.part.name)} ${num(stage.hits)}${unitFor(stage.hits)}`).join(' → ') + ' · ' : ''}${best.target.tip}</p>
+      <p>${best.stages.length > 1 ? best.stages.map(stage => Number.isFinite(stage.contactSeconds) ? stageName(stage) : `${stageName(stage)} ${num(stage.hits)}${unitFor(stage.hits)}`).join(' → ') + ' · ' : ''}${best.target.tip}</p>
       ${spear ? html`<p style="color:var(--bleed)">${L('스피어는 이 적에게 직접 락온할 수 없습니다. 다른 표적으로 쏜 미사일이 이 부위에 맞았을 때의 참고값입니다.', 'The Spear cannot lock on to this enemy directly. This is a reference value for when a missile fired at another target hits this part.')}</p>` : ''}
       ${best.lowerBound ? html`<p>${best.notes[0]}</p>` : ''}
     </div>`;

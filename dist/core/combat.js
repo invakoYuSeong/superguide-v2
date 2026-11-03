@@ -181,12 +181,13 @@ function solveImpacts(enemy, target, attack, options) {
   let mainLeft = main.hp;
   let shots = 0;
   let part = target;
+  let copy = 1;
 
   while (part) {
     const hits = events.map(event => ({ ...event, damage: hitDamage(event.attack, part, main, { ...options, directHit: event.directHit ?? options.directHit }) }));
     const total = Object.fromEntries(['direct', 'explosion', 'mainExplosion'].map(key =>
       [key, sumKnown(hits.map(event => known(event.damage[key]) ? event.damage[key] * event.times : null))]));
-    const stage = { part, hits: 0, damage: total, events: hits };
+    const stage = { part, hits: 0, damage: total, events: hits, ...(part.copies > 1 ? { copy } : {}) };
     stages.push(stage);
     if (!Object.values(total).every(known)) return { ...base, stages, reason: multi ? 'assumption-data-missing' : 'data-missing' };
     if (total.direct + total.explosion + total.mainExplosion === 0) {
@@ -200,7 +201,7 @@ function solveImpacts(enemy, target, attack, options) {
     for (let shot = 0; shot < MAX_HITS && !advanced; shot++) {
       shots++; stage.hits++;
       let applied = 0;
-      for (const event of hits) for (let i = 0; i < event.times; i++) {
+      eventsInShot: for (const event of hits) for (let i = 0; i < event.times; i++) {
         applied++;
         const { direct, explosion, mainExplosion, blasts } = event.damage;
         const partDamage = direct + explosion;
@@ -214,13 +215,15 @@ function solveImpacts(enemy, target, attack, options) {
 
         const done = { ...base, stages, hits: shots };
         // A fatal part kills outright, skipping the main bleed-out pool.
-        if (partLeft <= 0 && part.effect === 'kill') return { ...done, outcome: 'kill', via: 'part' };
-        if (partLeft <= -(part.constitution || Infinity) && part.effect === 'bleed') return { ...done, outcome: 'kill', via: 'part' };
+        if (partLeft <= 0 && part.effect === 'kill' && copy >= (part.copies || 1)) return { ...done, outcome: 'kill', via: 'part' };
+        if (partLeft <= -(part.constitution || Infinity) && part.effect === 'bleed' && copy >= (part.copies || 1)) return { ...done, outcome: 'kill', via: 'part' };
         // An isolated part never assumes a fresh main pool.
         if (!target.isolated && mainLeft <= 0) {
           return { ...done, outcome: main.constitution && mainLeft > -main.constitution ? 'bleed' : 'kill', via: 'main' };
         }
         if (partLeft <= 0) {
+          if (copy < (part.copies || 1)) { copy++; advanced = true; break eventsInShot; }
+          copy = 1;
           if (!part.next) return { ...done, outcome: part.effect, via: 'part' };
           // Leftover arcs/bomblets of the same shot hitting the exposed layer is unverified.
           if (applied < perShot) return { ...base, stages, reason: 'leftover-events' };
@@ -248,9 +251,10 @@ function solveBeam(enemy, target, attack, options) {
   let mainLeft = main.hp;
   let spent = 0;
   let part = target;
+  let copy = 1;
   while (part) {
     const damage = hitDamage(attack, part, main, options);
-    const stage = { part, hits: 0, damage, events: [{ name: null, attack, times: 1, damage }] };
+    const stage = { part, hits: 0, damage, events: [{ name: null, attack, times: 1, damage }], ...(part.copies > 1 ? { copy } : {}) };
     stages.push(stage);
     if (![damage.direct, damage.explosion, damage.mainExplosion, beam.duration, beam.standardPerSecond, beam.durablePerSecond, part.hp, part.toMain, main.hp].every(known)
       || beam.duration === 0 || part.hp === 0 || main.hp === 0 || damage.explosion !== 0 || damage.mainExplosion !== 0) {
@@ -273,9 +277,14 @@ function solveBeam(enemy, target, attack, options) {
     // armor carries on into the next layer.
     Object.assign(stage, { hits: hits - Math.ceil(before - EPSILON), contactSeconds: bursts * beam.duration, partTotal: damage.direct * bursts, mainTotal: Math.min(transferPerBurst * bursts, cap) });
     const done = { ...base, stages, hits };
-    if (partBursts <= mainBursts && part.effect === 'kill') return { ...done, outcome: 'kill', via: 'part' };
+    if (partBursts <= mainBursts && part.effect === 'kill' && copy >= (part.copies || 1)) return { ...done, outcome: 'kill', via: 'part' };
     if (partBursts <= mainBursts && mainLeft - stage.mainTotal - (part.destroyMainDamage || 0) <= 0) return { ...done, outcome: bleedOrKill, via: 'main' };
     if (mainBursts <= partBursts) return { ...done, outcome: bleedOrKill, via: 'main' };
+    if (copy < (part.copies || 1)) {
+      mainLeft -= stage.mainTotal + (part.destroyMainDamage || 0);
+      spent = hits; copy++; continue;
+    }
+    copy = 1;
     if (!part.next) return { ...done, outcome: part.effect, via: 'part' };
     mainLeft -= stage.mainTotal + (part.destroyMainDamage || 0);
     part = part.next;

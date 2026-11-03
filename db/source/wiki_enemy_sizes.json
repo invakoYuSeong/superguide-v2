@@ -1,6 +1,6 @@
 {
  "source": "https://helldivers.wiki.gg/wiki/Category:Enemies",
- "retrievedAt": "2026-09-27",
+ "retrievedAt": "2026-11-03",
  "categories": {
   "small": {
    "category": "Small Enemies",
@@ -8,32 +8,32 @@
     {
      "title": "Assault Raider",
      "pageid": 7999,
-     "revision": 135114
+     "revision": 138971
     },
     {
      "title": "Bile Spitter",
      "pageid": 3396,
-     "revision": 136488
+     "revision": 139149
     },
     {
      "title": "Brawler",
      "pageid": 7932,
-     "revision": 135110
+     "revision": 138833
     },
     {
      "title": "Civilian",
      "pageid": 12365,
-     "revision": 133794
+     "revision": 140072
     },
     {
      "title": "Commissar",
      "pageid": 1602,
-     "revision": 135111
+     "revision": 138835
     },
     {
      "title": "Helldiver",
      "pageid": 3681,
-     "revision": 136696
+     "revision": 141069
     },
     {
      "title": "Hunter",
@@ -43,32 +43,32 @@
     {
      "title": "Incendiary Rocket Raider",
      "pageid": 15098,
-     "revision": 135174
+     "revision": 140047
     },
     {
      "title": "Jet Brigade Commissar",
      "pageid": 15108,
-     "revision": 135135
+     "revision": 138837
     },
     {
      "title": "Jet Brigade MG Raider",
      "pageid": 15109,
-     "revision": 135137
+     "revision": 139889
     },
     {
      "title": "Jet Brigade Trooper",
      "pageid": 15110,
-     "revision": 135136
+     "revision": 140765
     },
     {
      "title": "MG Raider",
      "pageid": 7935,
-     "revision": 135117
+     "revision": 138978
     },
     {
      "title": "Marauder",
      "pageid": 7978,
-     "revision": 135115
+     "revision": 138973
     },
     {
      "title": "Pouncer",
@@ -78,22 +78,22 @@
     {
      "title": "Predator Hunter",
      "pageid": 10404,
-     "revision": 135098
+     "revision": 139037
     },
     {
      "title": "Pyro Trooper",
      "pageid": 10939,
-     "revision": 135173
+     "revision": 139895
     },
     {
      "title": "Rocket Raider",
      "pageid": 7936,
-     "revision": 135113
+     "revision": 138836
     },
     {
      "title": "SEAF Soldier",
      "pageid": 12364,
-     "revision": 136566
+     "revision": 141272
     },
     {
      "title": "Scavenger",
@@ -108,22 +108,22 @@
     {
      "title": "Spore Burst Hunter",
      "pageid": 10464,
-     "revision": 135101
+     "revision": 137849
     },
     {
      "title": "Spore Burst Scavenger",
      "pageid": 10460,
-     "revision": 135100
+     "revision": 137850
     },
     {
      "title": "Trooper",
      "pageid": 629,
-     "revision": 135109
+     "revision": 139995
     },
     {
      "title": "Voteless",
      "pageid": 9004,
-     "revision": 135187
+     "revision": 140055
     }
    ]
   },
@@ -133,7 +133,7 @@
     {
      "title": "Agitator",
      "pageid": 16317,
-     "revision": 136527
+     "revision": 141134
     },
     {
      "title": "Alpha Warrior",
@@ -143,52 +143,52 @@
     {
      "title": "Berserker",
      "pageid": 1431,
-     "revision": 135118
+     "revision": 138975
     },
     {
      "title": "Bile Spewer",
      "pageid": 1057,
-     "revision": 136689
+     "revision": 139148
     },
     {
      "title": "Bile Warrior",
      "pageid": 5473,
-     "revision": 136684
+     "revision": 139144
     },
     {
      "title": "Conflagration Devastator",
      "pageid": 10938,
-     "revision": 136519
+     "revision": 140049
     },
     {
      "title": "Crescent Overseer",
      "pageid": 11930,
-     "revision": 136673
+     "revision": 140058
     },
     {
      "title": "Devastator",
      "pageid": 1119,
-     "revision": 136811
+     "revision": 138977
     },
     {
      "title": "Elevated Overseer",
      "pageid": 9062,
-     "revision": 135795
+     "revision": 140086
     },
     {
      "title": "Heavy Devastator",
      "pageid": 8283,
-     "revision": 136516
+     "revision": 139373
     },
     {
      "title": "Hive Guard",
      "pageid": 5472,
-     "revision": 136682
+     "revision": 141215
     },
     {
      "title": "Incendiary MG Devastator",
      "pageid": 10905,
-     "revision": 136517
+     "revision": 140048
     },
     {
      "title": "Jet Brigade Devastator",
@@ -203,32 +203,32 @@
     {
      "title": "Overseer",
      "pageid": 9051,
-     "revision": 135796
+     "revision": 140056
     },
     {
      "title": "Radical",
      "pageid": 16316,
-     "revision": 136549
+     "revision": 140051
     },
     {
      "title": "Rocket Devastator",
      "pageid": 8282,
-     "revision": 136514
+     "revision": 138979
     },
     {
      "title": "Rupture Spewer",
      "pageid": 13910,
-     "revision": 135107
+     "revision": 137863
     },
     {
      "title": "Rupture Warrior",
      "pageid": 13911,
-     "revision": 135105
+     "revision": 137859
     },
     {
      "title": "Spore Burst Warrior",
      "pageid": 10459,
-     "revision": 135102
+     "revision": 137855
     },
     {
      "title": "Warrior",
@@ -238,12 +238,12 @@
     {
      "title": "Watcher",
      "pageid": 9011,
-     "revision": 135710
+     "revision": 140766
     },
     {
      "title": "Wretch",
      "pageid": 20216,
-     "revision": 136548
+     "revision": 140071
     }
    ]
   },
@@ -253,42 +253,42 @@
     {
      "title": "Alpha Commander",
      "pageid": 7186,
-     "revision": 136691
+     "revision": 141214
     },
     {
      "title": "Annihilator Tank",
      "pageid": 656,
-     "revision": 135129
+     "revision": 139864
     },
     {
      "title": "Barrager Tank",
      "pageid": 7185,
-     "revision": 135332
+     "revision": 139879
     },
     {
      "title": "Brood Commander",
      "pageid": 570,
-     "revision": 136690
+     "revision": 141213
     },
     {
      "title": "Charger",
      "pageid": 273,
-     "revision": 136850
+     "revision": 137700
     },
     {
      "title": "Charger Behemoth",
      "pageid": 6744,
-     "revision": 136856
+     "revision": 137702
     },
     {
      "title": "Crusher",
      "pageid": 20217,
-     "revision": 136236
+     "revision": 141041
     },
     {
      "title": "Fleshmob",
      "pageid": 11925,
-     "revision": 136675
+     "revision": 140060
     },
     {
      "title": "Ground All-Terrain Extraction Rig (GATER)",
@@ -298,77 +298,77 @@
     {
      "title": "Gunship",
      "pageid": 4431,
-     "revision": 135132
+     "revision": 139881
     },
     {
      "title": "Harvester",
      "pageid": 9063,
-     "revision": 135183
+     "revision": 140061
     },
     {
      "title": "Hulk Bruiser",
      "pageid": 8380,
-     "revision": 135127
+     "revision": 139407
     },
     {
      "title": "Hulk Firebomber",
      "pageid": 10901,
-     "revision": 135177
+     "revision": 140050
     },
     {
      "title": "Hulk Obliterator",
      "pageid": 8415,
-     "revision": 135125
+     "revision": 138853
     },
     {
      "title": "Hulk Scorcher",
      "pageid": 8396,
-     "revision": 135126
+     "revision": 139406
     },
     {
      "title": "Impaler",
      "pageid": 7141,
-     "revision": 136857
+     "revision": 136861
     },
     {
      "title": "Jet Brigade Hulk Bruiser",
      "pageid": 13146,
-     "revision": 135140
+     "revision": 140134
     },
     {
      "title": "Jet Brigade Hulk Scorcher",
      "pageid": 15107,
-     "revision": 135139
+     "revision": 140135
     },
     {
      "title": "Predator Stalker",
      "pageid": 10405,
-     "revision": 135099
+     "revision": 137847
     },
     {
      "title": "Reinforced Scout Strider",
      "pageid": 7187,
-     "revision": 135124
+     "revision": 139395
     },
     {
      "title": "Rupture Charger",
      "pageid": 13912,
-     "revision": 135108
+     "revision": 137862
     },
     {
      "title": "Scout Strider",
      "pageid": 1433,
-     "revision": 135123
+     "revision": 139387
     },
     {
      "title": "Shredder Tank",
      "pageid": 6515,
-     "revision": 135130
+     "revision": 139871
     },
     {
      "title": "Spore Charger",
      "pageid": 7188,
-     "revision": 136858
+     "revision": 140019
     },
     {
      "title": "Stalker",
@@ -378,12 +378,12 @@
     {
      "title": "Stingray",
      "pageid": 11931,
-     "revision": 135184
+     "revision": 140063
     },
     {
      "title": "War Strider",
      "pageid": 13370,
-     "revision": 136760
+     "revision": 139410
     }
    ]
   },
@@ -393,52 +393,52 @@
     {
      "title": "Bile Titan",
      "pageid": 1384,
-     "revision": 135096
+     "revision": 138514
     },
     {
      "title": "Dragonroach",
      "pageid": 13890,
-     "revision": 135097
+     "revision": 136864
     },
     {
      "title": "Dropship",
      "pageid": 837,
-     "revision": 135133
+     "revision": 139884
     },
     {
      "title": "Factory Strider",
      "pageid": 4430,
-     "revision": 135134
+     "revision": 139888
     },
     {
      "title": "Hive Lord",
      "pageid": 13914,
-     "revision": 134950
+     "revision": 139241
     },
     {
      "title": "Illuminate Overship",
      "pageid": 12138,
-     "revision": 133901
+     "revision": 140065
     },
     {
      "title": "Leviathan",
      "pageid": 12237,
-     "revision": 135186
+     "revision": 140064
     },
     {
      "title": "Spore Burst Bile Titan",
      "pageid": 18642,
-     "revision": 135104
+     "revision": 140147
     },
     {
      "title": "Vox Engine",
      "pageid": 16318,
-     "revision": 134993
+     "revision": 141210
     },
     {
      "title": "Warp Ship",
      "pageid": 9010,
-     "revision": 135185
+     "revision": 140062
     }
    ]
   }
