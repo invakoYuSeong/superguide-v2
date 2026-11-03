@@ -9,3 +9,7 @@
 /dist/data/personal-profiles.js text eol=lf
 /dist/data/enemy-sizes.js text eol=lf
 /dist/data/warbonds.js text eol=lf
+/dist/data/armor.js text eol=lf
+/dist/data/armor-images.js text eol=lf
+# Armor passive icons are Wiki originals checked by SHA-1; keep their bytes.
+/dist/assets/armor/*.svg -text

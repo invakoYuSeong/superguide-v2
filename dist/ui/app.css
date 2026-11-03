@@ -738,6 +738,41 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .w-thumb { display: grid; place-items: center; flex: none; border-radius: 7px; background: var(--surface-2); overflow: hidden; }
 .w-thumb img { max-width: 92%; max-height: 80%; object-fit: contain; }
 .group-tabs { margin: -4px 0 10px; }
+/* Armor tab: one clipped panel per passive, its effect lines, then the armor sets. */
+.armor-tools { display: grid; gap: 10px; }
+.armor-jump { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.armor-jump .chip { height: 32px; padding: 0 12px; font-size: 13px; }
+.armor-passives { display: grid; gap: 16px; }
+.armor-passive { position: relative; padding: 18px; background: var(--surface); border: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + 16px);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%); }
+.armor-passive::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--accent); }
+.armor-passive-head { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.armor-passive-icon { width: 48px; height: 48px; display: grid; place-items: center; padding: 6px; background: #141714; border: 1px solid var(--line-strong); }
+.armor-passive-icon img { width: 100%; height: 100%; object-fit: contain; }
+.armor-passive h3 { font-size: 20px; font-weight: 800; line-height: 1.2; }
+.armor-passive h3:focus { outline: none; }
+.armor-passive .en, .armor-item .en { margin-top: 2px; font: 600 13.5px/1.2 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+.armor-passive-count { font: 700 16px/1 var(--cond); letter-spacing: .04em; color: var(--accent-text); white-space: nowrap; }
+.armor-effects { list-style: none; margin: 12px 0 14px; padding: 0; display: grid; gap: 4px; font-size: 14px; color: var(--text-2); }
+.armor-effects li { position: relative; padding-left: 16px; }
+.armor-effects li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
+.armor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; }
+.armor-item { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 10px; background: var(--surface-2); border: 1px solid var(--line);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
+.armor-art { display: grid; place-items: center; height: 124px; overflow: hidden; font: 600 12px/1.2 var(--cond); text-align: center;
+  background: radial-gradient(120% 70% at 50% 100%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%), var(--bg-raise); }
+.armor-art img { max-width: 100%; max-height: 116px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+.armor-body { min-width: 0; display: flex; flex-direction: column; }
+.armor-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.armor-title h4 { font-size: 15.5px; font-weight: 750; line-height: 1.25; }
+.armor-title .badge { height: 20px; padding: 0 6px; font-size: 11px; }
+.stat-row.armor-stats { grid-template-columns: repeat(3, 1fr); margin-top: 8px; }
+/* Three numbers stay on one row on phones (.stat-row folds to 2 columns at 480px). */
+.stat-row.armor-stats > div:nth-child(n) { border-top: 0; border-left: 1px solid var(--line); }
+.stat-row.armor-stats > div:first-child { border-left: 0; }
+.armor-stats dd .dim { color: var(--text-3); font: 600 13px/1.25 var(--font); }
+.armor-source { margin-top: 7px; font-size: 12.5px; color: var(--text-2); }
+.armor-source a { color: var(--accent-text); font-weight: 650; }
 .group-tabs .count { font-size: 12px; opacity: .6; font-weight: 500; }
 .rank-detail { padding: 2px 14px 18px; background: var(--bg-raise); border-bottom: 1px solid var(--line); box-shadow: inset 3px 0 0 var(--accent); }
 .rank-detail .matchup { display: grid; gap: 12px; }
@@ -939,5 +974,13 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
      footer keeps the link to "how the numbers work". */
   .bar-actions { gap: 6px; }
   .search-trigger kbd, .bar-actions [data-action="method"] { display: none; }
+  .gear-tabs { gap: 14px; }
+  .gear-tabs button { font-size: 19px; }
+  .armor-passive { padding: 14px 12px; }
+  .armor-passive h3 { font-size: 18px; }
+  .armor-list { grid-template-columns: minmax(0, 1fr); }
+  .armor-item { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }
+  .armor-art { height: 112px; }
+  .armor-art img { max-height: 104px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
