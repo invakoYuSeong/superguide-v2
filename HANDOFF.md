@@ -3,12 +3,12 @@
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
 - 마지막 갱신: 2026-11-03, Claude Code 담당
-- 기준: master (방어구 페이지 `edb7946` 배포됨. 채권↔방어구 연결은 로컬 커밋만, push 안 함)
+- 기준: master (채권↔방어구 연결 `d3c01c4`, 사용자 요청으로 master에 반영·배포)
 - 진행 중인 작업: 없음
 
 ## 지금 상태
 
-- **채권 ↔ 방어구 연결(2026-11-03, 로컬 커밋만)**: 채권 보드의 방어구 타일 64개를 누르면 무기·스트라타젬처럼 항목 상세 패널에 방어구 상세(그림·무게·장갑/속도/스태미나·얻는 곳·패시브 효과)가 열립니다(`#/warbonds/<채권>?item=armor/<id>`, `gear-armor.js`의 `armorDetail`). 타일에 ref가 없어서 채권 id + 영어 이름(끝의 " Armor"는 떼고)으로 `armor.js`와 맞춥니다. '전체 페이지로 열기'·'같은 패시브 방어구 보기'는 방어구 탭에서 그 방어구로 스크롤하고 노란 테두리로 표시(`#/gear?tab=armor&a=<id>`). 반대로 방어구 탭의 채권 이름 링크는 그 채권을 열고 해당 방어구 상세까지 띄웁니다. 1400·375px 확인(가로 넘침·콘솔 오류 없음).
+- **채권 ↔ 방어구 연결(2026-11-03, master 반영·배포)**: 채권 보드의 방어구 타일 64개를 누르면 무기·스트라타젬처럼 항목 상세 패널에 방어구 상세(그림·무게·장갑/속도/스태미나·얻는 곳·패시브 효과)가 열립니다(`#/warbonds/<채권>?item=armor/<id>`, `gear-armor.js`의 `armorDetail`). 타일에 ref가 없어서 채권 id + 영어 이름(끝의 " Armor"는 떼고)으로 `armor.js`와 맞춥니다. '전체 페이지로 열기'·'같은 패시브 방어구 보기'는 방어구 탭에서 그 방어구로 스크롤하고 노란 테두리로 표시(`#/gear?tab=armor&a=<id>`). 반대로 방어구 탭의 채권 이름 링크는 그 채권을 열고 해당 방어구 상세까지 띄웁니다. 1400·375px 확인(가로 넘침·콘솔 오류 없음).
 
 - **방어구 페이지(2026-11-03, master 반영·배포)**: 장비 화면 위쪽 '장비 둘러보기 / 로드아웃 점검 / 방어구' 중 세 번째(`#/gear?tab=armor&w=light|medium|heavy`). 몸통 방어구 113종을 패시브 32종별로 묶고, 패시브마다 한국어 이름·효과, 방어구마다 그림·장갑/속도/스태미나 회복·출처(채권 링크·페이지·메달/SC). 무게 필터와 패시브 바로가기 칩. 파이프라인: `node scripts/fetch-armor.mjs`(위키 `db/source/wiki_armor.json` + 나무위키 제목만 `db/source/namu_armor.json`) → `node scripts/build-armor.mjs`(`dist/data/armor.js`) → `python scripts/tools/fetch-armor-images.py`(`dist/assets/armor/` 그림 113 + 패시브 아이콘 30, 1.6MB, `dist/data/armor-images.js`) → `npm run check`(`scripts/test-armor.mjs`). 패시브 한국어 이름·효과 문장은 `db/source/armor_passive_korean.json`(게임 문구, 나무위키 기준)에 있고, 빌드가 위키 영어 문장과 숫자가 하나라도 다르면 실패합니다. 채권 보드(warbonds.js)와 방어구 페이지의 채권·페이지·메달 비용은 전부 일치. 한국어 이름 미확인(영어로 표시): O-3 Free Spirit, O-44 Bonded Pilot, 패시브 Kinetic Displacement Mitigation. BFM-77 Reformer는 위키 분류는 중량이지만 인포박스가 일반이라 일반으로 표시(`armorDiscrepancies`). 1440·375px 다크·라이트, 영어 화면 확인(가로 넘침·콘솔 오류 없음).
 
