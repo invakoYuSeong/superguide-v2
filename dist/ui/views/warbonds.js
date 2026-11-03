@@ -58,20 +58,25 @@ function cover(warbond, className = 'wb-cover') {
   return image ? html`<img class="${className}" src="${image.src}" alt="" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : html`<span class="${className}"></span>`;
 }
 
+// Card in the game's style: full-bleed cover, tier and release date, three stats, then contents.
 function card(warbond) {
   const unsure = warbondDiscrepancies.some(d => d.warbondId === warbond.id);
+  const contents = [
+    warbond.counts.weapons ? L(`무기 ${warbond.counts.weapons}`, `${warbond.counts.weapons} ${plural(warbond.counts.weapons, 'weapon')}`) : '',
+    warbond.counts.stratagems ? L(`스트라타젬 ${warbond.counts.stratagems}`, `${warbond.counts.stratagems} ${plural(warbond.counts.stratagems, 'stratagem')}`) : '',
+  ].filter(Boolean).join(' · ');
   return html`<article class="card wb-card" data-tier="${warbond.tier}"><button class="card-open" type="button" data-open="${warbond.id}">
     ${cover(warbond)}
-    <div><h3>${warbond.name}</h3>${lang === 'en' ? '' : html`<div class="en">${warbond.en}</div>`}</div>
-    <dl class="wb-facts">
-      <div><dt>${L('출시', 'Released')}</dt><dd>${warbond.date || unconfirmedText()}</dd></div>
-      <div><dt>${L('가격', 'Price')}</dt><dd>${sc(warbond.price)}</dd></div>
-      <div><dt>${L('전체 메달', 'All items')}</dt><dd>${warbond.totalCost != null ? medals(warbond.totalCost) : unconfirmedText()}</dd></div>
-    </dl>
-    <div class="chips">${badge(L(`${warbond.pages.length}페이지 · ${warbond.itemCount}개`, `${warbond.pages.length} pages · ${warbond.itemCount} items`), 'outline')}
-      ${warbond.counts.weapons ? badge(L(`무기 ${warbond.counts.weapons}`, `${warbond.counts.weapons} ${plural(warbond.counts.weapons, 'weapon')}`), 'accent') : ''}
-      ${warbond.counts.stratagems ? badge(L(`스트라타젬 ${warbond.counts.stratagems}`, `${warbond.counts.stratagems} ${plural(warbond.counts.stratagems, 'stratagem')}`), 'accent') : ''}
-      ${unsure ? badge(L('일부 미확인', 'Some unconfirmed'), 'unknown') : ''}</div>
+    <div class="wb-card-body">
+      <div class="wb-card-meta"><span class="tier-tag">${tierName(warbond.tier)}</span><span class="wb-card-date">${warbond.date || unconfirmedText()}</span></div>
+      <div><h3>${warbond.name}</h3>${lang === 'en' ? '' : html`<div class="en">${warbond.en}</div>`}</div>
+      <dl class="wb-facts">
+        <div><dt>${L('가격', 'Price')}</dt><dd>${sc(warbond.price)}</dd></div>
+        <div><dt>${L('전체 메달', 'All items')}</dt><dd>${warbond.totalCost != null ? count(warbond.totalCost) : unconfirmedText()}</dd></div>
+        <div><dt>${L('구성', 'Contents')}</dt><dd>${warbond.pages.length}<small>P</small> ${warbond.itemCount}<small>${L('개', '')}</small></dd></div>
+      </dl>
+      ${contents || unsure ? html`<p class="wb-card-foot">${contents}${unsure ? badge(L('일부 미확인', 'Some unconfirmed'), 'unknown') : ''}</p>` : ''}
+    </div>
   </button></article>`;
 }
 
@@ -90,8 +95,9 @@ export function latestBanner() {
     ? html`srcset="${small.src} ${small.width}w, ${large.src} ${large.width}w" sizes="(min-width: 1280px) 1240px, 100vw"` : '';
   return html`<section class="wb-latest" aria-labelledby="wb-latest-title">
     ${image ? html`<button class="wb-latest-image" type="button" data-open="${warbond.id}" tabindex="-1" aria-hidden="true"><img class="wb-latest-cover ${large ? '' : 'is-small'}" src="${image.src}" ${responsive} alt="" width="${image.width}" height="${image.height}" decoding="async"></button>` : ''}
+    <p class="wb-latest-flag">New Warbond${lang === 'en' ? '' : html` <b>· 최신 출시 채권</b>`}</p>
     <div class="wb-latest-row">
-      <div class="wb-latest-name"><div class="eyebrow">${L('최신 출시 채권', 'Latest warbond')}</div>
+      <div class="wb-latest-name"><span class="tier-tag" data-tier="${warbond.tier}">${tierName(warbond.tier)}</span>
         <h2 id="wb-latest-title">${warbond.name}</h2>${lang === 'en' ? '' : html`<p class="en">${warbond.en}</p>`}</div>
       <button class="button primary wb-latest-cta" type="button" data-open="${warbond.id}">${L('페이지별 목록 보기', 'View pages')} ${icon('arrow', 16)}</button>
     </div>
@@ -331,11 +337,19 @@ export function mount(container, context) {
   state.detail = null; state.item = null; state.mode = ''; state.bondScroll = 0; ++itemRender;
   const items = warbonds.reduce((sum, item) => sum + item.itemCount, 0);
   render(root, html`<div class="page-head"><div><div class="eyebrow">Warbonds</div><h1>${L('전쟁 채권', 'Warbonds')}</h1>
-      <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일·가격과 페이지별 메달 비용, 들어 있는 무기와 스트라타젬(${items}개 항목). 카드를 누르면 페이지별 목록이 열립니다.`, `Release date, price and per-page medal costs of all ${warbonds.length} warbonds, with the weapons and stratagems inside (${items} items). Open a card for the page-by-page list.`)}</p></div></div>
+      <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일·가격과 페이지별 메달 비용, 들어 있는 무기와 스트라타젬(${items}개 항목). 카드를 누르면 페이지별 목록이 열립니다.`, `Release date, price and per-page medal costs of all ${warbonds.length} warbonds, with the weapons and stratagems inside (${items} items). Open a card for the page-by-page list.`)}</p></div>
+      <dl class="tally">
+        <div><dt>Warbonds</dt><dd>${warbonds.length}</dd></div>
+        <div><dt>Items</dt><dd>${count(items)}</dd></div>
+        <div><dt>Pages</dt><dd>${warbonds.reduce((sum, item) => sum + item.pages.length, 0)}</dd></div>
+      </dl></div>
     ${latestBanner()}
-    <div class="chips" role="group" aria-label="${L('등급', 'Tier')}" style="margin-bottom:18px">
-      <button class="chip" type="button" data-tier-filter="" aria-pressed="true">${L('전체', 'All')} <span class="count">${warbonds.length}</span></button>
-      ${warbondTiers.map(tier => html`<button class="chip" type="button" data-tier-filter="${tier.id}" aria-pressed="false">${tier.name} <span class="count">${warbonds.filter(item => item.tier === tier.id).length}</span></button>`)}
+    <div class="wb-filters">
+      <div class="chips" role="group" aria-label="${L('등급', 'Tier')}">
+        <button class="chip" type="button" data-tier-filter="" aria-pressed="true">${L('전체', 'All')} <span class="count">${warbonds.length}</span></button>
+        ${warbondTiers.map(tier => html`<button class="chip" type="button" data-tier-filter="${tier.id}" aria-pressed="false">${tier.name} <span class="count">${warbonds.filter(item => item.tier === tier.id).length}</span></button>`)}
+      </div>
+      <p class="wb-sort">${L('출시일 순 · 오래된 채권부터', 'By release date · oldest first')}</p>
     </div>
     <div id="wb-list"></div>
     <p class="sources wb-credit">${L('자료', 'Data')}: ${external(warbondsSource.site, 'Helldivers Wiki')} <span>(helldivers.wiki.gg) ${L('기여자들', 'contributors')}, ${external(lang === 'en' ? warbondsSource.licenseUrl : `${warbondsSource.licenseUrl}deed.ko`, warbondsSource.license)}</span>
