@@ -3,12 +3,12 @@
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
 - 마지막 갱신: 2026-11-03, Claude Code 담당
-- 기준: master (방어구 페이지 로컬 커밋, **push 전 = 아직 배포 안 됨**)
+- 기준: master (방어구 페이지 `edb7946`, 사용자 요청으로 master에 반영·배포)
 - 진행 중인 작업: 없음
 
 ## 지금 상태
 
-- **방어구 페이지(2026-11-03, 로컬 커밋만, push 대기)**: 장비 화면 위쪽 '장비 둘러보기 / 로드아웃 점검 / 방어구' 중 세 번째(`#/gear?tab=armor&w=light|medium|heavy`). 몸통 방어구 113종을 패시브 32종별로 묶고, 패시브마다 한국어 이름·효과, 방어구마다 그림·장갑/속도/스태미나 회복·출처(채권 링크·페이지·메달/SC). 무게 필터와 패시브 바로가기 칩. 파이프라인: `node scripts/fetch-armor.mjs`(위키 `db/source/wiki_armor.json` + 나무위키 제목만 `db/source/namu_armor.json`) → `node scripts/build-armor.mjs`(`dist/data/armor.js`) → `python scripts/tools/fetch-armor-images.py`(`dist/assets/armor/` 그림 113 + 패시브 아이콘 30, 1.6MB, `dist/data/armor-images.js`) → `npm run check`(`scripts/test-armor.mjs`). 패시브 한국어 이름·효과 문장은 `db/source/armor_passive_korean.json`(게임 문구, 나무위키 기준)에 있고, 빌드가 위키 영어 문장과 숫자가 하나라도 다르면 실패합니다. 채권 보드(warbonds.js)와 방어구 페이지의 채권·페이지·메달 비용은 전부 일치. 한국어 이름 미확인(영어로 표시): O-3 Free Spirit, O-44 Bonded Pilot, 패시브 Kinetic Displacement Mitigation. BFM-77 Reformer는 위키 분류는 중량이지만 인포박스가 일반이라 일반으로 표시(`armorDiscrepancies`). 1440·375px 다크·라이트, 영어 화면 확인(가로 넘침·콘솔 오류 없음).
+- **방어구 페이지(2026-11-03, master 반영·배포)**: 장비 화면 위쪽 '장비 둘러보기 / 로드아웃 점검 / 방어구' 중 세 번째(`#/gear?tab=armor&w=light|medium|heavy`). 몸통 방어구 113종을 패시브 32종별로 묶고, 패시브마다 한국어 이름·효과, 방어구마다 그림·장갑/속도/스태미나 회복·출처(채권 링크·페이지·메달/SC). 무게 필터와 패시브 바로가기 칩. 파이프라인: `node scripts/fetch-armor.mjs`(위키 `db/source/wiki_armor.json` + 나무위키 제목만 `db/source/namu_armor.json`) → `node scripts/build-armor.mjs`(`dist/data/armor.js`) → `python scripts/tools/fetch-armor-images.py`(`dist/assets/armor/` 그림 113 + 패시브 아이콘 30, 1.6MB, `dist/data/armor-images.js`) → `npm run check`(`scripts/test-armor.mjs`). 패시브 한국어 이름·효과 문장은 `db/source/armor_passive_korean.json`(게임 문구, 나무위키 기준)에 있고, 빌드가 위키 영어 문장과 숫자가 하나라도 다르면 실패합니다. 채권 보드(warbonds.js)와 방어구 페이지의 채권·페이지·메달 비용은 전부 일치. 한국어 이름 미확인(영어로 표시): O-3 Free Spirit, O-44 Bonded Pilot, 패시브 Kinetic Displacement Mitigation. BFM-77 Reformer는 위키 분류는 중량이지만 인포박스가 일반이라 일반으로 표시(`armorDiscrepancies`). 1440·375px 다크·라이트, 영어 화면 확인(가로 넘침·콘솔 오류 없음).
 
 - **위키 재대조(2026-11-03, master 반영·배포)**: 모든 위키 원본을 다시 받아 대조. 무기 107종·전쟁 채권 26종·적 크기·지원 무기 수치는 변화 없음(datamine 141275는 사이트가 쓰지 않는 `is_huge` 표시만 바뀜). 패치 1.007.202(에이펙스 철거력 30·구경 20·AP 표시, 부시웨커 486/135)는 `60233c1`에서 이미 반영돼 있음을 재확인. 바뀐 것: 위키 편집자가 2026-11-02에 하이브 가드·브루드 커맨더·알파 커맨더(앞발)와 복스 엔진(대포)에 '양쪽 모두 파괴 시 처치'를 추가 → 엔진에 부위 `copies`(복수 개체) 지원을 넣고 각 적에 '양쪽' 경로(`claw-both`, `cannon-both`)를 추가. 한쪽을 부순 사격의 남은 피해는 다른 쪽에 넘기지 않고, 본체 전달은 누적. 기존 '한쪽' 경로(부위 파괴)는 그대로. 구현은 Codex(gpt-6.1-terra), 검토·복스 엔진 이름·설명 문구 수정은 Claude.
 
@@ -27,7 +27,7 @@
 - 전쟁 채권 SVG 18개·이미지 목록 3개가 작업 폴더에서 줄바꿈(LF/CRLF) 차이로만 '변경'으로 보일 수 있음. 내용 변경 없음, 커밋하지 않음.
 
 - **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 채권·페이지마다 다른 보상 타일의 위치·모양·크기를 게임과 일치시키는 작업입니다. 다른 페이지를 채권 레이아웃으로 바꾸는 것이 아닙니다. 사용자가 시작하라고 할 때 진행합니다.
-- **방어구 페이지 배포**: 로컬 커밋만 됨. 사용자가 push(=배포)를 허락하면 push.
+- **방어구 실제 기기 확인**: 휴대폰에서 방어구 탭(그림·수치 줄·패시브 바로가기 칩) 확인 필요.
 - 방어구 후속 후보(사용자 결정 전): 전체 검색(팔레트)에 방어구 넣기, 나무위키에 이름이 생기면 O-3·O-44·Kinetic Displacement Mitigation 한국어 이름 채우기(`fetch-armor` → `build-armor`).
 - wiki.gg는 짧은 시간에 많이 요청하면 429(속도 제한)를 줍니다. `fetch-armor-images.py`는 기다렸다 다시 시도합니다.
 - 확인 필요: 채권 패널 왼쪽 빈 공간이 360px보다 좁으면(화면 폭 약 1340px 미만) 항목 상세가 채권 패널 왼쪽 일부를 덮습니다. 이대로 둘지 결정이 필요합니다.
