@@ -15,6 +15,7 @@ import { warbondBannerImages } from '../dist/data/warbond-banner-images.js';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { stratagemById } from '../dist/core/catalog.js';
 import { parseRoute } from '../dist/core/route.js';
+import { armors } from '../dist/data/armor.js';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -342,8 +343,12 @@ for (const warbond of warbonds) for (const p of warbond.pages) {
     ok(attrs.includes(`style="grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}"`), `${warbond.id} p${p.number} ${item.name}: placed with grid spans`);
     const image = warbondItemImages[item.image];
     ok(image ? body.includes(`src="${image.src}"`) && body.includes('loading="lazy"') && !body.includes('srcset=') : !body.includes('<img') && attrs.includes('data-no-image'), `${warbond.id} p${p.number} ${item.name}: single lazy image or name-only tile`);
-    ok(item.ref ? body.includes(`data-wb-item="${item.ref.view}/${item.ref.id}"`) : !body.includes('data-wb-item'), `${warbond.id} p${p.number} ${item.name}: detail link only for site entries`);
-    if (!item.ref && !['super-credits', 'title'].includes(item.kind)) ok(body.includes('href="https://helldivers.wiki.gg/wiki/'), `${warbond.id} p${p.number} ${item.name}: wiki link kept`);
+    // Armor tiles open the armor set from the same warbond with the same official name.
+    const armor = item.kind === 'armor' ? armors.find(a => a.source.warbondId === warbond.id && a.en === item.name.replace(/ Armor$/, '')) : null;
+    const link = item.ref ? `${item.ref.view}/${item.ref.id}` : armor ? `armor/${armor.id}` : null;
+    if (item.kind === 'armor') ok(armor, `${warbond.id} p${p.number} ${item.name}: armor tile matches an armor set`);
+    ok(link ? body.includes(`data-wb-item="${link}"`) : !body.includes('data-wb-item'), `${warbond.id} p${p.number} ${item.name}: detail link only for site entries`);
+    if (!link && !['super-credits', 'title'].includes(item.kind)) ok(body.includes('href="https://helldivers.wiki.gg/wiki/'), `${warbond.id} p${p.number} ${item.name}: wiki link kept`);
     const unsure = item.costStatus !== 'confirmed' || item.nameStatus || item.pageStatus;
     ok(unsure ? body.includes(`>${UNCONFIRMED}</span>`) && attrs.includes('data-unsure') : !body.includes(UNCONFIRMED), `${warbond.id} p${p.number} ${item.name}: 미확인 marker on the tile when the wiki disagrees`);
     ok(item.cost != null ? body.includes(`<span>${item.cost.toLocaleString('ko-KR')}</span>`) : true, `${warbond.id} p${p.number} ${item.name}: price shown`);

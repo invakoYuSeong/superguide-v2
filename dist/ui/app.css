@@ -773,6 +773,11 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-stats dd .dim { color: var(--text-3); font: 600 13px/1.25 var(--font); }
 .armor-source { margin-top: 7px; font-size: 12.5px; color: var(--text-2); }
 .armor-source a { color: var(--accent-text); font-weight: 650; }
+.armor-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+/* Armor in the warbond item pane: the render on a dark plate, like .gear-art.large. */
+.armor-detail-art { display: grid; place-items: center; height: 220px; background: #141714; border: 1px solid var(--line-strong); font: 600 13px/1.2 var(--cond); color: var(--text-3); }
+.armor-detail-art img { max-width: 90%; max-height: 200px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+.detail-grid dd.dim a { color: var(--accent-text); font-weight: 650; }
 .group-tabs .count { font-size: 12px; opacity: .6; font-weight: 500; }
 .rank-detail { padding: 2px 14px 18px; background: var(--bg-raise); border-bottom: 1px solid var(--line); box-shadow: inset 3px 0 0 var(--accent); }
 .rank-detail .matchup { display: grid; gap: 12px; }

@@ -1,7 +1,7 @@
 // Every screen state lives in the URL hash, so any view can be linked or shared:
-//   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal>/<id>&m=<mode>   (the main page: an empty or unknown hash opens it)
+//   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal|armor>/<id>&m=<mode>   (the main page: an empty or unknown hash opens it)
 //   #/arsenal[/<stratagem>]?c=<category>&ap=<band>&q=<text>
-//   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text> | #/gear?tab=loadout&p=&s=&g=&st=&f= | #/gear?tab=armor&w=<weight>
+//   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text> | #/gear?tab=loadout&p=&s=&g=&st=&f= | #/gear?tab=armor&w=<weight>&a=<armor>
 //   #/enemy[/<enemy>]?w=<weapon>&m=<mode>&shield=1
 //   #/demolition?s=<structure> | #/demolition?w=<stratagem>&m=<mode>
 //   #/factions[/<guide>]

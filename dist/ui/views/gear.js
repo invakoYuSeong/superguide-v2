@@ -2,7 +2,7 @@
 // check a loadout against a faction's key enemies.
 //   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text>&sort=<key>
 //   #/gear?tab=loadout&p=<primary>&s=<secondary>&g=<throwable>&st=<a,b,c,d>&f=<faction>
-//   #/gear?tab=armor&w=<light|medium|heavy>   (body armor grouped by passive, gear-armor.js)
+//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>   (body armor grouped by passive, gear-armor.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
@@ -109,7 +109,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query });
 }
 
@@ -232,7 +232,7 @@ async function renderLoadout() {
 }
 
 // --- Armor -------------------------------------------------------------------------
-const armor = { weight: '' };
+const armor = { weight: '', focus: '' };
 const ARMOR_WEIGHTS = ['light', 'medium', 'heavy'];
 let armorUi = null;
 async function renderArmor() {
@@ -302,7 +302,7 @@ export function mount(container, context) {
 export function update(route) {
   const q = route.query;
   state.tab = q.tab === 'loadout' || q.tab === 'armor' ? q.tab : 'browse';
-  if (state.tab === 'armor') armor.weight = ARMOR_WEIGHTS.includes(q.w) ? q.w : '';
+  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', focus: q.a || '' });
   else if (state.tab === 'browse') {
     Object.assign(state, {
       cat: GROUPS.some(group => group.id === q.cat) ? q.cat : 'primary',

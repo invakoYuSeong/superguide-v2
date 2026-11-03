@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { warbonds } from '../dist/data/warbonds.js';
+import { armors } from '../dist/data/armor.js';
 import { parseRoute, formatRoute } from '../dist/core/route.js';
 import { setLang } from '../dist/core/i18n.js';
 import { escape } from '../dist/ui/dom.js';
@@ -38,6 +39,24 @@ for (const bond of warbonds) for (const item of bond.pages.flatMap(p => p.items)
   ok(!content.includes('id="sheet-title"') && !content.includes('data-close') && !content.includes('data-compare'), `${value}: no duplicate title or unrelated sheet actions`);
   ok(content.includes(escape(ref.target.en || ref.target.name)), `${value}: expected weapon/stratagem is shown`);
 }
+// Armor tiles have no ref; they open the matching set from the armor list, and the
+// full-page link goes to the armor tab marked at that set.
+let armorLinks = 0;
+for (const armor of armors.filter(a => a.source.kind === 'warbond')) {
+  const value = `armor/${armor.id}`;
+  const ref = resolveWarbondItem(armor.source.warbondId, value);
+  ok(ref?.target === armor, `${value}: armor set opens from its warbond`);
+  const content = String(await itemDetailContent(armor.source.warbondId, value));
+  ok(content.includes('id="wb-item-title"') && content.includes('class="detail-grid"') && content.includes(escape(armor.name)), `${value}: armor detail rendered`);
+  ok(content.includes(`href="#/gear?tab=armor&a=${armor.id}"`) && content.includes('전체 페이지로 열기'), `${value}: full page is the armor tab at that set`);
+  ok(content.includes('data-wb-item-close') && !content.includes('id="sheet-title"'), `${value}: shares the item-pane toolbar`);
+  armorLinks++;
+}
+eq(armorLinks, 64, 'every warbond armor set opens in the item pane');
+eq(resolveWarbondItem('helldivers-mobilize', 'armor/ac-2-obedient'), null, 'armor from another warbond is ignored');
+eq(resolveWarbondItem('castellans-creed', 'armor/tg-8-sharpshooter')?.id, 'tg-8-sharpshooter', 'tile names ending in " Armor" still match');
+eq(parseRoute('#/gear?tab=armor&a=tg-8-sharpshooter').query.a, 'tg-8-sharpshooter', 'armor focus survives the route');
+
 for (const [value, renderer] of [['gear/sightliner', weaponDetail], ['arsenal/nova', stratagemDetail]]) {
   const ref = resolveWarbondItem('scope-of-authority', value);
   const content = String(renderer(ref.target));

@@ -1,7 +1,8 @@
 // Warbond guide: one release-ordered grid, with a warbond sheet and an optional
 // item detail alongside it (or in its place on narrow screens).
-//   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal>/<id>&m=<mode>
+//   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal|armor>/<id>&m=<mode>
 import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
+import { armors } from '../../data/armor.js';
 import { warbondImages } from '../../data/warbond-images.js';
 import { warbondItemImages } from '../../data/warbond-item-images.js';
 import { warbondBannerImages } from '../../data/warbond-banner-images.js';
@@ -16,6 +17,10 @@ const state = { tier: '', detail: null, item: null, mode: '', bondScroll: 0 };
 let itemRender = 0, sheetListener = false;
 const byId = new Map(warbonds.map(item => [item.id, item]));
 const weaponById = new Map(personalWeapons.map(item => [item.id, item]));
+// Armor tiles carry no ref (the armor list is built from the warbonds, not the other way
+// round), so they are matched by warbond and official name. Some tiles add " Armor".
+const armorKey = (warbondId, name) => `${warbondId}|${name.replace(/ Armor$/, '')}`;
+const armorByTile = new Map(armors.filter(armor => armor.source.kind === 'warbond').map(armor => [armorKey(armor.source.warbondId, armor.en), armor]));
 const unconfirmedText = () => L('미확인', 'Unconfirmed');
 
 const count = value => value.toLocaleString(locale());
@@ -121,12 +126,24 @@ function renderList() {
 export function resolveWarbondItem(warbondId, value) {
   if (typeof value !== 'string') return null;
   const [view, id, extra] = value.split('/');
-  if (extra != null || !id || !['gear', 'arsenal'].includes(view)) return null;
-  const ref = byId.get(warbondId)?.pages.flatMap(page => page.items)
-    .find(item => item.ref?.view === view && item.ref.id === id)?.ref;
-  const target = view === 'gear' ? weaponById.get(id) : stratagemById.get(id);
-  return ref && target ? { view, id, target } : null;
+  if (extra != null || !id || !['gear', 'arsenal', 'armor'].includes(view)) return null;
+  return (byId.get(warbondId)?.pages.flatMap(page => page.items) ?? [])
+    .map(item => siteEntry(item, warbondId)).find(ref => ref?.view === view && ref.id === id) ?? null;
 }
+
+// The site entry a reward tile opens in the item pane, or null when the site has none.
+function siteEntry(item, warbondId) {
+  if (item.ref) {
+    const target = item.ref.view === 'gear' ? weaponById.get(item.ref.id) : item.ref.view === 'arsenal' ? stratagemById.get(item.ref.id) : null;
+    return target ? { view: item.ref.view, id: item.ref.id, target } : null;
+  }
+  const armor = item.kind === 'armor' ? armorByTile.get(armorKey(warbondId, item.name)) : null;
+  return armor ? { view: 'armor', id: armor.id, target: armor } : null;
+}
+
+// Armor has no page of its own: its full page is the armor tab, scrolled to that set.
+const fullPageRoute = (ref, mode) => ref.view === 'armor'
+  ? { view: 'gear', query: { tab: 'armor', a: ref.id } } : { view: ref.view, id: ref.id, query: { m: mode } };
 
 export function itemRoute(route, item, mode = '') {
   return { view: 'warbonds', id: route.id, query: { ...route.query, item, m: mode } };
@@ -137,12 +154,12 @@ export function itemRoute(route, item, mode = '') {
 const MEDAL = raw('<svg class="wb-medal" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1h5l-1 3h-3z" fill="currentColor"/><circle cx="8" cy="10" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7.1c-1.5 0-2.4.9-2.4 2.1 0 .8.4 1.3.9 1.6v1.2h3v-1.2c.5-.3.9-.8.9-1.6 0-1.2-.9-2.1-2.4-2.1zM6.9 9.3a.6.6 0 1 1 0 .1zm2.2 0a.6.6 0 1 1 0 .1z" fill="currentColor"/></svg>');
 
 // One reward tile at its in-game board position (Acquisitions Page template: col/row/span).
-// Weapons and stratagems with a site entry open in the item pane; other items link to the wiki.
+// Weapons, stratagems and armor with a site entry open in the item pane; other items link to the wiki.
 export function tile(item, warbondId, { placed = true } = {}) {
-  const target = item.ref?.view === 'gear' ? weaponById.get(item.ref.id) : item.ref?.view === 'arsenal' ? stratagemById.get(item.ref.id) : null;
+  const ref = siteEntry(item, warbondId), target = ref?.target;
   // Official English directly (not via the dictionary: a Korean name can be shared, e.g. 스토커).
   const shownName = target ? L(target.name || target.en, target.en || target.name) : item.kind === 'super-credits' && item.superCredits ? `${count(item.superCredits)} SC` : item.name;
-  const sub = target && lang !== 'en' && target.name ? target.en : '';
+  const sub = target && lang !== 'en' && target.name && target.name !== target.en ? target.en : '';
   const image = item.image ? warbondItemImages[item.image] : null;
   const notes = [];
   if (item.costStatus !== 'confirmed') notes.push(L(`비용 미확인: 템플릿 ${item.templateCost ?? '—'} · 표 ${item.tableCost ?? '—'}`, `Cost unconfirmed: template ${item.templateCost ?? '—'} · table ${item.tableCost ?? '—'}`));
@@ -159,7 +176,7 @@ export function tile(item, warbondId, { placed = true } = {}) {
     ${item.costStatus === 'confirmed' && notes.length ? html`<span class="wb-tile-flag">${unconfirmed()}</span>` : ''}`;
   const wiki = !target && item.kind !== 'super-credits' && item.kind !== 'title';
   const inner = target
-    ? html`<a class="wb-tile-body" data-wb-item="${item.ref.view}/${item.ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${item.ref.view}/${item.ref.id}` } })}" title="${title}">${body}</a>`
+    ? html`<a class="wb-tile-body" data-wb-item="${ref.view}/${ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${ref.view}/${ref.id}` } })}" title="${title}">${body}</a>`
     : wiki ? html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`
       : html`<div class="wb-tile-body" title="${title}">${body}</div>`;
   const area = placed ? `grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}` : '';
@@ -252,10 +269,14 @@ export async function itemDetailContent(warbondId, value, mode = '') {
   if (!ref) return '';
   const header = html`<div class="sheet-top wb-item-toolbar">
     <button class="button ghost wb-item-back" type="button" data-wb-item-close>${icon('back', 16)} ${L('뒤로', 'Back')}</button>
-    <a class="wb-full-page" href="${formatRoute({ view: ref.view, id: ref.id, query: { m: mode } })}">${L('전체 페이지로 열기', 'Open full page')} ${icon('expand', 14)}</a>
+    <a class="wb-full-page" href="${formatRoute(fullPageRoute(ref, mode))}">${L('전체 페이지로 열기', 'Open full page')} ${icon('expand', 14)}</a>
     <button class="icon-button" type="button" data-wb-item-close aria-label="${L('항목 상세 닫기', 'Close item details')}">${icon('close', 18)}</button>
   </div>`;
   const options = { header, titleId: 'wb-item-title', variant: mode, compare: false };
+  if (ref.view === 'armor') {
+    const { armorDetail } = await import('./gear-armor.js');
+    return armorDetail(ref.target, options);
+  }
   if (ref.view === 'gear') {
     const { weaponDetail } = await import('./gear.js');
     return weaponDetail(ref.target, options);
@@ -326,8 +347,7 @@ function onSheetClick(event) {
     for (const panel of $$('[data-variant-panel]', $('#sheet'))) panel.hidden = panel.dataset.variantPanel !== state.mode;
     ctx.replace(itemRoute(ctx.route, state.item, state.mode));
     const fullPage = $('.wb-full-page', $('#sheet'));
-    const ref = resolveWarbondItem(state.detail, state.item);
-    fullPage.href = formatRoute({ view: ref.view, id: ref.id, query: { m: state.mode } });
+    fullPage.href = formatRoute(fullPageRoute(resolveWarbondItem(state.detail, state.item), state.mode));
   }
 }
 
