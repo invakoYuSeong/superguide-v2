@@ -5767,6 +5767,149 @@
     }
    ]
   },
+  "Noxious Scavenger": {
+   "source": "https://helldivers.wiki.gg/wiki/Noxious_Scavenger",
+   "revision": 142101,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "60",
+     "av": "0",
+     "front_image": "Scavenger Main Front.png",
+     "side_image": "Scavenger Main Side.png",
+     "durability": "0%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "-",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Head",
+     "health": "20",
+     "av": "0",
+     "front_image": "Scavenger Head Front.png",
+     "side_image": "Scavenger Head Side.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Limbs (6)",
+     "health": "30",
+     "av": "0",
+     "front_image": "Scavenger Limbs Front.png",
+     "side_image": "Scavenger Limbs Side.png",
+     "durability": "0%",
+     "percent_to_main": "30%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    }
+   ]
+  },
+  "Noxious Spewer": {
+   "source": "https://helldivers.wiki.gg/wiki/Noxious_Spewer",
+   "revision": 142006,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "750",
+     "av": "2",
+     "front_image": "Caustic Spewer Main Front.png",
+     "side_image": "Caustic Spewer Main Side.png",
+     "durability": "50%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "-",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Head",
+     "health": "300",
+     "av": "2",
+     "front_image": "Caustic Spewer Head Front.png",
+     "side_image": "Caustic Spewer Head Side.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Mouth",
+     "health": "250",
+     "av": "0",
+     "front_image": "Caustic Spewer Mouth.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Spinal<br>Plates",
+     "health": "500",
+     "av": "2",
+     "front_image": "Caustic Spewer Spinal Plates Front.png",
+     "side_image": "Caustic Spewer Spinal Plates Side.png",
+     "rear_image": "Caustic Spewer Spinal Plates Rear.png",
+     "durability": "80%",
+     "percent_to_main": "20%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Butt",
+     "health": "750",
+     "av": "0",
+     "front_image": "Caustic Spewer Butt Front.png",
+     "side_image": "Caustic Spewer Butt Side.png",
+     "rear_image": "Caustic Spewer Butt Rear.png",
+     "durability": "100%",
+     "percent_to_main": "60%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Front<br>Legs (2)",
+     "health": "200",
+     "av": "2",
+     "front_image": "Caustic Spewer Front Legs Front.png",
+     "side_image": "Caustic Spewer Front Legs Side.png",
+     "durability": "0%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Rear<br>Legs (2)",
+     "health": "250",
+     "av": "2",
+     "front_image": "Caustic Spewer Hind Legs Front.png",
+     "side_image": "Caustic Spewer Hind Legs Side.png",
+     "durability": "30%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    }
+   ]
+  },
   "Nursing Spewer": {
    "source": "https://helldivers.wiki.gg/wiki/Nursing_Spewer",
    "revision": 141638,

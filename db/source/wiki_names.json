@@ -60,6 +60,35 @@
     }
    ]
   },
+  "Noxious Scavenger": {
+   "title": "Noxious Scavenger",
+   "anatomy": [
+    {
+     "section": "Anatomy",
+     "part": "Main",
+     "health": "60",
+     "av": "0",
+     "durability": "0%",
+     "toMain": "-"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Head",
+     "health": "20",
+     "av": "0",
+     "durability": "0%",
+     "toMain": "100%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Limbs (6)",
+     "health": "30",
+     "av": "0",
+     "durability": "0%",
+     "toMain": "30%"
+    }
+   ]
+  },
   "Caustic Spitter": {
    "title": "Caustic Spitter",
    "anatomy": [
@@ -735,6 +764,67 @@
      "part": "Front Legs (2)",
      "health": "200",
      "av": "3",
+     "durability": "0%",
+     "toMain": "50%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Rear Legs (2)",
+     "health": "250",
+     "av": "2",
+     "durability": "30%",
+     "toMain": "50%"
+    }
+   ]
+  },
+  "Noxious Spewer": {
+   "title": "Noxious Spewer",
+   "anatomy": [
+    {
+     "section": "Anatomy",
+     "part": "Main",
+     "health": "750",
+     "av": "2",
+     "durability": "50%",
+     "toMain": "-"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Head",
+     "health": "300",
+     "av": "2",
+     "durability": "0%",
+     "toMain": "100%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Mouth",
+     "health": "250",
+     "av": "0",
+     "durability": "0%",
+     "toMain": "100%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Spinal Plates",
+     "health": "500",
+     "av": "2",
+     "durability": "80%",
+     "toMain": "20%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Butt",
+     "health": "750",
+     "av": "0",
+     "durability": "100%",
+     "toMain": "60%"
+    },
+    {
+     "section": "Anatomy",
+     "part": "Front Legs (2)",
+     "health": "200",
+     "av": "2",
      "durability": "0%",
      "toMain": "50%"
     },

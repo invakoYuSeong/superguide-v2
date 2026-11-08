@@ -1995,6 +1995,25 @@ export const revisedCombatImages = {
         "thumbnailSha256": "90fe6cfd34a0e07941ba476202cf4ad3fa2f2900cb99134af5ee9eea7b6bc2bc",
         "retrievedAt": "2026-09-28"
       }
+    ],
+    "claw-both": [
+      {
+        "src": "./assets/anatomy/revised-hive-guard-claw-both.webp",
+        "thumbnail": "./assets/anatomy/revised-hive-guard-claw-both-thumb.webp",
+        "title": "Hive Guard Claws Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Hive_Guard_Claws_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Hive_Guard_Claws_Front.png?95ea81",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Hive_Guard_Claws_Front.png/800px-Hive_Guard_Claws_Front.png?95ea81",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Hive_Guard_Claws_Front.png/320px-Hive_Guard_Claws_Front.png?95ea81",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "705d5602df8d0b7a25d23440ac6ecd24c1c67efce41bb5954aa93c774af6c931",
+        "thumbnailSha256": "849b5372a67e30269a169aa035669c7dc064967497c3545307691ee7e82d107d",
+        "retrievedAt": "2026-11-08"
+      }
     ]
   },
   "nursing-spewer": {
@@ -3422,6 +3441,25 @@ export const revisedCombatImages = {
         "thumbnailSha256": "f06d614305e82ce320be1743deae21d2a33d6d5a50bb843a56da0054f3d70de2",
         "retrievedAt": "2026-09-29"
       }
+    ],
+    "cannon-both": [
+      {
+        "src": "./assets/anatomy/revised-vox-engine-cannon-both.webp",
+        "thumbnail": "./assets/anatomy/revised-vox-engine-cannon-both-thumb.webp",
+        "title": "Vox Engine Cannons Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Vox_Engine_Cannons_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Vox_Engine_Cannons_Front.png?741d20",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Vox_Engine_Cannons_Front.png/800px-Vox_Engine_Cannons_Front.png?741d20",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Vox_Engine_Cannons_Front.png/320px-Vox_Engine_Cannons_Front.png?741d20",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "a05a81c0173dd3d582a33e9d48fe4c1dd8a01c899f191cea9dd34de6a88b69e0",
+        "thumbnailSha256": "084ae8b08802512c7fd052499ee22eeacbb3139f15b56bd888fc243e9b2dfe9e",
+        "retrievedAt": "2026-11-08"
+      }
     ]
   },
   "warp-ship": {
@@ -3636,6 +3674,223 @@ export const revisedCombatImages = {
         "sha256": "90cd9cd5052e09826a493bed08221dbf10784b39d54eb66961e29fab93f8cd97",
         "thumbnailSha256": "16ab176a4e26d73552acdcd5bc661df890096879832bd99c12f79aea4460dc8a",
         "retrievedAt": "2026-10-22"
+      }
+    ]
+  },
+  "noxious-scavenger": {
+    "body": [
+      {
+        "src": "./assets/anatomy/revised-noxious-scavenger-body.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-scavenger-body-thumb.webp",
+        "title": "Scavenger Main Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Scavenger_Main_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Scavenger_Main_Front.png?f2fcec",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Main_Front.png/800px-Scavenger_Main_Front.png?f2fcec",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Main_Front.png/320px-Scavenger_Main_Front.png?f2fcec",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "847130e884b8e72ae1da336ede9a79d5a33ebbb2a241e26c34a963f70d450909",
+        "thumbnailSha256": "525160e24381784f4af32790f1e46b39784e782bf9ca99b64153cc1ad4e62079",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "head": [
+      {
+        "src": "./assets/anatomy/revised-noxious-scavenger-head.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-scavenger-head-thumb.webp",
+        "title": "Scavenger Head Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Scavenger_Head_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Scavenger_Head_Front.png?fcfb97",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Head_Front.png/800px-Scavenger_Head_Front.png?fcfb97",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Head_Front.png/320px-Scavenger_Head_Front.png?fcfb97",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "8d63df1a69ce107444c20d98d0a7985ad36bc73f6043d5bb059640dc3e6fba9e",
+        "thumbnailSha256": "ba9f0061d54c98a38527a0f949b0e9d0915b730729181c0454c44ebf89322352",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "leg": [
+      {
+        "src": "./assets/anatomy/revised-noxious-scavenger-leg.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-scavenger-leg-thumb.webp",
+        "title": "Scavenger Limbs Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Scavenger_Limbs_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Scavenger_Limbs_Front.png?609a1c",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Limbs_Front.png/800px-Scavenger_Limbs_Front.png?609a1c",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Scavenger_Limbs_Front.png/320px-Scavenger_Limbs_Front.png?609a1c",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "84ea15b68e3d16096356c1aa35cae3c0c70cc4aa86d9466430fab3bc39466f45",
+        "thumbnailSha256": "e7ccbc397ad627fae52ece799409faa46aea3eec6411570ef0b7b74e0a296fd4",
+        "retrievedAt": "2026-11-08"
+      }
+    ]
+  },
+  "brood-commander": {
+    "claw-both": [
+      {
+        "src": "./assets/anatomy/revised-brood-commander-claw-both.webp",
+        "thumbnail": "./assets/anatomy/revised-brood-commander-claw-both-thumb.webp",
+        "title": "Brood_Commander_Claws_Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Brood_Commander_Claws_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Brood_Commander_Claws_Front.png?880fc2",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Brood_Commander_Claws_Front.png/800px-Brood_Commander_Claws_Front.png?880fc2",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Brood_Commander_Claws_Front.png/320px-Brood_Commander_Claws_Front.png?880fc2",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "7c85eddadce10563c1b4a3c9e61b88498e8826f987200b811debe3eb9d107dc8",
+        "thumbnailSha256": "fce6d6b9f7617b45ddfcbda0fe6f53895bd8b61d81542d83fd282b9935760c60",
+        "retrievedAt": "2026-11-08"
+      }
+    ]
+  },
+  "alpha-commander": {
+    "claw-both": [
+      {
+        "src": "./assets/anatomy/revised-alpha-commander-claw-both.webp",
+        "thumbnail": "./assets/anatomy/revised-alpha-commander-claw-both-thumb.webp",
+        "title": "Alpha_Commander_Claws_Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Alpha_Commander_Claws_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Alpha_Commander_Claws_Front.png?a17105",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Alpha_Commander_Claws_Front.png/800px-Alpha_Commander_Claws_Front.png?a17105",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Alpha_Commander_Claws_Front.png/320px-Alpha_Commander_Claws_Front.png?a17105",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "c45b26f7727c602eead6be3364ad36a49c63a15514906b69968ae9cde649b35c",
+        "thumbnailSha256": "fa65ca75ccb2349abb619f612ca3e026599ed3d2b5e8c04774ae891cc2cbd210",
+        "retrievedAt": "2026-11-08"
+      }
+    ]
+  },
+  "noxious-spewer": {
+    "head": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-head.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-head-thumb.webp",
+        "title": "Caustic Spewer Head Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Head_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Head_Front.png?64dce1",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Head_Front.png/800px-Caustic_Spewer_Head_Front.png?64dce1",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Head_Front.png/320px-Caustic_Spewer_Head_Front.png?64dce1",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "2f8cb56e739e90ff436c39050a65b7bf033e7b7765507dc98b8d865382c613fd",
+        "thumbnailSha256": "0d696898ff1733d442c38fd338a8f08292d26b0a98c239968165d7e3ab310617",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "mouth": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-mouth.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-mouth-thumb.webp",
+        "title": "Caustic Spewer Mouth.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Mouth.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Mouth.png?11124c",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Mouth.png/800px-Caustic_Spewer_Mouth.png?11124c",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Mouth.png/320px-Caustic_Spewer_Mouth.png?11124c",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "d704e43640a46141d6551d08da9bcaaf570c5b6a048adbb8cb70ceaedadea86c",
+        "thumbnailSha256": "7afbfccce79058d8c1fae5715946cbb06c82fc9a2d8aa20ba2a35ab335e56f48",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "butt": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-butt.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-butt-thumb.webp",
+        "title": "Caustic Spewer Butt Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Butt_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Butt_Front.png?9b6c6d",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Butt_Front.png/800px-Caustic_Spewer_Butt_Front.png?9b6c6d",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Butt_Front.png/320px-Caustic_Spewer_Butt_Front.png?9b6c6d",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "86ee41ed2ba5055ca02d23b10be03e4a1b9f79475dd1bb6a4a304e93e6accb8e",
+        "thumbnailSha256": "c3b21b289bf3059dc370a784b37c5087de42ff52f85b842d906b70100a5c493c",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "spinal-plates": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-spinal-plates.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-spinal-plates-thumb.webp",
+        "title": "Caustic Spewer Spinal Plates Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Spinal_Plates_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Spinal_Plates_Front.png?8fd4dc",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Spinal_Plates_Front.png/800px-Caustic_Spewer_Spinal_Plates_Front.png?8fd4dc",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Spinal_Plates_Front.png/320px-Caustic_Spewer_Spinal_Plates_Front.png?8fd4dc",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "bb586e849d5ef0de37f75cc7b2128dd0592823e6daac4883126df4473d96b1e4",
+        "thumbnailSha256": "f302246071bfc591271d8fdf53cb650005c47d6dbd40d1609a46bf00611553de",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "front-leg": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-front-leg.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-front-leg-thumb.webp",
+        "title": "Caustic Spewer Front Legs Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Front_Legs_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Front_Legs_Front.png?3308a8",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Front_Legs_Front.png/800px-Caustic_Spewer_Front_Legs_Front.png?3308a8",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Front_Legs_Front.png/320px-Caustic_Spewer_Front_Legs_Front.png?3308a8",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "30e98801bbe8a54bdf3f3c677636cda170a6f7b5fab06aeb11d7eac044327d6f",
+        "thumbnailSha256": "3e53c79c9ddc865457ccbf903123b19e475a8dde2d0c638e997b46f31cecc6aa",
+        "retrievedAt": "2026-11-08"
+      }
+    ],
+    "rear-leg": [
+      {
+        "src": "./assets/anatomy/revised-noxious-spewer-rear-leg.webp",
+        "thumbnail": "./assets/anatomy/revised-noxious-spewer-rear-leg-thumb.webp",
+        "title": "Caustic Spewer Hind Legs Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Caustic_Spewer_Hind_Legs_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Caustic_Spewer_Hind_Legs_Front.png?ca0288",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Hind_Legs_Front.png/800px-Caustic_Spewer_Hind_Legs_Front.png?ca0288",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Caustic_Spewer_Hind_Legs_Front.png/320px-Caustic_Spewer_Hind_Legs_Front.png?ca0288",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "ec3573db557509098293bce967e495fcdf454494bf6a6aac1285813b65ea1a2f",
+        "thumbnailSha256": "a9a74051b457fdf90116f202bc4abfb07e77e6d8e18a1ed9f3764f0f22a1bb0a",
+        "retrievedAt": "2026-11-08"
       }
     ]
   }

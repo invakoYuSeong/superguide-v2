@@ -1611,6 +1611,14 @@
     "sha256": "dac74e09e45ef43219b393a22ea50c83fa1aa4d7739354117d1b6775865c3026",
     "sourceSha256": "d11a66b3b1992da218912e07152967c04996743ae6fec31e11b19f0d913fad6f"
   },
+  "./assets/anatomy/revised-alpha-commander-claw-both-thumb.webp": {
+    "sha256": "efbd94d44435a48b2cc6dbef8cd3ad4bfc697b754faf3a2be641a75a0beadddf",
+    "sourceSha256": "fa65ca75ccb2349abb619f612ca3e026599ed3d2b5e8c04774ae891cc2cbd210"
+  },
+  "./assets/anatomy/revised-alpha-commander-claw-both.webp": {
+    "sha256": "b4cb7df50709f13ea53f9f0105abc2eb4510f4d644f36eb42db16cb1897c95e6",
+    "sourceSha256": "c45b26f7727c602eead6be3364ad36a49c63a15514906b69968ae9cde649b35c"
+  },
   "./assets/anatomy/revised-annihilator-tank-hull-side-thumb.webp": {
     "sha256": "33403b71d4e016560eaa8e4d1eb57abd6237cede33cb178e1b9d1c9ca38652b4",
     "sourceSha256": "e3da30658fb57eebf10bf50545045ef83b5c02e25a49d6a6869b0a81b39a814e"
@@ -1802,6 +1810,14 @@
   "./assets/anatomy/revised-bile-titan-torso-armor.webp": {
     "sha256": "85dd959726c899588241d3b234901596cf300c51291c53fae6ca6c71b02cb15a",
     "sourceSha256": "4ed24d6560c034b1887c322fc94b8ee04ae68457870880f6019e02c08effb6da"
+  },
+  "./assets/anatomy/revised-brood-commander-claw-both-thumb.webp": {
+    "sha256": "ceb1e2029a9a3b43d7f350a2d83ea49d8acd47980ab4ef9efe9b8861ac9d4bea",
+    "sourceSha256": "fce6d6b9f7617b45ddfcbda0fe6f53895bd8b61d81542d83fd282b9935760c60"
+  },
+  "./assets/anatomy/revised-brood-commander-claw-both.webp": {
+    "sha256": "147d801bb5e0d4613ece96f590f66bec8574e9dd3e17d6064ac7cb73e18570f1",
+    "sourceSha256": "7c85eddadce10563c1b4a3c9e61b88498e8826f987200b811debe3eb9d107dc8"
   },
   "./assets/anatomy/revised-charger-claw-thumb.webp": {
     "sha256": "83ed7ab7b77cd42d77c34adfe1581bf8168cd7ffdcb8c218eb6a038ad660743a",
@@ -2347,6 +2363,14 @@
     "sha256": "1fc7ba524fad96a2a3b30a58f6cf09e72409a961f5622bdef1b8649a4fdab320",
     "sourceSha256": "f69297c2dff66c55b6f8365a28e98d892d56366a9c486853cf20c0b44b159ce0"
   },
+  "./assets/anatomy/revised-hive-guard-claw-both-thumb.webp": {
+    "sha256": "35ac748f0f0a54387e531988896438d8a2f883d35c2195ced68e41fb88aad3bb",
+    "sourceSha256": "849b5372a67e30269a169aa035669c7dc064967497c3545307691ee7e82d107d"
+  },
+  "./assets/anatomy/revised-hive-guard-claw-both.webp": {
+    "sha256": "f09791e0940236725af4ddf84e4a0d3218b3b82509ef8ff4d8bf03a168a552a3",
+    "sourceSha256": "705d5602df8d0b7a25d23440ac6ecd24c1c67efce41bb5954aa93c774af6c931"
+  },
   "./assets/anatomy/revised-hive-guard-front-leg-thumb.webp": {
     "sha256": "f59330e9bc48541b8147b502aaa78617d42ef383e56ed365de54b65f72c570a9",
     "sourceSha256": "90fe6cfd34a0e07941ba476202cf4ad3fa2f2900cb99134af5ee9eea7b6bc2bc"
@@ -2554,6 +2578,78 @@
   "./assets/anatomy/revised-leviathan-warp-disc.webp": {
     "sha256": "ebfda7d47b9fad5bbd73c5fbcd6520826700ef4028f6f8741edb2b0dbb450b30",
     "sourceSha256": "6f148a7bb795d635d0666651acdd6ca2d8f7288947b7bae22d008426f543ccfc"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-body-thumb.webp": {
+    "sha256": "cf6b2a13c88f7a7afb0df2f0d6c631e61275230a4b679cadf97da602491653b4",
+    "sourceSha256": "525160e24381784f4af32790f1e46b39784e782bf9ca99b64153cc1ad4e62079"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-body.webp": {
+    "sha256": "cab72fbd7d96e68795430e29fc33f5aa8a8b3abf7042f174325b9e122d54bfc5",
+    "sourceSha256": "847130e884b8e72ae1da336ede9a79d5a33ebbb2a241e26c34a963f70d450909"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-head-thumb.webp": {
+    "sha256": "1e4ebf04b6122acbf6584402c396e65fb6a66a3f9a9887d4f29fcbbabe99a963",
+    "sourceSha256": "ba9f0061d54c98a38527a0f949b0e9d0915b730729181c0454c44ebf89322352"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-head.webp": {
+    "sha256": "f15713029e74a19c60ecf3d3df19c0ad66761340220483620f2ce6e1c965c380",
+    "sourceSha256": "8d63df1a69ce107444c20d98d0a7985ad36bc73f6043d5bb059640dc3e6fba9e"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-leg-thumb.webp": {
+    "sha256": "5637a792c2c40df893d11638fdde1797c8d956f1e97c589590a91ee12315122f",
+    "sourceSha256": "e7ccbc397ad627fae52ece799409faa46aea3eec6411570ef0b7b74e0a296fd4"
+  },
+  "./assets/anatomy/revised-noxious-scavenger-leg.webp": {
+    "sha256": "b0e082eff2fc95df9b823df1f2aadea337f3fcacac8565ce46ac413d4d3f4b8b",
+    "sourceSha256": "84ea15b68e3d16096356c1aa35cae3c0c70cc4aa86d9466430fab3bc39466f45"
+  },
+  "./assets/anatomy/revised-noxious-spewer-butt-thumb.webp": {
+    "sha256": "b3245683267414b157deab62169b2cd9fd471caa0582dc77bee2062a30b58593",
+    "sourceSha256": "c3b21b289bf3059dc370a784b37c5087de42ff52f85b842d906b70100a5c493c"
+  },
+  "./assets/anatomy/revised-noxious-spewer-butt.webp": {
+    "sha256": "a8063bfaaca23dbf3cb37d07b100789f0cad245a5a9de224103c5d5dc3484793",
+    "sourceSha256": "86ee41ed2ba5055ca02d23b10be03e4a1b9f79475dd1bb6a4a304e93e6accb8e"
+  },
+  "./assets/anatomy/revised-noxious-spewer-front-leg-thumb.webp": {
+    "sha256": "373db3519a860b9a87aacd35f6a4bbb9550d1e0575ea434cac18a9bf979590e7",
+    "sourceSha256": "3e53c79c9ddc865457ccbf903123b19e475a8dde2d0c638e997b46f31cecc6aa"
+  },
+  "./assets/anatomy/revised-noxious-spewer-front-leg.webp": {
+    "sha256": "baf074780d6dda601d3a0e0e878741d55429683e64a9d9d4dd633a62ee1ca123",
+    "sourceSha256": "30e98801bbe8a54bdf3f3c677636cda170a6f7b5fab06aeb11d7eac044327d6f"
+  },
+  "./assets/anatomy/revised-noxious-spewer-head-thumb.webp": {
+    "sha256": "749aef983539487d3b5ab4155fd20b19c93656f0cc92d11de698a37015d97c99",
+    "sourceSha256": "0d696898ff1733d442c38fd338a8f08292d26b0a98c239968165d7e3ab310617"
+  },
+  "./assets/anatomy/revised-noxious-spewer-head.webp": {
+    "sha256": "218cc135a41135a01de06a1605a7bf64ff1665861e1cc8cce4ea5a3775b83aae",
+    "sourceSha256": "2f8cb56e739e90ff436c39050a65b7bf033e7b7765507dc98b8d865382c613fd"
+  },
+  "./assets/anatomy/revised-noxious-spewer-mouth-thumb.webp": {
+    "sha256": "275bfdeaaae0af657f5fe3ac5360dc528202de417daf2b16374acec411b864aa",
+    "sourceSha256": "7afbfccce79058d8c1fae5715946cbb06c82fc9a2d8aa20ba2a35ab335e56f48"
+  },
+  "./assets/anatomy/revised-noxious-spewer-mouth.webp": {
+    "sha256": "0f4523d6e25262ec1f9324a9fa0daab70ff1281bae47216c98ef975c359a5c93",
+    "sourceSha256": "d704e43640a46141d6551d08da9bcaaf570c5b6a048adbb8cb70ceaedadea86c"
+  },
+  "./assets/anatomy/revised-noxious-spewer-rear-leg-thumb.webp": {
+    "sha256": "5464b05d32ba09593e95fe58e6f2bc7673acbf29ec504a8177fb8f586c32f61b",
+    "sourceSha256": "a9a74051b457fdf90116f202bc4abfb07e77e6d8e18a1ed9f3764f0f22a1bb0a"
+  },
+  "./assets/anatomy/revised-noxious-spewer-rear-leg.webp": {
+    "sha256": "e4f3099b66b77fe20b7771daf47918644d274c60201c36d1925e3b2cff306751",
+    "sourceSha256": "ec3573db557509098293bce967e495fcdf454494bf6a6aac1285813b65ea1a2f"
+  },
+  "./assets/anatomy/revised-noxious-spewer-spinal-plates-thumb.webp": {
+    "sha256": "f7c8519f47d8a6c2db4b7abd6b3ad13caea939b1c70d84166e992111d9f1c27f",
+    "sourceSha256": "f302246071bfc591271d8fdf53cb650005c47d6dbd40d1609a46bf00611553de"
+  },
+  "./assets/anatomy/revised-noxious-spewer-spinal-plates.webp": {
+    "sha256": "96aa86ffc480d04ae67aada88ff4879737ad700db99091cd6b2cd63c5a74041c",
+    "sourceSha256": "bb586e849d5ef0de37f75cc7b2128dd0592823e6daac4883126df4473d96b1e4"
   },
   "./assets/anatomy/revised-nursing-spewer-front-leg-thumb.webp": {
     "sha256": "664ab114f2ae5cc6b66cae814287fa6d61f7a4d7ce0c897ff63071d94dd22e02",
@@ -3018,6 +3114,14 @@
   "./assets/anatomy/revised-voteless-medium-upper-arm.webp": {
     "sha256": "0c42175398ee2ca388994aaf2e7a621026d166a9880be42fcfb103168ecf7fe4",
     "sourceSha256": "f08829111a6301f673ac0f1155e0d8f6e69a98ccbd4c1558ea4b2f09f65713ab"
+  },
+  "./assets/anatomy/revised-vox-engine-cannon-both-thumb.webp": {
+    "sha256": "aa861a6d70d564591652c36c206d3246a0f25ec97aed6bd244ca1a49978e4483",
+    "sourceSha256": "084ae8b08802512c7fd052499ee22eeacbb3139f15b56bd888fc243e9b2dfe9e"
+  },
+  "./assets/anatomy/revised-vox-engine-cannon-both.webp": {
+    "sha256": "77afcacd8ae1b48e19bb686fdde0c3b0b55164cadb5a682f0519b3e4592a5734",
+    "sourceSha256": "a05a81c0173dd3d582a33e9d48fe4c1dd8a01c899f191cea9dd34de6a88b69e0"
   },
   "./assets/anatomy/revised-vox-engine-fog-light-thumb.webp": {
     "sha256": "083196da87363b4c3fb9a0a8a2f83c4ef8c649fe2d7db355eeda4349ffbeb9e7",

@@ -61,6 +61,8 @@ export const enemySizes = {
   "leviathan": "massive",
   "marauder": "small",
   "mg-raider": "small",
+  "noxious-scavenger": "small",
+  "noxious-spewer": "medium",
   "nursing-spewer": "medium",
   "obtruder": null,
   "overseer": "medium",
@@ -435,6 +437,20 @@ export const enemySizeEvidence = {
     "category": "Small Enemies",
     "pageid": 7935,
     "revision": 138978
+  },
+  "noxious-scavenger": {
+    "title": "Noxious Scavenger",
+    "source": "https://helldivers.wiki.gg/wiki/Noxious_Scavenger",
+    "category": "Small Enemies",
+    "pageid": 23018,
+    "revision": 142101
+  },
+  "noxious-spewer": {
+    "title": "Noxious Spewer",
+    "source": "https://helldivers.wiki.gg/wiki/Noxious_Spewer",
+    "category": "Medium Enemies",
+    "pageid": 23016,
+    "revision": 142006
   },
   "nursing-spewer": {
     "title": "Nursing Spewer",

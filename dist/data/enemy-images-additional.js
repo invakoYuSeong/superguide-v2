@@ -1,5 +1,31 @@
 // Unmodified Wiki portraits; anatomy overlays are WebP encodings of the Wiki PNGs (sha256 keeps the PNG hash). Reused diagrams follow the individual enemy Wiki pages.
 export const additionalPickerImages = {
+  "noxious-scavenger": {
+    "src": "./assets/pickers/enemy-noxious-scavenger.png",
+    "title": "Noxious Scavenger Enemy Icon.png",
+    "source": "https://helldivers.wiki.gg/wiki/File:Noxious_Scavenger_Enemy_Icon.png",
+    "originalUrl": "https://helldivers.wiki.gg/images/Noxious_Scavenger_Enemy_Icon.png?ff58b1",
+    "assetUrl": "https://helldivers.wiki.gg/images/thumb/Noxious_Scavenger_Enemy_Icon.png/256px-Noxious_Scavenger_Enemy_Icon.png?ff58b1",
+    "width": 256,
+    "height": 256,
+    "sha256": "9c5f1b2049276d4209715ce3ec152370cbca014371e77a1122b4aaaf23e11321",
+    "retrievedAt": "2026-11-08",
+    "uploader": "AkuBC",
+    "kind": "portrait"
+  },
+  "noxious-spewer": {
+    "src": "./assets/pickers/enemy-noxious-spewer.png",
+    "title": "Noxious Spewer Enemy Icon.png",
+    "source": "https://helldivers.wiki.gg/wiki/File:Noxious_Spewer_Enemy_Icon.png",
+    "originalUrl": "https://helldivers.wiki.gg/images/Noxious_Spewer_Enemy_Icon.png?eddb2b",
+    "assetUrl": "https://helldivers.wiki.gg/images/thumb/Noxious_Spewer_Enemy_Icon.png/256px-Noxious_Spewer_Enemy_Icon.png?eddb2b",
+    "width": 256,
+    "height": 256,
+    "sha256": "b1917868e5eba7fc48c49e239874ba7dbf8e36fb087a90025c4f3d35e38e96b3",
+    "retrievedAt": "2026-11-08",
+    "uploader": "AkuBC",
+    "kind": "portrait"
+  },
   "scavenger": {
     "src": "./assets/pickers/enemy-scavenger.png",
     "title": "Scavenger Enemy Icon.png",

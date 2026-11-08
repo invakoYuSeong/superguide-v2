@@ -245,6 +245,67 @@ export const additionalEnemies = [
     ]
   },
   {
+    "id": "noxious-scavenger",
+    "name": "녹셔스 스캐빈저",
+    "faction": "테르미니드",
+    "source": "https://helldivers.wiki.gg/wiki/Noxious_Scavenger",
+    "sourceRevision": 142101,
+    "checkedAt": "2026-11-08",
+    "anatomyRevision": 142101,
+    "anatomyCheckedAt": "2026-11-08",
+    "main": {
+      "hp": 60,
+      "armor": 0,
+      "durability": 0,
+      "exdr": 0,
+      "constitution": 0
+    },
+    "note": "녹셔스 변종의 스캐빈저입니다. 일반 스캐빈저보다 빠르고, 물면 이동을 늦추는 독을 겁니다. 위키 부위 표는 일반 스캐빈저와 같으며 위키 문서는 아직 작성 중입니다. 독 지속 피해는 계산에 넣지 않습니다.",
+    "spearLock": false,
+    "parts": [
+      {
+        "id": "body",
+        "name": "본체",
+        "hp": 60,
+        "armor": 0,
+        "durability": 0,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "몸통 중앙을 따라가며 사격하세요. 개별 부위가 아닌 본체 체력을 소진하는 경로입니다.",
+        "sourcePart": "Main",
+        "mainOnly": true
+      },
+      {
+        "id": "head",
+        "name": "머리",
+        "hp": 20,
+        "armor": 0,
+        "durability": 0,
+        "exdr": 100,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "정면 머리를 직접 맞히세요.",
+        "sourcePart": "Head"
+      },
+      {
+        "id": "leg",
+        "name": "다리 한쪽",
+        "hp": 30,
+        "armor": 0,
+        "durability": 0,
+        "exdr": 100,
+        "toMain": 30,
+        "overflowCap": true,
+        "effect": "break",
+        "tip": "같은 다리 한쪽을 맞히는 조건입니다. 여러 다리에 나눠 맞힌 피해는 합치지 않습니다.",
+        "sourcePart": "Limbs (6)"
+      }
+    ]
+  },
+  {
     "id": "spore-burst-hunter",
     "name": "스포어 버스트 헌터",
     "faction": "테르미니드",

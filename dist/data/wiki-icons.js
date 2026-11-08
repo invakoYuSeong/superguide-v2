@@ -736,6 +736,14 @@ export const wikiIcons = {
     "retrievedAt": "2026-09-16",
     "sha256": "1e8801e61c5a3d3c71bbbe0efc592d5249d80e3bd9a566b547222b0df948339b"
   },
+  "incinerator-frv": {
+    "src": "./assets/stratagems/incinerator-frv-stratagem-icon.svg",
+    "title": "Incinerator FRV Stratagem Icon.svg",
+    "source": "https://helldivers.wiki.gg/wiki/File:Incinerator_FRV_Stratagem_Icon.svg",
+    "originalUrl": "https://helldivers.wiki.gg/images/Incinerator_FRV_Stratagem_Icon.svg?b3220f",
+    "retrievedAt": "2026-11-08",
+    "sha256": "fd7171ebd4c2a74842899e78138542eec4f643d56351c1329b86a5a3a704e910"
+  },
   "bastion": {
     "src": "./assets/stratagems/bastion-mk-xvi-stratagem-icon.svg",
     "title": "Bastion MK XVI Stratagem Icon.svg",
