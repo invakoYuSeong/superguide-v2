@@ -1,32 +1,32 @@
 {
  "source": "https://helldivers.wiki.gg/wiki/Category:Weapons",
- "retrievedAt": "2026-11-03",
+ "retrievedAt": "2026-11-08",
  "categories": {
   "Primary Weapons": [
    {
     "title": "AR-11 Arbitrator",
     "pageid": 22162,
-    "revision": 140312
+    "revision": 142144
    },
    {
     "title": "AR-2 Coyote",
     "pageid": 13826,
-    "revision": 140313
+    "revision": 141898
    },
    {
     "title": "AR-23 Liberator",
     "pageid": 2341,
-    "revision": 140535
+    "revision": 141899
    },
    {
     "title": "AR-23A Liberator Carbine",
     "pageid": 6752,
-    "revision": 140318
+    "revision": 141900
    },
    {
     "title": "AR-23C Liberator Concussive",
     "pageid": 2342,
-    "revision": 140310
+    "revision": 141901
    },
    {
     "title": "AR-23L Liberator Legacy",
@@ -36,87 +36,87 @@
    {
     "title": "AR-23P Liberator Penetrator",
     "pageid": 2226,
-    "revision": 140398
+    "revision": 141902
    },
    {
     "title": "AR-32 Pacifier",
     "pageid": 12637,
-    "revision": 140320
+    "revision": 141903
    },
    {
     "title": "AR-59 Suppressor",
     "pageid": 15415,
-    "revision": 140321
+    "revision": 141904
    },
    {
     "title": "AR-61 Tenderizer",
     "pageid": 6155,
-    "revision": 140322
+    "revision": 141905
    },
    {
     "title": "AR/GL-21 One-Two",
     "pageid": 14685,
-    "revision": 140323
+    "revision": 141906
    },
    {
     "title": "ARC-12 Blitzer",
     "pageid": 3110,
-    "revision": 140431
+    "revision": 141907
    },
    {
     "title": "BR-14 Adjudicator",
     "pageid": 4563,
-    "revision": 141181
+    "revision": 141908
    },
    {
     "title": "CB-9 Exploding Crossbow",
     "pageid": 4565,
-    "revision": 140432
+    "revision": 141909
    },
    {
     "title": "DBS-2 Double Freedom",
     "pageid": 14884,
-    "revision": 140433
+    "revision": 141910
    },
    {
     "title": "FLAM-66 Torcher",
     "pageid": 7278,
-    "revision": 140434
+    "revision": 141873
    },
    {
     "title": "GL-15 Evictor",
     "pageid": 22163,
-    "revision": 140435
+    "revision": 141628
    },
    {
     "title": "JAR-5 Dominator",
     "pageid": 2263,
-    "revision": 140436
+    "revision": 141911
    },
    {
     "title": "LAS-12 Sai",
     "pageid": 22325,
-    "revision": 140437
+    "revision": 141912
    },
    {
     "title": "LAS-13 Trident",
     "pageid": 15881,
-    "revision": 140438
+    "revision": 141913
    },
    {
     "title": "LAS-16 Sickle",
     "pageid": 3112,
-    "revision": 140439
+    "revision": 141914
    },
    {
     "title": "LAS-17 Double-Edge Sickle",
     "pageid": 10342,
-    "revision": 140440
+    "revision": 141915
    },
    {
     "title": "LAS-5 Scythe",
     "pageid": 2346,
-    "revision": 140441
+    "revision": 141916
    },
    {
     "title": "M7S SMG",
@@ -136,17 +136,17 @@
    {
     "title": "MP-98 Knight",
     "pageid": 2267,
-    "revision": 140414
+    "revision": 141917
    },
    {
     "title": "PLAS-1 Scorcher",
     "pageid": 2347,
-    "revision": 140443
+    "revision": 141920
    },
    {
     "title": "PLAS-101 Purifier",
     "pageid": 6158,
-    "revision": 140444
+    "revision": 141921
    },
    {
     "title": "PLAS-39 Accelerator Rifle",
@@ -156,7 +156,7 @@
    {
     "title": "R-2 Amendment",
     "pageid": 12039,
-    "revision": 140446
+    "revision": 141922
    },
    {
     "title": "R-2124 Constitution",
@@ -166,117 +166,117 @@
    {
     "title": "R-36 Eruptor",
     "pageid": 4564,
-    "revision": 140448
+    "revision": 141923
    },
    {
     "title": "R-4 Hyena",
     "pageid": 19662,
-    "revision": 140449
+    "revision": 141924
    },
    {
     "title": "R-40 Sightliner",
     "pageid": 22567,
-    "revision": 141176
+    "revision": 141991
    },
    {
     "title": "R-6 Deadeye",
     "pageid": 10894,
-    "revision": 140451
+    "revision": 141926
    },
    {
     "title": "R-63 Diligence",
     "pageid": 2293,
-    "revision": 140452
+    "revision": 141927
    },
    {
     "title": "R-63CS Diligence Counter Sniper",
     "pageid": 2292,
-    "revision": 140453
+    "revision": 141928
    },
    {
     "title": "R-72 Censor",
     "pageid": 15413,
-    "revision": 140454
+    "revision": 141929
    },
    {
     "title": "R/40-K Hot-Shot Marksman Rifle",
     "pageid": 20138,
-    "revision": 140455
+    "revision": 141930
    },
    {
     "title": "SG-20 Halt",
     "pageid": 8039,
-    "revision": 140456
+    "revision": 141931
    },
    {
     "title": "SG-225 Breaker",
     "pageid": 2345,
-    "revision": 140531
+    "revision": 141932
    },
    {
     "title": "SG-225IE Breaker Incendiary",
     "pageid": 2297,
-    "revision": 140458
+    "revision": 141933
    },
    {
     "title": "SG-225SP Breaker Spray&Pray",
     "pageid": 2298,
-    "revision": 140532
+    "revision": 141934
    },
    {
     "title": "SG-451 Cookout",
     "pageid": 7255,
-    "revision": 140460
+    "revision": 141935
    },
    {
     "title": "SG-8 Punisher",
     "pageid": 2344,
-    "revision": 140530
+    "revision": 141936
    },
    {
     "title": "SG-8P Punisher Plasma",
     "pageid": 3113,
-    "revision": 140462
+    "revision": 141937
    },
    {
     "title": "SG-8S Slugger",
     "pageid": 2299,
-    "revision": 140463
+    "revision": 141938
    },
    {
     "title": "SG-97 Sweeper",
     "pageid": 17569,
-    "revision": 140464
+    "revision": 141939
    },
    {
     "title": "SMG-203 Gallant",
     "pageid": 18445,
-    "revision": 140418
+    "revision": 141940
    },
    {
     "title": "SMG-32 Reprimand",
     "pageid": 8037,
-    "revision": 140419
+    "revision": 141941
    },
    {
     "title": "SMG-37 Defender",
     "pageid": 2300,
-    "revision": 140420
+    "revision": 141942
    },
    {
     "title": "SMG-72 Pummeler",
     "pageid": 6157,
-    "revision": 140421
+    "revision": 141943
    },
    {
     "title": "SMG/FLAM-34 Stoker",
     "pageid": 17261,
-    "revision": 140422
+    "revision": 141944
    },
    {
     "title": "StA-11 SMG",
     "pageid": 9323,
-    "revision": 140423
+    "revision": 142033
    },
    {
     "title": "StA-52 Assault Rifle",
@@ -286,7 +286,7 @@
    {
     "title": "VG-70 Variable",
     "pageid": 13265,
-    "revision": 140465
+    "revision": 142085
    }
   ],
   "Secondary Weapons": [
@@ -328,7 +328,7 @@
    {
     "title": "GP-31 Grenade Pistol",
     "pageid": 4562,
-    "revision": 140472
+    "revision": 141567
    },
    {
     "title": "LAS-58 Talon",
@@ -338,7 +338,7 @@
    {
     "title": "LAS-7 Dagger",
     "pageid": 3114,
-    "revision": 140474
+    "revision": 141654
    },
    {
     "title": "M6C/SOCOM Pistol",
@@ -353,7 +353,7 @@
    {
     "title": "P-113 Verdict",
     "pageid": 6159,
-    "revision": 140477
+    "revision": 141918
    },
    {
     "title": "P-19 Redeemer",
@@ -363,7 +363,7 @@
    {
     "title": "P-2 Peacemaker",
     "pageid": 2348,
-    "revision": 140491
+    "revision": 141919
    },
    {
     "title": "P-33 Missile Pistol",
@@ -388,12 +388,12 @@
    {
     "title": "P-44 Mist",
     "pageid": 22580,
-    "revision": 140855
+    "revision": 141993
    },
    {
     "title": "P-69 Veto",
     "pageid": 17264,
-    "revision": 140484
+    "revision": 141551
    },
    {
     "title": "P-72 Crisper",
@@ -408,7 +408,7 @@
    {
     "title": "P/40-K Bolt Pistol",
     "pageid": 20140,
-    "revision": 140487
+    "revision": 141876
    },
    {
     "title": "PLAS-15 Loyalist",
@@ -425,7 +425,7 @@
    {
     "title": "G-10 Incendiary",
     "pageid": 3269,
-    "revision": 140492
+    "revision": 141990
    },
    {
     "title": "G-109 Urchin",
@@ -450,12 +450,12 @@
    {
     "title": "G-13 Incendiary Impact",
     "pageid": 6160,
-    "revision": 140497
+    "revision": 141989
    },
    {
     "title": "G-142 Pyrotech",
     "pageid": 12043,
-    "revision": 140498
+    "revision": 141988
    },
    {
     "title": "G-16 Impact",
@@ -510,7 +510,7 @@
    {
     "title": "G-8 Immolation",
     "pageid": 22174,
-    "revision": 140509
+    "revision": 141986
    },
    {
     "title": "G-89 Smokescreen",
@@ -520,7 +520,7 @@
    {
     "title": "G/40-K Melta Mine",
     "pageid": 20142,
-    "revision": 140546
+    "revision": 141875
    },
    {
     "title": "G/SH-39 Shield",
@@ -547,27 +547,27 @@
    {
     "title": "AR-11 Arbitrator",
     "pageid": 22162,
-    "revision": 140312
+    "revision": 142144
    },
    {
     "title": "AR-2 Coyote",
     "pageid": 13826,
-    "revision": 140313
+    "revision": 141898
    },
    {
     "title": "AR-23 Liberator",
     "pageid": 2341,
-    "revision": 140535
+    "revision": 141899
    },
    {
     "title": "AR-23A Liberator Carbine",
     "pageid": 6752,
-    "revision": 140318
+    "revision": 141900
    },
    {
     "title": "AR-23C Liberator Concussive",
     "pageid": 2342,
-    "revision": 140310
+    "revision": 141901
    },
    {
     "title": "AR-23L Liberator Legacy",
@@ -577,32 +577,32 @@
    {
     "title": "AR-23P Liberator Penetrator",
     "pageid": 2226,
-    "revision": 140398
+    "revision": 141902
    },
    {
     "title": "AR-32 Pacifier",
     "pageid": 12637,
-    "revision": 140320
+    "revision": 141903
    },
    {
     "title": "AR-59 Suppressor",
     "pageid": 15415,
-    "revision": 140321
+    "revision": 141904
    },
    {
     "title": "AR-61 Tenderizer",
     "pageid": 6155,
-    "revision": 140322
+    "revision": 141905
    },
    {
     "title": "AR/GL-21 One-Two",
     "pageid": 14685,
-    "revision": 140323
+    "revision": 141906
    },
    {
     "title": "BR-14 Adjudicator",
     "pageid": 4563,
-    "revision": 141181
+    "revision": 141908
    },
    {
     "title": "MA5C Assault Rifle",
@@ -619,7 +619,7 @@
    {
     "title": "R-2 Amendment",
     "pageid": 12039,
-    "revision": 140446
+    "revision": 141922
    },
    {
     "title": "R-2124 Constitution",
@@ -629,39 +629,39 @@
    {
     "title": "R-4 Hyena",
     "pageid": 19662,
-    "revision": 140449
+    "revision": 141924
    },
    {
     "title": "R-6 Deadeye",
     "pageid": 10894,
-    "revision": 140451
+    "revision": 141926
    },
    {
     "title": "R-63 Diligence",
     "pageid": 2293,
-    "revision": 140452
+    "revision": 141927
    },
    {
     "title": "R-63CS Diligence Counter Sniper",
     "pageid": 2292,
-    "revision": 140453
+    "revision": 141928
    },
    {
     "title": "R-72 Censor",
     "pageid": 15413,
-    "revision": 140454
+    "revision": 141929
    },
    {
     "title": "R/40-K Hot-Shot Marksman Rifle",
     "pageid": 20138,
-    "revision": 140455
+    "revision": 141930
    }
   ],
   "Shotguns": [
    {
     "title": "DBS-2 Double Freedom",
     "pageid": 14884,
-    "revision": 140433
+    "revision": 141910
    },
    {
     "title": "M90A Shotgun",
@@ -671,42 +671,42 @@
    {
     "title": "SG-20 Halt",
     "pageid": 8039,
-    "revision": 140456
+    "revision": 141931
    },
    {
     "title": "SG-225 Breaker",
     "pageid": 2345,
-    "revision": 140531
+    "revision": 141932
    },
    {
     "title": "SG-225IE Breaker Incendiary",
     "pageid": 2297,
-    "revision": 140458
+    "revision": 141933
    },
    {
     "title": "SG-225SP Breaker Spray&Pray",
     "pageid": 2298,
-    "revision": 140532
+    "revision": 141934
    },
    {
     "title": "SG-451 Cookout",
     "pageid": 7255,
-    "revision": 140460
+    "revision": 141935
    },
    {
     "title": "SG-8 Punisher",
     "pageid": 2344,
-    "revision": 140530
+    "revision": 141936
    },
    {
     "title": "SG-8S Slugger",
     "pageid": 2299,
-    "revision": 140463
+    "revision": 141938
    },
    {
     "title": "SG-97 Sweeper",
     "pageid": 17569,
-    "revision": 140464
+    "revision": 141939
    }
   ],
   "Submachine Guns": [
@@ -718,79 +718,79 @@
    {
     "title": "MP-98 Knight",
     "pageid": 2267,
-    "revision": 140414
+    "revision": 141917
    },
    {
     "title": "SMG-203 Gallant",
     "pageid": 18445,
-    "revision": 140418
+    "revision": 141940
    },
    {
     "title": "SMG-32 Reprimand",
     "pageid": 8037,
-    "revision": 140419
+    "revision": 141941
    },
    {
     "title": "SMG-37 Defender",
     "pageid": 2300,
-    "revision": 140420
+    "revision": 141942
    },
    {
     "title": "SMG-72 Pummeler",
     "pageid": 6157,
-    "revision": 140421
+    "revision": 141943
    },
    {
     "title": "SMG/FLAM-34 Stoker",
     "pageid": 17261,
-    "revision": 140422
+    "revision": 141944
    },
    {
     "title": "StA-11 SMG",
     "pageid": 9323,
-    "revision": 140423
+    "revision": 142033
    }
   ],
   "Energy-Based": [
    {
     "title": "ARC-12 Blitzer",
     "pageid": 3110,
-    "revision": 140431
+    "revision": 141907
    },
    {
     "title": "LAS-12 Sai",
     "pageid": 22325,
-    "revision": 140437
+    "revision": 141912
    },
    {
     "title": "LAS-13 Trident",
     "pageid": 15881,
-    "revision": 140438
+    "revision": 141913
    },
    {
     "title": "LAS-16 Sickle",
     "pageid": 3112,
-    "revision": 140439
+    "revision": 141914
    },
    {
     "title": "LAS-17 Double-Edge Sickle",
     "pageid": 10342,
-    "revision": 140440
+    "revision": 141915
    },
    {
     "title": "LAS-5 Scythe",
     "pageid": 2346,
-    "revision": 140441
+    "revision": 141916
    },
    {
     "title": "PLAS-1 Scorcher",
     "pageid": 2347,
-    "revision": 140443
+    "revision": 141920
    },
    {
     "title": "PLAS-101 Purifier",
     "pageid": 6158,
-    "revision": 140444
+    "revision": 141921
    },
    {
     "title": "PLAS-39 Accelerator Rifle",
@@ -800,7 +800,7 @@
    {
     "title": "SG-8P Punisher Plasma",
     "pageid": 3113,
-    "revision": 140462
+    "revision": 141937
    }
   ],
   "Pistols": [
@@ -812,7 +812,7 @@
    {
     "title": "P-113 Verdict",
     "pageid": 6159,
-    "revision": 140477
+    "revision": 141918
    },
    {
     "title": "P-19 Redeemer",
@@ -822,7 +822,7 @@
    {
     "title": "P-2 Peacemaker",
     "pageid": 2348,
-    "revision": 140491
+    "revision": 141919
    },
    {
     "title": "P-4 Senator",
@@ -832,7 +832,7 @@
    {
     "title": "P-69 Veto",
     "pageid": 17264,
-    "revision": 140484
+    "revision": 141551
    },
    {
     "title": "P-92 Warrant",
@@ -886,7 +886,7 @@
    {
     "title": "GP-31 Grenade Pistol",
     "pageid": 4562,
-    "revision": 140472
+    "revision": 141567
    },
    {
     "title": "LAS-58 Talon",
@@ -896,7 +896,7 @@
    {
     "title": "LAS-7 Dagger",
     "pageid": 3114,
-    "revision": 140474
+    "revision": 141654
    },
    {
     "title": "P-11 Stim Pistol",
@@ -926,7 +926,7 @@
    {
     "title": "P/40-K Bolt Pistol",
     "pageid": 20140,
-    "revision": 140487
+    "revision": 141876
    },
    {
     "title": "PLAS-15 Loyalist",
@@ -943,7 +943,7 @@
    {
     "title": "G-10 Incendiary",
     "pageid": 3269,
-    "revision": 140492
+    "revision": 141990
    },
    {
     "title": "G-12 High Explosive",
@@ -985,12 +985,12 @@
    {
     "title": "G-13 Incendiary Impact",
     "pageid": 6160,
-    "revision": 140497
+    "revision": 141989
    },
    {
     "title": "G-142 Pyrotech",
     "pageid": 12043,
-    "revision": 140498
+    "revision": 141988
    },
    {
     "title": "G-16 Impact",
@@ -1035,7 +1035,7 @@
    {
     "title": "G-8 Immolation",
     "pageid": 22174,
-    "revision": 140509
+    "revision": 141986
    },
    {
     "title": "G-89 Smokescreen",
@@ -1045,7 +1045,7 @@
    {
     "title": "G/40-K Melta Mine",
     "pageid": 20142,
-    "revision": 140546
+    "revision": 141875
    },
    {
     "title": "G/SH-39 Shield",

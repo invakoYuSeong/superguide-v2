@@ -1,9 +1,9 @@
 {
- "retrievedAt": "2026-11-03",
+ "retrievedAt": "2026-11-08",
  "pages": {
   "Agitator": {
    "source": "https://helldivers.wiki.gg/wiki/Agitator",
-   "revision": 141134,
+   "revision": 141658,
    "rows": [
     {
      "part_name": "Main",
@@ -196,7 +196,7 @@
   },
   "Alpha Warrior": {
    "source": "https://helldivers.wiki.gg/wiki/Alpha_Warrior",
-   "revision": 136683,
+   "revision": 141592,
    "rows": [
     {
      "part_name": "Main",
@@ -654,152 +654,9 @@
     }
    ]
   },
-  "Bile Spewer": {
-   "source": "https://helldivers.wiki.gg/wiki/Bile_Spewer",
-   "revision": 139148,
-   "rows": [
-    {
-     "part_name": "Main",
-     "health": "750",
-     "av": "2",
-     "front_image": "Bile Spewer Main Front.png",
-     "side_image": "Bile Spewer Main Side.png",
-     "durability": "50%",
-     "percent_to_main": "-",
-     "dmg_cap_main": "-",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "0%"
-    },
-    {
-     "part_name": "Head",
-     "health": "300",
-     "av": "2",
-     "front_image": "Bile Spewer Head Front.png",
-     "side_image": "Bile Spewer Head Side.png",
-     "durability": "0%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Mouth",
-     "health": "250",
-     "av": "0",
-     "front_image": "Bile Spewer Mouth.png",
-     "durability": "0%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Spinal<br>Plates",
-     "health": "500",
-     "av": "2",
-     "front_image": "Bile Spewer Spinal Plates Front.png",
-     "side_image": "Bile Spewer Spinal Plates Side.png",
-     "rear_image": "Bile Spewer Spinal Plates Rear.png",
-     "durability": "80%",
-     "percent_to_main": "20%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "0%"
-    },
-    {
-     "part_name": "Butt",
-     "health": "750",
-     "av": "0",
-     "front_image": "Bile Spewer Butt Front.png",
-     "side_image": "Bile Spewer Butt Side.png",
-     "rear_image": "Bile Spewer Butt Rear.png",
-     "durability": "100%",
-     "percent_to_main": "60%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "0%"
-    },
-    {
-     "part_name": "Front<br>Legs (2)",
-     "health": "200",
-     "av": "2",
-     "front_image": "Bile Spewer Front Legs Front.png",
-     "side_image": "Bile Spewer Front Legs Side.png",
-     "durability": "0%",
-     "percent_to_main": "50%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Rear<br>Legs (2)",
-     "health": "250",
-     "av": "2",
-     "front_image": "Bile Spewer Hind Legs Front.png",
-     "side_image": "Bile Spewer Hind Legs Side.png",
-     "durability": "30%",
-     "percent_to_main": "50%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    }
-   ]
-  },
-  "Bile Spitter": {
-   "source": "https://helldivers.wiki.gg/wiki/Bile_Spitter",
-   "revision": 139149,
-   "rows": [
-    {
-     "part_name": "Main",
-     "health": "60",
-     "av": "0",
-     "front_image": "Bile Spitter Main Front.png",
-     "side_image": "Bile Spitter Main Side.png",
-     "durability": "0%",
-     "percent_to_main": "-",
-     "dmg_cap_main": "-",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "0%"
-    },
-    {
-     "part_name": "Head",
-     "health": "20",
-     "av": "0",
-     "front_image": "Bile Spitter Head Front.png",
-     "side_image": "Bile Spitter Head Side.png",
-     "durability": "0%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Limbs (6)",
-     "health": "30",
-     "av": "0",
-     "front_image": "Bile Spitter Limbs Front.png",
-     "side_image": "Bile Spitter Limbs Side.png",
-     "durability": "0%",
-     "percent_to_main": "30%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    }
-   ]
-  },
   "Bile Titan": {
    "source": "https://helldivers.wiki.gg/wiki/Bile_Titan",
-   "revision": 138514,
+   "revision": 141861,
    "rows": [
     {
      "part_name": "Main",
@@ -963,64 +820,6 @@
     }
    ]
   },
-  "Bile Warrior": {
-   "source": "https://helldivers.wiki.gg/wiki/Bile_Warrior",
-   "revision": 139144,
-   "rows": [
-    {
-     "part_name": "Main",
-     "health": "325",
-     "av": "1",
-     "front_image": "Bile_Warrior_Main_Front.png",
-     "side_image": "Bile_Warrior_Main_Side.png",
-     "durability": "20%",
-     "percent_to_main": "-",
-     "dmg_cap_main": "-",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "0%"
-    },
-    {
-     "part_name": "Head",
-     "health": "150",
-     "av": "1",
-     "front_image": "Bile Warrior Head Front.png",
-     "side_image": "Bile_Warrior_Head_Side.png",
-     "durability": "20%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "No",
-     "bleed": "200 [-70/s]",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Claws (2)",
-     "health": "100",
-     "av": "1",
-     "front_image": "Bile Warrior Claws Front.png",
-     "side_image": "Bile Warrior Claws Side.png",
-     "durability": "0%",
-     "percent_to_main": "40%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Legs(4)",
-     "health": "100",
-     "av": "1",
-     "front_image": "Bile_Warrior_Legs_Front.png",
-     "side_image": "Bile_Warrior_Legs_Side.png",
-     "durability": "0%",
-     "percent_to_main": "40%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    }
-   ]
-  },
   "Brawler": {
    "source": "https://helldivers.wiki.gg/wiki/Brawler",
    "revision": 138833,
@@ -1161,9 +960,371 @@
     }
    ]
   },
+  "Caustic Charger": {
+   "source": "https://helldivers.wiki.gg/wiki/Caustic_Charger",
+   "revision": 141980,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "2,400",
+     "av": "4",
+     "front_image": "Caustic Charger Main Health.png",
+     "durability": "100%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "Yes",
+     "bleed": "750 [-100/s]",
+     "fatal": "Yes",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Head",
+     "health": "1,200",
+     "av": "4",
+     "front_image": "Caustic Charger Head Front.png",
+     "side_image": "Caustic Charger Head Side.png",
+     "durability": "75%",
+     "percent_to_main": "70%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Torso<br>Armor (2)",
+     "health": "800",
+     "av": "4",
+     "front_image": "Caustic Charger Torso Armor Front.png",
+     "side_image": "Caustic Charger Torso Armor Side.png",
+     "durability": "85%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Inner<br>Flesh",
+     "health": "Main",
+     "av": "1",
+     "side_image": "Caustic Charger Inner Flesh.png",
+     "durability": "100%",
+     "percent_to_main": "300%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Underside",
+     "health": "Main",
+     "av": "2",
+     "front_image": "Caustic Charger Underside Front.png",
+     "side_image": "Caustic Charger Underside Side.png",
+     "durability": "100%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Rear Armor<br>Plates",
+     "health": "2,200",
+     "av": "4",
+     "rear_image": "Caustic Charger Rear Armor Plates Rear.png",
+     "side_image": "Caustic Charger Rear Armor Plates Side.png",
+     "durability": "75%",
+     "percent_to_main": "75%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Butt",
+     "health": "950",
+     "av": "0",
+     "rear_image": "Caustic Charger Butt Rear.png",
+     "side_image": "Caustic Charger Butt Side.png",
+     "durability": "100%",
+     "percent_to_main": "150%",
+     "dmg_cap_main": "No",
+     "bleed": "Yes<br>(Downs)",
+     "fatal": "No",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Spore<br>Flesh (6)",
+     "health": "500",
+     "av": "1",
+     "front_image": "Caustic Charger Spores Front.png",
+     "side_image": "Caustic Charger Spores Side.png",
+     "rear_image": "Caustic Charger Spores Rear.png",
+     "durability": "100%",
+     "percent_to_main": "20%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Claws (2)",
+     "health": "500",
+     "av": "4",
+     "front_image": "Caustic Charger Claws Front.png",
+     "side_image": "Caustic Charger Claws Side.png",
+     "durability": "70%",
+     "percent_to_main": "70%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Front Leg<br>Armor (2)",
+     "health": "800",
+     "av": "4",
+     "front_image": "Caustic Charger Front Leg Armor Front.png",
+     "side_image": "Caustic Charger Front Leg Armor Side.png",
+     "durability": "70%",
+     "percent_to_main": "60%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Rear Leg<br>Armor (2)",
+     "health": "800",
+     "av": "4",
+     "front_image": "Caustic Charger Rear Leg Armor Front.png",
+     "side_image": "Caustic Charger Rear Leg Armor Side.png",
+     "durability": "70%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "25%"
+    },
+    {
+     "part_name": "Leg Flesh (4)",
+     "health": "800",
+     "av": "2",
+     "front_image": "Caustic Charger Leg Flesh Front.png",
+     "side_image": "Caustic Charger Leg Flesh Side.png",
+     "durability": "70%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "25%"
+    }
+   ]
+  },
+  "Caustic Spewer": {
+   "source": "https://helldivers.wiki.gg/wiki/Caustic_Spewer",
+   "revision": 141791,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "750",
+     "av": "2",
+     "front_image": "Caustic Spewer Main Front.png",
+     "side_image": "Caustic Spewer Main Side.png",
+     "durability": "50%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "-",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Head",
+     "health": "300",
+     "av": "2",
+     "front_image": "Caustic Spewer Head Front.png",
+     "side_image": "Caustic Spewer Head Side.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Mouth",
+     "health": "250",
+     "av": "0",
+     "front_image": "Caustic Spewer Mouth.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Spinal<br>Plates",
+     "health": "500",
+     "av": "2",
+     "front_image": "Caustic Spewer Spinal Plates Front.png",
+     "side_image": "Caustic Spewer Spinal Plates Side.png",
+     "rear_image": "Caustic Spewer Spinal Plates Rear.png",
+     "durability": "80%",
+     "percent_to_main": "20%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Butt",
+     "health": "750",
+     "av": "0",
+     "front_image": "Caustic Spewer Butt Front.png",
+     "side_image": "Caustic Spewer Butt Side.png",
+     "rear_image": "Caustic Spewer Butt Rear.png",
+     "durability": "100%",
+     "percent_to_main": "60%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Front<br>Legs (2)",
+     "health": "200",
+     "av": "2",
+     "front_image": "Caustic Spewer Front Legs Front.png",
+     "side_image": "Caustic Spewer Front Legs Side.png",
+     "durability": "0%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Rear<br>Legs (2)",
+     "health": "250",
+     "av": "2",
+     "front_image": "Caustic Spewer Hind Legs Front.png",
+     "side_image": "Caustic Spewer Hind Legs Side.png",
+     "durability": "30%",
+     "percent_to_main": "50%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    }
+   ]
+  },
+  "Caustic Spitter": {
+   "source": "https://helldivers.wiki.gg/wiki/Caustic_Spitter",
+   "revision": 141793,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "60",
+     "av": "0",
+     "front_image": "Caustic Spitter Main Front.png",
+     "side_image": "Caustic Spitter Main Side.png",
+     "durability": "0%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "-",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Head",
+     "health": "20",
+     "av": "0",
+     "front_image": "Caustic Spitter Head Front.png",
+     "side_image": "Caustic Spitter Head Side.png",
+     "durability": "0%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Limbs (6)",
+     "health": "30",
+     "av": "0",
+     "front_image": "Caustic Spitter Limbs Front.png",
+     "side_image": "Caustic Spitter Limbs Side.png",
+     "durability": "0%",
+     "percent_to_main": "30%",
+     "dmg_cap_main": "Yes",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "100%"
+    }
+   ]
+  },
+  "Caustic Warrior": {
+   "source": "https://helldivers.wiki.gg/wiki/Caustic_Warrior",
+   "revision": 141792,
+   "rows": [
+    {
+     "part_name": "Main",
+     "health": "325",
+     "av": "1",
+     "front_image": "Caustic_Warrior_Main_Front.png",
+     "side_image": "Caustic_Warrior_Main_Side.png",
+     "durability": "20%",
+     "percent_to_main": "-",
+     "dmg_cap_main": "-",
+     "bleed": "None",
+     "fatal": "Yes",
+     "exdr": "0%"
+    },
+    {
+     "part_name": "Head",
+     "health": "150",
+     "av": "1",
+     "front_image": "Caustic Warrior Head Front.png",
+     "side_image": "Caustic_Warrior_Head_Side.png",
+     "durability": "20%",
+     "percent_to_main": "100%",
+     "dmg_cap_main": "No",
+     "bleed": "200 [-70/s]",
+     "fatal": "Yes",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Claws (2)",
+     "health": "100",
+     "av": "1",
+     "front_image": "Caustic Warrior Claws Front.png",
+     "side_image": "Caustic Warrior Claws Side.png",
+     "durability": "0%",
+     "percent_to_main": "40%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    },
+    {
+     "part_name": "Legs(4)",
+     "health": "100",
+     "av": "1",
+     "front_image": "Caustic_Warrior_Legs_Front.png",
+     "side_image": "Caustic_Warrior_Legs_Side.png",
+     "durability": "0%",
+     "percent_to_main": "40%",
+     "dmg_cap_main": "No",
+     "bleed": "None",
+     "fatal": "No",
+     "exdr": "100%"
+    }
+   ]
+  },
   "Charger": {
    "source": "https://helldivers.wiki.gg/wiki/Charger",
-   "revision": 137700,
+   "revision": 141505,
    "rows": [
     {
      "part_name": "Main",
@@ -1310,7 +1471,7 @@
   },
   "Charger Behemoth": {
    "source": "https://helldivers.wiki.gg/wiki/Charger_Behemoth",
-   "revision": 137702,
+   "revision": 141504,
    "rows": [
     {
      "part_name": "Main",
@@ -1648,7 +1809,7 @@
   },
   "Crescent Overseer": {
    "source": "https://helldivers.wiki.gg/wiki/Crescent_Overseer",
-   "revision": 140058,
+   "revision": 141571,
    "rows": [
     {
      "part_name": "Main",
@@ -1993,7 +2154,7 @@
   },
   "Dragonroach": {
    "source": "https://helldivers.wiki.gg/wiki/Dragonroach",
-   "revision": 136864,
+   "revision": 141512,
    "rows": [
     {
      "part_name": "Main",
@@ -4003,7 +4164,7 @@
   },
   "Hulk Bruiser": {
    "source": "https://helldivers.wiki.gg/wiki/Hulk_Bruiser",
-   "revision": 139407,
+   "revision": 141870,
    "rows": [
     {
      "part_name": "Main",
@@ -4076,7 +4237,7 @@
   },
   "Hulk Firebomber": {
    "source": "https://helldivers.wiki.gg/wiki/Hulk_Firebomber",
-   "revision": 140050,
+   "revision": 141867,
    "rows": [
     {
      "part_name": "Main",
@@ -4145,7 +4306,7 @@
   },
   "Hulk Obliterator": {
    "source": "https://helldivers.wiki.gg/wiki/Hulk_Obliterator",
-   "revision": 138853,
+   "revision": 141862,
    "rows": [
     {
      "part_name": "Main",
@@ -4215,7 +4376,7 @@
   },
   "Hulk Scorcher": {
    "source": "https://helldivers.wiki.gg/wiki/Hulk_Scorcher",
-   "revision": 139406,
+   "revision": 141866,
    "rows": [
     {
      "part_name": "Main",
@@ -4914,7 +5075,7 @@
   },
   "Jet Brigade Hulk Bruiser": {
    "source": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Hulk_Bruiser",
-   "revision": 140134,
+   "revision": 141869,
    "rows": [
     {
      "part_name": "Main",
@@ -4986,7 +5147,7 @@
   },
   "Jet Brigade Hulk Scorcher": {
    "source": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Hulk_Scorcher",
-   "revision": 140135,
+   "revision": 141868,
    "rows": [
     {
      "part_name": "Main",
@@ -5608,7 +5769,7 @@
   },
   "Nursing Spewer": {
    "source": "https://helldivers.wiki.gg/wiki/Nursing_Spewer",
-   "revision": 136685,
+   "revision": 141638,
    "rows": [
     {
      "part_name": "Main",
@@ -5913,7 +6074,7 @@
   },
   "Pouncer": {
    "source": "https://helldivers.wiki.gg/wiki/Pouncer",
-   "revision": 136502,
+   "revision": 141525,
    "rows": [
     {
      "part_name": "Main",
@@ -5958,7 +6119,7 @@
   },
   "Predator Hunter": {
    "source": "https://helldivers.wiki.gg/wiki/Predator_Hunter",
-   "revision": 139037,
+   "revision": 141544,
    "rows": [
     {
      "part_name": "Main",
@@ -6231,7 +6392,7 @@
   },
   "Radical": {
    "source": "https://helldivers.wiki.gg/wiki/Radical",
-   "revision": 140051,
+   "revision": 141659,
    "rows": [
     {
      "part_name": "Main",
@@ -6684,7 +6845,7 @@
   },
   "Rupture Charger": {
    "source": "https://helldivers.wiki.gg/wiki/Rupture_Charger",
-   "revision": 137862,
+   "revision": 141506,
    "rows": [
     {
      "part_name": "Main",
@@ -6844,7 +7005,7 @@
   },
   "Rupture Spewer": {
    "source": "https://helldivers.wiki.gg/wiki/Rupture_Spewer",
-   "revision": 137863,
+   "revision": 141639,
    "rows": [
     {
      "part_name": "Main",
@@ -6941,7 +7102,7 @@
   },
   "Rupture Warrior": {
    "source": "https://helldivers.wiki.gg/wiki/Rupture_Warrior",
-   "revision": 137859,
+   "revision": 141596,
    "rows": [
     {
      "part_name": "Main",
@@ -7636,7 +7797,7 @@
   },
   "Spore Burst Scavenger": {
    "source": "https://helldivers.wiki.gg/wiki/Spore_Burst_Scavenger",
-   "revision": 137850,
+   "revision": 141796,
    "rows": [
     {
      "part_name": "Main",
@@ -7681,7 +7842,7 @@
   },
   "Spore Burst Warrior": {
    "source": "https://helldivers.wiki.gg/wiki/Spore_Burst_Warrior",
-   "revision": 137855,
+   "revision": 141595,
    "rows": [
     {
      "part_name": "Main",
@@ -7734,167 +7895,6 @@
      "bleed": "None",
      "fatal": "No",
      "exdr": "100%"
-    }
-   ]
-  },
-  "Spore Charger": {
-   "source": "https://helldivers.wiki.gg/wiki/Spore_Charger",
-   "revision": 140019,
-   "rows": [
-    {
-     "part_name": "Main",
-     "health": "2,400",
-     "av": "4",
-     "front_image": "Spore Charger Main Health.png",
-     "durability": "100%",
-     "percent_to_main": "-",
-     "dmg_cap_main": "Yes",
-     "bleed": "750 [-100/s]",
-     "fatal": "Yes",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Head",
-     "health": "1,200",
-     "av": "4",
-     "front_image": "Spore Charger Head Front.png",
-     "side_image": "Spore Charger Head Side.png",
-     "durability": "75%",
-     "percent_to_main": "70%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Torso<br>Armor (2)",
-     "health": "800",
-     "av": "4",
-     "front_image": "Spore Charger Torso Armor Front.png",
-     "side_image": "Spore Charger Torso Armor Side.png",
-     "durability": "85%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Inner<br>Flesh",
-     "health": "Main",
-     "av": "1",
-     "side_image": "Spore Charger Inner Flesh.png",
-     "durability": "100%",
-     "percent_to_main": "300%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Underside",
-     "health": "Main",
-     "av": "2",
-     "front_image": "Spore Charger Underside Front.png",
-     "side_image": "Spore Charger Underside Side.png",
-     "durability": "100%",
-     "percent_to_main": "100%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Rear Armor<br>Plates",
-     "health": "2,200",
-     "av": "4",
-     "rear_image": "Spore Charger Rear Armor Plates Rear.png",
-     "side_image": "Spore Charger Rear Armor Plates Side.png",
-     "durability": "75%",
-     "percent_to_main": "75%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Butt",
-     "health": "950",
-     "av": "0",
-     "rear_image": "Spore Charger Butt Rear.png",
-     "side_image": "Spore Charger Butt Side.png",
-     "durability": "100%",
-     "percent_to_main": "150%",
-     "dmg_cap_main": "No",
-     "bleed": "Yes<br>(Downs)",
-     "fatal": "No",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Spore<br>Flesh (6)",
-     "health": "500",
-     "av": "1",
-     "front_image": "Spore Charger Spores Front.png",
-     "side_image": "Spore Charger Spores Side.png",
-     "rear_image": "Spore Charger Spores Rear.png",
-     "durability": "100%",
-     "percent_to_main": "20%",
-     "dmg_cap_main": "Yes",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Claws (2)",
-     "health": "500",
-     "av": "4",
-     "front_image": "Spore Charger Claws Front.png",
-     "side_image": "Spore Charger Claws Side.png",
-     "durability": "70%",
-     "percent_to_main": "70%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "100%"
-    },
-    {
-     "part_name": "Front Leg<br>Armor (2)",
-     "health": "800",
-     "av": "4",
-     "front_image": "Spore Charger Front Leg Armor Front.png",
-     "side_image": "Spore Charger Front Leg Armor Side.png",
-     "durability": "70%",
-     "percent_to_main": "60%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Rear Leg<br>Armor (2)",
-     "health": "800",
-     "av": "4",
-     "front_image": "Spore Charger Rear Leg Armor Front.png",
-     "side_image": "Spore Charger Rear Leg Armor Side.png",
-     "durability": "70%",
-     "percent_to_main": "50%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "No",
-     "exdr": "25%"
-    },
-    {
-     "part_name": "Leg Flesh (4)",
-     "health": "800",
-     "av": "2",
-     "front_image": "Spore Charger Leg Flesh Front.png",
-     "side_image": "Spore Charger Leg Flesh Side.png",
-     "durability": "70%",
-     "percent_to_main": "50%",
-     "dmg_cap_main": "No",
-     "bleed": "None",
-     "fatal": "Yes",
-     "exdr": "25%"
     }
    ]
   },
@@ -8341,7 +8341,7 @@
   },
   "Voteless": {
    "source": "https://helldivers.wiki.gg/wiki/Voteless",
-   "revision": 140055,
+   "revision": 141977,
    "rows": [
     {
      "table": 0,
@@ -8569,7 +8569,7 @@
   },
   "Vox Engine": {
    "source": "https://helldivers.wiki.gg/wiki/Vox_Engine",
-   "revision": 141210,
+   "revision": 142149,
    "rows": [
     {
      "part_name": "Main",
@@ -8900,7 +8900,7 @@
   },
   "Warp Ship": {
    "source": "https://helldivers.wiki.gg/wiki/Warp_Ship",
-   "revision": 140062,
+   "revision": 141833,
    "rows": [
     {
      "part_name": "Main",
@@ -9016,7 +9016,7 @@
   },
   "Warrior": {
    "source": "https://helldivers.wiki.gg/wiki/Warrior",
-   "revision": 136532,
+   "revision": 141593,
    "rows": [
     {
      "part_name": "Main",

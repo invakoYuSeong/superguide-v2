@@ -83,8 +83,8 @@ export const expandedEnemies = [
     "sourceRevision": 135084,
     "note": "알파 커맨더가 소환하는 빠른 워리어입니다. 머리의 본체 전달률은 50%, 사지는 각각 50%로 일반 고난도 워리어의 100%/40%와 다릅니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 136683,
-    "anatomyCheckedAt": "2026-09-28",
+    "anatomyRevision": 141592,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 325,
       "armor": 1,
@@ -140,12 +140,12 @@ export const expandedEnemies = [
     "id": "bile-warrior",
     "name": "바일 워리어",
     "faction": "테르미니드",
-    "source": "https://helldivers.wiki.gg/wiki/Bile_Warrior",
+    "source": "https://helldivers.wiki.gg/wiki/Caustic_Warrior",
     "sourceRevision": 135083,
     "note": "머리 파괴는 출혈을 유발합니다. 몸통·본체로 처치하면 담즙 폭발이 발생할 수 있지만 머리를 제거한 뒤 출혈로 죽으면 폭발하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 139144,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141792,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 325,
       "armor": 1,
@@ -205,8 +205,8 @@ export const expandedEnemies = [
     "sourceRevision": 135102,
     "note": "본체 내구도 50%, 머리 40%, 앞발 25%, 다리 35%로 일반 워리어와 다릅니다. 머리 제거 후 출혈로 죽으면 포자 폭발이 발생하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 137855,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141595,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 325,
       "armor": 1,
@@ -266,8 +266,8 @@ export const expandedEnemies = [
     "sourceRevision": 135105,
     "note": "본체 체력은 250이지만 머리·앞발 장갑은 3입니다. 지상으로 드러난 부위를 맞히는 조건이며 땅속에서는 동일한 직격 조준 조건을 적용하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 137859,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141596,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 250,
       "armor": 1,
@@ -327,8 +327,8 @@ export const expandedEnemies = [
     "sourceRevision": 135107,
     "note": "머리 장갑은 3, 본체 장갑은 2입니다. 땅 위로 드러난 부위를 조준하는 조건입니다. 땅속 폭발·가스·화염 피해와 지상 직격 조준을 혼동하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 137863,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141639,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 750,
       "armor": 2,
@@ -536,12 +536,12 @@ export const expandedEnemies = [
     "id": "spore-charger",
     "name": "스포어 차저",
     "faction": "테르미니드",
-    "source": "https://helldivers.wiki.gg/wiki/Spore_Charger",
+    "source": "https://helldivers.wiki.gg/wiki/Caustic_Charger",
     "sourceRevision": 135093,
     "note": "머리는 즉사 부위이며 후방 복부 파괴는 출혈을 유발합니다. 포자 혹은 본체에 20%만 전달하며 폭발 피해를 받지 않습니다. 뒤쪽 복부 내구도는 100%로 일반 차저와 다릅니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140019,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141980,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 2400,
       "armor": 4,
@@ -720,8 +720,8 @@ export const expandedEnemies = [
     "sourceRevision": 135108,
     "note": "지상으로 드러났을 때의 계산입니다. 머리와 앞다리 정면 족판은 장갑 5, 앞다리 측면 장갑은 4입니다. 일반 차저와 같은 장갑으로 계산하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 137862,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141506,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 2400,
       "armor": 4,
@@ -1115,8 +1115,8 @@ export const expandedEnemies = [
     "sourceRevision": 135097,
     "note": "머리가 주요 치명 부위입니다. 날개 한쪽은 체력 1,500에 자연 감소하지 않는 추가 체력2,500이 있어 총4,000을 깎아야 합니다. 여러 부위 동시 폭발 피해는 합산하지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 136864,
-    "anatomyCheckedAt": "2026-09-28",
+    "anatomyRevision": 141512,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 6500,
       "armor": 4,
@@ -1442,8 +1442,8 @@ export const expandedEnemies = [
     "sourceRevision": 135127,
     "note": "눈은 직접 맞혀야 하며 폭발 피해에 면역입니다. 후방 방열판 파괴는 출혈을 시작합니다. 한쪽 다리 파괴와 양쪽 다리 파괴를 구분합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 139407,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141870,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyLegacy": {
       "leg.staticConstitution": null
     },
@@ -1525,8 +1525,8 @@ export const expandedEnemies = [
     "sourceRevision": 135125,
     "note": "눈은 직접 맞혀야 하며 폭발 피해에 면역입니다. 후방 방열판 파괴는 출혈을 시작합니다. 한쪽 다리 파괴와 양쪽 다리 파괴를 구분합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 138853,
-    "anatomyCheckedAt": "2026-10-22",
+    "anatomyRevision": 141862,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyLegacy": {
       "leg.staticConstitution": null
     },
@@ -1608,8 +1608,8 @@ export const expandedEnemies = [
     "sourceRevision": 135177,
     "note": "눈은 직접 맞혀야 하며 폭발 피해에 면역입니다. 후방 방열판 파괴는 출혈을 시작합니다. 한쪽 다리 파괴와 양쪽 다리 파괴를 구분합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140050,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141867,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyLegacy": {
       "leg.staticConstitution": null
     },
@@ -1695,8 +1695,8 @@ export const expandedEnemies = [
     "sourceRevision": 135140,
     "note": "제트팩이 일반 헐크의 후방 방열판을 완전히 가립니다. 제트팩 파괴는 출혈 없이 즉사하며 장갑은 3입니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140134,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141869,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyLegacy": {
       "leg.staticConstitution": null
     },
@@ -1780,8 +1780,8 @@ export const expandedEnemies = [
     "sourceRevision": 135139,
     "note": "제트팩이 일반 헐크의 후방 방열판을 완전히 가립니다. 제트팩 파괴는 출혈 없이 즉사하며 장갑은 3입니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140135,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141868,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyLegacy": {
       "leg.staticConstitution": null
     },
@@ -3181,8 +3181,8 @@ export const expandedEnemies = [
     "sourceRevision": 134991,
     "note": "몸통·다리의 개별 체력이 본체보다 높지만, 본체로 전달된 피해가 먼저 체력을 소진할 수 있습니다. 서로 다른 부위에 동시에 맞은 폭발 피해는 합치지 않습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140051,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141659,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 750,
       "armor": 1,
@@ -3298,8 +3298,8 @@ export const expandedEnemies = [
     "sourceRevision": 134992,
     "note": "머리 투구와 흉부 장갑을 먼저 벗겨야 합니다. 장갑을 부수는 피해와 내부 부위 피해를 따로 계산합니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 141134,
-    "anatomyCheckedAt": "2026-11-03",
+    "anatomyRevision": 141658,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 750,
       "armor": 1,
@@ -3585,8 +3585,8 @@ export const expandedEnemies = [
     ],
     "note": "본체 체력이 소진된 뒤 추가 체력 50,000이 초당 10,000씩 감소하여 폭발합니다. 무장·방열판 파괴의 별도 본체 피해와 해치 수류탄 조건이 있습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 141210,
-    "anatomyCheckedAt": "2026-11-03",
+    "anatomyRevision": 142149,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 9000,
       "armor": 5,
@@ -3813,8 +3813,8 @@ export const expandedEnemies = [
     "sourceRevision": 135181,
     "note": "박격포형 오버시어입니다. 머리는 장갑 3이며, 흉부와 사타구니 장갑을 벗긴 뒤 몸통을 공격할 수 있습니다.",
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140058,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141571,
+    "anatomyCheckedAt": "2026-11-08",
     "main": {
       "hp": 600,
       "armor": 0,
@@ -4276,8 +4276,8 @@ export const expandedEnemies = [
       "armor": 0
     },
     "checkedAt": "2026-09-16",
-    "anatomyRevision": 140062,
-    "anatomyCheckedAt": "2026-10-31",
+    "anatomyRevision": 141833,
+    "anatomyCheckedAt": "2026-11-08",
     "anatomyOmitted": {
       "Shield": "The energy shield is the shield toggle (cleared before counting), not a part"
     },

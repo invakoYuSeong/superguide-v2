@@ -1,6 +1,6 @@
 {
  "source": "https://helldivers.wiki.gg/wiki/Category:Enemies",
- "retrievedAt": "2026-11-03",
+ "retrievedAt": "2026-11-08",
  "categories": {
   "small": {
    "category": "Small Enemies",
@@ -11,14 +11,14 @@
      "revision": 138971
     },
     {
-     "title": "Bile Spitter",
-     "pageid": 3396,
-     "revision": 139149
-    },
-    {
      "title": "Brawler",
      "pageid": 7932,
      "revision": 138833
+    },
+    {
+     "title": "Caustic Spitter",
+     "pageid": 3396,
+     "revision": 141793
     },
     {
      "title": "Civilian",
@@ -71,14 +71,19 @@
      "revision": 138973
     },
     {
+     "title": "Noxious Scavenger",
+     "pageid": 23018,
+     "revision": 142101
+    },
+    {
      "title": "Pouncer",
      "pageid": 3397,
-     "revision": 136502
+     "revision": 141525
     },
     {
      "title": "Predator Hunter",
      "pageid": 10404,
-     "revision": 139037
+     "revision": 141544
     },
     {
      "title": "Pyro Trooper",
@@ -93,7 +98,7 @@
     {
      "title": "SEAF Soldier",
      "pageid": 12364,
-     "revision": 141272
+     "revision": 142086
     },
     {
      "title": "Scavenger",
@@ -113,7 +118,7 @@
     {
      "title": "Spore Burst Scavenger",
      "pageid": 10460,
-     "revision": 137850
+     "revision": 141796
     },
     {
      "title": "Trooper",
@@ -123,7 +128,7 @@
     {
      "title": "Voteless",
      "pageid": 9004,
-     "revision": 140055
+     "revision": 141977
     }
    ]
   },
@@ -133,12 +138,12 @@
     {
      "title": "Agitator",
      "pageid": 16317,
-     "revision": 141134
+     "revision": 141658
     },
     {
      "title": "Alpha Warrior",
      "pageid": 8625,
-     "revision": 136683
+     "revision": 141592
     },
     {
      "title": "Berserker",
@@ -146,14 +151,14 @@
      "revision": 138975
     },
     {
-     "title": "Bile Spewer",
+     "title": "Caustic Spewer",
      "pageid": 1057,
-     "revision": 139148
+     "revision": 141791
     },
     {
-     "title": "Bile Warrior",
+     "title": "Caustic Warrior",
      "pageid": 5473,
-     "revision": 139144
+     "revision": 141792
     },
     {
      "title": "Conflagration Devastator",
@@ -163,7 +168,7 @@
     {
      "title": "Crescent Overseer",
      "pageid": 11930,
-     "revision": 140058
+     "revision": 141571
     },
     {
      "title": "Devastator",
@@ -196,9 +201,14 @@
      "revision": 136520
     },
     {
+     "title": "Noxious Spewer",
+     "pageid": 23016,
+     "revision": 142006
+    },
+    {
      "title": "Nursing Spewer",
      "pageid": 3676,
-     "revision": 136685
+     "revision": 141638
     },
     {
      "title": "Overseer",
@@ -208,7 +218,7 @@
     {
      "title": "Radical",
      "pageid": 16316,
-     "revision": 140051
+     "revision": 141659
     },
     {
      "title": "Rocket Devastator",
@@ -218,22 +228,22 @@
     {
      "title": "Rupture Spewer",
      "pageid": 13910,
-     "revision": 137863
+     "revision": 141639
     },
     {
      "title": "Rupture Warrior",
      "pageid": 13911,
-     "revision": 137859
+     "revision": 141596
     },
     {
      "title": "Spore Burst Warrior",
      "pageid": 10459,
-     "revision": 137855
+     "revision": 141595
     },
     {
      "title": "Warrior",
      "pageid": 713,
-     "revision": 136532
+     "revision": 141593
     },
     {
      "title": "Watcher",
@@ -271,14 +281,19 @@
      "revision": 141213
     },
     {
+     "title": "Caustic Charger",
+     "pageid": 7188,
+     "revision": 141980
+    },
+    {
      "title": "Charger",
      "pageid": 273,
-     "revision": 137700
+     "revision": 141505
     },
     {
      "title": "Charger Behemoth",
      "pageid": 6744,
-     "revision": 137702
+     "revision": 141504
     },
     {
      "title": "Crusher",
@@ -308,22 +323,22 @@
     {
      "title": "Hulk Bruiser",
      "pageid": 8380,
-     "revision": 139407
+     "revision": 141870
     },
     {
      "title": "Hulk Firebomber",
      "pageid": 10901,
-     "revision": 140050
+     "revision": 141867
     },
     {
      "title": "Hulk Obliterator",
      "pageid": 8415,
-     "revision": 138853
+     "revision": 141862
     },
     {
      "title": "Hulk Scorcher",
      "pageid": 8396,
-     "revision": 139406
+     "revision": 141866
     },
     {
      "title": "Impaler",
@@ -333,12 +348,12 @@
     {
      "title": "Jet Brigade Hulk Bruiser",
      "pageid": 13146,
-     "revision": 140134
+     "revision": 141869
     },
     {
      "title": "Jet Brigade Hulk Scorcher",
      "pageid": 15107,
-     "revision": 140135
+     "revision": 141868
     },
     {
      "title": "Predator Stalker",
@@ -353,7 +368,7 @@
     {
      "title": "Rupture Charger",
      "pageid": 13912,
-     "revision": 137862
+     "revision": 141506
     },
     {
      "title": "Scout Strider",
@@ -364,11 +379,6 @@
      "title": "Shredder Tank",
      "pageid": 6515,
      "revision": 139871
-    },
-    {
-     "title": "Spore Charger",
-     "pageid": 7188,
-     "revision": 140019
     },
     {
      "title": "Stalker",
@@ -393,12 +403,12 @@
     {
      "title": "Bile Titan",
      "pageid": 1384,
-     "revision": 138514
+     "revision": 141861
     },
     {
      "title": "Dragonroach",
      "pageid": 13890,
-     "revision": 136864
+     "revision": 141512
     },
     {
      "title": "Dropship",
@@ -433,12 +443,12 @@
     {
      "title": "Vox Engine",
      "pageid": 16318,
-     "revision": 141210
+     "revision": 142149
     },
     {
      "title": "Warp Ship",
      "pageid": 9010,
-     "revision": 140062
+     "revision": 141833
     }
    ]
   }

@@ -40,7 +40,7 @@ const warrior = (id, name, hp, headHp, limbHp) => ({
   main: main(hp, 1, 20, 0),
   note: '난이도 4 이상 기준입니다. 머리를 잃어도 잠시 돌진·공격할 수 있어, 머리 파괴는 출혈 시작과 즉사를 나눠 표시합니다.',
   // Every part matches Wiki Anatomy revision 136532 at difficulty 4+ (checked 2026-09-28).
-  anatomyRevision: 136532, anatomyCheckedAt: '2026-09-28',
+  anatomyRevision: 141593, anatomyCheckedAt: '2026-11-08',
   parts: [
     part('head', '머리', headHp, 1, 20, 100, 100, false, 'bleed', '정면 머리를 노리세요. 머리가 떨어진 뒤에도 다가올 수 있으니 거리를 두세요.', { constitution: 200, sourcePart: 'Head' }),
     part('claw', '앞발 한쪽', limbHp, 1, 0, 100, 40, false, 'break', '몸 앞의 집게 모양 앞발 하나를 노리는 조건입니다.', { sourcePart: 'Claws (2)' }),
@@ -67,7 +67,7 @@ const spewer = (id, name, page, armor, note, revision, family = id, anatomy = {}
 // Heavy tab caps the forearm's damage to main and not the upper arm's.
 const voteless = (id, name, hp, headHp, forearmHp, upperArmHp, table, caps = { forearm: false, upperArm: true }) => ({
   id, name, faction: '일루미닛', source: wiki('Voteless'), sourceRevision: 135187, family: 'voteless',
-  anatomyRevision: 140055, anatomyCheckedAt: '2026-10-31', anatomyTable: table, anatomyTables: [table],
+  anatomyRevision: 141977, anatomyCheckedAt: '2026-11-08', anatomyTable: table, anatomyTables: [table],
   main: main(hp, 0, 0, 0, 100),
   note: '체형별 체력이 다릅니다. 머리는 치명 부위입니다. 다리를 잃고도 기어올 수 있어 다리 파괴는 즉사로 취급하지 않습니다. 본체 체력 소진 후의 출혈도 반영합니다.',
   parts: [
@@ -85,7 +85,7 @@ const originalEnemies = [
     note: '머리 파괴는 즉사, 후방 복부 파괴는 출혈을 유발합니다. 다리는 장갑과 살점을 따로 계산합니다.',
     // Every part matches Wiki Anatomy revision 137700 (checked 2026-10-22).
     // Parts after the first three were added then.
-    anatomyRevision: 137700, anatomyCheckedAt: '2026-10-22',
+    anatomyRevision: 141505, anatomyCheckedAt: '2026-11-08',
     parts: [
       part('head', '머리', 1200, 4, 75, 25, 70, false, 'kill', '정면 머리 중앙을 노리세요. 등 장갑에 빗맞으면 다른 부위입니다.', { sourcePart: 'Head' }),
       part('butt', '후방 복부', 950, 0, 80, 25, 150, false, 'bleed', '돌진을 피한 뒤 뒤쪽의 드러난 복부를 쏘세요. 파괴 후에도 바로 죽지 않을 수 있습니다.', { sourcePart: 'Butt' }),
@@ -99,7 +99,7 @@ const originalEnemies = [
     note: '일반 차저보다 머리와 앞다리 장갑이 튼튼합니다. 같은 부위에 연속으로 맞히는 조건입니다.',
     // Every part matches Wiki Anatomy revision 137702 (checked 2026-10-22).
     // Parts after the first three were added then.
-    anatomyRevision: 137702, anatomyCheckedAt: '2026-10-22',
+    anatomyRevision: 141504, anatomyCheckedAt: '2026-11-08',
     parts: [
       part('head', '머리', 1600, 4, 100, 25, 70, false, 'kill', '정면 머리를 노리세요. 일반 차저의 탄수를 그대로 적용하지 마세요.', { sourcePart: 'Head' }),
       part('butt', '후방 복부', 950, 0, 100, 25, 50, false, 'bleed', '뒤쪽 복부를 부수면 출혈이 시작됩니다. 장갑은 없지만 내구도가 높습니다.', { sourcePart: 'Butt' }),
@@ -114,7 +114,7 @@ const originalEnemies = [
     // Every part matches Wiki Anatomy revision 138514 (checked 2026-10-22,
     // compared by scripts/test-anatomy.mjs). Parts after the first three
     // were added on 2026-09-28, so legacy results keep their order.
-    anatomyRevision: 138514, anatomyCheckedAt: '2026-10-22',
+    anatomyRevision: 141861, anatomyCheckedAt: '2026-11-08',
     // Both bile sacs have the same numbers and are shown as one part.
     anatomyMerged: { 'Lower Sac': 'sac' },
     parts: [
@@ -143,7 +143,7 @@ const originalEnemies = [
     note: '화염방사기형 헐크 기준입니다. 눈은 폭발 피해를 받지 않으며, 후방 방열판 파괴 후에도 잠시 생존할 수 있습니다.',
     // Every part matches Wiki Anatomy revision 139406 (checked 2026-10-22).
     // Parts after the first two were added then.
-    anatomyRevision: 139406, anatomyCheckedAt: '2026-10-22',
+    anatomyRevision: 141866, anatomyCheckedAt: '2026-11-08',
     parts: [
       part('head', '정면의 붉은 눈', 250, 4, 25, 100, 100, true, 'kill', '작은 붉은 눈에 직접 맞혀야 합니다. 주변 얼굴 장갑에 맞는 것과 다릅니다.', { sourcePart: 'Head' }),
       part('heatsink', '후방 방열판', 900, 1, 60, 0, 60, true, 'bleed', '뒤쪽 주황색 방열판을 쏘세요. 파괴 후 남은 추가 체력이 감소하며 죽습니다.', { constitution: 650, sourcePart: 'Heatsink' }),
@@ -249,7 +249,7 @@ const originalEnemies = [
     id: 'predator-hunter', name: '프레데터 헌터', faction: '테르미니드', family: 'predator-hunter',
     source: wiki('Predator_Hunter'), sourceRevision: 135098, checkedAt: '2026-09-17',
     // Every part matches Wiki Anatomy revision 139037 (checked 2026-10-22).
-    anatomyRevision: 139037, anatomyCheckedAt: '2026-10-22',
+    anatomyRevision: 141544, anatomyCheckedAt: '2026-11-08',
     main: main(175, 0, 0, 0),
     note: '은신·담즙 발사·측면 도약을 사용하는 변종입니다. 본체 체력 175는 일반 고난이도 헌터 160과 다릅니다. 머리는 치명 부위이며 앞발·다리·날개 하나의 파괴는 처치가 아닙니다.',
     parts: [
@@ -292,9 +292,9 @@ const originalEnemies = [
   },
   // The wiki table gives armor 2 for the main body and head, also at the
   // reviewed revision 135087; the earlier 3 came from a difficulty 6+ remark.
-  spewer('bile-spewer-armored', '바일 스퓨어', 'Bile_Spewer', 2, '너싱 스퓨어의 무장 변종으로, 위키 부위 표 기준 본체·머리 장갑은 2입니다. 입과 후방 복부에는 장갑이 없습니다.', 135087, 'bile-spewer',
-    { anatomyRevision: 139148, anatomyCheckedAt: '2026-10-22', anatomyLegacy: { 'main.armor': 3, 'head.armor': 3 } }),
-  spewer('nursing-spewer', '너싱 스퓨어', 'Nursing_Spewer', 2, '노란 복부의 너싱 스퓨어 기준입니다.', 135086, 'nursing-spewer', { anatomyRevision: 136685 }),
+  spewer('bile-spewer-armored', '바일 스퓨어', 'Caustic_Spewer', 2, '너싱 스퓨어의 무장 변종으로, 위키 부위 표 기준 본체·머리 장갑은 2입니다. 입과 후방 복부에는 장갑이 없습니다.', 135087, 'bile-spewer',
+    { anatomyRevision: 141791, anatomyCheckedAt: '2026-11-08', anatomyLegacy: { 'main.armor': 3, 'head.armor': 3 } }),
+  spewer('nursing-spewer', '너싱 스퓨어', 'Nursing_Spewer', 2, '노란 복부의 너싱 스퓨어 기준입니다.', 135086, 'nursing-spewer', { anatomyRevision: 141638 }),
   {
     id: 'stalker', name: '스토커', faction: '테르미니드', source: wiki('Stalker'), sourceRevision: 135091,
     main: main(800, 1, 50, 0),
@@ -598,7 +598,7 @@ export const weaponProfiles = {
   'autocannon': profile('AC-8_Autocannon', [
     shot('aphet', '철갑고폭예광탄(APHET)', 325, 260, 4, 150, 3, { falloff: true }),
     shot('flak', '대공포탄 모드', 150, 150, 2, 190, 3, {
-      source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 141275, checkedAt: '2026-11-03',
+      source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 142136, checkedAt: '2026-11-08',
       sourceRecords: { projectile: 'AC-8_P1', explosion: 'AC-8_P1_IE', fragment: 'AC-8_P2' },
       delivery: 'explosive', directKind: 'none', explosionDurable: 190, innerRadius: 2, radius: 7,
       hitCondition: { kind: 'shrapnel', min: 0, max: 30, default: 6, defaultPct: 20 },
@@ -607,7 +607,7 @@ export const weaponProfiles = {
     }),
   ]),
   'wasp': {
-    source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 141275, checkedAt: '2026-11-03',
+    source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 142136, checkedAt: '2026-11-08',
     sourceRecords: { weapon: 'STA-X3 W.A.S.P. LAUNCHER', projectile: 'StA-X3_P1', explosion: 'StA-X3_P1_IE', bomblet: 'StA-X3_P', bombletExplosion: 'StA-X3_P_IE' },
     note: '분산탄 한 발에서 나온 작은 미사일이 같은 부위에 맞는다고 가정한 피해 계산입니다. 실제 유도 가능 대상이나 명중 부위를 보장하지 않습니다. 탄창 소모량과 여러 부위 동시 피해는 계산하지 않습니다.',
     modes: [

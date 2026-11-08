@@ -122,7 +122,7 @@ assert.equal(byCode('P-34').spareRounds, 2);
 for (const [code, rate] of [['CQC-2', 150], ['CQC-42', 72], ['CQC-5', 100], ['CQC-73', 150]]) assert.equal(byCode(code).swingsPerMinute, rate);
 for (const [code, rate] of [['G-10', 100], ['G-123', 150], ['FLAM-66', 150], ['P-72', 150], ['SMG/FLAM-34', 150], ['R-4', 100], ['SG-225IE', 100], ['G-142', 20], ['G-13', 100], ['G-4', 25], ['LAS-5', 100], ['LAS-7', 100]]) assert.equal(byCode(code).dot.perSecond, rate);
 assert.equal(byCode('G-123').dot.duration, 6.5);
-for (const [code, seconds, shots] of [['LAS-12', 4, 53], ['LAS-16', 8, 105], ['LAS-17', 15, 175], ['LAS-5', 8, null], ['LAS-7', 6.67, null], ['LAS-13', 2, 10], ['LAS-58', null, null]]) {
+for (const [code, seconds, shots] of [['LAS-12', 4, 53], ['LAS-16', 8.4, 106], ['LAS-17', 15, 175], ['LAS-5', 8, null], ['LAS-7', 6.67, null], ['LAS-13', 2, 10], ['LAS-58', null, null]]) {
   assert.equal(byCode(code).heatCapacity.seconds, seconds);
   assert.equal(byCode(code).heatCapacity.shots, shots);
 }

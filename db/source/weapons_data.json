@@ -1,8 +1,8 @@
 {
  "source": "https://helldivers.wiki.gg/wiki/Module:Decodedata-Attacks/weapons_data.json",
- "revision": 141275,
- "revisionTimestamp": "2026-11-03T08:12:39Z",
- "retrievedAt": "2026-11-03",
+ "revision": 142136,
+ "revisionTimestamp": "2026-11-07T19:05:04Z",
+ "retrievedAt": "2026-11-08",
  "data": {
   "damage": {
    "40-K MELTAGUN_B_dm": {
@@ -3422,7 +3422,7 @@
     "r2": 3,
     "r3": 12,
     "aoe_duration": 0,
-    "is_huge": 1,
+    "is_huge": 0,
     "noise": "medium_explosion_vehicle",
     "name": "CQC-20 BREACHING HAMMER IE"
    },
@@ -3952,7 +3952,7 @@
     "r1": 3,
     "r2": 4,
     "r3": 5,
-    "is_huge": 1,
+    "is_huge": 0,
     "noise": "small_explosion_frag",
     "name": "PLAS-45 EPOCH Overcharge E"
    },
@@ -4007,7 +4007,7 @@
     "r1": 0.400000006,
     "r2": 2,
     "r3": 3,
-    "is_huge": 1,
+    "is_huge": 0,
     "noise": "small_explosion_frag",
     "name": "RS-422 RAILGUN Overcharge E"
    },

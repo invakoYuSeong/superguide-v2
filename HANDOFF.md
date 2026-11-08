@@ -2,11 +2,13 @@
 
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
-- 마지막 갱신: 2026-11-03, Claude Code 담당
-- 기준: master (채권↔방어구 연결 `d3c01c4`, 사용자 요청으로 master에 반영·배포)
+- 마지막 갱신: 2026-11-08, Claude Code 담당
+- 기준: master (위키 재대조 2026-11-08, 로컬 커밋만, push 안 함)
 - 진행 중인 작업: 없음
 
 ## 지금 상태
+
+- **위키 재대조(2026-11-08, 로컬 커밋·미배포)**: 모든 위키 원본을 다시 받아 대조. 무기 107종·채권 26종·방어구 113종·지원 무기 수치·적 부위 수치는 변화 없음. 바뀐 것: ① LAS-16 Sickle 열 용량 8초(105발) → 8.4초(106발)(위키 인포박스 수정, datamine 발당 열 0.95·한도 100과 일치). ② 위키가 패치 1.007.200의 'Caustic Strain' 분리에 맞춰 벌레 4종 페이지 이름을 바꿈(Bile Spitter/Bile Warrior/Bile Spewer/Spore Charger → Caustic Spitter/Warrior/Spewer/Charger). 적 출처 링크와 영어 이름을 새 이름으로 고침. 한국어 이름은 나무위키가 아직 '바일 스피터·바일 워리어·바일 스퓨어·스포어 차저'라 그대로. ③ `fetch-enemy-anatomy.mjs`가 위키 넘겨주기(redirect)를 따라가도록 수정(전에는 이름 바뀐 페이지의 부위 표가 빈 채로 저장됨). ④ 위키 편집으로 판번호만 바뀐 적 32종의 `anatomyRevision`을 새 판으로 올림(부위 수치는 줄마다 비교해 같음 확인). datamine 판 142136(바뀐 건 쓰지 않는 `is_huge`뿐).
 
 - **채권 ↔ 방어구 연결(2026-11-03, master 반영·배포)**: 채권 보드의 방어구 타일 64개를 누르면 무기·스트라타젬처럼 항목 상세 패널에 방어구 상세(그림·무게·장갑/속도/스태미나·얻는 곳·패시브 효과)가 열립니다(`#/warbonds/<채권>?item=armor/<id>`, `gear-armor.js`의 `armorDetail`). 타일에 ref가 없어서 채권 id + 영어 이름(끝의 " Armor"는 떼고)으로 `armor.js`와 맞춥니다. '전체 페이지로 열기'·'같은 패시브 방어구 보기'는 방어구 탭에서 그 방어구로 스크롤하고 노란 테두리로 표시(`#/gear?tab=armor&a=<id>`). 반대로 방어구 탭의 채권 이름 링크는 그 채권을 열고 해당 방어구 상세까지 띄웁니다. 1400·375px 확인(가로 넘침·콘솔 오류 없음).
 
@@ -23,6 +25,11 @@
 - **5×3 보드**([PR #5](https://github.com/modocracy/superguide-v2/pull/5)): 26개 채권·85페이지·603개 항목, 이미지 511종 모두 연결(누락 0). 출처는 Helldivers Wiki(CC BY-NC-SA 4.0). 전설 채권의 실제 게임 색상은 미확인.
 
 ## 남은 일 (각각 사용자 승인 후 진행)
+
+- **[누락] 새 적 2종(패치 1.007.202, 2026-11-03 'Noxious Strain' 하위 세력)**: 녹셔스 스캐빈저(Noxious Scavenger), 녹셔스 스퓨어(Noxious Spewer). 한국어 이름은 나무위키 'HELLDIVERS 2/테르미니드' 녹셔스 변종 문단 기준. 위키 페이지가 아직 작성 중(WIP)이고 녹셔스 스퓨어 부위 표는 '커스틱 스퓨어와 같음'으로 복사돼 있음. 사이트에 넣을지 사용자 결정 대기.
+- **[누락] M-104 Incinerator FRV 스트라타젬**: 2026-11-03 Serene Guardian 캠페인 보상으로 상시 지급(위키). 사이트 스트라타젬 목록에 없음. 나무위키 한국어 이름 미확인. 사이트에 넣을지 사용자 결정 대기.
+- 위키 스트라타젬 분류 중 사이트에 없는 나머지(Eagle Fly By, Orbital Confetti, Orbital Illumination Flare(삭제된 것), 임무용 Tectonic Drill·Dark Fluid Vessel·Seize Industrial Complex 등)는 피해가 없거나 장비가 아니라 넣지 않음.
+- 적 크기 분류에서 사이트에 없는 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship은 전부터 넣지 않은 대상.
 
 - **Codex 위임 중단(2026-11-03)**: 사용자가 다시 지시할 때까지 Codex에 일을 맡기지 않음(자동 위임 포함).
 - **게임 스타일 실제 기기 확인**: 휴대폰에서 줄무늬·잘린 모서리·글꼴 확인 필요. 옛 화면이 섞여 보이면 브라우저 캐시 문제(강력 새로고침).

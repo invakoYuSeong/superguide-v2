@@ -31,16 +31,22 @@ export function anatomyRows(wikitext) {
 const titles = [...new Set(enemies.map(titleOf))].sort();
 const pages = {};
 for (let i = 0; i < titles.length; i += 50) {
-  const params = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', prop: 'revisions', rvprop: 'ids|content', rvslots: 'main', titles: titles.slice(i, i + 50).join('|') });
+  // redirects=1: renamed wiki pages (Bile Spewer → Caustic Spewer) still return
+  // their content; the snapshot key stays the title the site asked for.
+  const params = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', redirects: '1', prop: 'revisions', rvprop: 'ids|content', rvslots: 'main', titles: titles.slice(i, i + 50).join('|') });
   const res = await fetch(`${API}?${params}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
   if (!res.ok) throw new Error(`${res.status} anatomy batch ${i}`);
   const json = await res.json();
-  const asked = Object.fromEntries((json.query.normalized || []).map(item => [item.to, item.from]));
+  const normalized = Object.fromEntries((json.query.normalized || []).map(item => [item.to, item.from]));
+  const redirected = {};
+  for (const item of json.query.redirects || []) (redirected[item.to] ??= []).push(normalized[item.from] ?? item.from);
   for (const page of json.query.pages) {
-    const title = asked[page.title] ?? page.title;
     const revision = page.revisions?.[0];
-    if (!revision) throw new Error(`Missing wiki page: ${title}`);
-    pages[title] = { source: `https://helldivers.wiki.gg/wiki/${title.replaceAll(' ', '_')}`, revision: revision.revid, rows: anatomyRows(revision.slots.main.content) };
+    const askedTitles = redirected[page.title] ?? [normalized[page.title] ?? page.title];
+    for (const title of askedTitles) {
+      if (!revision) throw new Error(`Missing wiki page: ${title}`);
+      pages[title] = { source: `https://helldivers.wiki.gg/wiki/${title.replaceAll(' ', '_')}`, ...(page.title !== title ? { redirectTo: page.title } : {}), revision: revision.revid, rows: anatomyRows(revision.slots.main.content) };
+    }
   }
   await new Promise(resolve => setTimeout(resolve, 250));
 }
