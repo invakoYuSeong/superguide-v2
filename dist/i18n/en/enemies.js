@@ -10,7 +10,7 @@ export default {
   "녹셔스 스캐빈저": "Noxious Scavenger",
   "녹셔스 스퓨어": "Noxious Spewer",
   "녹셔스 변종의 스캐빈저입니다. 일반 스캐빈저보다 빠르고, 물면 이동을 늦추는 독을 겁니다. 위키 부위 표는 일반 스캐빈저와 같으며 위키 문서는 아직 작성 중입니다. 독 지속 피해는 계산에 넣지 않습니다.": "A Noxious Strain Scavenger. It is faster than a regular Scavenger and its bite inflicts a slowing poison. The wiki anatomy table matches the regular Scavenger, and the wiki page is still a work in progress. Poison damage over time is not included.",
-  "녹셔스 변종의 스퓨어입니다. 독을 뱉고 이동을 늦추는 거미줄을 쏘며, 짧게 도약하기도 합니다. 위키 부위 표는 바일 스퓨어와 같다고 적혀 있고 위키 문서는 아직 작성 중입니다.": "A Noxious Strain Spewer. It spits poison and slowing webs, and can make short leaps. The wiki says its anatomy matches the Caustic Spewer, and the wiki page is still a work in progress.",
+  "녹셔스 변종의 스퓨어입니다. 빠르게 다가와 물어서 독을 걸고, 중거리에서는 거미줄을 뱉어 질주를 막습니다. 장갑이 없는 복부가 터지면 주변 헬다이버와 벌레를 모두 묶는 거미줄 폭발이 일어납니다. 위키 부위 표는 바일 스퓨어와 같다고 적혀 있고 위키 문서는 아직 작성 중입니다.": "A Noxious Strain Spewer. It closes in fast and bites to poison, and at medium range it spits webs that stop you from sprinting. Bursting its unarmored abdomen sets off a web explosion that snares every Helldiver and bug nearby. The wiki says its anatomy matches the Caustic Spewer, and the wiki page is still a work in progress.",
   "바일 스피터": "Caustic Spitter",
   "파운서": "Pouncer",
   "헌터": "Hunter",

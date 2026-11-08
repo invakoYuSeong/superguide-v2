@@ -297,7 +297,7 @@ const originalEnemies = [
   spewer('nursing-spewer', '너싱 스퓨어', 'Nursing_Spewer', 2, '노란 복부의 너싱 스퓨어 기준입니다.', 135086, 'nursing-spewer', { anatomyRevision: 141638 }),
   // Noxious Strain (patch 1.007.202). The wiki page is a work in progress and
   // states its anatomy is identical to the Caustic Spewer (revision 142006).
-  spewer('noxious-spewer', '녹셔스 스퓨어', 'Noxious_Spewer', 2, '녹셔스 변종의 스퓨어입니다. 독을 뱉고 이동을 늦추는 거미줄을 쏘며, 짧게 도약하기도 합니다. 위키 부위 표는 바일 스퓨어와 같다고 적혀 있고 위키 문서는 아직 작성 중입니다.', 142006, 'noxious-spewer', { anatomyRevision: 142006, anatomyCheckedAt: '2026-11-08' }),
+  spewer('noxious-spewer', '녹셔스 스퓨어', 'Noxious_Spewer', 2, '녹셔스 변종의 스퓨어입니다. 빠르게 다가와 물어서 독을 걸고, 중거리에서는 거미줄을 뱉어 질주를 막습니다. 장갑이 없는 복부가 터지면 주변 헬다이버와 벌레를 모두 묶는 거미줄 폭발이 일어납니다. 위키 부위 표는 바일 스퓨어와 같다고 적혀 있고 위키 문서는 아직 작성 중입니다.', 142006, 'noxious-spewer', { anatomyRevision: 142006, anatomyCheckedAt: '2026-11-08' }),
   {
     id: 'stalker', name: '스토커', faction: '테르미니드', source: wiki('Stalker'), sourceRevision: 135091,
     main: main(800, 1, 50, 0),

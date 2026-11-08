@@ -28,7 +28,8 @@
 
 ## 남은 일 (각각 사용자 승인 후 진행)
 
-- **녹셔스 적 재확인**: 녹셔스 스캐빈저·녹셔스 스퓨어의 위키 문서가 작성 중(WIP)이라 부위 수치가 일반 스캐빈저·커스틱 스퓨어 것을 옮겨 둔 상태입니다. 위키가 고유 수치를 올리면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다. 녹셔스 변종 세력 안내(추천 무기)는 만들지 않음(사용자 결정 전).
+- **녹셔스 적 재확인**: 녹셔스 스캐빈저·녹셔스 스퓨어의 위키 문서가 작성 중(WIP)이라 부위 수치가 일반 스캐빈저·커스틱 스퓨어 것을 옮겨 둔 상태입니다. 위키가 고유 수치를 올리면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다. 적 체력 datamine(`Module:Decodedata-Attacks/enemydata.json`)은 2025-06 이후 갱신이 없어 대조 불가.
+- **[사용자 결정 대기] 녹셔스 변종 세력 안내**(2026-11-08 조사): 공식 Steam 공지(2026-11-03)는 스캐빈저에 산탄총·화염방사기·수류탄, 스퓨어는 머리(중장갑) 대신 장갑 없는 복부(터지면 주변을 묶는 거미줄 폭발)를 권함. 위키 전술: 점프팩·워프팩·호버팩, 방패 배낭·방탄 방패, Muscle Enhancement 부스터. 독(위키 Status Effects rev 142045, datamine status rev 139342): 6초간 초당 2(내구 5) 산성 피해, 독 취약 1~4중첩에 1.4·1.8·2.8·4.2배, 3중첩부터 질주 불가, 스팀은 중첩 2 감소. 스캐빈저 물기는 1중첩, 스퓨어 물기는 2중첩. 스퓨어 최소 난이도 5. 프레데터·스포어 버스트처럼 '세력 안내'에 넣을지 결정 필요.
 - 한국어 표기 차이 후보: 나무위키는 M-102를 '포격 FRV'(2026-08-12 패치 이후 게임 표기)로 적지만 사이트는 '고속 정찰 차량'. 바꿀지 사용자 결정 전.
 - 위키 스트라타젬 분류 중 사이트에 없는 나머지(Eagle Fly By, Orbital Confetti, Orbital Illumination Flare(삭제된 것), 임무용 Tectonic Drill·Dark Fluid Vessel·Seize Industrial Complex 등)는 피해가 없거나 장비가 아니라 넣지 않음.
 - 적 크기 분류에서 사이트에 없는 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship은 전부터 넣지 않은 대상.
