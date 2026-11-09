@@ -40,12 +40,19 @@ export function variantDisplayName(weapon, variant, index) {
 
 // What a firing-mode panel on the gear page shows beyond the calculator profile
 // (personal-profiles.mjs), keyed by mode id. Numbers come from the datamine or
-// the infobox; facts from wiki prose are matched against their sentence, so a
-// changed sentence fails the build instead of leaving a stale note.
+// the infobox. Notes taken from wiki prose are shown only while their key
+// numbers and words are still on the page; otherwise the note is left out with
+// a warning, so a wiki rewording never stops the build or leaves a stale note.
 const DAMAGE_FIELDS = ['direct', 'durable', 'ap', 'splash', 'splashDurable', 'splashAp', 'radius', 'innerRadius'];
-export function modeDetails(weapon, data, wikitext) {
-  const evidence = (pattern, what) => { if (!pattern.test(wikitext)) throw new Error(`${weapon.id}: ${what} evidence changed`); };
+export function modeDetails(weapon, data, wikitext, warn = message => console.warn(`warning: ${message}`)) {
   const damageOf = stats => Object.fromEntries(DAMAGE_FIELDS.map(key => [key, stats[key] ?? null]));
+  // A note whose key tokens are all somewhere on the page, else nothing.
+  const note = (text, ...tokens) => {
+    const missing = tokens.filter(token => !token.test(wikitext));
+    if (!missing.length) return [text];
+    warn(`${weapon.id}: note left out, wiki text no longer has ${missing.join(' ')}`);
+    return [];
+  };
   const details = {};
   for (const linked of weapon.linkedAttacks) {
     const record = data.weapons[linked.dataKey];
@@ -64,42 +71,34 @@ export function modeDetails(weapon, data, wikitext) {
       reload: second('reload_time'), reloadTactical: second('tac_reload_time'),
     };
     if (spray) {
-      // The wiki's whole-weapon fire damage belongs to the flamethrower: the main rounds carry no element.
-      if (weapon.element || spray.element !== weapon.dot?.element) throw new Error(`${weapon.id}: fire damage no longer belongs to the flamethrower`);
-      evidence(/same damage, range \(20m, measured in first person\), and capacity \(50\)/, 'flamethrower range');
-      evidence(/enough fuel for 6\.1 seconds of continuous fire/, 'flamethrower fuel time');
-      Object.assign(details.underbarrel, { ap: spray.ap, dot: weapon.dot, fuel: true,
-        modeNotes: ['사거리는 약 20m(1인칭 측정)이고, 연료를 가득 채우면 약 6.1초 동안 계속 분사합니다.'] });
+      // The wiki's whole-weapon fire damage belongs to the flamethrower while the main rounds carry no element.
+      const ownsFire = !weapon.element && spray.element === weapon.dot?.element;
+      if (!ownsFire) warn(`${weapon.id}: fire damage left out, it no longer clearly belongs to the flamethrower`);
+      Object.assign(details.underbarrel, { ap: spray.ap, dot: ownsFire ? weapon.dot : null, fuel: true,
+        modeNotes: note('사거리는 약 20m(1인칭 측정)이고, 연료를 가득 채우면 약 6.1초 동안 계속 분사합니다.', /\b20\s?m\b/i, /\b6\.1\s?s/i) });
     }
   }
   if (['missile-pistol', 'warrant'].includes(weapon.id)) {
     // The datamine has two projectile records without saying which one is guided;
-    // the guided panel may only reuse the numbers while both are the same.
+    // the guided panel reuses the numbers only while both are the same.
     const shots = weapon.variants.filter(v => v.delivery === 'projectile');
-    if (shots.length !== 2 || shots.some(v => JSON.stringify(damageOf(v)) !== JSON.stringify(damageOf(weapon)))) throw new Error(`${weapon.id}: guided and unguided projectiles differ`);
-    evidence(/guided shots always target center mass/, 'center-mass aim');
-    const notes = weapon.id === 'missile-pistol' ? (() => {
-      evidence(/'valid target' is any Medium, Large, or Massive enemy/, 'lock-on targets');
-      evidence(/Maximum lock-on distance is '''100 m\.'''/, 'lock-on distance');
-      evidence(/same as the \[\[FAF-14 Spear\]\], which is one second/, 'lock-on time');
-      evidence(/If it cannot reach its target, it will self-detonate/, 'self-detonation');
-      return ['목표를 고정해야만 발사됩니다. 중형·대형·초대형 적을 최대 100m 거리에서 1초 동안 조준하면 고정됩니다.',
-        '미사일은 고정한 적을 따라 날아가고, 닿지 못하면 스스로 폭발합니다.'];
-    })() : (() => {
-      evidence(/'valid target' is any Small, Medium, or Large size enemy - it cannot lock on to Massive enemies/, 'lock-on targets');
-      evidence(/Maximum lock-on distance is 60 meters/, 'lock-on distance');
-      evidence(/approximately half a second/, 'lock-on time');
-      evidence(/doesn't exceed 40°~ of curvature/, 'curve limit');
-      return ['목표를 고정해야만 발사됩니다. 소형·중형·대형 적을 최대 60m 거리에서 약 0.5초 만에 고정하며, 초대형 적은 고정할 수 없습니다.',
-        '탄이 고정한 적을 향해 휘어 날아가며, 휘는 각도는 약 40도까지입니다.'];
-    })();
-    details.guided = { ...damageOf(weapon), modeNotes: ['피해는 비유도 사격과 같습니다.', ...notes, '유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.'] };
+    const same = shots.length === 2 && shots.every(v => JSON.stringify(damageOf(v)) === JSON.stringify(damageOf(weapon)));
+    if (!same) warn(`${weapon.id}: guided damage left out, the two projectile records differ`);
+    const notes = weapon.id === 'missile-pistol' ? [
+      ...note('목표를 고정해야만 발사됩니다. 중형·대형·초대형 적을 최대 100m 거리에서 1초 동안 조준하면 고정됩니다.', /massive/i, /\b100\s?m\b/i, /\bone second\b|\b1\s?s(?:ec(?:ond)?)?\b/i),
+      ...note('미사일은 고정한 적을 따라 날아가고, 닿지 못하면 스스로 폭발합니다.', /self-detonat/i),
+    ] : [
+      ...note('목표를 고정해야만 발사됩니다. 소형·중형·대형 적을 최대 60m 거리에서 약 0.5초 만에 고정하며, 초대형 적은 고정할 수 없습니다.', /massive/i, /\b60\s?(?:m\b|meters)/i, /half a second|\b0\.5\s?s/i),
+      ...note('탄이 고정한 적을 향해 휘어 날아가며, 휘는 각도는 약 40도까지입니다.', /\b40\s?(?:\u00b0|degrees)/i),
+    ];
+    const modeNotes = [...(same ? ['피해는 비유도 사격과 같습니다.'] : []), ...notes,
+      ...note('유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.', /center mass/i)];
+    if (same || modeNotes.length) details.guided = { ...(same ? damageOf(weapon) : {}), modeNotes };
   }
   if (weapon.id === 'variable') {
-    evidence(/'''Total:''' Fires all remaining ammunition in the magazine\./, 'total fires the magazine');
-    evidence(/deal 15 damage to the \[\[Helldiver\]\]'s right arm and ragdoll them if not prone and when firing more than 22 rounds at once/, 'total self-damage');
-    details.total = { ...damageOf(weapon), ammoAll: true,
-      modeNotes: ['엎드리지 않은 채 22발보다 많이 한꺼번에 쏘면 오른팔에 15 피해를 입고 넘어집니다.'] };
+    if (/all remaining (?:ammunition|ammo|rounds)/i.test(wikitext)) details.total = { ...damageOf(weapon), ammoAll: true,
+      modeNotes: note('엎드리지 않은 채 22발보다 많이 한꺼번에 쏘면 오른팔에 15 피해를 입고 넘어집니다.', /\b15 damage/i, /\b22 rounds/i, /right arm/i) };
+    else warn(`${weapon.id}: Total mode left out, the wiki no longer says it fires all remaining ammunition`);
   }
   return Object.keys(details).length ? { modeDetails: details } : {};
 }

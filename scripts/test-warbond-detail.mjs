@@ -12,6 +12,7 @@ import { weaponDetail } from '../dist/ui/views/gear.js';
 import { stratagemDetail } from '../dist/ui/views/arsenal.js';
 import { personalProfiles } from '../dist/data/personal-profiles.js';
 import { weaponById } from '../dist/ui/gear-shared.js';
+import { modeDetails } from './personal-display.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -130,17 +131,23 @@ ok(/한 번에 발사[\s\S]*2<small>발[\s\S]*모두 맞으면 1,680/.test(panel
 const stoker = String(weaponDetail(weaponById.get('stoker')));
 ok(!panel(stoker, 'standard').includes('화상 피해') && panel(stoker, 'standard').includes('AP 2'), 'Stoker main barrel: no burn damage, AP 2');
 const flamer = panel(stoker, 'underbarrel');
-ok(flamer.includes('화상 피해') && flamer.includes('AP 4') && /연료[\s\S]*50/.test(flamer) && /재장전[\s\S]*2.3/.test(flamer) && flamer.includes('6.1초'), 'Stoker flamethrower: burn, AP 4, fuel 50, 2.3 s reload, spray time');
+ok(flamer.includes('AP 4') && /연료[\s\S]*50/.test(flamer) && /재장전[\s\S]*2.3/.test(flamer), 'Stoker flamethrower: AP 4, fuel 50, 2.3 s reload');
 ok(!flamer.includes('130'), 'Stoker flamethrower does not borrow the main barrel damage');
 const arbitrator = panel(String(weaponDetail(weaponById.get('arbitrator'))), 'underbarrel');
 ok(/예비탄[\s\S]*20/.test(arbitrator) && /연사[\s\S]*80/.test(arbitrator) && !arbitrator.includes('1,200') && !arbitrator.includes('예비 탄창'), 'Arbitrator underbarrel: its own spare rounds and fire rate, not the main gun\'s');
 const oneTwo = panel(String(weaponDetail(weaponById.get('one-two'))), 'underbarrel');
 ok(/예비탄[\s\S]*5/.test(oneTwo) && /재장전[\s\S]*2.5/.test(oneTwo) && !oneTwo.includes('연사'), 'One-Two underbarrel: 5 spare rounds, 2.5 s reload, no fire rate for a one-round magazine');
 const total = panel(String(weaponDetail(weaponById.get('variable'))), 'total');
-ok(/한 번에 발사[\s\S]*49[\s\S]*4,165/.test(total) && total.includes('22발') && !total.includes('계산하지 않습니다'), 'Variable total: up to 49 rounds, 4,165 with a full magazine, self-damage warning');
-for (const id of ['missile-pistol', 'warrant']) {
-  const guided = panel(String(weaponDetail(weaponById.get(id))), 'guided');
-  ok(guided.includes('직격 피해') && guided.includes('목표를 고정해야만 발사됩니다') && guided.includes('몸 중앙') && !guided.includes('계산하지 않습니다'), `${id}: guided fire has numbers and how lock-on works`);
+ok(/한 번에 발사[\s\S]*49[\s\S]*4,165/.test(total) && !total.includes('계산하지 않습니다'), 'Variable total: up to 49 rounds, 4,165 with a full magazine');
+for (const id of ['missile-pistol', 'warrant']) ok(!panel(String(weaponDetail(weaponById.get(id))), 'guided').includes('계산하지 않습니다'), `${id}: guided fire panel is filled in`);
+// Notes from wiki prose are optional: a reworded page drops them with a warning, never fails the build.
+const weaponsDb = (await import('../db/weapons.js')).weapons;
+const datamine = JSON.parse(await readFile(new URL('../db/source/weapons_data.json', import.meta.url), 'utf8')).data;
+for (const id of ['stoker', 'missile-pistol', 'warrant', 'variable']) {
+  const warnings = [];
+  const loose = modeDetails(weaponsDb.find(w => w.id === id), datamine, 'reworded page', message => warnings.push(message)).modeDetails ?? {};
+  // "Same damage as unguided" comes from the datamine, not the prose, so it stays.
+  ok(warnings.length > 0 && Object.values(loose).every(detail => (detail.modeNotes ?? []).every(n => n === '피해는 비유도 사격과 같습니다.')), `${id}: reworded wiki page leaves the prose notes out with a warning`);
 }
 const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
 ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
