@@ -676,20 +676,18 @@ export const pickerStructureImages = {
     "kind": "map"
   },
   "megafactory-gate": {
-    "src": "./assets/pickers/faction-automaton.svg",
-    "title": "Automaton Icon.svg",
-    "source": "https://helldivers.wiki.gg/wiki/File:Automaton_Icon.svg",
-    "originalUrl": "https://helldivers.wiki.gg/images/Automaton_Icon.svg?fd6f50",
-    "assetUrl": "https://helldivers.wiki.gg/images/Automaton_Icon.svg?fd6f50",
-    "width": 512,
-    "height": 512,
-    "sha256": "1262ff04a994d7e8ee49ed900b2bf1d01c689c8e0c0fac1cbf606f3794357d1e",
-    "retrievedAt": "2026-09-16",
-    "uploader": "Tech Support Squid",
-    "author": "Dogo314",
-    "license": "Arrowhead",
-    "kind": "faction",
-    "note": "진영 공통 아이콘"
+    "src": "./assets/pickers/structure-megafactory-gate.png",
+    "title": "MegafactoryGate.png",
+    "source": "https://helldivers.wiki.gg/wiki/File:MegafactoryGate.png",
+    "originalUrl": "https://helldivers.wiki.gg/images/MegafactoryGate.png?f911cd",
+    "assetUrl": "https://helldivers.wiki.gg/images/thumb/MegafactoryGate.png/256px-MegafactoryGate.png?f911cd",
+    "width": 256,
+    "height": 256,
+    "sha256": "4e8d78d1794dc2032cf9698e4fe9a7220b8cfd87856f3a6cd76dc8c0df782aa9",
+    "retrievedAt": "2026-11-09",
+    "uploader": "LaikaChan",
+    "license": "",
+    "kind": "portrait"
   },
   "stalker-lair": {
     "src": "./assets/pickers/structure-stalker-lair.svg",

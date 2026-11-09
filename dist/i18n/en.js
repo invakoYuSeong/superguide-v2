@@ -8,6 +8,7 @@ import { personalWeapons } from '../data/personal-weapons.js';
 import { factionGuides } from '../data/faction-data.js';
 import { warbonds } from '../data/warbonds.js';
 import { armors, armorPassives } from '../data/armor.js';
+import { attachmentParts } from '../data/weapon-attachments.js';
 import stratagemText from './en/stratagems.js';
 import enemyText from './en/enemies.js';
 import gearText from './en/gear.js';
@@ -22,6 +23,8 @@ const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passiv
 // a Korean name shared with something else keeps that meaning (자유의 종복 is a warbond and a title);
 // the board itself shows these names with L(), not through the dictionary.
 const warbondTileNames = warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => item.ko).map(item => ({ name: item.ko, en: item.name }));
-export const officialNames = [...warbondTileNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames].filter(item => item.name && item.en).map(item => [item.name, item.en]);
+// Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.
+const attachmentNames = Object.values(attachmentParts).filter(part => part.ko).map(part => ({ name: part.ko, en: part.name }));
+export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames].filter(item => item.name && item.en).map(item => [item.name, item.en]);
 export const areas = { stratagems: stratagemText, enemies: enemyText, gear: gearText, demolition: demolitionText, factions: factionText, warbonds: warbondText, armor: armorText };
 export const english = Object.assign(Object.fromEntries(officialNames), ...Object.values(areas));
