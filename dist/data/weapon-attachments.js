@@ -57,7 +57,7 @@ export const attachmentParts = {
   "no-optics": {"slot":"optics","name":"No Optics","none":true,"effects":{"zoom":[25]},"source":"https://helldivers.wiki.gg/wiki/No_Optics","revision":140179},
   "no-underbarrel": {"slot":"underbarrel","name":"No Underbarrel","none":true,"effects":{},"source":"https://helldivers.wiki.gg/wiki/No_Underbarrel","revision":140180},
   "reflex-sight": {"slot":"optics","name":"Reflex Sight","ko":"반사식 조준경","effects":{"zoom":[25]},"source":"https://helldivers.wiki.gg/wiki/Reflex_Sight","revision":142066},
-  "reflex-sight-mk2": {"slot":"optics","name":"Reflex Sight Mk2","effects":{"zoom":[25]},"source":"https://helldivers.wiki.gg/wiki/Reflex_Sight_Mk2","revision":142127},
+  "reflex-sight-mk2": {"slot":"optics","name":"Reflex Sight Mk2","ko":"반사식 조준경 MK2","effects":{"zoom":[25]},"source":"https://helldivers.wiki.gg/wiki/Reflex_Sight_Mk2","revision":142127},
   "short-magazine": {"slot":"magazine","name":"Short Magazine","ko":"짧은 탄창","effects":{"ergonomics":10,"magCapacity":30,"startMags":9,"maxMags":16,"reload":2.5,"reloadTactical":1.65},"source":"https://helldivers.wiki.gg/wiki/Short_Magazine","revision":142117},
   "short-magazine-2": {"slot":"magazine","name":"Short Magazine","ko":"짧은 탄창","effects":{"ergonomics":10,"magCapacity":30,"startMags":9,"maxMags":16,"reload":2,"reloadTactical":1.25},"source":"https://helldivers.wiki.gg/wiki/Short_Magazine","revision":142117},
   "short-magazine-3": {"slot":"magazine","name":"Short Magazine","ko":"짧은 탄창","effects":{"ergonomics":10,"magCapacity":30,"startMags":9,"maxMags":16,"reload":2.5,"reloadTactical":1.8},"source":"https://helldivers.wiki.gg/wiki/Short_Magazine","revision":142117},

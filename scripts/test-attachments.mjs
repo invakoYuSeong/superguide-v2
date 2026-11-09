@@ -4,7 +4,7 @@
 // from the data, so a wiki refresh does not need test edits.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildAttachments, formatModule, SLOTS, PRIMARIES } from './build-attachments.mjs';
+import { buildAttachments, formatModule, SLOTS, PRIMARIES, MAJORITY_ACCEPTED } from './build-attachments.mjs';
 import { attachmentParts, weaponAttachments, attachmentDiscrepancies, weaponAttachmentsSource } from '../dist/data/weapon-attachments.js';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { weaponDetail, attachmentEffects } from '../dist/ui/views/gear.js';
@@ -62,6 +62,7 @@ ok(weaponAttachmentsSource.koreanNames === namu.source && weaponAttachmentsSourc
 ok(namu.weapons.some(entry => entry.rows.length) && !namu.unparsed.length, 'Namu tables parsed with no leftover rows');
 const unlockFits = (row, item) => row.default ? item.level === 1 && (item.cost === 0 || item.builtIn === true) : row.cost != null && row.level === item.level && row.cost === item.cost;
 const namuNames = new Map(); // English name -> Set of Korean names from single matches
+const namuVotes = new Map(); // English name -> Map(Korean name -> matches), for MAJORITY_ACCEPTED
 for (const [id, list] of Object.entries(weaponAttachments)) {
   const weapon = personalWeapons.find(w => w.id === id);
   const table = namu.weapons.find(entry => entry.code === weapon.code && entry.name === weapon.name);
@@ -73,14 +74,19 @@ for (const [id, list] of Object.entries(weaponAttachments)) {
     const fits = rows.filter(row => row.slot === part.slot && unlockFits(row, item));
     if (fits.length !== 1 || items.filter(other => attachmentParts[other.part].slot === part.slot && unlockFits(fits[0], other)).length !== 1) continue;
     if (!namuNames.has(part.name)) namuNames.set(part.name, new Set());
-    namuNames.get(part.name).add(fits[0].name.replace(/\s+/g, ' ').trim());
+    const ko = fits[0].name.replace(/\s+/g, ' ').trim();
+    namuNames.get(part.name).add(ko);
+    if (!namuVotes.has(part.name)) namuVotes.set(part.name, new Map());
+    namuVotes.get(part.name).set(ko, (namuVotes.get(part.name).get(ko) ?? 0) + 1);
   }
 }
 const koByName = new Map();
 for (const part of Object.values(attachmentParts)) {
   if (part.none) { ok(!part.ko, `${part.name}: the empty choice has no Korean name (shown as 장착 안 함)`); continue; }
   const found = namuNames.get(part.name);
-  if (part.ko) ok(found?.size === 1 && found.has(part.ko), `${part.name}: Korean name ${part.ko} is the only one Namu rows give (${[...(found ?? [])].join(' / ') || 'none'})`);
+  const ranked = [...(namuVotes.get(part.name) ?? [])].sort((a, b) => b[1] - a[1]);
+  if (part.ko && MAJORITY_ACCEPTED.includes(part.name)) ok(ranked[0]?.[0] === part.ko && (ranked.length === 1 || ranked[0][1] > ranked[1][1]), `${part.name}: Korean name ${part.ko} is the Namu majority (${ranked.map(([ko, n]) => `${ko} ${n}`).join(' / ')})`);
+  else if (part.ko) ok(found?.size === 1 && found.has(part.ko), `${part.name}: Korean name ${part.ko} is the only one Namu rows give (${[...(found ?? [])].join(' / ') || 'none'})`);
   else ok(!(found?.size === 1), `${part.name}: Namu rows agree on ${[...(found ?? [])][0]}, so it should have a Korean name`);
   if (koByName.has(part.name)) ok(koByName.get(part.name) === part.ko, `${part.name}: the same Korean name on every variant`);
   koByName.set(part.name, part.ko);

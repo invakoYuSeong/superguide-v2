@@ -68,6 +68,9 @@ function unlockOf(entry) {
 // neither has another candidate. Namu's empty choices ('없음') and the site's `none` parts are left
 // out. An English name gets a Korean name only when every such match agrees on it and no other
 // English name gets the same one; the rest stay in English (returned as gaps).
+// English names the user chose to name by the Namu majority (2026-11-09): Reflex Sight Mk2 matches
+// '반사식 조준경 MK2' on 27 weapons and '홀로그램 조준경' only on the Liberator Concussive's row.
+export const MAJORITY_ACCEPTED = ['Reflex Sight Mk2'];
 const isDefault = item => item.level === 1 && (item.cost === 0 || item.builtIn === true);
 const fitsNamu = (row, item) => row.default ? isDefault(item) : row.level === item.level && row.cost != null && row.cost === item.cost;
 export function namuMatches(namu, parts, list, weapon) {
@@ -97,7 +100,9 @@ function koreanNames(namu, parts, out, weapons) {
   }
   const names = new Map(), gaps = [];
   for (const [en, kos] of votes) {
-    if (kos.size === 1) names.set(en, [...kos.keys()][0]);
+    const ranked = [...kos].sort((a, b) => b[1].length - a[1].length);
+    if (kos.size === 1) names.set(en, ranked[0][0]);
+    else if (MAJORITY_ACCEPTED.includes(en) && ranked[0][1].length > ranked[1][1].length) names.set(en, ranked[0][0]);
     else gaps.push({ name: en, issue: `Namu rows disagree: ${[...kos].map(([ko, ids]) => `${ko} (${ids.join(', ')})`).join(' / ')}` });
   }
   for (const [en, ko] of names) {
