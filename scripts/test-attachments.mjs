@@ -4,7 +4,7 @@
 // from the data, so a wiki refresh does not need test edits.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildAttachments, formatModule, SLOTS, PRIMARIES, MAJORITY_ACCEPTED } from './build-attachments.mjs';
+import { buildAttachments, formatModule, SLOTS, PRIMARIES, MAJORITY_ACCEPTED, USER_NAMED } from './build-attachments.mjs';
 import { attachmentParts, weaponAttachments, attachmentDiscrepancies, weaponAttachmentsSource } from '../dist/data/weapon-attachments.js';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { weaponDetail, attachmentEffects } from '../dist/ui/views/gear.js';
@@ -85,7 +85,8 @@ for (const part of Object.values(attachmentParts)) {
   if (part.none) { ok(!part.ko, `${part.name}: the empty choice has no Korean name (shown as 장착 안 함)`); continue; }
   const found = namuNames.get(part.name);
   const ranked = [...(namuVotes.get(part.name) ?? [])].sort((a, b) => b[1] - a[1]);
-  if (part.ko && MAJORITY_ACCEPTED.includes(part.name)) ok(ranked[0]?.[0] === part.ko && (ranked.length === 1 || ranked[0][1] > ranked[1][1]), `${part.name}: Korean name ${part.ko} is the Namu majority (${ranked.map(([ko, n]) => `${ko} ${n}`).join(' / ')})`);
+  if (USER_NAMED[part.name]) ok(part.ko === USER_NAMED[part.name], `${part.name}: the user's Korean name ${USER_NAMED[part.name]}`);
+  else if (part.ko && MAJORITY_ACCEPTED.includes(part.name)) ok(ranked[0]?.[0] === part.ko && (ranked.length === 1 || ranked[0][1] > ranked[1][1]), `${part.name}: Korean name ${part.ko} is the Namu majority (${ranked.map(([ko, n]) => `${ko} ${n}`).join(' / ')})`);
   else if (part.ko) ok(found?.size === 1 && found.has(part.ko), `${part.name}: Korean name ${part.ko} is the only one Namu rows give (${[...(found ?? [])].join(' / ') || 'none'})`);
   else ok(!(found?.size === 1), `${part.name}: Namu rows agree on ${[...(found ?? [])][0]}, so it should have a Korean name`);
   if (koByName.has(part.name)) ok(koByName.get(part.name) === part.ko, `${part.name}: the same Korean name on every variant`);

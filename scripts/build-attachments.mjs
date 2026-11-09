@@ -71,6 +71,8 @@ function unlockOf(entry) {
 // English names the user chose to name by the Namu majority (2026-11-09): Reflex Sight Mk2 matches
 // '반사식 조준경 MK2' on 27 weapons and '홀로그램 조준경' only on the Liberator Concussive's row.
 export const MAJORITY_ACCEPTED = ['Reflex Sight Mk2'];
+// Korean names the user gave for attachments Namu could not tie to a row (2026-11-09).
+export const USER_NAMED = { 'High Capacity Heatsink': '고용량 방열판', 'Laser Sight': '레이저 조준경' };
 const isDefault = item => item.level === 1 && (item.cost === 0 || item.builtIn === true);
 const fitsNamu = (row, item) => row.default ? isDefault(item) : row.level === item.level && row.cost != null && row.cost === item.cost;
 export function namuMatches(namu, parts, list, weapon) {
@@ -105,12 +107,13 @@ function koreanNames(namu, parts, out, weapons) {
     else if (MAJORITY_ACCEPTED.includes(en) && ranked[0][1].length > ranked[1][1].length) names.set(en, ranked[0][0]);
     else gaps.push({ name: en, issue: `Namu rows disagree: ${[...kos].map(([ko, ids]) => `${ko} (${ids.join(', ')})`).join(' / ')}` });
   }
+  for (const [en, ko] of Object.entries(USER_NAMED)) names.set(en, ko);
   for (const [en, ko] of names) {
     const shared = [...names].filter(([, other]) => other === ko).map(([name]) => name);
     if (shared.length > 1) gaps.push({ name: en, issue: `Korean name "${ko}" also matched ${shared.filter(name => name !== en).join(', ')}` });
   }
   for (const gap of gaps) names.delete(gap.name);
-  for (const en of new Set(Object.values(parts).filter(part => !part.none).map(part => part.name))) if (!votes.has(en)) gaps.push({ name: en, issue: 'no single Namu row matches by slot, level and cost' });
+  for (const en of new Set(Object.values(parts).filter(part => !part.none).map(part => part.name))) if (!votes.has(en) && !USER_NAMED[en]) gaps.push({ name: en, issue: 'no single Namu row matches by slot, level and cost' });
   return { names, gaps: gaps.sort((a, b) => a.name < b.name ? -1 : 1) };
 }
 
