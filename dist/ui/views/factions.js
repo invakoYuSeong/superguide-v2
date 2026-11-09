@@ -69,7 +69,7 @@ function unitCard(unit) {
   const photo = pickerEnemyImages[enemy.id];
   return html`<article class="panel unit">
     <header class="unit-head">${photo?.src ? html`<img src="${photo.src}" alt="" loading="lazy">` : html`<span></span>`}
-      <div><h3>${enemy.name}</h3>${base ? html`<span class="base">${L(`일반 ${josa(base.name, ['과', '와'])} 비교`, `Compared with the regular ${T(base.name)}`)}</span>` : ''}<p>${unit.change}</p>
+      <div><h3>${unit.name || enemy.name}</h3>${base ? html`<span class="base">${L(`일반 ${josa(base.name, ['과', '와'])} 비교`, `Compared with the regular ${T(base.name)}`)}</span>` : ''}<p>${unit.change}</p>
       <p class="sources" style="margin-top:6px">${external(enemy.source, L('유닛 자료', 'Unit data'))}${enemies.some(item => item.id === enemy.id) ? html`<a class="ext" href="#/enemy/${enemy.id}">${L('모든 무기 비교', 'Compare every weapon')}</a>` : ''}</p></div>
     </header>
     <div>${unit.weapons.map((choice, index) => pickRow(unit, choice, index))}</div>

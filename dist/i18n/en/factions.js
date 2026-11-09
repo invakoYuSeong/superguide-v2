@@ -247,4 +247,5 @@ export default {
   "공식 공지는 중장갑 머리 대신 장갑 없는 복부를 노리라고 합니다. 복부가 터지면 주변을 묶는 거미줄이 퍼지므로 거리를 두세요.": "The official announcement says to aim for the unarmored belly rather than the heavily armored head. A burst belly spreads webs that pin down everything nearby, so keep your distance.",
   "장갑 없는 복부 · 직격": "Unarmored belly · direct hit",
   "복부를 직접 맞혀 터뜨립니다. 거미줄 폭발 범위 밖에서 쏘세요.": "Hit the belly directly to burst it. Shoot from outside the web explosion.",
+  "무권자": "Voteless",
 };
