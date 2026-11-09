@@ -103,6 +103,18 @@ setLang('ko');
 const modeHtml = String(await itemDetailContent('control-group', 'arsenal/epoch', 'charged'));
 ok(modeHtml.includes('data-variant="charged" aria-pressed="true"'), 'embedded stratagem selects URL mode');
 ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preserves mode');
+// Support weapon fire rates: whatever the data holds is shown in the stat grid, and nothing otherwise.
+{
+  const { stratagems } = await import('../dist/core/catalog.js');
+  const { num } = await import('../dist/core/explain.js');
+  const shows = (content, label, text) => content.includes(`<dt>${label}</dt><dd>${text}`);
+  for (const item of stratagems.filter(s => s.category === 'support')) {
+    const grid = String(stratagemDetail(item)).match(/<dl class="detail-grid">[\s\S]*?<\/dl>/)?.[0] ?? '';
+    if (item.rpmModes?.length > 1) ok(shows(grid, '연사 모드', item.rpmModes.map(num).join(' / ')), `${item.id}: selectable fire rates shown`);
+    else if (item.rpm != null) ok(shows(grid, '연사', num(item.rpm)), `${item.id}: fire rate shown`);
+    else ok(!grid.includes('<dt>연사'), `${item.id}: no fire rate row without a fire rate`);
+  }
+}
 setLang('en');
 const en = String(await itemDetailContent('scope-of-authority', 'gear/sightliner'));
 ok(en.includes('Open full page') && en.includes('Back') && en.includes('Close item details'), 'new toolbar strings have English');

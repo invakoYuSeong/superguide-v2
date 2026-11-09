@@ -158,7 +158,15 @@ function spreadBlock(item) {
   </section>`;
 }
 
+// Fire rate from the wiki infobox, or the rates the player picks between.
+function rateCell(item) {
+  if (item.rpmModes?.length > 1) return html`<div><dt>${L('연사 모드', 'Fire rate modes')}</dt><dd>${item.rpmModes.map(num).join(' / ')}</dd><div class="caption">${L('분당 발수 · 골라서 사용', 'Rounds per minute · pick one')}</div></div>`;
+  if (item.rpm == null) return '';
+  return html`<div><dt>${L('연사', 'Fire rate')}</dt><dd>${num(item.rpm)}</dd><div class="caption">${L('분당 발수', 'Rounds per minute')}</div></div>`;
+}
+
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
+  ${rateCell(item)}
   ${item.cooldown ? html`<div><dt>${L('재사용 대기', 'Cooldown')}</dt><dd>${num(item.cooldown)}<small>${L('초', 's')}</small></dd><div class="caption">${L('함선 강화 제외', 'Without ship modules')}</div></div>` : ''}</dl>`;
 
 export function stratagemDetail(item, { demolition = false, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {

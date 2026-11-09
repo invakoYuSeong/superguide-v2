@@ -195,6 +195,22 @@ for (const key of Object.keys(notCompared)) {
   ok(kind === 'engine' ? weaponProfiles[weaponId]?.modes.some(mode => mode.id === modeId) : support.some(item => item.id === weaponId), `${key}: notCompared entry matches nothing; remove it`);
 }
 for (const id of Object.keys(unsupportedWeapons)) ok(support.some(item => item.id === id), `${id}: unsupported weapon has a table row`);
+// Fire rates come from the wiki infobox and are optional. Only their shape is enforced. A datamine
+// base rate that no longer matches (one of the selectable rates, or the single rate) is printed as
+// a warning, so a refresh that moves a rate does not fail the check.
+const rateWarnings = [];
+for (const item of support.filter(item => item.rpmModes || item.rpm != null)) {
+  const base = weapons[item.en.toUpperCase()]?.rpm ?? null;
+  if (item.rpmModes) {
+    ok(item.rpm == null, `${item.id}: selectable rates replace a single rate`);
+    ok(item.rpmModes.length > 1 && item.rpmModes.every((rpm, i, all) => Number.isFinite(rpm) && rpm > 0 && (!i || rpm > all[i - 1])), `${item.id}: fire rates rise in order`);
+    if (base != null && !item.rpmModes.includes(base)) rateWarnings.push(`${item.id}: datamine base rate ${base} is not one of ${item.rpmModes.join('/')}`);
+  } else {
+    ok(Number.isFinite(item.rpm) && item.rpm > 0, `${item.id}: fire rate is a positive number`);
+    if (base != null && base !== item.rpm) rateWarnings.push(`${item.id}: datamine base rate ${base}, data says ${item.rpm}`);
+  }
+}
+for (const message of rateWarnings) console.warn(`warning: support fire rate: ${message}`);
 
 assert(!failures.length, `${failures.length} support weapon checks failed:\n  ${failures.join('\n  ')}`);
 console.log(`PASS support: ${checks} checks; ${Object.keys(weaponProfiles).length} combat profiles and ${support.length} table rows against the wiki datamine (revision ${snapshot.revision}); ${Object.keys(reviewed).length} reviewed differences.`);
