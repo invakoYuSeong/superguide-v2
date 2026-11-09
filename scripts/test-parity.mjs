@@ -149,6 +149,11 @@ for (const expected of golden.demolition) {
 const addedAfterLegacy = new Set(['apex', 'nova', 'maelstrom', 'incinerator-frv']);
 const legacyCatalogue = stratagems.filter(item => !addedAfterLegacy.has(item.id));
 assert.equal(legacyCatalogue.length, 110, 'legacy catalogue size');
+// Structures added after the legacy fixture (2026-11-09) are left out of the
+// "every structure" overviews the same way; test-structures.mjs checks them.
+const legacyStructureIds = new Set(golden.demolition.map(row => row.structure));
+const legacyStructures = structures.filter(item => legacyStructureIds.has(item.id));
+assert.equal(legacyStructures.length, 18, 'legacy structure list size');
 for (const expected of golden.selections) {
   const options = { shieldCleared: expected.shieldCleared, jammerDisabled: false };
   const structure = structures.find(item => item.id === expected.structure);
@@ -164,7 +169,7 @@ for (const expected of golden.selections) {
   } else {
     const profile = demolitionProfiles[expected.weapon];
     const mode = profile?.modes.find(item => item.id === expected.mode);
-    const targets = expected.structure === 'all' ? structures : [structure];
+    const targets = expected.structure === 'all' ? legacyStructures : [structure];
     assert.deepEqual(weaponOverview(targets, profile, mode, options).map(row => [row.structure.id, row.outcome]), expected.rows, label);
   }
 }
