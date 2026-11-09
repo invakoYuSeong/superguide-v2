@@ -356,6 +356,11 @@ try {
   click(closeItem);
   eq(bondPane.scrollTop, 720, 'narrow page-list scroll restored even if hiding it reported zero');
   context.closeSheet();
+  // A weapon mode in the URL survives a deep link into the item pane (not only stratagem modes).
+  visit('#/warbonds/ironclad-democracy?item=gear%2Farbitrator&m=underbarrel');
+  for (let i = 0; i < 10 && !pane.innerHTML.includes('data-variant='); i++) await new Promise(resolve => setImmediate(resolve));
+  ok(pane.innerHTML.includes('data-variant="underbarrel" aria-pressed="true"'), 'deep link keeps the weapon mode in the warbond item pane');
+  context.closeSheet();
   // Allow pending lazy detail renders to settle before restoring globals.
   await new Promise(resolve => setImmediate(resolve));
 } finally {

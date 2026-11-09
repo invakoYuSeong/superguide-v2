@@ -411,6 +411,9 @@ export function update(route) {
   if (!id) return;
   const ref = resolveWarbondItem(id, route.query.item);
   const value = ref ? `${ref.view}/${ref.id}` : null;
-  const mode = ref?.view === 'arsenal' && ref.target.variants?.some(v => v.id === route.query.m) ? route.query.m : '';
+  // Stratagem modes are checked here; weapon modes live in personal-profiles (100 KB, loaded with the
+  // gear view), and weaponDetail falls back to the first mode for an unknown id.
+  const mode = ref?.view === 'arsenal' ? (ref.target.variants?.some(v => v.id === route.query.m) ? route.query.m : '')
+    : ref?.view === 'gear' && /^[a-z0-9-]+$/.test(route.query.m || '') ? route.query.m : '';
   if (value !== state.item || mode !== state.mode) showItem(value, mode);
 }
