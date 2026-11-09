@@ -1880,8 +1880,8 @@ export const warbonds = [
           {"name":"SA-12 Servo Assisted","type":"Medium Armor","kind":"armor","col":3,"row":1,"colspan":2,"rowspan":2,"image":"SA-12 Servo Assisted Armor Render.png","weight":"medium","cost":45,"costStatus":"confirmed"},
           {"name":"SA-12 Servo Assisted","type":"Helmet","kind":"helmet","col":5,"row":1,"colspan":1,"rowspan":1,"image":"SA-12 Servo Assisted Helmet Render.png","cost":35,"costStatus":"confirmed"},
           {"name":"Cloak of Posterity's Gratitude","ko":"후세의 감사 망토","type":"Player Card","kind":"player-card","col":1,"row":2,"colspan":1,"rowspan":2,"image":"Cloak of Posterity's Gratitude Player Card Icon.png","cost":5,"costStatus":"confirmed"},
-          {"name":"Cloak of Posterity's Gratitude","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Cloak of Posterity's Gratitude Cape Icon.png","cost":16,"costStatus":"confirmed"},
-          {"name":"Drape of Glory","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Drape of Glory Cape Render.png","cost":16,"costStatus":"confirmed"},
+          {"name":"Cloak of Posterity's Gratitude","ko":"후세의 감사 망토","type":"Cape","kind":"cape","col":5,"row":2,"colspan":1,"rowspan":1,"image":"Cloak of Posterity's Gratitude Cape Icon.png","cost":16,"costStatus":"confirmed"},
+          {"name":"Drape of Glory","ko":"영광의 휘장","type":"Cape","kind":"cape","col":2,"row":3,"colspan":1,"rowspan":1,"image":"Drape of Glory Cape Render.png","cost":16,"costStatus":"confirmed"},
           {"name":"Super Credits","type":"Currency","kind":"super-credits","col":3,"row":3,"colspan":1,"rowspan":1,"image":"Super Credits Warbond Premium.png","cost":12,"costStatus":"confirmed","superCredits":100},
           {"name":"SG-225IE Breaker Incendiary","type":"Shotgun","kind":"primary","col":4,"row":3,"colspan":2,"rowspan":1,"image":"SG-225IE Breaker Incendiary Primary Render.png","cost":60,"costStatus":"confirmed","ref":{"view":"gear","id":"breaker-incendiary"}}
         ]

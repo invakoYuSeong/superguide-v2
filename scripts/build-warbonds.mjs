@@ -46,6 +46,9 @@ export function pickLatest(list) {
 // are matched by English name; a Namu warbond board also names the tile of the same warbond, page,
 // kind and medal cost. The tile keeps its English name when neither gives exactly one name.
 export const KOREAN_ITEM_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
+// Tiles of one kind and cost on a page are told apart by order only where the user chose to follow the
+// Namu board's order (2026-11-09): there the Namu order matches the wiki's tile order.
+export const ORDER_MATCHED = [{ warbond: '결연한 베테랑', page: 2, kind: 'cape' }];
 export function koreanItemMatcher(namu) {
   const english = {};
   for (const [kind, list] of [['booster', namu.boosters], ['title', namu.titles]]) {
@@ -57,8 +60,11 @@ export function koreanItemMatcher(namu) {
   return (warbondName, pageNumber, item, pageItems) => {
     const listed = english[item.kind]?.get(normalizeName(item.name));
     const board = boards.get(warbondName)?.pages.find(p => p.number === pageNumber);
-    const twins = pageItems.filter(other => other.kind === item.kind && other.cost === item.cost).length > 1;
-    const same = board && item.cost != null && !twins ? board.items.filter(cell => BOARD_KINDS[cell.kind] === item.kind && cell.cost === item.cost) : [];
+    const twinList = pageItems.filter(other => other.kind === item.kind && other.cost === item.cost);
+    const twins = twinList.length > 1;
+    const cells = board && item.cost != null ? board.items.filter(cell => BOARD_KINDS[cell.kind] === item.kind && cell.cost === item.cost) : [];
+    const byOrder = twins && ORDER_MATCHED.some(rule => rule.warbond === warbondName && rule.page === pageNumber && rule.kind === item.kind) && cells.length === twinList.length;
+    const same = !twins ? cells : byOrder ? [cells[twinList.indexOf(item)]] : [];
     const names = new Set([listed, same.length === 1 ? same[0].name : null].filter(Boolean));
     if (names.size === 1) return { ko: [...names][0] };
     return { reason: names.size > 1 ? `Namu sources disagree (${[...names].join(' / ')})` : listed === null || same.length > 1 ? 'more than one Namu name'

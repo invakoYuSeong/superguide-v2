@@ -6,7 +6,7 @@ import { readFile, access } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg, MAX_SVG_BYTES } from './svg-safety.mjs';
 import { parseWarbondPage, parseCurrency, parseDate, findTemplates, templateParams, parseTableRows, layoutProblems, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
-import { generate, buildWarbonds, warbondId, baseTitle, RENAMED, pickLatest, koreanItemMatcher, KOREAN_ITEM_KINDS } from './build-warbonds.mjs';
+import { generate, buildWarbonds, warbondId, baseTitle, RENAMED, pickLatest, koreanItemMatcher, KOREAN_ITEM_KINDS, ORDER_MATCHED } from './build-warbonds.mjs';
 import { parseBoosters, parseTitles, parseBoards, BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
 import { warbonds, warbondTiers, warbondBoard, warbondDiscrepancies, warbondLinks, latestWarbondId } from '../dist/data/warbonds.js';
 import { warbondImages } from '../dist/data/warbond-images.js';
@@ -395,6 +395,14 @@ const tileOf = (kind, name, cost) => ({ kind, name, cost });
 const capes = [tileOf('cape', 'Cape A', 8), tileOf('cape', 'Cape B', 16), tileOf('cape', 'Cape C', 16)];
 eq(match('채권', 1, capes[0], capes), { ko: '망토 가' }, 'board: one tile of that kind and cost');
 ok(!match('채권', 1, capes[1], capes).ko && !match('채권', 1, capes[2], capes).ko, 'board: two tiles of the same kind and cost stay English');
+// Except where the user chose to follow the Namu board's order (ORDER_MATCHED): there the n-th tile takes the n-th name.
+{
+  const rule = ORDER_MATCHED[0];
+  const ordered = koreanItemMatcher({ boosters: [], titles: [], boards: [{ warbond: rule.warbond, pages: [{ number: rule.page, items: [{ kind: '망토', name: '첫째 망토', cost: 16 }, { kind: '망토', name: '둘째 망토', cost: 16 }] }] }] });
+  const pair = [tileOf(rule.kind, 'First', 16), tileOf(rule.kind, 'Second', 16)];
+  eq(pair.map(tile => ordered(rule.warbond, rule.page, tile, pair).ko), ['첫째 망토', '둘째 망토'], 'board order: tiles of the same kind and cost follow the Namu order where the user chose it');
+  ok(!ordered(rule.warbond, rule.page + 1, pair[0], pair).ko, 'board order: only on the chosen page');
+}
 ok(!match('채권', 1, tileOf('cape', 'Cape D', 9), capes).ko && !match('채권', 2, capes[0], capes).ko && !match('다른 채권', 1, capes[0], capes).ko, 'board: another cost, page or warbond stays English');
 eq(match('다른 채권', 1, tileOf('booster', 'Alpha Boost', 15), []), { ko: '부스터 가' }, 'booster by English name');
 eq(match('다른 채권', 1, tileOf('title', 'Free of Thought', 20), []), { ko: '칭호 가' }, 'title by English name, ignoring case');
@@ -411,7 +419,10 @@ for (const { warbond, page, item } of tiles.filter(t => t.item.ko)) {
   ok(KOREAN_ITEM_KINDS.includes(item.kind) && !item.ref, `${warbond.id} p${page.number} ${item.name}: Korean name only on a cosmetic or booster tile`);
   const listed = { booster: namu.boosters, title: namu.titles }[item.kind]?.filter(r => r.en.toLowerCase() === item.name.toLowerCase()).map(r => r.name) ?? [];
   const board = namu.boards.find(b => b.warbond === warbond.name)?.pages.find(p => p.number === page.number)?.items.filter(c => BOARD_KINDS[c.kind] === item.kind && c.cost === item.cost).map(c => c.name) ?? [];
-  ok([...listed, ...board].includes(item.ko) && [...listed, ...board].every(name => name === item.ko), `${warbond.id} p${page.number} ${item.name}: ${item.ko} is the Namu name for this English name or board tile`);
+  const ordered = ORDER_MATCHED.some(rule => rule.warbond === warbond.name && rule.page === page.number && rule.kind === item.kind);
+  const twins = page.items.filter(other => other.kind === item.kind && other.cost === item.cost);
+  const expected = ordered && twins.length > 1 ? [board[twins.indexOf(item)]] : [...listed, ...board];
+  ok(expected.includes(item.ko) && expected.every(name => name === item.ko), `${warbond.id} p${page.number} ${item.name}: ${item.ko} is the Namu name for this English name or board tile`);
 }
 for (const kind of KOREAN_ITEM_KINDS) ok(tiles.some(t => t.item.kind === kind && t.item.ko), `${kind}: some tiles have a Korean name`);
 ok(tiles.filter(t => t.item.kind === 'booster').every(t => t.item.ko), 'every booster has a Korean name');
