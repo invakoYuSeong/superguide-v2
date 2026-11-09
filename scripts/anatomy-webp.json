@@ -1595,6 +1595,22 @@
     "sha256": "7bbf3446bf02b00a3ab4c45ed97417d20f3e316a8e3e5421802718de43bfcb35",
     "sourceSha256": "9e1106a44c5d696e4eab2419103b89da6a9c4337061a5007cd053eef5b24bccb"
   },
+  "./assets/anatomy/revised-aa-emplacement-body-thumb.webp": {
+    "sha256": "8d6bbed248ac73718cdc358ec2809413f04dc31d1980c0a91dfcfbf1d9a1adb5",
+    "sourceSha256": "a5a432d965fc7dd54d3e1b00ee172a60ad032224565396ab32a6e46091be9674"
+  },
+  "./assets/anatomy/revised-aa-emplacement-body.webp": {
+    "sha256": "0b754db28cc9fb899bf36a4ed545553df8cfb808ec56b938fe4029461dc13456",
+    "sourceSha256": "a1cb6f779f8af754dd60471add41148330f054de8248de5967e5743ebb873b3a"
+  },
+  "./assets/anatomy/revised-aa-emplacement-heatsink-thumb.webp": {
+    "sha256": "3c1303449e60ea1f18eaaf826da559e7e88c9905171f6c6327b6bc973db19ef9",
+    "sourceSha256": "11ccc27f30209d5619f07fd45dc75bb082f7bc525d02c64b5ae4c614e3ebdaed"
+  },
+  "./assets/anatomy/revised-aa-emplacement-heatsink.webp": {
+    "sha256": "d5298ff267d06dbdcedd23a42a20aa2879ebd6e17649be78bb7e5a8141bca4f3",
+    "sourceSha256": "c6804ed0cb2f465b18f2557c20aa594cc969eca28fff01ed716ed5aa8996d748"
+  },
   "./assets/anatomy/revised-agitator-forearm-thumb.webp": {
     "sha256": "103a4550e159abe824e149688871039eea1a58891c0ccde52d4b7831c4529a6c",
     "sourceSha256": "a4d9eae0503bf5b9a57b3c5bf1d7eccbadca9b3eac8b48d2c6d385e4b3e48efe"
@@ -1819,6 +1835,22 @@
     "sha256": "147d801bb5e0d4613ece96f590f66bec8574e9dd3e17d6064ac7cb73e18570f1",
     "sourceSha256": "7c85eddadce10563c1b4a3c9e61b88498e8826f987200b811debe3eb9d107dc8"
   },
+  "./assets/anatomy/revised-bunker-turret-body-thumb.webp": {
+    "sha256": "da73a8d3968d2d56f9a21e3da66041bc7baa9edfa6cde2a0514a6a98f2a91db8",
+    "sourceSha256": "64da36ab0aec8c745a965ee3e8a8d7f3a82f0d524af20b90e99a5213f427d3e2"
+  },
+  "./assets/anatomy/revised-bunker-turret-body.webp": {
+    "sha256": "8928b32c2687220f2e4b6aac22ac65de3ebfd85bbbad012d3264201afe66631f",
+    "sourceSha256": "d53d0561379f28c7d5586043d08fdf342b75706167f88963c5c8e91eef0dd07d"
+  },
+  "./assets/anatomy/revised-bunker-turret-heatsink-thumb.webp": {
+    "sha256": "edc1e87104568d05de956089129402f9733207a19924f384f69012ed96828753",
+    "sourceSha256": "7d467d2be3cd9b33695d0e1adf1f5ba3b2e10c64542174f777acc51ff4b41109"
+  },
+  "./assets/anatomy/revised-bunker-turret-heatsink.webp": {
+    "sha256": "aff78ec91f8209edcce0d6c34333b72378c98411633294be3d8b725ff9746a45",
+    "sourceSha256": "6c900281bd15c4713d52f3e52bf02c03b78deb6c43052fa98f130fa103a975ad"
+  },
   "./assets/anatomy/revised-charger-claw-thumb.webp": {
     "sha256": "83ed7ab7b77cd42d77c34adfe1581bf8168cd7ffdcb8c218eb6a038ad660743a",
     "sourceSha256": "ad1fd7de2e3218f6b7024e5c6828dd5ec5cd728356ba152e649d79ab82122d6e"
@@ -1994,6 +2026,14 @@
   "./assets/anatomy/revised-dragonroach-leg-armor.webp": {
     "sha256": "266bf09dd69a2395f08bdfd66ac5b9f324764eabb66af4e0402c5eae30b6c599",
     "sourceSha256": "caf86f9e060d9569e294e4700dc2fb2e73971eece75bd2bc652b0b6a687f5823"
+  },
+  "./assets/anatomy/revised-dropship-base-body-thumb.webp": {
+    "sha256": "574fb3898c221a9938a8bba39685bfbf534a076ab938c8ca9af6795ee5dd5b8f",
+    "sourceSha256": "6dc5a2fd55e63d8d0e4e30dd5a3369d21d06507780ab6bc3e97ae84be57a352f"
+  },
+  "./assets/anatomy/revised-dropship-base-body.webp": {
+    "sha256": "d0f4a79400691eeba0764fb988692339d7027729f8d8b17c7d3b1b2f79fda180",
+    "sourceSha256": "ce8f9559eb12957ce0301faa60cf0a34fbc7d0e05583608edbf7e64fc33e954c"
   },
   "./assets/anatomy/revised-elevated-overseer-crotch-armor-exposed-thumb.webp": {
     "sha256": "39be52f1ff3c3d04780a570a7a6f8131a240cf52fb2da02e675ca791f547356f",
@@ -2578,6 +2618,22 @@
   "./assets/anatomy/revised-leviathan-warp-disc.webp": {
     "sha256": "ebfda7d47b9fad5bbd73c5fbcd6520826700ef4028f6f8741edb2b0dbb450b30",
     "sourceSha256": "6f148a7bb795d635d0666651acdd6ca2d8f7288947b7bae22d008426f543ccfc"
+  },
+  "./assets/anatomy/revised-mortar-emplacement-body-thumb.webp": {
+    "sha256": "7a62f03dd7a33585bbe034a02a1cb9fe7b41e2b52fcc5a704497c26d05ca4359",
+    "sourceSha256": "ea5dec488d8addd4b974d6bf9f277fb11e18c8aff7fa8658f58d335e0b58b631"
+  },
+  "./assets/anatomy/revised-mortar-emplacement-body.webp": {
+    "sha256": "5805f48da5bbbdb87ffd1d19dd7c78305a33b8516efde7c330b92e4eadb49c9e",
+    "sourceSha256": "f08179e4b612a507c80562ff79cc15b2aacfba7c22c00e1da4b3077c0765b0bf"
+  },
+  "./assets/anatomy/revised-mortar-emplacement-heatsink-thumb.webp": {
+    "sha256": "d9cbda3524b4e0d3183de935eb3d5d42e501b2685b66914c2c6dad430cb7b4dd",
+    "sourceSha256": "3f4dd767fee5a8ae97800d298b6574e3fbbb4d860f7501e95b99aa104fbf605e"
+  },
+  "./assets/anatomy/revised-mortar-emplacement-heatsink.webp": {
+    "sha256": "46afc19f8a5f4417e6c6e38610befc0f8f132428f57169675c51552c2a38d4b3",
+    "sourceSha256": "b1d778367feaaf4e49ed4486c9db342766899f601cef6d16b42e8baa937c5559"
   },
   "./assets/anatomy/revised-noxious-scavenger-body-thumb.webp": {
     "sha256": "cf6b2a13c88f7a7afb0df2f0d6c631e61275230a4b679cadf97da602491653b4",

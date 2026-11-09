@@ -1,7 +1,8 @@
 // Downloads the wiki anatomy photo of every part of a re-checked enemy
 // (anatomyRevision) that has no photo yet, using the image names recorded in
-// db/source/wiki_anatomy.json. Each photo is saved as WebP (quality 90, via
-// Pillow) with a 320px thumbnail, added to scripts/anatomy-webp.json, and
+// db/source/wiki_anatomy.json (or the structure pages, see scripts/anatomy-source.mjs).
+// Each photo is saved as WebP (quality 90, via Pillow) with a 320px thumbnail,
+// added to scripts/anatomy-webp.json, and
 // listed in dist/data/combat-images-revised.js with the PNG hashes.
 // Usage: node scripts/fetch-anatomy-photos.mjs   (needs network and python with Pillow)
 import { createHash } from 'node:crypto';
@@ -10,6 +11,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { enemies } from '../dist/data/combat-data.js';
 import { baseCombatImages } from '../dist/data/combat-images.js';
+import { anatomySnapshot } from './anatomy-source.mjs';
 
 const root = new URL('../', import.meta.url);
 const API = 'https://helldivers.wiki.gg/api.php';
@@ -20,7 +22,7 @@ const clean = text => text.replace(/<!--[\s\S]*?-->/g, '').replace(/<br\s*\/?>/g
 const titleOf = enemy => decodeURIComponent(enemy.source.split('/wiki/')[1]).replaceAll('_', ' ');
 const today = new Date().toISOString().slice(0, 10);
 
-const snapshot = JSON.parse(await readFile(new URL('db/source/wiki_anatomy.json', root), 'utf8'));
+const snapshot = await anatomySnapshot();
 const manifestUrl = new URL('scripts/anatomy-webp.json', root);
 const manifest = JSON.parse(await readFile(manifestUrl, 'utf8'));
 

@@ -119,7 +119,7 @@ const sizePages = Object.entries(sizeSnapshot.categories).flatMap(([size, catego
 eq(enemySizesCheckedAt, sizeSnapshot.retrievedAt);
 eq(Object.keys(enemySizes).sort(), enemies.map(e => e.id).sort(), 'every roster entry has a size decision');
 eq(Object.keys(enemySizeEvidence).sort(), Object.keys(enemySizes).sort(), 'every size decision has provenance');
-eq(Object.keys(unmappedEnemySizes).sort(), ['gatekeeper', 'obtruder', 'veracitor']);
+eq(Object.keys(unmappedEnemySizes).sort(), ['aa-emplacement', 'bunker-turret', 'dropship-base', 'gatekeeper', 'mortar-emplacement', 'obtruder', 'veracitor']);
 eq(SIZE_NAMES, { small: '소형', medium: '중형', large: '대형', massive: '초대형' });
 for (const e of enemies) {
   const title = decodeURIComponent(new URL(e.source).pathname.slice('/wiki/'.length)).replaceAll('_', ' ');

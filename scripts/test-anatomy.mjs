@@ -1,12 +1,13 @@
-// Enemies re-checked against the Wiki Anatomy snapshot (db/source/wiki_anatomy.json):
-// every wiki row is a part (matched by sourcePart), merged into a named part
-// with the same numbers (anatomyMerged), or left out with a stated reason
-// (anatomyOmitted), and every number of a modelled row matches the wiki.
+// Enemies re-checked against the Wiki Anatomy snapshot (db/source/wiki_anatomy.json,
+// or for the Automaton defences the structure pages in db/source/wiki_structures.json;
+// see scripts/anatomy-source.mjs): every wiki row is a part (matched by sourcePart),
+// merged into a named part with the same numbers (anatomyMerged), or left out with
+// a stated reason (anatomyOmitted), and every number of a modelled row matches the wiki.
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
+import { anatomySnapshot } from './anatomy-source.mjs';
 
-const snapshot = JSON.parse(await readFile(new URL('../db/source/wiki_anatomy.json', import.meta.url), 'utf8'));
+const snapshot = await anatomySnapshot();
 let checked = 0;
 const ok = (test, message) => { assert(test, message); checked++; };
 const eq = (actual, expected, message) => { assert.deepEqual(actual, expected, message); checked++; };
@@ -121,4 +122,4 @@ for (const enemy of revised) {
 for (const enemy of revised) for (const key of Object.keys(enemy.anatomyOfficial || {})) {
   ok(usedOfficial.has(`${enemy.id}/${key}`), `${enemy.id}: anatomyOfficial ${key} matches no part; remove it`);
 }
-console.log(`PASS anatomy: ${checked} checks; ${revised.length} enemies match Wiki Anatomy snapshot ${snapshot.retrievedAt}; ${usedOfficial.size} values follow the official patch notes.`);
+console.log(`PASS anatomy: ${checked} checks; ${revised.length} enemies match Wiki Anatomy snapshot ${snapshot.retrievedAt} (${revised.filter(enemy => snapshot.pages[titleOf(enemy)].snapshot).length} from structure pages); ${usedOfficial.size} values follow the official patch notes.`);

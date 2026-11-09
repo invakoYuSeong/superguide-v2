@@ -763,48 +763,6 @@ export const pickerStructureImages = {
     "license": "",
     "kind": "map"
   },
-  "aa-emplacement": {
-    "src": "./assets/pickers/structure-aa-emplacement.svg",
-    "title": "Anti-Air Emplacement TO Icon.svg",
-    "source": "https://helldivers.wiki.gg/wiki/File:Anti-Air_Emplacement_TO_Icon.svg",
-    "originalUrl": "https://helldivers.wiki.gg/images/Anti-Air_Emplacement_TO_Icon.svg?63ef04",
-    "assetUrl": "https://helldivers.wiki.gg/images/Anti-Air_Emplacement_TO_Icon.svg?63ef04",
-    "width": 512,
-    "height": 512,
-    "sha256": "96645e0a6f38d5a053cc6c34968a4e01bbfcb5316aa175e64090d3a3662ffc30",
-    "retrievedAt": "2026-11-09",
-    "uploader": "Dogo314",
-    "license": "",
-    "kind": "map"
-  },
-  "mortar-emplacement": {
-    "src": "./assets/pickers/structure-mortar-emplacement.svg",
-    "title": "Mortar Emplacement TO Icon.svg",
-    "source": "https://helldivers.wiki.gg/wiki/File:Mortar_Emplacement_TO_Icon.svg",
-    "originalUrl": "https://helldivers.wiki.gg/images/Mortar_Emplacement_TO_Icon.svg?c1eee2",
-    "assetUrl": "https://helldivers.wiki.gg/images/Mortar_Emplacement_TO_Icon.svg?c1eee2",
-    "width": 512,
-    "height": 512,
-    "sha256": "7c96c1413027e10bcabc2cbbaad94265aed4c8404f1614298ed5ec81e3cb3663",
-    "retrievedAt": "2026-11-09",
-    "uploader": "Dogo314",
-    "license": "",
-    "kind": "map"
-  },
-  "bunker-turret": {
-    "src": "./assets/pickers/structure-bunker-turret.svg",
-    "title": "Compromise Automaton Defenses TO Icon.svg",
-    "source": "https://helldivers.wiki.gg/wiki/File:Compromise_Automaton_Defenses_TO_Icon.svg",
-    "originalUrl": "https://helldivers.wiki.gg/images/Compromise_Automaton_Defenses_TO_Icon.svg?f6a09f",
-    "assetUrl": "https://helldivers.wiki.gg/images/Compromise_Automaton_Defenses_TO_Icon.svg?f6a09f",
-    "width": 512,
-    "height": 512,
-    "sha256": "dd48a5768d10cd72b678ffbdbae51175b2977c3e77ea185e707d2b0ce171f496",
-    "retrievedAt": "2026-11-09",
-    "uploader": "Dogo314",
-    "license": "",
-    "kind": "map"
-  },
   "transmission-network": {
     "src": "./assets/pickers/structure-transmission-network.svg",
     "title": "Destroy Transmission Network TO Icon.svg",
@@ -818,21 +776,6 @@ export const pickerStructureImages = {
     "uploader": "Dogo314",
     "license": "",
     "kind": "map"
-  },
-  "dropship-base": {
-    "src": "./assets/pickers/structure-dropship-base.svg",
-    "title": "Sabotage Air Base Mission Icon.svg",
-    "source": "https://helldivers.wiki.gg/wiki/File:Sabotage_Air_Base_Mission_Icon.svg",
-    "originalUrl": "https://helldivers.wiki.gg/images/Sabotage_Air_Base_Mission_Icon.svg?ffb96a",
-    "assetUrl": "https://helldivers.wiki.gg/images/Sabotage_Air_Base_Mission_Icon.svg?ffb96a",
-    "width": 512,
-    "height": 512,
-    "sha256": "67ece5ab4e90591b9c8d9c9aa8c5434f79d3dfa77c0a94a3732561e79beb761a",
-    "retrievedAt": "2026-11-09",
-    "uploader": "Dogo314",
-    "license": "",
-    "kind": "map",
-    "note": "임무 표식"
   },
   "cooling-tower": {
     "src": "./assets/pickers/structure-cooling-tower.svg",

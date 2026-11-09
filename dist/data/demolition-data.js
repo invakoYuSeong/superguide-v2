@@ -11,6 +11,7 @@ const building = (id, name, faction, routes, tip, extra = {}) => ({ id, name, fa
 // Demolition thresholds and health are separate destruction paths. An absent
 // health record means no reviewed health path; it does not create an HP pool.
 // A null threshold means the wiki gives none: the route stays unverified.
+// thresholdSource 'user' marks a threshold the user set where the wiki gives none.
 // Structures with `page` and `revision` (added 2026-11-09) cite that wiki page in
 // db/source/wiki_structures.json; thresholds named in the Demolition summary
 // table (db/source/wiki_names.json, revision 141088) are taken from it.
@@ -35,11 +36,9 @@ export const structures = [
   building('bio-processor', '바이오 프로세서', '오토마톤', [route('processor', '프로세서 본체', 40)], '장갑이 거의 없어 대부분의 무기로 체력을 깎을 수 있습니다. 철거력 40 공격(이글 공중타격, C4 팩 등)이면 한 번에 무너집니다. 가까이 가면 지옥폭탄도 호출할 수 있습니다.', { health: health(5000, 1, 0), healthSource: wiki('Enemy_Bio-Processors'), page: 'Enemy Bio-Processors', revision: 142048 }),
   building('megafactory-gate', '메가팩토리 게이트', '오토마톤', [route('gate', '게이트', 40)], '메가팩토리 외벽의 닫힌 출입문입니다. 철거력 40 공격으로 철거하세요. 내구도가 800%라 내구 피해 비율이 87.5% 이하인 공격은 체력에 피해를 주지 못합니다. 오토마톤이 다가오면 열리기도 합니다.', { health: health(6000, 4, 800), healthSource: wiki('Automaton_Megafactory#Gates'), page: 'Automaton Megafactory', revision: 136681 }),
   building('terrorist-memorial', '조각상', '오토마톤', [route('statue', '조각상 한 개', 30)], '메가팩토리 안의 오토마톤·사이보그 기념 조각상입니다. 하나씩 철거력 30 공격으로 부수세요. 폭발형 지원 무기와 대부분의 수류탄으로 충분합니다.', { source: wiki('Erase_Terrorist_Memorials'), page: 'Erase Terrorist Memorials', revision: 134868 }),
-  building('aa-emplacement', '대공 거치포', '오토마톤', [route('emplacement', '포대 본체', null)], '서 있는 동안 150 m 안에서는 이글 스트라타젬을 쓸 수 없습니다. 본체는 장갑 4, 뒤쪽 방열판은 장갑 3이라 관통 4 이상이면 어느 방향에서든, 관통 3이면 뒤에서 부술 수 있습니다. 지옥폭탄 호출도 허용됩니다.', { health: health(400, 4), source: wiki('Anti-Air_Emplacement'), healthSource: wiki('Anti-Air_Emplacement'), condition: 'anti-air', page: 'Anti-Air Emplacement', revision: 137727, note: '위키에 필요한 철거력이 없어 철거력 판정은 미확인입니다. 체력 계산은 본체(장갑 4) 기준이며, 뒤쪽 방열판(장갑 3)은 계산하지 않습니다.' }),
-  building('mortar-emplacement', '박격포 거치포', '오토마톤', [route('emplacement', '포대 본체', null)], '다른 오토마톤이 발견한 표적을 50~150 m 거리에서 포격합니다. 본체는 장갑 4, 뒤쪽 방열판은 장갑 3이라 관통 4 이상이면 어느 방향에서든, 관통 3이면 뒤에서 부술 수 있습니다. 지옥폭탄 호출도 허용됩니다.', { health: health(400, 4), source: wiki('Mortar_Emplacement'), healthSource: wiki('Mortar_Emplacement'), page: 'Mortar Emplacement', revision: 136791, note: '위키에 필요한 철거력이 없어 철거력 판정은 미확인입니다. 체력 계산은 본체(장갑 4) 기준이며, 뒤쪽 방열판(장갑 3)은 계산하지 않습니다.' }),
-  building('bunker-turret', '벙커 거치포', '오토마톤', [route('turret', '포탑 본체', null)], '지휘 벙커 위나 요새를 지키는 포탑입니다. 앞쪽은 장갑 4, 뒤쪽 방열판은 장갑 3입니다. 스피어는 이 포탑에 조준을 고정하지 못합니다.', { health: health(400, 4), source: wiki('Bunker_Turret'), healthSource: wiki('Bunker_Turret'), page: 'Bunker Turret', revision: 142047, note: '위키에 필요한 철거력이 없어 철거력 판정은 미확인입니다. 체력 계산은 본체(장갑 4) 기준이며, 뒤쪽 방열판(장갑 3)은 계산하지 않습니다.' }),
-  building('transmission-network', '전송 네트워크', '오토마톤', [route('tower', '전송탑', null)], '송신기 판은 소총 사격으로도 하나씩 부술 수 있습니다. 탑 전체는 폭발형 철거력 공격(예: 퀘이사 캐넌)으로 무너뜨릴 수 있고, 이때 송신기도 함께 부서집니다.', { source: wiki('Destroy_Transmission_Network'), page: 'Destroy Transmission Network', revision: 142145, note: '위키에 탑의 필요 철거력과 송신기 체력 수치가 없어 판정하지 않습니다.' }),
-  building('dropship-base', '드랍십 기지', '오토마톤', [route('dropship', '주기된 드랍십 한 대', null)], '착륙해 있는 드랍십은 날아다니는 드랍십보다 체력이 낮고 장갑 5입니다. 관통 5 이상 공격으로 부수세요. 기지 관제탑은 일반 공격으로 부술 수 없고, 단말기를 조작해 자폭시켜야 합니다.', { health: health(1000, 5), source: wiki('Sabotage_Air_Base'), healthSource: wiki('Sabotage_Air_Base'), page: 'Sabotage Air Base', revision: 129990, note: '위키에 필요한 철거력이 없어 철거력 판정은 미확인입니다.' }),
+  // The wiki gives no threshold for the tower; 10 is the user's own value
+  // (2026-11-09), marked thresholdSource 'user' and checked in test-structures.mjs.
+  building('transmission-network', '전송 네트워크', '오토마톤', [route('tower', '전송탑', 10, false, { thresholdSource: 'user' })], '송신기 판은 소총 사격으로도 하나씩 부술 수 있습니다. 탑 전체는 폭발형 철거력 공격(예: 퀘이사 캐넌)으로 무너뜨릴 수 있고, 이때 송신기도 함께 부서집니다.', { source: wiki('Destroy_Transmission_Network'), page: 'Destroy Transmission Network', revision: 142145, note: '위키에 탑의 필요 철거력이 없어, 철거력 10은 위키 수치가 아니라 이 사이트가 정한 값입니다. 송신기 판의 체력은 위키에 없어 계산하지 않습니다.' }),
   building('cooling-tower', '냉각 탑', '오토마톤', [route('tower', '냉각 탑 본체', 50)], '사이보그 생산 시설 임무의 하위 목표입니다. 지옥폭탄 외에도 철거력 50 공격(휴대용 지옥폭탄, 이글 500kg 폭탄, 궤도 포격 등)으로 부술 수 있습니다. 위키는 궤도 가스·EMS·연막 타격은 탄체를 직접 맞혀야 한다고 적고 있습니다.', { source: wiki('Halt_Cyborg_Production'), page: 'Halt Cyborg Production', revision: 130623 }),
   building('warp-ship', '착륙한 워프 함선', '일루미닛', [route('hull', '함선 외벽', 50, false, { nonExplosiveUncertain: true }), route('door', '열린 출입구 안쪽', 20, true, { opening: true })], '보호막을 제거하고 열린 출입구 안에 폭발을 넣는 것이 기본 경로입니다. 본체 폭발 피해는 2.5배입니다.', { health: health(5000, 5, 100, -150), source: wiki('Grounded_Warp_Ship'), healthSource: wiki('Grounded_Warp_Ship'), condition: 'shield', note: '외벽의 비폭발 공격 허용 여부는 위키 표끼리 다릅니다. 직접 파괴 사례가 확인된 궤도 지원 외에는 해당 경로를 확정하지 않습니다.' }),
   building('lightning-spire', '번개 첨탑', '일루미닛', [route('spire', '첨탑 본체', 20)], '전격을 방출하는 첨탑 본체를 공격하세요. 체력에 피해를 주는 경로도 있습니다.', { health: health(200, 2, 80), healthSource: structureDamageSource }),
@@ -141,8 +140,6 @@ export const demolitionProfiles = {
 };
 
 for (const id of ['orbital-120', 'orbital-380', 'orbital-walking']) demolitionProfiles[id].damageSource = wiki('Damage_Comparison');
-// Anti-Air Emplacements block Eagle stratagems within 150 m (wiki revision 137727).
-for (const [id, entry] of Object.entries(demolitionProfiles)) if (id.startsWith('eagle-')) entry.eagle = true;
 
 // Keep reviewed HP attacks useful even where their demolition value is not yet
 // confirmed. Unknown force must never be treated as zero or "cannot destroy".
