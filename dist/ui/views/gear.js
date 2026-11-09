@@ -6,6 +6,7 @@
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
+import { attachmentParts, weaponAttachments } from '../../data/weapon-attachments.js';
 import { apBandOf } from '../../core/catalog.js';
 import { search, personalNames } from '../../core/search.js';
 import { num } from '../../core/explain.js';
@@ -214,6 +215,56 @@ function modeTabs(w, modes, current) {
     })}`;
 }
 
+// Customization (primary weapons): every attachment per slot with its unlock level,
+// cost and stat changes, from the wiki's attachments table (weapon-attachments.js).
+const slotName = slot => ({ optics: L('광학 장비', 'Optics'), underbarrel: L('총열 하부', 'Underbarrel'), muzzle: L('총구', 'Muzzle'), magazine: L('탄창', 'Magazine') })[slot];
+const signed = n => n > 0 ? `+${num(n)}` : num(n);
+// "+25%" / "-20%" are changes from the base weapon; "= 75" sets the value outright.
+const change = v => v.startsWith('=') ? L(`${v.slice(1).trim()}로 고정`, `set to ${v.slice(1).trim()}`) : v;
+const DEG = '\u00b0C'; // degree sign
+const EFFECTS = [
+  ['ergonomics', () => L('인체공학성', 'Ergonomics'), signed],
+  ['zoom', () => L('조준 거리', 'Zoom'), v => v.map(n => `${num(n)}m`).join(' / ')],
+  ['sway', () => L('흔들림', 'Sway'), change],
+  ['fireRate', () => L('연사', 'Fire rate'), v => L(`분당 ${num(v)}발`, `${num(v)} RPM`)],
+  ['verticalRecoil', () => L('수직 반동', 'Vertical recoil'), change],
+  ['horizontalRecoil', () => L('수평 반동', 'Horizontal recoil'), change],
+  ['verticalSpread', () => L('수직 확산', 'Vertical spread'), change],
+  ['horizontalSpread', () => L('수평 확산', 'Horizontal spread'), change],
+  ['magCapacity', () => L('탄창 용량', 'Capacity'), v => L(`${num(v)}발`, `${num(v)} rounds`)],
+  ['overheat', () => L('과열 온도', 'Overheats at'), v => `${num(v)}${DEG}`],
+  ['cooldown', () => L('냉각 속도', 'Cooldown'), v => L(`초당 ${num(v)}${DEG}`, `${num(v)}${DEG}/s`)],
+  ['heatPerShot', () => L('발당 열', 'Heat per shot'), v => `${num(v)}${DEG}`],
+  ['startMags', () => L('출격 시 탄창', 'Starting magazines'), v => L(`${num(v)}개`, num(v))],
+  ['maxMags', () => L('최대 탄창', 'Max magazines'), v => L(`${num(v)}개`, num(v))],
+  ['reload', () => L('재장전', 'Reload'), v => L(`${num(v)}초`, `${num(v)}s`)],
+  ['reloadTactical', () => L('탄이 남았을 때 재장전', 'Reload with rounds left'), v => L(`${num(v)}초`, `${num(v)}s`)],
+  ['function', () => L('기능', 'Function'), v => v.map(f => f === 'laser' ? L('레이저 조준', 'Laser') : L('조명', 'Flashlight')).join(' + ')],
+];
+export const attachmentEffects = effects => EFFECTS.filter(([key]) => effects[key] != null).map(([key, label, text]) => ({ key, label: label(), text: text(effects[key]) }));
+
+export function attachmentTable(w) {
+  const list = w.category === 'primary' ? weaponAttachments[w.id] : null;
+  if (!list?.length) return '';
+  const unconfirmed = html`<span class="dim">${L('미확인', 'Unverified')}</span>`;
+  const slots = [...new Set(list.map(item => attachmentParts[item.part].slot))];
+  const row = item => {
+    const part = attachmentParts[item.part];
+    const effects = part.effects ? attachmentEffects(part.effects) : null;
+    return html`<tr><th scope="row">${part.none ? L('장착 안 함', part.name) : part.name}</th>
+      <td>${item.level != null ? L(`레벨 ${item.level}`, `Level ${item.level}`) : unconfirmed}</td>
+      <td>${item.builtIn ? L('기본 장착', 'Built in') : item.cost != null ? num(item.cost) : unconfirmed}</td>
+      <td>${effects == null ? unconfirmed : effects.length ? html`<ul class="attach-effects">${effects.map(e => html`<li>${e.label} <b>${e.text}</b></li>`)}</ul>` : html`<span class="faint">${L('변화 없음', 'No change')}</span>`}</td></tr>`;
+  };
+  return html`<section class="block gear-block gear-attach-block"><h3>${L('커스터마이징', 'Customization')}</h3>
+    <div class="compare-scroll" role="region" aria-label="${L('부착물', 'Attachments')}" tabindex="0"><table class="compare-table gear-modes gear-attach">
+      <thead><tr><th scope="col">${L('부착물', 'Attachment')}</th><th scope="col">${L('해금', 'Unlock')}</th><th scope="col">${L('비용', 'Cost')}</th><th scope="col">${L('변동 수치', 'Stat changes')}</th></tr></thead>
+      ${slots.map(slot => html`<tbody><tr class="attach-slot"><th scope="rowgroup" colspan="4">${slotName(slot)}</th></tr>${list.filter(item => attachmentParts[item.part].slot === slot).map(row)}</tbody>`)}
+    </table></div>
+    <p class="faint attach-note">${L('+/-와 %는 기본 상태 대비 변화, 탄창 용량과 탄창 수, 재장전 시간은 장착했을 때의 값입니다. 해금은 무기 레벨, 비용은 요청 신청서 기준입니다. 부착물 이름은 영어 표기입니다.', 'Signed numbers and percentages are changes from the base weapon; capacity, magazine counts and reload times are the values with the attachment fitted. Unlock is the weapon level; cost is in Requisition Slips.')} ${external(`${w.source}#Attachments`, L('위키 부착물 표', 'Wiki attachments table'))}</p>
+  </section>`;
+}
+
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
   const group = groupOf(w.category);
   const conflicts = w.infoboxConflicts || [];
@@ -226,6 +277,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
+    ${attachmentTable(w)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">

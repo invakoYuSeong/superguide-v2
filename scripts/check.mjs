@@ -8,4 +8,5 @@ await import('./test-support.mjs');
 await import('./test-warbonds.mjs');
 await import('./test-warbond-detail.mjs');
 await import('./test-armor.mjs');
+await import('./test-attachments.mjs');
 await import('./test-i18n.mjs');

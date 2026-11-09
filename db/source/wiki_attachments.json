@@ -1,0 +1,4131 @@
+{
+ "source": "https://helldivers.wiki.gg/wiki/Attachments",
+ "license": "CC BY-NC-SA 4.0",
+ "retrievedAt": "2026-11-09",
+ "code": {
+  "Template:Attachments Table": {
+   "source": "https://helldivers.wiki.gg/wiki/Template:Attachments_Table",
+   "revision": 141946,
+   "revisionTimestamp": "2026-11-05T19:15:00Z"
+  },
+  "Module:Weapon Attach": {
+   "source": "https://helldivers.wiki.gg/wiki/Module:Weapon_Attach",
+   "revision": 140520,
+   "revisionTimestamp": "2026-10-25T18:30:01Z"
+  },
+  "Template:Infobox Attachment": {
+   "source": "https://helldivers.wiki.gg/wiki/Template:Infobox_Attachment",
+   "revision": 140301,
+   "revisionTimestamp": "2026-10-25T12:15:42Z"
+  },
+  "Template:AttachVariant/row": {
+   "source": "https://helldivers.wiki.gg/wiki/Template:AttachVariant/row",
+   "revision": 140298,
+   "revisionTimestamp": "2026-10-25T12:13:16Z"
+  }
+ },
+ "costs": {
+  "title": "Module:Weapon Attach/data weapons.json",
+  "source": "https://helldivers.wiki.gg/wiki/Module:Weapon_Attach/data_weapons.json",
+  "revision": 142122,
+  "revisionTimestamp": "2026-11-07T17:23:00Z",
+  "data": {
+   "GL-15 EVICTOR": {
+    "NO OPTICS": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 14,
+     "cost": "7,000"
+    }
+   },
+   "SG-8 PUNISHER": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "HALF CHOKE": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "FULL CHOKE": {
+     "lvl": 12,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "DUCKBILL": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "13,000"
+    }
+   },
+   "SG-8S SLUGGER": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "SG-20 HALT": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "SG-451 COOKOUT": {
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "SG-8P PUNISHER PLASMA": {
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 17,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "SG-97 SWEEPER": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO OPTICS": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HALF CHOKE": {
+     "lvl": 4,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "FULL CHOKE": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "DUCKBILL": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "DBS-2 DOUBLE FREEDOM": {
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "M90A SHOTGUN": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "MP-98 KNIGHT": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 12,
+     "cost": "5,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 17,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SMG/FLAM-34 STOKER": {
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO OPTICS": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 17,
+     "cost": "13,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "M7S SMG": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "SMG-32 REPRIMAND": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "FLASH HIDER": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 23,
+     "cost": "5,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SMG-203 GALLANT": {
+    "SHORT MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 12,
+     "cost": "5,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 17,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "PLAS-39 ACCELERATOR RIFLE": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "VG-70 VARIABLE": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "P-2 PEACEMAKER": {
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "ARC-12 BLITZER": {
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "7,000"
+    }
+   },
+   "AR-23 LIBERATOR": {
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 12,
+     "cost": "5,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "5,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 21,
+     "cost": "25,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR-23P LIBERATOR PENETRATOR": {
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR-23C LIBERATOR CONCUSSIVE": {
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 23,
+     "cost": "13,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR/GL-21 ONE-TWO": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 6,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 22,
+     "cost": "25,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "STA-52 ASSAULT RIFLE": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "AR-32 PACIFIER": {
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "AR-2 COYOTE": {
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO OPTICS": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 11,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR-23L LIBERATOR LEGACY": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 12,
+     "cost": "5,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "5,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 21,
+     "cost": "25,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "MA5C ASSAULT RIFLE": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "AR-23A LIBERATOR CARBINE": {
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "FLASH HIDER": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 13,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR-61 TENDERIZER": {
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 13,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 21,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "AR-11 ARBITRATOR": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "AR-59 SUPPRESSOR": {
+    "LASER SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "13,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "5,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SG-225 BREAKER": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "HALF CHOKE": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "FULL CHOKE": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 21,
+     "cost": "7,000"
+    },
+    "DUCKBILL": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SG-225SP BREAKER SPRAY&PRAY": {
+    "DUCKBILL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO CHOKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HALF CHOKE": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "FULL CHOKE": {
+     "lvl": 12,
+     "cost": "13,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "7,000"
+    }
+   },
+   "SG-225IE BREAKER INCENDIARY": {
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "HALF CHOKE": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "FULL CHOKE": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "DUCKBILL": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "13,000"
+    }
+   },
+   "BR-14 ADJUDICATOR": {
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 11,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "R-2 AMENDMENT": {
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "R-40 SIGHTLINER": {
+    "SHORT MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 9,
+     "cost": "5,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "CB-9 EXPLODING CROSSBOW": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "JAR-5 DOMINATOR": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 9,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "R-36 ERUPTOR": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 8,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 14,
+     "cost": "5,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "LAS-5 SCYTHE": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "STANDARD HEATSINK": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "HIGH CAPACITY HEATSINK": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "HIGH DISSIPATION HEATSINK": {
+     "lvl": 22,
+     "cost": "25,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "LAS-16 SICKLE": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "LAS-17 DOUBLE-EDGE SICKLE": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "LAS-13 TRIDENT": {
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 23,
+     "cost": "13,000"
+    }
+   },
+   "LAS-12 SAI": {
+    "2X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "STANDARD HEATSINK": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "TRIPLE LENS": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "HIGH CAPACITY HEATSINK": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "5,000"
+    },
+    "FOCUS LENS": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "HIGH DISSIPATION HEATSINK": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "R-6 DEADEYE": {
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 13,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 23,
+     "cost": "25,000"
+    }
+   },
+   "M-105 STALWART": {
+    "REFLEX SIGHT MK2": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "R-4 HYENA": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 16,
+     "cost": "13,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "R-72 CENSOR": {
+    "SHORT MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 2,
+     "cost": "7,000"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 4,
+     "cost": "3,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "13,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "13,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 14,
+     "cost": "5,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 19,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 23,
+     "cost": "13,000"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "R/40-K HOT-SHOT MARKSMAN RIFLE": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "R-63 DILIGENCE": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "FLASH HIDER": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 3,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 12,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "13,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "R-63CS DILIGENCE COUNTER SNIPER": {
+    "MUZZLE BRAKE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 6,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 11,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 16,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "13,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 23,
+     "cost": "7,000"
+    },
+    "4X COMBAT SCOPE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SMG-37 DEFENDER": {
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "FLASH HIDER": {
+     "lvl": 3,
+     "cost": "5,000"
+    },
+    "1.5X TUBE RED DOT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 7,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 8,
+     "cost": "7,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 13,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 19,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 21,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "SMG-72 PUMMELER": {
+    "NO ATTACHMENT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "EXTENDED MAGAZINE": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "FLASH HIDER": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "SHORT MAGAZINE": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "MUZZLE BRAKE": {
+     "lvl": 13,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 18,
+     "cost": "13,000"
+    },
+    "COMPENSATOR": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "DRUM MAGAZINE": {
+     "lvl": 23,
+     "cost": "25,000"
+    },
+    "2X TUBE RED DOT": {
+     "lvl": 24,
+     "cost": "25,000"
+    }
+   },
+   "PLAS-1 SCORCHER": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 9,
+     "cost": "7,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 14,
+     "cost": "7,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 18,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "13,000"
+    }
+   },
+   "PLAS-101 PURIFIER": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "NO UNDERBARREL": {
+     "lvl": 1,
+     "cost": "0"
+    },
+    "VERTICAL FOREGRIP": {
+     "lvl": 2,
+     "cost": "3,000"
+    },
+    "REFLEX SIGHT": {
+     "lvl": 4,
+     "cost": "5,000"
+    },
+    "HOLOGRAPHIC SIGHT": {
+     "lvl": 7,
+     "cost": "7,000"
+    },
+    "ANGLED FOREGRIP": {
+     "lvl": 9,
+     "cost": "5,000"
+    },
+    "REFLEX SIGHT MK2": {
+     "lvl": 14,
+     "cost": "13,000"
+    },
+    "FLASHLIGHT VERTICAL FOREGRIP": {
+     "lvl": 17,
+     "cost": "7,000"
+    },
+    "LASER SIGHT ANGLED FOREGRIP": {
+     "lvl": 22,
+     "cost": "7,000"
+    },
+    "IRON SIGHT": {
+     "lvl": 24,
+     "cost": "13,000"
+    }
+   },
+   "P-19 REDEEMER": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "LAS-7 DAGGER": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "P-113 VERDICT": {
+    "LASER SIGHT W/ FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "P-4 SENATOR": {
+    "FLASHLIGHT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "S-11 SPEARGUN": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "MG-206 HEAVY MACHINE GUN": {
+    "REFLEX SIGHT MK2": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "LAS-44 NOVA": {
+    "4X COMBAT SCOPE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "MG-43 MACHINE GUN": {
+    "1.5X TUBE RED DOT": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "APW-1 ANTI-MATERIEL RIFLE": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   },
+   "AMW-20 APEX": {
+    "10X SNIPER SCOPE": {
+     "lvl": 1,
+     "cost": "BUILT-IN"
+    }
+   }
+  }
+ },
+ "cargo": {
+  "table": "Attachments",
+  "source": "https://helldivers.wiki.gg/wiki/Special:CargoTables/Attachments",
+  "where": "type IS NOT NULL",
+  "fields": [
+   "_pageName",
+   "type",
+   "available_on",
+   "ergonomics",
+   "sway",
+   "optic_range",
+   "horizontal_recoil",
+   "vertical_recoil",
+   "horizontal_spread",
+   "vertical_spread",
+   "mag_capacity",
+   "max_magazines",
+   "start_magazines",
+   "heatsink_overheat",
+   "heatsink_cooldown",
+   "heatsink_temp_per_shot",
+   "full_reload_time",
+   "partial_reload_time",
+   "fire_rate",
+   "functionality"
+  ],
+  "rows": [
+   {
+    "_pageName": "1.5x Tube Red Dot",
+    "type": "Optics",
+    "available_on": "AR-23A Liberator Carbine,AR-23C Liberator Concussive,SG-8P Punisher Plasma,PLAS-101 Purifier,PLAS-1 Scorcher,CB-9 Exploding Crossbow,SG-225 Breaker,SG-SG-225IE Breaker Incendiary,SG-225SP Breaker Spray&Pray,SG-451 Cookout,SG-20 Halt,SG-8 Punisher,SG-8S Slugger,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-32 Reprimand,AR-59 Suppressor,LAS-13 Trident,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,R-63CS Diligence Counter Sniper,R-4 Hyena,LAS-17 Double-Edge Sickle,LAS-5 Scythe,LAS-16 Sickle,VG-70 Variable,R-63 Diligence,R-2 Amendment,R-72 Censor,LAS-12 Sai,AR-11 Arbitrator,GL-15 Evictor,R-40 Sightliner,S-11 Speargun,MG-43 Machine Gun",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "37.5m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "10x Sniper Scope",
+    "type": "Optics",
+    "available_on": "R-36 Eruptor,R-63CS Diligence Counter Sniper,R-4 Hyena,BR-14 Adjudicator,AR-2 Coyote,R-6 Deadeye,R-2 Amendment,R-72 Censor,R-40 Sightliner,AMW-20 Apex,APW-1 Anti-Materiel Rifle",
+    "ergonomics": "-4",
+    "sway": "",
+    "optic_range": "50m &nbsp;&bull;&nbsp; 100m &nbsp;&bull;&nbsp; 200m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "10x Sniper Scope",
+    "type": "Optics",
+    "available_on": "PLAS-39 Accelerator Rifle",
+    "ergonomics": "-9",
+    "sway": "",
+    "optic_range": "50m &nbsp;&bull;&nbsp; 100m &nbsp;&bull;&nbsp; 200m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "10x Sniper Scope",
+    "type": "Optics",
+    "available_on": "R/40-K Hot-Shot Marksman Rifle",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "50m &nbsp;&bull;&nbsp; 100m &nbsp;&bull;&nbsp; 200m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "2x Tube Red Dot",
+    "type": "Optics",
+    "available_on": "BR-14 Adjudicator,AR-23 Liberator,AR-61 Tenderizer,LAS-17 Double-Edge Sickle,LAS-5 Scythe,LAS-16 Sickle,VG-70 Variable,AR/GL-21 One-Two,AR-23C Liberator Concussive,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,AR-32 Pacifier,LAS-13 Trident,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,AR-23P Liberator Penetrator,R-36 Eruptor,R-4 Hyena,LAS-12 Sai,AR-11 Arbitrator,R-40 Sightliner,AR-23L Liberator Legacy",
+    "ergonomics": "-1",
+    "sway": "",
+    "optic_range": "25m &nbsp;&bull;&nbsp; 50m &nbsp;&bull;&nbsp; 100m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "4x Combat Scope",
+    "type": "Optics",
+    "available_on": "AR-23P Liberator Penetrator,R-6 Deadeye,R-63 Diligence,R-2 Amendment,AR-23A Liberator Carbine,AR-23C Liberator Concussive,JAR-5 Dominator,AR-32 Pacifier,AR-2 Coyote,AR-59 Suppressor,SG-97 Sweeper,SMG/FLAM-34 Stoker,R-36 Eruptor,R-63CS Diligence Counter Sniper,R-72 Censor,R-4 Hyena,BR-14 Adjudicator,AR-23 Liberator,AR-61 Tenderizer,LAS-17 Double-Edge Sickle,LAS-16 Sickle,VG-70 Variable,AR/GL-21 One-Two,LAS-12 Sai,R-40 Sightliner,AR-23L Liberator Legacy,LAS-44 Nova",
+    "ergonomics": "-2",
+    "sway": "",
+    "optic_range": "25m &nbsp;&bull;&nbsp; 75m &nbsp;&bull;&nbsp; 150m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Angled Foregrip",
+    "type": "Underbarrel",
+    "available_on": "AR-23P Liberator Penetrator,PLAS-101 Purifier,PLAS-1 Scorcher,DBS-2 Double Freedom,AR-32 Pacifier,SMG-37 Defender,LAS-13 Trident,R-63 Diligence,SG-225SP Breaker Spray&Pray,AR-23A Liberator Carbine,AR-23C Liberator Concussive,BR-14 Adjudicator,JAR-5 Dominator,R-36 Eruptor,R-72 Censor,AR-2 Coyote,AR-59 Suppressor,SG-225 Breaker,R-63CS Diligence Counter Sniper,AR-61 Tenderizer,LAS-5 Scythe,AR-23 Liberator,AR-23L Liberator Legacy",
+    "ergonomics": "+5",
+    "sway": "-25%",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "+20%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Compensator",
+    "type": "Muzzle",
+    "available_on": "SMG-32 Reprimand,SMG/FLAM-34 Stoker,AR-23 Liberator,MP-98 Knight,R-63 Diligence,SMG-37 Defender,SMG-72 Pummeler,AR-61 Tenderizer,R-4 Hyena,AR-23P Liberator Penetrator,R-63CS Diligence Counter Sniper,SMG-203 Gallant,AR-23A Liberator Carbine,BR-14 Adjudicator,AR/GL-21 One-Two,AR-32 Pacifier,AR-2 Coyote,AR-11 Arbitrator,AR-23L Liberator Legacy",
+    "ergonomics": "-5",
+    "sway": "+25%",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "-30%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23 Liberator,AR-23P Liberator Penetrator,AR-23C Liberator Concussive,AR-23L Liberator Legacy",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "60",
+    "max_magazines": "6",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3.5s",
+    "partial_reload_time": "2.3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23A Liberator Carbine",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "60",
+    "max_magazines": "6",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "1.9s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "AR-59 Suppressor",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "60",
+    "max_magazines": "6",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3.5s",
+    "partial_reload_time": "2.5s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "SMG-37 Defender,SMG-72 Pummeler",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "75",
+    "max_magazines": "4",
+    "start_magazines": "3",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3.3s",
+    "partial_reload_time": "2.3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "26",
+    "max_magazines": "4",
+    "start_magazines": "3",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225SP Breaker Spray&Pray",
+    "ergonomics": "-10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "26",
+    "max_magazines": "8",
+    "start_magazines": "6",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Drum Magazine",
+    "type": "Magazine",
+    "available_on": "SMG/FLAM-34 Stoker",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "60",
+    "max_magazines": "4",
+    "start_magazines": "3",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3.3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Duckbill",
+    "type": "Muzzle",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary,SG-225SP Breaker Spray&Pray,SG-97 Sweeper",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "+60%",
+    "vertical_spread": "-70%",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Duckbill",
+    "type": "Muzzle",
+    "available_on": "SG-8 Punisher",
+    "ergonomics": "",
+    "sway": "+25%",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "+60%",
+    "vertical_spread": "-70%",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23 Liberator,AR-23P Liberator Penetrator,AR-23C Liberator Concussive,AR-59 Suppressor,AR-23L Liberator Legacy",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "45",
+    "max_magazines": "8",
+    "start_magazines": "6",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23A Liberator Carbine",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "45",
+    "max_magazines": "8",
+    "start_magazines": "6",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.6s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "SMG-37 Defender,SMG-72 Pummeler",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "45",
+    "max_magazines": "7",
+    "start_magazines": "5",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.8s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "MP-98 Knight,SMG-203 Gallant",
+    "ergonomics": "-15",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "70",
+    "max_magazines": "5",
+    "start_magazines": "3",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "16",
+    "max_magazines": "7",
+    "start_magazines": "5",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.75s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225SP Breaker Spray&Pray",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "16",
+    "max_magazines": "13",
+    "start_magazines": "9",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.75s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "SMG/FLAM-34 Stoker",
+    "ergonomics": "-5",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "45",
+    "max_magazines": "5",
+    "start_magazines": "3",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.8s",
+    "partial_reload_time": "1.73s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "R-72 Censor",
+    "ergonomics": "-8",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "30",
+    "max_magazines": "6",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.9s",
+    "partial_reload_time": "1.67s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "R-4 Hyena",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "15",
+    "max_magazines": "5",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.5s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Extended Magazine",
+    "type": "Magazine",
+    "available_on": "R-40 Sightliner",
+    "ergonomics": "-11",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "15",
+    "max_magazines": "6",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Flash Hider",
+    "type": "Muzzle",
+    "available_on": "AR-23A Liberator Carbine,R-4 Hyena,AR-23 Liberator,AR-32 Pacifier,SMG-37 Defender,SMG-72 Pummeler,AR/GL-21 One-Two,SMG-203 Gallant,AR-2 Coyote,SMG-32 Reprimand,R-63CS Diligence Counter Sniper,AR-61 Tenderizer,MP-98 Knight,BR-14 Adjudicator,R-63 Diligence,AR-23P Liberator Penetrator,AR-11 Arbitrator,AR-23L Liberator Legacy",
+    "ergonomics": "-3",
+    "sway": "+10%",
+    "optic_range": "",
+    "horizontal_recoil": "-20%",
+    "vertical_recoil": "-10%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Flashlight",
+    "type": "Underbarrel",
+    "available_on": "P-19 Redeemer,LAS-7 Dagger,P-4 Senator,StA-52 Assault Rifle",
+    "ergonomics": "-3",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": "Flashlight"
+   },
+   {
+    "_pageName": "Flashlight",
+    "type": "Underbarrel",
+    "available_on": "MA5C Assault Rifle,M7S SMG,M90A Shotgun",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": "Flashlight"
+   },
+   {
+    "_pageName": "Flashlight Vertical Foregrip",
+    "type": "Underbarrel",
+    "available_on": "DBS-2 Double Freedom,AR-23P Liberator Penetrator,PLAS-101 Purifier,PLAS-1 Scorcher,R-63CS Diligence Counter Sniper,SG-225 Breaker,AR-61 Tenderizer,SMG-37 Defender,AR-23A Liberator Carbine,AR-23C Liberator Concussive,BR-14 Adjudicator,AR-32 Pacifier,AR-2 Coyote,AR-59 Suppressor,SMG-203 Gallant,R-72 Censor,SG-225SP Breaker Spray&Pray,R-63 Diligence,SMG-32 Reprimand,AR-23 Liberator,MP-98 Knight,JAR-5 Dominator,R-36 Eruptor,AR-23L Liberator Legacy",
+    "ergonomics": "-7",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "-20%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": "Flashlight"
+   },
+   {
+    "_pageName": "Focus Lens",
+    "type": "Muzzle",
+    "available_on": "LAS-12 Sai",
+    "ergonomics": "-6",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "= 75",
+    "vertical_spread": "= 75",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "600",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Full Choke",
+    "type": "Muzzle",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary,SG-225SP Breaker Spray&Pray,SG-8 Punisher,SG-97 Sweeper",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "-50%",
+    "vertical_spread": "-50%",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Half Choke",
+    "type": "Muzzle",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary,SG-225SP Breaker Spray&Pray,SG-8 Punisher,SG-97 Sweeper",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "-25%",
+    "vertical_spread": "-25%",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "High Capacity Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-5 Scythe",
+    "ergonomics": "-10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "3",
+    "start_magazines": "2",
+    "heatsink_overheat": "150",
+    "heatsink_cooldown": "8.5",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.15s",
+    "partial_reload_time": "3.5s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "High Capacity Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-12 Sai",
+    "ergonomics": "-10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "4",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "1.5",
+    "full_reload_time": "3s",
+    "partial_reload_time": "3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "High Dissipation Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-5 Scythe",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "4",
+    "start_magazines": "3",
+    "heatsink_overheat": "60",
+    "heatsink_cooldown": "12",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "1.8s",
+    "partial_reload_time": "3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "High Dissipation Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-12 Sai",
+    "ergonomics": "-7",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "5",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "8.5",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Holographic Sight",
+    "type": "Optics",
+    "available_on": "AR-23A Liberator Carbine,ARC-12 Blitzer,SG-8P Punisher Plasma,PLAS-101 Purifier,PLAS-1 Scorcher,CB-9 Exploding Crossbow,SG-225 Breaker,SG-225IE Breaker Incendiary,SG-225SP Breaker Spray&Pray,SG-451 Cookout,SG-20 Halt,SG-8 Punisher,SG-8S Slugger,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR-32 Pacifier,AR-2 Coyote,AR-59 Suppressor,LAS-13 Trident,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,R-36 Eruptor,R-63CS Diligence Counter Sniper,R-4 Hyena,BR-14 Adjudicator,AR-23 Liberator,AR-61 Tenderizer,LAS-17 Double-Edge Sickle,LAS-5 Scythe,LAS-16 Sickle,VG-70 Variable,AR/GL-21 One-Two,AR-23P Liberator Penetrator,R-6 Deadeye,R-63 Diligence,R-2 Amendment,R-72 Censor,LAS-12 Sai,AR-11 Arbitrator,GL-15 Evictor,AR-23L Liberator Legacy",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "25m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Iron Sight",
+    "type": "Optics",
+    "available_on": "AR-23C Liberator Concussive,ARC-12 Blitzer,SG-8P Punisher Plasma,PLAS-101 Purifier,PLAS-1 Scorcher,SG-225IE Breaker Incendiary,SG-225 Breaker,SG-225SP Breaker Spray&Pray,SG-451 Cookout,SG-20 Halt,SG-8 Punisher,SG-8S Slugger,JAR-5 Dominator,SMG-32 Reprimand,AR-59 Suppressor,LAS-13 Trident,AR-23 Liberator,AR-61 Tenderizer,LAS-17 Double-Edge Sickle,LAS-16 Sickle,AR/GL-21 One-Two,R-36 Eruptor,AR-23P Liberator Penetrator,R-6 Deadeye,R-63 Diligence,R-72 Censor,R-40 Sightliner,AR-23L Liberator Legacy",
+    "ergonomics": "+5",
+    "sway": "",
+    "optic_range": "25m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Laser Sight",
+    "type": "Underbarrel",
+    "available_on": "R-72 Censor,AR-59 Suppressor",
+    "ergonomics": "-3",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Laser Sight Angled Foregrip",
+    "type": "Underbarrel",
+    "available_on": "AR-23 Liberator,DBS-2 Double Freedom,AR-61 Tenderizer,R-63 Diligence,JAR-5 Dominator,R-36 Eruptor,BR-14 Adjudicator,SMG-37 Defender,LAS-13 Trident,SG-225 Breaker,R-72 Censor,AR-2 Coyote,R-63CS Diligence Counter Sniper,SG-225SP Breaker Spray&Pray,AR-59 Suppressor,AR-23P Liberator Penetrator,PLAS-101 Purifier,PLAS-1 Scorcher,AR-32 Pacifier,AR-23A Liberator Carbine,AR-23C Liberator Concussive",
+    "ergonomics": "+3",
+    "sway": "-15%",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "+20%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Laser Sight W/ Flashlight",
+    "type": "Underbarrel",
+    "available_on": "AR-23A Liberator Carbine,AR-23C Liberator Concussive,AR-23 Liberator,AR-23P Liberator Penetrator,AR-61 Tenderizer,PLAS-101 Purifier,PLAS-1 Scorcher,LAS-5 Scythe,SG-225IE Breaker Incendiary,SG-225 Breaker,SG-225SP Breaker Spray&Pray,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR-32 Pacifier,LAS-13 Trident,SMG-203 Gallant,R-72 Censor,AR-59 Suppressor,BR-14 Adjudicator,R-36 Eruptor,R-63CS Diligence Counter Sniper,R-63 Diligence,AR-2 Coyote,DBS-2 Double Freedom,R-4 Hyena,P-2 Peacemaker,P-113 Verdict,AR-23L Liberator Legacy,M-105 Stalwart",
+    "ergonomics": "-5",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": "Laser &nbsp;&bull;&nbsp; Flashlight"
+   },
+   {
+    "_pageName": "Muzzle Brake",
+    "type": "Muzzle",
+    "available_on": "SMG/FLAM-34 Stoker,SMG-203 Gallant,AR-23 Liberator,MP-98 Knight,BR-14 Adjudicator,AR-23P Liberator Penetrator,AR-61 Tenderizer,R-63CS Diligence Counter Sniper,AR-32 Pacifier,AR-2 Coyote,R-63 Diligence,AR-23A Liberator Carbine,AR/GL-21 One-Two,SMG-32 Reprimand,SMG-37 Defender,SMG-72 Pummeler,AR-11 Arbitrator,AR-23L Liberator Legacy",
+    "ergonomics": "-5",
+    "sway": "+20%",
+    "optic_range": "",
+    "horizontal_recoil": "-40%",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Muzzle Brake",
+    "type": "Muzzle",
+    "available_on": "R-4 Hyena,R-40 Sightliner",
+    "ergonomics": "-5",
+    "sway": "+50%",
+    "optic_range": "",
+    "horizontal_recoil": "-40%",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "No Attachment",
+    "type": "Muzzle",
+    "available_on": "R-4 Hyena,AR-61 Tenderizer,AR-23A Liberator Carbine,AR-23 Liberator,R-63 Diligence,SG-225 Breaker,SG-8 Punisher,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR/GL-21 One-Two,SG-225IE Breaker Incendiary,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,R-63CS Diligence Counter Sniper,AR-32 Pacifier,BR-14 Adjudicator,AR-23P Liberator Penetrator,AR-2 Coyote,AR-11 Arbitrator,AR-23L Liberator Legacy",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "No Choke",
+    "type": "Muzzle",
+    "available_on": "SG-225SP Breaker Spray&Pray",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "No Optics",
+    "type": "Optics",
+    "available_on": "AR-2 Coyote,SG-97 Sweeper,SMG/FLAM-34 Stoker,GL-15 Evictor",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "25m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "No Underbarrel",
+    "type": "Underbarrel",
+    "available_on": "AR-23A Liberator Carbine,AR-23C Liberator Concussive,AR-23 Liberator,AR-23P Liberator Penetrator,AR-61 Tenderizer,PLAS-101 Purifier,PLAS-1 Scorcher,LAS-5 Scythe,SG-225IE Breaker Incendiary,SG-225 Breaker,SG-225SP Breaker Spray&Pray,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR-32 Pacifier,LAS-13 Trident,SMG-203 Gallant,R-72 Censor,AR-59 Suppressor,R-4 Hyena,BR-14 Adjudicator,R-36 Eruptor,R-63CS Diligence Counter Sniper,R-63 Diligence,AR-2 Coyote,DBS-2 Double Freedom",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Reflex Sight",
+    "type": "Optics",
+    "available_on": "AR-23A Liberator Carbine,AR-23C Liberator Concussive,ARC-12 Blitzer,SG-8P Punisher Plasma,PLAS-101 Purifier,PLAS-1 Scorcher,CB-9 Exploding Crossbow,SG-225IE Breaker Incendiary,SG-225 Breaker,SG-225SP Breaker Spray&Pray,SG-451 Cookout,SG-20 Halt,SG-8 Punisher,SG-8S Slugger,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR-32 Pacifier,AR-2 Coyote,AR-59 Suppressor,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,R-63CS Diligence Counter Sniper,R-4 Hyena,BR-14 Adjudicator,AR-23 Liberator,AR-61 Tenderizer,LAS-5 Scythe,VG-70 Variable,AR/GL-21 One-Two,AR-23P Liberator Penetrator,R-6 Deadeye,R-63 Diligence,R-2 Amendment,R-72 Censor,LAS-12 Sai,AR-11 Arbitrator,GL-15 Evictor,AR-23L Liberator Legacy",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "25m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Reflex Sight Mk2",
+    "type": "Optics",
+    "available_on": "AR-23A Liberator Carbine,AR-23C Liberator Concussive,ARC-12 Blitzer,SG-8P Punisher Plasma,PLAS-101 Purifier,PLAS-1 Scorcher,CB-9 Exploding Crossbow,SG-225IE Breaker Incendiary,SG-225 Breaker,SG-225SP Breaker Spray&Pray,SG-451 Cookout,SG-20 Halt,SG-8 Punisher,SG-8S Slugger,JAR-5 Dominator,SMG-37 Defender,MP-98 Knight,SMG-72 Pummeler,SMG-32 Reprimand,AR-32 Pacifier,AR-2 Coyote,AR-59 Suppressor,LAS-13 Trident,SG-97 Sweeper,SMG/FLAM-34 Stoker,SMG-203 Gallant,BR-14 Adjudicator,AR-23 Liberator,AR-61 Tenderizer,LAS-17 Double-Edge Sickle,LAS-5 Scythe,LAS-16 Sickle,VG-70 Variable,AR/GL-21 One-Two,R-36 Eruptor,R-63CS Diligence Counter Sniper,R-4 Hyena,AR-23P Liberator Penetrator,R-6 Deadeye,R-63 Diligence,R-2 Amendment,R-72 Censor,LAS-12 Sai,AR-11 Arbitrator,GL-15 Evictor,AR-23L Liberator Legacy,M-105 Stalwart,MG-206 Heavy Machine Gun",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "25m",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23 Liberator,AR-23P Liberator Penetrator,AR-23C Liberator Concussive,AR-23L Liberator Legacy",
+    "ergonomics": "+10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "30",
+    "max_magazines": "16",
+    "start_magazines": "9",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.65s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "AR-23A Liberator Carbine",
+    "ergonomics": "+10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "30",
+    "max_magazines": "16",
+    "start_magazines": "9",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2s",
+    "partial_reload_time": "1.25s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "AR-59 Suppressor",
+    "ergonomics": "+10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "30",
+    "max_magazines": "16",
+    "start_magazines": "9",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.8s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "SMG-37 Defender,SMG-72 Pummeler",
+    "ergonomics": "+10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "35",
+    "max_magazines": "12",
+    "start_magazines": "8",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.3s",
+    "partial_reload_time": "1.6s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "MP-98 Knight,SMG-203 Gallant",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "50",
+    "max_magazines": "7",
+    "start_magazines": "5",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.7s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225 Breaker,SG-225IE Breaker Incendiary",
+    "ergonomics": "+10",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "13",
+    "max_magazines": "11",
+    "start_magazines": "7",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2s",
+    "partial_reload_time": "1.4s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "SG-225SP Breaker Spray&Pray",
+    "ergonomics": "+5",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "13",
+    "max_magazines": "20",
+    "start_magazines": "12",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2s",
+    "partial_reload_time": "1.4s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "SMG/FLAM-34 Stoker",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "25",
+    "max_magazines": "13",
+    "start_magazines": "7",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.3s",
+    "partial_reload_time": "1.4s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "R-72 Censor",
+    "ergonomics": "+3",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "20",
+    "max_magazines": "8",
+    "start_magazines": "6",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.5s",
+    "partial_reload_time": "1.5s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "R-4 Hyena",
+    "ergonomics": "+11",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "10",
+    "max_magazines": "9",
+    "start_magazines": "7",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2.2s",
+    "partial_reload_time": "1.3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Short Magazine",
+    "type": "Magazine",
+    "available_on": "R-40 Sightliner",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "10",
+    "max_magazines": "8",
+    "start_magazines": "6",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "3s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Standard Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-5 Scythe",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "4",
+    "start_magazines": "3",
+    "heatsink_overheat": "100",
+    "heatsink_cooldown": "8.5",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "1.8s",
+    "partial_reload_time": "3s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Standard Heatsink",
+    "type": "Magazine",
+    "available_on": "LAS-12 Sai",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "5",
+    "start_magazines": "4",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "2s",
+    "partial_reload_time": "2s",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Triple Lens",
+    "type": "Muzzle",
+    "available_on": "LAS-12 Sai",
+    "ergonomics": "",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   },
+   {
+    "_pageName": "Vertical Foregrip",
+    "type": "Underbarrel",
+    "available_on": "SG-225 Breaker,DBS-2 Double Freedom,R-63 Diligence,AR-23A Liberator Carbine,AR-23C Liberator Concussive,SG-225SP Breaker Spray&Pray,JAR-5 Dominator,AR-23P Liberator Penetrator,PLAS-101 Purifier,PLAS-1 Scorcher,AR-61 Tenderizer,SMG-37 Defender,R-63CS Diligence Counter Sniper,R-72 Censor,AR-2 Coyote,AR-23 Liberator,MP-98 Knight,SMG-203 Gallant,AR-59 Suppressor,R-36 Eruptor,AR-32 Pacifier,BR-14 Adjudicator,SMG-32 Reprimand,AR-23L Liberator Legacy",
+    "ergonomics": "-5",
+    "sway": "",
+    "optic_range": "",
+    "horizontal_recoil": "",
+    "vertical_recoil": "-20%",
+    "horizontal_spread": "",
+    "vertical_spread": "",
+    "mag_capacity": "",
+    "max_magazines": "",
+    "start_magazines": "",
+    "heatsink_overheat": "",
+    "heatsink_cooldown": "",
+    "heatsink_temp_per_shot": "",
+    "full_reload_time": "",
+    "partial_reload_time": "",
+    "fire_rate": "",
+    "functionality": ""
+   }
+  ]
+ },
+ "pages": {
+  "1.5x Tube Red Dot": {
+   "source": "https://helldivers.wiki.gg/wiki/1.5x_Tube_Red_Dot",
+   "revision": 142126,
+   "revisionTimestamp": "2026-11-07T17:26:26Z"
+  },
+  "10x Sniper Scope": {
+   "source": "https://helldivers.wiki.gg/wiki/10x_Sniper_Scope",
+   "revision": 142124,
+   "revisionTimestamp": "2026-11-07T17:25:03Z"
+  },
+  "2x Tube Red Dot": {
+   "source": "https://helldivers.wiki.gg/wiki/2x_Tube_Red_Dot",
+   "revision": 142120,
+   "revisionTimestamp": "2026-11-07T16:40:13Z"
+  },
+  "4x Combat Scope": {
+   "source": "https://helldivers.wiki.gg/wiki/4x_Combat_Scope",
+   "revision": 142123,
+   "revisionTimestamp": "2026-11-07T17:24:12Z"
+  },
+  "Angled Foregrip": {
+   "source": "https://helldivers.wiki.gg/wiki/Angled_Foregrip",
+   "revision": 140723,
+   "revisionTimestamp": "2026-10-27T07:22:11Z"
+  },
+  "Compensator": {
+   "source": "https://helldivers.wiki.gg/wiki/Compensator",
+   "revision": 140731,
+   "revisionTimestamp": "2026-10-27T07:24:55Z"
+  },
+  "Drum Magazine": {
+   "source": "https://helldivers.wiki.gg/wiki/Drum_Magazine",
+   "revision": 142119,
+   "revisionTimestamp": "2026-11-07T16:38:55Z"
+  },
+  "Duckbill": {
+   "source": "https://helldivers.wiki.gg/wiki/Duckbill",
+   "revision": 140161,
+   "revisionTimestamp": "2026-10-24T20:21:07Z"
+  },
+  "Extended Magazine": {
+   "source": "https://helldivers.wiki.gg/wiki/Extended_Magazine",
+   "revision": 142118,
+   "revisionTimestamp": "2026-11-07T16:38:01Z"
+  },
+  "Flash Hider": {
+   "source": "https://helldivers.wiki.gg/wiki/Flash_Hider",
+   "revision": 140725,
+   "revisionTimestamp": "2026-10-27T07:22:35Z"
+  },
+  "Flashlight": {
+   "source": "https://helldivers.wiki.gg/wiki/Flashlight",
+   "revision": 140299,
+   "revisionTimestamp": "2026-10-25T12:14:41Z"
+  },
+  "Flashlight Vertical Foregrip": {
+   "source": "https://helldivers.wiki.gg/wiki/Flashlight_Vertical_Foregrip",
+   "revision": 140733,
+   "revisionTimestamp": "2026-10-27T07:25:22Z"
+  },
+  "Focus Lens": {
+   "source": "https://helldivers.wiki.gg/wiki/Focus_Lens",
+   "revision": 140165,
+   "revisionTimestamp": "2026-10-24T20:23:13Z"
+  },
+  "Full Choke": {
+   "source": "https://helldivers.wiki.gg/wiki/Full_Choke",
+   "revision": 140166,
+   "revisionTimestamp": "2026-10-24T20:23:20Z"
+  },
+  "Half Choke": {
+   "source": "https://helldivers.wiki.gg/wiki/Half_Choke",
+   "revision": 140167,
+   "revisionTimestamp": "2026-10-24T20:23:26Z"
+  },
+  "High Capacity Heatsink": {
+   "source": "https://helldivers.wiki.gg/wiki/High_Capacity_Heatsink",
+   "revision": 140168,
+   "revisionTimestamp": "2026-10-24T20:23:40Z"
+  },
+  "High Dissipation Heatsink": {
+   "source": "https://helldivers.wiki.gg/wiki/High_Dissipation_Heatsink",
+   "revision": 140169,
+   "revisionTimestamp": "2026-10-24T20:24:34Z"
+  },
+  "Holographic Sight": {
+   "source": "https://helldivers.wiki.gg/wiki/Holographic_Sight",
+   "revision": 142067,
+   "revisionTimestamp": "2026-11-07T05:32:46Z"
+  },
+  "Iron Sight": {
+   "source": "https://helldivers.wiki.gg/wiki/Iron_Sight",
+   "revision": 142069,
+   "revisionTimestamp": "2026-11-07T05:34:00Z"
+  },
+  "Laser Sight": {
+   "source": "https://helldivers.wiki.gg/wiki/Laser_Sight",
+   "revision": 140172,
+   "revisionTimestamp": "2026-10-24T20:25:37Z"
+  },
+  "Laser Sight Angled Foregrip": {
+   "source": "https://helldivers.wiki.gg/wiki/Laser_Sight_Angled_Foregrip",
+   "revision": 140173,
+   "revisionTimestamp": "2026-10-24T20:26:01Z"
+  },
+  "Laser Sight W/ Flashlight": {
+   "source": "https://helldivers.wiki.gg/wiki/Laser_Sight_W/_Flashlight",
+   "revision": 142125,
+   "revisionTimestamp": "2026-11-07T17:25:44Z"
+  },
+  "Muzzle Brake": {
+   "source": "https://helldivers.wiki.gg/wiki/Muzzle_Brake",
+   "revision": 140720,
+   "revisionTimestamp": "2026-10-27T07:21:42Z"
+  },
+  "No Attachment": {
+   "source": "https://helldivers.wiki.gg/wiki/No_Attachment",
+   "revision": 140729,
+   "revisionTimestamp": "2026-10-27T07:23:36Z"
+  },
+  "No Choke": {
+   "source": "https://helldivers.wiki.gg/wiki/No_Choke",
+   "revision": 140178,
+   "revisionTimestamp": "2026-10-24T20:27:34Z"
+  },
+  "No Optics": {
+   "source": "https://helldivers.wiki.gg/wiki/No_Optics",
+   "revision": 140179,
+   "revisionTimestamp": "2026-10-24T20:27:37Z"
+  },
+  "No Underbarrel": {
+   "source": "https://helldivers.wiki.gg/wiki/No_Underbarrel",
+   "revision": 140180,
+   "revisionTimestamp": "2026-10-24T20:27:43Z"
+  },
+  "Reflex Sight": {
+   "source": "https://helldivers.wiki.gg/wiki/Reflex_Sight",
+   "revision": 142066,
+   "revisionTimestamp": "2026-11-07T05:32:29Z"
+  },
+  "Reflex Sight Mk2": {
+   "source": "https://helldivers.wiki.gg/wiki/Reflex_Sight_Mk2",
+   "revision": 142127,
+   "revisionTimestamp": "2026-11-07T17:26:57Z"
+  },
+  "Short Magazine": {
+   "source": "https://helldivers.wiki.gg/wiki/Short_Magazine",
+   "revision": 142117,
+   "revisionTimestamp": "2026-11-07T16:36:56Z"
+  },
+  "Standard Heatsink": {
+   "source": "https://helldivers.wiki.gg/wiki/Standard_Heatsink",
+   "revision": 140184,
+   "revisionTimestamp": "2026-10-24T20:29:30Z"
+  },
+  "Triple Lens": {
+   "source": "https://helldivers.wiki.gg/wiki/Triple_Lens",
+   "revision": 140185,
+   "revisionTimestamp": "2026-10-24T20:29:56Z"
+  },
+  "Vertical Foregrip": {
+   "source": "https://helldivers.wiki.gg/wiki/Vertical_Foregrip",
+   "revision": 140726,
+   "revisionTimestamp": "2026-10-27T07:22:44Z"
+  }
+ }
+}

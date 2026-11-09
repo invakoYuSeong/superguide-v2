@@ -122,7 +122,7 @@ for (const [id, profile] of multiMode) {
   eq([...content.matchAll(/data-variant="([^"]+)"/g)].map(m => m[1]), profile.modes.map(m => m.id), `${id}: one tab per firing mode`);
   eq((content.match(/data-variant-panel="/g) || []).length, profile.modes.length, `${id}: one panel per firing mode`);
   ok(content.includes(`data-variant="${profile.modes[0].id}" aria-pressed="true"`), `${id}: first mode selected by default`);
-  ok(!content.includes('gear-modes'), `${id}: mode tabs replace the component table`);
+  ok(!content.includes('class="compare-table gear-modes"'), `${id}: mode tabs replace the component table`);
   for (const m of profile.modes) {
     const p = panel(content, m.id), extra = w.modeDetails?.[m.id], where = `${id}/${m.id}`;
     if (m.unsupported && !extra) { ok(p.includes(m.unsupported), `${where}: mode without numbers shows its reason`); continue; }
@@ -148,7 +148,7 @@ const singles = [...weaponById.values()].filter(w => !(personalProfiles[w.id]?.m
 for (const w of singles) {
   const content = String(weaponDetail(w));
   ok(!content.includes('data-variant'), `${w.id}: single-mode weapon has no mode tabs`);
-  if ((w.variants?.length ?? 0) > 1) ok(content.includes('gear-modes'), `${w.id}: single-mode weapon keeps its component table`);
+  if ((w.variants?.length ?? 0) > 1) ok(content.includes('class="compare-table gear-modes"'), `${w.id}: single-mode weapon keeps its component table`);
 }
 // Mode names are set in personal-profiles.mjs (code, not wiki data).
 const tabNames = id => [...String(weaponDetail(weaponById.get(id))).matchAll(/data-variant="[^"]+" aria-pressed="\w+">([^<]+)/g)].map(m => m[1]);
