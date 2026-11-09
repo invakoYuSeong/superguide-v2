@@ -10,6 +10,9 @@ import { escape } from '../dist/ui/dom.js';
 import { listContent, resolveWarbondItem, itemRoute, itemDetailContent, mount, update } from '../dist/ui/views/warbonds.js';
 import { weaponDetail } from '../dist/ui/views/gear.js';
 import { stratagemDetail } from '../dist/ui/views/arsenal.js';
+import { personalProfiles } from '../dist/data/personal-profiles.js';
+import { weaponById } from '../dist/ui/gear-shared.js';
+import { modeDetails } from './personal-display.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -103,6 +106,66 @@ setLang('ko');
 const modeHtml = String(await itemDetailContent('control-group', 'arsenal/epoch', 'charged'));
 ok(modeHtml.includes('data-variant="charged" aria-pressed="true"'), 'embedded stratagem selects URL mode');
 ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preserves mode');
+// Weapons with selectable firing modes get the same mode tabs as stratagems. Expected numbers are
+// read from the data, so a routine wiki refresh that changes a value or adds a weapon does not fail
+// these checks; they only confirm that whatever the data holds is shown in the right panel.
+const { num } = await import('../dist/core/explain.js');
+const multiMode = Object.entries(personalProfiles).filter(([, profile]) => profile.modes.length > 1);
+ok(multiMode.length > 0, 'some weapons have selectable firing modes');
+// One panel's text, so a check cannot pass on another mode's numbers.
+const panel = (content, id) => content.split(`data-variant-panel="${id}"`)[1]?.split('data-variant-panel=')[0] ?? '';
+const shows = (content, label, text) => content.includes(`<dt>${label}</dt><dd class="">${text}`) || content.includes(`<dt>${label}</dt><dd>${text}`);
+const DOT_ROW = /<dt>(?:화상|가스|전기) 피해<\/dt>/;
+for (const [id, profile] of multiMode) {
+  const w = weaponById.get(id);
+  const content = String(weaponDetail(w));
+  eq([...content.matchAll(/data-variant="([^"]+)"/g)].map(m => m[1]), profile.modes.map(m => m.id), `${id}: one tab per firing mode`);
+  eq((content.match(/data-variant-panel="/g) || []).length, profile.modes.length, `${id}: one panel per firing mode`);
+  ok(content.includes(`data-variant="${profile.modes[0].id}" aria-pressed="true"`), `${id}: first mode selected by default`);
+  ok(!content.includes('gear-modes'), `${id}: mode tabs replace the component table`);
+  for (const m of profile.modes) {
+    const p = panel(content, m.id), extra = w.modeDetails?.[m.id], where = `${id}/${m.id}`;
+    if (m.unsupported && !extra) { ok(p.includes(m.unsupported), `${where}: mode without numbers shows its reason`); continue; }
+    ok(!p.includes(m.unsupported ?? '\u0000'), `${where}: filled-in mode does not show the calculator's reason`);
+    if (!m.unsupported && m.ammoPerShot > 1) {
+      const perRound = m.hitCondition?.kind === 'pellets' ? m.hitCondition.max / m.ammoPerShot : 1;
+      ok(shows(p, '한 번에 발사', num(m.ammoPerShot)) && p.includes(`모두 맞으면 ${num(m.standard * perRound * m.ammoPerShot)}`), `${where}: rounds fired at once and their total`);
+    }
+    if (m.id === 'underbarrel') ok(!p.includes('<dt>예비 탄창') && (extra?.rpm != null || !p.includes('<dt>연사')), `${where}: no spare magazines or fire rate borrowed from the main gun`);
+    if (extra?.spareRounds != null) ok(shows(p, '예비탄', num(extra.spareRounds)), `${where}: own spare rounds`);
+    if (extra?.rpm != null) ok(shows(p, '연사', num(extra.rpm)), `${where}: own fire rate`);
+    if (extra?.reload != null) ok(shows(p, '재장전', num(extra.reload)), `${where}: own reload`);
+    if (extra?.fuel) ok(shows(p, '연료', num(extra.magazine)) && p.includes(`AP ${extra.ap}`) && !p.includes('<dt>직격 피해'), `${where}: fuel and AP, no main-barrel damage`);
+    if (extra?.ammoAll) ok(shows(p, '한 번에 발사', num(w.magazine)) && p.includes(num(extra.direct * w.magazine)), `${where}: whole magazine at once and its total`);
+    for (const note of extra?.modeNotes ?? []) ok(p.includes(note), `${where}: note shown`);
+    eq(DOT_ROW.test(p), extra?.dot?.perSecond != null, `${where}: over-time damage only in the mode it belongs to`);
+  }
+}
+const [pickId, pickProfile] = multiMode[0];
+const picked = String(weaponDetail(weaponById.get(pickId), { variant: pickProfile.modes[1].id }));
+ok(picked.includes(`data-variant="${pickProfile.modes[1].id}" aria-pressed="true"`) && picked.includes(`data-variant-panel="${pickProfile.modes[0].id}" hidden`), 'weapon detail selects the given mode');
+const singles = [...weaponById.values()].filter(w => !(personalProfiles[w.id]?.modes.length > 1));
+for (const w of singles) {
+  const content = String(weaponDetail(w));
+  ok(!content.includes('data-variant'), `${w.id}: single-mode weapon has no mode tabs`);
+  if ((w.variants?.length ?? 0) > 1) ok(content.includes('gear-modes'), `${w.id}: single-mode weapon keeps its component table`);
+}
+// Mode names are set in personal-profiles.mjs (code, not wiki data).
+const tabNames = id => [...String(weaponDetail(weaponById.get(id))).matchAll(/data-variant="[^"]+" aria-pressed="\w+">([^<]+)/g)].map(m => m[1]);
+const expectedNames = { 'double-freedom': ['기본 사격', '일제 사격'], bushwhacker: ['기본 사격', '일제 사격'], variable: ['기본 사격', '일제 사격', '전탄 발사'], 'missile-pistol': ['비유도', '유도 사격'], warrant: ['비유도', '유도 사격'] };
+for (const [id, names] of Object.entries(expectedNames)) if (personalProfiles[id]?.modes.length > 1) eq(tabNames(id), names, `${id} mode names`);
+// Notes from wiki prose are optional: a reworded page drops them with a warning, never fails the build.
+const weaponsDb = (await import('../db/weapons.js')).weapons;
+const datamine = JSON.parse(await readFile(new URL('../db/source/weapons_data.json', import.meta.url), 'utf8')).data;
+for (const weapon of ['stoker', 'missile-pistol', 'warrant', 'variable'].map(id => weaponsDb.find(w => w.id === id)).filter(Boolean)) {
+  const warnings = [];
+  const loose = modeDetails(weapon, datamine, 'reworded page', message => warnings.push(message)).modeDetails ?? {};
+  // "Same damage as unguided" comes from the datamine, not the prose, so it stays.
+  ok(warnings.length > 0 && Object.values(loose).every(detail => (detail.modeNotes ?? []).every(n => n === '피해는 비유도 사격과 같습니다.')), `${weapon.id}: reworded wiki page leaves the prose notes out with a warning`);
+}
+const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
+ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
+ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');
 setLang('en');
 const en = String(await itemDetailContent('scope-of-authority', 'gear/sightliner'));
 ok(en.includes('Open full page') && en.includes('Back') && en.includes('Close item details'), 'new toolbar strings have English');

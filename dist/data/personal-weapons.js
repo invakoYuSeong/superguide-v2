@@ -58,6 +58,9 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: ['주 총열과 하부 산탄총을 전환해 사용합니다. 두 공격의 피해는 합산하지 않습니다.'],
+    modeDetails: {
+      underbarrel: { magazine: 4, spareRounds: 20, rpm: 80, reload: null, reloadTactical: null },
+    },
     image: 'AR-11 Arbitrator Primary Render.png',
     sourceRevision: 142144,
     variants: [
@@ -597,6 +600,9 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: ['주 총열과 하부 유탄 발사기를 전환해 사용합니다. 탄약과 처치 탄수는 따로 계산합니다.'],
+    modeDetails: {
+      underbarrel: { magazine: 1, spareRounds: 5, rpm: null, reload: 2.5, reloadTactical: null },
+    },
     image: 'AR-GL-21 One Two Primary Render.png',
     sourceRevision: 141906,
     variants: [
@@ -3217,6 +3223,19 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: ['화염 분사는 불길에 닿은 시간에 따라 피해가 달라져 정확한 처치 탄수를 계산하지 않습니다.', '불붙거나 가스에 노출된 뒤 이어지는 지속 피해는 처치 탄수에 더하지 않습니다.', '주 총열과 하부 화염방사기를 전환해 사용합니다. 화염방사 모드의 처치 탄수는 계산하지 않습니다.'],
+    modeDetails: {
+      underbarrel: {
+        magazine: 50,
+        spareRounds: null,
+        rpm: null,
+        reload: 2.3,
+        reloadTactical: 2.3,
+        ap: 4,
+        dot: { element: 'fire', perSecond: 150, duration: null, raw: '{{Damage|Fire| 150 DPS}}' },
+        fuel: true,
+        modeNotes: ['사거리는 약 20m(1인칭 측정)이고, 연료를 가득 채우면 약 6.1초 동안 계속 분사합니다.'],
+      },
+    },
     image: 'SMGFLAM-34 Stoker Primary Icon.png',
     sourceRevision: 141944,
     variants: [
@@ -3415,6 +3434,20 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: [],
+    modeDetails: {
+      total: {
+        direct: 85,
+        durable: 23,
+        ap: 2,
+        splash: null,
+        splashDurable: null,
+        splashAp: null,
+        radius: null,
+        innerRadius: null,
+        ammoAll: true,
+        modeNotes: ['엎드리지 않은 채 22발보다 많이 한꺼번에 쏘면 오른팔에 15 피해를 입고 넘어집니다.'],
+      },
+    },
     image: 'VG-70_Variable_Primary_Render.png',
     sourceRevision: 142085,
     variants: [],
@@ -4199,6 +4232,19 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: ['유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.'],
+    modeDetails: {
+      guided: {
+        direct: 1000,
+        durable: 1000,
+        ap: 5,
+        splash: 300,
+        splashDurable: 300,
+        splashAp: 3,
+        radius: 4,
+        innerRadius: 2,
+        modeNotes: ['피해는 비유도 사격과 같습니다.', '목표를 고정해야만 발사됩니다. 중형·대형·초대형 적을 최대 100m 거리에서 1초 동안 조준하면 고정됩니다.', '미사일은 고정한 적을 따라 날아가고, 닿지 못하면 스스로 폭발합니다.', '유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.'],
+      },
+    },
     image: 'P-33 Missile Pistol Secondary Render.png',
     sourceRevision: 140479,
     variants: [
@@ -4642,6 +4688,19 @@ export const personalWeapons = [
     fuseType: null,
     fuseOptions: [],
     playerNotes: ['안내 페이지에는 예비 탄창이 8개로 적혀 있으나, 최신 게임 수치인 7개를 표시합니다.', '유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.'],
+    modeDetails: {
+      guided: {
+        direct: 80,
+        durable: 20,
+        ap: 3,
+        splash: null,
+        splashDurable: null,
+        splashAp: null,
+        radius: null,
+        innerRadius: null,
+        modeNotes: ['피해는 비유도 사격과 같습니다.', '목표를 고정해야만 발사됩니다. 소형·중형·대형 적을 최대 60m 거리에서 약 0.5초 만에 고정하며, 초대형 적은 고정할 수 없습니다.', '탄이 고정한 적을 향해 휘어 날아가며, 휘는 각도는 약 40도까지입니다.', '유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.'],
+      },
+    },
     image: 'P-92_Warrant_Secondary_Render.png',
     sourceRevision: 140486,
     variants: [

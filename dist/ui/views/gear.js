@@ -24,7 +24,7 @@ const SORTS = [
 ];
 
 let root, ctx;
-const state = { tab: 'browse', cat: 'primary', type: '', q: '', sort: '', detail: null, pushedDetail: false };
+const state = { tab: 'browse', cat: 'primary', type: '', q: '', sort: '', detail: null, variant: '', pushedDetail: false };
 
 // --- Pieces ------------------------------------------------------------------------
 export function weaponArt(w, cls = 'gear-art') {
@@ -110,7 +110,7 @@ function visibleItems() {
 
 function syncUrl() {
   const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
-  ctx.replace({ view: 'gear', id: state.detail, query });
+  ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
 function renderBrowse() {
@@ -132,12 +132,16 @@ function detailRows(w) {
   const s = L('초', 's'), perSecond = L('/초', '/s');
   if (w.direct != null && w.damageKind === 'dps') add(L('광선 피해', 'Beam damage'), num(w.direct), perSecond, L('비추고 있는 동안', 'While the beam is on target'));
   else if (w.direct != null) add(w.pellets > 1 ? L('펠릿당 피해', 'Damage per pellet') : L('직격 피해', 'Direct damage'), num(w.direct), '', w.pellets > 1 ? L(`${w.pellets}발 모두 맞으면 ${num(w.direct * w.pellets)}`, `${num(w.direct * w.pellets)} if all ${w.pellets} hit`) : L('장갑에 막히지 않을 때', 'When armor does not stop it'));
+  // Only firing modes carry ammoPerShot (all barrels at once, a volley).
+  if (w.ammoPerShot > 1 && w.direct != null) add(L('한 번에 발사', 'Fired at once'), num(w.ammoPerShot), L('발', ''), L(`모두 맞으면 ${num(w.direct * (w.pellets || 1) * w.ammoPerShot)}`, `${num(w.direct * (w.pellets || 1) * w.ammoPerShot)} if all hit`));
+  // Fires whatever is left in the magazine (Variable "Total"), so the full magazine is the most.
+  if (w.ammoAll && w.direct != null && w.magazine != null) add(L('한 번에 발사', 'Fired at once'), num(w.magazine), L('발', ''), L(`남은 탄 전부 · 가득 차 있으면 모두 맞을 때 ${num(w.direct * w.magazine)}`, `Every round left · ${num(w.direct * w.magazine)} if a full magazine all hits`));
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
   if (apOf(w) != null) add(L('관통력', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
   if (w.splash != null) add(L('폭발 피해', 'Blast damage'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
   if (w.shrapnelCount) add(L('파편', 'Fragments'), num(w.shrapnelCount), L('개', ''), L('폭발 1회당 · 다 맞지는 않음', 'Per explosion · not all of them hit'));
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
-  if (w.magazine != null) add(L('탄창', 'Magazine'), num(w.magazine), L('발', ''));
+  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
   if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
   if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
   if (w.heatCapacity?.raw) add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · 방열판 교체로 재장전`, `About ${w.heatCapacity.shots} shots · reload by swapping the heatsink`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink'));
@@ -169,18 +173,54 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-export function weaponDetail(w, { header = null, titleId = 'sheet-title' } = {}) {
+const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
+
+// An underbarrel attachment has its own ammo, fire rate and reload; a mode the
+// shot calculator skips starts with no damage numbers of its own.
+const GUN_FIELDS = { spareMags: null, spareRounds: null, rpm: null, rpmModes: null, reload: null, reloadTactical: null, heatCapacity: null };
+const NO_DAMAGE = { direct: null, durable: null, ap: null, splash: null, splashAp: null, radius: null, innerRadius: null, pellets: 1, shrapnelCount: null };
+
+// A firing mode (personal-profiles) over the weapon's own numbers, then that
+// mode's display details (modeDetails, scripts/personal-display.mjs). A pellet
+// hit condition counts every round fired at once, so it is split back per round.
+// Burn damage is listed for the whole weapon; modeDetails says which mode has it.
+function modeView(w, m) {
+  const extra = w.modeDetails?.[m.id];
+  if (m.unsupported && !extra) return null;
+  let own = NO_DAMAGE;
+  if (!m.unsupported) {
+    const hit = m.hitCondition;
+    const pellets = hit?.kind === 'pellets' && hit.max % m.ammoPerShot === 0 ? hit.max / m.ammoPerShot : 1;
+    const blast = m.explosion > 0;
+    own = { direct: m.standard, durable: m.durable, ap: m.ap, pellets, magazine: m.magazine, ammoPerShot: m.ammoPerShot,
+      splash: blast ? m.explosion : null, splashAp: blast ? m.explosionAp : null, radius: m.radius, innerRadius: m.innerRadius, shrapnelCount: null };
+  }
+  return { ...w, dot: null, ...(m.id === 'underbarrel' ? GUN_FIELDS : {}), ...own, ...extra };
+}
+
+// Modes the player switches between get tabs, like the stratagem modes in the arsenal.
+function modeTabs(w, modes, current) {
+  return html`<div class="variant-tabs"><h3>${L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map(m => html`<button type="button" data-variant="${m.id}" aria-pressed="${String(m === current)}">${m.name}</button>`)}</div></div>
+    ${modes.map(m => {
+      const v = modeView(w, m);
+      return html`<div class="variant-panel" data-variant-panel="${m.id}" ${m === current ? '' : raw('hidden')}>${v
+        ? html`${detailGrid(v)}${blastFigure(v)}${v.modeNotes?.length ? html`<ul class="notes">${v.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`
+        : html`<p class="variant-note">${m.unsupported}</p>`}</div>`;
+    })}`;
+}
+
+export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
   const group = groupOf(w.category);
   const conflicts = w.infoboxConflicts || [];
   const image = weaponImages[w.id];
+  const modes = personalProfiles[w.id]?.modes || [];
+  const current = modes.find(m => m.id === variant) || modes[0];
   return html`${header ?? html`<div class="sheet-top"><span>${group.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`}
   <div class="sheet-content">
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
-    <dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>
-    ${blastFigure(w)}
-    ${variantTable(w)}
+    ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">
@@ -203,7 +243,7 @@ function openDetail(id) {
     label: `${T(displayName(w))} ${L('상세', 'details')}`,
     onClose: () => {
       if (state.detail !== id) return;
-      state.detail = null;
+      state.detail = null; state.variant = '';
       if (state.pushedDetail) { state.pushedDetail = false; history.back(); } else syncUrl();
     },
   });
@@ -295,8 +335,26 @@ export function mount(container, context) {
     if (target.dataset.tabPick) { state.tab = target.dataset.tabPick; showTab(); syncUrl(); }
     else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
     else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; renderBrowse(); syncUrl(); }
-    else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: ctx.route.query }); }
+    else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
   });
+  // Mode buttons inside the sheet live outside `root`; register that listener once.
+  if (!sheetListener) {
+    sheetListener = event => {
+      if (document.body.dataset.view !== 'gear') return;
+      const pick = event.target.closest('[data-variant]');
+      if (pick) selectVariant(pick.dataset.variant);
+    };
+    $('#sheet').addEventListener('click', sheetListener);
+  }
+}
+let sheetListener = null;
+
+function selectVariant(id) {
+  state.variant = id;
+  const sheet = $('#sheet');
+  for (const button of $$('[data-variant]', sheet)) button.setAttribute('aria-pressed', String(button.dataset.variant === id));
+  for (const panel of $$('[data-variant-panel]', sheet)) panel.hidden = panel.dataset.variantPanel !== id;
+  syncUrl();
 }
 
 export function update(route) {
@@ -318,6 +376,6 @@ export function update(route) {
   }
   showTab();
   const id = weaponById.has(route.id) ? route.id : null;
-  if (id && id !== state.detail) { state.detail = id; openDetail(id); }
-  else if (!id && state.detail) { state.detail = null; state.pushedDetail = false; ctx.closeSheet(); }
+  if (id && id !== state.detail) { state.detail = id; state.variant = personalProfiles[id]?.modes.some(m => m.id === q.m) ? q.m : ''; openDetail(id); }
+  else if (!id && state.detail) { state.detail = null; state.variant = ''; state.pushedDetail = false; ctx.closeSheet(); }
 }
