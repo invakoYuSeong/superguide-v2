@@ -814,12 +814,19 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .gear-modes td small { display: inline; color: var(--text-3); margin-left: 1px; }
 .gear-attach { min-width: 460px; }
 .gear-attach th, .gear-attach td { padding: 8px 8px; }
-.gear-attach tbody th[scope="rowgroup"] { width: auto; background: var(--surface-2); color: var(--accent-text); font-size: 13px; font-weight: 750; }
+/* Slot rows read as subheadings: no fill (the header row has one), accent text, a little air above. */
+.gear-attach tbody th[scope="rowgroup"] { width: auto; background: none; color: var(--accent-text); font-size: 12.5px; font-weight: 750; letter-spacing: .02em; padding-top: 16px; border-bottom: 1px solid var(--line-strong); }
+.gear-attach tbody:first-of-type th[scope="rowgroup"] { padding-top: 10px; }
 .gear-attach td { white-space: nowrap; }
 .gear-attach td:last-child { white-space: normal; }
 .attach-effects { list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--text-2); }
 .attach-effects b { color: var(--text); font-weight: 700; }
 .attach-note { font-size: 12.5px; margin-top: 8px; }
+/* Folding header: the section title with the attachment count, like the other disclosures. */
+.gear-attach-block > summary { padding: 4px 0; }
+.gear-attach-block > summary h3 { margin: 0; }
+.gear-attach-block[open] > summary { margin-bottom: 8px; }
+.attach-count { margin-left: auto; font-size: 12.5px; font-weight: 600; color: var(--text-3); }
 /* Narrow panes (phone sheet, warbond item pane): name, unlock and cost on one line, the stat changes below. */
 .gear-attach-block { container-type: inline-size; }
 @container (max-width: 520px) {
@@ -828,7 +835,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
   .gear-attach tr { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; }
   .gear-attach tr > * { border-bottom: 0; }
   .gear-attach tr > :last-child { grid-column: 1 / -1; padding-top: 0; border-bottom: 1px solid var(--line); }
-  .gear-attach thead tr > :last-child { border-bottom: 2px solid var(--accent); padding-top: 4px; }
+  /* One header line: name, unlock, cost. The stat changes under each name need no column label. */
+  .gear-attach thead tr > * { border-bottom: 2px solid var(--accent); }
+  .gear-attach thead tr > :last-child { display: none; }
   .gear-attach tr.attach-slot > th { padding-top: 8px; }
 }
 

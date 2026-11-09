@@ -256,13 +256,14 @@ export function attachmentTable(w) {
       <td>${item.builtIn ? L('기본 장착', 'Built in') : item.cost != null ? num(item.cost) : unconfirmed}</td>
       <td>${effects == null ? unconfirmed : effects.length ? html`<ul class="attach-effects">${effects.map(e => html`<li>${e.label} <b>${e.text}</b></li>`)}</ul>` : html`<span class="faint">${L('변화 없음', 'No change')}</span>`}</td></tr>`;
   };
-  return html`<section class="block gear-block gear-attach-block"><h3>${L('커스터마이징', 'Customization')}</h3>
+  // Long lists (up to two dozen attachments), so the section starts folded.
+  return html`<details class="block gear-block gear-attach-block disclosure"><summary><h3>${L('커스터마이징', 'Customization')}</h3><span class="attach-count">${L(`부착물 ${list.length}개`, `${list.length} attachments`)}</span></summary>
     <div class="compare-scroll" role="region" aria-label="${L('부착물', 'Attachments')}" tabindex="0"><table class="compare-table gear-modes gear-attach">
       <thead><tr><th scope="col">${L('부착물', 'Attachment')}</th><th scope="col">${L('해금', 'Unlock')}</th><th scope="col">${L('비용', 'Cost')}</th><th scope="col">${L('변동 수치', 'Stat changes')}</th></tr></thead>
       ${slots.map(slot => html`<tbody><tr class="attach-slot"><th scope="rowgroup" colspan="4">${slotName(slot)}</th></tr>${list.filter(item => attachmentParts[item.part].slot === slot).map(row)}</tbody>`)}
     </table></div>
     <p class="faint attach-note">${L('+/-와 %는 기본 상태 대비 변화, 탄창 용량과 탄창 수, 재장전 시간은 장착했을 때의 값입니다. 해금은 무기 레벨, 비용은 요청 신청서 기준입니다. 부착물 이름은 영어 표기입니다.', 'Signed numbers and percentages are changes from the base weapon; capacity, magazine counts and reload times are the values with the attachment fitted. Unlock is the weapon level; cost is in Requisition Slips.')} ${external(`${w.source}#Attachments`, L('위키 부착물 표', 'Wiki attachments table'))}</p>
-  </section>`;
+  </details>`;
 }
 
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
