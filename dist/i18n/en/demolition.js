@@ -141,4 +141,8 @@ export default {
   "철거력 60이 필요해 휴대용 지옥폭탄, 지옥폭탄, SEAF 소형 핵탄두로만 파괴할 수 있습니다. 솔로 사일로는 철거력이 모자랍니다. 주변의 워프 게이트는 따로 부숴야 적이 그만 나옵니다.": "It needs demolition force 60, so only the Portable Hellbomb, the Hellbomb or the SEAF Mini-Nuke can destroy it. The Solo Silo lacks the demolition force. The Warp Gateways around it keep spawning enemies until they are destroyed separately.",
   "위키에 탑의 필요 철거력이 없어, 철거력 10은 위키 수치가 아니라 이 사이트가 정한 값입니다. 송신기 판의 체력은 위키에 없어 계산하지 않습니다.": "The wiki gives no demolition force for the tower, so the 10 here is a value set by this site, not a wiki figure. The wiki gives no health for the transmitter plates, so they are not calculated.",
   "체력 계산은 눈(체력 700, 장갑 1) 기준입니다. 눈을 정면에서 맞히는 조건입니다.": "Health math uses the eye (health 700, armor 1). Assumes you hit the eye from the front.",
+  "워프 게이트": "Warp Gateway",
+  "게이트 외부": "Gateway Exterior",
+  "열린 중앙 구멍 안쪽": "Inside the Open Aperture",
+  "중앙 구멍이 열려 일루미닛이 나올 때 수류탄 등 폭발을 안에 넣으면 철거력 20으로 부서집니다. 바깥에서는 철거력 40 공격이나, 장갑 5를 뚫는 공격으로 체력 1,500을 깎아 부술 수 있습니다. 부서진 뒤 몇 초 후 크게 폭발해 헬다이버가 넘어지니 바로 피하세요.": "When the center aperture opens to bring in Illuminate, a blast inside it (a grenade, for example) destroys it with demolition force 20. From outside, use a demolition force 40 attack, or wear down its 1,500 health with attacks that penetrate armor 5. A few seconds after it is destroyed it explodes hard enough to knock Helldivers down, so get away at once.",
 };

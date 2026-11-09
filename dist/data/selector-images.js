@@ -630,7 +630,7 @@ export const pickerStructureImages = {
     "kind": "faction",
     "note": "진영 공통 아이콘"
   },
-  "lightning-spire": {
+  "warp-gate": {
     "src": "./assets/pickers/faction-illuminate.svg",
     "title": "Illuminate Icon.svg",
     "source": "https://helldivers.wiki.gg/wiki/File:Illuminate_Icon.svg",
@@ -645,6 +645,20 @@ export const pickerStructureImages = {
     "license": "Arrowhead",
     "kind": "faction",
     "note": "진영 공통 아이콘"
+  },
+  "lightning-spire": {
+    "src": "./assets/pickers/structure-lightning-spire.png",
+    "title": "Lightning Spire Active Icon Render.png",
+    "source": "https://helldivers.wiki.gg/wiki/File:Lightning_Spire_Active_Icon_Render.png",
+    "originalUrl": "https://helldivers.wiki.gg/images/Lightning_Spire_Active_Icon_Render.png?1fe126",
+    "assetUrl": "https://helldivers.wiki.gg/images/thumb/Lightning_Spire_Active_Icon_Render.png/256px-Lightning_Spire_Active_Icon_Render.png?1fe126",
+    "width": 256,
+    "height": 256,
+    "sha256": "cec33a4a01dbb2bac73058b771452f6eddf3603aa9fe12a09e37a1a773fba6fa",
+    "retrievedAt": "2026-11-09",
+    "uploader": "Lord GONK",
+    "license": "",
+    "kind": "portrait"
   },
   "disruptor-psu": {
     "src": "./assets/pickers/structure-disruptor-psu.svg",

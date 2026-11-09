@@ -74,7 +74,7 @@ for (const structure of structures.filter(item => item.page)) {
   }
 }
 for (const id of ['stalker-lair', 'infested-tower', 'spore-lung', 'bio-processor', 'megafactory-gate', 'terrorist-memorial',
-  'transmission-network', 'cooling-tower', 'gazer', 'gazer-spire']) ok(byId.get(id)?.page, `${id}: added with its wiki page`);
+  'transmission-network', 'cooling-tower', 'gazer', 'gazer-spire', 'warp-gate']) ok(byId.get(id)?.page, `${id}: added with its wiki page`);
 
 // --- User-specified thresholds ---------------------------------------------------------
 // Where the wiki gives no threshold, the user may set one (thresholdSource 'user').

@@ -11,7 +11,7 @@ const TITLES = [
   'Stalker Lair', 'Cleanse Infested District', 'Destroy Spore Lung',
   'Enemy Bio-Processors', 'Automaton Megafactory', 'Erase Terrorist Memorials', 'Anti-Air Emplacement',
   'Mortar Emplacement', 'Bunker Turret', 'Destroy Transmission Network', 'Sabotage Air Base', 'Halt Cyborg Production',
-  'Gazer', 'Gazer Spire',
+  'Gazer', 'Gazer Spire', 'Warp Gateway',
 ];
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
