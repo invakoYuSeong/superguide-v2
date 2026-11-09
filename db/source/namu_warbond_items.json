@@ -1,0 +1,654 @@
+{
+ "source": "https://namu.wiki/w/HELLDIVERS%202/%EB%B6%80%EC%8A%A4%ED%84%B0",
+ "license": "CC BY-NC-SA 2.0 KR",
+ "retrievedAt": "2026-11-09",
+ "pages": [
+  {"title": "HELLDIVERS 2/부스터", "source": "https://namu.wiki/w/HELLDIVERS%202/%EB%B6%80%EC%8A%A4%ED%84%B0", "status": 200, "modifiedAt": "2026-11-06T05:24:46.000Z"},
+  {"title": "HELLDIVERS 2/치장", "source": "https://namu.wiki/w/HELLDIVERS%202/%EC%B9%98%EC%9E%A5", "status": 200, "modifiedAt": "2026-10-09T10:24:52.000Z"},
+  {"title": "HELLDIVERS 2/스토어", "source": "https://namu.wiki/w/HELLDIVERS%202/%EC%8A%A4%ED%86%A0%EC%96%B4", "status": 200, "modifiedAt": "2026-11-06T04:48:21.000Z"}
+ ],
+ "boosters": [
+  {"name": "헬포드 공간 최적화", "en": "Hellpod Space Optimization"},
+  {"name": "생명력 증진", "en": "Vitality Enhancement"},
+  {"name": "UAV 정찰 부스터", "en": "UAV Recon Booster"},
+  {"name": "스태미나 증진", "en": "Stamina Enhancement"},
+  {"name": "근육 증진", "en": "Muscle Enhancement"},
+  {"name": "증원 예산 증액", "en": "Increased Reinforcement Budget"},
+  {"name": "유동적 증원 예산", "en": "Flexible Reinforcement Budget"},
+  {"name": "위치 정보 교란", "en": "Localization Confusion"},
+  {"name": "탈출 전문 파일럿", "en": "Expert Extraction Pilot"},
+  {"name": "동기 부여 충격", "en": "Motivational Shocks"},
+  {"name": "실험용 주입", "en": "Experimental Infusion"},
+  {"name": "화염 폭탄 헬포드", "en": "Firebomb Hellpods"},
+  {"name": "데드 스프린트", "en": "Dead Sprint"},
+  {"name": "무장 재보급 포드", "en": "Armed Resupply Pods"},
+  {"name": "샘플 해방자", "en": "Sample Extricator"},
+  {"name": "샘플 스캐너", "en": "Sample Scanner"},
+  {"name": "기절 포드", "en": "Stun Pods"},
+  {"name": "투입 은폐", "en": "Concealed Insertion"},
+  {"name": "초과 EAT 할당", "en": "Surplus EAT Allocation"},
+  {"name": "통합 화재 진압기", "en": "Integrated Extinguishers"}
+ ],
+ "titles": [
+  {"name": "사관생도", "en": "Cadet"},
+  {"name": "우주 사관생도", "en": "Space Cadet"},
+  {"name": "병장", "en": "Sergeant"},
+  {"name": "상사", "en": "Master Sergeant"},
+  {"name": "원사", "en": "Chief"},
+  {"name": "우주 주임원사", "en": "Space Chief Prime"},
+  {"name": "죽음의 대령", "en": "Death Captain"},
+  {"name": "원수", "en": "Marshal"},
+  {"name": "우주 원수", "en": "Star Marshal"},
+  {"name": "제독", "en": "Admiral"},
+  {"name": "해골 제독", "en": "Skull Admiral"},
+  {"name": "함대 제독", "en": "Fleet Admiral"},
+  {"name": "영예로운 제독", "en": "Admirable Admiral"},
+  {"name": "사령관", "en": "Commander"},
+  {"name": "은하 사령관", "en": "Galactic Commander"},
+  {"name": "지옥 사령관", "en": "Hell Commander"},
+  {"name": "장군", "en": "General"},
+  {"name": "5성 장군", "en": "5-Star General"},
+  {"name": "10성 장군", "en": "10-Star General"},
+  {"name": "훈련병", "en": "Private"},
+  {"name": "슈퍼 훈련병", "en": "Super Private"},
+  {"name": "5성 슈퍼 훈련병", "en": "5-Star Super Private"},
+  {"name": "10성 슈퍼 훈련병", "en": "10-Star Super Private"},
+  {"name": "레인저", "en": "Ranger"},
+  {"name": "이글 클래스 레인저", "en": "Ranger, Eagle Class"},
+  {"name": "볼드 이글 클래스 레인저", "en": "Ranger, Bald Eagle Class"},
+  {"name": "다이브마스터", "en": "Divemaster"},
+  {"name": "퍼스트 다이브마스터", "en": "First Divemaster"},
+  {"name": "다이브마스터 메이저", "en": "Divemaster Major"},
+  {"name": "커맨드 다이브마스터 메이저", "en": "Command Divemaster Major"},
+  {"name": "마스터 다이브마스터", "en": "Master Divemaster"},
+  {"name": "마스터 다이브마스터 메이저 오메가", "en": "Master Divemaster Major Omega"},
+  {"name": "최대 랭크", "en": "Max Rank"},
+  {"name": "최대 랭크 무한", "en": "Max Rank Infinity"},
+  {"name": "최대 랭크 무한+1", "en": "Max Rank Infinity +1"},
+  {"name": "300 랭크", "en": "Rank 300"},
+  {"name": "슈퍼 시민", "en": "Super Citizen"},
+  {"name": "독사 특공대", "en": "Viper Commados"},
+  {"name": "소방 안전 장교", "en": "Fire Safety Officer"},
+  {"name": "박멸 전문가", "en": "Expert Exterminator"},
+  {"name": "사상의 자유", "en": "Free Of Thought"},
+  {"name": "슈퍼 보행자", "en": "Super Pedestrian"},
+  {"name": "자유의 종복", "en": "Servant of Freedom"},
+  {"name": "명예로운 영웅", "en": "Decorated Hero"},
+  {"name": "추가 사법", "en": "Extra Judicial"},
+  {"name": "모범적인 실험 대상", "en": "Exemplary Subject"},
+  {"name": "루키", "en": "Rookie"},
+  {"name": "머리를 묻는 자", "en": "Burier of Heads"},
+  {"name": "돌격 보병", "en": "Assault Infantry"}
+ ],
+ "boards": [
+  {
+   "warbond": "헬다이버 출동!",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "자유를 불러오는 자", "cost": 1},
+      {"kind": "승리포즈", "name": "박수", "cost": 1},
+      {"kind": "망토", "name": "자유를 불러오는 자", "cost": 2}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "핑거 건", "cost": 2},
+      {"kind": "플레이어 카드", "name": "해방의 전령", "cost": 1},
+      {"kind": "망토", "name": "해방의 전령", "cost": 3}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "플레이어 카드", "name": "전세를 바꾸는 자", "cost": 2},
+      {"kind": "부스터", "name": "헬포드 공간 최적화", "cost": 15},
+      {"kind": "감정표현", "name": "격렬한 악수", "cost": 8},
+      {"kind": "망토", "name": "전세를 바꾸는 자", "cost": 5}
+     ]
+    },
+    {
+     "number": 4,
+     "items": [
+      {"kind": "감정표현", "name": "포옹", "cost": 20},
+      {"kind": "플레이어 카드", "name": "별과 투표권", "cost": 2},
+      {"kind": "부스터", "name": "생명력 증진", "cost": 20},
+      {"kind": "망토", "name": "별과 투표권의 망토", "cost": 8}
+     ]
+    },
+    {
+     "number": 5,
+     "items": [
+      {"kind": "플레이어 카드", "name": "흠잡을 데 없는 충성", "cost": 4},
+      {"kind": "감정표현", "name": "하이파이브", "cost": 20},
+      {"kind": "망토", "name": "흠잡을 데 없는 충성", "cost": 12}
+     ]
+    },
+    {
+     "number": 6,
+     "items": [
+      {"kind": "승리포즈", "name": "플렉스", "cost": 10},
+      {"kind": "플레이어 카드", "name": "심판의 날", "cost": 6},
+      {"kind": "부스터", "name": "UAV 정찰 부스터", "cost": 40},
+      {"kind": "망토", "name": "심판의 날", "cost": 15}
+     ]
+    },
+    {
+     "number": 7,
+     "items": [
+      {"kind": "부스터", "name": "스태미나 증진", "cost": 75},
+      {"kind": "플레이어 카드", "name": "최고의 명예", "cost": 7},
+      {"kind": "감정표현", "name": "스카우트 악수", "cost": 35},
+      {"kind": "망토", "name": "최고의 명예", "cost": 15}
+     ]
+    },
+    {
+     "number": 8,
+     "items": [
+      {"kind": "감정표현", "name": "가위 바위 보", "cost": 50},
+      {"kind": "플레이어 카드", "name": "진정한 시민권 망토", "cost": 10},
+      {"kind": "망토", "name": "진정한 시민권의 망토", "cost": 25}
+     ]
+    },
+    {
+     "number": 9,
+     "items": [
+      {"kind": "부스터", "name": "근육 증진", "cost": 70},
+      {"kind": "플레이어 카드", "name": "불타는 사마리아인", "cost": 15},
+      {"kind": "승리포즈", "name": "느슨하게", "cost": 30},
+      {"kind": "망토", "name": "불타는 사마리아인", "cost": 30}
+     ]
+    },
+    {
+     "number": 10,
+     "items": [
+      {"kind": "승리포즈", "name": "크게 환호하기", "cost": 50},
+      {"kind": "부스터", "name": "증원 예산 증액", "cost": 150},
+      {"kind": "플레이어 카드", "name": "영원한 해방의 빛", "cost": 20},
+      {"kind": "망토", "name": "영원한 해방의 빛", "cost": 40}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "결연한 베테랑",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "독재자 사냥꾼", "cost": 2},
+      {"kind": "승리포즈", "name": "슈퍼 인간", "cost": 8},
+      {"kind": "망토", "name": "독재자 사냥꾼", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "롤 뎀", "cost": 15},
+      {"kind": "플레이어 카드", "name": "후세의 감사 망토", "cost": 5},
+      {"kind": "망토", "name": "후세의 감사 망토", "cost": 16},
+      {"kind": "망토", "name": "영광의 휘장", "cost": 16}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "플레이어 카드", "name": "온전함의 보루", "cost": 16},
+      {"kind": "부스터", "name": "유동적 증원 예산", "cost": 75},
+      {"kind": "승리포즈", "name": "다음은 너다", "cost": 32},
+      {"kind": "망토", "name": "온전함의 보루", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "최첨단",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "봇 학살자", "cost": 2},
+      {"kind": "부스터", "name": "위치 정보 교란", "cost": 18},
+      {"kind": "승리포즈", "name": "머리 톡", "cost": 8},
+      {"kind": "망토", "name": "봇 학살자", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "산탄총 쇼", "cost": 15},
+      {"kind": "플레이어 카드", "name": "순교자의 왕", "cost": 5},
+      {"kind": "망토", "name": "순교자의 왕", "cost": 20}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "플레이어 카드", "name": "망각의 사자", "cost": 16},
+      {"kind": "승리포즈", "name": "그럴듯함", "cost": 32},
+      {"kind": "망토", "name": "망각의 사자", "cost": 30}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "민주적 폭파",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "승리포즈", "name": "쪼그려 앉기", "cost": 8},
+      {"kind": "플레이어 카드", "name": "진정한 평등의 전령", "cost": 2},
+      {"kind": "망토", "name": "진정한 평등의 전령", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "플레이어 카드", "name": "독수리의 분노", "cost": 5},
+      {"kind": "부스터", "name": "탈출 전문 파일럿", "cost": 55},
+      {"kind": "망토", "name": "독수리의 분노", "cost": 20},
+      {"kind": "승리포즈", "name": "신사적인 인사", "cost": 15}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "승리포즈", "name": "복서", "cost": 32},
+      {"kind": "플레이어 카드", "name": "자유의 태피스트리", "cost": 16},
+      {"kind": "망토", "name": "자유의 태피스트리", "cost": 30}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "극지의 애국자",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "승리포즈", "name": "에어 기타", "cost": 8},
+      {"kind": "망토", "name": "반동분자의 악몽", "cost": 8},
+      {"kind": "플레이어 카드", "name": "반동분자의 악몽", "cost": 2},
+      {"kind": "부스터", "name": "동기 부여 충격", "cost": 15}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "헬다이버 호출", "cost": 15},
+      {"kind": "플레이어 카드", "name": "영원한 영광의 톱니바퀴", "cost": 5},
+      {"kind": "망토", "name": "영원한 영광의 톱니바퀴", "cost": 20}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "망토", "name": "투표 숭배단", "cost": 30},
+      {"kind": "플레이어 카드", "name": "투표 숭배단", "cost": 16},
+      {"kind": "승리포즈", "name": "투표 용지 배분", "cost": 32}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "독사 특공대",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "선홍색 송곳니의 표식", "cost": 2},
+      {"kind": "패턴", "name": "덤불 헬포드 패턴", "cost": 20},
+      {"kind": "망토", "name": "선홍색 송곳니의 표식", "cost": 8},
+      {"kind": "승리포즈", "name": "환영식", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "자유의 근육", "cost": 15},
+      {"kind": "플레이어 카드", "name": "처형자의 덮개", "cost": 5},
+      {"kind": "망토", "name": "처형자의 덮개", "cost": 20},
+      {"kind": "패턴", "name": "덤불 수송선 패턴", "cost": 50}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "칭호", "name": "독사 특공대", "cost": 20},
+      {"kind": "패턴", "name": "덤불 엑소슈트 패턴", "cost": 50},
+      {"kind": "패턴", "name": "덤불 차량 패턴", "cost": 55},
+      {"kind": "감정표현", "name": "신념 테스트", "cost": 80},
+      {"kind": "부스터", "name": "실험용 주입", "cost": 80}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "자유의 불길",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "정화의 일식", "cost": 2},
+      {"kind": "패턴", "name": "안전 오렌지 헬포드 패턴", "cost": 10},
+      {"kind": "망토", "name": "정화의 일식", "cost": 8},
+      {"kind": "승리포즈", "name": "기지개", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "승리포즈", "name": "사색", "cost": 15},
+      {"kind": "플레이어 카드", "name": "돌파", "cost": 5},
+      {"kind": "망토", "name": "돌파", "cost": 20},
+      {"kind": "패턴", "name": "안전 오렌지 수송선 패턴", "cost": 25}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "패턴", "name": "안전 오렌지 엑소슈트 패턴", "cost": 40},
+      {"kind": "부스터", "name": "화염 폭탄 헬포드", "cost": 60},
+      {"kind": "패턴", "name": "안전 오렌지 차량 패턴", "cost": 55},
+      {"kind": "감정표현", "name": "환희의 흉부 충돌 동작", "cost": 35},
+      {"kind": "칭호", "name": "소방 안전 장교", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "화학 요원",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "승리포즈", "name": "우웩", "cost": 8},
+      {"kind": "망토", "name": "표준 안전 거리", "cost": 8},
+      {"kind": "플레이어 카드", "name": "표준 안전 거리", "cost": 2},
+      {"kind": "패턴", "name": "머스터드 헬포드 패턴", "cost": 20}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "패턴", "name": "머스터드 수송선 패턴", "cost": 50},
+      {"kind": "플레이어 카드", "name": "최초 감염자를 기리며", "cost": 5},
+      {"kind": "망토", "name": "최초 감염자를 기리며", "cost": 20}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "패턴", "name": "머스터드 차량 패턴", "cost": 55},
+      {"kind": "패턴", "name": "머스터드 엑소슈트 패턴", "cost": 50},
+      {"kind": "칭호", "name": "박멸 전문가", "cost": 20},
+      {"kind": "감정표현", "name": "천연가스 추출", "cost": 70}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "진리의 집행자",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "패턴", "name": "눈에 띄지 않는 블랙 엑소슈트 패턴", "cost": 50},
+      {"kind": "부스터", "name": "데드 스프린트", "cost": 35},
+      {"kind": "패턴", "name": "눈에 띄지 않는 블랙 헬포드 패턴", "cost": 10}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "패턴", "name": "눈에 띄지 않는 블랙 수송선 패턴", "cost": 50},
+      {"kind": "플레이어 카드", "name": "내부 고발자의 자부심", "cost": 5},
+      {"kind": "망토", "name": "내부 고발자의 자부심", "cost": 20}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "플레이어 카드", "name": "흠 없는 미덕의 증거", "cost": 15},
+      {"kind": "감정표현", "name": "쉬어", "cost": 50},
+      {"kind": "패턴", "name": "눈에 띄지 않는 블랙 차량 패턴", "cost": 55},
+      {"kind": "망토", "name": "흠 없는 미덕의 증거", "cost": 30},
+      {"kind": "칭호", "name": "사상의 자유", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "도시 전설",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "보강 결의", "cost": 2},
+      {"kind": "패턴", "name": "콘크리트 정글 헬포드 패턴", "cost": 20},
+      {"kind": "망토", "name": "보강 결의의 대형 망토", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "부스터", "name": "무장 재보급 포드", "cost": 55},
+      {"kind": "플레이어 카드", "name": "황색 선을 긋는 자", "cost": 5},
+      {"kind": "패턴", "name": "콘크리트 정글 수송선 패턴", "cost": 50},
+      {"kind": "망토", "name": "황색 선을 긋는 자", "cost": 20}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "패턴", "name": "콘크리트 정글 차량 패턴", "cost": 55},
+      {"kind": "패턴", "name": "콘크리트 정글 엑소슈트 패턴", "cost": 50},
+      {"kind": "감정표현", "name": "이것이 민주주의다", "cost": 50},
+      {"kind": "칭호", "name": "슈퍼 보행자", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "자유의 종복",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "자유의 힘", "cost": 2},
+      {"kind": "망토", "name": "자유의 힘", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "망토", "name": "민주주의의 힘", "cost": 25},
+      {"kind": "플레이어 카드", "name": "민주주의의 힘", "cost": 7}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "감정표현", "name": "무기 높이 들기", "cost": 55},
+      {"kind": "칭호", "name": "자유의 종복", "cost": 25}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "정의의 경계선",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "망토", "name": "현상금 수확자", "cost": 8},
+      {"kind": "플레이어 카드", "name": "현상금 수확자", "cost": 2}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "망토", "name": "탄띠의 길", "cost": 25},
+      {"kind": "플레이어 카드", "name": "탄띠의 길", "cost": 7}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "감정표현", "name": "모자 인사", "cost": 55},
+      {"kind": "부스터", "name": "샘플 해방자", "cost": 65},
+      {"kind": "칭호", "name": "슈퍼 보안관", "cost": 25}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "의장의 달인",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "연방의 포옹", "cost": 2},
+      {"kind": "망토", "name": "연방의 포옹", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "플레이어 카드", "name": "겸손의 휘장", "cost": 2},
+      {"kind": "망토", "name": "겸손의 휘장", "cost": 8}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "감정표현", "name": "발 맞춰 걷기", "cost": 55},
+      {"kind": "부스터", "name": "샘플 스캐너", "cost": 65},
+      {"kind": "칭호", "name": "명예로운 영웅", "cost": 25}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "법의 위력",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "감정표현", "name": "신호: 대기", "cost": 20},
+      {"kind": "플레이어 카드", "name": "미란다의 유산", "cost": 2},
+      {"kind": "패턴", "name": "트루 블루 헬포드 패턴", "cost": 20},
+      {"kind": "망토", "name": "미란다의 유산", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "부스터", "name": "기절 포드", "cost": 55},
+      {"kind": "감정표현", "name": "신호: 침묵", "cost": 20},
+      {"kind": "패턴", "name": "트루 블루 수송선 패턴", "cost": 50},
+      {"kind": "플레이어 카드", "name": "마더 이글의 날개", "cost": 7},
+      {"kind": "망토", "name": "마더 이글의 날개", "cost": 25}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "패턴", "name": "트루 블루 차량 패턴", "cost": 55},
+      {"kind": "칭호", "name": "추가 사법", "cost": 20},
+      {"kind": "패턴", "name": "트루 블루 엑소슈트 패턴", "cost": 50},
+      {"kind": "감정표현", "name": "신호: 그룹 형성", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "대조군",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "뛰어난 지휘관", "cost": 2},
+      {"kind": "망토", "name": "뛰어난 지휘관", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "망토", "name": "계략을 넘어선 승리", "cost": 25},
+      {"kind": "플레이어 카드", "name": "계략을 넘어선 승리", "cost": 7}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "감정표현", "name": "고막 보호", "cost": 55},
+      {"kind": "칭호", "name": "모범적인 실험 대상", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "먼지 폭풍",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "망토", "name": "정당한 땅의 주인", "cost": 8},
+      {"kind": "패턴", "name": "방울뱀 헬포드 패턴", "cost": 20},
+      {"kind": "플레이어 카드", "name": "정당한 땅의 주인", "cost": 2}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "플레이어 카드", "name": "바람에 맞서는 길잡이", "cost": 7},
+      {"kind": "망토", "name": "바람에 맞서는 길잡이", "cost": 25},
+      {"kind": "패턴", "name": "방울뱀 수송선 패턴", "cost": 50}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "감정표현", "name": "레이더의 응원", "cost": 20},
+      {"kind": "패턴", "name": "방울뱀 엑소슈트 패턴", "cost": 50},
+      {"kind": "패턴", "name": "방울뱀 차량 패턴", "cost": 55},
+      {"kind": "칭호", "name": "머리를 묻는 자", "cost": 20}
+     ]
+    }
+   ]
+  },
+  {
+   "warbond": "민주적 궤도 강하 타격대",
+   "pages": [
+    {
+     "number": 1,
+     "items": [
+      {"kind": "플레이어 카드", "name": "영예로운 가보", "cost": 2},
+      {"kind": "패턴", "name": "민 그린 헬포드 패턴", "cost": 20},
+      {"kind": "망토", "name": "영예로운 가보", "cost": 8}
+     ]
+    },
+    {
+     "number": 2,
+     "items": [
+      {"kind": "플레이어 카드", "name": "은밀한 눈", "cost": 7},
+      {"kind": "패턴", "name": "민 그린 수송선 패턴", "cost": 50},
+      {"kind": "망토", "name": "은밀한 눈", "cost": 25}
+     ]
+    },
+    {
+     "number": 3,
+     "items": [
+      {"kind": "칭호", "name": "루키", "cost": 20},
+      {"kind": "패턴", "name": "민 그린 엑소슈트 패턴", "cost": 50},
+      {"kind": "패턴", "name": "민 그린 차량 패턴", "cost": 55}
+     ]
+    }
+   ]
+  }
+ ]
+}
