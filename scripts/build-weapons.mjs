@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { matchKoreanNames } from './fetch-weapons-source.mjs';
 import { infoboxExtras, infoboxDisagreements, reviewedConflicts } from './weapon-infobox.mjs';
 import { buildPersonalProfiles } from './personal-profiles.mjs';
-import { playerDetails, variantDisplayName, modeDetails } from './personal-display.mjs';
+import { playerDetails, variantDisplayName, modeDetails, throwChoices } from './personal-display.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'));
@@ -340,6 +340,7 @@ const personalWeapons = weapons.map(weapon => ({
   ...pick(weapon, displayFields), ...(searchAliases[weapon.id] ? { aliases: searchAliases[weapon.id] } : {}), ...pick(weapon, perHitFields),
   ...playerDetails(weapon, parseInfobox(pagesSource.pages[weapon.en].wikitext)),
   ...modeDetails(weapon, data, pagesSource.pages[weapon.en].wikitext),
+  ...throwChoices(weapon, pagesSource.pages[weapon.en].wikitext),
   image: parseInfobox(pagesSource.pages[weapon.en].wikitext).image?.replace(/\{\{\s*PAGENAME\s*\}\}/gi, weapon.en) || null,
   sourceRevision: pagesSource.pages[weapon.en].revision,
   variants: weapon.variants.map((variant, index) => ({ ...pick(variant, ['id', 'name', ...perHitFields]), displayName: variantDisplayName(weapon, variant, index) })),

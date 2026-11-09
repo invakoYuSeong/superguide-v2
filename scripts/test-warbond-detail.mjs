@@ -12,7 +12,7 @@ import { weaponDetail } from '../dist/ui/views/gear.js';
 import { stratagemDetail } from '../dist/ui/views/arsenal.js';
 import { personalProfiles } from '../dist/data/personal-profiles.js';
 import { weaponById } from '../dist/ui/gear-shared.js';
-import { modeDetails } from './personal-display.mjs';
+import { modeDetails, throwChoices } from './personal-display.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -166,6 +166,14 @@ for (const weapon of ['stoker', 'missile-pistol', 'warrant', 'variable'].map(id 
 const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
 ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
 ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');
+// Spread choices picked before throwing (Caltrops) show only where the data has them.
+for (const w of weaponById.values()) eq(String(weaponDetail(w)).includes('<dt>퍼뜨리기'), Boolean(w.spreadModes?.length), `${w.id}: spread row only with spread choices`);
+const caltrops = (await import('../db/weapons.js')).weapons.find(w => w.id === 'caltrops');
+if (caltrops) {
+  const spreadWarnings = [];
+  eq(throwChoices(caltrops, 'reworded page', message => spreadWarnings.push(message)), {}, 'reworded Caltrops page leaves the spread row out');
+  eq(spreadWarnings.length, 1, 'and warns once');
+}
 setLang('en');
 const en = String(await itemDetailContent('scope-of-authority', 'gear/sightliner'));
 ok(en.includes('Open full page') && en.includes('Back') && en.includes('Close item details'), 'new toolbar strings have English');

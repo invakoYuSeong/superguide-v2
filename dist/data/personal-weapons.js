@@ -5165,6 +5165,7 @@ export const personalWeapons = [
     fuseType: 'proximity',
     fuseOptions: [],
     playerNotes: ['가까운 대상을 감지하면 작동합니다.'],
+    spreadModes: ['narrow', 'wide'],
     image: 'G-11 Caltrops Throwable Render.png',
     sourceRevision: 141140,
     variants: [],

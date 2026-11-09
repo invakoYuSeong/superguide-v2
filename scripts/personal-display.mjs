@@ -103,6 +103,15 @@ export function modeDetails(weapon, data, wikitext, warn = message => console.wa
   return Object.keys(details).length ? { modeDetails: details } : {};
 }
 
+// Choices picked before throwing that only the wiki prose names (Caltrops spread).
+// A reworded page leaves it out with a build warning instead of failing the build.
+export function throwChoices(weapon, wikitext, warn = message => console.warn(`warning: ${message}`)) {
+  if (weapon.id !== 'caltrops') return {};
+  if (/narrow spread/i.test(wikitext) && /wide spread/i.test(wikitext)) return { spreadModes: ['narrow', 'wide'] };
+  warn(`${weapon.id}: spread modes left out, wiki text no longer names narrow and wide spread`);
+  return {};
+}
+
 export function playerDetails(weapon, box) {
   const fuse = fuseDetails(box.fuse, weapon.category);
   const playerNotes = [];
