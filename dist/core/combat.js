@@ -49,11 +49,12 @@ function directDamage(attack, part, directHit) {
   if (known(attack.ap) && attack.ap < part.armor) return 0;
   if (![attack.ap, part.durability, part.armor].every(known)) return null;
   // Durability blends normal and durable damage by the part's durable share.
+  // Above 100% (Megafactory Gates, 800%) the blend can fall below zero: no damage.
   const d = part.durability;
   let blended = null;
   if (d === 0) blended = attack.standard;
   else if (d === 100) blended = attack.durable;
-  else if (known(attack.standard) && known(attack.durable)) blended = floor(attack.standard * (1 - d / 100) + attack.durable * d / 100);
+  else if (known(attack.standard) && known(attack.durable)) blended = Math.max(0, floor(attack.standard * (1 - d / 100) + attack.durable * d / 100));
   return known(blended) ? floor(blended * armorFactor(attack.ap, part.armor)) : null;
 }
 

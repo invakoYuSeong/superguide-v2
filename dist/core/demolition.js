@@ -6,6 +6,7 @@
 //  2. Health - some structures also have a health pool that normal damage
 //     can wear down.
 // Unknown force or damage stays unknown; it is never read as "cannot".
+// A route whose threshold is unverified (null) never passes or fails on force.
 import { hitDamage, known } from './combat.js';
 
 export const forceRange = value => value == null ? null : typeof value === 'number' ? { min: value, max: value } : value;
@@ -18,7 +19,7 @@ function checkForce(route, attack) {
     const force = forceRange(attack[kind]);
     let verdict = 'short';
     if (route.explosiveOnly && kind === 'direct') verdict = 'n/a';
-    else if (attack.forceUnknown) verdict = 'unknown';
+    else if (attack.forceUnknown || route.threshold == null) verdict = 'unknown';
     else if (force?.min >= route.threshold) verdict = 'pass';
     else if (force?.max >= route.threshold) verdict = 'unknown'; // conflicting sources straddle the threshold
     // The Warp Ship hull's non-explosive route is disputed except for verified attacks.
@@ -41,7 +42,7 @@ export function healthDamage(structure, attack) {
 
 /**
  * outcome: demolish | health | conditional | blocked | unknown
- * conditions: [{ kind: 'opening'|'aim'|'shield'|'jammer', text? }]
+ * conditions: [{ kind: 'opening'|'aim'|'shield'|'jammer'|'anti-air', text? }]
  */
 export function solveDemolition(structure, profile, attack, { shieldCleared = false, jammerDisabled = false } = {}) {
   const base = { structure, outcome: 'unknown', method: null, route: null, via: null, hits: null, unit: attack?.unit || '발', conditions: [], routes: [], health: null };
@@ -57,7 +58,7 @@ export function solveDemolition(structure, profile, attack, { shieldCleared = fa
   if (outer) Object.assign(result, { outcome: 'demolish', method: 'force', route: outer.route, via: outer.via, reason: outer.via === 'explosion' ? 'force-blast' : 'force-direct' });
   else if (health?.hits) Object.assign(result, { outcome: 'health', method: 'health', hits: health.hits, reason: 'health' });
   else if (opening) Object.assign(result, { outcome: 'demolish', method: 'force', route: opening.route, via: opening.via, reason: 'force-opening' });
-  else if (routes.some(row => row.verdict === 'unknown')) result.reason = 'force-unknown';
+  else if (routes.some(row => row.verdict === 'unknown')) result.reason = structure.routes.every(route => route.threshold == null) ? 'threshold-unknown' : 'force-unknown';
   else if (structure.health && !health) result.reason = 'health-unknown';
   else Object.assign(result, { outcome: 'blocked', reason: health ? 'blocked-armor' : 'blocked-force' });
 
@@ -66,6 +67,7 @@ export function solveDemolition(structure, profile, attack, { shieldCleared = fa
     if (profile.conditionalAim) result.conditions.push({ kind: 'aim', text: profile.note });
     if (structure.condition === 'shield' && !shieldCleared && !(attack.shieldBypass && !result.route?.opening)) result.conditions.push({ kind: 'shield' });
     if (structure.condition === 'jammer' && profile.requiresCallIn && !jammerDisabled) result.conditions.push({ kind: 'jammer' });
+    if (structure.condition === 'anti-air' && profile.eagle) result.conditions.push({ kind: 'anti-air' });
     if (result.conditions.length) result.outcome = 'conditional';
   }
   return result;

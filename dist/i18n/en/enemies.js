@@ -312,6 +312,7 @@ export default {
   "관심 지점 공통 표식": "Shared point-of-interest marker",
   "진영 공통 아이콘": "Shared faction icon",
   "인지 교란기 목표 표식": "Cognitive Disruptor objective marker",
+  "임무 표식": "Mission marker",
   "작은 근접 벌레입니다. 머리는 치명 부위이며 다리 하나의 파괴는 처치와 다릅니다.": "A small melee bug. The head is a fatal part, and destroying one leg is not the same as a kill.",
   "일반 스캐빈저와 부위 체력은 같지만 사망 시 포자를 방출합니다. 불타는 상태에서 죽으면 포자를 방출하지 않습니다. 사망 시 폭발과 다른 적에 대한 연쇄 피해는 합산하지 않습니다.": "Same part health as a regular Scavenger, but it releases spores on death. It does not release spores if it dies while burning. The death explosion and chain damage to other enemies are not added.",
   "담즙을 뱉어 이동을 방해하는 소형 유닛입니다. 위키는 머리와 각 다리를 치명 부위로 표시하며, 스캐빈저의 다리 판정과 다릅니다.": "A small unit that spits bile to slow you down. The wiki marks the head and each leg as fatal parts, unlike the Scavenger's legs.",
