@@ -4866,7 +4866,7 @@ export const expandedEnemies = [
   },
   {
     "id": "wretch",
-    "name": "레치",
+    "name": "렛치",
     "faction": "일루미닛",
     "source": "https://helldivers.wiki.gg/wiki/Wretch",
     "sourceRevision": 133907,

@@ -115,7 +115,7 @@ export default {
   "빠르게 접근하는 전용 보병입니다. 넓은 가슴에 연사하거나 몸통 주변에 폭발을 넣으세요.": "Unique infantry that closes in fast. Spray the wide chest or land blasts around the torso.",
   "주변 병력을 지휘하는 전용 보병입니다. 골반·왼다리에 화력을 넣거나 가슴 외피를 벗겨 공격할 수 있습니다. 투구 제거 후 머리 공격은 별도 경로입니다.": "Unique infantry that commands nearby troops. You can pour fire into the pelvis and left leg, or strip the chest armor and attack. Hitting the head after removing the helmet is a separate route.",
   "팩토리 스트라이더를 대체하는 대형 병기입니다. 넓은 폭발의 위키 처치 안내와 단일 부위 계산을 구분합니다.": "A large war machine that replaces the Factory Strider. The wiki's kill guidance for wide blasts is kept separate from single-part calculations.",
-  "레치와 크러셔가 주요 일루미닛 병력을 대체합니다. 무권자·플레시몹도 함께 등장하므로 근접 압박에 대비하세요.": "Wretches and Crushers replace the main Illuminate forces. Voteless and Fleshmobs show up too, so be ready for close-range pressure.",
+  "렛치와 크러셔가 주요 일루미닛 병력을 대체합니다. 무권자·플레시몹도 함께 등장하므로 근접 압박에 대비하세요.": "Wretches and Crushers replace the main Illuminate forces. Voteless and Fleshmobs show up too, so be ready for close-range pressure.",
   "머리 파괴만으로 즉사하지 않습니다. 본체로 피해가 전달되는 다리 경로를 비교합니다.": "Destroying the head alone doesn't kill it instantly. Compare the leg routes, which transfer damage to main.",
   "장갑 4 헬멧을 제거한 뒤 머리를 공격합니다. 몸통·다리의 재생을 제외한 수치는 별도 조건입니다.": "Remove the armor 4 helmet, then attack the head. Torso and leg figures that ignore regeneration are a separate case.",
   "무권자·플레시몹의 비중이 커지는 편성입니다. 다수 대응용 무기와 고난이도 하베스터 대응 수단을 나눠 준비하세요.": "A lineup with more Voteless and Fleshmobs. Prepare separate tools for crowds and for Harvesters at high difficulties.",

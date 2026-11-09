@@ -223,7 +223,7 @@ export default {
   "다리": "Legs",
   "무권자 · 중간형": "Voteless · Medium",
   "무권자 · 중량형": "Voteless · Heavy",
-  "레치": "Wretch",
+  "렛치": "Wretch",
   "큰 발톱 한쪽": "One Claw",
   "오버시어 · 지상형": "Overseer",
   "방패를 피해서 공격할 수 있음": "Can be hit around the shield",
