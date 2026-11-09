@@ -13,7 +13,7 @@ import { pickerStructureImages, pickerEnemyImages } from '../dist/data/selector-
 import { solveDemolition, healthDamage } from '../dist/core/demolition.js';
 import { solveMatchup } from '../dist/core/combat.js';
 import { validateSvg } from './svg-safety.mjs';
-import { anatomySnapshot } from './anatomy-source.mjs';
+import { anatomySnapshot, anatomyRows } from './anatomy-source.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -53,9 +53,8 @@ const forcesOn = text => new Set([
   ...text.matchAll(/\|\s*demo_force\s*=\s*(\d+)/g), ...text.matchAll(/\|\s*df\s*=\s*(\d+)/g),
   ...text.matchAll(/demo(?:lition)? force of (?:''')?(\d+)/gi),
 ].map(match => Number(match[1])));
-const anatomyRows = text => text.split('{{Anatomy Row').slice(1).map(row => {
-  const field = name => row.match(new RegExp(`\\|\\s*${name}\\s*=\\s*([^\\n|]*)`))?.[1].trim();
-  const number = name => Number(field(name)?.replace(/[,%]/g, ''));
+const healthRows = text => anatomyRows(text).map(row => {
+  const number = name => Number(row[name]?.replace(/[,%]/g, ''));
   return { hp: number('health'), armor: number('av'), durability: number('durability'), exdr: number('exdr') };
 });
 for (const structure of structures.filter(item => item.page)) {
@@ -70,7 +69,7 @@ for (const structure of structures.filter(item => item.page)) {
   }
   if (structure.health) {
     const h = structure.health;
-    ok(anatomyRows(page.text).some(row => row.hp === h.hp && row.armor === h.armor && row.durability === h.durability && row.exdr === h.exdr),
+    ok(healthRows(page.text).some(row => row.hp === h.hp && row.armor === h.armor && row.durability === h.durability && row.exdr === h.exdr),
       `${structure.id}: health ${h.hp} / armor ${h.armor} / durability ${h.durability}% / ExDR ${h.exdr}% is an Anatomy row`);
   }
 }
@@ -132,8 +131,10 @@ for (const [id, title] of Object.entries(moved)) {
   const page = pages[title];
   ok(!byId.has(id) && !pickerStructureImages[id], `${id}: no longer a demolition structure`);
   ok(enemy?.faction === '오토마톤', `${id}: an Automaton enemy`);
-  ok(enemy.source === `https://helldivers.wiki.gg/wiki/${title.replaceAll(' ', '_')}` && enemy.sourceRevision === page.revision && enemy.anatomyRevision === page.revision, `${id}: cites "${title}" revision ${page.revision}`);
-  ok(anatomy.pages[title]?.snapshot === 'wiki_structures.json', `${id}: Anatomy read from the saved structure page`);
+  ok(enemy.source === `https://helldivers.wiki.gg/wiki/${title.replaceAll(' ', '_')}` && enemy.sourceRevision === page.revision, `${id}: cites "${title}" revision ${page.revision}`);
+  // Either snapshot may hold the page (an enemy Anatomy refetch can pick it up); test-anatomy.mjs compares the rows.
+  const saved = anatomy.pages[title];
+  ok(saved?.rows.length && enemy.anatomyRevision === saved.revision, `${id}: Anatomy rows of "${title}" revision ${saved?.revision}`);
   ok(enemySizes[id] === null && typeof unmappedEnemySizes[id] === 'string', `${id}: no wiki size category, so explicitly unmapped`);
   // Every one of these pages says any anti-tank weapon destroys it in one shot.
   const { best } = solveMatchup(enemy, antiTank);

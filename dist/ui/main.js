@@ -64,12 +64,11 @@ export function openSheet(content, { wide = false, onClose = null, label = '' } 
   $('#sheet-body').scrollTop = 0;
 }
 export const closeSheet = () => sheet.open && sheet.close();
-// The dialog fires 'close' a moment after close(). When a view switch closes the sheet, the
-// next view may already have reopened it with its own handler by then; that late event must
-// not run the new handler (it would close the new sheet and navigate away).
-let skipNextClose = false;
+// The dialog fires 'close' a moment after close(). When a view switch closes the sheet, the next
+// view may already have reopened it with its own handler by then: an event that arrives while the
+// sheet is open belongs to the earlier sheet and must not run the new handler.
 sheet.addEventListener('close', () => {
-  if (skipNextClose) { skipNextClose = false; return; }
+  if (sheet.open) return;
   const done = onSheetClose; onSheetClose = null; done?.();
 });
 sheet.addEventListener('click', event => {
@@ -126,7 +125,7 @@ async function handle() {
   current = { view: route.view, module, route };
   if (switched) {
     onSheetClose = null; // the leaving view's close handler must not navigate
-    if (sheet.open) { skipNextClose = true; sheet.close(); }
+    closeSheet();
     // A fresh container per visit, so a view's listeners never pile up.
     const container = document.createElement('div');
     root.replaceChildren(container);

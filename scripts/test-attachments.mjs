@@ -148,7 +148,8 @@ for (const part of Object.values(attachmentParts)) if (part.effects) ok(attachme
 
 setLang('en');
 const english = String(weaponDetail(liberator));
-ok(english.includes('<h3>Customization</h3>') && english.includes('>Optics</th>') && english.includes('Level ') && !/[가-힣]/.test(english.slice(english.indexOf('gear-attach-block'), english.indexOf('</section>', english.indexOf('gear-attach-block')))), 'English customization section has no Korean');
+ok(english.indexOf('</details>', english.indexOf('gear-attach-block')) > english.indexOf('gear-attach-block'), 'the customization block ends with its own </details>');
+ok(english.includes('<h3>Customization</h3>') && english.includes('>Optics</th>') && english.includes('Level ') && !/[가-힣]/.test(english.slice(english.indexOf('gear-attach-block'), english.indexOf('</details>', english.indexOf('gear-attach-block')))), 'English customization section has no Korean');
 // Every attachment shows its English name in the English edition.
 for (const [id, list] of Object.entries(weaponAttachments)) {
   const content = String(weaponDetail(personalWeapons.find(w => w.id === id)));
