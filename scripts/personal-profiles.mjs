@@ -59,13 +59,13 @@ export function buildPersonalProfiles(weapons, data, pages, checkedAt) {
       }
     }
     if (['missile-pistol', 'warrant'].includes(weapon.id)) {
-      modes = [makeMode(weapon, weapon, 'unguided', '비유도 · 한 발'),
+      modes = [makeMode(weapon, weapon, 'unguided', '비유도'),
         { id: 'guided', name: '유도 사격', unsupported: '어떤 적을 겨냥할 수 있고 어느 부위에 맞는지 확인되지 않아 유도 사격은 계산하지 않습니다.' }];
     }
-    if (['bushwhacker', 'double-freedom'].includes(weapon.id)) modes.push({ ...makeMode(weapon, weapon, 'all-barrels', '모든 총열 동시 발사'), ammoPerShot: weapon.barrels, hitCondition: { kind: 'pellets', min: 1, max: weapon.pellets * weapon.barrels } });
+    if (['bushwhacker', 'double-freedom'].includes(weapon.id)) modes.push({ ...makeMode(weapon, weapon, 'all-barrels', '일제 사격'), ammoPerShot: weapon.barrels, hitCondition: { kind: 'pellets', min: 1, max: weapon.pellets * weapon.barrels } });
     if (weapon.id === 'variable') modes.push(
-      { ...makeMode(weapon, weapon, 'volley', '일곱 총열 일제 사격'), ammoPerShot: 7, hitCondition: { kind: 'pellets', min: 1, max: 7, projectileName: '탄환' } },
-      { id: 'total', name: '잔탄 전체 발사', unsupported: '총에 남아 있는 탄약 수를 알 수 없어 한꺼번에 쐈을 때의 피해를 계산하지 않습니다.' },
+      { ...makeMode(weapon, weapon, 'volley', '일제 사격'), ammoPerShot: 7, hitCondition: { kind: 'pellets', min: 1, max: 7, projectileName: '탄환' } },
+      { id: 'total', name: '전탄 발사', unsupported: '총에 남아 있는 탄약 수를 알 수 없어 한꺼번에 쐈을 때의 피해를 계산하지 않습니다.' },
     );
     // Shrapnel is part of this shot, never a selectable standalone mode.
     if (weapon.shrapnelCount > 0) {

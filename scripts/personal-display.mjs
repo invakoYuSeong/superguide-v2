@@ -38,6 +38,72 @@ export function variantDisplayName(weapon, variant, index) {
   return '기본 사격';
 }
 
+// What a firing-mode panel on the gear page shows beyond the calculator profile
+// (personal-profiles.mjs), keyed by mode id. Numbers come from the datamine or
+// the infobox; facts from wiki prose are matched against their sentence, so a
+// changed sentence fails the build instead of leaving a stale note.
+const DAMAGE_FIELDS = ['direct', 'durable', 'ap', 'splash', 'splashDurable', 'splashAp', 'radius', 'innerRadius'];
+export function modeDetails(weapon, data, wikitext) {
+  const evidence = (pattern, what) => { if (!pattern.test(wikitext)) throw new Error(`${weapon.id}: ${what} evidence changed`); };
+  const damageOf = stats => Object.fromEntries(DAMAGE_FIELDS.map(key => [key, stats[key] ?? null]));
+  const details = {};
+  for (const linked of weapon.linkedAttacks) {
+    const record = data.weapons[linked.dataKey];
+    if (!record) throw new Error(`${weapon.id}: missing underbarrel record ${linked.dataKey}`);
+    // The infobox lists the main barrel first, then the underbarrel ("2.8s (12mm)<br> 2.3s (Flamethrower)").
+    const second = field => {
+      const values = weapon.reloadDetails?.find(detail => detail.field === field)?.values ?? [];
+      return values.length === 2 && values[1].label ? values[1].seconds : null;
+    };
+    const spray = weapon.variants.find(v => v.attack?.parent === linked.dataKey && v.delivery === 'spray');
+    details.underbarrel = {
+      magazine: record.cap ?? null,
+      spareRounds: record.roundtype === 'rounds' ? record.rounds ?? null : null,
+      // With one round per reload a fire rate says nothing about the attachment.
+      rpm: record.cap > 1 ? record.rpm ?? null : null,
+      reload: second('reload_time'), reloadTactical: second('tac_reload_time'),
+    };
+    if (spray) {
+      // The wiki's whole-weapon fire damage belongs to the flamethrower: the main rounds carry no element.
+      if (weapon.element || spray.element !== weapon.dot?.element) throw new Error(`${weapon.id}: fire damage no longer belongs to the flamethrower`);
+      evidence(/same damage, range \(20m, measured in first person\), and capacity \(50\)/, 'flamethrower range');
+      evidence(/enough fuel for 6\.1 seconds of continuous fire/, 'flamethrower fuel time');
+      Object.assign(details.underbarrel, { ap: spray.ap, dot: weapon.dot, fuel: true,
+        modeNotes: ['사거리는 약 20m(1인칭 측정)이고, 연료를 가득 채우면 약 6.1초 동안 계속 분사합니다.'] });
+    }
+  }
+  if (['missile-pistol', 'warrant'].includes(weapon.id)) {
+    // The datamine has two projectile records without saying which one is guided;
+    // the guided panel may only reuse the numbers while both are the same.
+    const shots = weapon.variants.filter(v => v.delivery === 'projectile');
+    if (shots.length !== 2 || shots.some(v => JSON.stringify(damageOf(v)) !== JSON.stringify(damageOf(weapon)))) throw new Error(`${weapon.id}: guided and unguided projectiles differ`);
+    evidence(/guided shots always target center mass/, 'center-mass aim');
+    const notes = weapon.id === 'missile-pistol' ? (() => {
+      evidence(/'valid target' is any Medium, Large, or Massive enemy/, 'lock-on targets');
+      evidence(/Maximum lock-on distance is '''100 m\.'''/, 'lock-on distance');
+      evidence(/same as the \[\[FAF-14 Spear\]\], which is one second/, 'lock-on time');
+      evidence(/If it cannot reach its target, it will self-detonate/, 'self-detonation');
+      return ['목표를 고정해야만 발사됩니다. 중형·대형·초대형 적을 최대 100m 거리에서 1초 동안 조준하면 고정됩니다.',
+        '미사일은 고정한 적을 따라 날아가고, 닿지 못하면 스스로 폭발합니다.'];
+    })() : (() => {
+      evidence(/'valid target' is any Small, Medium, or Large size enemy - it cannot lock on to Massive enemies/, 'lock-on targets');
+      evidence(/Maximum lock-on distance is 60 meters/, 'lock-on distance');
+      evidence(/approximately half a second/, 'lock-on time');
+      evidence(/doesn't exceed 40°~ of curvature/, 'curve limit');
+      return ['목표를 고정해야만 발사됩니다. 소형·중형·대형 적을 최대 60m 거리에서 약 0.5초 만에 고정하며, 초대형 적은 고정할 수 없습니다.',
+        '탄이 고정한 적을 향해 휘어 날아가며, 휘는 각도는 약 40도까지입니다.'];
+    })();
+    details.guided = { ...damageOf(weapon), modeNotes: ['피해는 비유도 사격과 같습니다.', ...notes, '유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.'] };
+  }
+  if (weapon.id === 'variable') {
+    evidence(/'''Total:''' Fires all remaining ammunition in the magazine\./, 'total fires the magazine');
+    evidence(/deal 15 damage to the \[\[Helldiver\]\]'s right arm and ragdoll them if not prone and when firing more than 22 rounds at once/, 'total self-damage');
+    details.total = { ...damageOf(weapon), ammoAll: true,
+      modeNotes: ['엎드리지 않은 채 22발보다 많이 한꺼번에 쏘면 오른팔에 15 피해를 입고 넘어집니다.'] };
+  }
+  return Object.keys(details).length ? { modeDetails: details } : {};
+}
+
 export function playerDetails(weapon, box) {
   const fuse = fuseDetails(box.fuse, weapon.category);
   const playerNotes = [];

@@ -134,12 +134,14 @@ function detailRows(w) {
   else if (w.direct != null) add(w.pellets > 1 ? L('펠릿당 피해', 'Damage per pellet') : L('직격 피해', 'Direct damage'), num(w.direct), '', w.pellets > 1 ? L(`${w.pellets}발 모두 맞으면 ${num(w.direct * w.pellets)}`, `${num(w.direct * w.pellets)} if all ${w.pellets} hit`) : L('장갑에 막히지 않을 때', 'When armor does not stop it'));
   // Only firing modes carry ammoPerShot (all barrels at once, a volley).
   if (w.ammoPerShot > 1 && w.direct != null) add(L('한 번에 발사', 'Fired at once'), num(w.ammoPerShot), L('발', ''), L(`모두 맞으면 ${num(w.direct * (w.pellets || 1) * w.ammoPerShot)}`, `${num(w.direct * (w.pellets || 1) * w.ammoPerShot)} if all hit`));
+  // Fires whatever is left in the magazine (Variable "Total"), so the full magazine is the most.
+  if (w.ammoAll && w.direct != null && w.magazine != null) add(L('한 번에 발사', 'Fired at once'), num(w.magazine), L('발', ''), L(`남은 탄 전부 · 가득 차 있으면 모두 맞을 때 ${num(w.direct * w.magazine)}`, `Every round left · ${num(w.direct * w.magazine)} if a full magazine all hits`));
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
   if (apOf(w) != null) add(L('관통력', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
   if (w.splash != null) add(L('폭발 피해', 'Blast damage'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
   if (w.shrapnelCount) add(L('파편', 'Fragments'), num(w.shrapnelCount), L('개', ''), L('폭발 1회당 · 다 맞지는 않음', 'Per explosion · not all of them hit'));
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
-  if (w.magazine != null) add(L('탄창', 'Magazine'), num(w.magazine), L('발', ''));
+  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
   if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
   if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
   if (w.heatCapacity?.raw) add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · 방열판 교체로 재장전`, `About ${w.heatCapacity.shots} shots · reload by swapping the heatsink`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink'));
@@ -173,29 +175,38 @@ function variantTable(w) {
 
 const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
 
-// A firing mode (personal-profiles) over the weapon's own numbers. A pellet hit
-// condition counts every round fired at once, so it is split back per round.
+// An underbarrel attachment has its own ammo, fire rate and reload; a mode the
+// shot calculator skips starts with no damage numbers of its own.
+const GUN_FIELDS = { spareMags: null, spareRounds: null, rpm: null, rpmModes: null, reload: null, reloadTactical: null, heatCapacity: null };
+const NO_DAMAGE = { direct: null, durable: null, ap: null, splash: null, splashAp: null, radius: null, innerRadius: null, pellets: 1, shrapnelCount: null };
+
+// A firing mode (personal-profiles) over the weapon's own numbers, then that
+// mode's display details (modeDetails, scripts/personal-display.mjs). A pellet
+// hit condition counts every round fired at once, so it is split back per round.
+// Burn damage is listed for the whole weapon; modeDetails says which mode has it.
 function modeView(w, m) {
-  const hit = m.hitCondition;
-  const pellets = hit?.kind === 'pellets' && hit.max % m.ammoPerShot === 0 ? hit.max / m.ammoPerShot : 1;
-  const blast = m.explosion > 0;
-  const own = { direct: m.standard, durable: m.durable, ap: m.ap, pellets, magazine: m.magazine, ammoPerShot: m.ammoPerShot,
-    splash: blast ? m.explosion : null, splashAp: blast ? m.explosionAp : null, radius: m.radius, innerRadius: m.innerRadius, shrapnelCount: null,
-    // The wiki gives burn damage for the whole weapon, not per mode; modeTabs shows it once below the panels.
-    dot: null };
-  // An underbarrel attachment has its own ammo, fire rate and reload, which the data does not have.
-  const gun = m.id === 'underbarrel' ? { spareMags: null, spareRounds: null, rpm: null, rpmModes: null, reload: null, reloadTactical: null, heatCapacity: null } : {};
-  return { ...w, ...own, ...gun };
+  const extra = w.modeDetails?.[m.id];
+  if (m.unsupported && !extra) return null;
+  let own = NO_DAMAGE;
+  if (!m.unsupported) {
+    const hit = m.hitCondition;
+    const pellets = hit?.kind === 'pellets' && hit.max % m.ammoPerShot === 0 ? hit.max / m.ammoPerShot : 1;
+    const blast = m.explosion > 0;
+    own = { direct: m.standard, durable: m.durable, ap: m.ap, pellets, magazine: m.magazine, ammoPerShot: m.ammoPerShot,
+      splash: blast ? m.explosion : null, splashAp: blast ? m.explosionAp : null, radius: m.radius, innerRadius: m.innerRadius, shrapnelCount: null };
+  }
+  return { ...w, dot: null, ...(m.id === 'underbarrel' ? GUN_FIELDS : {}), ...own, ...extra };
 }
 
 // Modes the player switches between get tabs, like the stratagem modes in the arsenal.
 function modeTabs(w, modes, current) {
   return html`<div class="variant-tabs"><h3>${L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map(m => html`<button type="button" data-variant="${m.id}" aria-pressed="${String(m === current)}">${m.name}</button>`)}</div></div>
     ${modes.map(m => {
-      const v = m.unsupported ? null : modeView(w, m);
-      return html`<div class="variant-panel" data-variant-panel="${m.id}" ${m === current ? '' : raw('hidden')}>${v ? html`${detailGrid(v)}${blastFigure(v)}` : html`<p class="variant-note">${m.unsupported}</p>`}${v && m.id === 'underbarrel' ? html`<p class="variant-note">${L('하부 부착 무기의 연사·재장전·예비 탄약은 자료에 없어 표시하지 않습니다.', 'The underbarrel attachment\'s fire rate, reload and spare ammo are not in the data, so they are not shown.')}</p>` : ''}</div>`;
-    })}
-    ${w.dot?.perSecond != null ? detailGrid({ dot: w.dot }) : ''}`;
+      const v = modeView(w, m);
+      return html`<div class="variant-panel" data-variant-panel="${m.id}" ${m === current ? '' : raw('hidden')}>${v
+        ? html`${detailGrid(v)}${blastFigure(v)}${v.modeNotes?.length ? html`<ul class="notes">${v.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`
+        : html`<p class="variant-note">${m.unsupported}</p>`}</div>`;
+    })}`;
 }
 
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
@@ -209,8 +220,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
-    ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}`}
-    ${variantTable(w)}
+    ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">

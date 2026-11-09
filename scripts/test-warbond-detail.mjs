@@ -115,11 +115,33 @@ for (const [id, profile] of multiMode) {
   ok(content.includes(`data-variant="${profile.modes[0].id}" aria-pressed="true"`), `${id}: first mode selected by default`);
 }
 ok(!String(weaponDetail(weaponById.get('liberator'))).includes('data-variant'), 'single-mode weapon has no mode tabs');
+ok(String(weaponDetail(weaponById.get('eruptor'))).includes('gear-modes'), 'single-mode weapon keeps its component table');
+// One panel's text, so a check cannot pass on another mode's numbers.
+const panel = (content, id) => content.split(`data-variant-panel="${id}"`)[1]?.split('data-variant-panel=')[0] ?? '';
+const tabNames = id => [...String(weaponDetail(weaponById.get(id))).matchAll(/data-variant="[^"]+" aria-pressed="\w+">([^<]+)/g)].map(m => m[1]);
+eq(tabNames('double-freedom'), ['기본 사격', '일제 사격'], 'Double Freedom mode names');
+eq(tabNames('bushwhacker'), ['기본 사격', '일제 사격'], 'Bushwhacker mode names');
+eq(tabNames('variable'), ['기본 사격', '일제 사격', '전탄 발사'], 'Variable mode names');
+for (const id of ['missile-pistol', 'warrant']) eq(tabNames(id), ['비유도', '유도 사격'], `${id} mode names`);
+for (const [id] of multiMode) ok(!String(weaponDetail(weaponById.get(id))).includes('gear-modes'), `${id}: mode tabs replace the component table`);
 const doubleFreedom = String(weaponDetail(weaponById.get('double-freedom'), { variant: 'all-barrels' }));
 ok(doubleFreedom.includes('data-variant="all-barrels" aria-pressed="true"') && doubleFreedom.includes('data-variant-panel="standard" hidden'), 'weapon detail selects the given mode');
-ok(/data-variant-panel="all-barrels"[\s\S]*한 번에 발사[\s\S]*2<small>발[\s\S]*모두 맞으면 1,680/.test(doubleFreedom), 'all barrels at once: 2 shells of 12 pellets × 70');
+ok(/한 번에 발사[\s\S]*2<small>발[\s\S]*모두 맞으면 1,680/.test(panel(doubleFreedom, 'all-barrels')), 'volley: 2 shells of 12 pellets × 70');
 const stoker = String(weaponDetail(weaponById.get('stoker')));
-ok(!/data-variant-panel="standard"[^]*?화상 피해[^]*?data-variant-panel="underbarrel"/.test(stoker) && stoker.includes('화상 피해'), 'whole-weapon burn damage stays outside the mode panels');
+ok(!panel(stoker, 'standard').includes('화상 피해') && panel(stoker, 'standard').includes('AP 2'), 'Stoker main barrel: no burn damage, AP 2');
+const flamer = panel(stoker, 'underbarrel');
+ok(flamer.includes('화상 피해') && flamer.includes('AP 4') && /연료[\s\S]*50/.test(flamer) && /재장전[\s\S]*2.3/.test(flamer) && flamer.includes('6.1초'), 'Stoker flamethrower: burn, AP 4, fuel 50, 2.3 s reload, spray time');
+ok(!flamer.includes('130'), 'Stoker flamethrower does not borrow the main barrel damage');
+const arbitrator = panel(String(weaponDetail(weaponById.get('arbitrator'))), 'underbarrel');
+ok(/예비탄[\s\S]*20/.test(arbitrator) && /연사[\s\S]*80/.test(arbitrator) && !arbitrator.includes('1,200') && !arbitrator.includes('예비 탄창'), 'Arbitrator underbarrel: its own spare rounds and fire rate, not the main gun\'s');
+const oneTwo = panel(String(weaponDetail(weaponById.get('one-two'))), 'underbarrel');
+ok(/예비탄[\s\S]*5/.test(oneTwo) && /재장전[\s\S]*2.5/.test(oneTwo) && !oneTwo.includes('연사'), 'One-Two underbarrel: 5 spare rounds, 2.5 s reload, no fire rate for a one-round magazine');
+const total = panel(String(weaponDetail(weaponById.get('variable'))), 'total');
+ok(/한 번에 발사[\s\S]*49[\s\S]*4,165/.test(total) && total.includes('22발') && !total.includes('계산하지 않습니다'), 'Variable total: up to 49 rounds, 4,165 with a full magazine, self-damage warning');
+for (const id of ['missile-pistol', 'warrant']) {
+  const guided = panel(String(weaponDetail(weaponById.get(id))), 'guided');
+  ok(guided.includes('직격 피해') && guided.includes('목표를 고정해야만 발사됩니다') && guided.includes('몸 중앙') && !guided.includes('계산하지 않습니다'), `${id}: guided fire has numbers and how lock-on works`);
+}
 const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
 ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
 ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');

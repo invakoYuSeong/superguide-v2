@@ -398,7 +398,7 @@ export const personalProfiles = {
       },
       {
         id: 'all-barrels',
-        name: '모든 총열 동시 발사',
+        name: '일제 사격',
         standard: 70,
         durable: 35,
         ap: 3,
@@ -1333,7 +1333,7 @@ export const personalProfiles = {
       },
       {
         id: 'volley',
-        name: '일곱 총열 일제 사격',
+        name: '일제 사격',
         standard: 85,
         durable: 23,
         ap: 2,
@@ -1356,7 +1356,7 @@ export const personalProfiles = {
         },
         note: '기본은 탄환이 모두 맞는다고 계산합니다. 명중률을 낮춰 다시 계산할 수 있습니다.',
       },
-      { id: 'total', name: '잔탄 전체 발사', unsupported: '총에 남아 있는 탄약 수를 알 수 없어 한꺼번에 쐈을 때의 피해를 계산하지 않습니다.' },
+      { id: 'total', name: '전탄 발사', unsupported: '총에 남아 있는 탄약 수를 알 수 없어 한꺼번에 쐈을 때의 피해를 계산하지 않습니다.' },
     ],
   },
   'stun-lance': {
@@ -1685,7 +1685,7 @@ export const personalProfiles = {
     modes: [
       {
         id: 'unguided',
-        name: '비유도 · 한 발',
+        name: '비유도',
         standard: 1000,
         durable: 1000,
         ap: 5,
@@ -1842,7 +1842,7 @@ export const personalProfiles = {
     modes: [
       {
         id: 'unguided',
-        name: '비유도 · 한 발',
+        name: '비유도',
         standard: 80,
         durable: 20,
         ap: 3,
@@ -1909,7 +1909,7 @@ export const personalProfiles = {
       },
       {
         id: 'all-barrels',
-        name: '모든 총열 동시 발사',
+        name: '일제 사격',
         standard: 54,
         durable: 15,
         ap: 2,
