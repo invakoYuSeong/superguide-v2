@@ -377,7 +377,7 @@ const css = await readFile(new URL('dist/ui/app.css', root), 'utf8');
 ok(/\.wb-board\s*\{[^}]*grid-template-columns:\s*repeat\(var\(--wb-cols, 5\)/.test(css) && /@container \(max-width: 520px\)/.test(css), 'board CSS: 5-column grid with a narrow (container) layout');
 ok(/\.wb-board\[data-tier="premium"\], \.wb-board\[data-tier="legendary"\]\s*\{[^}]*--tile-hatch: #71f1fb/.test(css), 'premium and legendary share the teal hatch until more in-game evidence is available');
 ok(/\.wb-tile-img\s*\{[^}]*object-fit:\s*contain/.test(css), 'raster and SVG tiles preserve their aspect ratio');
-ok(/\.wb-tile\[data-kind="title"\] \.wb-tile-img\s*\{[^}]*brightness\(0\) invert\(1\) drop-shadow/.test(css), 'title glyphs stay white with a dark shadow on black and teal tiles');
+ok(/\.wb-tile\[data-kind="title"\] \.wb-tile-img\s*\{[^}]*drop-shadow/.test(css) && !/\.wb-tile\[data-kind="title"\] \.wb-tile-img\s*\{[^}]*(?:brightness|invert|grayscale)/.test(css), 'title badges keep their colours, with a dark shadow on black and teal tiles');
 
 // CSS/markup contract: SC rewards have no detail link, so their amount must stay
 // visible on touch screens. Keep the compact treatment inside the narrow query.
