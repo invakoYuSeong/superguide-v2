@@ -170,8 +170,17 @@ for (const expected of golden.selections) {
 }
 
 // --- Factions ------------------------------------------------------------------
-let picks = 0;
+// Picks the legacy engine recorded must still match, in the same order. Guides added after
+// the recording (Caustic and Noxious Strains) are not in it; their picks must still resolve.
+const recorded = new Set(golden.factions.map(item => `${item.guide}/${item.enemy}/${item.choice}`));
+let picks = 0, addedPicks = 0;
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
+  if (!recorded.has(`${guide.id}/${unit.enemy}/${choice}`)) {
+    const pick = recommend(unit, choice, findEnemy(unit.enemy));
+    assert(pick.adviceOnly || pick.route, `${guide.id}/${unit.enemy}/${choice}: a pick added after the recording resolves to a route or advice`);
+    addedPicks++;
+    continue;
+  }
   const expected = golden.factions[picks++];
   assert.deepEqual([expected.guide, expected.enemy, expected.choice], [guide.id, unit.enemy, choice]);
   const pick = recommend(unit, choice, legacyEnemy(findEnemy(unit.enemy)));
@@ -193,4 +202,4 @@ for (const expected of golden.defense) {
   assert.deepEqual([0, cap / 2, cap, -1, undefined].map(value => shieldRecovery(item.defense, value)), expected.recovery, expected.id);
 }
 
-console.log(`PASS parity: ${golden.combat.length} matchups (${beamCarried} beam routes now carry past armor, ${addedRows} rows for re-checked anatomy, ${legacyReplayed.size} enemies replayed on legacy values), ${golden.demolition.length} demolition cases, ${golden.selections.length} overviews, ${picks} faction picks match ${golden.generatedFrom}.`);
+console.log(`PASS parity: ${golden.combat.length} matchups (${beamCarried} beam routes now carry past armor, ${addedRows} rows for re-checked anatomy, ${legacyReplayed.size} enemies replayed on legacy values), ${golden.demolition.length} demolition cases, ${golden.selections.length} overviews, ${picks} faction picks match ${golden.generatedFrom} (+${addedPicks} added since).`);

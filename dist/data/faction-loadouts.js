@@ -142,4 +142,38 @@ export const factionLoadouts = {
     pick('solo-silo', 'sarcophagus', '중앙부 복합 폭발 · 거리 확보', '중앙부에서 두 폭발이 주변 부위에 닿도록 노립니다. 작은 충돌 폭발까지 닿아야 하며 근접 사용을 피하세요.'),
     pick('recoilless', 'sarcophagus', '반복 대전차 사격 · 엄폐 필요', '일회성 장비가 없을 때 정면 석관에 대전차탄을 반복 명중시킵니다. 탄약·정지 재장전 부담이 있습니다.'),
   ],
+  // Caustic Strain (wiki Caustic_Strain rev 142183, Tactical Information): they burst in bile when they die, so the
+  // picks keep distance; the wiki suggests long-range options for the Caustic Spewer and guided ones in the Charger's fog.
+  'bile-spitter': [
+    pick('stalwart', 'body', '거리 유지 · 이동 재장전', '죽을 때 터지는 담즙에 닿지 않도록 거리를 두고 몸통에 연사합니다. 뒤로 물러나며 재장전할 수 있습니다.'),
+    pick('machine-gun', 'body', '거리 유지 · 정지 재장전', '멀리서 몸통을 맞혀 터지는 담즙을 피합니다. 재장전할 때 멈추므로 엄폐를 확보하세요.'),
+  ],
+  'bile-warrior': [
+    pick('autocannon', 'head', '원거리 머리 한 발 · 정지 재장전', '다가오기 전에 머리를 맞혀 처치합니다. 죽을 때 담즙이 터지므로 가까이 붙기 전에 끝내세요.'),
+    pick('anti-materiel', 'head', '원거리 정밀 사격', '먼 거리에서 머리를 한 발씩 맞힙니다. 빠르게 다가오는 여러 마리에는 연사 무기가 낫습니다.'),
+    pick('machine-gun', 'head', '머리 연사 · 거리 유지', '머리에 연사해 처치합니다. 죽을 때 터지는 담즙에 대비해 거리를 유지하세요.'),
+  ],
+  'bile-spewer-armored': [
+    pick('anti-materiel', 'head', '원거리 머리 · 박격 공격 대응', '멀리서 담즙을 박격포처럼 쏘는 커스틱 스퓨어에는 위키가 대물 저격총 같은 원거리 무기를 권합니다. 먼 거리에서 머리를 맞히세요.'),
+    pick('autocannon', 'butt', '큰 복부 직격 · 정지 재장전', '크게 드러난 복부를 직접 맞힙니다. 탄약 배낭이 필요하고 재장전할 때 멈춥니다.'),
+    pick('grenade-launcher', 'butt', '복부 폭발 · 낙차 주의', '복부에 유탄을 터뜨립니다. 먼 거리에서는 낙차를 보정해야 합니다.'),
+  ],
+  'spore-charger': [
+    pick('spear', 'head', '유도 대전차 · 포자 구름 속 표적', '포자 구름으로 시야가 가려질 때 위키가 스피어 같은 유도 무기를 권합니다. 고정한 뒤 머리를 노리세요.'),
+    pick('recoilless', 'head', '대전차 화력 · 정지 재장전', '구름 밖으로 드러난 머리를 한 발씩 노립니다. 탄약 배낭이 필요하고 재장전할 때 멈춥니다.'),
+    pick('quasar', 'head', '탄약 보급 불필요 · 충전 대기', '탄약을 아끼기 좋지만 충전 중 표적을 따라가야 합니다. 구름 속에서는 표적을 놓치기 쉽습니다.'),
+  ],
+  // Noxious Strain: its wiki page has no tactics yet. The official announcement (Steam, 2026-11-03, cited by the wiki
+  // page) suggests shotguns, flamethrowers and grenades against the scavenger and the unarmored belly of the spewer.
+  'noxious-scavenger': [
+    { ...pick('flamethrower', null, '공식 공지 추천 · 근거리 화염', '공식 공지가 녹셔스 스캐빈저에 화염방사기를 권합니다. 물리기 전에 몰려오는 무리를 태우세요.'), adviceOnly: true,
+      source: 'https://store.steampowered.com/news/app/553850/view/708913061799398450',
+      limitation: '화염 피해는 불길에 닿은 시간에 따라 달라 처치 탄수를 계산하지 않습니다. 공식 공지는 산탄총과 수류탄도 함께 권합니다.' },
+    pick('stalwart', 'body', '몸통 연사 · 이동 재장전', '무리를 넓게 쓸어내며 물러납니다. 물리면 독이 쌓이므로 거리를 유지하세요.'),
+    pick('machine-gun', 'body', '몸통 연사 · 정지 재장전', '다가오기 전에 몸통에 연사합니다. 재장전할 때 멈추므로 엄폐를 확보하세요.'),
+  ],
+  'noxious-spewer': [
+    pick('grenade-launcher', 'butt', '장갑 없는 복부 · 폭발', '공식 공지는 중장갑 머리 대신 장갑 없는 복부를 노리라고 합니다. 복부가 터지면 주변을 묶는 거미줄이 퍼지므로 거리를 두세요.'),
+    pick('autocannon', 'butt', '장갑 없는 복부 · 직격', '복부를 직접 맞혀 터뜨립니다. 거미줄 폭발 범위 밖에서 쏘세요.'),
+  ],
 };

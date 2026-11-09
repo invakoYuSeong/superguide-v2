@@ -492,7 +492,8 @@ eq(parseRoute(formatRoute({ view: 'gear', query: Object.fromEntries(new URLSearc
 eq(parseRoute('#combat').view, 'enemy', 'legacy unchanged');
 for (const faction of loadoutFactions) for (const id of faction.enemyIds) ok(enemy(id)?.faction === faction.name, 'faction checklist has existing same-faction anatomy');
 const coverage = loadoutCoverage(fixed, 'terminid');
-eq(coverage.rows.length, 11);
+// One row per checklist enemy; sub-faction guides each add their last unit (core/loadout.js).
+eq(coverage.rows.length, loadoutFactions.find(faction => faction.id === 'terminid').enemyIds.length);
 eq(coverage.gaps.length, 0, 'fixed loadout covers Terminid checklist');
 const charger = coverage.rows.find(row => row.enemyId === 'charger');
 eq([charger.best.weaponId, charger.best.modeId, charger.best.hits], ['recoilless', 'heat', 1]);
@@ -521,7 +522,7 @@ ok(emptyPrioritized.rows[0].isLarge && !emptyPrioritized.rows[0].oneShot, 'large
 eq(emptyPrioritized.rows.find(r => r.enemyId === 'gatekeeper').size, null, 'unmapped size retained in coverage');
 ok(emptyPrioritized.rows.every(r => r.oneShot === false), 'empty loadout has no one-shot answers');
 eq(loadoutCoverage({}, 'automaton').gaps.length, loadoutFactions.find(f => f.id === 'automaton').enemyIds.length, 'empty loadout gaps');
-eq(loadoutCoverage({ primary: 'breaker' }, 'terminid', { assume: { hitCount: 1 } }).gaps.length, 11, 'lower explicit hit assumption retains existing gap policy');
+eq(loadoutCoverage({ primary: 'breaker' }, 'terminid', { assume: { hitCount: 1 } }).gaps.length, loadoutFactions.find(f => f.id === 'terminid').enemyIds.length, 'lower explicit hit assumption retains existing gap policy');
 for (const loadout of [{ primary: 'eruptor' }, { throwable: 'frag' }]) {
   const row = loadoutCoverage(loadout, 'terminid').rows.find(row => row.enemyId === 'hunter-hardened');
   eq([row.status, row.best.fragmentsExcluded, row.best.assumption.count], ['route', false, row.best.mode.hitCondition.default], 'loadout uses configured default');
