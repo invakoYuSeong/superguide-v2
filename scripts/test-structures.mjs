@@ -150,4 +150,14 @@ for (const id of ['aa-emplacement', 'mortar-emplacement', 'bunker-turret']) {
   ok(route('body').hits == null && route('heatsink').hits > 0 && route('heatsink').outcome === 'kill', `${id}: AP 3 kills it only through the heatsink`);
 }
 
+// Explosion marker on the demolition page: one small wiki SVG, safe, drawn by CSS only.
+{
+  const icon = await readFile(new URL('../dist/assets/icons/damage-explosion.svg', import.meta.url));
+  ok(icon.length <= 2048, `explosion icon stays small (${icon.length} bytes)`);
+  ok((() => { try { validateSvg(icon); return true; } catch { return false; } })(), 'explosion icon passes the SVG safety check');
+  const css = await readFile(new URL('../dist/ui/app.css', import.meta.url), 'utf8');
+  ok((css.match(/damage-explosion\.svg/g) || []).length === 1, 'one CSS rule loads the explosion icon');
+  const view = await readFile(new URL('../dist/ui/views/demolition.js', import.meta.url), 'utf8');
+  ok(view.includes('route.explosiveOnly ? blastIcon('), 'explosive-only thresholds carry the explosion marker');
+}
 console.log(`PASS structures: ${checks} checks (${structures.length} structures, ${table.size} Demolition table rows, ${structures.filter(item => item.page).length} wiki pages, ${structures.filter(item => item.routes.some(route => route.threshold == null)).length} thresholds left 미확인, ${userRoutes.length} set by the user, ${Object.keys(moved).length} defences on the enemy page).`);

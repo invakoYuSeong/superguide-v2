@@ -40,6 +40,9 @@ const forceText = (value, unknown) => {
 };
 // A structure's threshold can be unverified (null); it is shown, never read as 0.
 const thresholdText = threshold => threshold == null ? L('미확인', 'Unverified') : String(threshold);
+// The wiki's explosion damage icon, drawn by CSS from one 830-byte file. Decorative next to text;
+// with a label where it stands alone (the explosive-only threshold on a tile).
+const blastIcon = (label = '') => label ? html`<span class="ico-blast" role="img" aria-label="${label}"></span>` : html`<span class="ico-blast" aria-hidden="true"></span>`;
 const conditionText = (condition, profile) => ({
   opening: () => L(`${condition.route.name}에 폭발을 넣어야 합니다.`, `The explosion has to go into the ${T(condition.route.name)}.`),
   aim: () => profile.note || L('실제 명중·기폭 조건을 확인하세요.', 'Check the actual hit and detonation conditions.'),
@@ -66,7 +69,7 @@ const structureImage = (structure, size = 44) => {
 // --- Pieces ---------------------------------------------------------------------------------
 function forceScale(structure) {
   return html`<div class="force-scale">${structure.routes.map(route => html`<div class="force-row">
-    <span>${route.name}${route.explosiveOnly ? html` <span class="faint">· ${L('내부 폭발만', 'explosions inside only')}</span>` : ''}</span>
+    <span>${route.name}${route.explosiveOnly ? html` <span class="faint">· ${blastIcon()}${L('내부 폭발만', 'explosions inside only')}</span>` : ''}</span>
     <span class="force-bar" role="img" aria-label="${route.threshold == null ? L('필요한 철거력 미확인', 'Demolition force needed is unverified') : L(`철거력 ${route.threshold} 필요`, `Needs demolition force ${route.threshold}`)}"><i style="width:${(route.threshold ?? 0) / MAX_FORCE * 100}%"></i></span>
     <b class="num">${thresholdText(route.threshold)}</b></div>`)}</div>`;
 }
@@ -136,7 +139,7 @@ function weaponResults(weapon) {
         ${profile.modes.length > 1 ? html`<div class="segmented" role="group" aria-label="${L('탄종·공격', 'Shell / attack')}">${profile.modes.map(item => html`<button type="button" data-mode-pick="${item.id}" aria-pressed="${item.id === mode.id}">${item.name}</button>`)}</div>` : ''}</div>
       <div class="stat-chips">
         <div class="stat-chip"><span>${L(`${mode.directLabel || '직격'} 철거력`, `${T(mode.directLabel) || 'Direct'} demolition force`)}</span><b>${forceText(mode.direct, mode.forceUnknown)}</b></div>
-        <div class="stat-chip"><span>${L('폭발 철거력 · 중심부', 'Blast demolition force · center')}</span><b>${forceText(mode.explosion, mode.forceUnknown)}</b></div>
+        <div class="stat-chip"><span>${blastIcon()}${L('폭발 철거력 · 중심부', 'Blast demolition force · center')}</span><b>${forceText(mode.explosion, mode.forceUnknown)}</b></div>
         ${mode.damage ? html`<div class="stat-chip"><span>${L('시설 피해 (체력 계산용)', 'Structure damage (for health)')}</span><b>${num(mode.damage.standard)}</b><small>${L('폭발', 'Blast')} ${num(mode.damage.explosion)} · AP ${mode.damage.ap}/${mode.damage.explosionAp}</small></div>` : ''}
       </div>
       ${notes.length || mode.shieldBypass || mode.damage?.falloff ? html`<ul class="notes">${notes.map(note => html`<li>${note}</li>`)}${mode.shieldBypass ? html`<li>${L('워프 함선: 본체에 닿으면 보호막을 벗기기 전에도 부술 수 있는 공격입니다.', 'Warp Ship: if it reaches the hull, this attack can destroy it even before the shield is down.')}</li>` : ''}${mode.damage?.falloff ? html`<li>${L('체력 계산은 거리 감쇠 전 최대 피해 기준입니다.', 'Health math uses full damage before falloff.')}</li>` : ''}</ul>` : ''}
@@ -158,7 +161,7 @@ function resultCard(row, profile, mode) {
     <p class="how">${howText(row)}</p>
     ${row.conditions.map(condition => html`<p style="color:var(--bleed)">· ${conditionText(condition, profile)}</p>`)}
     <details class="disclosure"><summary>${L('판정 근거', 'Why')}</summary><div>
-      <ul class="notes">${row.routes.map(result => html`<li>${result.route.name}: ${L('철거력', 'demolition force')} ${thresholdText(result.route.threshold)}${result.route.explosiveOnly ? L(' (내부 폭발)', ' (explosion inside)') : ''} — ${result.parts.filter(part => part.verdict !== 'n/a').map(part => `${part.kind === 'direct' ? L('직접', 'direct') : L('폭발', 'blast')} ${forceText(mode[part.kind], mode.forceUnknown)} ${verdictWord[part.verdict]}`).join(' / ')}</li>`)}</ul>
+      <ul class="notes">${row.routes.map(result => html`<li>${result.route.name}: ${L('철거력', 'demolition force')} ${thresholdText(result.route.threshold)}${result.route.explosiveOnly ? html` (${blastIcon()}${L('내부 폭발', 'explosion inside')})` : ''} — ${result.parts.filter(part => part.verdict !== 'n/a').map(part => `${part.kind === 'direct' ? L('직접', 'direct') : L('폭발', 'blast')} ${forceText(mode[part.kind], mode.forceUnknown)} ${verdictWord[part.verdict]}`).join(' / ')}</li>`)}</ul>
       ${row.health ? html`<p class="note">${L('체력 계산', 'Health math')}: ${L('직격', 'direct')} ${num(row.health.direct)} + ${L('폭발', 'blast')} ${num(row.health.explosion)} = ${num(row.health.total)}${row.health.hits ? L(` → ${num(s.health.hp)} ÷ ${num(row.health.total)} = ${num(row.health.hits)}${row.unit} (올림)`, ` → ${num(s.health.hp)} ÷ ${num(row.health.total)} = ${num(row.health.hits)}${unitText(row.unit, row.health.hits)} (rounded up)`) : L(' → 피해 없음', ' → no damage')}</p>` : s.health ? html`<p class="note">${L('체력 계산: 이 공격의 시설 피해가 확인되지 않았습니다.', 'Health math: this attack\'s structure damage is unverified.')}</p>` : ''}
       <p class="note">${s.tip}</p>
     </div></details>
@@ -173,7 +176,7 @@ function renderView() {
     const structure = structureById.get(state.structure);
     const factions = [...new Set(structures.map(item => item.faction))];
     render(body, html`<div style="display:grid;gap:14px">
-      ${factions.map(faction => html`<div><div class="picker-group" data-faction="${faction}" style="padding:0 0 6px">${faction}</div><div class="tile-grid">${structures.filter(item => item.faction === faction).map(item => html`<button class="tile" type="button" data-structure="${item.id}" aria-current="${item.id === state.structure}">${structureImage(item)}<span><b>${item.name}</b><small class="faint">${L('철거력', 'Force')} ${item.routes.map(route => thresholdText(route.threshold)).join(' / ')}${item.health ? L(' · 체력', ' · health') : ''}</small></span></button>`)}</div></div>`)}
+      ${factions.map(faction => html`<div><div class="picker-group" data-faction="${faction}" style="padding:0 0 6px">${faction}</div><div class="tile-grid">${structures.filter(item => item.faction === faction).map(item => html`<button class="tile" type="button" data-structure="${item.id}" aria-current="${item.id === state.structure}">${structureImage(item)}<span><b>${item.name}</b><small class="faint">${L('철거력', 'Force')} ${item.routes.map((route, i) => html`${i ? ' / ' : ''}${route.explosiveOnly ? blastIcon(L('폭발로만', 'Explosions only')) : ''}${thresholdText(route.threshold)}`)}${item.health ? L(' · 체력', ' · health') : ''}</small></span></button>`)}</div></div>`)}
       <div id="demo-result" style="display:grid;gap:14px;margin-top:10px">${structure ? html`${structurePanel(structure)}${structureResults(structure)}` : html`<div class="empty"><h3>${L('시설을 골라 주세요', 'Pick a structure')}</h3><p>${L('무엇으로 부술 수 있는지, 어디를 맞혀야 하는지 알려 드립니다.', 'See what destroys it and where to hit it.')}</p></div>`}</div>
     </div>`);
   } else {
