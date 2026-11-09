@@ -6,7 +6,8 @@ import { readFile, access } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg, MAX_SVG_BYTES } from './svg-safety.mjs';
 import { parseWarbondPage, parseCurrency, parseDate, findTemplates, templateParams, parseTableRows, layoutProblems, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
-import { generate, buildWarbonds, warbondId, baseTitle, RENAMED, pickLatest } from './build-warbonds.mjs';
+import { generate, buildWarbonds, warbondId, baseTitle, RENAMED, pickLatest, koreanItemMatcher, KOREAN_ITEM_KINDS } from './build-warbonds.mjs';
+import { parseBoosters, parseTitles, parseBoards, BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
 import { warbonds, warbondTiers, warbondBoard, warbondDiscrepancies, warbondLinks, latestWarbondId } from '../dist/data/warbonds.js';
 import { warbondImages } from '../dist/data/warbond-images.js';
 import { warbondItemImages, warbondItemImagesMissing } from '../dist/data/warbond-item-images.js';
@@ -373,6 +374,64 @@ for (const warbond of warbonds) for (const p of warbond.pages) {
 setLang('ko');
 const fallback = String(pageBlock({ ...sampleBond.pages[0], layoutStatus: UNCONFIRMED }, sampleBond));
 ok(fallback.includes('is-unplaced') && fallback.includes('배치 미확인') && !fallback.includes('grid-column:'), 'an invalid future layout has a visible fallback without unsafe spans');
+
+// --- Korean names of cosmetics, boosters and helmets ----------------------------------------------
+// Parsers on Namu Wiki markup (scripts/fetch-namu-warbond-items.mjs).
+eq(parseBoosters("<span><strong data-v>헬포드 공간 최적화</strong></span></span><br data-v><sub data-v>Hellpod Space Optimization</sub>"),
+  [{ name: '헬포드 공간 최적화', en: 'Hellpod Space Optimization' }], 'booster box: Korean in <strong>, English in <sub>');
+const titleHtml = '<h3 class="wiki-heading"><a id=\'s-2.6\'>2.6.</a> <span>칭호</span></h3><div>원사(Chief)<a>[16]</a></div><div>마스터 다이브마스터 (Master Divemaster)</div><div>1 레벨 달성</div><h2 class="wiki-heading">3. 탈것</h2><div>표준(Standard)</div>';
+eq(parseTitles(titleHtml), [{ name: '원사', en: 'Chief' }, { name: '마스터 다이브마스터', en: 'Master Divemaster' }], 'titles: Korean(English) lines of the 칭호 section only, footnotes dropped');
+const boardCell = (kind, name, cost) => `<td><div><div style='text-align:right'><a><span><span><img alt='HD2 메달 아이콘'></span></span></a> ${cost}</span></div><span><img alt='HD2 ${kind} ${name.slice(0, 5)}...'></span><br data-v>${name}</div></td>`;
+const storeHtml = `<h4 class="wiki-heading"><span>결연한 베테랑</span></h4><details class='wiki-folding'><summary> &#91; 페이지 _2 펼치기 · 접기 &#93;</summary>${boardCell('승리포즈', '롤 뎀', 15)}${boardCell('무기', 'G-10 소이', 25)}${boardCell('플레이어 카드', '후세의 감사 망토', 5)}</details><p>설명</p>`;
+eq(parseBoards(storeHtml), [{ warbond: '결연한 베테랑', pages: [{ number: 2, items: [{ kind: '승리포즈', name: '롤 뎀', cost: 15 }, { kind: '플레이어 카드', name: '후세의 감사 망토', cost: 5 }] }] }], 'store board: cosmetic tiles with kind, name and medal cost; weapons skipped');
+ok(Object.values(BOARD_KINDS).every(kind => KOREAN_ITEM_KINDS.includes(kind)), 'every Namu board kind is a Korean-named tile kind');
+// Matching: English name, or the one tile of the same warbond, page, kind and cost; otherwise English stays.
+const match = koreanItemMatcher({
+  boosters: [{ name: '부스터 가', en: 'Alpha Boost' }, { name: '부스터 나', en: 'Twin' }, { name: '부스터 다', en: 'Twin' }],
+  titles: [{ name: '칭호 가', en: 'Free Of Thought' }],
+  boards: [{ warbond: '채권', pages: [{ number: 1, items: [{ kind: '망토', name: '망토 가', cost: 8 }, { kind: '부스터', name: '부스터 라', cost: 15 }, { kind: '망토', name: '망토 나', cost: 16 }, { kind: '망토', name: '망토 다', cost: 16 }] }] }],
+});
+const tileOf = (kind, name, cost) => ({ kind, name, cost });
+const capes = [tileOf('cape', 'Cape A', 8), tileOf('cape', 'Cape B', 16), tileOf('cape', 'Cape C', 16)];
+eq(match('채권', 1, capes[0], capes), { ko: '망토 가' }, 'board: one tile of that kind and cost');
+ok(!match('채권', 1, capes[1], capes).ko && !match('채권', 1, capes[2], capes).ko, 'board: two tiles of the same kind and cost stay English');
+ok(!match('채권', 1, tileOf('cape', 'Cape D', 9), capes).ko && !match('채권', 2, capes[0], capes).ko && !match('다른 채권', 1, capes[0], capes).ko, 'board: another cost, page or warbond stays English');
+eq(match('다른 채권', 1, tileOf('booster', 'Alpha Boost', 15), []), { ko: '부스터 가' }, 'booster by English name');
+eq(match('다른 채권', 1, tileOf('title', 'Free of Thought', 20), []), { ko: '칭호 가' }, 'title by English name, ignoring case');
+ok(!match('다른 채권', 1, tileOf('booster', 'Twin', 15), []).ko, 'an English name with two Korean names stays English');
+ok(/disagree/.test(match('채권', 1, tileOf('booster', 'Alpha Boost', 15), [tileOf('booster', 'Alpha Boost', 15)]).reason), 'English name and board disagreeing stays English');
+eq(match('채권', 1, tileOf('booster', 'Unknown', 15), [tileOf('booster', 'Unknown', 15)]), { ko: '부스터 라' }, 'booster by board when the English name is not listed');
+// The real source and data.
+const namu = JSON.parse(await readFile(new URL('db/source/namu_warbond_items.json', root), 'utf8'));
+ok(/^\d{4}-\d\d-\d\d$/.test(namu.retrievedAt) && namu.pages.length === 3 && namu.pages.every(page => page.status === 200 && page.source.startsWith('https://namu.wiki/w/') && page.modifiedAt), 'Namu source: three pages with retrieval date and edit time');
+ok([...namu.boosters, ...namu.titles, ...namu.boards.flatMap(b => b.pages.flatMap(p => p.items))].every(r => /[가-힣]/.test(r.name)), 'Namu source: every name is Korean');
+ok(namu.boards.every(board => warbonds.some(w => w.name === board.warbond)), 'Namu source: every board is a warbond of the site');
+const tiles = warbonds.flatMap(w => w.pages.flatMap(p => p.items.map(item => ({ warbond: w, page: p, item }))));
+for (const { warbond, page, item } of tiles.filter(t => t.item.ko)) {
+  ok(KOREAN_ITEM_KINDS.includes(item.kind) && !item.ref, `${warbond.id} p${page.number} ${item.name}: Korean name only on a cosmetic or booster tile`);
+  const listed = { booster: namu.boosters, title: namu.titles }[item.kind]?.filter(r => r.en.toLowerCase() === item.name.toLowerCase()).map(r => r.name) ?? [];
+  const board = namu.boards.find(b => b.warbond === warbond.name)?.pages.find(p => p.number === page.number)?.items.filter(c => BOARD_KINDS[c.kind] === item.kind && c.cost === item.cost).map(c => c.name) ?? [];
+  ok([...listed, ...board].includes(item.ko) && [...listed, ...board].every(name => name === item.ko), `${warbond.id} p${page.number} ${item.name}: ${item.ko} is the Namu name for this English name or board tile`);
+}
+for (const kind of KOREAN_ITEM_KINDS) ok(tiles.some(t => t.item.kind === kind && t.item.ko), `${kind}: some tiles have a Korean name`);
+ok(tiles.filter(t => t.item.kind === 'booster').every(t => t.item.ko), 'every booster has a Korean name');
+// Each tile without a site entry: the Korean name with the English under it in Korean, only English in English.
+const { koreanTileName } = await import('../dist/ui/views/warbonds.js');
+const nameSpan = (shown, sub) => `<span class="wb-tile-name"><b>${escape(shown)}</b>${sub ? `<small>${escape(sub)}</small>` : ''}</span>`;
+for (const { warbond, page, item } of tiles.filter(t => !t.item.ref && t.item.kind !== 'armor' && t.item.kind !== 'super-credits')) {
+  const ko = koreanTileName(item, warbond.id);
+  if (item.kind === 'helmet') {
+    const armor = armors.find(a => a.source.warbondId === warbond.id && [item.link, item.name].filter(Boolean).some(n => a.en === n.replace(/ Helmet$/, '')));
+    eq(ko, armor?.nameStatus === 'confirmed' ? armor.name : null, `${warbond.id} p${page.number} ${item.name}: helmet uses its armor set's Korean name`);
+  } else eq(ko, item.ko ?? null, `${warbond.id} p${page.number} ${item.name}: Korean name from the data`);
+  setLang('ko');
+  ok(String(tile(item, warbond.id)).includes(ko ? nameSpan(ko, item.name) : nameSpan(item.name)), `${warbond.id} p${page.number} ${item.name}: Korean tile shows ${ko ? 'the Korean name over the English' : 'the English name'}`);
+  setLang('en');
+  const enTile = String(tile(item, warbond.id));
+  ok(enTile.includes(nameSpan(item.name)) && (!ko || !enTile.includes(escape(ko))), `${warbond.id} p${page.number} ${item.name}: English tile shows only the English name`);
+}
+ok(tiles.some(t => t.item.kind === 'helmet' && koreanTileName(t.item, t.warbond.id)), 'helmets show Korean set names');
+setLang('ko');
 const css = await readFile(new URL('dist/ui/app.css', root), 'utf8');
 ok(/\.wb-board\s*\{[^}]*grid-template-columns:\s*repeat\(var\(--wb-cols, 5\)/.test(css) && /@container \(max-width: 520px\)/.test(css), 'board CSS: 5-column grid with a narrow (container) layout');
 ok(/\.wb-board\[data-tier="premium"\], \.wb-board\[data-tier="legendary"\]\s*\{[^}]*--tile-hatch: #71f1fb/.test(css), 'premium and legendary share the teal hatch until more in-game evidence is available');

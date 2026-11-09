@@ -21,6 +21,15 @@ const weaponById = new Map(personalWeapons.map(item => [item.id, item]));
 // round), so they are matched by warbond and official name. Some tiles add " Armor".
 const armorKey = (warbondId, name) => `${warbondId}|${name.replace(/ Armor$/, '')}`;
 const armorByTile = new Map(armors.filter(armor => armor.source.kind === 'warbond').map(armor => [armorKey(armor.source.warbondId, armor.en), armor]));
+// Korean name of a tile without a site entry: cosmetics and boosters carry it (`ko`, from the
+// build); a helmet takes the Korean name of the armor set with its name (or its wiki link, the
+// set name) from the same warbond. Null when unknown, so the English name stays.
+export function koreanTileName(item, warbondId) {
+  if (item.ko) return item.ko;
+  if (item.kind !== 'helmet') return null;
+  const armor = [item.link, item.name].filter(Boolean).map(name => armorByTile.get(armorKey(warbondId, name.replace(/ Helmet$/, '')))).find(Boolean);
+  return armor?.nameStatus === 'confirmed' ? armor.name : null;
+}
 const unconfirmedText = () => L('미확인', 'Unconfirmed');
 
 const count = value => value.toLocaleString(locale());
@@ -157,9 +166,10 @@ const MEDAL = raw('<svg class="wb-medal" viewBox="0 0 16 16" aria-hidden="true">
 // Weapons, stratagems and armor with a site entry open in the item pane; other items link to the wiki.
 export function tile(item, warbondId, { placed = true } = {}) {
   const ref = siteEntry(item, warbondId), target = ref?.target;
+  const ko = target ? null : koreanTileName(item, warbondId);
   // Official English directly (not via the dictionary: a Korean name can be shared, e.g. 스토커).
-  const shownName = target ? L(target.name || target.en, target.en || target.name) : item.kind === 'super-credits' && item.superCredits ? `${count(item.superCredits)} SC` : item.name;
-  const sub = target && lang !== 'en' && target.name && target.name !== target.en ? target.en : '';
+  const shownName = target ? L(target.name || target.en, target.en || target.name) : item.kind === 'super-credits' && item.superCredits ? `${count(item.superCredits)} SC` : ko ? L(ko, item.name) : item.name;
+  const sub = lang === 'en' ? '' : target ? (target.name && target.name !== target.en ? target.en : '') : ko ? item.name : '';
   const image = item.image ? warbondItemImages[item.image] : null;
   const notes = [];
   if (item.costStatus !== 'confirmed') notes.push(L(`비용 미확인: 템플릿 ${item.templateCost ?? '—'} · 표 ${item.tableCost ?? '—'}`, `Cost unconfirmed: template ${item.templateCost ?? '—'} · table ${item.tableCost ?? '—'}`));
@@ -221,7 +231,7 @@ function detailContent(warbond) {
       ${external(warbond.source, L('위키 항목', 'Wiki page'))}
       ${image ? external(image.source, L('표지 원본', 'Cover source')) : ''}
     </div>
-    <p class="faint" style="font-size:12.5px">${L('방어구·외형 항목의 이름은 위키의 영문 표기를 그대로 씁니다. 메달 비용은 위키의 획득 템플릿 값이며, 같은 문서의 접힌 표와 다르면 ‘미확인’으로 둡니다. 실시간 패치와 연동되지 않습니다.', 'Armor and cosmetic names are the wiki’s English names. Medal costs are the wiki’s acquisitions template values; where the collapsed table on the same page disagrees, the value is left unconfirmed. Not linked to live patches.')}</p>
+    <p class="faint" style="font-size:12.5px">${L('한국어 이름을 확인하지 못한 항목은 위키의 영문 표기를 그대로 씁니다. 메달 비용은 위키의 획득 템플릿 값이며, 같은 문서의 접힌 표와 다르면 ‘미확인’으로 둡니다. 실시간 패치와 연동되지 않습니다.', 'Items without a confirmed Korean name keep the wiki’s English name. Medal costs are the wiki’s acquisitions template values; where the collapsed table on the same page disagrees, the value is left unconfirmed. Not linked to live patches.')}</p>
   </div>`;
 }
 

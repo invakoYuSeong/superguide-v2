@@ -1,12 +1,14 @@
 // Offline build of the warbond guide data from local snapshots only (no network, no clock).
 //   db/source/wiki_warbonds.json        ← scripts/fetch-warbonds.mjs (Helldivers Wiki wikitext)
 //   db/source/warbond_korean_names.json ← Korean warbond names (in-game text), name only
+//   db/source/namu_warbond_items.json   ← scripts/fetch-namu-warbond-items.mjs (Korean cosmetic and booster names)
 // Writes dist/data/warbonds.js and the small item → warbond index dist/data/warbond-sources.js.
 // Usage: node scripts/build-warbonds.mjs [--stdout]
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseWarbondPage, normalizeName, layoutProblems, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
+import { BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { stratagems } from '../dist/core/catalog.js';
 
@@ -40,7 +42,33 @@ export function pickLatest(list) {
   return dated[0]?.id ?? null;
 }
 
-export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems } = {}) {
+// Korean names of cosmetic and booster tiles (Namu Wiki = the in-game text). Boosters and titles
+// are matched by English name; a Namu warbond board also names the tile of the same warbond, page,
+// kind and medal cost. The tile keeps its English name when neither gives exactly one name.
+export const KOREAN_ITEM_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
+export function koreanItemMatcher(namu) {
+  const english = {};
+  for (const [kind, list] of [['booster', namu.boosters], ['title', namu.titles]]) {
+    const names = english[kind] = new Map();
+    for (const { name, en } of list) names.set(normalizeName(en), names.has(normalizeName(en)) && names.get(normalizeName(en)) !== name ? null : name);
+  }
+  const boards = new Map(namu.boards.map(board => [board.warbond, board]));
+  /** → { ko } or { reason } for one tile of a warbond page (Korean warbond name, page number, the page's tiles). */
+  return (warbondName, pageNumber, item, pageItems) => {
+    const listed = english[item.kind]?.get(normalizeName(item.name));
+    const board = boards.get(warbondName)?.pages.find(p => p.number === pageNumber);
+    const twins = pageItems.filter(other => other.kind === item.kind && other.cost === item.cost).length > 1;
+    const same = board && item.cost != null && !twins ? board.items.filter(cell => BOARD_KINDS[cell.kind] === item.kind && cell.cost === item.cost) : [];
+    const names = new Set([listed, same.length === 1 ? same[0].name : null].filter(Boolean));
+    if (names.size === 1) return { ko: [...names][0] };
+    return { reason: names.size > 1 ? `Namu sources disagree (${[...names].join(' / ')})` : listed === null || same.length > 1 ? 'more than one Namu name'
+      : board && twins ? 'two tiles of this kind and cost on the page' : board ? 'no Namu tile of this kind and cost on the page' : 'not on the Namu pages' };
+  };
+}
+
+export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems, namuItems = null } = {}) {
+  const koreanItem = namuItems ? koreanItemMatcher(namuItems) : null;
+  const koreanMisses = [];
   const weaponByName = new Map(weapons.map(item => [normalizeName(item.en), item]));
   const stratByName = new Map(strats.map(item => [normalizeName(item.en), item]));
   // Fallback: the name without its designation code and quoted nickname
@@ -101,6 +129,12 @@ export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons
           ...(item.link && item.link !== item.name ? { link: item.link } : {}), // wiki page title when it differs from the name
         };
       });
+      if (koreanItem) items.forEach((item, index) => {
+        if (!KOREAN_ITEM_KINDS.includes(item.kind)) return;
+        const { ko, reason } = koreanItem(name, p.number, item, items);
+        if (ko) items[index] = { name: item.name, ko, ...item }; // Korean name next to the English one
+        else koreanMisses.push({ warbondId: id, page: p.number, kind: item.kind, name: item.name, reason });
+      });
       const sure = items.every(item => item.costStatus === 'confirmed');
       // A page whose tiles do not fill the 5×3 board exactly is still listed, but the view
       // places its tiles one cell each instead of trusting the positions.
@@ -138,7 +172,7 @@ export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons
     unmatched,
     matchedWithoutCode: fuzzy.sort((a, b) => a.warbondId.localeCompare(b.warbondId) || a.page - b.page || a.name.localeCompare(b.name)),
   };
-  return { warbonds: out, discrepancies, links, layouts, latestId: pickLatest(out) };
+  return { warbonds: out, discrepancies, links, layouts, latestId: pickLatest(out), koreanMisses };
 }
 
 // JSON with one line per leaf record (an object/array holding no list of records).
@@ -155,13 +189,15 @@ function format(value, indent = '') {
 export async function generate() {
   const snapshot = JSON.parse(await readFile(new URL('db/source/wiki_warbonds.json', root), 'utf8'));
   const koreanNames = JSON.parse(await readFile(new URL('db/source/warbond_korean_names.json', root), 'utf8'));
-  const { warbonds, discrepancies, links, layouts, latestId } = buildWarbonds(snapshot, koreanNames);
+  const namuItems = JSON.parse(await readFile(new URL('db/source/namu_warbond_items.json', root), 'utf8'));
+  const { warbonds, discrepancies, links, layouts, latestId, koreanMisses } = buildWarbonds(snapshot, koreanNames, { namuItems });
   const exports = {
     warbondsCheckedAt: snapshot.retrievedAt,
     warbondsSource: {
       source: snapshot.source, site: 'https://helldivers.wiki.gg/', license: 'CC BY-NC-SA 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/', file: 'db/source/wiki_warbonds.json',
       koreanNamesFile: 'db/source/warbond_korean_names.json',
+      koreanItemNamesFile: 'db/source/namu_warbond_items.json', // tile `ko`: Korean names of cosmetics and boosters
     },
     warbondBoard: BOARD, // page board size in tiles (columns × rows)
     warbondTiers: [{ id: 'standard', name: '기본' }, { id: 'premium', name: '프리미엄' }, { id: 'legendary', name: '전설' }],
@@ -170,7 +206,7 @@ export async function generate() {
     warbondLinks: links,
     latestWarbondId: latestId, // newest release date; ties by English title (pickLatest)
   };
-  const text = '// Generated by scripts/build-warbonds.mjs from local db/source/wiki_warbonds.json and db/source/warbond_korean_names.json. Do not edit by hand.\n'
+  const text = '// Generated by scripts/build-warbonds.mjs from local db/source/wiki_warbonds.json, db/source/warbond_korean_names.json and db/source/namu_warbond_items.json. Do not edit by hand.\n'
     + Object.entries(exports).map(([name, value]) => `export const ${name} = ${format(value)};\n`).join('\n');
   // Which warbond page each linked weapon or stratagem comes from, so detail pages can name it
   // without loading the whole board data.
@@ -183,11 +219,11 @@ export async function generate() {
   }
   const sourcesText = '// Generated by scripts/build-warbonds.mjs from the same sources as warbonds.js. Do not edit by hand.\n'
     + `export const warbondSources = ${format(sources)};\n`;
-  return { text, sourcesText, warbonds, discrepancies, links, layouts, latestId };
+  return { text, sourcesText, warbonds, discrepancies, links, layouts, latestId, koreanMisses };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const { text, sourcesText, warbonds, discrepancies, links, layouts, latestId } = await generate();
+  const { text, sourcesText, warbonds, discrepancies, links, layouts, latestId, koreanMisses } = await generate();
   if (process.argv.includes('--stdout')) process.stdout.write(text);
   else {
     await writeFile(new URL('dist/data/warbonds.js', root), text, 'utf8');
@@ -197,5 +233,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     console.log(`Page boards: ${warbonds.reduce((n, w) => n + w.pages.length, 0)} pages; layouts that do not fill the board: ${layouts.map(l => `${l.warbondId} p${l.page} (${l.problems.join('; ')})`).join(', ') || 'none'}`);
     console.log(`Latest warbond (banner): ${latestId}`);
     console.log(`Matched by name without code: ${links.matchedWithoutCode.map(u => `${u.name} → ${u.matched}`).join(', ') || 'none'}`);
+    const tiles = warbonds.flatMap(w => w.pages.flatMap(p => p.items)).filter(item => KOREAN_ITEM_KINDS.includes(item.kind));
+    console.log(`Korean item names: ${KOREAN_ITEM_KINDS.map(kind => `${kind} ${tiles.filter(i => i.kind === kind && i.ko).length}/${tiles.filter(i => i.kind === kind).length}`).join(', ')}`);
+    console.log(`Kept English: ${koreanMisses.map(m => `${m.warbondId} p${m.page} ${m.kind} "${m.name}" (${m.reason})`).join('; ') || 'none'}`);
   }
 }
