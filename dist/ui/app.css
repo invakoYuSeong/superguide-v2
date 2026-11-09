@@ -808,6 +808,25 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .gear-modes { min-width: 440px; }
 .gear-modes tbody th[scope="row"] { font-weight: 650; font-size: 13px; color: var(--text-2); white-space: normal; width: auto; }
 .gear-modes td small { display: inline; color: var(--text-3); margin-left: 1px; }
+.gear-attach { min-width: 460px; }
+.gear-attach th, .gear-attach td { padding: 8px 8px; }
+.gear-attach tbody th[scope="rowgroup"] { width: auto; background: var(--surface-2); color: var(--accent-text); font-size: 13px; font-weight: 750; }
+.gear-attach td { white-space: nowrap; }
+.gear-attach td:last-child { white-space: normal; }
+.attach-effects { list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--text-2); }
+.attach-effects b { color: var(--text); font-weight: 700; }
+.attach-note { font-size: 12.5px; margin-top: 8px; }
+/* Narrow panes (phone sheet, warbond item pane): name, unlock and cost on one line, the stat changes below. */
+.gear-attach-block { container-type: inline-size; }
+@container (max-width: 520px) {
+  .gear-attach { min-width: 0; }
+  .gear-attach, .gear-attach thead, .gear-attach tbody { display: block; }
+  .gear-attach tr { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; }
+  .gear-attach tr > * { border-bottom: 0; }
+  .gear-attach tr > :last-child { grid-column: 1 / -1; padding-top: 0; border-bottom: 1px solid var(--line); }
+  .gear-attach thead tr > :last-child { border-bottom: 2px solid var(--accent); padding-top: 4px; }
+  .gear-attach tr.attach-slot > th { padding-top: 8px; }
+}
 
 /* --- Loadout check ----------------------------------------------------------- */
 .lo-builder { padding: 14px; display: grid; gap: 12px; }
