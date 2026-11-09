@@ -1602,7 +1602,7 @@ export const expandedEnemies = [
   },
   {
     "id": "hulk-firebomber",
-    "name": "헐크 파이어봄버",
+    "name": "헐크 파이어보머",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Hulk_Firebomber",
     "sourceRevision": 135177,
@@ -1859,7 +1859,7 @@ export const expandedEnemies = [
   },
   {
     "id": "conflagration-devastator",
-    "name": "화염형 데바스테이터",
+    "name": "컨플래그레이션 데버스테이터",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Conflagration_Devastator",
     "sourceRevision": 135176,
@@ -2008,7 +2008,7 @@ export const expandedEnemies = [
   },
   {
     "id": "incendiary-mg-devastator",
-    "name": "소이 기관총 데바스테이터",
+    "name": "인센디어리 MG 데버스테이터",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Incendiary_MG_Devastator",
     "sourceRevision": 135175,

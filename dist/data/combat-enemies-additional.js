@@ -554,7 +554,7 @@ export const additionalEnemies = [
   },
   {
     "id": "commissar",
-    "name": "커미사르",
+    "name": "커미서",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Commissar",
     "sourceRevision": 135111,
@@ -716,7 +716,7 @@ export const additionalEnemies = [
   },
   {
     "id": "assault-raider",
-    "name": "어썰트 레이더",
+    "name": "제트 여단 어썰트 레이더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Assault_Raider",
     "sourceRevision": 135114,
@@ -973,7 +973,7 @@ export const additionalEnemies = [
   },
   {
     "id": "jet-brigade-commissar",
-    "name": "제트 여단 커미사르",
+    "name": "제트 여단 커미서",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Commissar",
     "sourceRevision": 135135,
@@ -994,7 +994,7 @@ export const additionalEnemies = [
       "exdr": 0,
       "constitution": 0
     },
-    "note": "점프팩으로 접근하는 지휘 보병입니다. 일반 커미사르처럼 머리·몸통·사지 장갑은 1입니다. 시체의 팩도 폭발할 수 있어 거리를 유지하세요.",
+    "note": "점프팩으로 접근하는 지휘 보병입니다. 일반 커미서처럼 머리·몸통·사지 장갑은 1입니다. 시체의 팩도 폭발할 수 있어 거리를 유지하세요.",
     "spearLock": false,
     "parts": [
       {
@@ -1338,7 +1338,7 @@ export const additionalEnemies = [
   },
   {
     "id": "incendiary-rocket-raider",
-    "name": "소이 로켓 레이더",
+    "name": "소각대 로켓 레이더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Incendiary_Rocket_Raider",
     "sourceRevision": 135174,
@@ -1352,7 +1352,7 @@ export const additionalEnemies = [
       "exdr": 0,
       "constitution": 0
     },
-    "note": "소이 로켓을 사용하는 보병입니다. 부위 표의 장갑은 0이며, 소각 군단이라는 이유로 임의의 장갑 보정을 적용하지 않습니다.",
+    "note": "소이 로켓을 사용하는 보병입니다. 부위 표의 장갑은 0이며, 소각대라는 이유로 임의의 장갑 보정을 적용하지 않습니다.",
     "spearLock": false,
     "parts": [
       {
