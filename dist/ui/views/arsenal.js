@@ -21,7 +21,7 @@ const MAX_COMPARE = 3;
 let root, ctx;
 const state = { c: '', ap: '', q: '', sort: '', compare: new Set(), detail: null, variant: '', pushedDetail: false };
 
-const subtitle = item => lang === 'en' ? (item.code && !item.en.startsWith(item.code) ? item.code : '') : `${item.en}${item.code ? ` · ${item.code}` : ''}`;
+const subtitle = item => lang === 'en' ? (item.code && !item.en.startsWith(item.code) ? item.code : '') : item.en;
 export const iconOf = item => html`<img class="strat-icon" src="${wikiIcons[item.id]?.src}" alt="" width="44" height="44" loading="lazy" decoding="async">`;
 
 // --- Stats ---------------------------------------------------------------------
