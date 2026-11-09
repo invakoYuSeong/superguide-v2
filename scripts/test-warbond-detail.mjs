@@ -10,6 +10,8 @@ import { escape } from '../dist/ui/dom.js';
 import { listContent, resolveWarbondItem, itemRoute, itemDetailContent, mount, update } from '../dist/ui/views/warbonds.js';
 import { weaponDetail } from '../dist/ui/views/gear.js';
 import { stratagemDetail } from '../dist/ui/views/arsenal.js';
+import { personalProfiles } from '../dist/data/personal-profiles.js';
+import { weaponById } from '../dist/ui/gear-shared.js';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -103,6 +105,24 @@ setLang('ko');
 const modeHtml = String(await itemDetailContent('control-group', 'arsenal/epoch', 'charged'));
 ok(modeHtml.includes('data-variant="charged" aria-pressed="true"'), 'embedded stratagem selects URL mode');
 ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preserves mode');
+// Weapons with selectable firing modes get the same mode tabs as stratagems.
+const multiMode = Object.entries(personalProfiles).filter(([, profile]) => profile.modes.length > 1);
+eq(multiMode.length, 9, 'nine weapons have selectable firing modes');
+for (const [id, profile] of multiMode) {
+  const content = String(weaponDetail(weaponById.get(id)));
+  eq([...content.matchAll(/data-variant="([^"]+)"/g)].map(m => m[1]), profile.modes.map(m => m.id), `${id}: one tab per firing mode`);
+  eq((content.match(/data-variant-panel="/g) || []).length, profile.modes.length, `${id}: one panel per firing mode`);
+  ok(content.includes(`data-variant="${profile.modes[0].id}" aria-pressed="true"`), `${id}: first mode selected by default`);
+}
+ok(!String(weaponDetail(weaponById.get('liberator'))).includes('data-variant'), 'single-mode weapon has no mode tabs');
+const doubleFreedom = String(weaponDetail(weaponById.get('double-freedom'), { variant: 'all-barrels' }));
+ok(doubleFreedom.includes('data-variant="all-barrels" aria-pressed="true"') && doubleFreedom.includes('data-variant-panel="standard" hidden'), 'weapon detail selects the given mode');
+ok(/data-variant-panel="all-barrels"[\s\S]*한 번에 발사[\s\S]*2<small>발[\s\S]*모두 맞으면 1,680/.test(doubleFreedom), 'all barrels at once: 2 shells of 12 pellets × 70');
+const stoker = String(weaponDetail(weaponById.get('stoker')));
+ok(!/data-variant-panel="standard"[^]*?화상 피해[^]*?data-variant-panel="underbarrel"/.test(stoker) && stoker.includes('화상 피해'), 'whole-weapon burn damage stays outside the mode panels');
+const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
+ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
+ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');
 setLang('en');
 const en = String(await itemDetailContent('scope-of-authority', 'gear/sightliner'));
 ok(en.includes('Open full page') && en.includes('Back') && en.includes('Close item details'), 'new toolbar strings have English');
