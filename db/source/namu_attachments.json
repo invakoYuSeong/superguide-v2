@@ -1,0 +1,659 @@
+{
+ "source": "https://namu.wiki/w/HELLDIVERS%202/%EB%AC%B4%EA%B8%B0/%EC%A3%BC%20%EB%AC%B4%EA%B8%B0",
+ "title": "HELLDIVERS 2/무기/주 무기",
+ "license": "CC BY-NC-SA 2.0 KR",
+ "retrievedAt": "2026-11-09",
+ "modifiedAt": "2026-11-07T17:32:39.000Z",
+ "weapons": [
+  {
+   "title": "AR-23 리버레이터",
+   "code": "AR-23",
+   "name": "리버레이터",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 11, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 21, "cost": 25000},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "없음", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 6, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 5000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "없음 (나사선 보호기)", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 3, "cost": 3000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 12, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 22, "cost": 13000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 14, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "AR-23P 리버레이터 페네트레이터",
+   "code": "AR-23P",
+   "name": "리버레이터 페네트레이터",
+   "rows": [
+    {"slot": "optics", "name": "4x 전투 스코프", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 11, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 19, "cost": 7000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 13, "cost": 3000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 14, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "AR-23C 리버레이터 컨커시브",
+   "code": "AR-23C",
+   "name": "리버레이터 컨커시브",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 13, "cost": 7000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 19, "cost": 13000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 11, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "level": 19, "cost": 13000}
+   ]
+  },
+  {
+   "title": "BR-14 어드주디케이터",
+   "code": "BR-14",
+   "name": "어드주디케이터",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 14, "cost": 5000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "10x 저격 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 6, "cost": 5000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 13, "cost": 7000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 11, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000}
+   ]
+  },
+  {
+   "title": "AR-61 텐더라이저",
+   "code": "AR-61",
+   "name": "텐더라이저",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 2, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 12, "cost": 7000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 5000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 13, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 22, "cost": 13000}
+   ]
+  },
+  {
+   "title": "AR-23A 리버레이터 카빈",
+   "code": "AR-23A",
+   "name": "리버레이터 카빈",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경 MK2", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 21, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 2, "cost": 5000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 13, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 12, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "AR-32 퍼시파이어",
+   "code": "AR-32",
+   "name": "퍼시파이어",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 19, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 23, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 6, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 13, "cost": 7000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000}
+   ]
+  },
+  {
+   "title": "AR-2 코요테",
+   "code": "AR-2",
+   "name": "코요테",
+   "rows": [
+    {"slot": "optics", "name": "조준경 없음", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 2, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 14, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "10x 저격 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "level": 5, "cost": 3000},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 13, "cost": 7000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 11, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000}
+   ]
+  },
+  {
+   "title": "R-2124 콘스티튜션",
+   "code": "R-2124",
+   "name": "콘스티튜션",
+   "rows": []
+  },
+  {
+   "title": "R-63 딜리전스",
+   "code": "R-63",
+   "name": "딜리전스",
+   "rows": [
+    {"slot": "optics", "name": "4x 전투 스코프", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 19, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 7, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 12, "cost": 7000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 13000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 2, "cost": 5000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 11, "cost": 7000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000}
+   ]
+  },
+  {
+   "title": "R-63CS 딜리전스 카운터 저격소총",
+   "code": "R-63CS",
+   "name": "딜리전스 카운터 저격소총",
+   "rows": [
+    {"slot": "optics", "name": "10x 저격 스코프", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 6, "cost": 5000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 13, "cost": 7000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 16, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "총구제동기", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 11, "cost": 7000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000}
+   ]
+  },
+  {
+   "title": "R-6 데드아이",
+   "code": "R-6",
+   "name": "데드아이",
+   "rows": [
+    {"slot": "optics", "name": "4x 전투 스코프", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 13, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "10x 저격 스코프", "level": 23, "cost": 25000}
+   ]
+  },
+  {
+   "title": "R-2 어멘드멘트",
+   "code": "R-2",
+   "name": "어멘드멘트",
+   "rows": [
+    {"slot": "optics", "name": "4x 전투 스코프", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 2, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 13, "cost": 13000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "10x 저격 스코프", "level": 23, "cost": 25000}
+   ]
+  },
+  {
+   "title": "MP-98 나이트",
+   "code": "MP-98",
+   "name": "나이트",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 17, "cost": 13000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 3, "cost": 3000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 12, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 13000},
+    {"slot": "magazine", "name": "짧은 탄창", "default": true},
+    {"slot": "magazine", "name": "확장 탄창", "level": 14, "cost": 7000}
+   ]
+  },
+  {
+   "title": "SMG-37 디펜더",
+   "code": "SMG-37",
+   "name": "디펜더",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 19, "cost": 13000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 23, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 3, "cost": 3000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 13, "cost": 7000},
+    {"slot": "muzzle", "name": "보정기", "level": 21, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 9, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SMG-72 퍼멜러",
+   "code": "SMG-72",
+   "name": "퍼멜러",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 2, "cost": 5000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 13, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 22, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 9, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SMG-32 레프리맨드",
+   "code": "SMG-32",
+   "name": "레프리맨드",
+   "rows": [
+    {"slot": "optics", "name": "홀로그램 조준경", "default": true},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 12, "cost": 7000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 22, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "소염기", "level": 3, "cost": 3000},
+    {"slot": "muzzle", "name": "총구제동기", "level": 12, "cost": 5000},
+    {"slot": "muzzle", "name": "보정기", "level": 22, "cost": 13000}
+   ]
+  },
+  {
+   "title": "SG-8 퍼니셔",
+   "code": "SG-8",
+   "name": "퍼니셔",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 13000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "하프 초크", "level": 2, "cost": 3000},
+    {"slot": "muzzle", "name": "풀 초크", "level": 12, "cost": 5000},
+    {"slot": "muzzle", "name": "덕빌", "level": 22, "cost": 13000}
+   ]
+  },
+  {
+   "title": "SG-225 브레이커",
+   "code": "SG-225",
+   "name": "브레이커",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 19, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 13000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 21, "cost": 7000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "하프 초크", "level": 2, "cost": 3000},
+    {"slot": "muzzle", "name": "풀 초크", "level": 13, "cost": 7000},
+    {"slot": "muzzle", "name": "덕빌", "level": 22, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 12, "cost": 7000},
+    {"slot": "magazine", "name": "드럼 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SG-8S 슬러거",
+   "code": "SG-8S",
+   "name": "슬러거",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 2, "cost": 3000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 7, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 13000}
+   ]
+  },
+  {
+   "title": "SG-225SP 브레이커 스프레이 앤 프레이",
+   "code": "SG-225SP",
+   "name": "브레이커 스프레이 앤 프레이",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경 MK2", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 98, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 19, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 7000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 7, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 13000},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "덕빌", "default": true},
+    {"slot": "muzzle", "name": "하프 초크", "level": 4, "cost": 5000},
+    {"slot": "muzzle", "name": "풀 초크", "level": 12, "cost": 13000},
+    {"slot": "magazine", "name": "드럼 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 14, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "level": 23, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SG-225IE 브레이커 인센디어리",
+   "code": "SG-225IE",
+   "name": "브레이커 인센디어리",
+   "rows": [
+    {"slot": "optics", "name": "홀로그램 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 13000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "muzzle", "name": "부착물 없음", "default": true},
+    {"slot": "muzzle", "name": "하프 초크", "level": 2, "cost": 5000},
+    {"slot": "muzzle", "name": "풀 초크", "level": 14, "cost": 7000},
+    {"slot": "muzzle", "name": "덕빌", "level": 23, "cost": 25000},
+    {"slot": "magazine", "name": "드럼 탄창", "default": true},
+    {"slot": "magazine", "name": "짧은 탄창", "level": 12, "cost": 7000},
+    {"slot": "magazine", "name": "확장 탄창", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SG-451 쿡아웃",
+   "code": "SG-451",
+   "name": "쿡아웃",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 2, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 13000}
+   ]
+  },
+  {
+   "title": "SG-20 홀트",
+   "code": "SG-20",
+   "name": "홀트",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 2, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 13000}
+   ]
+  },
+  {
+   "title": "R-36 이럽터",
+   "code": "R-36",
+   "name": "이럽터",
+   "rows": [
+    {"slot": "optics", "name": "10x 저격 스코프", "default": true},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 9, "cost": 7000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 12, "cost": 7000},
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "level": 19, "cost": 13000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 8, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 14, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 18, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000}
+   ]
+  },
+  {
+   "title": "CB-9 익스플로딩 크로스보우",
+   "code": "CB-9",
+   "name": "익스플로딩 크로스보우",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 13, "cost": 7000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 24, "cost": 25000}
+   ]
+  },
+  {
+   "title": "LAS-5 사이스",
+   "code": "LAS-5",
+   "name": "사이스",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 18, "cost": 13000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 24, "cost": 7000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 12, "cost": 7000},
+    {"slot": "magazine", "name": "표준 방열판", "default": true},
+    {"slot": "magazine", "name": "고용량 방열판", "level": 12, "cost": 7000},
+    {"slot": "magazine", "name": "고효율 방열판", "level": 22, "cost": 25000}
+   ]
+  },
+  {
+   "title": "PLAS-1 스코처",
+   "code": "PLAS-1",
+   "name": "스코처",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 13000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 9, "cost": 5},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 18, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000}
+   ]
+  },
+  {
+   "title": "LAS-16 시클",
+   "code": "LAS-16",
+   "name": "시클",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 11, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 23, "cost": 25000}
+   ]
+  },
+  {
+   "title": "SG-8P 퍼니셔 플라즈마",
+   "code": "SG-8P",
+   "name": "퍼니셔 플라즈마",
+   "rows": [
+    {"slot": "optics", "name": "홀로그램 조준경", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 7, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 17, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 13000}
+   ]
+  },
+  {
+   "title": "ARC-12 블리처",
+   "code": "ARC-12",
+   "name": "블리처",
+   "rows": [
+    {"slot": "optics", "name": "반사식 조준경", "default": true},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 13, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 23, "cost": 7000}
+   ]
+  },
+  {
+   "title": "PLAS-101 퓨리파이어",
+   "code": "PLAS-101",
+   "name": "퓨리파이어",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 7, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 14, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 24, "cost": 13000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 2, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 9, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 22, "cost": 7000}
+   ]
+  },
+  {
+   "title": "LAS-17 더블 엣지 시클",
+   "code": "LAS-17",
+   "name": "더블 엣지 시클",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 8, "cost": 7000},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 13, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 18, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 23, "cost": 25000}
+   ]
+  },
+  {
+   "title": "JAR-5 도미네이터",
+   "code": "JAR-5",
+   "name": "도미네이터",
+   "rows": [
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 4, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 7, "cost": 7000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 13, "cost": 13000},
+    {"slot": "optics", "name": "기계식 조준경", "level": 19, "cost": 7000},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 24, "cost": 25000},
+    {"slot": "underbarrel", "name": "총열 하부 없음", "default": true},
+    {"slot": "underbarrel", "name": "레이저 조준경 + 조명", "default": true},
+    {"slot": "underbarrel", "name": "수직 전방 손잡이", "level": 3, "cost": 3000},
+    {"slot": "underbarrel", "name": "앵글 전방 손잡이", "level": 9, "cost": 5000},
+    {"slot": "underbarrel", "name": "조명 수직 전방 손잡이", "level": 17, "cost": 7000},
+    {"slot": "underbarrel", "name": "레이저 조준기 앵글 전방 손잡이", "level": 23, "cost": 7000}
+   ]
+  },
+  {
+   "title": "FLAM-66 토처",
+   "code": "FLAM-66",
+   "name": "토처",
+   "rows": []
+  },
+  {
+   "title": "VG-70 배리어블",
+   "code": "VG-70",
+   "name": "배리어블",
+   "rows": [
+    {"slot": "optics", "name": "2x 튜브 레드 도트", "default": true},
+    {"slot": "optics", "name": "반사식 조준경", "level": 3, "cost": 5000},
+    {"slot": "optics", "name": "반사식 조준경 MK2", "level": 7, "cost": 5000},
+    {"slot": "optics", "name": "홀로그램 조준경", "level": 13, "cost": null},
+    {"slot": "optics", "name": "1.5x 튜브 레드 도트", "level": 18, "cost": null},
+    {"slot": "optics", "name": "4x 전투 스코프", "level": 23, "cost": null}
+   ]
+  }
+ ],
+ "unparsed": []
+}
