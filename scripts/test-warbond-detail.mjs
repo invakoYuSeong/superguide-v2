@@ -174,6 +174,25 @@ if (caltrops) {
   eq(throwChoices(caltrops, 'reworded page', message => spreadWarnings.push(message)), {}, 'reworded Caltrops page leaves the spread row out');
   eq(spreadWarnings.length, 1, 'and warns once');
 }
+// Support weapon fire rates, durable damage, magazine and spare ammo: whatever the data holds is
+// shown in the stat grid, and nothing otherwise. With tabs, the first grid is the first tab's.
+{
+  const { stratagems } = await import('../dist/core/catalog.js');
+  const { num } = await import('../dist/core/explain.js');
+  const shows = (content, label, text) => content.includes(`<dt>${label}</dt><dd>${text}`);
+  for (const item of stratagems.filter(s => s.category === 'support')) {
+    const grid = String(stratagemDetail(item)).match(/<dl class="detail-grid">[\s\S]*?<\/dl>/)?.[0] ?? '';
+    if (item.rpmModes?.length > 1) ok(shows(grid, '연사 모드', item.rpmModes.map(num).join(' / ')), `${item.id}: selectable fire rates shown`);
+    else if (item.rpm != null) ok(shows(grid, '연사', num(item.rpm)), `${item.id}: fire rate shown`);
+    else ok(!grid.includes('<dt>연사'), `${item.id}: no fire rate row without a fire rate`);
+    const durable = item.variants?.length > 1 ? item.variants[0].durable : item.durable;
+    const cells = [['내구 피해', durable], [item.fuel ? '연료' : '탄창', item.magazine], [item.fuel ? '예비 연료통' : '예비 탄창', item.spareMags], ['예비탄', item.spareRounds]];
+    for (const [label, value] of cells) {
+      if (value != null) ok(shows(grid, label, num(value)), `${item.id}: ${label} ${value} shown`);
+      else ok(!grid.includes(`<dt>${label}</dt>`), `${item.id}: no ${label} cell without a value`);
+    }
+  }
+}
 setLang('en');
 const en = String(await itemDetailContent('scope-of-authority', 'gear/sightliner'));
 ok(en.includes('Open full page') && en.includes('Back') && en.includes('Close item details'), 'new toolbar strings have English');
