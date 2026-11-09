@@ -245,7 +245,8 @@ a.wb-tile-body:focus-visible { outline: 2px solid var(--tile-accent); outline-of
 .wb-medal { width: 15px; height: 15px; color: #c9b453; flex: none; }
 .wb-tile-kind { position: absolute; top: 6px; left: var(--pad-l); right: 52px; font: 650 9.5px/1.2 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: rgba(240, 241, 233, .5); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wb-tile-img { position: absolute; top: 22px; left: var(--pad-l); width: calc(100% - var(--pad-l) - 8px); height: calc(100% - 56px); object-fit: contain; }
-.wb-tile[data-kind="title"] .wb-tile-img { filter: brightness(0) invert(1) drop-shadow(0 1px 2px #000); }
+/* Title badges keep their own colours; the shadow lifts their dark edges off black and teal tiles. */
+.wb-tile[data-kind="title"] .wb-tile-img { filter: drop-shadow(0 1px 2px #000); }
 .wb-tile-name { position: absolute; left: var(--pad-l); right: 6px; bottom: 5px; display: flex; flex-direction: column; font-size: 12px; line-height: 1.2; text-shadow: 0 1px 2px #000, 0 0 4px #000; }
 .wb-tile-name b { font-weight: 750; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow-wrap: anywhere; }
 .wb-tile-name small { color: rgba(240, 241, 233, .55); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
