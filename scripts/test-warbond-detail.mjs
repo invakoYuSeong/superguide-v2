@@ -12,7 +12,7 @@ import { weaponDetail } from '../dist/ui/views/gear.js';
 import { stratagemDetail } from '../dist/ui/views/arsenal.js';
 import { personalProfiles } from '../dist/data/personal-profiles.js';
 import { weaponById } from '../dist/ui/gear-shared.js';
-import { modeDetails, throwChoices } from './personal-display.mjs';
+import { modeDetails, throwChoices, playerDetails } from './personal-display.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -166,6 +166,19 @@ for (const weapon of ['stoker', 'missile-pistol', 'warrant', 'variable'].map(id 
 const embeddedWeapon = String(await itemDetailContent('ironclad-democracy', 'gear/arbitrator', 'underbarrel'));
 ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'embedded weapon selects URL mode');
 ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');
+// Effect badges from the wiki infobox trait list: each traitTags entry shows once, burn never twice.
+{
+  const LABELS = { fire: '화상', guided: '유도', arc: '전격', stun: '기절' };
+  for (const w of weaponById.values()) {
+    const chips = String(weaponDetail(w)).match(/<div class="chips"[\s\S]*?<\/div>/)?.[0] ?? '';
+    for (const tag of w.traitTags ?? []) ok(chips.includes(`>${LABELS[tag]}</span>`), `${w.id}: ${LABELS[tag]} badge shown`);
+    ok((chips.match(/>화상<\/span>/g) || []).length <= 1, `${w.id}: one burn badge at most`);
+  }
+  const base = (await import('../db/weapons.js')).weapons.find(w => w.id === 'liberator');
+  eq(playerDetails(base, { throwable_traits: 'Sticky {{*}} Stun' }).traitTags, ['stun'], 'trait list read from the infobox');
+  eq(playerDetails(base, { weapon_traits: 'Heavy Armor Penetrating {{*}} Explosive {{*}} Guided' }).traitTags, ['guided'], 'only the four badge traits are kept');
+  eq(playerDetails(base, {}).traitTags, [], 'no trait list, no badges');
+}
 // Spread choices picked before throwing (Caltrops) show only where the data has them.
 for (const w of weaponById.values()) eq(String(weaponDetail(w)).includes('<dt>퍼뜨리기'), Boolean(w.spreadModes?.length), `${w.id}: spread row only with spread choices`);
 const caltrops = (await import('../db/weapons.js')).weapons.find(w => w.id === 'caltrops');

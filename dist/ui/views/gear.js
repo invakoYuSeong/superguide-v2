@@ -15,6 +15,7 @@ import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '
 import { L, T, lang } from '../../core/i18n.js';
 
 const ELEMENTS = { fire: L('화상', 'Fire'), gas: L('가스', 'Gas'), arc: L('전기', 'Arc'), electric: L('전기', 'Arc') };
+const TRAIT_BADGES = { fire: L('화상', 'Fire'), guided: L('유도', 'Guided'), arc: L('전격', 'Arc'), stun: L('기절', 'Stun') };
 const SORTS = [
   { id: '', name: L('기본 순서', 'Default order') },
   { id: 'damage', name: L('피해 순', 'Damage'), value: w => w.direct != null ? w.direct * (w.pellets || 1) : w.splash },
@@ -74,6 +75,8 @@ const statRow = w => html`<dl class="stat-row">${gearStats(w).map(stat => html`<
 export function traits(w) {
   const list = [];
   if (w.dot?.element) list.push(badge(ELEMENTS[w.dot.element] || w.dot.element, 'bleed'));
+  // Wiki infobox traits (traitTags); burn is not repeated when the burn damage badge is already there.
+  for (const tag of w.traitTags || []) if (!(tag === 'fire' && w.dot?.element === 'fire')) list.push(badge(TRAIT_BADGES[tag], tag === 'fire' ? 'bleed' : ''));
   if (w.category !== 'throwable' && w.splash > 0) list.push(badge(L('폭발', 'Explosive')));
   if (w.heatCapacity?.raw) list.push(badge(L('과열식', 'Heat-based')));
   if (w.pellets > 1) list.push(badge(L('산탄', 'Pellets')));

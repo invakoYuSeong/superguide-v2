@@ -112,6 +112,9 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
   return {};
 }
 
+// Wiki infobox traits shown as badges on the gear page, in this order.
+const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'stun' };
+
 export function playerDetails(weapon, box) {
   const fuse = fuseDetails(box.fuse, weapon.category);
   const playerNotes = [];
@@ -142,5 +145,8 @@ export function playerDetails(weapon, box) {
   if (weapon.id === 'breacher') playerNotes.push('사격 모드는 하나입니다. 처치 탄수는 직격과 붙은 뒤의 지연 폭발을 함께 반영하며, 지속 피해는 포함하지 않습니다.');
   if (['pyrotech', 'melta-mine'].includes(weapon.id)) playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
   if (weapon.variants.some(v => v.delivery === 'projectile' && !v.id.startsWith('shrapnel')) && ['missile-pistol', 'warrant'].includes(weapon.id)) playerNotes.push('유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.');
-  return { ...fuse, playerNotes };
+  // Effect badges straight from the wiki infobox trait list ("Incendiary {{*}} Guided ...").
+  const traits = String(box.weapon_traits ?? box.throwable_traits ?? '').split('{{*}}').map(trait => trait.trim().toLowerCase());
+  const traitTags = Object.entries(TRAIT_TAGS).filter(([wiki]) => traits.includes(wiki)).map(([, tag]) => tag);
+  return { ...fuse, playerNotes, traitTags };
 }
