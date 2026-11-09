@@ -792,18 +792,18 @@ export const pickerStructureImages = {
     "kind": "map"
   },
   "bunker-turret": {
-    "src": "./assets/pickers/structure-bunker-turret.png",
-    "title": "Bunker Turret Enemy Icon.png",
-    "source": "https://helldivers.wiki.gg/wiki/File:Bunker_Turret_Enemy_Icon.png",
-    "originalUrl": "https://helldivers.wiki.gg/images/Bunker_Turret_Enemy_Icon.png?d6d1f2",
-    "assetUrl": "https://helldivers.wiki.gg/images/thumb/Bunker_Turret_Enemy_Icon.png/256px-Bunker_Turret_Enemy_Icon.png?d6d1f2",
-    "width": 256,
-    "height": 256,
-    "sha256": "127e417d46825b202a88a793990cb0d046023987bef5802ae1417134665016e4",
+    "src": "./assets/pickers/structure-bunker-turret.svg",
+    "title": "Compromise Automaton Defenses TO Icon.svg",
+    "source": "https://helldivers.wiki.gg/wiki/File:Compromise_Automaton_Defenses_TO_Icon.svg",
+    "originalUrl": "https://helldivers.wiki.gg/images/Compromise_Automaton_Defenses_TO_Icon.svg?f6a09f",
+    "assetUrl": "https://helldivers.wiki.gg/images/Compromise_Automaton_Defenses_TO_Icon.svg?f6a09f",
+    "width": 512,
+    "height": 512,
+    "sha256": "dd48a5768d10cd72b678ffbdbae51175b2977c3e77ea185e707d2b0ce171f496",
     "retrievedAt": "2026-11-09",
-    "uploader": "Roy Bee",
+    "uploader": "Dogo314",
     "license": "",
-    "kind": "portrait"
+    "kind": "map"
   },
   "transmission-network": {
     "src": "./assets/pickers/structure-transmission-network.svg",
