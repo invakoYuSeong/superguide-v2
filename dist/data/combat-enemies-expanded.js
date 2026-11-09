@@ -138,7 +138,7 @@ export const expandedEnemies = [
   },
   {
     "id": "bile-warrior",
-    "name": "바일 워리어",
+    "name": "커스틱 워리어",
     "faction": "테르미니드",
     "source": "https://helldivers.wiki.gg/wiki/Caustic_Warrior",
     "sourceRevision": 135083,
@@ -534,7 +534,7 @@ export const expandedEnemies = [
   },
   {
     "id": "spore-charger",
-    "name": "스포어 차저",
+    "name": "커스틱 차저",
     "faction": "테르미니드",
     "source": "https://helldivers.wiki.gg/wiki/Caustic_Charger",
     "sourceRevision": 135093,

@@ -63,7 +63,7 @@ export const additionalEnemies = [
   },
   {
     "id": "bile-spitter",
-    "name": "바일 스피터",
+    "name": "커스틱 스피터",
     "faction": "테르미니드",
     "source": "https://helldivers.wiki.gg/wiki/Caustic_Spitter",
     "sourceRevision": 135077,
