@@ -176,7 +176,7 @@ for (const item of support) {
     const prefix = `table:${key}`;
     if (notCompared[prefix] || (key !== item.id && notCompared[`table:${item.id}`])) continue;
     if (!ok(spec, `${prefix}: tie this stratagem table row to datamine records in scripts/test-support.mjs, or list it in notCompared`)) continue;
-    compareHit(prefix, spec, { hit: { direct: row.direct, ap: row.ap } }, prefix);
+    compareHit(prefix, spec, { hit: { direct: row.direct, durable: row.durable, ap: row.ap } }, prefix);
     compareBlast(prefix, spec, { blast: { damage: row.splash, ap: row.splash ? row.splashAp : undefined, innerRadius: row.innerRadius, radius: row.radius } }, prefix);
   }
 }
@@ -211,6 +211,24 @@ for (const item of support.filter(item => item.rpmModes || item.rpm != null)) {
   }
 }
 for (const message of rateWarnings) console.warn(`warning: support fire rate: ${message}`);
+
+// Magazine and spare ammo come from the datamine weapon record and are optional. Their shape is
+// enforced; a record that no longer matches (cap; mags, or rounds; a one-round weapon's spares
+// count as rounds) is printed as a warning, so a refresh that moves a number does not fail.
+const ammoWarnings = [];
+const count = value => value == null || (Number.isInteger(value) && value > 0);
+for (const item of support.filter(item => item.magazine != null || item.spareMags != null || item.spareRounds != null)) {
+  ok(count(item.magazine) && count(item.spareMags) && count(item.spareRounds), `${item.id}: magazine and spare ammo are positive whole numbers`);
+  ok(item.spareMags == null || item.spareRounds == null, `${item.id}: spare magazines or spare rounds, not both`);
+  ok(item.magazineWiki == null || (count(item.magazineWiki) && item.magazineWiki !== item.magazine), `${item.id}: magazineWiki only records a different wiki capacity`);
+  const record = weapons[item.en.toUpperCase()];
+  if (!record) { ammoWarnings.push(`${item.id}: no datamine weapon record to compare`); continue; }
+  const spare = record.roundtype === 'rounds' ? { rounds: record.rounds } : record.cap === 1 ? { rounds: record.mags } : { mags: record.mags };
+  if (item.magazine != null && item.magazine !== record.cap) ammoWarnings.push(`${item.id}: magazine ${item.magazine}, datamine cap ${record.cap}`);
+  if (item.spareMags != null && item.spareMags !== spare.mags) ammoWarnings.push(`${item.id}: spare magazines ${item.spareMags}, datamine ${spare.mags ?? 'none'}`);
+  if (item.spareRounds != null && item.spareRounds !== spare.rounds) ammoWarnings.push(`${item.id}: spare rounds ${item.spareRounds}, datamine ${spare.rounds ?? 'none'}`);
+}
+for (const message of ammoWarnings) console.warn(`warning: support ammo: ${message}`);
 
 assert(!failures.length, `${failures.length} support weapon checks failed:\n  ${failures.join('\n  ')}`);
 console.log(`PASS support: ${checks} checks; ${Object.keys(weaponProfiles).length} combat profiles and ${support.length} table rows against the wiki datamine (revision ${snapshot.revision}); ${Object.keys(reviewed).length} reviewed differences.`);

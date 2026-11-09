@@ -103,7 +103,8 @@ setLang('ko');
 const modeHtml = String(await itemDetailContent('control-group', 'arsenal/epoch', 'charged'));
 ok(modeHtml.includes('data-variant="charged" aria-pressed="true"'), 'embedded stratagem selects URL mode');
 ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preserves mode');
-// Support weapon fire rates: whatever the data holds is shown in the stat grid, and nothing otherwise.
+// Support weapon fire rates, durable damage, magazine and spare ammo: whatever the data holds is
+// shown in the stat grid, and nothing otherwise. With tabs, the first grid is the first tab's.
 {
   const { stratagems } = await import('../dist/core/catalog.js');
   const { num } = await import('../dist/core/explain.js');
@@ -113,6 +114,12 @@ ok(modeHtml.includes('href="#/arsenal/epoch?m=charged"'), 'full-page link preser
     if (item.rpmModes?.length > 1) ok(shows(grid, '연사 모드', item.rpmModes.map(num).join(' / ')), `${item.id}: selectable fire rates shown`);
     else if (item.rpm != null) ok(shows(grid, '연사', num(item.rpm)), `${item.id}: fire rate shown`);
     else ok(!grid.includes('<dt>연사'), `${item.id}: no fire rate row without a fire rate`);
+    const durable = item.variants?.length > 1 ? item.variants[0].durable : item.durable;
+    const cells = [['내구 피해', durable], [item.fuel ? '연료' : '탄창', item.magazine], [item.fuel ? '예비 연료통' : '예비 탄창', item.spareMags], ['예비탄', item.spareRounds]];
+    for (const [label, value] of cells) {
+      if (value != null) ok(shows(grid, label, num(value)), `${item.id}: ${label} ${value} shown`);
+      else ok(!grid.includes(`<dt>${label}</dt>`), `${item.id}: no ${label} cell without a value`);
+    }
   }
 }
 setLang('en');

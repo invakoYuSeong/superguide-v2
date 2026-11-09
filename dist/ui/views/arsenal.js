@@ -158,6 +158,19 @@ function spreadBlock(item) {
   </section>`;
 }
 
+// Durable damage, magazine and spare ammo from the datamine (see data-support.js).
+function ammoCells(item) {
+  const cell = (label, text, unit, caption) => html`<div><dt>${label}</dt><dd>${text}${unit ? html`<small>${unit}</small>` : ''}</dd>${caption ? html`<div class="caption">${caption}</div>` : ''}</div>`;
+  const spare = L('최대 보유', 'Maximum carried');
+  return [
+    item.durable != null ? cell(L('내구 피해', 'Durable damage'), num(item.durable), item.damageKind === 'dps' ? '/s' : '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts')) : '',
+    item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : L('발', ''),
+      item.magazineWiki != null ? L(`게임 데이터 기준 · 위키 표기 ${num(item.magazineWiki)}`, `Game data · wiki says ${num(item.magazineWiki)}`) : '') : '',
+    item.spareMags != null ? cell(item.fuel ? L('예비 연료통', 'Spare tanks') : L('예비 탄창', 'Spare magazines'), num(item.spareMags), L('개', ''), spare) : '',
+    item.spareRounds != null ? cell(L('예비탄', 'Spare rounds'), num(item.spareRounds), L('발', ''), spare) : '',
+  ];
+}
+
 // Fire rate from the wiki infobox, or the rates the player picks between.
 function rateCell(item) {
   if (item.rpmModes?.length > 1) return html`<div><dt>${L('연사 모드', 'Fire rate modes')}</dt><dd>${item.rpmModes.map(num).join(' / ')}</dd><div class="caption">${L('분당 발수 · 골라서 사용', 'Rounds per minute · pick one')}</div></div>`;
@@ -166,6 +179,7 @@ function rateCell(item) {
 }
 
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
+  ${ammoCells(item)}
   ${rateCell(item)}
   ${item.cooldown ? html`<div><dt>${L('재사용 대기', 'Cooldown')}</dt><dd>${num(item.cooldown)}<small>${L('초', 's')}</small></dd><div class="caption">${L('함선 강화 제외', 'Without ship modules')}</div></div>` : ''}</dl>`;
 

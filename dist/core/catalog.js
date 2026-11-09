@@ -32,7 +32,7 @@ export const stratagemById = new Map(stratagems.map(item => [item.id, item]));
 
 // Weapons with switchable ammunition or armaments list each mode's numbers in
 // `variants`; a variant replaces every per-shot stat so nothing leaks between modes.
-const VARIANT_STATS = ['direct', 'directText', 'directNoteShort', 'splash', 'splashText', 'splashNoteShort', 'ap', 'apNoteShort', 'splashAp', 'radius', 'innerRadius', 'unit'];
+const VARIANT_STATS = ['direct', 'directText', 'directNoteShort', 'durable', 'splash', 'splashText', 'splashNoteShort', 'ap', 'apNoteShort', 'splashAp', 'radius', 'innerRadius', 'unit'];
 export const withVariant = (item, variant) => variant
   ? { ...item, ...Object.fromEntries(VARIANT_STATS.map(key => [key, variant[key] ?? (key === 'radius' || key === 'innerRadius' ? null : undefined)])) }
   : item;
