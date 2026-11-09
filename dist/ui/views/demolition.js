@@ -45,7 +45,6 @@ const conditionText = (condition, profile) => ({
   aim: () => profile.note || L('실제 명중·기폭 조건을 확인하세요.', 'Check the actual hit and detonation conditions.'),
   shield: () => L('워프 함선의 보호막을 먼저 벗겨야 합니다. 보호막 제거에 드는 공격은 제외합니다.', 'The Warp Ship\'s shield has to come down first. Attacks spent on the shield are not counted.'),
   jammer: () => L('교란기를 끈 뒤에만 호출할 수 있습니다.', 'Can only be called in once the jammer is off.'),
-  'anti-air': () => L('대공 거치포가 서 있으면 150 m 안에서 이글을 호출할 수 없습니다.', 'Eagles cannot be called in within 150 m while the Anti-Air Emplacement stands.'),
 })[condition.kind]();
 
 function howText(result) {

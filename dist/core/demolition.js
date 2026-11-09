@@ -42,7 +42,7 @@ export function healthDamage(structure, attack) {
 
 /**
  * outcome: demolish | health | conditional | blocked | unknown
- * conditions: [{ kind: 'opening'|'aim'|'shield'|'jammer'|'anti-air', text? }]
+ * conditions: [{ kind: 'opening'|'aim'|'shield'|'jammer', text? }]
  */
 export function solveDemolition(structure, profile, attack, { shieldCleared = false, jammerDisabled = false } = {}) {
   const base = { structure, outcome: 'unknown', method: null, route: null, via: null, hits: null, unit: attack?.unit || '발', conditions: [], routes: [], health: null };
@@ -67,7 +67,6 @@ export function solveDemolition(structure, profile, attack, { shieldCleared = fa
     if (profile.conditionalAim) result.conditions.push({ kind: 'aim', text: profile.note });
     if (structure.condition === 'shield' && !shieldCleared && !(attack.shieldBypass && !result.route?.opening)) result.conditions.push({ kind: 'shield' });
     if (structure.condition === 'jammer' && profile.requiresCallIn && !jammerDisabled) result.conditions.push({ kind: 'jammer' });
-    if (structure.condition === 'anti-air' && profile.eagle) result.conditions.push({ kind: 'anti-air' });
     if (result.conditions.length) result.outcome = 'conditional';
   }
   return result;

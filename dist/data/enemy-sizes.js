@@ -13,6 +13,7 @@ export const enemySizesSource = {
 };
 
 export const enemySizes = {
+  "aa-emplacement": null,
   "agitator": "medium",
   "alpha-commander": "large",
   "alpha-warrior": "medium",
@@ -27,6 +28,7 @@ export const enemySizes = {
   "bile-warrior": "medium",
   "brawler": "small",
   "brood-commander": "large",
+  "bunker-turret": null,
   "charger": "large",
   "commissar": "small",
   "conflagration-devastator": "medium",
@@ -35,6 +37,7 @@ export const enemySizes = {
   "devastator": "medium",
   "dragonroach": "massive",
   "dropship": "massive",
+  "dropship-base": null,
   "elevated-overseer": "medium",
   "factory-strider": "massive",
   "fleshmob": "large",
@@ -61,6 +64,7 @@ export const enemySizes = {
   "leviathan": "massive",
   "marauder": "small",
   "mg-raider": "small",
+  "mortar-emplacement": null,
   "noxious-scavenger": "small",
   "noxious-spewer": "medium",
   "nursing-spewer": "medium",
@@ -102,6 +106,13 @@ export const enemySizes = {
 };
 
 export const enemySizeEvidence = {
+  "aa-emplacement": {
+    "title": "Anti-Air Emplacement",
+    "source": "https://helldivers.wiki.gg/wiki/Anti-Air_Emplacement",
+    "category": null,
+    "pageid": null,
+    "revision": null
+  },
   "agitator": {
     "title": "Agitator",
     "source": "https://helldivers.wiki.gg/wiki/Agitator",
@@ -200,6 +211,13 @@ export const enemySizeEvidence = {
     "pageid": 570,
     "revision": 141213
   },
+  "bunker-turret": {
+    "title": "Bunker Turret",
+    "source": "https://helldivers.wiki.gg/wiki/Bunker_Turret",
+    "category": null,
+    "pageid": null,
+    "revision": null
+  },
   "charger": {
     "title": "Charger",
     "source": "https://helldivers.wiki.gg/wiki/Charger",
@@ -255,6 +273,13 @@ export const enemySizeEvidence = {
     "category": "Massive Enemies",
     "pageid": 837,
     "revision": 139884
+  },
+  "dropship-base": {
+    "title": "Sabotage Air Base",
+    "source": "https://helldivers.wiki.gg/wiki/Sabotage_Air_Base",
+    "category": null,
+    "pageid": null,
+    "revision": null
   },
   "elevated-overseer": {
     "title": "Elevated Overseer",
@@ -437,6 +462,13 @@ export const enemySizeEvidence = {
     "category": "Small Enemies",
     "pageid": 7935,
     "revision": 138978
+  },
+  "mortar-emplacement": {
+    "title": "Mortar Emplacement",
+    "source": "https://helldivers.wiki.gg/wiki/Mortar_Emplacement",
+    "category": null,
+    "pageid": null,
+    "revision": null
   },
   "noxious-scavenger": {
     "title": "Noxious Scavenger",
@@ -707,7 +739,11 @@ export const enemySizeEvidence = {
 };
 
 export const unmappedEnemySizes = {
+  "aa-emplacement": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
+  "bunker-turret": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
+  "dropship-base": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
   "gatekeeper": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
+  "mortar-emplacement": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
   "obtruder": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다.",
   "veracitor": "수집한 소형·중형·대형·초대형 분류에 이 적의 페이지가 없어 크기를 확인하지 못했습니다."
 };

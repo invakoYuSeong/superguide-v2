@@ -1481,5 +1481,186 @@ export const additionalEnemies = [
         "sourcePart": "Lateral Fins (2)"
       }
     ]
+  },
+  // Automaton defences that are also mission objectives (moved from the demolition
+  // page on 2026-11-09). Anatomy is the page saved in db/source/wiki_structures.json.
+  {
+    "id": "bunker-turret",
+    "name": "벙커 거치포",
+    "faction": "오토마톤",
+    "source": "https://helldivers.wiki.gg/wiki/Bunker_Turret",
+    "sourceRevision": 142047,
+    "checkedAt": "2026-11-09",
+    "anatomyRevision": 142047,
+    "anatomyCheckedAt": "2026-11-09",
+    "main": {
+      "hp": 400,
+      "armor": 4,
+      "durability": 100,
+      "exdr": 0,
+      "constitution": 0
+    },
+    "note": "지휘 벙커 위와 요새(난이도 10), 소규모 관심 지점(난이도 7 이상)을 지키는 포탑입니다. 두 발씩 쏜 뒤 약 5초 식히며, 사거리가 약 150 m라 대물소총 같은 장거리 무기로 그 밖에서 부술 수 있습니다. 앞쪽은 장갑 4, 뒤쪽 방열판은 장갑 3입니다. 위키 기준 대전차 무기는 한 발에 부수고, 테르밋은 붙으면 한 개로 부숩니다. 소형 적으로 취급돼 스피어는 락온하지 못합니다.",
+    "spearLock": false,
+    "parts": [
+      {
+        "id": "body",
+        "name": "포탑 본체",
+        "hp": 400,
+        "armor": 4,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "앞쪽 포탑을 맞히세요. 장갑 4라 관통 4 이상만 피해를 주고, 관통 4 무기는 같은 장갑이라 피해가 줄어듭니다. 돌아갈 수 있으면 뒤쪽 방열판을 노리세요.",
+        "sourcePart": "Main",
+        "mainOnly": true
+      },
+      {
+        "id": "heatsink",
+        "name": "후방 방열판",
+        "hp": 400,
+        "armor": 3,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "포탑 뒤쪽의 환풍구입니다. 장갑 3이라 관통 3 무기로도 부술 수 있고, 파괴하면 포탑이 무너집니다.",
+        "sourcePart": "Heatsink"
+      }
+    ]
+  },
+  {
+    "id": "aa-emplacement",
+    "name": "대공 거치포",
+    "faction": "오토마톤",
+    "source": "https://helldivers.wiki.gg/wiki/Anti-Air_Emplacement",
+    "sourceRevision": 137727,
+    "checkedAt": "2026-11-09",
+    "anatomyRevision": 137727,
+    "anatomyCheckedAt": "2026-11-09",
+    "main": {
+      "hp": 400,
+      "armor": 4,
+      "durability": 100,
+      "exdr": 0,
+      "constitution": 0
+    },
+    "note": "오토마톤 전초기지의 대공 포대입니다. 서 있는 동안 150 m 안에서는 이글 스트라타젬을 부를 수 없습니다. 본체는 장갑 4, 뒤쪽 방열판은 장갑 3이라 관통 4 이상이면 어느 방향에서든, 관통 3이면 뒤에서만 부술 수 있습니다. 위키 기준 대전차 무기는 한 발에 부수고, 테르밋은 붙으면 한 개로 부숩니다. 지옥폭탄 호출과 이글을 뺀 공격 스트라타젬으로도 부술 수 있습니다.",
+    "spearLock": false,
+    "parts": [
+      {
+        "id": "body",
+        "name": "포대 본체",
+        "hp": 400,
+        "armor": 4,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "정면이나 옆에서 포대 몸체를 맞히세요. 장갑 4라 관통 4 이상만 피해를 주고, 관통 4 무기는 같은 장갑이라 피해가 줄어듭니다. 돌아갈 수 있으면 뒤쪽 방열판을 노리세요.",
+        "sourcePart": "Main",
+        "mainOnly": true
+      },
+      {
+        "id": "heatsink",
+        "name": "후방 방열판",
+        "hp": 400,
+        "armor": 3,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "포대 뒤쪽의 환풍구입니다. 장갑 3이라 관통 3 무기로도 부술 수 있고, 파괴하면 포대가 무너집니다. 포대가 다른 대원을 노려 등을 보일 때 뒤로 돌아가세요.",
+        "sourcePart": "Heatsink"
+      }
+    ]
+  },
+  {
+    "id": "mortar-emplacement",
+    "name": "박격포 거치포",
+    "faction": "오토마톤",
+    "source": "https://helldivers.wiki.gg/wiki/Mortar_Emplacement",
+    "sourceRevision": 136791,
+    "checkedAt": "2026-11-09",
+    "anatomyRevision": 136791,
+    "anatomyCheckedAt": "2026-11-09",
+    "main": {
+      "hp": 400,
+      "armor": 4,
+      "durability": 100,
+      "exdr": 0,
+      "constitution": 0
+    },
+    "note": "오토마톤 전초기지의 박격포 포대입니다. 다른 오토마톤이 발견한 표적만 50~150 m 거리에서 포격하며, 붉은 포탄 궤적으로 위치를 알 수 있습니다. 본체는 장갑 4, 뒤쪽 방열판은 장갑 3이라 관통 4 이상이면 어느 방향에서든, 관통 3이면 뒤에서만 부술 수 있습니다. 위키 기준 대전차 무기는 한 발에 부수고, 테르밋은 붙으면 한 개로 부숩니다. 지옥폭탄 호출과 공격 스트라타젬으로도 부술 수 있습니다.",
+    "spearLock": false,
+    "parts": [
+      {
+        "id": "body",
+        "name": "포대 본체",
+        "hp": 400,
+        "armor": 4,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "정면이나 옆에서 포대 몸체를 맞히세요. 장갑 4라 관통 4 이상만 피해를 주고, 관통 4 무기는 같은 장갑이라 피해가 줄어듭니다. 돌아갈 수 있으면 뒤쪽 방열판을 노리세요.",
+        "sourcePart": "Main",
+        "mainOnly": true
+      },
+      {
+        "id": "heatsink",
+        "name": "후방 방열판",
+        "hp": 400,
+        "armor": 3,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "포대 뒤쪽의 환풍구입니다. 장갑 3이라 관통 3 무기로도 부술 수 있고, 파괴하면 포대가 무너집니다. 포대가 다른 대원을 노려 등을 보일 때 뒤로 돌아가세요.",
+        "sourcePart": "Heatsink"
+      }
+    ]
+  },
+  {
+    "id": "dropship-base",
+    "name": "드랍십 기지",
+    "faction": "오토마톤",
+    "source": "https://helldivers.wiki.gg/wiki/Sabotage_Air_Base",
+    "sourceRevision": 129990,
+    "checkedAt": "2026-11-09",
+    "anatomyRevision": 129990,
+    "anatomyCheckedAt": "2026-11-09",
+    "main": {
+      "hp": 1000,
+      "armor": 5,
+      "durability": 100,
+      "exdr": 0,
+      "constitution": 0
+    },
+    "note": "공군 기지 임무에서 착륙해 정비 중인 드랍십 한 대입니다. 날아다니는 드랍십(체력 3,500)과 달리 체력 1,000에 장갑 5이고, 추진기도 따로 떨어진 부위가 아닙니다. 관통 5 이상 공격만 피해를 줍니다. 위키 기준 대전차 무기는 한 발, 테르밋·기가 수류탄은 한 개로 부수며, 이글 500kg 폭탄·이글 공중타격·이글 기총소사는 여러 대를 한 번에 부술 수 있습니다. 기지 관제탑은 일반 공격으로 부술 수 없고 단말기로 자폭시켜야 합니다.",
+    "spearLock": false,
+    "parts": [
+      {
+        "id": "body",
+        "name": "본체",
+        "hp": 1000,
+        "armor": 5,
+        "durability": 100,
+        "exdr": 0,
+        "toMain": 100,
+        "overflowCap": true,
+        "effect": "kill",
+        "tip": "착륙한 드랍십 몸체 어디든 맞히세요. 체력이 하나로 이어져 있어 맞힌 위치와 관계없이 같은 체력을 깎습니다.",
+        "sourcePart": "Main",
+        "mainOnly": true
+      }
+    ]
   }
 ];

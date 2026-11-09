@@ -3893,5 +3893,146 @@ export const revisedCombatImages = {
         "retrievedAt": "2026-11-08"
       }
     ]
+  },
+  "bunker-turret": {
+    "body": [
+      {
+        "src": "./assets/anatomy/revised-bunker-turret-body.webp",
+        "thumbnail": "./assets/anatomy/revised-bunker-turret-body-thumb.webp",
+        "title": "Bunker Turret Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Bunker_Turret_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Bunker_Turret_Front.png?8eefd3",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Bunker_Turret_Front.png/800px-Bunker_Turret_Front.png?8eefd3",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Bunker_Turret_Front.png/320px-Bunker_Turret_Front.png?8eefd3",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "d53d0561379f28c7d5586043d08fdf342b75706167f88963c5c8e91eef0dd07d",
+        "thumbnailSha256": "64da36ab0aec8c745a965ee3e8a8d7f3a82f0d524af20b90e99a5213f427d3e2",
+        "retrievedAt": "2026-11-09"
+      }
+    ],
+    "heatsink": [
+      {
+        "src": "./assets/anatomy/revised-bunker-turret-heatsink.webp",
+        "thumbnail": "./assets/anatomy/revised-bunker-turret-heatsink-thumb.webp",
+        "title": "Bunker Turret Vent Side.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Bunker_Turret_Vent_Side.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Bunker_Turret_Vent_Side.png?cf4e93",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Bunker_Turret_Vent_Side.png/800px-Bunker_Turret_Vent_Side.png?cf4e93",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Bunker_Turret_Vent_Side.png/320px-Bunker_Turret_Vent_Side.png?cf4e93",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "6c900281bd15c4713d52f3e52bf02c03b78deb6c43052fa98f130fa103a975ad",
+        "thumbnailSha256": "7d467d2be3cd9b33695d0e1adf1f5ba3b2e10c64542174f777acc51ff4b41109",
+        "retrievedAt": "2026-11-09"
+      }
+    ]
+  },
+  "aa-emplacement": {
+    "body": [
+      {
+        "src": "./assets/anatomy/revised-aa-emplacement-body.webp",
+        "thumbnail": "./assets/anatomy/revised-aa-emplacement-body-thumb.webp",
+        "title": "Anti-Air Emplacement Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Anti-Air_Emplacement_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Anti-Air_Emplacement_Front.png?d6d260",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Anti-Air_Emplacement_Front.png/800px-Anti-Air_Emplacement_Front.png?d6d260",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Anti-Air_Emplacement_Front.png/320px-Anti-Air_Emplacement_Front.png?d6d260",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "a1cb6f779f8af754dd60471add41148330f054de8248de5967e5743ebb873b3a",
+        "thumbnailSha256": "a5a432d965fc7dd54d3e1b00ee172a60ad032224565396ab32a6e46091be9674",
+        "retrievedAt": "2026-11-09"
+      }
+    ],
+    "heatsink": [
+      {
+        "src": "./assets/anatomy/revised-aa-emplacement-heatsink.webp",
+        "thumbnail": "./assets/anatomy/revised-aa-emplacement-heatsink-thumb.webp",
+        "title": "Anti-Air Emplacement Vent Side.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Anti-Air_Emplacement_Vent_Side.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Anti-Air_Emplacement_Vent_Side.png?5edd28",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Anti-Air_Emplacement_Vent_Side.png/800px-Anti-Air_Emplacement_Vent_Side.png?5edd28",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Anti-Air_Emplacement_Vent_Side.png/320px-Anti-Air_Emplacement_Vent_Side.png?5edd28",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "c6804ed0cb2f465b18f2557c20aa594cc969eca28fff01ed716ed5aa8996d748",
+        "thumbnailSha256": "11ccc27f30209d5619f07fd45dc75bb082f7bc525d02c64b5ae4c614e3ebdaed",
+        "retrievedAt": "2026-11-09"
+      }
+    ]
+  },
+  "mortar-emplacement": {
+    "body": [
+      {
+        "src": "./assets/anatomy/revised-mortar-emplacement-body.webp",
+        "thumbnail": "./assets/anatomy/revised-mortar-emplacement-body-thumb.webp",
+        "title": "Mortar Emplacement Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Mortar_Emplacement_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Mortar_Emplacement_Front.png?21cf70",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Mortar_Emplacement_Front.png/800px-Mortar_Emplacement_Front.png?21cf70",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Mortar_Emplacement_Front.png/320px-Mortar_Emplacement_Front.png?21cf70",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "f08179e4b612a507c80562ff79cc15b2aacfba7c22c00e1da4b3077c0765b0bf",
+        "thumbnailSha256": "ea5dec488d8addd4b974d6bf9f277fb11e18c8aff7fa8658f58d335e0b58b631",
+        "retrievedAt": "2026-11-09"
+      }
+    ],
+    "heatsink": [
+      {
+        "src": "./assets/anatomy/revised-mortar-emplacement-heatsink.webp",
+        "thumbnail": "./assets/anatomy/revised-mortar-emplacement-heatsink-thumb.webp",
+        "title": "Mortar Emplacement Vent Side.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Mortar_Emplacement_Vent_Side.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Mortar_Emplacement_Vent_Side.png?6f8280",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Mortar_Emplacement_Vent_Side.png/800px-Mortar_Emplacement_Vent_Side.png?6f8280",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Mortar_Emplacement_Vent_Side.png/320px-Mortar_Emplacement_Vent_Side.png?6f8280",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "b1d778367feaaf4e49ed4486c9db342766899f601cef6d16b42e8baa937c5559",
+        "thumbnailSha256": "3f4dd767fee5a8ae97800d298b6574e3fbbb4d860f7501e95b99aa104fbf605e",
+        "retrievedAt": "2026-11-09"
+      }
+    ]
+  },
+  "dropship-base": {
+    "body": [
+      {
+        "src": "./assets/anatomy/revised-dropship-base-body.webp",
+        "thumbnail": "./assets/anatomy/revised-dropship-base-body-thumb.webp",
+        "title": "Parked Dropship Front.png",
+        "stage": "initial",
+        "source": "https://helldivers.wiki.gg/wiki/File:Parked_Dropship_Front.png",
+        "originalUrl": "https://helldivers.wiki.gg/images/Parked_Dropship_Front.png?4b77be",
+        "renderedUrl": "https://helldivers.wiki.gg/images/thumb/Parked_Dropship_Front.png/800px-Parked_Dropship_Front.png?4b77be",
+        "thumbnailUrl": "https://helldivers.wiki.gg/images/thumb/Parked_Dropship_Front.png/320px-Parked_Dropship_Front.png?4b77be",
+        "width": 800,
+        "height": 533,
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 213,
+        "sha256": "ce8f9559eb12957ce0301faa60cf0a34fbc7d0e05583608edbf7e64fc33e954c",
+        "thumbnailSha256": "6dc5a2fd55e63d8d0e4e30dd5a3369d21d06507780ab6bc3e97ae84be57a352f",
+        "retrievedAt": "2026-11-09"
+      }
+    ]
   }
 };
