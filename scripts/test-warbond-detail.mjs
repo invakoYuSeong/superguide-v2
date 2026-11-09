@@ -179,6 +179,23 @@ ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page
   eq(playerDetails(base, { weapon_traits: 'Heavy Armor Penetrating {{*}} Explosive {{*}} Guided' }).traitTags, ['guided'], 'only the four badge traits are kept');
   eq(playerDetails(base, {}).traitTags, [], 'no trait list, no badges');
 }
+// Warbond chip on weapon and stratagem details: exactly the items a warbond page links, pointing at that item.
+{
+  const { warbondSources } = await import('../dist/data/warbond-sources.js');
+  const { stratagems } = await import('../dist/core/catalog.js');
+  const linked = new Map();
+  for (const bond of warbonds) for (const page of bond.pages) for (const item of page.items) if (item.ref) linked.set(`${item.ref.view}/${item.ref.id}`, { bond, page: page.number });
+  eq(Object.keys(warbondSources).sort(), [...linked.keys()].sort(), 'warbond index lists every linked item');
+  for (const [key, { bond, page }] of linked) eq(warbondSources[key], { id: bond.id, name: bond.name, en: bond.en, tier: bond.tier, price: bond.price, page }, `${key}: index matches the warbond board`);
+  const details = [...[...weaponById.values()].map(w => ['gear', w.id, weaponDetail(w)]), ...stratagems.map(s => ['arsenal', s.id, stratagemDetail(s)])];
+  for (const [view, id, html] of details) {
+    const chip = String(html).match(/<a class="badge warbond" href="([^"]+)"[^>]*>[\s\S]*?<\/a>/);
+    const source = warbondSources[`${view}/${id}`];
+    if (!source) { ok(!chip, `${view}/${id}: no warbond chip for an item no warbond links`); continue; }
+    ok(chip && chip[1] === formatRoute(itemRoute({ id: source.id, query: {} }, `${view}/${id}`)), `${view}/${id}: chip links the item on its warbond board`);
+    ok(chip && chip[0].includes(escape(source.name)) && chip[0].includes('무료') === (source.price === 0), `${view}/${id}: chip names the warbond and marks a free one`);
+  }
+}
 // Spread choices picked before throwing (Caltrops) show only where the data has them.
 for (const w of weaponById.values()) eq(String(weaponDetail(w)).includes('<dt>퍼뜨리기'), Boolean(w.spreadModes?.length), `${w.id}: spread row only with spread choices`);
 const caltrops = (await import('../db/weapons.js')).weapons.find(w => w.id === 'caltrops');

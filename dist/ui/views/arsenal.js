@@ -6,6 +6,7 @@ import { shieldRecovery } from '../../core/defense.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom.js';
 import { blastFigure } from '../blast.js';
+import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const SORTS = [
@@ -217,7 +218,7 @@ export function stratagemDetail(item, { demolition = false, header = null, title
   <div class="sheet-content">
     <div class="detail-id"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
       <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
-      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}</div></div></div>
+      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}</div></div></div>
     ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
     <p style="font-size:16px">${item.summary}</p>
     ${firingModesBlock(item)}
@@ -307,6 +308,8 @@ function toggleCompare(id) {
 // --- View lifecycle -------------------------------------------------------------------
 export function mount(container, context) {
   root = container; ctx = context;
+  // A fresh visit has no open detail; leaving through a link skips the close handler that clears it.
+  state.detail = null; state.variant = ''; state.pushedDetail = false;
   const count = id => stratagems.filter(item => item.category === id).length;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Stratagem Arsenal</div><h1>${L('스트라타젬 도감', 'Stratagems')}</h1><p>${L(`${stratagems.length}종의 피해·관통·범위와 사용법. 카드를 누르면 자세한 기준이 열립니다.`, `Damage, penetration, reach and how to use all ${stratagems.length} stratagems. Open a card for the details behind the numbers.`)}</p></div></div>
   <div class="arsenal-tools">

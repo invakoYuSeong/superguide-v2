@@ -11,6 +11,7 @@ import { search, personalNames } from '../../core/search.js';
 import { num } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure } from '../blast.js';
+import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 
@@ -223,7 +224,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
   <div class="sheet-content">
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
-      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
+      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
@@ -309,6 +310,8 @@ function showTab() {
 
 export function mount(container, context) {
   root = container; ctx = context;
+  // A fresh visit has no open detail; leaving through a link skips the close handler that clears it.
+  state.detail = null; state.variant = ''; state.pushedDetail = false;
   const count = id => personalWeapons.filter(w => w.category === id).length;
   LEDES.browse = L(`주무기 ${count('primary')}종 · 보조무기 ${count('secondary')}종 · 투척 ${count('throwable')}종의 수치. 카드를 누르면 자세한 기준이 열립니다.`, `Stats for ${count('primary')} primaries, ${count('secondary')} secondaries and ${count('throwable')} throwables. Open a card for the details behind the numbers.`);
   render(root, html`<div class="page-head gear-head"><div><div class="eyebrow">Armory</div>
