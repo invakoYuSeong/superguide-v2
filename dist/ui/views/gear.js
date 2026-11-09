@@ -148,6 +148,7 @@ function detailRows(w) {
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
   if (w.fuse != null) add(L('신관', 'Fuse'), num(w.fuse), s, L('던진 뒤 폭발까지', 'From throw to detonation'));
   else if (fuseText(w)) add(L('신관', 'Fuse'), fuseText(w), '', { impact: L('닿는 순간 폭발', 'Explodes on contact'), proximity: L('적이 가까이 오면 폭발', 'Explodes when an enemy comes close'), selectable: L('던지기 전에 시간 선택', 'Pick the timer before throwing') }[w.fuseType] || '');
+  if (w.spreadModes?.length) add(L('퍼뜨리기', 'Spread'), w.spreadModes.map(id => ({ narrow: L('좁게', 'Narrow'), wide: L('넓게', 'Wide') })[id] ?? id).join(' / '), '', L('던지기 전에 선택', 'Pick before throwing'));
   if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
   return rows;
 }
