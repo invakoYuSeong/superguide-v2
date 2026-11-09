@@ -181,7 +181,9 @@ if (caltrops) {
   const { num } = await import('../dist/core/explain.js');
   const shows = (content, label, text) => content.includes(`<dt>${label}</dt><dd>${text}`);
   for (const item of stratagems.filter(s => s.category === 'support')) {
-    const grid = String(stratagemDetail(item)).match(/<dl class="detail-grid">[\s\S]*?<\/dl>/)?.[0] ?? '';
+    // The stat grid, not a firing-mode panel's grid above it.
+    const statsHtml = String(stratagemDetail(item)).replace(/<div class="variant-panel" data-fire-mode-panel[\s\S]*?<\/dl>/g, '');
+    const grid = statsHtml.match(/<dl class="detail-grid">[\s\S]*?<\/dl>/)?.[0] ?? '';
     if (item.rpmModes?.length > 1) ok(shows(grid, '연사 모드', item.rpmModes.map(num).join(' / ')), `${item.id}: selectable fire rates shown`);
     else if (item.rpm != null) ok(shows(grid, '연사', num(item.rpm)), `${item.id}: fire rate shown`);
     else ok(!grid.includes('<dt>연사'), `${item.id}: no fire rate row without a fire rate`);
@@ -191,6 +193,27 @@ if (caltrops) {
       if (value != null) ok(shows(grid, label, num(value)), `${item.id}: ${label} ${value} shown`);
       else ok(!grid.includes(`<dt>${label}</dt>`), `${item.id}: no ${label} cell without a value`);
     }
+  }
+}
+// Firing modes picked on a stratagem weapon (Airburst cluster/flak, W.A.S.P. burst/artillery): one button and
+// panel per mode, above the damage stats, showing whatever the data holds.
+{
+  const { stratagems } = await import('../dist/core/catalog.js');
+  const withModes = stratagems.filter(s => s.firingModes?.length);
+  ok(withModes.length > 0, 'some stratagems have firing modes');
+  for (const item of withModes) {
+    const content = String(stratagemDetail(item));
+    eq([...content.matchAll(/data-fire-mode="([^"]+)" aria-pressed="(\w+)">([^<]+)/g)].map(m => [m[1], m[2], m[3]]),
+      item.firingModes.map((m, i) => [m.id, String(!i), m.name]), `${item.id}: one button per firing mode, first selected`);
+    for (const [i, m] of item.firingModes.entries()) {
+      const panel = content.split(`data-fire-mode-panel="${m.id}"`)[1]?.split('data-fire-mode-panel=')[0] ?? '';
+      ok(panel.startsWith(i ? ' hidden' : ''), `${item.id}/${m.id}: only the first panel is open`);
+      for (const row of m.rows) ok(panel.includes(`<dt>${escape(row.label)}</dt>`) && panel.includes(escape(row.value)), `${item.id}/${m.id}: ${row.label} shown`);
+      if (m.note) ok(panel.includes(escape(m.note)), `${item.id}/${m.id}: note shown`);
+    }
+    if (item.firingModesNote) ok(content.includes(escape(item.firingModesNote)), `${item.id}: shared note shown`);
+    const modes = content.indexOf('data-fire-modes'), stats = content.indexOf('<dl class="detail-grid">', content.indexOf('</div>', content.lastIndexOf('data-fire-mode-panel')));
+    ok(modes > 0 && modes < stats, `${item.id}: modes sit above the damage stats`);
   }
 }
 setLang('en');

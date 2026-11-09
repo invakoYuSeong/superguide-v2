@@ -177,6 +177,29 @@ function rateCell(item) {
   if (item.rpm == null) return '';
   return html`<div><dt>${L('연사', 'Fire rate')}</dt><dd>${num(item.rpm)}</dd><div class="caption">${L('분당 발수', 'Rounds per minute')}</div></div>`;
 }
+// Modes picked on the weapon that change how it fires or detonates (Airburst cluster/flak,
+// W.A.S.P. burst/artillery). Each mode lists its own facts; the damage stats stay below.
+function firingModesBlock(item) {
+  const modes = item.firingModes;
+  if (!modes?.length) return '';
+  const unit = value => value === '발' || value === '개' ? L(value, '') : value;
+  return html`<div class="firing-modes" data-fire-modes>
+    <div class="variant-tabs"><h3>${L('모드', 'Mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map((m, i) => html`<button type="button" data-fire-mode="${m.id}" aria-pressed="${String(!i)}">${m.name}</button>`)}</div></div>
+    ${modes.map((m, i) => html`<div class="variant-panel" data-fire-mode-panel="${m.id}" ${i ? raw('hidden') : ''}>
+      <dl class="detail-grid">${m.rows.map(row => html`<div><dt>${row.label}</dt><dd class="${/\d/.test(row.value) ? '' : 'dim'}">${row.value}${row.unit ? html`<small>${unit(row.unit)}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>
+      ${m.note ? html`<p class="variant-note">${m.note}</p>` : ''}
+    </div>`)}
+    ${item.firingModesNote ? html`<p class="variant-note">${item.firingModesNote}</p>` : ''}
+  </div>`;
+}
+// The buttons switch only their own block, in the arsenal sheet or an embedded warbond pane.
+globalThis.document?.addEventListener('click', event => {
+  const pick = event.target.closest?.('[data-fire-mode]');
+  const group = pick?.closest('[data-fire-modes]');
+  if (!group) return;
+  for (const button of $$('[data-fire-mode]', group)) button.setAttribute('aria-pressed', String(button === pick));
+  for (const panel of $$('[data-fire-mode-panel]', group)) panel.hidden = panel.dataset.fireModePanel !== pick.dataset.fireMode;
+});
 
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${ammoCells(item)}
@@ -197,6 +220,7 @@ export function stratagemDetail(item, { demolition = false, header = null, title
       <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}</div></div></div>
     ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
     <p style="font-size:16px">${item.summary}</p>
+    ${firingModesBlock(item)}
     ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
       ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
       : html`${statGrid(item)}${blastFigure(item)}`}
