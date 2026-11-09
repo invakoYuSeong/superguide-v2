@@ -32,14 +32,39 @@ export const support = [
       { label: '자탄 폭발 안전거리', value: '약 30', unit: 'm', caption: '폭발 중심에서 반경 30 m 안은 아군도 위험' },
       { label: '자탄 수', value: '25', unit: '개', caption: '대공포탄·집속탄 두 모드 공통' },
     ],
-    notes: ['두 모드 모두 자탄 25개를 뿌리고, 자탄이 터지는 방식만 다릅니다. 퍼지는 넓이는 터지는 높이에 따라 달라서 고정값이 없습니다.', '대공포탄 모드: 2 m 안에 적이나 장애물이 들어오면 터지고, 자탄은 최대 0.7초 뒤 공중에서 터집니다. 안전거리 30 m는 이 모드에서 측정한 값입니다.', '집속탄 모드: 최대 사거리 62.5 m에서 터지고, 자탄은 땅에 닿아야 터집니다. 높이 쏘면 30 m보다 넓게 퍼질 수 있습니다. 위키의 \'최대 분산 반경 60 m\'는 터지는 높이(약 60 m)와 혼동했을 가능성이 있어 검증되지 않은 값입니다.'],
+    notes: ['두 모드 모두 자탄 25개를 뿌리고, 자탄이 터지는 방식만 다릅니다. 퍼지는 넓이는 터지는 높이에 따라 달라서 고정값이 없습니다.'],
     source: '안전거리는 커뮤니티 측정값 · 위키 패치 1.003.101 기준',
   },
+  // Detonation modes picked on the weapon (same sources as the spread notes above). The damage is the same in both.
+  firingModes: [
+    { id: 'cluster', name: '집속탄', rows: [
+      { label: '주탄 기폭', value: '62.5', unit: 'm', caption: '최대 사거리에서 터짐' },
+      { label: '자탄 기폭', value: '착탄 시', caption: '땅에 닿아야 터짐' },
+    ], note: "높이 쏘면 30 m보다 넓게 퍼질 수 있습니다. 위키의 '최대 분산 반경 60 m'는 터지는 높이(약 60 m)와 혼동했을 가능성이 있어 검증되지 않은 값입니다." },
+    { id: 'flak', name: '대공포탄', rows: [
+      { label: '주탄 기폭', value: '2', unit: 'm', caption: '적이나 장애물이 이 거리 안에 들어오면 터짐(근접 신관)' },
+      { label: '자탄 기폭', value: '0.7', unit: '초', caption: '최대 이 시간 뒤 공중에서 터짐' },
+    ], note: '안전거리 30 m는 이 모드에서 측정한 값입니다.' },
+  ],
+  firingModesNote: '피해 수치는 두 모드가 같습니다. 아래 주탄·자탄 수치를 보세요.',
   variantLabel: '주탄·자탄 수치', variantKind: 'parts', variants: [
     { id: 'rocket', name: '주탄', direct: 350, splash: 150, ap: 3, splashAp: 3, radius: 5, innerRadius: 3, unit: '주탄 1발', splashNoteShort: '주폭발' },
     { id: 'bomblet', name: '자탄 1개', direct: 150, splash: 500, ap: 3, splashAp: 3, radius: 6, innerRadius: 4, unit: '자탄 1개', note: '주탄 한 발에서 자탄 25개가 흩어집니다(두 모드 공통). 모든 자탄이 한 표적에 맞는다고 합산하지 않습니다.' },
   ] },
-  { id: 'wasp', name: 'W.A.S.P. 발사기', en: 'StA-X3 W.A.S.P. Launcher', code: 'StA-X3', direct: 200, splash: 600, ap: 6, splashAp: 3, radius: 5, innerRadius: 2.5, tags: ['유도', '탄종 전환', '배낭 필요'], aliases: ['WASP', '와스프 발사기'], summary: '유도 미사일을 연속 발사하거나 포격 모드로 운용하는 무기.', usage: '표적을 락온한 뒤 버스트로 여러 발을 보내세요. 모드에 따라 탄 소모와 공격 형태가 달라집니다.', warning: '카드 수치는 버스트 미사일 한 발 기준입니다.', notes: '직격 200, AP 6 / 폭발 600, AP 3. 포격 모드 전체 피해는 별도이므로 단순 합산하지 않습니다.', unit: '버스트 미사일 1발' },
+  { id: 'wasp', name: 'W.A.S.P. 발사기', en: 'StA-X3 W.A.S.P. Launcher', code: 'StA-X3', direct: 200, splash: 600, ap: 6, splashAp: 3, radius: 5, innerRadius: 2.5, tags: ['유도', '탄종 전환', '배낭 필요'], aliases: ['WASP', '와스프 발사기'], summary: '유도 미사일을 점사로 연속 발사하거나 야포 모드로 한꺼번에 쏘는 무기.', usage: '표적을 락온한 뒤 점사로 여러 발을 보내세요. 큰 적 주위에 작은 적이 몰려 있으면 야포 모드가 효과적입니다.', warning: '카드 수치는 점사 미사일 한 발 기준입니다.', notes: '직격 200, AP 6 / 폭발 600, AP 3. 야포 모드 전체 피해는 별도이므로 단순 합산하지 않습니다.', unit: '점사 미사일 1발',
+    // Burst and artillery: how each fires and the lock-on from the wiki (rev 140393); the artillery shot from the
+    // datamine (142136, StA-X3_P1: arms after 30 m, bursts within 12 m, 600 blast, 7 StA-X3_P missiles in a 25-degree cone).
+    firingModes: [
+      { id: 'burst', name: '점사', rows: [
+        { label: '한 번에 발사', value: '1', unit: '발', caption: '누르고 있으면 탄창이 빌 때까지 연속 발사' },
+      ], note: '미사일이 무작위 방향으로 나갔다가 방향을 틀어 표적을 따라가므로, 주변 지형이나 건물에 부딪힐 수 있습니다.' },
+      { id: 'artillery', name: '야포', rows: [
+        { label: '탄 소모', value: '남은 탄 전부', caption: '모든 미사일을 하나로 묶어 쏨' },
+        { label: '공중 폭발', value: '600', caption: '폭발 AP 3 · 표적 12 m 안에 들어오면 터짐' },
+        { label: '자탄 미사일', value: '최대 7', unit: '개', caption: '1개당 직격 200(AP 6) · 폭발 600(AP 3)' },
+      ], note: '위로 솟았다가 표적 위에서 내리꽂히며 공중에서 터집니다. 탄창에 미사일이 많을수록 강하며, 게임 데이터의 자탄 7개는 가득 찬 탄창 기준입니다. 발사 후 30 m를 날기 전에는 터지지 않습니다.' },
+    ],
+    firingModesNote: '두 모드 모두 표적을 고정해야 발사됩니다. 소형 적은 고정할 수 없고, 최대 300 m까지 고정합니다.' },
   { id: 'sterilizer', name: '스터릴라이저', aliases: ['스테릴라이저'], en: 'TX-41 Sterilizer', code: 'TX-41', direct: 1, splash: 0, ap: 5, range: 47, rangeType: '위키 실측 분사 거리', tags: ['가스', '혼란', '군중 제어'], summary: '가스로 적의 진입을 흐트러뜨리고 다른 무기로 마무리하는 분사기.', usage: '선두 적에게 짧게 가스를 묻힌 뒤 주무기로 전환하세요. 이미 혼란에 걸린 적에 계속 분사하기보다 다른 적에게 옮깁니다.', warning: '분사 입자 피해와 가스 지속 피해는 다른 값입니다.', notes: '입자당 피해 1, AP 5 / 가스 25 DPS, AP 6. 47 m는 커뮤니티 측정치입니다.', unit: '분사 입자 1개', splashNoteShort: '가스 25/s 별도' },
   { id: 'meltagun', name: '멜타건', en: '40-K Meltagun', code: '40-K', direct: 2600, splash: 0, ap: 7, damageKind: 'dps', range: 15, rangeType: '최대 사거리', directNoteShort: '초당 · 근거리 최대', tags: ['근거리', '대전차', '충전'], summary: '짧게 충전한 뒤 강한 열 광선으로 중장갑을 녹이는 무기.', usage: '충전 후 약 1.4초 동안 광선이 이어집니다. 머리나 노출된 약점을 계속 따라가며 같은 부위에 피해를 집중하세요.', warning: '최대 사거리 15m에서는 피해가 40% 감소합니다. 충전 중에는 공격하지 못하므로 거리를 확보하세요.', notes: '광선 일반·내구 피해는 각각 초당 2,600 / AP 7. 한 발이 약 1.4초간 전부 닿으면 최대 3,640이며, 15m에서는 초당 약 1,560 / 한 발 약 2,184입니다. 폭발·화상 피해는 없습니다.', rangeNote: '중간 거리의 감쇠 곡선은 자료 미확인입니다. 근거리 최대 피해와 사거리 끝 15m의 피해를 별도로 표시합니다.', extraSource: 'https://helldivers.wiki.gg/wiki/Module:Decodedata-Attacks/weapons_data.json', patch: '1.007.000' },
   { id: 'cremator', name: '크리메이터', en: 'B/FLAM-80 Cremator', code: 'B/FLAM-80', direct: 225, splash: 0, ap: 4, damageKind: 'dps', tags: ['화염', '지속 사격', '배낭 필요'], summary: '연료 배낭으로 오랫동안 분사하는 중화염방사기.', usage: '적 진입로를 먼저 태운 뒤 접근하는 적을 분사로 밀어내세요. 분사 중에도 옆으로 이동해 둘러싸이지 않게 합니다.', warning: '불길이 아군의 통로를 막지 않도록 배치하세요.', notes: '225 DPS는 위키 표기값. 분사 입자 피해 3과 착화 100 DPS는 별도입니다. 연료 배낭 500 용량, 확정 사거리 미확인.' },

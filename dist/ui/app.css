@@ -432,6 +432,7 @@ details > summary::-webkit-details-marker { display: none; }
 .variant-tabs { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; margin-bottom: -8px; }
 .variant-tabs h3 { font-size: 14px; font-weight: 750; }
 .variant-panel:not([hidden]) { display: grid; gap: 12px; }
+.firing-modes { display: grid; gap: inherit; }
 .variant-note { font-size: 13.5px; color: var(--text-2); }
 .compare-modes { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .compare-modes b { display: block; }
