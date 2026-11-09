@@ -6,7 +6,7 @@
 // is not in the anatomy snapshot is read from there with the same row parser.
 import { readFile } from 'node:fs/promises';
 
-// One Anatomy Row → its fields, keeping the raw wiki text of each value.
+// One Anatomy Row -> its fields, keeping the raw wiki text of each value.
 // Pages with several Anatomy Tables (tabs such as "Pilot") record the table
 // index and its tab label on each row, so equal part names stay apart.
 export function anatomyRows(wikitext) {

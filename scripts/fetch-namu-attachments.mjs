@@ -1,5 +1,5 @@
 // Downloads the Korean attachment names of the primary weapons into db/source/namu_attachments.json.
-//   HELLDIVERS 2/무기/주 무기 ← each weapon section's '무기 커스터마이징' table: per slot, every
+//   HELLDIVERS 2/무기/주 무기 <- each weapon section's '무기 커스터마이징' table: per slot, every
 //                              attachment's Korean name and unlock ('기본' or level + cost).
 // The page has no English attachment names, so scripts/build-attachments.mjs ties a Korean name
 // to a wiki attachment by weapon, slot, unlock level and cost. Only the parsed rows are saved,
@@ -12,7 +12,7 @@ import { decodeHtml } from './fetch-weapons-source.mjs';
 
 const UA = 'HD2FieldGuide/2.0 (fan site data check; contact via github modocracy)';
 const TITLE = 'HELLDIVERS 2/무기/주 무기';
-// Slot header rows of the table → site slot ids (scripts/build-attachments.mjs SLOTS).
+// Slot header rows of the table -> site slot ids (scripts/build-attachments.mjs SLOTS).
 export const NAMU_SLOTS = { '광학 장비': 'optics', '총열 하부': 'underbarrel', '총구': 'muzzle', '탄창': 'magazine' };
 
 const plain = value => decodeHtml(value.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();

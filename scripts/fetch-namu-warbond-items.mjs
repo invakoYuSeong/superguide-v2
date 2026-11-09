@@ -1,7 +1,7 @@
 // Downloads the Korean names of warbond cosmetics and boosters into db/source/namu_warbond_items.json.
-//   HELLDIVERS 2/부스터 ← each booster's Korean name with its English name under it
-//   HELLDIVERS 2/치장   ← §2.6 titles as "Korean(English)"
-//   HELLDIVERS 2/스토어 ← every warbond page board: Korean name, kind and medal cost of each tile.
+//   HELLDIVERS 2/부스터 <- each booster's Korean name with its English name under it
+//   HELLDIVERS 2/치장   <- §2.6 titles as "Korean(English)"
+//   HELLDIVERS 2/스토어 <- every warbond page board: Korean name, kind and medal cost of each tile.
 //                        The 치장 page lists emotes, cards, capes and patterns in Korean only, so
 //                        these boards are what ties a Korean name to a tile (same warbond, page,
 //                        kind and cost) in scripts/build-warbonds.mjs.
@@ -14,7 +14,7 @@ import { decodeHtml } from './fetch-weapons-source.mjs';
 
 const UA = 'HD2FieldGuide/2.0 (fan site data check; contact via github modocracy)';
 const PAGES = { boosters: 'HELLDIVERS 2/부스터', cosmetics: 'HELLDIVERS 2/치장', store: 'HELLDIVERS 2/스토어' };
-// Image alt prefixes on the store boards ('HD2 <kind> <name>') → site tile kind.
+// Image alt prefixes on the store boards ('HD2 <kind> <name>') -> site tile kind.
 export const BOARD_KINDS = { '부스터': 'booster', '감정표현': 'emote', '승리포즈': 'victory-pose', '플레이어 카드': 'player-card', '망토': 'cape', '칭호': 'title', '패턴': 'pattern' };
 
 const plain = value => decodeHtml(value.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
@@ -24,7 +24,7 @@ const headings = html => [...html.matchAll(/<h([2-6]) class="wiki-heading"[^>]*>
   .map(m => ({ index: m.index, end: m.index + m[0].length, title: footnotes(plain(m[2]).replace(/^[\d.]+\s*/, '').replace(/\s*\[편집\]$/, '')) }));
 const sections = html => headings(html).map((h, i, all) => ({ title: h.title, html: html.slice(h.end, all[i + 1]?.index ?? html.length) }));
 
-/** Booster page: <strong>Korean</strong> … <br><sub>English</sub> in each booster's box. */
+/** Booster page: <strong>Korean</strong> ... <br><sub>English</sub> in each booster's box. */
 export function parseBoosters(html) {
   return [...html.matchAll(/<strong[^>]*>([^<]+)<\/strong>(?:<\/span>)*<br[^>]*><sub[^>]*>([^<]+)<\/sub>/g)]
     .map(m => ({ name: decodeHtml(m[1]).trim(), en: decodeHtml(m[2]).trim() }));

@@ -1,8 +1,8 @@
 // Offline build of the warbond guide data from local snapshots only (no network, no clock).
 //   db/source/wiki_warbonds.json        ← scripts/fetch-warbonds.mjs (Helldivers Wiki wikitext)
 //   db/source/warbond_korean_names.json ← Korean warbond names (in-game text), name only
-//   db/source/namu_warbond_items.json   ← scripts/fetch-namu-warbond-items.mjs (Korean cosmetic and booster names)
-// Writes dist/data/warbonds.js and the small item → warbond index dist/data/warbond-sources.js.
+//   db/source/namu_warbond_items.json   <- scripts/fetch-namu-warbond-items.mjs (Korean cosmetic and booster names)
+// Writes dist/data/warbonds.js and the small item -> warbond index dist/data/warbond-sources.js.
 // Usage: node scripts/build-warbonds.mjs [--stdout]
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -56,7 +56,7 @@ export function koreanItemMatcher(namu) {
     for (const { name, en } of list) names.set(normalizeName(en), names.has(normalizeName(en)) && names.get(normalizeName(en)) !== name ? null : name);
   }
   const boards = new Map(namu.boards.map(board => [board.warbond, board]));
-  /** → { ko } or { reason } for one tile of a warbond page (Korean warbond name, page number, the page's tiles). */
+  /** -> { ko } or { reason } for one tile of a warbond page (Korean warbond name, page number, the page's tiles). */
   return (warbondName, pageNumber, item, pageItems) => {
     const listed = english[item.kind]?.get(normalizeName(item.name));
     const board = boards.get(warbondName)?.pages.find(p => p.number === pageNumber);
