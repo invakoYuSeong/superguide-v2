@@ -334,6 +334,7 @@ main[aria-busy] { opacity: .5; transition: opacity .2s .15s; }
 }
 .chip:hover { color: var(--text); background: var(--surface-2); }
 .chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.chip.is-empty:not([aria-pressed="true"]) { opacity: .45; }
 .chip .count { font: 700 15px/1 var(--cond); color: var(--text-3); }
 .chip[aria-pressed="true"] .count { color: var(--accent-ink); opacity: .7; }
 .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dot, var(--text-3)); }

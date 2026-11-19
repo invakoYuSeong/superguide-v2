@@ -117,7 +117,21 @@ function syncUrl() {
 
 function renderList() {
   const items = visibleItems();
-  const total = stratagems.filter(item => !state.c || item.category === state.c).length;
+  // Category and type chips count within each other's choice; a chip with nothing to show is dimmed
+  // (picking it lets the other choice go).
+  const inCategory = (item, id = state.c) => !id || item.category === id;
+  const inPermit = (item, id = state.p) => !id || permitOf(item) === id;
+  const total = stratagems.filter(item => inCategory(item) && inPermit(item)).length;
+  for (const chip of $$('[data-cat]', root)) {
+    const n = stratagems.filter(item => inCategory(item, chip.dataset.cat) && inPermit(item)).length;
+    chip.querySelector('.count').textContent = n;
+    chip.classList.toggle('is-empty', !n);
+  }
+  for (const chip of $$('[data-permit]', root)) {
+    const n = stratagems.filter(item => inPermit(item, chip.dataset.permit) && inCategory(item)).length;
+    if (chip.dataset.permit) chip.querySelector('.count').textContent = n;
+    chip.classList.toggle('is-empty', !n);
+  }
   $('#arsenal-count').innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시 · 전체 ${total}개`, html`Showing <b>${items.length}</b> of ${total}`)}</span>`.toString();
   render($('#arsenal-grid'), items.length ? items.map(card) : html`<div class="empty" style="grid-column:1/-1"><h3>${L('맞는 스트라타젬이 없습니다', 'No matching stratagems')}</h3><p>${L('검색어를 줄이거나 필터를 해제해 보세요.', 'Try a shorter search or clear the filters.')}</p><button class="button" type="button" data-reset>${L('필터 초기화', 'Reset filters')}</button></div>`);
   for (const chip of $$('[data-cat]', root)) chip.setAttribute('aria-pressed', String(chip.dataset.cat === state.c));
@@ -446,9 +460,18 @@ export function mount(container, context) {
   root.addEventListener('click', event => {
     const target = event.target.closest('button, a');
     if (!target) return;
-    if (target.dataset.cat != null) { state.c = state.c === target.dataset.cat ? '' : target.dataset.cat; renderList(); syncUrl(); }
+    if (target.dataset.cat != null) {
+      state.c = state.c === target.dataset.cat ? '' : target.dataset.cat;
+      // A type that has nothing in the new category is let go.
+      if (state.p && !stratagems.some(item => item.category === state.c && permitOf(item) === state.p) && state.c) state.p = '';
+      renderList(); syncUrl();
+    }
     else if (target.dataset.ap != null) { state.ap = state.ap === target.dataset.ap ? '' : target.dataset.ap; renderList(); syncUrl(); }
-    else if (target.dataset.permit != null) { state.p = state.p === target.dataset.permit ? '' : target.dataset.permit; renderList(); syncUrl(); }
+    else if (target.dataset.permit != null) {
+      state.p = state.p === target.dataset.permit ? '' : target.dataset.permit;
+      if (state.c && state.p && !stratagems.some(item => item.category === state.c && permitOf(item) === state.p)) state.c = '';
+      renderList(); syncUrl();
+    }
     else if (target.dataset.mod) { state.mod = target.dataset.mod === 'on'; setModulesOn(state.mod); renderList(); syncUrl(); }
     else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'arsenal', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
     else if (target.dataset.compare) toggleCompare(target.dataset.compare);
