@@ -22,7 +22,9 @@
   - **팩션·행성 화면(2026-11-19)**: 팩션 추천 하위 팩션 12개에 위키 아이콘(`node scripts/fetch-subfaction-icons.mjs`, `dist/assets/subfactions/`), 진영 아이콘과 같은 색(테르미니드 #ffb901·오토마톤 #ff6161·일루미닛 #cd8aea). 상태 이상 7종에 사이트에서 그린 아이콘. 생물군계의 행성 이름은 위키 문서가 있는 278개만 링크(`wiki_planets.json`의 `planetPages` = Category:Planets, 대소문자·악센트 무시로 매칭). 생물군계 분류 이름에서 '형'을 뺌(사막·원시·극지 등).
   - **스토어 개편(2026-11-19)**: 상단 탭 '전쟁 채권'이 '스토어'가 되고 하위 페이지 '전쟁 채권'(`#/warbonds`, 메인 화면 그대로)·'슈퍼 스토어'(`#/superstore`, `route.js`의 `TAB_OF`로 스토어 탭에 묶임). 슈퍼 스토어는 위키 Superstore 문서의 27쪽 3×2 보드(118개, 20,755 SC = 위키 총액). 파이프라인 `node scripts/fetch-superstore.mjs`(`db/source/wiki_superstore.json`) → `node scripts/build-game-names.mjs`(망토·카드·감정 표현 게임 이름 `superstoreItems`) → `node scripts/build-superstore.mjs`(`dist/data/superstore.js`) → 그림은 `fetch-warbond-item-images.py`가 채권과 함께 받음 → `test-superstore.mjs`. 17쪽 접힌 표의 I-44 Salamander 헬멧 75는 오타(보드·개별 문서 rev 139519·위키 총액이 125). 모든 항목 상시 판매(로테이션 없음, 사용자 확인). 채권 상단에 SUPER CREDITS 26,500·MEDALS 19,928 합계, 메달·슈퍼 크레딧 아이콘은 위키 그림(`node scripts/fetch-currency-icons.mjs`).
   - **스트라타젬 도감 필터(2026-11-19)**: 종류 줄 오른쪽에 함선 모듈 칩, 관통력 줄의 '미확인 AP' 대신 구분 칩 '전체·공격·방어·지원·임무'(`?p=`). 구분은 위키 인포박스 permit_type(없으면 임무), SOS 신호기·전술용 비디오 카메라는 사용자 결정으로 임무(`PERMIT_OVERRIDES`, `stratagem-stats-parse.mjs`). 종류·구분 칩 숫자는 서로의 선택에 맞춰 바뀌고 0개 칩은 흐리게, 누르면 반대쪽 선택이 풀림.
-  - **방어구 탭 패시브 필터(2026-11-19)**: 패시브 칩은 여러 줄로 줄바꿈, 누르면 스크롤 대신 그 패시브만 표시(`#/gear?tab=armor&p=<passive>`, '전체' 칩 포함).
+  - **방어구 탭(2026-11-19)**: 패시브 칩은 여러 줄로 줄바꿈, 누르면 스크롤 대신 필터, 여러 개 동시 선택(`#/gear?tab=armor&p=a,b`, '전체'는 모두 해제). 무게 색(경량 파랑·일반 초록·중량 주황빨강, `--w-light/medium/heavy`)을 필터 점·카드 위 띠·무게 표시에.
+  - **인체공학성(2026-11-19)**: 스트라타젬·장비 상세 스펙 칸에 datamine `ergonomics`(지원 무기 34종 `stratagem-stats.js`, 주·보조무기 `personal-weapons.js`). 중기관총은 datamine 값 0 그대로(위키 문서 값과 다를 수 있음).
+  - **기타(2026-11-19)**: 커스터마이징 표는 좁은 창에서 해금·비용 칸이 행 전체 높이(세로줄이 끝까지), 채권 상세 아래 '한국어 이름을 확인하지 못한…' 안내 문구 삭제(사용자 요청).
   - 검사: `npm run check` 18종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
 
 - **PR #9 병합(2026-11-10, 배포됨)**: 무기 모드 탭, 주 무기 부착물 표, 지원 무기 연사·탄창, 스트라타젬 호출 코드, 채권 칩, 철거 시설 추가, 오토마톤 방어 시설 4종을 적 대응으로 이동, 커스틱·녹셔스 세력 안내. 이후 작은 수정 2개(영어 테마 버튼 설명, 세력 안내별 확인 날짜) 배포.
@@ -37,6 +39,7 @@
 
 - **게시**: `work/wiki-features`를 사용자가 게시하자고 할 때 master에 올립니다(push = 배포).
 - **실제 기기 확인**: 스토어·슈퍼 스토어(휴대폰에서 3×2 보드 글자 크기), 휴대폰 하단 탭 7칸(360px에서 글자 넘침 없음은 헤드리스로 확인), 행성·부스터 탭, 게임 스타일·방어구 탭, 5×3 보드.
+- **중기관총 인체공학성 0**: datamine 값 그대로 표시 중. 위키 MG-206 문서 값과 대조해 다르면 사용자에게 물어보기.
 - **녹셔스 적 재확인**: 위키 문서가 작성 중(WIP). 고유 수치가 올라오면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다.
 - **전송 네트워크 철거력 10**: 위키에 값 없음, 사용자가 받아들인 값(`thresholdSource: 'user'`).
 - 부착물 Flashlight·Focus Lens·Triple Lens는 영어 표시 중. 게임 이름(조명·초점 렌즈·삼중 렌즈)이 문장표에 있으니 바꿀지 사용자 결정 전.
