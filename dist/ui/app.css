@@ -784,8 +784,6 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-source a { color: var(--accent-text); font-weight: 650; }
 .planet-tabs { margin-bottom: 14px; flex-wrap: wrap; }
 .planet-effects { margin-top: 10px; }
-.special-sub { margin: 4px 0 6px; font-size: 13.5px; font-weight: 750; color: var(--text-2); }
-.special-sub ~ .special-sub { margin-top: 12px; }
 .detail-grid dd.force-lines { display: grid; gap: 2px; font: 600 14px/1.5 var(--font); }
 .force-line b { color: var(--text-2); font-weight: 650; margin-right: 2px; }
 .planet-effects summary { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; font-weight: 750; list-style: none; }

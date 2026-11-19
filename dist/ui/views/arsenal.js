@@ -264,24 +264,28 @@ function timingBlock(item) {
   </section>`;
 }
 
-// Special effects: demolition force per mode (demolition-data.js), then the stagger and push
-// force of each attack from the wiki attack datamine (stratagem-stats.js `forces`).
+// Special effects: demolition, stagger and push force of each attack from the wiki attack
+// datamine (stratagem-stats.js `forces`); demolition-data.js where the datamine has no record.
 const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment') };
-export const forceLines = parts => parts.map(part => html`<span class="force-line"><b>${FORCE_KIND[part.kind]}</b> ${L('저지력', 'Stagger')} ${part.stun ?? '?'} · ${L('넉백', 'Push')} ${part.push ?? '?'}</span>`);
 export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
   'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
 function specialBlock(item, profile) {
   const forces = stratagemStats[item.id]?.forces ?? [];
   if (!profile?.modes?.length && !forces.length) return '';
-  const value = force => force == null ? '—' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
-  const groupName = (group, index) => group.weapon ?? (forces.length > 1 ? L(`공격 ${index + 1}`, `Attack ${index + 1}`) : L('공격', 'Attack'));
+  const value = force => force == null ? '?' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
+  // Where the demolition data keeps a range (sources disagree), show that range instead of the datamine number.
+  const range = kind => profile?.modes?.map(mode => kind === 'blast' ? mode.explosion : mode.direct).find(force => force && typeof force === 'object');
+  const line = (demo, stun, push) => html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${demo} · <b>${L('저지력', 'Stagger')}</b> ${stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${push ?? '?'}</span>`;
+  const rows = forces.length
+    ? forces.flatMap((group, index) => group.parts.map(part => ({
+      label: [group.weapon ?? (forces.length > 1 ? L(`공격 ${index + 1}`, `Attack ${index + 1}`) : null), FORCE_KIND[part.kind]].filter(Boolean).join(' · '),
+      text: line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push),
+    })))
+    // No attack records in the datamine: the demolition data alone.
+    : profile.modes.map(mode => ({ label: T(mode.name), text: mode.forceUnknown ? html`<span class="force-line dim">${L('철거력 확인 중', 'Demolition force unverified')}</span>`
+      : html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${[mode.direct != null ? L(`직격 ${value(mode.direct)}`, `direct ${value(mode.direct)}`) : '', mode.explosion != null ? L(`폭발 ${value(mode.explosion)}`, `blast ${value(mode.explosion)}`) : ''].filter(Boolean).join(' · ')}</span>` }));
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
-    ${profile?.modes?.length ? html`<h4 class="special-sub">${L('철거력', 'Demolition force')}</h4>
-    <dl class="detail-grid">${profile.modes.map(mode => html`<div><dt>${T(mode.name)}</dt>${mode.forceUnknown
-      ? html`<dd class="dim">${L('확인 중', 'Unverified')}</dd>`
-      : html`<dd>${value(mode.direct)}<small> / ${value(mode.explosion)}</small></dd><div class="caption">${L('직격 / 폭발', 'Direct / blast')}</div>`}</div>`)}</dl>` : ''}
-    ${forces.length ? html`<h4 class="special-sub">${L('저지력 · 넉백', 'Stagger · push force')}</h4>
-    <dl class="detail-grid">${forces.map((group, index) => html`<div><dt>${groupName(group, index)}</dt><dd class="force-lines">${forceLines(group.parts)}</dd></div>`)}</dl>` : ''}
+    <dl class="detail-grid">${rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`)}</dl>
     <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>
   </section>`;
 }

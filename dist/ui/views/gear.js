@@ -275,8 +275,7 @@ function specialBlock(w) {
     .filter((row, index, list) => list.findIndex(other => other.demolition === row.demolition && other.stun === row.stun && other.push === row.push && String(other.label) === String(row.label)) === index);
   if (!rows.length) return '';
   const cell = row => html`<div><dt>${row.label ?? L('기본 공격', 'Main attack')}</dt><dd class="force-lines">
-    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'}</span>
-    <span class="force-line"><b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
+    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
     <dl class="detail-grid">${rows.map(cell)}</dl>
     <p class="faint" style="font-size:12.5px;margin-top:8px">${L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.', 'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach the structure threshold in a single hit or blast; hits do not add up.')}</p>

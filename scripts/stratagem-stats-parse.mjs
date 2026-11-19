@@ -67,11 +67,11 @@ export function forcesOf(found, strat, weapons) {
       if (!KIND[attack.type]) continue;
       const record = lookup(attack.type, attack.name, data);
       const damage = attack.type === 'damage' ? record : record && lookup('damage', record.damage_id, data);
-      if (!damage || (damage.stun == null && damage.push == null)) continue;
+      if (!damage || (damage.stun == null && damage.push == null && damage.demo == null)) continue;
       const kind = attack.type === 'projectile' && attack.level > 1 ? 'fragment' : KIND[attack.type];
       const group = local.get(top(attack)) ?? { weapon, parts: [] };
       local.set(top(attack), group);
-      if (!group.parts.some(part => part.kind === kind && part.stun === damage.stun && part.push === damage.push)) group.parts.push({ kind, stun: damage.stun, push: damage.push });
+      if (!group.parts.some(part => part.kind === kind && part.demo === damage.demo && part.stun === damage.stun && part.push === damage.push)) group.parts.push({ kind, demo: damage.demo ?? null, stun: damage.stun, push: damage.push });
     }
     for (const group of local.values()) if (!groups.some(other => JSON.stringify(other) === JSON.stringify(group))) groups.push(group);
   };
