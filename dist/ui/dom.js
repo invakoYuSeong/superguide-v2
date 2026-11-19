@@ -46,7 +46,6 @@ const ICONS = {
   'ev-extraction': '<path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M4 21h16M7 17.5h10"/>',
   'ev-eagle': '<path d="M12 3c1 0 1.5 1.5 1.5 4v3.5l7 4v2l-7-2v3.5l2 1.5v1.5L12 20l-3.5 1v-1.5l2-1.5v-3.5l-7 2v-2l7-4V7c0-2.5.5-4 1.5-4z"/>',
   gloom: '<path d="M7 18.5h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5-1A4.5 4.5 0 0 0 7 18.5z"/>',
-  exostorm: '<path d="M3.5 4h17M5.5 8h13M8 12h9M10 16h5M12 20h1.5"/>',
   // Status effects (planet tab).
   'status-acid': '<path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/><circle cx="10" cy="15" r="1.5"/><circle cx="14" cy="12" r="1"/>',
   'status-bleed': '<path d="M8 4s-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8zM17 10s-3 3.5-3 5.5a3 3 0 0 0 6 0c0-2-3-5.5-3-5.5z"/>',

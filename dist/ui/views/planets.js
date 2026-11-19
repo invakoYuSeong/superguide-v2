@@ -32,7 +32,6 @@ const ICON_OF = {
   'atmospheric-spores': 'mod-spores', 'roving-shriekers': 'mod-shriekers', 'gunship-patrols': 'mod-gunships', 'leviathan-blockade': 'mod-leviathan',
   'orbital-fluctuations-event': 'mod-cooldown', 'medical-supply-strain': 'ev-stims', 'pilot-shortage': 'ev-extraction', 'slower-eagle-rearm': 'ev-eagle',
   'light-gloom-cover': 'gloom', 'moderate-gloom-blanket': 'gloom', 'heavy-gloom-shroud': 'gloom', 'gloom-source': 'gloom',
-  'exostorm-1': 'exostorm', 'exostorm-2': 'exostorm', 'exostorm-3': 'exostorm',
 };
 const effectIcon = item => item.icon ? html`<span class="info-icon"><img src="${item.icon.src}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
   : ICON_OF[item.id] ? html`<span class="info-icon drawn" aria-hidden="true">${icon(ICON_OF[item.id], 30)}</span>` : html`<span class="info-icon" aria-hidden="true"></span>`;

@@ -378,6 +378,24 @@
    "title": "Heavy SEAF Presence Icon.svg",
    "source": "https://helldivers.wiki.gg/wiki/File:Heavy_SEAF_Presence_Icon.svg",
    "sha256": "3c583d3d6eb377496e09f09a65d0e16927735e7f7e8fb2d70e18c671cccf7e96"
+  },
+  "exostorm-1": {
+   "file": "exostorm.svg",
+   "title": "Destroy Exospire Mission Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
+  },
+  "exostorm-2": {
+   "file": "exostorm.svg",
+   "title": "Destroy Exospire Mission Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
+  },
+  "exostorm-3": {
+   "file": "exostorm.svg",
+   "title": "Destroy Exospire Mission Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
   }
  },
  "planetPages": [

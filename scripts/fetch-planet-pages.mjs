@@ -60,17 +60,22 @@ for (const [, key, file] of out.environmentModule.text.matchAll(/\["([a-z ]+)"\]
   await writeFile(new URL(`../dist/assets/conditions/${name}`, import.meta.url), bytes);
   out.icons[slug(key)] = { file: name, title: file, source: `https://helldivers.wiki.gg/wiki/File:${file.replaceAll(' ', '_')}`, sha256: createHash('sha256').update(bytes).digest('hex') };
 }
-// Icons of effects outside the module, by their wiki file (stored like the condition icons).
-const EXTRA_ICONS = { 'heavy-seaf-presence': 'Heavy SEAF Presence Icon.svg' };
-for (const [key, file] of Object.entries(EXTRA_ICONS)) {
+// Icons of effects outside the module (stored like the condition icons): saved file name -> wiki file
+// and the effect ids that show it (user choices 2026-11-19).
+const EXTRA_ICONS = {
+  'heavy-seaf-presence': { file: 'Heavy SEAF Presence Icon.svg', ids: ['heavy-seaf-presence'] },
+  exostorm: { file: 'Destroy Exospire Mission Icon.svg', ids: ['exostorm-1', 'exostorm-2', 'exostorm-3'] },
+};
+for (const [name, { file, ids }] of Object.entries(EXTRA_ICONS)) {
   await sleep(1500);
   const info = (await get({ action: 'query', prop: 'imageinfo', iiprop: 'url', titles: `File:${file}` })).query.pages[0].imageinfo[0];
   const res = await fetch(info.url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(60000) });
   if (!res.ok) throw new Error(`${res.status} ${info.url}`);
   const bytes = Buffer.from(await res.arrayBuffer());
   validateSvg(bytes, { name: file });
-  await writeFile(new URL(`../dist/assets/conditions/${key}.svg`, import.meta.url), bytes);
-  out.icons[key] = { file: `${key}.svg`, title: file, source: `https://helldivers.wiki.gg/wiki/File:${file.replaceAll(' ', '_')}`, sha256: createHash('sha256').update(bytes).digest('hex') };
+  await writeFile(new URL(`../dist/assets/conditions/${name}.svg`, import.meta.url), bytes);
+  const record = { file: `${name}.svg`, title: file, source: `https://helldivers.wiki.gg/wiki/File:${file.replaceAll(' ', '_')}`, sha256: createHash('sha256').update(bytes).digest('hex') };
+  for (const id of ids) out.icons[id] = record;
 }
 // Planets that have a wiki page (the biome tab links their names; many game planets have none).
 out.planetPages = (await get({ action: 'query', list: 'categorymembers', cmtitle: 'Category:Planets', cmnamespace: '0', cmlimit: '500' })).query.categorymembers.map(page => page.title).sort();

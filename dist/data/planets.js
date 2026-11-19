@@ -258,7 +258,12 @@ export const specialEffects = [
   ],
   "detailEn": [
    "A storm raised by Illuminate Exospires. The planet's weather conditions stay on for good, and lightning strikes now and then after a short warning."
-  ]
+  ],
+  "icon": {
+   "src": "./assets/conditions/exostorm.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
+  }
  },
  {
   "id": "exostorm-2",
@@ -272,7 +277,12 @@ export const specialEffects = [
   ],
   "detailEn": [
    "It usually reaches class 2 72 hours after the exostorm begins. Lightning comes more often, and tornados roam, lifting items and living things."
-  ]
+  ],
+  "icon": {
+   "src": "./assets/conditions/exostorm.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
+  }
  },
  {
   "id": "exostorm-3",
@@ -286,7 +296,12 @@ export const specialEffects = [
   ],
   "detailEn": [
    "It usually reaches class 3 120 hours after it begins. Lightning is constant, tornados are more common and a strong wind never stops."
-  ]
+  ],
+  "icon": {
+   "src": "./assets/conditions/exostorm.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Destroy_Exospire_Mission_Icon.svg",
+   "sha256": "5cb861831013bdc0f94053d087ca39358544a4147eb76b55610e3d3ebcc483a3"
+  }
  },
  {
   "id": "heavy-seaf-presence",
