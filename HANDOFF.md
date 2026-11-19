@@ -14,7 +14,8 @@
   - **함선 모듈**: 스트라타젬 도감에 '함선 모듈 적용/미적용'(기본 적용, `?mod=off`), 카드마다 재사용 시간. 기본값은 각 위키 문서 Stratagem Stats Table(`fetch-stratagem-stats` → `build-stratagem-stats`, `dist/data/stratagem-stats.js`), 모듈 비율은 Ship Modules rev 134806(`dist/data/ship-modules.js`, 계산 `dist/core/modules.js`). 비율은 곱하고 '사기 증강' 5%도 넣음(위키 문서 대부분은 5%를 빼고 적음). 불릿 스톰 위키값 66.5초는 확인한 차이로 `test-stratagem-stats.mjs`에 기록.
   - **부스터 탭**(장비 → 방어구 오른쪽, `#/gear?tab=boosters&b=`): 20종, 게임 이름·설명 + 위키 효과 요약(숫자는 위키 본문과 대조), 아이콘 SVG. `fetch-boosters` → `build-game-names` → `build-boosters`.
   - **행성 탭**(`#/planets?tab=conditions|modifiers|biomes|status`): 환경 조건 12종(아이콘)·글룸 4단계, 작전 제한 조건 8종(난이도 5부터 1개·8부터 2개)·이벤트 효과 4종, 생물군계 28종(행성 379개, 이름·분류는 사이트 번역), 상태 이상 7종(위키 Status Effects 요약). 스트라타젬 상세에 '행성 조건에 따른 변화'(표시값 × 비율, 기본 접힘, 함선 모듈 문구는 그 블록 맨 아래). `fetch-planet-pages` → `build-planets`(`dist/data/planets.js`, `planet-stratagem-effects.js`). 하단 탭이 7칸이 됨.
-  - **임무 연결·철거력**: 철거 화면에서 시설을 부수는 주요·전술 목표와 난이도(10에 없는 임무는 흐리게), 21개 시설·28개 임무(`db/source/structure_objectives.json`, `fetch-objectives` → `build-structure-objectives`). 스트라타젬 상세에 모드별 철거력.
+  - **임무 연결**: 철거 화면에서 시설을 부수는 주요·전술 목표와 난이도(10에 없는 임무는 흐리게), 21개 시설·28개 임무(`db/source/structure_objectives.json`, `fetch-objectives` → `build-structure-objectives`).
+  - **특수 효과**(스트라타젬·장비 상세, 기본 수치표 바로 아래): 철거력, 저지력(stun), 넉백(push). 스트라타젬 철거력은 기존 철거 데이터(모드별), 저지력·넉백은 datamine 공격 기록(`db/source/stratagems_data.json` + `weapons_data.json`, `stratagem-stats.js`의 `forces`, 공격별로 묶음). 장비는 `db/weapons.js`의 기록별 값(`personal-weapons.js`에 demolition·stun·push 추가). 공격 기록이 없는 배낭·보호막·임무 장비와 datamine에 없는 테슬라 탑·거치포·지옥폭탄은 저지력·넉백 없음.
   - **기타**: 전체 검색에 방어구·부스터, 채권 항목 상세는 1340px 미만에서 보드 자리에 열림(겹침 해결), README·계산 방식의 자료 날짜를 '9월 16일 처음 확인, 11월 8일 다시 대조'로.
   - 검사: `npm run check` 16종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
 

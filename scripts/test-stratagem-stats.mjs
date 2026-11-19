@@ -7,9 +7,11 @@ import { stratagems } from '../dist/core/catalog.js';
 import { stratagemStats } from '../dist/data/stratagem-stats.js';
 import { shipModules, shipModulesSource } from '../dist/data/ship-modules.js';
 import { timingOf, setModulesOn, modulesOn } from '../dist/core/modules.js';
-import { statsOf, field, value } from './stratagem-stats-parse.mjs';
+import { statsOf, field, value, datamineEntry, forcesOf } from './stratagem-stats-parse.mjs';
 
 const source = JSON.parse(await readFile(new URL('../db/source/wiki_stratagem_stats.json', import.meta.url), 'utf8'));
+const strat = JSON.parse(await readFile(new URL('../db/source/stratagems_data.json', import.meta.url), 'utf8')).data;
+const weaponData = JSON.parse(await readFile(new URL('../db/source/weapons_data.json', import.meta.url), 'utf8')).data;
 let checks = 0;
 const ok = (condition, message) => { assert(condition, message); checks++; };
 
@@ -21,7 +23,10 @@ const REVIEWED = new Set(['bullet-storm:cooldown_upgraded']);
 for (const item of stratagems) {
   const entry = source.stratagems[item.id];
   ok(entry && !entry.missing, `${item.id}: no wiki page in db/source/wiki_stratagem_stats.json (run fetch-stratagem-stats)`);
-  ok(JSON.stringify(stratagemStats[item.id]) === JSON.stringify(statsOf(entry)), `${item.id}: dist/data/stratagem-stats.js is stale (run build-stratagem-stats)`);
+  const forces = forcesOf(datamineEntry(item.id, entry.title, strat, weaponData), strat, weaponData);
+  ok(JSON.stringify(stratagemStats[item.id]) === JSON.stringify({ ...statsOf(entry), forces }), `${item.id}: dist/data/stratagem-stats.js is stale (run build-stratagem-stats)`);
+  // Every weapon-type stratagem has stagger and push from the datamine.
+  if (['support', 'orbital', 'eagle'].includes(item.category) && !['orbital-railcannon'].includes(item.id)) ok(forces.length, `${item.id}: no stagger or push in the attack datamine`);
 }
 const TYPES = { support: ['Support Weapon'], orbital: ['Orbital'], eagle: ['Eagle'], defense: ['Sentry', 'Emplacement'], backpack: ['Backpack'], vehicle: ['Vehicle'], mission: ['Ship', 'Objective', null] };
 for (const item of stratagems) {

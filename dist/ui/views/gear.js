@@ -268,6 +268,21 @@ export function attachmentTable(w) {
   </details>`;
 }
 
+// Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
+function specialBlock(w) {
+  const rows = (w.variants?.length ? w.variants.map(v => ({ ...v, label: variantLabel(v) })) : [{ ...w, label: null }])
+    .filter(row => row.demolition != null || row.stun != null || row.push != null)
+    .filter((row, index, list) => list.findIndex(other => other.demolition === row.demolition && other.stun === row.stun && other.push === row.push && String(other.label) === String(row.label)) === index);
+  if (!rows.length) return '';
+  const cell = row => html`<div><dt>${row.label ?? L('기본 공격', 'Main attack')}</dt><dd class="force-lines">
+    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'}</span>
+    <span class="force-line"><b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
+  return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
+    <dl class="detail-grid">${rows.map(cell)}</dl>
+    <p class="faint" style="font-size:12.5px;margin-top:8px">${L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.', 'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach the structure threshold in a single hit or blast; hits do not add up.')}</p>
+  </section>`;
+}
+
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
   const group = groupOf(w.category);
   const conflicts = w.infoboxConflicts || [];
@@ -280,6 +295,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
+    ${specialBlock(w)}
     ${attachmentTable(w)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}

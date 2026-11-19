@@ -1,0 +1,6019 @@
+{
+ "source": "https://helldivers.wiki.gg/wiki/Module:Decodedata-Attacks/stratagems_data.json",
+ "revision": 142286,
+ "revisionTimestamp": "2026-11-11T10:37:07Z",
+ "retrievedAt": "2026-11-19",
+ "data": {
+  "damage": {
+   "P5_dm": {
+    "dmg": 350,
+    "dmg2": 200,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 3,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P5_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 5,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P5_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "GL-21_P_dm": {
+    "dmg": 20,
+    "dmg2": 2,
+    "hits_per_second": 0,
+    "ap1": 0,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "GL-21_P_IE_dm": {
+    "dmg": 400,
+    "dmg2": 400,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 25,
+    "push": 30,
+    "element_name": "none",
+    "statuses": [],
+    "name": "GL-21",
+    "element_name_sub": "explosion"
+   },
+   "P6_dm": {
+    "dmg": 1250,
+    "dmg2": 1250,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 6,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 40,
+    "push": 25,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P6_IE_dm": {
+    "dmg": 400,
+    "dmg2": 400,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 60,
+    "push": 70,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P6_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "MLS-4X_BACKBLAST_E_dm": {
+    "dmg": 5,
+    "dmg2": 5,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 20,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "name": "MLS-4X",
+    "element_name_sub": "explosion"
+   },
+   "MG-43_P_dm": {
+    "dmg": 90,
+    "dmg2": 23,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 3,
+    "ap3": 3,
+    "ap4": 1,
+    "demo": 10,
+    "stun": 20,
+    "push": 12,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/MLS-4X_P_dm": {
+    "dmg": 525,
+    "dmg2": 525,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/MLS-4X_P_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "name": "A/MLS-4X",
+    "element_name_sub": "explosion"
+   },
+   "EAT-17_BACKBLAST_E_dm": {
+    "dmg": 15,
+    "dmg2": 15,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "name": "EAT-17",
+    "element_name_sub": "explosion"
+   },
+   "SOLO SILO_E_dm": {
+    "dmg": 2500,
+    "dmg2": 2500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 100,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "SOLO SILO",
+    "element_name_sub": "explosion"
+   },
+   "SOLO SILO_EImpact_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 9,
+    "ap2": 9,
+    "ap3": 9,
+    "ap4": 9,
+    "demo": 40,
+    "stun": 100,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "SOLO SILO",
+    "element_name_sub": "explosion"
+   },
+   "A/M-12_P_dm": {
+    "dmg": 20,
+    "dmg2": 2,
+    "hits_per_second": 0,
+    "ap1": 0,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/M-12_P_IE_dm": {
+    "dmg": 400,
+    "dmg2": 400,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "A/M-12",
+    "element_name_sub": "explosion"
+   },
+   "A/M-23_P_dm": {
+    "dmg": 20,
+    "dmg2": 2,
+    "hits_per_second": 0,
+    "ap1": 0,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/M-23_P_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "name": "A/M-23",
+    "element_name_sub": "explosion"
+   },
+   "A/M-23_P_E_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 0,
+    "element_name": "none",
+    "Status_Name_1": "Stun Medium",
+    "Status_Value_1": 100,
+    "statuses": [
+     "Stun Medium"
+    ],
+    "name": "A/M-23",
+    "element_name_sub": "explosion"
+   },
+   "A/GM-17_P_dm": {
+    "dmg": 20,
+    "dmg2": 2,
+    "hits_per_second": 0,
+    "ap1": 0,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/GM-17_P_IE_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 10,
+    "push": 20,
+    "element_name": "gas",
+    "Status_Name_1": "Gas",
+    "Status_Value_1": 100,
+    "Status_Name_2": "Gas_Confusion",
+    "Status_Value_2": 100,
+    "statuses": [
+     "Gas",
+     "Gas_Confusion"
+    ],
+    "name": "A/GM-17"
+   },
+   "A/AC-8_P_dm": {
+    "dmg": 450,
+    "dmg2": 450,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 40,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "A/AC-8_P_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 30,
+    "element_name": "none",
+    "statuses": [],
+    "name": "A/AC-8",
+    "element_name_sub": "explosion"
+   },
+   "FLAME SENTRY_S_dm": {
+    "dmg": 8,
+    "dmg2": 8,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 4,
+    "demo": 10,
+    "stun": 5,
+    "push": 5,
+    "element_name": "fire",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 3,
+    "Status_Name_2": "FlamerSlowed",
+    "Status_Value_2": 2,
+    "Status_Name_3": "Fire_Panic",
+    "Status_Value_3": 4,
+    "statuses": [
+     "Fire",
+     "FlamerSlowed",
+     "Fire_Panic"
+    ],
+    "name": "FLAME SENTRY"
+   },
+   "LASER SENTRY_B_dm": {
+    "dmg": 350,
+    "dmg2": 200,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 4,
+    "demo": 20,
+    "stun": 0,
+    "push": 0,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 1.5,
+    "statuses": [
+     "Fire"
+    ],
+    "element_name_sub": "beam"
+   },
+   "MG-206_P_dm": {
+    "dmg": 150,
+    "dmg2": 35,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 15,
+    "stun": 25,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "AR-23P_P_dm": {
+    "dmg": 65,
+    "dmg2": 15,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 3,
+    "ap3": 3,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 10,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "SWP_CREMATOR_S_dm": {
+    "dmg": 3,
+    "dmg2": 3,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 4,
+    "demo": 10,
+    "stun": 5,
+    "push": 5,
+    "element_name": "fire",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 3,
+    "Status_Name_2": "FlamerSlowed",
+    "Status_Value_2": 2,
+    "Status_Name_3": "Fire_Panic",
+    "Status_Value_3": 4,
+    "statuses": [
+     "Fire",
+     "FlamerSlowed",
+     "Fire_Panic"
+    ],
+    "name": "SWP_CREMATOR"
+   },
+   "P7_dm": {
+    "dmg": 300,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P7_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 40,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P7_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "LUMBERER FLAMETHROWER_S_dm": {
+    "dmg": 8,
+    "dmg2": 8,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 4,
+    "demo": 10,
+    "stun": 5,
+    "push": 5,
+    "element_name": "fire",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 3,
+    "Status_Name_2": "FlamerSlowed",
+    "Status_Value_2": 2,
+    "Status_Name_3": "Fire_Panic",
+    "Status_Value_3": 4,
+    "statuses": [
+     "Fire",
+     "FlamerSlowed",
+     "Fire_Panic"
+    ],
+    "name": "LUMBERER FLAMETHROWER_S_dm"
+   },
+   "P8_dm": {
+    "dmg": 1300,
+    "dmg2": 1300,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 6,
+    "ap3": 6,
+    "ap4": 3,
+    "demo": 30,
+    "stun": 50,
+    "push": 25,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P8_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 60,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P8_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "P9_dm": {
+    "dmg": 90,
+    "dmg2": 30,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 20,
+    "stun": 40,
+    "push": 30,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P10_dm": {
+    "dmg": 3500,
+    "dmg2": 3500,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 40,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P10_IE_dm": {
+    "dmg": 750,
+    "dmg2": 750,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 70,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P10_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "GR-8_P1_dm": {
+    "dmg": 750,
+    "dmg2": 750,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 25,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "GR-8_P1_IE_dm": {
+    "dmg": 800,
+    "dmg2": 800,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 60,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "GR-8",
+    "element_name_sub": "explosion"
+   },
+   "P11_dm": {
+    "dmg": 150,
+    "dmg2": 35,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 4,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 15,
+    "stun": 25,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "SWP_MAELSTROMIII_E_dm": {
+    "dmg": 2000,
+    "dmg2": 2000,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 50,
+    "push": 70,
+    "element_name": "none",
+    "statuses": [],
+    "name": "SWP_MAELSTROMIII_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "MLS-4X_P_dm": {
+    "dmg": 1100,
+    "dmg2": 1100,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 6,
+    "ap3": 6,
+    "ap4": 3,
+    "demo": 30,
+    "stun": 40,
+    "push": 25,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "MLS-4X_P_IE_dm": {
+    "dmg": 150,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 40,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "MLS-4X",
+    "element_name_sub": "explosion"
+   },
+   "S_P_dm": {
+    "dmg": 2000,
+    "dmg2": 2000,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 50,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P_IE_dm": {
+    "dmg": 100,
+    "dmg2": 100,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 10,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P_E_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 100,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P1_dm": {
+    "dmg": 600,
+    "dmg2": 600,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 40,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P1_IE_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 4,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P1_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P2_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P2_IE_dm": {
+    "dmg": 800,
+    "dmg2": 800,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P2_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P3_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P3_IE_dm": {
+    "dmg": 250,
+    "dmg2": 250,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 100,
+    "Status_Name_2": "BurningHeavy",
+    "Status_Value_2": 50,
+    "statuses": [
+     "Fire",
+     "BurningHeavy"
+    ],
+    "name": "S_P3_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P4_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P4_E_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P4_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "P13_dm": {
+    "dmg": 20,
+    "dmg2": 2,
+    "hits_per_second": 0,
+    "ap1": 0,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 30,
+    "push": 10,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P13_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P13_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P5_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P6_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 40,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P6_IE_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 10,
+    "push": 40,
+    "element_name": "gas",
+    "Status_Name_1": "Gas",
+    "Status_Value_1": 100,
+    "Status_Name_2": "Gas_Confusion",
+    "Status_Value_2": 100,
+    "statuses": [
+     "Gas",
+     "Gas_Confusion"
+    ],
+    "name": "S_P6_IE_dm"
+   },
+   "ANTI-PERSONNEL MINEFIELD_E_dm": {
+    "dmg": 700,
+    "dmg2": 700,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 30,
+    "element_name": "none",
+    "statuses": [],
+    "name": "ANTI-PERSONNEL MINEFIELD_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "INCENDIARY MINES_E_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 30,
+    "push": 30,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 0,
+    "statuses": [
+     "Fire"
+    ],
+    "name": "INCENDIARY MINES_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "ANTI-TANK MINES_E_dm": {
+    "dmg": 2000,
+    "dmg2": 2000,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 40,
+    "stun": 30,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "ANTI-TANK MINES_E_dm",
+    "element_name_sub": "explosion"
+   },
+   "GAS MINES_E_dm": {
+    "dmg": 3,
+    "dmg2": 3,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 10,
+    "push": 10,
+    "element_name": "gas",
+    "Status_Name_1": "Gas",
+    "Status_Value_1": 100,
+    "Status_Name_2": "Gas_Confusion",
+    "Status_Value_2": 100,
+    "statuses": [
+     "Gas",
+     "Gas_Confusion"
+    ],
+    "name": "GAS MINES_E_dm"
+   },
+   "S_P7_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P7_IE_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 0,
+    "element_name": "none",
+    "Status_Name_1": "Stun Medium",
+    "Status_Value_1": 100,
+    "statuses": [
+     "Stun Medium"
+    ],
+    "name": "S_P7_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P8_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P8_IE_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 60,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P8_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P9_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P9_IE_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 100,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P9_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P10_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P10_IE_dm": {
+    "dmg": 10000,
+    "dmg2": 10000,
+    "hits_per_second": 0,
+    "ap1": 10,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 60,
+    "stun": 50,
+    "push": 100,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P10_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P11_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P11_IE_dm": {
+    "dmg": 250,
+    "dmg2": 250,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 100,
+    "Status_Name_2": "BurningHeavy",
+    "Status_Value_2": 50,
+    "statuses": [
+     "Fire",
+     "BurningHeavy"
+    ],
+    "name": "S_P11_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P12_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P13_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P13_IE_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 60,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P13_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P14_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 60,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P14_IE_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 10,
+    "push": 40,
+    "element_name": "gas",
+    "Status_Name_1": "Gas",
+    "Status_Value_1": 100,
+    "Status_Name_2": "Gas_Confusion",
+    "Status_Value_2": 100,
+    "statuses": [
+     "Gas",
+     "Gas_Confusion"
+    ],
+    "name": "S_P14_IE_dm"
+   },
+   "S_P15_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 60,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P15_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P15_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "P14_dm": {
+    "dmg": 300,
+    "dmg2": 150,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 3,
+    "ap3": 3,
+    "ap4": 0,
+    "demo": 10,
+    "stun": 10,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "P14_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "P14_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P16_dm": {
+    "dmg": 350,
+    "dmg2": 200,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 3,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P16_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 5,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P16_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P17_dm": {
+    "dmg": 350,
+    "dmg2": 200,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 4,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 35,
+    "push": 3,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P18_dm": {
+    "dmg": 3500,
+    "dmg2": 3500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 20,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P18_IE_dm": {
+    "dmg": 1200,
+    "dmg2": 1200,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P18_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P19_dm": {
+    "dmg": 3500,
+    "dmg2": 3500,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 20,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P19_IE_dm": {
+    "dmg": 1200,
+    "dmg2": 1200,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 40,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P19_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P20_dm": {
+    "dmg": 500,
+    "dmg2": 500,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P20_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 100,
+    "Status_Name_2": "BurningHeavy",
+    "Status_Value_2": 50,
+    "statuses": [
+     "Fire",
+     "BurningHeavy"
+    ],
+    "name": "S_P20_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P21_dm": {
+    "dmg": 500,
+    "dmg2": 500,
+    "hits_per_second": 0,
+    "ap1": 5,
+    "ap2": 5,
+    "ap3": 5,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 20,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P21_IE_dm": {
+    "dmg": 350,
+    "dmg2": 350,
+    "hits_per_second": 0,
+    "ap1": 3,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 40,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 100,
+    "Status_Name_2": "BurningHeavy",
+    "Status_Value_2": 50,
+    "statuses": [
+     "Fire",
+     "BurningHeavy"
+    ],
+    "name": "S_P21_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P22_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P22_IE_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 60,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P22_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P23_dm": {
+    "dmg": 4000,
+    "dmg2": 4000,
+    "hits_per_second": 0,
+    "ap1": 8,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 50,
+    "push": 20,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P23_IE_dm": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 70,
+    "push": 60,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P23_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "S_P24_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 60,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P25_dm": {
+    "dmg": 300,
+    "dmg2": 300,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 6,
+    "ap4": 6,
+    "demo": 50,
+    "stun": 60,
+    "push": 15,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P25_IE_dm": {
+    "dmg": 0,
+    "dmg2": 0,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 30,
+    "stun": 50,
+    "push": 0,
+    "element_name": "none",
+    "Status_Name_1": "Stun Medium",
+    "Status_Value_1": 100,
+    "statuses": [
+     "Stun Medium"
+    ],
+    "name": "S_P25_IE_dm",
+    "element_name_sub": "explosion"
+   },
+   "ORBITAL LASER_DPS_dm": {
+    "dmg": 60,
+    "dmg2": 60,
+    "hits_per_second": 9.9999999,
+    "ap1": 6,
+    "ap2": 6,
+    "ap3": 6,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 30,
+    "push": 30,
+    "element_name": "none",
+    "Status_Name_1": "Fire",
+    "Status_Value_1": 2,
+    "statuses": [
+     "Fire"
+    ],
+    "name": "ORBITAL LASER_DPS_dm"
+   },
+   "S_P26_dm": {
+    "dmg": 10000,
+    "dmg2": 10000,
+    "hits_per_second": 0,
+    "ap1": 7,
+    "ap2": 7,
+    "ap3": 7,
+    "ap4": 7,
+    "demo": 50,
+    "stun": 60,
+    "push": 35,
+    "element_name": "none",
+    "statuses": [],
+    "element_name_sub": "ballistic"
+   },
+   "S_P26_E_dm": {
+    "dmg": 1000,
+    "dmg2": 1000,
+    "hits_per_second": 0,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 30,
+    "push": 50,
+    "element_name": "none",
+    "statuses": [],
+    "name": "S_P26_E_dm",
+    "element_name_sub": "explosion"
+   }
+  },
+  "explosion": {
+   "P5_IE": {
+    "damage_id": "P5_IE_dm",
+    "r1": 2.5,
+    "r2": 5,
+    "r3": 6.5,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "P5 IE"
+   },
+   "GL-21_P_IE": {
+    "damage_id": "GL-21_P_IE_dm",
+    "r1": 3.5,
+    "r2": 7.5,
+    "r3": 8,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "GL-21 P IE"
+   },
+   "P6_IE": {
+    "damage_id": "P6_IE_dm",
+    "r1": 1,
+    "r2": 2,
+    "r3": 4,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "P6 IE"
+   },
+   "MLS-4X_BACKBLAST_E": {
+    "damage_id": "MLS-4X_BACKBLAST_E_dm",
+    "r1": 1,
+    "r2": 2,
+    "r3": 3,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "weapon_medium",
+    "name": "MLS-4X BACKBLAST E"
+   },
+   "A/MLS-4X_P_IE": {
+    "damage_id": "A/MLS-4X_P_IE_dm",
+    "r1": 1,
+    "r2": 4,
+    "r3": 6,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "A/MLS-4X P IE"
+   },
+   "EAT-17_BACKBLAST_E": {
+    "damage_id": "EAT-17_BACKBLAST_E_dm",
+    "r1": 1,
+    "r2": 6,
+    "r3": 7,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "weapon_medium",
+    "name": "EAT-17 BACKBLAST E"
+   },
+   "SOLO SILO_E": {
+    "damage_id": "SOLO SILO_E_dm",
+    "r1": 10,
+    "r2": 25,
+    "r3": 35,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "SOLO SILO E"
+   },
+   "SOLO SILO_EImpact": {
+    "damage_id": "SOLO SILO_EImpact_dm",
+    "r1": 3,
+    "r2": 6,
+    "r3": 6,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "SOLO SILO EImpact"
+   },
+   "A/M-12_P_IE": {
+    "damage_id": "A/M-12_P_IE_dm",
+    "r1": 3,
+    "r2": 9,
+    "r3": 13,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "A/M-12 P IE"
+   },
+   "A/M-23_P_IE": {
+    "damage_id": "A/M-23_P_IE_dm",
+    "r1": 1,
+    "r2": 2,
+    "r3": 3,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "A/M-23 P IE"
+   },
+   "A/M-23_P_E": {
+    "damage_id": "A/M-23_P_E_dm",
+    "r1": 1,
+    "r2": 10,
+    "r3": 12,
+    "aoe_duration": 7,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "A/M-23 P E"
+   },
+   "A/GM-17_P_IE": {
+    "damage_id": "A/GM-17_P_IE_dm",
+    "r1": 2,
+    "r2": 7,
+    "r3": 7,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "A/GM-17 P IE"
+   },
+   "A/AC-8_P_IE": {
+    "damage_id": "A/AC-8_P_IE_dm",
+    "r1": 2,
+    "r2": 6,
+    "r3": 8,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "A/AC-8 P IE"
+   },
+   "P7_IE": {
+    "damage_id": "P7_IE_dm",
+    "r1": 1.5,
+    "r2": 4.5,
+    "r3": 6,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "P7 IE"
+   },
+   "P8_IE": {
+    "damage_id": "P8_IE_dm",
+    "r1": 3,
+    "r2": 6,
+    "r3": 7,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "P8 IE"
+   },
+   "P10_IE": {
+    "damage_id": "P10_IE_dm",
+    "r1": 3.29999995,
+    "r2": 10,
+    "r3": 11,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "P10 IE"
+   },
+   "GR-8_P1_IE": {
+    "damage_id": "GR-8_P1_IE_dm",
+    "r1": 3,
+    "r2": 7.5,
+    "r3": 12,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "GR-8 P1 IE"
+   },
+   "SWP_MAELSTROMIII_E": {
+    "damage_id": "SWP_MAELSTROMIII_E_dm",
+    "r1": 3,
+    "r2": 5,
+    "r3": 10,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "SWP MAELSTROMIII E"
+   },
+   "MLS-4X_P_IE": {
+    "damage_id": "MLS-4X_P_IE_dm",
+    "r1": 1,
+    "r2": 2,
+    "r3": 4,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "MLS-4X P IE"
+   },
+   "S_P_IE": {
+    "damage_id": "S_P_IE_dm",
+    "r1": 1,
+    "r2": 3,
+    "r3": 6,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P IE"
+   },
+   "S_P_E": {
+    "damage_id": "S_P_E_dm",
+    "r1": 10,
+    "r2": 25,
+    "r3": 35,
+    "aoe_duration": 0,
+    "is_huge": 1,
+    "noise": "large_explosion_orbital",
+    "name": "S P E"
+   },
+   "S_P1_IE": {
+    "damage_id": "S_P1_IE_dm",
+    "r1": 1.60000002,
+    "r2": 5,
+    "r3": 8,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "name": "S P1 IE"
+   },
+   "S_P2_IE": {
+    "damage_id": "S_P2_IE_dm",
+    "r1": 5,
+    "r2": 10,
+    "r3": 14,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P2 IE"
+   },
+   "S_P3_IE": {
+    "damage_id": "S_P3_IE_dm",
+    "r1": 2,
+    "r2": 10,
+    "r3": 15,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P3 IE"
+   },
+   "P13_IE": {
+    "damage_id": "P13_IE_dm",
+    "r1": 3,
+    "r2": 6,
+    "r3": 8,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "P13 IE"
+   },
+   "S_P4_E": {
+    "damage_id": "S_P4_E_dm",
+    "r1": 1,
+    "r2": 2,
+    "r3": 10,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "shrapnel": "P13",
+    "shrapnel_count": 8,
+    "cone_angle": 45,
+    "name": "S P4 E"
+   },
+   "S_P5_IE": {
+    "damage_id": "",
+    "r1": 12,
+    "r2": 12,
+    "r3": 0,
+    "aoe_duration": 30,
+    "is_huge": 0,
+    "noise": "none",
+    "name": "S P5 IE"
+   },
+   "S_P6_IE": {
+    "damage_id": "S_P6_IE_dm",
+    "r1": 1,
+    "r2": 12,
+    "r3": 15,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P6 IE"
+   },
+   "ANTI-PERSONNEL MINEFIELD_E": {
+    "damage_id": "ANTI-PERSONNEL MINEFIELD_E_dm",
+    "r1": 1.20000005,
+    "r2": 5,
+    "r3": 7,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "ANTI-PERSONNEL MINEFIELD E"
+   },
+   "INCENDIARY MINES_E": {
+    "damage_id": "INCENDIARY MINES_E_dm",
+    "r1": 1.20000005,
+    "r2": 4,
+    "r3": 7,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "INCENDIARY MINES E"
+   },
+   "ANTI-TANK MINES_E": {
+    "damage_id": "ANTI-TANK MINES_E_dm",
+    "r1": 3,
+    "r2": 7,
+    "r3": 14,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "ANTI-TANK MINES E"
+   },
+   "GAS MINES_E": {
+    "damage_id": "GAS MINES_E_dm",
+    "r1": 2,
+    "r2": 6,
+    "r3": 6,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "GAS MINES E"
+   },
+   "S_P7_IE": {
+    "damage_id": "S_P7_IE_dm",
+    "r1": 1,
+    "r2": 13,
+    "r3": 20,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P7 IE"
+   },
+   "S_P8_IE": {
+    "damage_id": "S_P8_IE_dm",
+    "r1": 4,
+    "r2": 12,
+    "r3": 18,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P8 IE"
+   },
+   "S_P9_IE": {
+    "damage_id": "S_P9_IE_dm",
+    "r1": 6.69999981,
+    "r2": 20,
+    "r3": 30,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P9 IE"
+   },
+   "S_P10_IE": {
+    "damage_id": "S_P10_IE_dm",
+    "r1": 17,
+    "r2": 25,
+    "r3": 45,
+    "aoe_duration": 0,
+    "is_huge": 1,
+    "noise": "huge_explosion_hellbomb",
+    "name": "S P10 IE"
+   },
+   "S_P11_IE": {
+    "damage_id": "S_P11_IE_dm",
+    "r1": 1.60000002,
+    "r2": 13,
+    "r3": 20,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P11 IE"
+   },
+   "S_P12_IE": {
+    "damage_id": "",
+    "r1": 13,
+    "r2": 13,
+    "r3": 0,
+    "aoe_duration": 30,
+    "is_huge": 0,
+    "noise": "none",
+    "name": "S P12 IE"
+   },
+   "S_P13_IE": {
+    "damage_id": "S_P13_IE_dm",
+    "r1": 4,
+    "r2": 12,
+    "r3": 18,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P13 IE"
+   },
+   "S_P14_IE": {
+    "damage_id": "S_P14_IE_dm",
+    "r1": 1,
+    "r2": 15,
+    "r3": 20,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P14 IE"
+   },
+   "P14_IE": {
+    "damage_id": "P14_IE_dm",
+    "r1": 3,
+    "r2": 6,
+    "r3": 8,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "P14 IE"
+   },
+   "S_P15_IE": {
+    "damage_id": "S_P15_IE_dm",
+    "r1": 0.200000003,
+    "r2": 0.5,
+    "r3": 4,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "medium_explosion_vehicle",
+    "shrapnel": "P14",
+    "shrapnel_count": 12,
+    "cone_angle": 27,
+    "name": "S P15 IE"
+   },
+   "S_P16_IE": {
+    "damage_id": "S_P16_IE_dm",
+    "r1": 1.5,
+    "r2": 4.5,
+    "r3": 6.5,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P16 IE"
+   },
+   "S_P18_IE": {
+    "damage_id": "S_P18_IE_dm",
+    "r1": 3.29999995,
+    "r2": 10,
+    "r3": 11,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P18 IE"
+   },
+   "S_P19_IE": {
+    "damage_id": "S_P19_IE_dm",
+    "r1": 3.29999995,
+    "r2": 10,
+    "r3": 11,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P19 IE"
+   },
+   "S_P20_IE": {
+    "damage_id": "S_P20_IE_dm",
+    "r1": 3.29999995,
+    "r2": 10,
+    "r3": 11,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P20 IE"
+   },
+   "S_P21_IE": {
+    "damage_id": "S_P21_IE_dm",
+    "r1": 3.29999995,
+    "r2": 10,
+    "r3": 11,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P21 IE"
+   },
+   "S_P22_IE": {
+    "damage_id": "S_P22_IE_dm",
+    "r1": 4,
+    "r2": 12,
+    "r3": 18,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P22 IE"
+   },
+   "S_P23_IE": {
+    "damage_id": "S_P23_IE_dm",
+    "r1": 4,
+    "r2": 12,
+    "r3": 18,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "large_explosion_orbital",
+    "name": "S P23 IE"
+   },
+   "S_P25_IE": {
+    "damage_id": "S_P25_IE_dm",
+    "r1": 1,
+    "r2": 13,
+    "r3": 20,
+    "aoe_duration": 15,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P25 IE"
+   },
+   "S_P26_E": {
+    "damage_id": "S_P26_E_dm",
+    "r1": 2.5,
+    "r2": 2.5,
+    "r3": 10,
+    "aoe_duration": 0,
+    "is_huge": 0,
+    "noise": "small_explosion_frag",
+    "name": "S P26 E"
+   }
+  },
+  "projectile": {
+   "P5": {
+    "damage_id": "P5_dm",
+    "caliber": 23,
+    "pellets": 1,
+    "velocity": 1050,
+    "mass": 400,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P5_IE",
+    "name": "P5"
+   },
+   "GL-21_P": {
+    "damage_id": "GL-21_P_dm",
+    "caliber": 40,
+    "pellets": 1,
+    "velocity": 100,
+    "mass": 50,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 1.20000005,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 7,
+    "explode_on_impact_id": "GL-21_P_IE",
+    "explode_id": "GL-21",
+    "name": "GL-21 P"
+   },
+   "P6": {
+    "damage_id": "P6_dm",
+    "caliber": 75,
+    "pellets": 1,
+    "velocity": 200,
+    "mass": 2500,
+    "gravity": 1,
+    "lifetime": 15,
+    "life_time_randomness": 0,
+    "pen_slow": 0.850000024,
+    "drag": 0.300000012,
+    "explode_angle": 60,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 1,
+    "explode_on_impact_id": "P6_IE",
+    "name": "P6"
+   },
+   "MG-43_P": {
+    "damage_id": "MG-43_P_dm",
+    "caliber": 8,
+    "pellets": 1,
+    "velocity": 820,
+    "mass": 11,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "MG-43 P"
+   },
+   "A/MLS-4X_P": {
+    "damage_id": "A/MLS-4X_P_dm",
+    "caliber": 70,
+    "pellets": 1,
+    "velocity": 100,
+    "mass": 6000,
+    "gravity": 0.100000001,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "A/MLS-4X_P_IE",
+    "name": "A/MLS-4X P"
+   },
+   "A/M-12_P": {
+    "damage_id": "A/M-12_P_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 100,
+    "mass": 70000,
+    "gravity": 6,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.25,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "A/M-12_P_IE",
+    "name": "A/M-12 P"
+   },
+   "A/M-23_P": {
+    "damage_id": "A/M-23_P_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 100,
+    "mass": 70000,
+    "gravity": 6,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.25,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0.5,
+    "arming_distance": 0,
+    "explode_on_impact_id": "A/M-23_P_IE",
+    "explode_id": "A/M-23",
+    "name": "A/M-23 P"
+   },
+   "A/GM-17_P": {
+    "damage_id": "A/GM-17_P_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 100,
+    "mass": 70000,
+    "gravity": 6,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.25,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0.5,
+    "arming_distance": 0,
+    "explode_on_impact_id": "A/GM-17_P_IE",
+    "name": "A/GM-17 P"
+   },
+   "A/AC-8_P": {
+    "damage_id": "A/AC-8_P_dm",
+    "caliber": 40,
+    "pellets": 1,
+    "velocity": 1021,
+    "mass": 900,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "A/AC-8_P_IE",
+    "name": "A/AC-8 P"
+   },
+   "MG-206_P": {
+    "damage_id": "MG-206_P_dm",
+    "caliber": 12.5,
+    "pellets": 1,
+    "velocity": 980,
+    "mass": 52,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "MG-206 P"
+   },
+   "AR-23P_P": {
+    "damage_id": "AR-23P_P_dm",
+    "caliber": 5.5,
+    "pellets": 1,
+    "velocity": 1000,
+    "mass": 4.5,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "AR-23P P"
+   },
+   "P7": {
+    "damage_id": "P7_dm",
+    "caliber": 40,
+    "pellets": 1,
+    "velocity": 1021,
+    "mass": 900,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P7_IE",
+    "name": "P7"
+   },
+   "P8": {
+    "damage_id": "P8_dm",
+    "caliber": 75,
+    "pellets": 1,
+    "velocity": 625,
+    "mass": 6500,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.850000024,
+    "drag": 0.75,
+    "explode_angle": 60,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P8_IE",
+    "name": "P8"
+   },
+   "P9": {
+    "damage_id": "P9_dm",
+    "caliber": 10,
+    "pellets": 40,
+    "velocity": 385,
+    "mass": 6,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 1.20000005,
+    "name": "P9"
+   },
+   "P10": {
+    "damage_id": "P10_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P10_IE",
+    "name": "P10"
+   },
+   "GR-8_P1": {
+    "damage_id": "GR-8_P1_dm",
+    "caliber": 85,
+    "pellets": 1,
+    "velocity": 250,
+    "mass": 3300,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.850000024,
+    "drag": 0,
+    "explode_angle": 89,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "GR-8_P1_IE",
+    "name": "GR-8 P1"
+   },
+   "P11": {
+    "damage_id": "P11_dm",
+    "caliber": 12.5,
+    "pellets": 1,
+    "velocity": 980,
+    "mass": 52,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "P11"
+   },
+   "P12": {
+    "damage_id": "",
+    "caliber": 1,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 11,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "P12"
+   },
+   "MLS-4X_P": {
+    "damage_id": "MLS-4X_P_dm",
+    "caliber": 66,
+    "pellets": 1,
+    "velocity": 70,
+    "mass": 350,
+    "gravity": 1,
+    "lifetime": 15,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "MLS-4X_P_IE",
+    "name": "MLS-4X P"
+   },
+   "S_P": {
+    "damage_id": "S_P_dm",
+    "caliber": 50,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 500,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0.800000012,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P_IE",
+    "explode_id": "S_P_E",
+    "name": "S P"
+   },
+   "S_P1": {
+    "damage_id": "S_P1_dm",
+    "caliber": 110,
+    "pellets": 1,
+    "velocity": 700,
+    "mass": 3300,
+    "gravity": 2.0999999,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P1_IE",
+    "name": "S P1"
+   },
+   "S_P2": {
+    "damage_id": "S_P2_dm",
+    "caliber": 25,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 100,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P2_IE",
+    "name": "S P2"
+   },
+   "S_P3": {
+    "damage_id": "S_P3_dm",
+    "caliber": 25,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 100,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P3_IE",
+    "name": "S P3"
+   },
+   "P13": {
+    "damage_id": "P13_dm",
+    "caliber": 40,
+    "pellets": 1,
+    "velocity": 30,
+    "mass": 50,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 0,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P13_IE",
+    "name": "P13"
+   },
+   "S_P4": {
+    "damage_id": "S_P4_dm",
+    "caliber": 25,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 100,
+    "gravity": 1,
+    "lifetime": 0.349999994,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0.5,
+    "arming_distance": 0,
+    "explode_id": "S_P4_E",
+    "name": "S P4"
+   },
+   "S_P5": {
+    "damage_id": "S_P5_dm",
+    "caliber": 25,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 100,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0.5,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P5_IE",
+    "name": "S P5"
+   },
+   "S_P6": {
+    "damage_id": "S_P6_dm",
+    "caliber": 25,
+    "pellets": 1,
+    "velocity": 500,
+    "mass": 100,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 90,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P6_IE",
+    "name": "S P6"
+   },
+   "S_P7": {
+    "damage_id": "S_P7_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P7_IE",
+    "name": "S P7"
+   },
+   "S_P8": {
+    "damage_id": "S_P8_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P8_IE",
+    "name": "S P8"
+   },
+   "S_P9": {
+    "damage_id": "S_P9_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P9_IE",
+    "name": "S P9"
+   },
+   "S_P10": {
+    "damage_id": "S_P10_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P10_IE",
+    "name": "S P10"
+   },
+   "S_P11": {
+    "damage_id": "S_P11_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P11_IE",
+    "name": "S P11"
+   },
+   "S_P12": {
+    "damage_id": "S_P12_dm",
+    "caliber": 360,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 70000,
+    "gravity": 10,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P12_IE",
+    "name": "S P12"
+   },
+   "S_P13": {
+    "damage_id": "S_P13_dm",
+    "caliber": 406,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 30000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P13_IE",
+    "name": "S P13"
+   },
+   "S_P14": {
+    "damage_id": "S_P14_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P14_IE",
+    "name": "S P14"
+   },
+   "P14": {
+    "damage_id": "P14_dm",
+    "caliber": 8,
+    "pellets": 1,
+    "velocity": 300,
+    "mass": 2,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.5,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "P14_IE",
+    "name": "P14"
+   },
+   "S_P15": {
+    "damage_id": "S_P15_dm",
+    "caliber": 110,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0.949999988,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P15_IE",
+    "explode_id": "S_P15_IE",
+    "name": "S P15"
+   },
+   "S_P16": {
+    "damage_id": "S_P16_dm",
+    "caliber": 23,
+    "pellets": 1,
+    "velocity": 1050,
+    "mass": 400,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P16_IE",
+    "name": "S P16"
+   },
+   "S_P17": {
+    "damage_id": "S_P17_dm",
+    "caliber": 23,
+    "pellets": 1,
+    "velocity": 1050,
+    "mass": 400,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0.300000012,
+    "name": "S P17"
+   },
+   "S_P18": {
+    "damage_id": "S_P18_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P18_IE",
+    "name": "S P18"
+   },
+   "S_P19": {
+    "damage_id": "S_P19_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P19_IE",
+    "name": "S P19"
+   },
+   "S_P20": {
+    "damage_id": "S_P20_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P20_IE",
+    "name": "S P20"
+   },
+   "S_P21": {
+    "damage_id": "S_P21_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P21_IE",
+    "name": "S P21"
+   },
+   "S_P22": {
+    "damage_id": "S_P22_dm",
+    "caliber": 406,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 30000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P22_IE",
+    "name": "S P22"
+   },
+   "S_P23": {
+    "damage_id": "S_P23_dm",
+    "caliber": 406,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 30000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P23_IE",
+    "name": "S P23"
+   },
+   "S_P24": {
+    "damage_id": "S_P24_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P5_IE",
+    "name": "S P24"
+   },
+   "S_P25": {
+    "damage_id": "S_P25_dm",
+    "caliber": 84,
+    "pellets": 1,
+    "velocity": 400,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0.25,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0,
+    "arming_distance": 0,
+    "explode_on_impact_id": "S_P25_IE",
+    "name": "S P25"
+   },
+   "S_P26": {
+    "damage_id": "S_P26_dm",
+    "caliber": 100,
+    "pellets": 1,
+    "velocity": 14000,
+    "mass": 5000,
+    "gravity": 1,
+    "lifetime": 0,
+    "life_time_randomness": 0,
+    "pen_slow": 0,
+    "drag": 0,
+    "explode_angle": 80,
+    "explode_proximity": 0,
+    "explosion_delay": 0.00999999978,
+    "arming_distance": 0,
+    "explode_id": "S_P26_E",
+    "name": "S P26"
+   }
+  },
+  "beam": {
+   "LASER SENTRY_B": {
+    "damage_id": "LASER SENTRY_B_dm",
+    "range": 200,
+    "falloff": 1,
+    "radius": 0,
+    "name": "LASER SENTRY B"
+   }
+  },
+  "arc": {},
+  "spray": {
+   "FLAME SENTRY_S": {
+    "damage_id": "FLAME SENTRY_S_dm",
+    "name": "FLAME SENTRY S"
+   },
+   "SWP_CREMATOR_S": {
+    "damage_id": "SWP_CREMATOR_S_dm",
+    "name": "SWP CREMATOR S"
+   },
+   "LUMBERER FLAMETHROWER_S": {
+    "damage_id": "LUMBERER FLAMETHROWER_S_dm",
+    "name": "LUMBERER FLAMETHROWER S"
+   },
+   "ORBITAL LASER_DPS": {
+    "damage_id": "ORBITAL LASER_DPS_dm",
+    "name": "ORBITAL LASER_DPS"
+   }
+  },
+  "weapons": {
+   "SWP_EAGLE STRAFING RUN": {
+    "id": "",
+    "health": 100,
+    "armor": 0,
+    "name": "SWP EAGLE STRAFING RUN",
+    "drift": {
+     "x": 0,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "none",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 2000,
+    "rpm": 4000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P5",
+      "parent": "SWP_EAGLE STRAFING RUN",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P5_IE",
+      "parent": "P5",
+      "level": 2
+     }
+    ]
+   },
+   "GRENADIER BATTLEMENT": {
+    "id": "E/GL-21",
+    "name": "GRENADIER BATTLEMENT",
+    "drift": {
+     "x": 25,
+     "y": 25
+    },
+    "climb": {
+     "x": 20,
+     "y": 30
+    },
+    "spread": {
+     "x": 20,
+     "y": 20
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 25,
+    "noise": "weapon_small",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "single",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 60,
+    "rpm": 160,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "GL-21_P",
+      "parent": "GRENADIER BATTLEMENT",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "GL-21_P_IE",
+      "parent": "GL-21_P",
+      "level": 2
+     }
+    ]
+   },
+   "PATRIOT EXOSUIT MISSILE LAUNCHER": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "PATRIOT EXOSUIT MISSILE LAUNCHER",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 14,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 14,
+    "rpm": 90,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P6",
+      "parent": "PATRIOT EXOSUIT MISSILE LAUNCHER",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P6_IE",
+      "parent": "P6",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "MLS-4X_BACKBLAST_E",
+      "parent": "PATRIOT EXOSUIT MISSILE LAUNCHER",
+      "level": 1
+     }
+    ]
+   },
+   "PATRIOT EXOSUIT HMG": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "PATRIOT EXOSUIT HMG",
+    "drift": {
+     "x": 8,
+     "y": 5
+    },
+    "climb": {
+     "x": 2,
+     "y": 5
+    },
+    "spread": {
+     "x": 50,
+     "y": 50
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 1350,
+    "rpm": 1200,
+    "wind_up_time": 1,
+    "wind_down_time": 1,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "MG-43_P",
+      "parent": "PATRIOT EXOSUIT HMG",
+      "level": 1
+     }
+    ]
+   },
+   "ROCKET SENTRY": {
+    "id": "A/MLS-4X",
+    "health": 400,
+    "armor": 2,
+    "name": "ROCKET SENTRY",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 5,
+     "y": 15
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 16,
+    "fire_modes": [
+     "burst"
+    ],
+    "turn_speed_vertical": 40,
+    "turn_speed_horizontal": 40,
+    "vertical_limit_min": -45,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 16,
+    "rpm": 90,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "A/MLS-4X_P",
+      "parent": "ROCKET SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "EAT-17_BACKBLAST_E",
+      "parent": "ROCKET SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "A/MLS-4X_P_IE",
+      "parent": "A/MLS-4X_P",
+      "level": 2
+     }
+    ]
+   },
+   "SOLO SILO": {
+    "id": "MS-11",
+    "health": 1500,
+    "armor": 2,
+    "name": "SOLO SILO",
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "SOLO SILO_E",
+      "parent": "SOLO SILO",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "SOLO SILO_EImpact",
+      "parent": "SOLO SILO",
+      "level": 1
+     }
+    ]
+   },
+   "MACHINE GUN SENTRY": {
+    "id": "A/MG-43",
+    "health": 400,
+    "armor": 2,
+    "name": "MACHINE GUN SENTRY",
+    "drift": {
+     "x": 20,
+     "y": 2
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 50,
+    "turn_speed_horizontal": 80,
+    "vertical_limit_min": -60,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 175,
+    "rpm": 630,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "MG-43_P",
+      "parent": "MACHINE GUN SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "GATLING SENTRY": {
+    "id": "A/G-16",
+    "health": 400,
+    "armor": 2,
+    "name": "GATLING SENTRY",
+    "drift": {
+     "x": 10,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 3
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 50,
+    "turn_speed_horizontal": 80,
+    "vertical_limit_min": -60,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 500,
+    "rpm": 1600,
+    "wind_up_time": 0.5,
+    "wind_down_time": 1,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "MG-43_P",
+      "parent": "GATLING SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "MORTAR SENTRY": {
+    "id": "A/M-12",
+    "health": 400,
+    "armor": 2,
+    "name": "MORTAR SENTRY",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 50,
+     "y": 100
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "burst",
+     "none"
+    ],
+    "turn_speed_vertical": 55,
+    "turn_speed_horizontal": 55,
+    "vertical_limit_min": 35,
+    "vertical_limit_max": 89,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 36,
+    "rpm": 60,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "A/M-12_P",
+      "parent": "MORTAR SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "A/M-12_P_IE",
+      "parent": "A/M-12_P",
+      "level": 2
+     }
+    ]
+   },
+   "EMS MORTAR SENTRY": {
+    "id": "A/M-23",
+    "health": 400,
+    "armor": 2,
+    "name": "EMS MORTAR SENTRY",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 50,
+     "y": 50
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "burst",
+     "none"
+    ],
+    "turn_speed_vertical": 55,
+    "turn_speed_horizontal": 55,
+    "vertical_limit_min": 35,
+    "vertical_limit_max": 89,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 16,
+    "rpm": 60,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "A/M-23_P",
+      "parent": "EMS MORTAR SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "A/M-23_P_IE",
+      "parent": "A/M-23_P",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "A/M-23_P_E",
+      "parent": "A/M-23_P",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Stun Medium",
+      "parent": "A/M-23_P_E",
+      "level": 3
+     }
+    ]
+   },
+   "GAS MORTAR SENTRY": {
+    "id": "A/GM-17",
+    "health": 400,
+    "armor": 2,
+    "name": "GAS MORTAR SENTRY",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 50,
+     "y": 50
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "burst",
+     "none"
+    ],
+    "turn_speed_vertical": 55,
+    "turn_speed_horizontal": 55,
+    "vertical_limit_min": 35,
+    "vertical_limit_max": 89,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 16,
+    "rpm": 80,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "A/GM-17_P",
+      "parent": "GAS MORTAR SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "A/GM-17_P_IE",
+      "parent": "A/GM-17_P",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Gas",
+      "parent": "A/GM-17_P_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Gas_Confusion",
+      "parent": "A/GM-17_P_IE",
+      "level": 3
+     }
+    ]
+   },
+   "AUTOCANNON SENTRY": {
+    "id": "A/AC-8",
+    "health": 400,
+    "armor": 2,
+    "name": "AUTOCANNON SENTRY",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 2,
+     "y": 2
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "burst"
+    ],
+    "turn_speed_vertical": 20,
+    "turn_speed_horizontal": 20,
+    "vertical_limit_min": -60,
+    "vertical_limit_max": 70,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 24,
+    "rpm": 160,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "A/AC-8_P",
+      "parent": "AUTOCANNON SENTRY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "A/AC-8_P_IE",
+      "parent": "A/AC-8_P",
+      "level": 2
+     }
+    ]
+   },
+   "FLAME SENTRY": {
+    "id": "A/FLAM-40",
+    "health": 400,
+    "armor": 2,
+    "name": "FLAME SENTRY",
+    "drift": {
+     "x": 0,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 50,
+     "y": 25
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_small",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 140,
+    "turn_speed_horizontal": 140,
+    "vertical_limit_min": -45,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 600,
+    "lighter_lightup_time": 0.699999988,
+    "lighter_time_to_shutoff": 10,
+    "attacks": [
+     {
+      "type": "spray",
+      "name": "FLAME SENTRY_S",
+      "parent": "FLAME SENTRY",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "FLAME SENTRY_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Fire_Panic",
+      "parent": "FLAME SENTRY_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "FlamerSlowed",
+      "parent": "FLAME SENTRY_S",
+      "level": 2
+     }
+    ]
+   },
+   "LASER SENTRY": {
+    "id": "A/LAS-98",
+    "health": 400,
+    "armor": 2,
+    "name": "LASER SENTRY",
+    "drift": {
+     "x": 0,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 5,
+     "y": 5
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 50,
+    "turn_speed_horizontal": 80,
+    "vertical_limit_min": -60,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "heat",
+    "heatdata": {
+     "overheat_temp": 250,
+     "heat_per_shot": 0,
+     "heat_per_second": 8,
+     "heat_loss_per_second": 5,
+     "heat_loss_per_second_cold": 7.5,
+     "heat_loss_per_second_hot": 3.75,
+     "heat_loss_overheat": 400,
+     "heat_loss_overheat_cold": 600,
+     "heat_loss_overheat_hot": 300,
+     "charge_time": 0.5,
+     "needs_reload": 1
+    },
+    "beam_fire_rate": 60,
+    "beams": 1,
+    "attacks": [
+     {
+      "type": "beam",
+      "name": "LASER SENTRY_B",
+      "parent": "LASER SENTRY",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "LASER SENTRY_B",
+      "level": 2
+     }
+    ]
+   },
+   "SWP_HEAVY MACHINE GUN": {
+    "id": "MG-206",
+    "name": "SWP HEAVY MACHINE GUN",
+    "drift": {
+     "x": 20,
+     "y": 30
+    },
+    "climb": {
+     "x": 2,
+     "y": 30
+    },
+    "spread": {
+     "x": 5,
+     "y": 5
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 30,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 100,
+    "magstart": 4,
+    "mags": 4,
+    "capplus": 1,
+    "supply": 2,
+    "rpm": 600,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "MG-206_P",
+      "parent": "SWP_HEAVY MACHINE GUN",
+      "level": 1
+     }
+    ]
+   },
+   "SWP_SUPPLY FRV": {
+    "id": "",
+    "name": "SWP SUPPLY FRV",
+    "drift": {
+     "x": 10,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 3
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 90,
+    "turn_speed_horizontal": 130,
+    "vertical_limit_min": -60,
+    "vertical_limit_max": 90,
+    "horizontal_limit_min": -180,
+    "horizontal_limit_max": 180,
+    "roundtype": "mags",
+    "cap": 120,
+    "rpm": 640,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "AR-23P_P",
+      "parent": "SWP_SUPPLY FRV",
+      "level": 1
+     }
+    ]
+   },
+   "SWP_CREMATOR": {
+    "id": "B/FLAM-80",
+    "name": "SWP CREMATOR",
+    "drift": {
+     "x": 5,
+     "y": 10
+    },
+    "climb": {
+     "x": 1,
+     "y": 2
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 15,
+    "noise": "weapon_small",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 800,
+    "magstart": 0,
+    "mags": 0,
+    "capplus": 0,
+    "supply": 0,
+    "lighter_lightup_time": 0.699999988,
+    "lighter_time_to_shutoff": 10,
+    "attacks": [
+     {
+      "type": "spray",
+      "name": "SWP_CREMATOR_S",
+      "parent": "SWP_CREMATOR",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "SWP_CREMATOR_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Fire_Panic",
+      "parent": "SWP_CREMATOR_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "FlamerSlowed",
+      "parent": "SWP_CREMATOR_S",
+      "level": 2
+     }
+    ]
+   },
+   "EMANCIPATOR EXOSUIT LEFT AUTOCANNON": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "EMANCIPATOR EXOSUIT LEFT AUTOCANNON",
+    "drift": {
+     "x": 20,
+     "y": 20
+    },
+    "climb": {
+     "x": 2,
+     "y": 20
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 2,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 100,
+    "rpm": 175,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P7",
+      "parent": "EMANCIPATOR EXOSUIT LEFT AUTOCANNON",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P7_IE",
+      "parent": "P7",
+      "level": 2
+     }
+    ]
+   },
+   "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON",
+    "drift": {
+     "x": 20,
+     "y": 20
+    },
+    "climb": {
+     "x": 2,
+     "y": 20
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 1,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 2,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 100,
+    "rpm": 175,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P7",
+      "parent": "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P7_IE",
+      "parent": "P7",
+      "level": 2
+     }
+    ]
+   },
+   "LUMBERER FLAMETHROWER": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "LUMBERER FLAMETHROWER",
+    "drift": {
+     "x": 0,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 500,
+    "lighter_lightup_time": 0.699999988,
+    "lighter_time_to_shutoff": 10,
+    "attacks": [
+     {
+      "type": "spray",
+      "name": "LUMBERER FLAMETHROWER_S",
+      "parent": "LUMBERER FLAMETHROWER",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "LUMBERER FLAMETHROWER_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Fire_Panic",
+      "parent": "LUMBERER FLAMETHROWER_S",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "FlamerSlowed",
+      "parent": "LUMBERER FLAMETHROWER_S",
+      "level": 2
+     }
+    ]
+   },
+   "LUMBERER ANTI TANK CANNON": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "LUMBERER ANTI TANK CANNON",
+    "drift": {
+     "x": 150,
+     "y": 320
+    },
+    "climb": {
+     "x": 100,
+     "y": 320
+    },
+    "spread": {
+     "x": 2,
+     "y": 2
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_large",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 25,
+    "rpm": 30,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P8",
+      "parent": "LUMBERER ANTI TANK CANNON",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P8_IE",
+      "parent": "P8",
+      "level": 2
+     }
+    ]
+   },
+   "BREAKTHROUGH SCATTERGUN": {
+    "id": "",
+    "health": 800,
+    "armor": 3,
+    "name": "BREAKTHROUGH SCATTERGUN",
+    "drift": {
+     "x": 60,
+     "y": 100
+    },
+    "climb": {
+     "x": 60,
+     "y": 100
+    },
+    "spread": {
+     "x": 200,
+     "y": 200
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "roundtype": "rounds",
+    "cap": 6,
+    "roundsstart": 64,
+    "rounds": 64,
+    "capplus": 0,
+    "roundsupply": 0,
+    "rpm": 180,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P9",
+      "parent": "BREAKTHROUGH SCATTERGUN",
+      "level": 1
+     }
+    ]
+   },
+   "SWP_BASTION MK XVI": {
+    "id": "",
+    "health": 100000,
+    "armor": 4,
+    "name": "SWP BASTION MK XVI",
+    "drift": {
+     "x": 2.5,
+     "y": 10
+    },
+    "climb": {
+     "x": 2.5,
+     "y": 10
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 25,
+    "turn_speed_horizontal": 35,
+    "vertical_limit_min": -3,
+    "vertical_limit_max": 25,
+    "horizontal_limit_min": -20,
+    "horizontal_limit_max": 20,
+    "roundtype": "mags",
+    "cap": 1,
+    "rpm": 12,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P10",
+      "parent": "SWP_BASTION MK XVI",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "P10_IE",
+      "parent": "P10",
+      "level": 2
+     }
+    ]
+   },
+   "SWP_BASTION MK XVIII": {
+    "id": "",
+    "name": "SWP BASTION MK XVIII",
+    "drift": {
+     "x": 8,
+     "y": 5
+    },
+    "climb": {
+     "x": 2,
+     "y": 10
+    },
+    "spread": {
+     "x": 30,
+     "y": 30
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 1,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 25,
+    "turn_speed_horizontal": 35,
+    "vertical_limit_min": -3,
+    "vertical_limit_max": 25,
+    "horizontal_limit_min": -20,
+    "horizontal_limit_max": 20,
+    "roundtype": "mags",
+    "cap": 2000,
+    "rpm": 600,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "MG-206_P",
+      "parent": "SWP_BASTION MK XVIII",
+      "level": 1
+     }
+    ]
+   },
+   "SWP_MAELSTROM": {
+    "id": "",
+    "health": 100000,
+    "armor": 3,
+    "name": "SWP MAELSTROM",
+    "drift": {
+     "x": 0,
+     "y": 3
+    },
+    "climb": {
+     "x": 0,
+     "y": 1
+    },
+    "spread": {
+     "x": 10,
+     "y": 10
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 2,
+    "fire_modes": [
+     "automatic",
+     "none"
+    ],
+    "turn_speed_vertical": 25,
+    "turn_speed_horizontal": 35,
+    "vertical_limit_min": -3,
+    "vertical_limit_max": 25,
+    "horizontal_limit_min": -20,
+    "horizontal_limit_max": 20,
+    "roundtype": "mags",
+    "cap": 300,
+    "rpm": 1200,
+    "wind_up_time": 0.5,
+    "wind_down_time": 0.5,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "P11",
+      "parent": "SWP_MAELSTROM",
+      "level": 1
+     }
+    ]
+   },
+   "SWP_MAELSTROMIII": {
+    "id": "",
+    "health": 100000,
+    "armor": 0,
+    "name": "SWP MAELSTROMIII",
+    "drift": {
+     "x": 0,
+     "y": 0
+    },
+    "climb": {
+     "x": 0,
+     "y": 0
+    },
+    "spread": {
+     "x": 0,
+     "y": 0
+    },
+    "spread_mods": {
+     "x": 1,
+     "y": 1
+    },
+    "sway": 0,
+    "ergonomics": 65,
+    "noise": "weapon_medium",
+    "barrels": 10,
+    "fire_modes": [
+     "single",
+     "none"
+    ],
+    "roundtype": "mags",
+    "cap": 10,
+    "rpm": 240,
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "SWP_MAELSTROMIII_E",
+      "parent": "SWP_MAELSTROMIII",
+      "level": 1
+     }
+    ]
+   }
+  },
+  "stratagems": {
+   "SUPPLY PACK": {
+    "name": "SUPPLY PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "B-1 SUPPLY PACK",
+    "attacks": []
+   },
+   "BALLISTIC SHIELD BACKPACK": {
+    "name": "BALLISTIC SHIELD BACKPACK",
+    "cooldown": 240,
+    "uses": 4294967295,
+    "health": 1000,
+    "armor": 4,
+    "loadout_wep": "SH-20 BALLISTIC SHIELD BACKPACK",
+    "attacks": []
+   },
+   "DIRECTIONAL SHIELD": {
+    "name": "DIRECTIONAL SHIELD",
+    "cooldown": 300,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 4,
+    "loadout_wep": "SH-51 DIRECTIONAL SHIELD",
+    "attacks": []
+   },
+   "SHIELD GENERATOR PACK": {
+    "name": "SHIELD GENERATOR PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "SH-32 SHIELD GENERATOR PACK",
+    "shieldradius": 1.29999995,
+    "shielddelay": 60,
+    "shieldbreakdelay": 12,
+    "shieldregen": 150,
+    "shield": 150,
+    "attacks": []
+   },
+   "JUMP PACK": {
+    "name": "JUMP PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "LIFT-850 JUMP PACK",
+    "recharge_time": 15,
+    "attacks": []
+   },
+   "HOVER PACK": {
+    "name": "HOVER PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "LIFT-860 HOVER PACK",
+    "recharge_time": 11.5,
+    "attacks": []
+   },
+   "GUARD DOG": {
+    "name": "GUARD DOG",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AX/AR-23 GUARD DOG",
+    "attacks": []
+   },
+   "ROVER": {
+    "name": "ROVER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AX/LAS-5 ROVER",
+    "attacks": []
+   },
+   "DOG BREATH": {
+    "name": "DOG BREATH",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AX/TX-13 DOG BREATH",
+    "attacks": []
+   },
+   "HOT DOG": {
+    "name": "HOT DOG",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AX/FLAM-75 HOT DOG",
+    "attacks": []
+   },
+   "PORTABLE HELLBOMB": {
+    "name": "PORTABLE HELLBOMB",
+    "cooldown": 300,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "B-100 PORTABLE HELLBOMB",
+    "attacks": []
+   },
+   "WARP PACK": {
+    "name": "WARP PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "LIFT-182 WARP PACK",
+    "attacks": []
+   },
+   "K-9": {
+    "name": "K-9",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AX/ARC-3 K-9",
+    "attacks": []
+   },
+   "EAGLE STRAFING RUN": {
+    "name": "EAGLE STRAFING RUN",
+    "cooldown": 15,
+    "uses": 4,
+    "rpm": 4000,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_EAGLE STRAFING RUN",
+      "parent": "EAGLE STRAFING RUN",
+      "level": 1
+     }
+    ]
+   },
+   "EAGLE 500KG BOMB": {
+    "name": "EAGLE 500KG BOMB",
+    "cooldown": 15,
+    "uses": 1,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P",
+      "parent": "EAGLE 500KG BOMB",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P_E",
+      "parent": "S_P",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P_IE",
+      "parent": "S_P",
+      "level": 2
+     }
+    ]
+   },
+   "EAGLE 110MM ROCKET PODS": {
+    "name": "EAGLE 110MM ROCKET PODS",
+    "cooldown": 15,
+    "uses": 3,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P1",
+      "parent": "EAGLE 110MM ROCKET PODS",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P1_IE",
+      "parent": "S_P1",
+      "level": 2
+     }
+    ]
+   },
+   "EAGLE AIRSTRIKE": {
+    "name": "EAGLE AIRSTRIKE",
+    "cooldown": 15,
+    "uses": 2,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P2",
+      "parent": "EAGLE AIRSTRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P2_IE",
+      "parent": "S_P2",
+      "level": 2
+     }
+    ]
+   },
+   "EAGLE NAPALM AIRSTRIKE": {
+    "name": "EAGLE NAPALM AIRSTRIKE",
+    "cooldown": 15,
+    "uses": 2,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P3",
+      "parent": "EAGLE NAPALM AIRSTRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P3_IE",
+      "parent": "S_P3",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "BurningHeavy",
+      "parent": "S_P3_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "S_P3_IE",
+      "level": 3
+     }
+    ]
+   },
+   "EAGLE CLUSTER BOMB": {
+    "name": "EAGLE CLUSTER BOMB",
+    "cooldown": 15,
+    "uses": 4,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P4",
+      "parent": "EAGLE CLUSTER BOMB",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P4_E",
+      "parent": "S_P4",
+      "level": 2
+     },
+     {
+      "type": "projectile",
+      "name": "P13",
+      "parent": "S_P4_E",
+      "level": 3
+     },
+     {
+      "type": "explosion",
+      "name": "P13_IE",
+      "parent": "P13",
+      "level": 4
+     }
+    ]
+   },
+   "EAGLE SMOKE STRIKE": {
+    "name": "EAGLE SMOKE STRIKE",
+    "cooldown": 15,
+    "uses": 2,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P5",
+      "parent": "EAGLE SMOKE STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P5_IE",
+      "parent": "S_P5",
+      "level": 2
+     }
+    ]
+   },
+   "EAGLE GAS AIRSTRIKE": {
+    "name": "EAGLE GAS AIRSTRIKE",
+    "cooldown": 15,
+    "uses": 2,
+    "health": 100,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P6",
+      "parent": "EAGLE GAS AIRSTRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P6_IE",
+      "parent": "S_P6",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Gas",
+      "parent": "S_P6_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Gas_Confusion",
+      "parent": "S_P6_IE",
+      "level": 3
+     }
+    ]
+   },
+   "GRENADIER BATTLEMENT": {
+    "name": "GRENADIER BATTLEMENT",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 3000,
+    "armor": 0,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "GRENADIER BATTLEMENT",
+      "parent": "GRENADIER BATTLEMENT",
+      "level": 1,
+      "mount_side": "common",
+      "mount_name": "gun"
+     }
+    ]
+   },
+   "SHIELD GENERATOR RELAY": {
+    "name": "SHIELD GENERATOR RELAY",
+    "cooldown": 90,
+    "uses": 4294967295,
+    "health": 450,
+    "armor": 2,
+    "shieldradius": 15,
+    "shielddelay": 0.00999999978,
+    "shieldbreakdelay": 45,
+    "shieldregen": 400,
+    "shield": 4000,
+    "lifetime": 40,
+    "attacks": []
+   },
+   "HMG EMPLACEMENT": {
+    "name": "HMG EMPLACEMENT",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 1000,
+    "armor": 2,
+    "attacks": []
+   },
+   "ANTI-PERSONNEL MINEFIELD": {
+    "name": "ANTI-PERSONNEL MINEFIELD",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 250,
+    "armor": 0,
+    "throw_delay": 2,
+    "throw_duration": 1.5,
+    "arming_time": 2,
+    "panel_count": 6,
+    "throwable_count": 8,
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "ANTI-PERSONNEL MINEFIELD_E",
+      "parent": "ANTI-PERSONNEL MINEFIELD",
+      "level": 1
+     }
+    ]
+   },
+   "INCENDIARY MINES": {
+    "name": "INCENDIARY MINES",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 250,
+    "armor": 0,
+    "throw_delay": 2,
+    "throw_duration": 1.5,
+    "arming_time": 2,
+    "panel_count": 6,
+    "throwable_count": 8,
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "INCENDIARY MINES_E",
+      "parent": "INCENDIARY MINES",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "INCENDIARY MINES_E",
+      "level": 2
+     }
+    ]
+   },
+   "ANTI-TANK MINES": {
+    "name": "ANTI-TANK MINES",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 250,
+    "armor": 0,
+    "throw_delay": 2,
+    "throw_duration": 1.5,
+    "arming_time": 2,
+    "panel_count": 6,
+    "throwable_count": 3,
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "ANTI-TANK MINES_E",
+      "parent": "ANTI-TANK MINES",
+      "level": 1
+     }
+    ]
+   },
+   "GAS MINES": {
+    "name": "GAS MINES",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 250,
+    "armor": 0,
+    "throw_delay": 2,
+    "throw_duration": 1.5,
+    "arming_time": 2,
+    "panel_count": 6,
+    "throwable_count": 8,
+    "attacks": [
+     {
+      "type": "explosion",
+      "name": "GAS MINES_E",
+      "parent": "GAS MINES",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Gas",
+      "parent": "GAS MINES_E",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Gas_Confusion",
+      "parent": "GAS MINES_E",
+      "level": 2
+     }
+    ]
+   },
+   "TESLA TOWER": {
+    "name": "TESLA TOWER",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 600,
+    "armor": 1,
+    "lifetime": 150,
+    "attacks": []
+   },
+   "ANTI-TANK EMPLACEMENT": {
+    "name": "ANTI-TANK EMPLACEMENT",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 300,
+    "armor": 2,
+    "attacks": []
+   },
+   "HELLBOMB": {
+    "name": "HELLBOMB",
+    "cooldown": 30,
+    "uses": 4294967295,
+    "health": 350,
+    "armor": 0,
+    "attacks": []
+   },
+   "SEAF ARTILLERY": {
+    "name": "SEAF ARTILLERY",
+    "cooldown": 15,
+    "uses": 4294967295,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P10",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P11",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P12",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P7",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P8",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P9",
+      "parent": "SEAF ARTILLERY",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P10_IE",
+      "parent": "S_P10",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P11_IE",
+      "parent": "S_P11",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P12_IE",
+      "parent": "S_P12",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P7_IE",
+      "parent": "S_P7",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P8_IE",
+      "parent": "S_P8",
+      "level": 2
+     },
+     {
+      "type": "explosion",
+      "name": "S_P9_IE",
+      "parent": "S_P9",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "BurningHeavy",
+      "parent": "S_P11_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "S_P11_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Stun Medium",
+      "parent": "S_P7_IE",
+      "level": 3
+     }
+    ]
+   },
+   "DARK FLUID VESSEL": {
+    "name": "DARK FLUID VESSEL",
+    "cooldown": 20,
+    "uses": 4294967295,
+    "health": 1000,
+    "armor": 0,
+    "loadout_wep": "BACKPACKII",
+    "recharge_time": 8,
+    "attacks": []
+   },
+   "AQUIFER DRILL": {
+    "name": "AQUIFER DRILL",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 1500,
+    "armor": 0,
+    "attacks": []
+   },
+   "ORBITAL PRECISION STRIKE": {
+    "name": "ORBITAL PRECISION STRIKE",
+    "cooldown": 80,
+    "uses": 4294967295,
+    "num_bombs": 1,
+    "num_salvos": 1,
+    "area_size": 1,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P13",
+      "parent": "ORBITAL PRECISION STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P13_IE",
+      "parent": "S_P13",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL GAS STRIKE": {
+    "name": "ORBITAL GAS STRIKE",
+    "cooldown": 75,
+    "uses": 4294967295,
+    "num_bombs": 1,
+    "num_salvos": 1,
+    "area_size": 1,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P14",
+      "parent": "ORBITAL GAS STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P14_IE",
+      "parent": "S_P14",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Gas",
+      "parent": "S_P14_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Gas_Confusion",
+      "parent": "S_P14_IE",
+      "level": 3
+     }
+    ]
+   },
+   "ORBITAL AIRBURST STRIKE": {
+    "name": "ORBITAL AIRBURST STRIKE",
+    "cooldown": 90,
+    "uses": 4294967295,
+    "num_bombs": 1,
+    "num_salvos": 4,
+    "area_size": 2,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P15",
+      "parent": "ORBITAL AIRBURST STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P15_IE",
+      "parent": "S_P15",
+      "level": 2
+     },
+     {
+      "type": "projectile",
+      "name": "P14",
+      "parent": "S_P15_IE",
+      "level": 3
+     },
+     {
+      "type": "explosion",
+      "name": "P14_IE",
+      "parent": "P14",
+      "level": 4
+     }
+    ]
+   },
+   "ORBITAL GATLING BARRAGE": {
+    "name": "ORBITAL GATLING BARRAGE",
+    "cooldown": 70,
+    "uses": 4294967295,
+    "num_bombs": 60,
+    "num_salvos": 4,
+    "area_size": 7,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P16",
+      "parent": "ORBITAL GATLING BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "projectile",
+      "name": "S_P17",
+      "parent": "ORBITAL GATLING BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P16_IE",
+      "parent": "S_P16",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL 120MM HE BARRAGE": {
+    "name": "ORBITAL 120MM HE BARRAGE",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "num_bombs": 3,
+    "num_salvos": 5,
+    "area_size": 27,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P18",
+      "parent": "ORBITAL 120MM HE BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P18_IE",
+      "parent": "S_P18",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL NAPALM BARRAGE": {
+    "name": "ORBITAL NAPALM BARRAGE",
+    "cooldown": 240,
+    "uses": 4294967295,
+    "num_bombs": 5,
+    "num_salvos": 5,
+    "area_size": 25,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P20",
+      "parent": "ORBITAL NAPALM BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P20_IE",
+      "parent": "S_P20",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "BurningHeavy",
+      "parent": "S_P20_IE",
+      "level": 3
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "S_P20_IE",
+      "level": 3
+     }
+    ]
+   },
+   "ORBITAL 380MM HE BARRAGE": {
+    "name": "ORBITAL 380MM HE BARRAGE",
+    "cooldown": 240,
+    "uses": 4294967295,
+    "num_bombs": 3,
+    "num_salvos": 5,
+    "area_size": 36,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P22",
+      "parent": "ORBITAL 380MM HE BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P22_IE",
+      "parent": "S_P22",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL WALKING BARRAGE": {
+    "name": "ORBITAL WALKING BARRAGE",
+    "cooldown": 240,
+    "uses": 4294967295,
+    "num_bombs": 3,
+    "num_salvos": 5,
+    "area_size": 25,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P22",
+      "parent": "ORBITAL WALKING BARRAGE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P22_IE",
+      "parent": "S_P22",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL SMOKE STRIKE": {
+    "name": "ORBITAL SMOKE STRIKE",
+    "cooldown": 75,
+    "uses": 4294967295,
+    "num_bombs": 1,
+    "num_salvos": 6,
+    "area_size": 15,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P24",
+      "parent": "ORBITAL SMOKE STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P5_IE",
+      "parent": "S_P24",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL EMS STRIKE": {
+    "name": "ORBITAL EMS STRIKE",
+    "cooldown": 75,
+    "uses": 4294967295,
+    "num_bombs": 1,
+    "num_salvos": 1,
+    "area_size": 1,
+    "fire_height": 3000,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P25",
+      "parent": "ORBITAL EMS STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P25_IE",
+      "parent": "S_P25",
+      "level": 2
+     },
+     {
+      "type": "status",
+      "name": "Stun Medium",
+      "parent": "S_P25_IE",
+      "level": 3
+     }
+    ]
+   },
+   "ORBITAL LASER": {
+    "name": "ORBITAL LASER",
+    "cooldown": 300,
+    "uses": 3,
+    "duration": 25,
+    "movement_speed": 10,
+    "search_radius": 50,
+    "attacks": [
+     {
+      "type": "spray",
+      "name": "ORBITAL LASER_DPS",
+      "parent": "ORBITAL LASER",
+      "level": 1
+     },
+     {
+      "type": "status",
+      "name": "Fire",
+      "parent": "ORBITAL LASER_DPS",
+      "level": 2
+     }
+    ]
+   },
+   "ORBITAL RAILCANNON STRIKE": {
+    "name": "ORBITAL RAILCANNON STRIKE",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "duration": 2,
+    "movement_speed": 90,
+    "search_radius": 30,
+    "attacks": [
+     {
+      "type": "projectile",
+      "name": "S_P26",
+      "parent": "ORBITAL RAILCANNON STRIKE",
+      "level": 1
+     },
+     {
+      "type": "explosion",
+      "name": "S_P26_E",
+      "parent": "S_P26",
+      "level": 2
+     }
+    ]
+   },
+   "PATRIOT EXOSUIT": {
+    "name": "PATRIOT EXOSUIT",
+    "cooldown": 600,
+    "uses": 1,
+    "health": 1800,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "PATRIOT EXOSUIT HMG",
+      "parent": "PATRIOT EXOSUIT",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "right_gun"
+     },
+     {
+      "type": "weapons",
+      "name": "PATRIOT EXOSUIT MISSILE LAUNCHER",
+      "parent": "PATRIOT EXOSUIT",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "left_gun"
+     }
+    ]
+   },
+   "ROCKET SENTRY": {
+    "name": "ROCKET SENTRY",
+    "cooldown": 45,
+    "uses": 1,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 150,
+    "turn_hori": 40,
+    "turn_vert": 40,
+    "vertical_range": [
+     -45,
+     90
+    ],
+    "rpm": 90,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "ROCKET SENTRY",
+      "parent": "ROCKET SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "MACHINE GUN": {
+    "name": "MACHINE GUN",
+    "cooldown": 600,
+    "uses": 1,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "MG-43 MACHINE GUN",
+    "attacks": []
+   },
+   "AUTOCANNON": {
+    "name": "AUTOCANNON",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AUTOCANNON BACKPACK",
+    "attacks": []
+   },
+   "GRENADE LAUNCHER": {
+    "name": "GRENADE LAUNCHER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "GL-21 GRENADE LAUNCHER",
+    "attacks": []
+   },
+   "DE-ESCALATOR": {
+    "name": "DE-ESCALATOR",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "GL-52 DE-ESCALATOR",
+    "attacks": []
+   },
+   "BELT-FED GRENADE LAUNCHER": {
+    "name": "BELT-FED GRENADE LAUNCHER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "BELT-FED GRENADE LAUNCHER BACKPACK",
+    "attacks": []
+   },
+   "RAILGUN": {
+    "name": "RAILGUN",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "RS-422 RAILGUN",
+    "attacks": []
+   },
+   "SPEARGUN": {
+    "name": "SPEARGUN",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "S-11 SPEARGUN",
+    "attacks": []
+   },
+   "RECOILLESS RIFLE": {
+    "name": "RECOILLESS RIFLE",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "RECOILLESS RIFLE BACKPACK",
+    "attacks": []
+   },
+   "LASER CANNON": {
+    "name": "LASER CANNON",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "LAS-98 LASER CANNON",
+    "attacks": []
+   },
+   "QUASAR CANNON": {
+    "name": "QUASAR CANNON",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "LAS-99 QUASAR CANNON",
+    "attacks": []
+   },
+   "ANTI-MATERIEL RIFLE": {
+    "name": "ANTI-MATERIEL RIFLE",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "APW-1 ANTI-MATERIEL RIFLE",
+    "attacks": []
+   },
+   "EXPENDABLE ANTI-TANK": {
+    "name": "EXPENDABLE ANTI-TANK",
+    "cooldown": 70,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "EAT-17 EXPENDABLE ANTI-TANK",
+    "attacks": []
+   },
+   "EXPENDABLE ANTI-TANKII": {
+    "name": "EXPENDABLE ANTI-TANKII",
+    "cooldown": 0,
+    "uses": 2,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "EAT-17 EXPENDABLE ANTI-TANK",
+    "attacks": []
+   },
+   "EXPENDABLE NAPALM": {
+    "name": "EXPENDABLE NAPALM",
+    "cooldown": 140,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "EAT-700 EXPENDABLE NAPALM",
+    "attacks": []
+   },
+   "LEVELLER": {
+    "name": "LEVELLER",
+    "cooldown": 140,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "EAT-411 LEVELLER",
+    "attacks": []
+   },
+   "COMMANDO": {
+    "name": "COMMANDO",
+    "cooldown": 120,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "MLS-4X COMMANDO",
+    "attacks": []
+   },
+   "FLAMETHROWER": {
+    "name": "FLAMETHROWER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "FLAM-40 FLAMETHROWER",
+    "attacks": []
+   },
+   "HEAVY MACHINE GUN": {
+    "name": "HEAVY MACHINE GUN",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "MG-206 HEAVY MACHINE GUN",
+    "attacks": []
+   },
+   "STALWART": {
+    "name": "STALWART",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "M-105 STALWART",
+    "attacks": []
+   },
+   "BULLET STORM": {
+    "name": "BULLET STORM",
+    "cooldown": 70,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "MGX-42 BULLET STORM",
+    "attacks": []
+   },
+   "AIRBURST ROCKET LAUNCHER": {
+    "name": "AIRBURST ROCKET LAUNCHER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "AIRBURST ROCKET BACKPACK",
+    "attacks": []
+   },
+   "C4 PACK": {
+    "name": "C4 PACK",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "B/MD C4 PACKII",
+    "attacks": []
+   },
+   "SOLO SILO": {
+    "name": "SOLO SILO",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 1500,
+    "armor": 2,
+    "loadout_wep": "SOLO SILO TARGETING REMOTE",
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SOLO SILO",
+      "parent": "SOLO SILO",
+      "level": 1
+     }
+    ]
+   },
+   "SPEAR": {
+    "name": "SPEAR",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "SPEAR BACKPACK",
+    "attacks": []
+   },
+   "W.A.S.P. LAUNCHER": {
+    "name": "W.A.S.P. LAUNCHER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "W.A.S.P. LAUNCHER BACKPACK",
+    "attacks": []
+   },
+   "ARC THROWER": {
+    "name": "ARC THROWER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "ARC-3 ARC THROWER",
+    "attacks": []
+   },
+   "STERILIZER": {
+    "name": "STERILIZER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "TX-41 STERILIZER",
+    "attacks": []
+   },
+   "ONE TRUE FLAG": {
+    "name": "ONE TRUE FLAG",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "CQC-1 ONE TRUE FLAG",
+    "attacks": []
+   },
+   "DEFOLIATION TOOL": {
+    "name": "DEFOLIATION TOOL",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "CQC-9 DEFOLIATION TOOL",
+    "attacks": []
+   },
+   "BREACHING HAMMER": {
+    "name": "BREACHING HAMMER",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "CQC-20 BREACHING HAMMER",
+    "attacks": []
+   },
+   "EPOCH": {
+    "name": "EPOCH",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "PLAS-45 EPOCH",
+    "attacks": []
+   },
+   "MAXIGUN": {
+    "name": "MAXIGUN",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "MAXIGUN BACKPACK",
+    "attacks": []
+   },
+   "CREMATOR": {
+    "name": "CREMATOR",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "CREMATOR BACKPACK",
+    "attacks": []
+   },
+   "MELTAGUN": {
+    "name": "MELTAGUN",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 200,
+    "armor": 0,
+    "loadout_wep": "40-K MELTAGUN",
+    "attacks": []
+   },
+   "MACHINE GUN SENTRY": {
+    "name": "MACHINE GUN SENTRY",
+    "cooldown": 90,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 150,
+    "turn_hori": 80,
+    "turn_vert": 50,
+    "vertical_range": [
+     -60,
+     90
+    ],
+    "rpm": 630,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "MACHINE GUN SENTRY",
+      "parent": "MACHINE GUN SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "GATLING SENTRY": {
+    "name": "GATLING SENTRY",
+    "cooldown": 150,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 150,
+    "turn_hori": 80,
+    "turn_vert": 50,
+    "vertical_range": [
+     -60,
+     90
+    ],
+    "rpm": 1600,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "GATLING SENTRY",
+      "parent": "GATLING SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "MORTAR SENTRY": {
+    "name": "MORTAR SENTRY",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 180,
+    "turn_hori": 55,
+    "turn_vert": 55,
+    "vertical_range": [
+     35,
+     89
+    ],
+    "rpm": 60,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "MORTAR SENTRY",
+      "parent": "MORTAR SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "EMS MORTAR SENTRY": {
+    "name": "EMS MORTAR SENTRY",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 180,
+    "turn_hori": 55,
+    "turn_vert": 55,
+    "vertical_range": [
+     35,
+     89
+    ],
+    "rpm": 60,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "EMS MORTAR SENTRY",
+      "parent": "EMS MORTAR SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "GAS MORTAR SENTRY": {
+    "name": "GAS MORTAR SENTRY",
+    "cooldown": 180,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 180,
+    "turn_hori": 55,
+    "turn_vert": 55,
+    "vertical_range": [
+     35,
+     89
+    ],
+    "rpm": 80,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "GAS MORTAR SENTRY",
+      "parent": "GAS MORTAR SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "AUTOCANNON SENTRY": {
+    "name": "AUTOCANNON SENTRY",
+    "cooldown": 150,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 150,
+    "turn_hori": 20,
+    "turn_vert": 20,
+    "vertical_range": [
+     -60,
+     70
+    ],
+    "rpm": 160,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "AUTOCANNON SENTRY",
+      "parent": "AUTOCANNON SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "FLAME SENTRY": {
+    "name": "FLAME SENTRY",
+    "cooldown": 100,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 150,
+    "turn_hori": 140,
+    "turn_vert": 140,
+    "vertical_range": [
+     -45,
+     90
+    ],
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "FLAME SENTRY",
+      "parent": "FLAME SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "LASER SENTRY": {
+    "name": "LASER SENTRY",
+    "cooldown": 150,
+    "uses": 4294967295,
+    "health": 400,
+    "armor": 2,
+    "lifetime": 180,
+    "turn_hori": 80,
+    "turn_vert": 50,
+    "vertical_range": [
+     -60,
+     90
+    ],
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "LASER SENTRY",
+      "parent": "LASER SENTRY",
+      "level": 1
+     }
+    ]
+   },
+   "GUNNER FRV": {
+    "name": "GUNNER FRV",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 2400,
+    "armor": 3,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_HEAVY MACHINE GUN",
+      "parent": "GUNNER FRV",
+      "level": 1,
+      "mount_side": "common",
+      "mount_name": "gun"
+     }
+    ]
+   },
+   "SUPPLY FRV": {
+    "name": "SUPPLY FRV",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 2400,
+    "armor": 3,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_SUPPLY FRV",
+      "parent": "SUPPLY FRV",
+      "level": 1,
+      "mount_side": "common",
+      "mount_name": "gun"
+     }
+    ]
+   },
+   "INCINERATOR FRV": {
+    "name": "INCINERATOR FRV",
+    "cooldown": 480,
+    "uses": 4294967295,
+    "health": 2900,
+    "armor": 3,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_CREMATOR",
+      "parent": "INCINERATOR FRV",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "gun"
+     }
+    ]
+   },
+   "EMANCIPATOR EXOSUIT": {
+    "name": "EMANCIPATOR EXOSUIT",
+    "cooldown": 420,
+    "uses": 3,
+    "health": 1800,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "EMANCIPATOR EXOSUIT LEFT AUTOCANNON",
+      "parent": "EMANCIPATOR EXOSUIT",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "left_gun"
+     },
+     {
+      "type": "weapons",
+      "name": "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON",
+      "parent": "EMANCIPATOR EXOSUIT",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "right_gun"
+     }
+    ]
+   },
+   "LUMBERER EXOSUIT": {
+    "name": "LUMBERER EXOSUIT",
+    "cooldown": 420,
+    "uses": 3,
+    "health": 1800,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "LUMBERER ANTI TANK CANNON",
+      "parent": "LUMBERER EXOSUIT",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "right_gun"
+     },
+     {
+      "type": "weapons",
+      "name": "LUMBERER FLAMETHROWER",
+      "parent": "LUMBERER EXOSUIT",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "left_gun"
+     }
+    ]
+   },
+   "BREAKTHROUGH EXOSUIT": {
+    "name": "BREAKTHROUGH EXOSUIT",
+    "cooldown": 420,
+    "uses": 3,
+    "health": 1800,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "BREAKTHROUGH SCATTERGUN",
+      "parent": "BREAKTHROUGH EXOSUIT",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "right_gun"
+     }
+    ]
+   },
+   "BASTION MK XVI": {
+    "name": "BASTION MK XVI",
+    "cooldown": 780,
+    "uses": 4294967295,
+    "health": 8000,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_BASTION MK XVI",
+      "parent": "BASTION MK XVI",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "unnamed"
+     },
+     {
+      "type": "weapons",
+      "name": "SWP_BASTION MK XVIII",
+      "parent": "BASTION MK XVI",
+      "level": 1,
+      "mount_side": "right",
+      "mount_name": "unnamed"
+     }
+    ]
+   },
+   "MAELSTROM": {
+    "name": "MAELSTROM",
+    "cooldown": 780,
+    "uses": 4294967295,
+    "health": 8000,
+    "armor": 4,
+    "attacks": [
+     {
+      "type": "weapons",
+      "name": "SWP_MAELSTROM",
+      "parent": "MAELSTROM",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "unnamed"
+     },
+     {
+      "type": "weapons",
+      "name": "SWP_MAELSTROMIII",
+      "parent": "MAELSTROM",
+      "level": 1,
+      "mount_side": "left",
+      "mount_name": "unnamed"
+     }
+    ]
+   }
+  },
+  "strat_version": "01.007.203"
+ }
+}

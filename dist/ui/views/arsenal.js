@@ -11,6 +11,7 @@ import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
 import { shipModulesSource } from '../../data/ship-modules.js';
 import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
+import { stratagemStats } from '../../data/stratagem-stats.js';
 
 const SORTS = [
   { id: '', name: L('기본 순서', 'Default order') },
@@ -263,15 +264,25 @@ function timingBlock(item) {
   </section>`;
 }
 
-// Demolition force per mode (demolition-data.js): a single hit or blast must reach a structure's threshold.
-function forceBlock(profile) {
-  if (!profile?.modes?.length) return '';
+// Special effects: demolition force per mode (demolition-data.js), then the stagger and push
+// force of each attack from the wiki attack datamine (stratagem-stats.js `forces`).
+const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment') };
+export const forceLines = parts => parts.map(part => html`<span class="force-line"><b>${FORCE_KIND[part.kind]}</b> ${L('저지력', 'Stagger')} ${part.stun ?? '?'} · ${L('넉백', 'Push')} ${part.push ?? '?'}</span>`);
+export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
+  'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
+function specialBlock(item, profile) {
+  const forces = stratagemStats[item.id]?.forces ?? [];
+  if (!profile?.modes?.length && !forces.length) return '';
   const value = force => force == null ? '—' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
-  return html`<section class="block"><h3>${L('철거력', 'Demolition force')}</h3>
+  const groupName = (group, index) => group.weapon ?? (forces.length > 1 ? L(`공격 ${index + 1}`, `Attack ${index + 1}`) : L('공격', 'Attack'));
+  return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
+    ${profile?.modes?.length ? html`<h4 class="special-sub">${L('철거력', 'Demolition force')}</h4>
     <dl class="detail-grid">${profile.modes.map(mode => html`<div><dt>${T(mode.name)}</dt>${mode.forceUnknown
       ? html`<dd class="dim">${L('확인 중', 'Unverified')}</dd>`
-      : html`<dd>${value(mode.direct)}<small> / ${value(mode.explosion)}</small></dd><div class="caption">${L('직격 / 폭발', 'Direct / blast')}</div>`}</div>`)}</dl>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${L('시설마다 필요한 철거력이 있고, 한 번의 명중이나 폭발이 그 값 이상이어야 무너집니다. 여러 번 맞혀도 합산되지 않습니다.', 'Each structure needs a certain demolition force, and a single hit or blast has to reach it. Several hits do not add up.')}</p>
+      : html`<dd>${value(mode.direct)}<small> / ${value(mode.explosion)}</small></dd><div class="caption">${L('직격 / 폭발', 'Direct / blast')}</div>`}</div>`)}</dl>` : ''}
+    ${forces.length ? html`<h4 class="special-sub">${L('저지력 · 넉백', 'Stagger · push force')}</h4>
+    <dl class="detail-grid">${forces.map((group, index) => html`<div><dt>${groupName(group, index)}</dt><dd class="force-lines">${forceLines(group.parts)}</dd></div>`)}</dl>` : ''}
+    <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>
   </section>`;
 }
 
@@ -297,9 +308,9 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
       ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
       : html`${statGrid(item)}${blastFigure(item)}`}
+    ${specialBlock(item, force)}
     ${spreadBlock(item)}
     ${timingBlock(item)}
-    ${forceBlock(force)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
     ${defenseBlock(item)}

@@ -1,7 +1,8 @@
 // Downloads the cooldown facts of every stratagem from its wiki page (infobox
 // `stratagem_type` / `base_cooldown` and the "Stratagem Stats Table"), plus the
 // Ship Modules page whose upgrade rates dist/data/ship-modules.js follows,
-// into db/source/wiki_stratagem_stats.json with each page's revision.
+// into db/source/wiki_stratagem_stats.json with each page's revision, and the
+// stratagem datamine (stagger and push force per attack) into db/source/stratagems_data.json.
 // Usage: node scripts/fetch-stratagem-stats.mjs  ->  node scripts/build-stratagem-stats.mjs
 import { writeFile } from 'node:fs/promises';
 import { stratagems } from '../dist/core/catalog.js';
@@ -58,4 +59,12 @@ out.shipModules = {
   text: shipText.slice(shipText.indexOf('==Module Upgrades=='), shipText.indexOf('== Notes ==')),
 };
 await writeFile(new URL('../db/source/wiki_stratagem_stats.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
+// Support weapons take their attack records from db/source/weapons_data.json (fetch-weapons-source.mjs).
+await sleep(2000);
+const datamineTitle = 'Module:Decodedata-Attacks/stratagems_data.json';
+const datamine = (await pages([datamineTitle])).get(datamineTitle);
+await writeFile(new URL('../db/source/stratagems_data.json', import.meta.url), JSON.stringify({
+  source: `https://helldivers.wiki.gg/wiki/${datamineTitle.replaceAll(' ', '_')}`, revision: datamine.revisions[0].revid,
+  revisionTimestamp: datamine.revisions[0].timestamp, retrievedAt: out.retrievedAt, data: JSON.parse(datamine.revisions[0].slots.main.content),
+}, null, 1) + '\n');
 console.log(`${Object.keys(out.stratagems).length} stratagems, Ship Modules revision ${out.shipModules.revision}`);
