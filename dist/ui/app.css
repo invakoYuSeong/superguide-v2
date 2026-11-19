@@ -372,6 +372,10 @@ main[aria-busy] { opacity: .5; transition: opacity .2s .15s; }
 [data-faction="오토마톤"], [data-side="automaton"] { --fc: var(--automaton); }
 [data-faction="일루미닛"], [data-side="illuminate"] { --fc: var(--illuminate); }
 .subfaction-icon { display: inline-block; flex: none; width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; background: var(--fc, currentColor); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+/* Same colours as the faction icons (assets/pickers/faction-*.svg), in both themes. */
+.subfaction-icon[data-tint="terminid"] { background: #ffb901; }
+.subfaction-icon[data-tint="automaton"] { background: #ff6161; }
+.subfaction-icon[data-tint="illuminate"] { background: #cd8aea; }
 .subfaction-icon.large { width: 26px; height: 26px; margin-right: 8px; vertical-align: -4px; }
 .subfaction-chip { display: inline-flex; align-items: center; }
 [data-faction="공용 시설"] { --fc: var(--text-2); }
@@ -558,7 +562,10 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-hero { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 18px; align-items: center; }
 .enemy-hero img { width: 140px; height: 110px; object-fit: contain; }
 .enemy-hero h1 { font-size: 26px; font-weight: 800; margin: 2px 0 6px; }
-.enemy-hero .note { max-width: 70ch; }
+.enemy-hero .note { max-width: none; }
+.enemy-lore { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 8px 28px; padding: 16px 18px; }
+.enemy-lore h2 { font-size: 15px; font-weight: 800; margin: 0 0 6px; }
+.enemy-lore .notes { margin: 0; }
 .vitals { display: flex; gap: 6px 18px; flex-wrap: wrap; margin: 10px 0; font-size: 13px; color: var(--text-3); }
 .vitals b { color: var(--text); font-size: 15px; margin-left: 4px; }
 
