@@ -16,9 +16,11 @@
   - **행성 탭**(`#/planets?tab=conditions|modifiers|biomes|status`): 환경 조건 12종(아이콘)·글룸 4단계, 작전 제한 조건 8종(난이도 5부터 1개·8부터 2개)·이벤트 효과 4종, 생물군계 28종(행성 379개, 이름·분류는 사이트 번역), 상태 이상 7종(위키 Status Effects 요약). 스트라타젬 상세에 '행성 조건에 따른 변화'(표시값 × 비율, 기본 접힘, 함선 모듈 문구는 그 블록 맨 아래). `fetch-planet-pages` → `build-planets`(`dist/data/planets.js`, `planet-stratagem-effects.js`). 하단 탭이 7칸이 됨.
   - **임무 연결**: 철거 화면에서 시설을 부수는 주요·전술 목표와 난이도(10에 없는 임무는 흐리게), 21개 시설·28개 임무(`db/source/structure_objectives.json`, `fetch-objectives` → `build-structure-objectives`).
   - **특수 효과**(스트라타젬·장비 상세, 기본 수치표 바로 아래): 철거력, 저지력(stun), 넉백(push). 직격 중 가장 센 것과 폭발 중 가장 센 것만 한 줄씩(철거력 · 저지력 · 넉백, 철거력 → 저지력 → 넉백 순으로 비교, 파편 제외, 사용자 결정 2026-11-19). 스트라타젬은 datamine 공격 기록(`db/source/stratagems_data.json` + `weapons_data.json`, `stratagem-stats.js`의 `forces`)이고, 철거 데이터가 범위로 둔 값(500kg 직격 40~50)은 범위로 표시, 공격 기록이 없으면 철거 데이터의 철거력만. 장비는 `db/weapons.js`의 기록별 값(`personal-weapons.js`에 demolition·stun·push 추가). 공격 기록이 없는 배낭·보호막·임무 장비와 datamine에 없는 테슬라 탑·거치포·지옥폭탄은 저지력·넉백 없음.
-  - **2026-11-19 추가**: 행성 환경 조건에 '엑소스톰'(일루미닛 행성만, 1~3단계)·'SEAF'(슈퍼 지구, 모든 행성) 구역, 작전 제한 조건·이벤트·글룸·엑소스톰·SEAF는 사이트에서 그린 선 아이콘(`dom.js` ICONS, 위키에 아이콘 없음). 생물군계 썸네일 27장(`python scripts/tools/fetch-biome-images.py`, 320×180 WebP 합계 116KB, 화산 정글은 위키 그림이 죽음의 땅 그림으로 넘겨져 제외). 방어구 탭에서 카드를 누르면 상세 창(`#/gear?tab=armor&d=<id>`, 큰 그림). 레일건·에포크의 과충전 폭발은 별도 줄과 경고. 채권 보드의 치장품·부스터 247칸 모두 게임 이름 우선(`build-game-names`가 `strings.warbondItems`를 만들고 `build-warbonds`가 나무위키보다 먼저 씀, 패턴은 그림 파일 이름으로 매칭).
+  - **2026-11-19 추가**: 행성 환경 조건에 '엑소스톰'(일루미닛 행성만, 1~3단계)·'SEAF'(슈퍼 지구, 모든 행성) 구역, 작전 제한 조건·이벤트·글룸·엑소스톰·SEAF는 사이트에서 그린 선 아이콘(`dom.js` ICONS, 위키에 아이콘 없음). 생물군계 썸네일 28장(`python scripts/tools/fetch-biome-images.py`, 320×180 WebP 합계 120KB, 화산 정글은 인포박스 그림이 죽음의 땅 그림으로 넘겨져 있어 문서 갤러리의 Regnus 풍경을 씀), 생물군계 카드는 한 줄 4개(작은 그림이 흐려 보이지 않게, 사용자 결정). 방어구 탭에서 카드를 누르면 상세 창(`#/gear?tab=armor&d=<id>`, 큰 그림). 레일건·에포크의 과충전 폭발은 별도 줄과 경고. 채권 보드의 치장품·부스터 247칸 모두 게임 이름 우선(`build-game-names`가 `strings.warbondItems`를 만들고 `build-warbonds`가 나무위키보다 먼저 씀, 패턴은 그림 파일 이름으로 매칭).
   - **기타**: 전체 검색에 방어구·부스터, 채권 항목 상세는 1340px 미만에서 보드 자리에 열림(겹침 해결), README·계산 방식의 자료 날짜를 '9월 16일 처음 확인, 11월 8일 다시 대조'로.
-  - 검사: `npm run check` 16종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
+  - **적 대응 보강(2026-11-19)**: 몬스터마다 화염 저항(위키 인포박스 fire_mult를 폭발 저항처럼 퍼센트로, ×0.8 = 20%, ×1.5 = -50%)·경직치(stagger_req), 소속 '테르미니드·커스틱 변종', '등장'·'행동' 요약(위키 Spawning·Behavior 절을 쉬운 한국어·영어로, 문서 revision에 묶임). 파이프라인 `node scripts/fetch-enemy-pages.mjs`(`db/source/wiki_enemy_pages.json`) → 요약 `db/source/enemy_behavior_korean.json`(손으로 씀) → `node scripts/build-enemy-pages.mjs`(`dist/data/enemy-pages.js`) → `test-enemy-pages.mjs`(숫자가 한·영 양쪽에 같은지, revision이 같은지). 위키 값이 없는 화염 저항 15종·경직치 19종은 '미확인'. 적 무기 이름은 게임 문장표에 없고 나무위키는 바로 읽을 수 없어 사이트가 번역(Fusion = 융합, Plasma = 플라스마, 무기마다 한 이름). 용어는 사이트 표기(벌레굴·무권자·제조소·제트팩).
+  - **팩션·행성 화면(2026-11-19)**: 팩션 추천 하위 팩션 12개에 위키 아이콘(`node scripts/fetch-subfaction-icons.mjs`, `dist/assets/subfactions/`), 진영 아이콘과 같은 색(테르미니드 #ffb901·오토마톤 #ff6161·일루미닛 #cd8aea). 상태 이상 7종에 사이트에서 그린 아이콘. 생물군계의 행성 이름은 위키 문서가 있는 278개만 링크(`wiki_planets.json`의 `planetPages` = Category:Planets, 대소문자·악센트 무시로 매칭). 생물군계 분류 이름에서 '형'을 뺌(사막·원시·극지 등).
+  - 검사: `npm run check` 17종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
 
 - **PR #9 병합(2026-11-10, 배포됨)**: 무기 모드 탭, 주 무기 부착물 표, 지원 무기 연사·탄창, 스트라타젬 호출 코드, 채권 칩, 철거 시설 추가, 오토마톤 방어 시설 4종을 적 대응으로 이동, 커스틱·녹셔스 세력 안내. 이후 작은 수정 2개(영어 테마 버튼 설명, 세력 안내별 확인 날짜) 배포.
 - **새 적 2종·M-104(2026-11-08, 배포됨)**: 녹셔스 스캐빈저·녹셔스 스퓨어(부위 수치는 스캐빈저·커스틱 스퓨어 것을 옮김), M-104 소각형 고속 정찰 차량.
@@ -38,6 +40,7 @@
 - StA-52 예비 탄창: datamine 7, 위키 6(rev 140347). 위키가 7로 바뀌면 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
 - 전쟁 채권 '미확인' 12건은 모두 페이지 해금 메달 수입니다(2쪽 'Unknown' 9건, 마지막 쪽 해금이 인포박스와 다른 3건: 철갑의 민주주의·공성 파괴자·존재하지 않는 부대). 위키·나무위키·게임 문장표 어디에도 값이 없어 그대로 둠. 항목 비용 불일치는 2026-11-19에 항목 개별 문서로 판정(`node scripts/fetch-warbond-item-pages.mjs` → `build-warbonds`, `scripts/warbond-resolve.mjs`): TG-8 헬멧 30, SS-33 방어구 45·헬멧 30, CPG-48 헬멧 35, 무결의 문장 카드 6, 초과 EAT 할당 2쪽 55, 통합 화재 진압기 3쪽 65. CPG-48 헬멧·무결의 문장 카드는 나무위키 총 메달 수(888)가 보드 틀 값(30·7) 합과 맞아, 개별 문서 값(35·6)과 다름에 유의.
 - **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 사용자가 시작하라고 할 때 진행.
+- 적 무기 이름(융합 돌격포·대형 융합 연발포·빛의 창 등)은 사이트 자체 번역. 사용자가 다른 이름을 원하면 `db/source/enemy_behavior_korean.json`에서 바꾸고 `build-enemy-pages` → `npm run check`.
 - 넣지 않은 것: Eagle Fly By·Orbital Confetti 등 피해 없는 스트라타젬, 적 크기 분류의 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship, LAS-44 Nova의 Anti-Tank 태그.
 - 전쟁 채권 SVG 18개·이미지 목록 3개가 줄바꿈 차이로만 '변경'으로 보일 수 있음(내용 변경 없음, 커밋하지 않음).
 - **Codex 위임 중단(2026-11-03)**: 사용자가 다시 지시할 때까지 Codex에 일을 맡기지 않음.
@@ -62,6 +65,7 @@
 
 ## 다음 AI에게
 
+- 적 문서 갱신: `fetch-enemy-pages` 뒤 문서 revision이 바뀐 적은 `build-enemy-pages`가 멈춥니다. 바뀐 Spawning·Behavior를 읽고 `enemy_behavior_korean.json`의 요약과 revision을 고친 뒤 다시 빌드하세요.
 - 위키 데이터 갱신: revision 먼저 확인(MediaWiki API `api.php?action=query&prop=revisions`) → `scripts/fetch-*` → `build-*` → `npm run check`. 새 부스터·환경 조건·임무·이름 변경은 `db/source/*_korean.json`, `structure_objectives.json`, `game_name_targets.json`에 게임 영어 원문으로 적고 `node scripts/build-game-names.mjs` → 해당 `build-*`. 문장표에 없는 영어면 빌드가 멈춥니다(게임 원문과 글자 그대로 맞춰야 함).
 - wiki.gg는 curl 기본 User-Agent로 받으세요(브라우저 User-Agent는 차단). 짧은 시간에 많이 요청하면 429를 줍니다.
 - 전쟁 채권 갱신: `node scripts/fetch-warbonds.mjs` → `node scripts/fetch-warbond-item-pages.mjs` → `node scripts/build-warbonds.mjs` → `npm run check`. 새 채권은 `db/source/warbond_korean_names.json`에 한국어 이름이 없으면 빌드가 실패하니 사용자에게 이름을 받으세요.
