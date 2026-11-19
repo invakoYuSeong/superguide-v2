@@ -1,5 +1,5 @@
 // Armor tab of the gear view: body armor grouped by passive.
-//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>   (a: scroll to and mark one set)
+//   #/gear?tab=armor&w=<light|medium|heavy>&p=<passive>&a=<armor>   (p: show one passive; a: scroll to and mark one set)
 // Loaded on demand by gear.js and by the warbond item pane (armorDetail).
 import { armors, armorPassives, armorWeights, armorCheckedAt } from '../../data/armor.js';
 import { armorImages } from '../../data/armor-images.js';
@@ -89,21 +89,24 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
   </div>`;
 }
 
-/** Renders the armor tab into panel. state.weight filters by weight ('' = all); state.focus marks one set. */
+/** Renders the armor tab into panel. state.weight and state.passive filter ('' = all); state.focus marks one set. */
 export function renderArmor(panel, { state, onChange, onOpen = null }) {
   focus = state.focus || '';
   const shown = armors.filter(armor => !state.weight || armor.weight === state.weight);
   const groups = armorPassives.map(passive => [passive, shown.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length);
+  // A passive with no set in the chosen weight is let go.
+  if (state.passive && !groups.some(([passive]) => passive.id === state.passive)) state.passive = '';
+  const visible = state.passive ? groups.filter(([passive]) => passive.id === state.passive) : groups;
   const countOf = id => armors.filter(armor => armor.weight === id).length;
   render(panel, html`<div class="arsenal-tools armor-tools">
       <div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
         <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${armors.length}</span></button>
         ${armorWeights.map(weight => html`<button type="button" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}">${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
       </div>
-      <nav class="chips armor-jump" aria-label="${L('패시브로 이동', 'Jump to a passive')}">${groups.map(([passive, list]) => html`<button class="chip" type="button" data-jump="${passive.id}">${passive.name} <span class="count">${list.length}</span></button>`)}</nav>
+      <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!state.passive}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${state.passive === passive.id}">${passive.name} <span class="count">${list.length}</span></button>`)}</div>
     </div>
-    <div class="arsenal-meta"><span role="status">${L(html`패시브 <b>${groups.length}</b>종 · 방어구 <b>${shown.length}</b>종`, html`<b>${groups.length}</b> passives · <b>${shown.length}</b> armor sets`)}</span><span>${L(`자료 확인 ${armorCheckedAt}`, `Checked ${armorCheckedAt}`)}</span></div>
-    <div class="armor-passives">${groups.map(([passive, list]) => passiveSection(passive, list))}</div>`);
+    <div class="arsenal-meta"><span role="status">${L(html`패시브 <b>${visible.length}</b>종 · 방어구 <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b>종`, html`<b>${visible.length}</b> passives · <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b> armor sets`)}</span><span>${L(`자료 확인 ${armorCheckedAt}`, `Checked ${armorCheckedAt}`)}</span></div>
+    <div class="armor-passives">${visible.map(([passive, list]) => passiveSection(passive, list))}</div>`);
   const marked = focus && $(`#armor-item-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
   for (const button of $$('button[data-weight]', panel)) button.addEventListener('click', () => { state.weight = button.dataset.weight; state.focus = ''; onChange(); });
@@ -112,9 +115,8 @@ export function renderArmor(panel, { state, onChange, onOpen = null }) {
     item.addEventListener('click', event => { if (!event.target.closest('a')) onOpen(item.dataset.armorOpen); });
     item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onOpen(item.dataset.armorOpen); } });
   }
-  for (const button of $$('[data-jump]', panel)) button.addEventListener('click', () => {
-    const target = $(`#armor-${button.dataset.jump}`, panel);
-    target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-    target?.querySelector('h3')?.focus?.({ preventScroll: true });
+  // A passive chip filters the list to that passive (pick it again or All for every passive).
+  for (const button of $$('button[data-passive]', panel)) button.addEventListener('click', () => {
+    state.passive = state.passive === button.dataset.passive ? '' : button.dataset.passive; state.focus = ''; onChange();
   });
 }

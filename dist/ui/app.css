@@ -774,8 +774,8 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .group-tabs { margin: -4px 0 10px; }
 /* Armor tab: one clipped panel per passive, its effect lines, then the armor sets. */
 .armor-tools { display: grid; gap: 10px; }
-.armor-jump { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
-.armor-jump .chip { height: 32px; padding: 0 12px; font-size: 13px; }
+.armor-passive-filter { flex-wrap: wrap; }
+.armor-passive-filter .chip { height: 32px; padding: 0 12px; font-size: 13px; }
 .armor-passives { display: grid; gap: 16px; }
 .armor-passive { position: relative; padding: 18px; background: var(--surface); border: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + 16px);
   clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%); }

@@ -116,7 +116,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -351,7 +351,7 @@ async function renderLoadout() {
 }
 
 // --- Armor -------------------------------------------------------------------------
-const armor = { weight: '', focus: '', detail: '' };
+const armor = { weight: '', passive: '', focus: '', detail: '' };
 const ARMOR_WEIGHTS = ['light', 'medium', 'heavy'];
 let armorUi = null;
 async function renderArmor() {
@@ -471,7 +471,7 @@ function selectVariant(id) {
 export function update(route) {
   const q = route.query;
   state.tab = q.tab === 'loadout' || q.tab === 'armor' || q.tab === 'boosters' ? q.tab : 'browse';
-  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', focus: q.a || '', detail: q.d || '' });
+  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '' });
   else if (state.tab === 'boosters') booster.focus = q.b || '';
   else if (state.tab === 'browse') {
     Object.assign(state, {
