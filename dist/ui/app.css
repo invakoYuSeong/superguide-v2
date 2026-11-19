@@ -913,15 +913,18 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .gear-attach-block > summary h3 { margin: 0; }
 .gear-attach-block[open] > summary { margin-bottom: 8px; }
 .attach-count { margin-left: auto; font-size: 12.5px; font-weight: 600; color: var(--text-3); }
-/* Narrow panes (phone sheet, warbond item pane): name, unlock and cost on one line, the stat changes below. */
+/* Narrow panes (phone sheet, warbond item pane): the stat changes go under the name, and unlock and
+   cost run the full height of the row so their column lines reach its bottom. */
 .gear-attach-block { container-type: inline-size; }
 @container (max-width: 520px) {
   .gear-attach { min-width: 0; }
   .gear-attach, .gear-attach thead, .gear-attach tbody { display: block; }
   .gear-attach tr { display: grid; grid-template-columns: minmax(0, 1fr) 6em 6em; }
   .gear-attach tr > :nth-child(2), .gear-attach tr > :nth-child(3) { width: auto; }
-  .gear-attach tr > * { border-bottom: 0; }
-  .gear-attach tr > :last-child { grid-column: 1 / -1; padding-top: 0; border-bottom: 1px solid var(--line); }
+  .gear-attach tbody tr > :nth-child(2), .gear-attach tbody tr > :nth-child(3) { grid-row: 1 / span 2; border-bottom: 1px solid var(--line); }
+  .gear-attach tbody tr > :nth-child(1) { grid-column: 1; grid-row: 1; border-bottom: 0; }
+  .gear-attach tbody tr > :nth-child(4) { grid-column: 1; grid-row: 2; padding-top: 0; border-bottom: 1px solid var(--line); }
+  .gear-attach tbody tr.attach-slot > th { grid-column: 1 / -1; grid-row: auto; border-bottom: 1px solid var(--line-strong); }
   /* One header line: name, unlock, cost. The stat changes under each name need no column label. */
   .gear-attach thead tr > * { border-bottom: 2px solid var(--accent); }
   .gear-attach thead tr > :last-child { display: none; }
