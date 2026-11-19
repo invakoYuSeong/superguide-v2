@@ -5559,16 +5559,8 @@ export const weapons = [
     type: 'energy-based',
     en: 'R/40-K Hot-Shot Marksman Rifle',
     code: 'R/40-K',
-    name: '핫샷 마크스맨 라이플',
-    nameSource: {
-      file: 'db/source/korean_names.json',
-      code: 'R/40-K',
-      name: '핫샷 마크스맨 라이플',
-      source: 'https://namu.wiki/w/HELLDIVERS%202/%EB%AC%B4%EA%B8%B0/%EC%A3%BC%20%EB%AC%B4%EA%B8%B0',
-      modifiedAt: null,
-      retrievedAt: '2026-11-08',
-      evidence: 'R/40-K 핫샷 마크스맨 라이플',
-    },
+    name: '핫샷 마크맨 라이플',
+    nameSource: { file: 'db/source/game_names_ko.json', code: 'R/40-K', game: 'HOT-SHOT MARKSMAN RIFLE', build: '26568081' },
     fieldSources: {
       type: {
         file: 'db/source/wiki_pages.json',
@@ -6475,16 +6467,8 @@ export const weapons = [
     type: 'energy-based',
     en: 'SG-8P Punisher Plasma',
     code: 'SG-8P',
-    name: '퍼니셔 플라즈마',
-    nameSource: {
-      file: 'db/source/korean_names.json',
-      code: 'SG-8P',
-      name: '퍼니셔 플라즈마',
-      source: 'https://namu.wiki/w/HELLDIVERS%202/%EB%AC%B4%EA%B8%B0/%EC%A3%BC%20%EB%AC%B4%EA%B8%B0',
-      modifiedAt: null,
-      retrievedAt: '2026-11-08',
-      evidence: 'SG-8P 퍼니셔 플라즈마',
-    },
+    name: '퍼니셔 플라스마',
+    nameSource: { file: 'db/source/game_names_ko.json', code: 'SG-8P', game: 'PUNISHER PLASMA', build: '26568081' },
     fieldSources: {
       type: {
         file: 'db/source/wiki_pages.json',

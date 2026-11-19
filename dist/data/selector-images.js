@@ -673,7 +673,7 @@ export const pickerStructureImages = {
     "uploader": "Dogo314",
     "license": "",
     "kind": "map",
-    "note": "인지 교란기 목표 표식"
+    "note": "인지 분열기 목표 표식"
   },
   "monolith": {
     "src": "./assets/pickers/structure-monolith.svg",

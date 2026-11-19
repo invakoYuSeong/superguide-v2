@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { weapons, weaponsSource } from '../db/weapons.js';
-import { parseInfobox, plainWiki, seconds, chargeDamage, reloadTimes, koreanMatches, manualKoreanNames, repairReferences } from './build-weapons.mjs';
+import { parseInfobox, plainWiki, seconds, chargeDamage, reloadTimes, koreanMatches, manualKoreanNames, repairReferences, gameWeaponName } from './build-weapons.mjs';
 import { extractHeadings, compactKoreanPage, matchKoreanNames, normalizeCode } from './fetch-weapons-source.mjs';
 import { infoboxExtras, infoboxDisagreements } from './weapon-infobox.mjs';
 
@@ -189,10 +189,12 @@ for (const weapon of weapons) {
   assert.equal(weapon.source, `https://helldivers.wiki.gg/wiki/${encodeURIComponent(weapon.en.replaceAll(' ', '_'))}`);
   assert.equal(weapon.sourceRevision, categories[roster[weapon.category]].find(m => m.title === weapon.en).revision);
   assert(weapon.name === null || typeof weapon.name === 'string' && weapon.name.trim().length > 0);
-  const korean = koreanMatches.names[weapon.code];
-  const manual = korean ? null : manualKoreanNames[weapon.code];
-  assert.equal(weapon.name, korean?.name ?? manual?.name ?? null);
-  if (manual) assert.deepEqual(weapon.nameSource, { file: 'scripts/build-weapons.mjs', code: weapon.code, manual: true, reason: manual.reason });
+  const game = gameWeaponName(weapon.code);
+  const korean = game ? null : koreanMatches.names[weapon.code];
+  const manual = game || korean ? null : manualKoreanNames[weapon.code];
+  assert.equal(weapon.name, game?.name ?? korean?.name ?? manual?.name ?? null);
+  if (game) assert.deepEqual(weapon.nameSource, { file: 'db/source/game_names_ko.json', code: weapon.code, game: game.game, build: game.build });
+  else if (manual) assert.deepEqual(weapon.nameSource, { file: 'scripts/build-weapons.mjs', code: weapon.code, manual: true, reason: manual.reason });
   else if (weapon.name !== null) {
     assert.deepEqual(weapon.nameSource, { file: 'db/source/korean_names.json', code: weapon.code, ...korean });
     assert(normalizeCode(korean.evidence).startsWith(normalizeCode(korean.matchedCode ?? weapon.code)) && korean.evidence.includes(weapon.name));

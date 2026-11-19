@@ -94,7 +94,7 @@ const originalEnemies = [
     ],
   },
   {
-    id: 'behemoth', name: '베히모스 차저', faction: '테르미니드', source: wiki('Charger_Behemoth'),
+    id: 'behemoth', name: '차저 베히모스', faction: '테르미니드', source: wiki('Charger_Behemoth'),
     main: main(3000, 4, 100, 25, 1000),
     note: '일반 차저보다 머리와 앞다리 장갑이 튼튼합니다. 같은 부위에 연속으로 맞히는 조건입니다.',
     // Every part matches Wiki Anatomy revision 137702 (checked 2026-10-22).
@@ -152,7 +152,7 @@ const originalEnemies = [
     ],
   },
   {
-    id: 'devastator', name: '데바스테이터 · 기본형', faction: '오토마톤', source: wiki('Devastator'),
+    id: 'devastator', name: '데버스테이터 · 기본형', faction: '오토마톤', source: wiki('Devastator'),
     main: main(750, 2, 0, 0), note: '머리와 복부가 흉부보다 얇습니다. 로켓형·중장갑형의 장비와 방패는 포함하지 않습니다.',
     // Every part matches Wiki Anatomy revision 138977 (checked 2026-10-22).
     // Parts after the legacy ones were added then.
@@ -351,7 +351,7 @@ const originalEnemies = [
     ],
   },
   {
-    id: 'rocket-devastator', name: '로켓 데바스테이터', faction: '오토마톤', source: wiki('Rocket_Devastator'), sourceRevision: 135121,
+    id: 'rocket-devastator', name: '로켓 데버스테이터', faction: '오토마톤', source: wiki('Rocket_Devastator'), sourceRevision: 135121,
     main: main(750, 2, 0, 0),
     note: '머리·복부는 치명 부위입니다. 어깨 로켓 포드 파괴는 무장 제거이며 즉사와 다릅니다.',
     // Every part matches Wiki Anatomy revision 138979 (checked 2026-10-22).
@@ -370,7 +370,7 @@ const originalEnemies = [
     ],
   },
   {
-    id: 'heavy-devastator', name: '헤비 데바스테이터', faction: '오토마톤', source: wiki('Heavy_Devastator'), sourceRevision: 135122,
+    id: 'heavy-devastator', name: '거대 데버스테이터', faction: '오토마톤', source: wiki('Heavy_Devastator'), sourceRevision: 135122,
     main: main(750, 2, 0, 0),
     shield: { hp: 800, armor: 4, label: '방패에 가리지 않은 부위를 조준', note: '방패를 피해서 머리·복부·배낭에 직접 맞히는 조건입니다. 방패 파괴 탄수와 방패를 통한 폭발은 포함하지 않습니다.' },
     note: '방패 자체에 맞은 탄은 아래 부위의 직격 피해가 아닙니다. 작은 얼굴이나 측면·후방에서 드러나는 배낭을 노리세요.',

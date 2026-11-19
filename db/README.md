@@ -133,7 +133,7 @@ type Fixes = {
 
 `loadoutCoverage`와 `loadoutView`의 `options.prioritizeLarge === true`는 **대형/초대형이면서 oneShot=false인 행**을 먼저 둡니다. 대응 무기가 없는 gap도 이 우선 그룹에 포함합니다. 우선 그룹 내부와 나머지 그룹 내부는 각각 기존 가이드 순서를 유지하며, 크기 등급이나 타격 수로 추가 정렬하지 않습니다. 생략/false면 전체 기존 순서를 그대로 유지합니다. `gaps`와 `suggestFixes`도 해당 행 순서를 따릅니다. 가이드 원본 배열은 변경하지 않습니다.
 
-`dist/core/route.js`는 gear 뷰와 경로 주석을 추가하고 기존 hash 변환을 유지합니다. 검사에는 수계산(Liberator/헌터 머리, Senator/데바스테이터 머리, Frag/헌터 본체 폭발), 산탄 가정, 탄창 경계, 원본 대응, URL 왕복·잘못된 입력, 편성 공백, 추천 재적용·결정성, 생성물 최신성 및 기존 legacy parity가 포함됩니다.
+`dist/core/route.js`는 gear 뷰와 경로 주석을 추가하고 기존 hash 변환을 유지합니다. 검사에는 수계산(Liberator/헌터 머리, Senator/데버스테이터 머리, Frag/헌터 본체 폭발), 산탄 가정, 탄창 경계, 원본 대응, URL 왕복·잘못된 입력, 편성 공백, 추천 재적용·결정성, 생성물 최신성 및 기존 legacy parity가 포함됩니다.
 
 ## 여러 부위의 순차 누적 경로
 

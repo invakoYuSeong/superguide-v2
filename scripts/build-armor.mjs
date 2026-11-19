@@ -37,7 +37,9 @@ function format(value, indent = '') {
   return JSON.stringify(value);
 }
 
-export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
+// game = { passives: { title: Korean }, armors: { title: Korean } }: names checked in the game's own
+// strings (db/source/game_names_ko.json via game_name_targets.json), which win over Namu Wiki.
+export function buildArmor(snapshot, namu, korean, warbondList = warbonds, game = { passives: {}, armors: {} }) {
   const discrepancies = [];
   const namuHeadings = new Set(namu.pages.flatMap(page => page.headings));
 
@@ -47,7 +49,8 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
     const parsed = parsePassivePage(page.wikitext, title);
     const ko = korean.passives[title];
     if (!ko) throw new Error(`No Korean entry for passive "${title}" (db/source/armor_passive_korean.json)`);
-    if (ko.name != null && !namuHeadings.has(ko.name) && !namuHeadings.has(ko.name.split(', ')[0])) throw new Error(`Korean passive name "${ko.name}" (${title}) is not a Namu Wiki heading in db/source/namu_armor.json`);
+    const gameName = game.passives[title];
+    if (!gameName && ko.name != null && !namuHeadings.has(ko.name) && !namuHeadings.has(ko.name.split(', ')[0])) throw new Error(`Korean passive name "${ko.name}" (${title}) is not a Namu Wiki heading in db/source/namu_armor.json`);
     if (ko.effects.length !== parsed.effects.length) throw new Error(`${title}: ${ko.effects.length} Korean effect lines for ${parsed.effects.length} wiki lines`);
     const effects = parsed.effects.map((en, i) => {
       if (numbersOf(ko.effects[i]).join() !== numbersOf(en).join()) throw new Error(`${title}: numbers differ between "${ko.effects[i]}" and wiki "${en}"`);
@@ -56,7 +59,7 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
     const id = armorId(title);
     passiveIds.set(title, id);
     return {
-      id, name: ko.name ?? title, en: title, nameStatus: ko.name == null ? UNCONFIRMED : 'confirmed',
+      id, name: gameName ?? ko.name ?? title, en: title, nameStatus: gameName || ko.name != null ? 'confirmed' : UNCONFIRMED, ...(gameName ? { nameSource: 'game' } : {}),
       order: parsed.order, icon: parsed.icon, effects,
       source: page.source, revision: page.revision, revisionTimestamp: page.revisionTimestamp,
     };
@@ -82,7 +85,8 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
     const code = title.match(/^(\S*\d\S*)\s/)?.[1] ?? null;
     // Namu keeps a few names in Latin letters ('SA-8 RAM'); those match the English name itself.
     const latin = code && !namuNames[code] && namu.pages.flatMap(p => p.headings).find(h => h.toLowerCase() === title.toLowerCase());
-    const koName = code && (namuNames[code]?.name ?? (latin ? latin.slice(code.length).trim() : null));
+    const gameName = game.armors[title];
+    const koName = gameName ? gameName.slice(code.length).trim() : code && (namuNames[code]?.name ?? (latin ? latin.slice(code.length).trim() : null));
     const category = WEIGHTS.find(weight => snapshot.categories[weight].includes(title));
     if (!parsed.weight) throw new Error(`${title}: unknown armor type`);
     if (category !== parsed.weight) discrepancies.push({ armor: title, field: 'weight', infobox: parsed.weight, category, note: 'The infobox type (shown) differs from the wiki weight category.' });
@@ -111,7 +115,7 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
       source = { kind: parsed.source.key === 'Superstore' ? 'superstore' : 'other', ...known };
     }
     return {
-      id: armorId(title), code, name: koName ? `${code} ${koName}` : title, en: title, nameStatus: koName ? 'confirmed' : UNCONFIRMED,
+      id: armorId(title), code, name: koName ? `${code} ${koName}` : title, en: title, nameStatus: koName ? 'confirmed' : UNCONFIRMED, ...(gameName ? { nameSource: 'game' } : {}),
       weight: parsed.weight, armorRating: parsed.armorRating, speed: parsed.speed, staminaRegen: parsed.staminaRegen,
       passive: passiveIds.get(parsed.passive), source,
       cost: parsed.cost.amount != null ? { amount: parsed.cost.amount, unit: parsed.cost.unit } : null,
@@ -128,18 +132,25 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds) {
   return { passives, armors, discrepancies, unnamed };
 }
 
+export async function gameArmorNames(read) {
+  const names = (await read('db/source/game_names_ko.json')).strings.names;
+  const targets = await read('db/source/game_name_targets.json');
+  const pick = group => Object.fromEntries(Object.entries(group).map(([title, target]) => [title, names[target.game]]));
+  return { passives: pick(targets.passives), armors: pick(targets.armor) };
+}
+
 export async function generate() {
   const read = async file => JSON.parse(await readFile(new URL(file, root), 'utf8'));
   const snapshot = await read('db/source/wiki_armor.json');
   const namu = await read('db/source/namu_armor.json');
   const korean = await read('db/source/armor_passive_korean.json');
-  const { passives, armors, discrepancies, unnamed } = buildArmor(snapshot, namu, korean);
+  const { passives, armors, discrepancies, unnamed } = buildArmor(snapshot, namu, korean, warbonds, await gameArmorNames(read));
   const exports = {
     armorCheckedAt: snapshot.retrievedAt,
     armorSource: {
       source: snapshot.source, site: 'https://helldivers.wiki.gg/', license: 'CC BY-NC-SA 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/', file: 'db/source/wiki_armor.json',
-      koreanNamesFile: 'db/source/namu_armor.json', koreanPassivesFile: 'db/source/armor_passive_korean.json',
+      koreanNamesFile: 'db/source/namu_armor.json', koreanPassivesFile: 'db/source/armor_passive_korean.json', gameNamesFile: 'db/source/game_names_ko.json',
     },
     armorWeights: [{ id: 'light', name: '경량' }, { id: 'medium', name: '일반' }, { id: 'heavy', name: '중량' }],
     armorPassives: passives,

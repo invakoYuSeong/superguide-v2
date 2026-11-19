@@ -13,4 +13,5 @@ await import('./test-stratagem-stats.mjs');
 await import('./test-boosters.mjs');
 await import('./test-structure-objectives.mjs');
 await import('./test-planets.mjs');
+await import('./test-game-names.mjs');
 await import('./test-i18n.mjs');

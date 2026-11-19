@@ -11,6 +11,13 @@ const read = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'
 const source = await read('db/source/weapons_data.json');
 const categoriesSource = await read('db/source/wiki_categories.json');
 const pagesSource = await read('db/source/wiki_pages.json');
+// Names checked in the game's own strings win over the Namu Wiki headings (AGENTS.md naming rule).
+const gameNames = await read('db/source/game_names_ko.json');
+const gameTargets = (await read('db/source/game_name_targets.json')).weapons;
+export const gameWeaponName = code => {
+  const key = gameTargets[code]?.game;
+  return key ? { name: gameNames.strings.names[key], game: key, build: gameNames.build } : null;
+};
 const koreanSource = await read('db/source/korean_names.json');
 const data = source.data;
 // The datamine sometimes renames a weapon's attack reference without renaming the
@@ -200,9 +207,10 @@ const weapons = Object.entries(roster).flatMap(([categoryName, category]) =>
     const reloadField = reloading.reload?.field ?? 'reload_time';
     const reload = reloading.reload?.value ?? null;
     const reloadTactical = reloading.tactical?.value ?? null;
-    const korean = koreanMatches.names[code];
-    const manualName = korean ? null : manualKoreanNames[code];
-    const name = korean?.name ?? manualName?.name ?? null;
+    const gameName = gameWeaponName(code);
+    const korean = gameName ? null : koreanMatches.names[code];
+    const manualName = gameName || korean ? null : manualKoreanNames[code];
+    const name = gameName?.name ?? korean?.name ?? manualName?.name ?? null;
     const attacks = weapon.attacks ?? [];
     const primaryAttack = attacks.find(attack => attack.level === 1) ?? attacks[0];
     const notes = [];
@@ -282,7 +290,7 @@ const weapons = Object.entries(roster).flatMap(([categoryName, category]) =>
     if (weapon.roundtype === 'rounds') notes.push('낱발 예비탄은 spareRounds에 보존하며 spareMags로 환산하지 않습니다.');
     const result = {
       id, category, type, en: member.title, code, name,
-      nameSource: name === null ? null : korean ? { file: 'db/source/korean_names.json', code, ...korean } : { file: 'scripts/build-weapons.mjs', code, manual: true, reason: manualName.reason },
+      nameSource: name === null ? null : gameName ? { file: 'db/source/game_names_ko.json', code, game: gameName.game, build: gameName.build } : korean ? { file: 'db/source/korean_names.json', code, ...korean } : { file: 'scripts/build-weapons.mjs', code, manual: true, reason: manualName.reason },
       fieldSources: { type: infoboxType ? pageRef('weapon_type') : types.length ? { file: 'db/source/wiki_categories.json', category: types[0] } : null, fuse: fuse === null ? null : pageRef('fuse'), reload: reload === null ? null : pageRef(reloadField), reloadTactical: reloadTactical === null ? null : pageRef('tac_reload_time'),
         dot: extras.dot.raw === null ? null : pageRef('damage'), heatCapacity: extras.heatCapacity.raw === null ? null : pageRef('capacity'),
         swingsPerMinute: extras.swingsPerMinute === null ? null : pageRef('fire_rate'), rpmModes: extras.rpmModes.length ? pageRef('fire_rate') : null,

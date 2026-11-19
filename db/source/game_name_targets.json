@@ -1,0 +1,51 @@
+{
+ "note": "Site names that follow the game's own Korean (AGENTS.md naming rule; user decision 2026-11-19). game = the game's English string, looked up in game_names_ko.json (strings.names). The site name is prefix + game Korean + suffix; part = the site name is the leading part of the game text (no stand-alone name in the game). Weapons are keyed by code, armor and passives by their wiki English name. scripts/test-game-names.mjs checks every entry.",
+ "stratagems": {
+  "gunner-frv": { "game": "GUNNER FRV" },
+  "cargo-container": { "game": "CARGO CONTAINER" },
+  "comms-relay": { "game": "PORTABLE COMMS RELAY" },
+  "reinforcement-pods": { "game": "REINFORCEMENT PODS" },
+  "seismic-probe": { "game": "SEISMIC PROBE" },
+  "tactical-camera": { "game": "TACTICAL VIDEO CAMERA" },
+  "rover": { "game": "ROVER" },
+  "hot-dog": { "game": "HOT DOG" },
+  "k9": { "game": "K-9" },
+  "dog-breath": { "game": "DOG BREATH" }
+ },
+ "weapons": {
+  "SG-8P": { "game": "PUNISHER PLASMA" },
+  "R/40-K": { "game": "HOT-SHOT MARKSMAN RIFLE" }
+ },
+ "armor": {
+  "O-3 Free Spirit": { "game": "O-3 FREE SPIRIT" },
+  "O-44 Bonded Pilot": { "game": "O-44 BONDED PILOT" }
+ },
+ "passives": {
+  "Concussive Padding, Reinforced": { "game": "CONCUSSIVE PADDING, REINFORCED" },
+  "Oxygenator": { "game": "OXYGENATOR" },
+  "Kinetic Displacement Mitigation": { "game": "KINETIC DISPLACEMENT MITIGATION" }
+ },
+ "enemies": {
+  "behemoth": { "game": "CHARGER BEHEMOTH" },
+  "assault-raider": { "game": "ASSAULT RAIDER" },
+  "marauder": { "game": "MARAUDER" },
+  "mg-raider": { "game": "MG RAIDER" },
+  "jet-brigade-mg-raider": { "game": "MG RAIDER", "prefix": "제트 여단 " },
+  "devastator": { "game": "DEVASTATOR", "suffix": " · 기본형" },
+  "rocket-devastator": { "game": "ROCKET DEVASTATOR" },
+  "heavy-devastator": { "game": "HEAVY DEVASTATOR" },
+  "jet-brigade-devastator": { "game": "DEVASTATOR", "prefix": "제트 여단 " },
+  "barrager-tank": { "game": "BARRAGER TANK" },
+  "bunker-turret": { "game": "BUNKER TURRET" },
+  "obtruder": { "game": "OBTRUDER" },
+  "veracitor": { "game": "VERACITOR" }
+ },
+ "structures": {
+  "gunship-facility": { "game": "GUNSHIP FACILITY" },
+  "warp-gate": { "game": "WARP GATEWAY" },
+  "detector": { "game": "DETECTOR TOWER" },
+  "orbital-cannon": { "game": "ORBITAL CANNONS" },
+  "terrorist-memorial": { "game": "ERASE TERRORIST MEMORIALS", "part": true },
+  "disruptor-psu": { "game": "COGNITIVE DISRUPTOR", "suffix": " 전원 장치" }
+ }
+}

@@ -64,7 +64,7 @@ for (const passive of armorPassives) {
   ok(passive.nameStatus === 'confirmed' ? passive.name !== passive.en : passive.name === passive.en, `${passive.en}: Korean name or the English name when unknown`);
 }
 const headings = new Set(namu.pages.flatMap(p => p.headings));
-for (const passive of armorPassives.filter(p => p.nameStatus === 'confirmed')) ok(headings.has(passive.name) || headings.has(passive.name.split(', ')[0]), `${passive.en}: Korean name is a Namu Wiki heading`);
+for (const passive of armorPassives.filter(p => p.nameStatus === 'confirmed' && p.nameSource !== 'game')) ok(headings.has(passive.name) || headings.has(passive.name.split(', ')[0]), `${passive.en}: Korean name is a Namu Wiki heading`);
 ok(armorDiscrepancies.every(d => d.armor && d.field), 'discrepancies name the armor and the field');
 
 // The warbond boards agree with the armor pages (page and medal cost), so no source discrepancy remains.

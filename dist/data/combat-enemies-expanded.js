@@ -2158,7 +2158,7 @@ export const expandedEnemies = [
   },
   {
     "id": "jet-brigade-devastator",
-    "name": "제트 여단 데바스테이터",
+    "name": "제트 여단 데버스테이터",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Devastator",
     "sourceRevision": 135138,
@@ -2654,7 +2654,7 @@ export const expandedEnemies = [
   },
   {
     "id": "barrager-tank",
-    "name": "배러저 탱크",
+    "name": "바라저 탱크",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Barrager_Tank",
     "sourceRevision": 135332,
@@ -4374,7 +4374,7 @@ export const expandedEnemies = [
   },
   {
     "id": "veracitor",
-    "name": "베라시터",
+    "name": "버레이시터",
     "faction": "일루미닛",
     "source": "https://helldivers.wiki.gg/wiki/Veracitor",
     "sourceRevision": 135034,

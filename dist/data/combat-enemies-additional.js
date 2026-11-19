@@ -716,7 +716,7 @@ export const additionalEnemies = [
   },
   {
     "id": "assault-raider",
-    "name": "제트 여단 어썰트 레이더",
+    "name": "어설트 레이더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Assault_Raider",
     "sourceRevision": 135114,
@@ -803,7 +803,7 @@ export const additionalEnemies = [
   },
   {
     "id": "marauder",
-    "name": "머라우더",
+    "name": "머로더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Marauder",
     "sourceRevision": 135115,
@@ -876,7 +876,7 @@ export const additionalEnemies = [
   },
   {
     "id": "mg-raider",
-    "name": "기관총 레이더",
+    "name": "MG 레이더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/MG_Raider",
     "sourceRevision": 135117,
@@ -1154,7 +1154,7 @@ export const additionalEnemies = [
   },
   {
     "id": "jet-brigade-mg-raider",
-    "name": "제트 여단 기관총 레이더",
+    "name": "제트 여단 MG 레이더",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Jet_Brigade_MG_Raider",
     "sourceRevision": 135137,
@@ -1168,7 +1168,7 @@ export const additionalEnemies = [
       "exdr": 0,
       "constitution": 0
     },
-    "note": "점프팩으로 거리를 좁힌 뒤 기관총을 연사합니다. 일반 기관총 레이더의 전원 팩 수치 대신 이 변종의 제트팩 수치를 적용합니다.",
+    "note": "점프팩으로 거리를 좁힌 뒤 기관총을 연사합니다. 일반 MG 레이더의 전원 팩 수치 대신 이 변종의 제트팩 수치를 적용합니다.",
     "spearLock": false,
     "parts": [
       {
@@ -1411,7 +1411,7 @@ export const additionalEnemies = [
   },
   {
     "id": "obtruder",
-    "name": "오브트루더",
+    "name": "옵트루더",
     "faction": "일루미닛",
     "source": "https://helldivers.wiki.gg/wiki/Obtruder",
     "sourceRevision": 135037,
@@ -1486,7 +1486,7 @@ export const additionalEnemies = [
   // page on 2026-11-09). Anatomy is the page saved in db/source/wiki_structures.json.
   {
     "id": "bunker-turret",
-    "name": "벙커 거치포",
+    "name": "벙커 포탑",
     "faction": "오토마톤",
     "source": "https://helldivers.wiki.gg/wiki/Bunker_Turret",
     "sourceRevision": 142047,
