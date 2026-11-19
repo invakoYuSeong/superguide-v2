@@ -41,6 +41,9 @@ const KIND = { projectile: 'direct', beam: 'beam', arc: 'arc', spray: 'spray', e
 
 // Finds the stratagem's attack entry: the weapons datamine (support weapons, Guard Dogs)
 // or the stratagem datamine; null when neither has attack records for it.
+/** Weapon handling (datamine `ergonomics`) of a stratagem whose datamine entry is a weapon; else null. */
+export const ergonomicsOf = found => Number.isFinite(found?.entry?.ergonomics) ? found.entry.ergonomics : null;
+
 export function datamineEntry(id, title, strat, weapons) {
   const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');
   const [table, key] = DATAMINE_KEYS[id] ?? [];

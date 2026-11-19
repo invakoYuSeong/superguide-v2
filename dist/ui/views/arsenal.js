@@ -325,7 +325,12 @@ function specialBlock(item, profile) {
   </section>`;
 }
 
-const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
+// The detail grid adds a support weapon's ergonomics (weapon handling, datamine) to the card stats.
+const detailStats = item => {
+  const ergonomics = stratagemStats[item.id]?.ergonomics;
+  return ergonomics == null ? stats(item) : [...stats(item), { label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }];
+};
+const statGrid = item => html`<dl class="detail-grid">${detailStats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${ammoCells(item)}
   ${rateCell(item)}</dl>`;
 
