@@ -2,7 +2,7 @@
 
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
-- 마지막 갱신: 2026-11-19, Antigravity 담당
+- 마지막 갱신: 2026-11-19, Claude Code 담당 (옛 브랜치 정리)
 - 기준: `master` ([PR #10](https://github.com/modocracy/superguide-v2/pull/10) 병합·배포)
 - 진행 중인 작업: 없음.
 
@@ -39,7 +39,7 @@
 - **새 적 2종·M-104(2026-11-08, 배포됨)**: 녹셔스 스캐빈저·녹셔스 스퓨어(부위 수치는 스캐빈저·커스틱 스퓨어 것을 옮김), M-104 소각형 고속 정찰 차량.
 - **위키 재대조(2026-11-08, 배포됨)**: 모든 원본 재대조. LAS-16 Sickle 열 용량 8.4초(106발), 커스틱 4종 페이지 이름 변경 반영, `fetch-enemy-anatomy`가 넘겨주기를 따라감. datamine 판 142136.
 - **방어구 페이지·채권 ↔ 방어구 연결(2026-11-03, 배포됨)**: 장비 화면의 방어구 탭(113종, 패시브 32종). 파이프라인 `fetch-armor` → `build-armor` → `python scripts/tools/fetch-armor-images.py` → `npm run check`. BFM-77 Reformer는 인포박스대로 일반 표시(`armorDiscrepancies`).
-- **게임 스타일 적용(배포됨)**: 올리브 블랙·노란색·경고 줄무늬·잘린 모서리, Barlow Condensed + Pretendard. 거절된 개편 브랜치 `auto/2026-11-03-hallmark-redesign`은 병합하지 않음(삭제 여부 사용자 결정 대기).
+- **게임 스타일 적용(배포됨)**: 올리브 블랙·노란색·경고 줄무늬·잘린 모서리, Barlow Condensed + Pretendard. 거절된 개편 브랜치 `auto/2026-11-03-hallmark-redesign`(6526613)은 사용자 지시로 삭제(2026-11-19). 옛 `auto/*` 브랜치는 GitHub·PC 모두 정리했고 남은 브랜치는 `master`뿐.
 - **채권 화면**: 5×3 보드(26개 채권·603개 항목), 이미지는 위키 원본에서 표시 크기 2배 이상(용량 한도: 항목 폴더 12,500,000B, 파일당 140,000B, 배너 350,000B, SVG 50,000B). 1340px 이상에서는 항목 상세가 채권 패널 왼쪽에 별도 패널(360~560px)로 열림.
 - **PR 검사 워크플로 없음**: `check.yml`은 지움(2026-11-03). `deploy-pages.yml`이 `npm run check` 후 배포합니다. `check-weapons.mjs`는 PC에서 직접 돌립니다.
 
