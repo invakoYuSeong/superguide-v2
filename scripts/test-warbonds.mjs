@@ -17,6 +17,7 @@ import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { stratagemById } from '../dist/core/catalog.js';
 import { parseRoute } from '../dist/core/route.js';
 import { armors } from '../dist/data/armor.js';
+import { currencyIcons } from '../dist/data/currency-icons.js';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -497,4 +498,11 @@ for (const language of ['ko', 'en']) {
 }
 setLang('ko');
 
+// Medal and Super Credit icons: the wiki's files, safe SVG, unchanged since fetch-currency-icons.
+for (const [id, icon] of Object.entries(currencyIcons)) {
+  const bytes = await readFile(new URL(`../dist/${icon.src.slice(2)}`, import.meta.url));
+  validateSvg(bytes, { name: id });
+  ok(createHash('sha256').update(bytes).digest('hex') === icon.sha256, `${id} icon changed since fetch-currency-icons`);
+}
+ok(currencyIcons.medal && currencyIcons['super-credit'], 'medal and super credit icons exist');
 console.log(`PASS warbonds: ${checks} checks (${warbonds.length} warbonds, ${warbondDiscrepancies.length} wiki discrepancies left 미확인, ${warbondLinks.weapons} weapon + ${warbondLinks.stratagems} stratagem links).`);

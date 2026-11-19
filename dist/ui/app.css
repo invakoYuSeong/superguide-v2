@@ -204,6 +204,8 @@ kbd { font: 600 11px/1 var(--mono); padding: 3px 5px; border: 1px solid var(--li
 .tally > div:first-child { border-left: 0; }
 .tally dt { font: 600 11.5px/1 var(--cond); letter-spacing: .12em; color: var(--text-3); text-transform: uppercase; }
 .tally dd { margin: 4px 0 0; font: 700 24px/1 var(--cond); }
+.tally dd:has(.tally-icon) { display: flex; align-items: center; white-space: nowrap; }
+.tally-icon { width: 20px; height: 20px; object-fit: contain; margin-right: 5px; }
 .wb-hero { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px; align-items: center; }
 .wb-hero h2 { font-size: 24px; font-weight: 800; }
 .wb-hero p { color: var(--text-3); font-size: 13.5px; }
@@ -242,7 +244,7 @@ a.wb-tile-body:focus-visible { outline: 2px solid var(--tile-accent); outline-of
 .wb-tile-body[aria-current] { border: 2px solid var(--tile-accent); }
 .wb-tile-cost { position: absolute; z-index: 1; top: 5px; right: 6px; display: inline-flex; align-items: center; gap: 3px; font-size: 13px; font-weight: 750; line-height: 1; }
 .wb-tile-cost .badge, .wb-tile-flag .badge { height: 18px; padding: 0 5px; font-size: 11px; }
-.wb-medal { width: 15px; height: 15px; color: #c9b453; flex: none; }
+.wb-medal { width: 15px; height: 15px; object-fit: contain; flex: none; }
 .wb-tile-kind { position: absolute; top: 6px; left: var(--pad-l); right: 52px; font: 650 9.5px/1.2 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: rgba(240, 241, 233, .5); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wb-tile-img { position: absolute; top: 22px; left: var(--pad-l); width: calc(100% - var(--pad-l) - 8px); height: calc(100% - 56px); object-fit: contain; }
 /* Title badges keep their own colours; the shadow lifts their dark edges off black and teal tiles. */
@@ -305,6 +307,8 @@ main { flex: 1; width: 100%; max-width: var(--page); margin: 0 auto; padding: 28
 main[aria-busy] { opacity: .5; transition: opacity .2s .15s; }
 .page-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
 .page-head h1 { font-size: 34px; font-weight: 900; }
+/* With a tally beside it, the title text wraps first so the tally stays on the right. */
+.page-head:has(> .tally) > div:first-child { flex: 1 1 360px; }
 .page-head p { color: var(--text-2); margin-top: 4px; }
 .eyebrow { font: 600 13px/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .eyebrow::before { content: ''; width: 18px; height: 3px; background: var(--accent); }
@@ -1017,8 +1021,11 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
   .wb-latest-cta { width: 100%; }
   .wb-filters .chips { width: 100%; flex-wrap: nowrap; }
   .wb-filters .chip { flex: 1; justify-content: center; padding: 0 6px; }
-  .tally { width: 100%; }
-  .tally > div { flex: 1; }
+  .tally { width: 100%; flex-wrap: wrap; }
+  .tally > div { flex: 1 1 28%; padding: 8px 12px; }
+  /* Five cells: the currency totals take a second row. */
+  .tally > div:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .tally > div:nth-child(4) { border-left: 0; }
   .wb-hero { grid-template-columns: 1fr; }
   .detail-grid.wb-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wb-latest-cover { aspect-ratio: 5 / 2; }

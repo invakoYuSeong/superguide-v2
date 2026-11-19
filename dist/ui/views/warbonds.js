@@ -1,6 +1,7 @@
 // Warbond guide: one release-ordered grid, with a warbond sheet and an optional
 // item detail alongside it (or in its place on narrow screens).
 //   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal|armor>/<id>&m=<mode>
+import { currencyIcons } from '../../data/currency-icons.js';
 import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
 import { armors } from '../../data/armor.js';
 import { warbondImages } from '../../data/warbond-images.js';
@@ -159,8 +160,8 @@ export function itemRoute(route, item, mode = '') {
 }
 
 // --- Detail sheet -----------------------------------------------------------------------
-// Medal mark for tile prices (decorative; the price itself is read out as "N medals").
-const MEDAL = raw('<svg class="wb-medal" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1h5l-1 3h-3z" fill="currentColor"/><circle cx="8" cy="10" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7.1c-1.5 0-2.4.9-2.4 2.1 0 .8.4 1.3.9 1.6v1.2h3v-1.2c.5-.3.9-.8.9-1.6 0-1.2-.9-2.1-2.4-2.1zM6.9 9.3a.6.6 0 1 1 0 .1zm2.2 0a.6.6 0 1 1 0 .1z" fill="currentColor"/></svg>');
+// Medal mark for tile prices: the wiki's Medal icon (decorative; the price is read out as "N medals").
+const MEDAL = raw(`<img class="wb-medal" src="${currencyIcons.medal.src}" alt="" aria-hidden="true">`);
 
 // One reward tile at its in-game board position (Acquisitions Page template: col/row/span).
 // Weapons, stratagems and armor with a site entry open in the item pane; other items link to the wiki.
@@ -366,12 +367,16 @@ export function mount(container, context) {
   root = container; ctx = context;
   state.detail = null; state.item = null; state.mode = ''; state.bondScroll = 0; ++itemRender;
   const items = warbonds.reduce((sum, item) => sum + item.itemCount, 0);
+  const superCredits = warbonds.reduce((sum, item) => sum + (item.price ?? 0), 0);
+  const medalTotal = warbonds.reduce((sum, item) => sum + (item.totalCost ?? 0), 0);
   render(root, html`<div class="page-head"><div><div class="eyebrow">Warbonds</div><h1>${L('전쟁 채권', 'Warbonds')}</h1>
       <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일·가격과 페이지별 메달 비용, 들어 있는 무기와 스트라타젬(${items}개 항목). 카드를 누르면 페이지별 목록이 열립니다.`, `Release date, price and per-page medal costs of all ${warbonds.length} warbonds, with the weapons and stratagems inside (${items} items). Open a card for the page-by-page list.`)}</p></div>
       <dl class="tally">
         <div><dt>Warbonds</dt><dd>${warbonds.length}</dd></div>
         <div><dt>Items</dt><dd>${count(items)}</dd></div>
         <div><dt>Pages</dt><dd>${warbonds.reduce((sum, item) => sum + item.pages.length, 0)}</dd></div>
+        <div title="${L('모든 전쟁 채권 가격의 합', 'All warbond prices added up')}"><dt>Super Credits</dt><dd><img class="tally-icon" src="${currencyIcons['super-credit'].src}" alt="">${count(superCredits)}</dd></div>
+        <div title="${L('모든 항목을 사는 데 드는 메달의 합', 'Medals to buy every item, added up')}"><dt>Medals</dt><dd><img class="tally-icon" src="${currencyIcons.medal.src}" alt="">${count(medalTotal)}${warbonds.some(item => item.totalCost == null) ? '+' : ''}</dd></div>
       </dl></div>
     ${latestBanner()}
     <div class="wb-filters">
