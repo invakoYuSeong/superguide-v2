@@ -1,7 +1,7 @@
 // Downloads the wiki mission pages named in db/source/structure_objectives.json and
 // their difficulty rows from the wiki's Cargo tables (Missions = main objectives,
 // Optional_Objectives = tactical objectives) into db/source/wiki_objectives.json.
-// Usage: node scripts/fetch-objectives.mjs  ->  node scripts/tools/export-game-names.mjs <tsv>  ->  node scripts/build-structure-objectives.mjs
+// Usage: node scripts/fetch-objectives.mjs  ->  node scripts/build-game-names.mjs  ->  node scripts/build-structure-objectives.mjs
 import { readFile, writeFile } from 'node:fs/promises';
 
 const API = 'https://helldivers.wiki.gg/api.php';

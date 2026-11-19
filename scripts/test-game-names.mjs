@@ -25,9 +25,15 @@ for (const [group, entries] of Object.entries(targets).filter(([key]) => key !==
     const item = list.find(entry => keyOf(entry) === key);
     ok(item, `${group}/${key}: not on the site`);
     const korean = game.strings.names[target.game];
-    ok(korean, `${group}/${key}: no game Korean for "${target.game}" (run scripts/tools/export-game-names.mjs)`);
+    ok(korean, `${group}/${key}: no game Korean for "${target.game}" (run scripts/build-game-names.mjs)`);
     const expected = `${target.prefix ?? ''}${korean}${target.suffix ?? ''}`;
     ok(target.part ? korean.startsWith(item.name) && item.name.length > 1 : item.name === expected, `${group}/${key}: shows "${item.name}", the game says "${target.part ? korean : expected}"`);
   }
 }
+// game_names_ko.json is what build-game-names.mjs picks from the repository's string table.
+const table = (await readFile(new URL('../db/source/game_strings_ko.tsv', import.meta.url), 'utf8')).split('\n');
+ok(table[0] === `#build\t${game.build}`, 'game_names_ko.json and game_strings_ko.tsv come from the same game build (run build-game-names)');
+const exact = new Map(), folded = new Map();
+for (const line of table.filter(line => line && !line.startsWith('#'))) { const [en, ko] = line.split('\t'); exact.set(en, ko); if (!folded.has(en.toLowerCase())) folded.set(en.toLowerCase(), ko); }
+for (const [group, strings] of Object.entries(game.strings)) for (const [en, ko] of Object.entries(strings)) ok((exact.get(en) ?? folded.get(en.toLowerCase())) === ko, `${group}: "${en}" no longer matches db/source/game_strings_ko.tsv (run build-game-names)`);
 console.log(`PASS game names: ${checks} checks (${Object.values(targets).filter(value => typeof value === 'object').reduce((sum, group) => sum + Object.keys(group).length, 0)} names follow game build ${game.build}).`);

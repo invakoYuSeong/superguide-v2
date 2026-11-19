@@ -20,7 +20,7 @@ const boosters = Object.entries(wiki.boosters).map(([id, page]) => {
   if (!warbondId) throw new Error(`${id}: warbond "${facts.warbond}" is not in warbonds.js`);
   const ko = key => {
     const value = game.strings.boosters[key];
-    if (!value) throw new Error(`${id}: no game Korean for "${key}" (run scripts/tools/export-game-names.mjs)`);
+    if (!value) throw new Error(`${id}: no game Korean for "${key}" (run scripts/build-game-names.mjs)`);
     return value;
   };
   return {

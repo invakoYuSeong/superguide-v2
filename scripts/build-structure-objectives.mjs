@@ -12,7 +12,7 @@ const game = await read('game_names_ko.json');
 
 const objectives = Object.fromEntries(Object.entries(map).map(([id, entries]) => [id, entries.map(entry => {
   const name = game.strings.objectives[entry.game];
-  if (!name) throw new Error(`${id}: no game Korean for "${entry.game}" (run scripts/tools/export-game-names.mjs)`);
+  if (!name) throw new Error(`${id}: no game Korean for "${entry.game}" (run scripts/build-game-names.mjs)`);
   const row = wiki.cargo[entry.kind][entry.page];
   if (!row) throw new Error(`${id}: "${entry.page}" has no ${entry.kind} row in the wiki Cargo tables`);
   return { name, en: entry.game, kind: entry.kind, min: row.min, max: row.max, wiki: `https://helldivers.wiki.gg/wiki/${entry.page.replaceAll(' ', '_')}`, revision: wiki.pages[entry.page].revision };

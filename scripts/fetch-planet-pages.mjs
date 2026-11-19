@@ -2,7 +2,7 @@
 // and Module:Environmental Conditions pages, every biome page listed on the Biomes
 // page, and the original SVG icon of each environmental condition (into
 // dist/assets/conditions/). Output: db/source/wiki_planets.json.
-// Usage: node scripts/fetch-planet-pages.mjs  ->  node scripts/tools/export-game-names.mjs <tsv> --planets <행성.json>  ->  node scripts/build-planets.mjs
+// Usage: node scripts/fetch-planet-pages.mjs  ->  node scripts/build-game-names.mjs  ->  node scripts/build-planets.mjs
 import { writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg } from './svg-safety.mjs';

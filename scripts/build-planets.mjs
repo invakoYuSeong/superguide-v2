@@ -15,7 +15,7 @@ if (gamePlanets.build !== game.build) throw new Error('game_planets_ko.json and 
 const wikiUrl = page => `https://helldivers.wiki.gg/wiki/${page.replaceAll(' ', '_')}`;
 const ko = key => {
   const value = game.strings.planets[key];
-  if (!value) throw new Error(`no game Korean for "${key}" (run scripts/tools/export-game-names.mjs)`);
+  if (!value) throw new Error(`no game Korean for "${key}" (run scripts/build-game-names.mjs)`);
   return value;
 };
 

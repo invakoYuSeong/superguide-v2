@@ -1,7 +1,7 @@
 // Downloads every booster page in the wiki's Category:Boosters (infobox and the
 // body text the detail lines are checked against) into db/source/wiki_boosters.json,
 // and each booster's original SVG icon into dist/assets/boosters/.
-// Usage: node scripts/fetch-boosters.mjs  ->  node scripts/tools/export-game-names.mjs <tsv>  ->  node scripts/build-boosters.mjs
+// Usage: node scripts/fetch-boosters.mjs  ->  node scripts/build-game-names.mjs  ->  node scripts/build-boosters.mjs
 import { writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg } from './svg-safety.mjs';
