@@ -6,6 +6,7 @@ export const enemyPages = {
  "scavenger": {
   "page": "Scavenger",
   "revision": 142256,
+  "summaryRevision": 142256,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 1,
@@ -31,6 +32,7 @@ export const enemyPages = {
  "spore-burst-scavenger": {
   "page": "Spore Burst Scavenger",
   "revision": 142257,
+  "summaryRevision": 142257,
   "subfaction": "spore-burst",
   "fireMult": 0.5,
   "staggerReq": 1,
@@ -50,6 +52,7 @@ export const enemyPages = {
  "noxious-scavenger": {
   "page": "Noxious Scavenger",
   "revision": 142272,
+  "summaryRevision": 142272,
   "subfaction": "noxious",
   "fireMult": null,
   "staggerReq": null,
@@ -75,6 +78,7 @@ export const enemyPages = {
  "bile-spitter": {
   "page": "Caustic Spitter",
   "revision": 142385,
+  "summaryRevision": 142385,
   "subfaction": "caustic",
   "fireMult": 0.5,
   "staggerReq": 1,
@@ -100,6 +104,7 @@ export const enemyPages = {
  "pouncer": {
   "page": "Pouncer",
   "revision": 141525,
+  "summaryRevision": 141525,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 1,
@@ -127,6 +132,7 @@ export const enemyPages = {
  "hunter-hardened": {
   "page": "Hunter",
   "revision": 136565,
+  "summaryRevision": 136565,
   "subfaction": null,
   "fireMult": 0.7,
   "staggerReq": 15,
@@ -154,6 +160,7 @@ export const enemyPages = {
  "predator-hunter": {
   "page": "Predator Hunter",
   "revision": 141544,
+  "summaryRevision": 141544,
   "subfaction": "predator",
   "fireMult": 0.7,
   "staggerReq": 15,
@@ -175,6 +182,7 @@ export const enemyPages = {
  "spore-burst-hunter": {
   "page": "Spore Burst Hunter",
   "revision": 137849,
+  "summaryRevision": 137849,
   "subfaction": "spore-burst",
   "fireMult": 0.7,
   "staggerReq": 15,
@@ -196,6 +204,7 @@ export const enemyPages = {
  "warrior-hardened": {
   "page": "Warrior",
   "revision": 141593,
+  "summaryRevision": 141593,
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -223,6 +232,7 @@ export const enemyPages = {
  "alpha-warrior": {
   "page": "Alpha Warrior",
   "revision": 141592,
+  "summaryRevision": 141592,
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -246,6 +256,7 @@ export const enemyPages = {
  "bile-warrior": {
   "page": "Caustic Warrior",
   "revision": 142384,
+  "summaryRevision": 142384,
   "subfaction": "caustic",
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -267,6 +278,7 @@ export const enemyPages = {
  "rupture-warrior": {
   "page": "Rupture Warrior",
   "revision": 141596,
+  "summaryRevision": 141596,
   "subfaction": "rupture",
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -288,6 +300,7 @@ export const enemyPages = {
  "spore-burst-warrior": {
   "page": "Spore Burst Warrior",
   "revision": 141595,
+  "summaryRevision": 141595,
   "subfaction": "spore-burst",
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -309,6 +322,7 @@ export const enemyPages = {
  "hive-guard": {
   "page": "Hive Guard",
   "revision": 141215,
+  "summaryRevision": 141215,
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
@@ -336,6 +350,7 @@ export const enemyPages = {
  "brood-commander": {
   "page": "Brood Commander",
   "revision": 141213,
+  "summaryRevision": 141213,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 25,
@@ -365,6 +380,7 @@ export const enemyPages = {
  "alpha-commander": {
   "page": "Alpha Commander",
   "revision": 142329,
+  "summaryRevision": 142329,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 25,
@@ -392,6 +408,7 @@ export const enemyPages = {
  "nursing-spewer": {
   "page": "Nursing Spewer",
   "revision": 141638,
+  "summaryRevision": 141638,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 30,
@@ -419,6 +436,7 @@ export const enemyPages = {
  "bile-spewer-armored": {
   "page": "Caustic Spewer",
   "revision": 142383,
+  "summaryRevision": 142383,
   "subfaction": "caustic",
   "fireMult": 1,
   "staggerReq": 30,
@@ -444,6 +462,7 @@ export const enemyPages = {
  "rupture-spewer": {
   "page": "Rupture Spewer",
   "revision": 141639,
+  "summaryRevision": 141639,
   "subfaction": "rupture",
   "fireMult": null,
   "staggerReq": 30,
@@ -469,6 +488,7 @@ export const enemyPages = {
  "noxious-spewer": {
   "page": "Noxious Spewer",
   "revision": 142233,
+  "summaryRevision": 142233,
   "subfaction": "noxious",
   "fireMult": 1,
   "staggerReq": 30,
@@ -480,6 +500,7 @@ export const enemyPages = {
  "stalker": {
   "page": "Stalker",
   "revision": 136802,
+  "summaryRevision": 136802,
   "subfaction": null,
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -507,6 +528,7 @@ export const enemyPages = {
  "predator-stalker": {
   "page": "Predator Stalker",
   "revision": 137847,
+  "summaryRevision": 137847,
   "subfaction": "predator",
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -530,6 +552,7 @@ export const enemyPages = {
  "charger": {
   "page": "Charger",
   "revision": 141505,
+  "summaryRevision": 141505,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 38,
@@ -561,6 +584,7 @@ export const enemyPages = {
  "behemoth": {
   "page": "Charger Behemoth",
   "revision": 141504,
+  "summaryRevision": 141504,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 38,
@@ -584,6 +608,7 @@ export const enemyPages = {
  "spore-charger": {
   "page": "Caustic Charger",
   "revision": 142179,
+  "summaryRevision": 142179,
   "subfaction": "caustic",
   "fireMult": 1.5,
   "staggerReq": 38,
@@ -609,6 +634,7 @@ export const enemyPages = {
  "rupture-charger": {
   "page": "Rupture Charger",
   "revision": 141506,
+  "summaryRevision": 141506,
   "subfaction": "rupture",
   "fireMult": 1.5,
   "staggerReq": 38,
@@ -628,6 +654,7 @@ export const enemyPages = {
  "impaler": {
   "page": "Impaler",
   "revision": 136861,
+  "summaryRevision": 136861,
   "subfaction": null,
   "fireMult": 1.7,
   "staggerReq": 50,
@@ -657,6 +684,7 @@ export const enemyPages = {
  "shrieker": {
   "page": "Shrieker",
   "revision": 136531,
+  "summaryRevision": 136531,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": null,
@@ -680,6 +708,7 @@ export const enemyPages = {
  "dragonroach": {
   "page": "Dragonroach",
   "revision": 142362,
+  "summaryRevision": 142362,
   "subfaction": null,
   "fireMult": 1.7,
   "staggerReq": 38,
@@ -709,6 +738,7 @@ export const enemyPages = {
  "bile-titan": {
   "page": "Bile Titan",
   "revision": 141861,
+  "summaryRevision": 141861,
   "subfaction": null,
   "fireMult": 1.7,
   "staggerReq": 50,
@@ -744,6 +774,7 @@ export const enemyPages = {
  "spore-burst-bile-titan": {
   "page": "Spore Burst Bile Titan",
   "revision": 140147,
+  "summaryRevision": 140147,
   "subfaction": "spore-burst",
   "fireMult": 1.7,
   "staggerReq": 50,
@@ -771,6 +802,7 @@ export const enemyPages = {
  "hive-lord": {
   "page": "Hive Lord",
   "revision": 139241,
+  "summaryRevision": 139241,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": null,
@@ -804,6 +836,7 @@ export const enemyPages = {
  "trooper": {
   "page": "Trooper",
   "revision": 139995,
+  "summaryRevision": 139995,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -835,6 +868,7 @@ export const enemyPages = {
  "jet-brigade-trooper": {
   "page": "Jet Brigade Trooper",
   "revision": 140765,
+  "summaryRevision": 140765,
   "subfaction": "jet-brigade",
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -862,6 +896,7 @@ export const enemyPages = {
  "pyro-trooper": {
   "page": "Pyro Trooper",
   "revision": 139895,
+  "summaryRevision": 139895,
   "subfaction": "incineration",
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -889,6 +924,7 @@ export const enemyPages = {
  "brawler": {
   "page": "Brawler",
   "revision": 138833,
+  "summaryRevision": 138833,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -914,6 +950,7 @@ export const enemyPages = {
  "commissar": {
   "page": "Commissar",
   "revision": 138835,
+  "summaryRevision": 138835,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -943,6 +980,7 @@ export const enemyPages = {
  "jet-brigade-commissar": {
   "page": "Jet Brigade Commissar",
   "revision": 138837,
+  "summaryRevision": 138837,
   "subfaction": "jet-brigade",
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -970,6 +1008,7 @@ export const enemyPages = {
  "rocket-raider": {
   "page": "Rocket Raider",
   "revision": 138836,
+  "summaryRevision": 138836,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -999,6 +1038,7 @@ export const enemyPages = {
  "incendiary-rocket-raider": {
   "page": "Incendiary Rocket Raider",
   "revision": 140047,
+  "summaryRevision": 140047,
   "subfaction": "incineration",
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -1026,6 +1066,7 @@ export const enemyPages = {
  "assault-raider": {
   "page": "Assault Raider",
   "revision": 138971,
+  "summaryRevision": 138971,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -1055,6 +1096,7 @@ export const enemyPages = {
  "marauder": {
   "page": "Marauder",
   "revision": 138973,
+  "summaryRevision": 138973,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -1080,6 +1122,7 @@ export const enemyPages = {
  "mg-raider": {
   "page": "MG Raider",
   "revision": 138978,
+  "summaryRevision": 138978,
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -1113,6 +1156,7 @@ export const enemyPages = {
  "jet-brigade-mg-raider": {
   "page": "Jet Brigade MG Raider",
   "revision": 139889,
+  "summaryRevision": 139889,
   "subfaction": "jet-brigade",
   "fireMult": 0.5,
   "staggerReq": 10,
@@ -1140,6 +1184,7 @@ export const enemyPages = {
  "berserker": {
   "page": "Berserker",
   "revision": 138975,
+  "summaryRevision": 138975,
   "subfaction": null,
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1163,6 +1208,7 @@ export const enemyPages = {
  "radical": {
   "page": "Radical",
   "revision": 141659,
+  "summaryRevision": 141659,
   "subfaction": "cyborgs",
   "fireMult": 0.5,
   "staggerReq": 20,
@@ -1190,6 +1236,7 @@ export const enemyPages = {
  "agitator": {
   "page": "Agitator",
   "revision": 142502,
+  "summaryRevision": 142502,
   "subfaction": "cyborgs",
   "fireMult": 0.5,
   "staggerReq": 20,
@@ -1219,6 +1266,7 @@ export const enemyPages = {
  "devastator": {
   "page": "Devastator",
   "revision": 138977,
+  "summaryRevision": 138977,
   "subfaction": null,
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1244,6 +1292,7 @@ export const enemyPages = {
  "rocket-devastator": {
   "page": "Rocket Devastator",
   "revision": 138979,
+  "summaryRevision": 138979,
   "subfaction": null,
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1271,6 +1320,7 @@ export const enemyPages = {
  "heavy-devastator": {
   "page": "Heavy Devastator",
   "revision": 142504,
+  "summaryRevision": 142504,
   "subfaction": null,
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1296,6 +1346,7 @@ export const enemyPages = {
  "conflagration-devastator": {
   "page": "Conflagration Devastator",
   "revision": 140049,
+  "summaryRevision": 140049,
   "subfaction": "incineration",
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1319,6 +1370,7 @@ export const enemyPages = {
  "incendiary-mg-devastator": {
   "page": "Incendiary MG Devastator",
   "revision": 140048,
+  "summaryRevision": 140048,
   "subfaction": "incineration",
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1342,6 +1394,7 @@ export const enemyPages = {
  "jet-brigade-devastator": {
   "page": "Jet Brigade Devastator",
   "revision": 136520,
+  "summaryRevision": 136520,
   "subfaction": "jet-brigade",
   "fireMult": 1.25,
   "staggerReq": 30,
@@ -1367,6 +1420,7 @@ export const enemyPages = {
  "scout-strider": {
   "page": "Scout Strider",
   "revision": 139387,
+  "summaryRevision": 139387,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 30,
@@ -1394,6 +1448,7 @@ export const enemyPages = {
  "reinforced-strider": {
   "page": "Reinforced Scout Strider",
   "revision": 139395,
+  "summaryRevision": 139395,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 30,
@@ -1419,6 +1474,7 @@ export const enemyPages = {
  "hulk": {
   "page": "Hulk Scorcher",
   "revision": 141866,
+  "summaryRevision": 141866,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1442,6 +1498,7 @@ export const enemyPages = {
  "hulk-bruiser": {
   "page": "Hulk Bruiser",
   "revision": 141870,
+  "summaryRevision": 141870,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1467,6 +1524,7 @@ export const enemyPages = {
  "hulk-obliterator": {
   "page": "Hulk Obliterator",
   "revision": 141862,
+  "summaryRevision": 141862,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1488,6 +1546,7 @@ export const enemyPages = {
  "hulk-firebomber": {
   "page": "Hulk Firebomber",
   "revision": 141867,
+  "summaryRevision": 141867,
   "subfaction": "incineration",
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1513,6 +1572,7 @@ export const enemyPages = {
  "jet-brigade-hulk-scorcher": {
   "page": "Jet Brigade Hulk Scorcher",
   "revision": 141868,
+  "summaryRevision": 141868,
   "subfaction": "jet-brigade",
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1538,6 +1598,7 @@ export const enemyPages = {
  "jet-brigade-hulk-bruiser": {
   "page": "Jet Brigade Hulk Bruiser",
   "revision": 141869,
+  "summaryRevision": 141869,
   "subfaction": "jet-brigade",
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1563,6 +1624,7 @@ export const enemyPages = {
  "annihilator-tank": {
   "page": "Annihilator Tank",
   "revision": 139864,
+  "summaryRevision": 139864,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": null,
@@ -1592,6 +1654,7 @@ export const enemyPages = {
  "shredder-tank": {
   "page": "Shredder Tank",
   "revision": 139871,
+  "summaryRevision": 139871,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": null,
@@ -1619,6 +1682,7 @@ export const enemyPages = {
  "barrager-tank": {
   "page": "Barrager Tank",
   "revision": 139879,
+  "summaryRevision": 139879,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": null,
@@ -1644,6 +1708,7 @@ export const enemyPages = {
  "bunker-turret": {
   "page": "Bunker Turret",
   "revision": 142047,
+  "summaryRevision": 142047,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1667,6 +1732,7 @@ export const enemyPages = {
  "aa-emplacement": {
   "page": "Anti-Air Emplacement",
   "revision": 137727,
+  "summaryRevision": 137727,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1678,6 +1744,7 @@ export const enemyPages = {
  "mortar-emplacement": {
   "page": "Mortar Emplacement",
   "revision": 136791,
+  "summaryRevision": 136791,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1689,6 +1756,7 @@ export const enemyPages = {
  "gunship": {
   "page": "Gunship",
   "revision": 142465,
+  "summaryRevision": 142465,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1716,6 +1784,7 @@ export const enemyPages = {
  "dropship": {
   "page": "Dropship",
   "revision": 139884,
+  "summaryRevision": 139884,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1727,6 +1796,7 @@ export const enemyPages = {
  "dropship-base": {
   "page": "Sabotage Air Base",
   "revision": 142431,
+  "summaryRevision": 142431,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -1738,6 +1808,7 @@ export const enemyPages = {
  "war-strider": {
   "page": "War Strider",
   "revision": 139410,
+  "summaryRevision": 139410,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -1763,6 +1834,7 @@ export const enemyPages = {
  "factory-strider": {
   "page": "Factory Strider",
   "revision": 139888,
+  "summaryRevision": 139888,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": null,
@@ -1796,6 +1868,7 @@ export const enemyPages = {
  "vox-engine": {
   "page": "Vox Engine",
   "revision": 142149,
+  "summaryRevision": 142149,
   "subfaction": "cyborgs",
   "fireMult": 1.5,
   "staggerReq": null,
@@ -1823,6 +1896,7 @@ export const enemyPages = {
  "voteless-light": {
   "page": "Voteless",
   "revision": 141977,
+  "summaryRevision": 141977,
   "subfaction": null,
   "fireMult": 0.75,
   "staggerReq": 1,
@@ -1846,6 +1920,7 @@ export const enemyPages = {
  "voteless-medium": {
   "page": "Voteless",
   "revision": 141977,
+  "summaryRevision": 141977,
   "subfaction": null,
   "fireMult": 0.75,
   "staggerReq": 1,
@@ -1869,6 +1944,7 @@ export const enemyPages = {
  "voteless-heavy": {
   "page": "Voteless",
   "revision": 141977,
+  "summaryRevision": 141977,
   "subfaction": null,
   "fireMult": 0.75,
   "staggerReq": 1,
@@ -1892,6 +1968,7 @@ export const enemyPages = {
  "wretch": {
   "page": "Wretch",
   "revision": 140071,
+  "summaryRevision": 140071,
   "subfaction": "vote-snatchers",
   "fireMult": 1.5,
   "staggerReq": 20,
@@ -1915,6 +1992,7 @@ export const enemyPages = {
  "overseer": {
   "page": "Overseer",
   "revision": 142612,
+  "summaryRevision": 142612,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": 35,
@@ -1942,6 +2020,7 @@ export const enemyPages = {
  "elevated-overseer": {
   "page": "Elevated Overseer",
   "revision": 142611,
+  "summaryRevision": 142611,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": 30,
@@ -1965,6 +2044,7 @@ export const enemyPages = {
  "crescent-overseer": {
   "page": "Crescent Overseer",
   "revision": 142610,
+  "summaryRevision": 142610,
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 35,
@@ -1990,6 +2070,7 @@ export const enemyPages = {
  "watcher": {
   "page": "Watcher",
   "revision": 140766,
+  "summaryRevision": 140766,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -2015,6 +2096,7 @@ export const enemyPages = {
  "obtruder": {
   "page": "Obtruder",
   "revision": 138037,
+  "summaryRevision": 138037,
   "subfaction": "appropriators",
   "fireMult": null,
   "staggerReq": null,
@@ -2040,6 +2122,7 @@ export const enemyPages = {
  "fleshmob": {
   "page": "Fleshmob",
   "revision": 140060,
+  "summaryRevision": 140060,
   "subfaction": null,
   "fireMult": 1.8,
   "staggerReq": 45,
@@ -2067,6 +2150,7 @@ export const enemyPages = {
  "crusher": {
   "page": "Crusher",
   "revision": 141041,
+  "summaryRevision": 141041,
   "subfaction": "vote-snatchers",
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -2090,6 +2174,7 @@ export const enemyPages = {
  "harvester": {
   "page": "Harvester",
   "revision": 142505,
+  "summaryRevision": 142505,
   "subfaction": null,
   "fireMult": 1.5,
   "staggerReq": 40,
@@ -2113,6 +2198,7 @@ export const enemyPages = {
  "veracitor": {
   "page": "Veracitor",
   "revision": 140066,
+  "summaryRevision": 140066,
   "subfaction": "appropriators",
   "fireMult": 1,
   "staggerReq": 40,
@@ -2138,6 +2224,7 @@ export const enemyPages = {
  "gatekeeper": {
   "page": "Gatekeeper",
   "revision": 140067,
+  "summaryRevision": 140067,
   "subfaction": "appropriators",
   "fireMult": 1,
   "staggerReq": 40,
@@ -2163,6 +2250,7 @@ export const enemyPages = {
  "stingray": {
   "page": "Stingray",
   "revision": 142534,
+  "summaryRevision": 142534,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -2190,6 +2278,7 @@ export const enemyPages = {
  "warp-ship": {
   "page": "Warp Ship",
   "revision": 141833,
+  "summaryRevision": 141833,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
@@ -2201,6 +2290,7 @@ export const enemyPages = {
  "leviathan": {
   "page": "Leviathan",
   "revision": 140064,
+  "summaryRevision": 140064,
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
