@@ -152,7 +152,7 @@ for (const link of $$('[data-tab]')) {
 // Follows the system until the header toggle picks one; the choice is remembered
 // in this browser only (index.html applies it before the stylesheet paints).
 const THEME_KEY = 'hd2-theme';
-const THEME_COLORS = { dark: '#101211', light: '#f4f5f6' };
+const THEME_COLORS = { dark: '#0c0e0d', light: '#f1f1ea' };
 const systemTheme = () => (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 const currentTheme = () => document.documentElement.dataset.theme || systemTheme();
 function showTheme() {
