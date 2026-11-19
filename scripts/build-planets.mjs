@@ -30,13 +30,15 @@ const entry = (item, extra = {}) => ({
   wiki: wikiUrl(item.page), ...extra,
 });
 
+// The wiki's original icon of an entry, when fetch-planet-pages stored one for its id.
+const iconOf = id => wiki.icons[id] ? { src: `./assets/conditions/${wiki.icons[id].file}`, source: wiki.icons[id].source, sha256: wiki.icons[id].sha256 } : null;
 const conditions = text.conditions.map(item => entry(item, {
-  icon: wiki.icons[item.id] ? { src: `./assets/conditions/${wiki.icons[item.id].file}`, source: wiki.icons[item.id].source, sha256: wiki.icons[item.id].sha256 } : null,
+  icon: iconOf(item.id),
   biomes: biomesWith(item.page),
 }));
 const gloom = text.gloom.map(item => entry(item));
 // Exostorm classes and Heavy SEAF Presence: game name and description, plus the wiki page's facts.
-const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en }));
+const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en, ...(iconOf(item.id) && { icon: iconOf(item.id) }) }));
 const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null }));
 const events = text.events.map(item => entry(item));
 

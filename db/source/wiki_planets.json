@@ -372,6 +372,12 @@
    "title": "Volcanic Activity Environmental Condition Icon.svg",
    "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
    "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
+  },
+  "heavy-seaf-presence": {
+   "file": "heavy-seaf-presence.svg",
+   "title": "Heavy SEAF Presence Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Heavy_SEAF_Presence_Icon.svg",
+   "sha256": "3c583d3d6eb377496e09f09a65d0e16927735e7f7e8fb2d70e18c671cccf7e96"
   }
  },
  "planetPages": [

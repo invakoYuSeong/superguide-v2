@@ -300,7 +300,12 @@ export const specialEffects = [
   ],
   "detailEn": [
    "Pelicans drop up to 3 SEAF squads into the mission. Each SEAF soldier a Helldiver kills costs 25 Requisition Slips, and 9 reckless kills brand you a traitor under Super Destroyer fire."
-  ]
+  ],
+  "icon": {
+   "src": "./assets/conditions/heavy-seaf-presence.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Heavy_SEAF_Presence_Icon.svg",
+   "sha256": "3c583d3d6eb377496e09f09a65d0e16927735e7f7e8fb2d70e18c671cccf7e96"
+  }
  }
 ];
 export const operationModifiers = [

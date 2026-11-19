@@ -44,9 +44,10 @@ text.special.forEach((source, index) => {
   ok(item.detail.length === item.detailEn.length, `${source.id}: detail needs Korean and English line by line`);
   for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(page.text.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page}`);
 });
-// Environmental conditions: listed in the wiki module, with their original icons.
-for (const item of planets.conditions) {
-  ok(wiki.environmentModule.text.includes(`["${item.en.toLowerCase()}"]`), `${item.id}: not in Module:Environmental Conditions`);
+// Environmental conditions: listed in the wiki module, with their original icons (as is any special
+// effect with a wiki icon, e.g. Heavy SEAF Presence).
+for (const item of [...planets.conditions, ...planets.specialEffects.filter(effect => effect.icon)]) {
+  if (planets.conditions.includes(item)) ok(wiki.environmentModule.text.includes(`["${item.en.toLowerCase()}"]`), `${item.id}: not in Module:Environmental Conditions`);
   const bytes = await readFile(new URL(`../dist/${item.icon.src.slice(2)}`, import.meta.url));
   ok(createHash('sha256').update(bytes).digest('hex') === item.icon.sha256, `${item.id}: icon changed`);
   validateSvg(bytes, { name: item.icon.src }); checks++;
