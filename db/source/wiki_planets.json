@@ -1,0 +1,337 @@
+{
+ "source": "https://helldivers.wiki.gg/api.php",
+ "retrievedAt": "2026-11-19",
+ "effects": {
+  "revision": 141068,
+  "timestamp": "2026-10-31T02:41:18Z",
+  "text": "{{Breadcrumb Auto|parent=Game Mechanics}}\n'''Effects''' are certain conditions and modifiers that impact gameplay in various ways. These effects are viewable on the [[Galactic War|Galactic Map]]. The number of Effects and type vary by [[Biome]], [[Factions|Faction]], and [[Difficulty]].\n\n==Weapons Experimentation/Arsenal Augmentation==\nOccasionally, [[Federation of Super Earth|Super Earth]] High Command makes certain [[Stratagems]] available for [[Helldiver]]s to deploy with as an additional mission standard-issue stratagem. These augmentations are purely additive and do not take up a slot on a Helldiver's Stratagem loadout.\n<!--:[[File:Weapons Experimentation Icon.png|50px]] – '''Weapons Experimentation / Arsenal Augmentation''' – The <span style=\"color:var(--wiki-custom-emphasis-color)\">&#91;STRATAGEM&#93;</span> stratagem is available to all Helldivers.-->\n== Democracy Space Station ==\nThe [[Democracy Space Station]] can provide a Helldiver-funded \"Tactical Action\" in addition to the Liberation Campaign boosting \"Operational Support\" to whichever planet is being orbited.\n\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; width: 100%; box-sizing: border-box; gap: 1em;\">\n{{DSS Action|Eagle Storm}}\n\n{{DSS Action|Orbital Blockade}}\n\n{{DSS Action|Heavy Ordnance Distribution}}\n</div>\n\n\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; width: 100%; box-sizing: border-box; gap: 1em;\">\n{{DSS Action|Effects}}\n</div>\n\n==Environmental Conditions==\nEnvironmental conditions refer to geophysical events that influence a [[Planets and Sectors|Planet's]] environment, experienced throughout [[missions]].\n* {{Environmental Conditions|Acid Storms}}\n* {{Environmental Conditions|Blizzards}}\n* {{Environmental Conditions|Extreme Cold}}\n* {{Environmental Conditions|Fire Tornados}}\n* {{Environmental Conditions|Intense Heat}}\n* {{Environmental Conditions|Ion Storms}}\n* {{Environmental Conditions|Meteor Storms}}\n* {{Environmental Conditions|Rainstorms}}\n* {{Environmental Conditions|Sandstorms}}\n* {{Environmental Conditions|Thick Fog}}\n* {{Environmental Conditions|Tremors}}\n* {{Environmental Conditions|Volcanic Activity}}\n* {{Environmental Conditions|Heavy Gloom Shroud}}\n* '''Moderate Gloom Blanket:''' The Gloom covers this planet completely, obstructing a variety of logistical operations. Extraction times are increased by <span style=color:var(--wiki-custom-emphasis-color)>30 seconds</span> and Eagle Re-arm time is increased by <span style=color:var(--wiki-custom-emphasis-color)>20%.</span>\n* '''Light Gloom Cover:''' Gloom particles interfere with landing Pelicans, increasing extraction times by <span style=color:var(--wiki-custom-emphasis-color)>20 seconds.</span>\n* '''[[Hive World|Gloom Source]]:''' This planet continually produces a thick atmospheric Gloom cover, rendering logistical support extremely challenging. Total Reinforcements are reduced by  <span style=color:var(--wiki-custom-emphasis-color)>20%</span>, Eagle Re-arm time is increased by <span style=color:var(--wiki-custom-emphasis-color)>30%</span>, and Ammo from pickups is reduced by <span style=color:var(--wiki-custom-emphasis-color)>50%</span>.\n\n===Operational Effects===\nSometimes, during certain events or Major Orders, some, if not all planets may gain an extra effect/modifier, available on all difficulties.\n\n* '''Orbital Fluctuations:''' All <span style=color:var(--wiki-custom-emphasis-color)>Orbital Stratagems</span> have an increased cooldown. ''(not to be confused with the Operation Modifier with the same name, this effect only affects [[Stratagems|Orbital Stratagems]])''\n* '''Medical Supply Strain:''' Number of stims each Helldiver deploys with decreased by 1.\n* '''Pilot Shortage:''' Extraction takes 30 additional seconds.\n* '''Slower Eagle Rearm:''' <span style=color:var(--wiki-custom-emphasis-color)>Eagle Rearm</span> time is <span style=color:var(--wiki-custom-emphasis-color)>25%</span> slower.\n\n==Operation Modifiers==\nOperation Modifiers are added obstacles that Helldivers must handle on the battlefield. A single Modifier will appear on {{Difficulty|5}}, increasing to two at {{Difficulty|8}}. Operation Modifiers do not appear on planets undergoing a [[Second Galactic War Mechanics#Defense Campaigns|Defense Campaign.]]\n\n===General===\n*[[Complex Stratagem Plotting]] – Stratagem <span style=color:var(--wiki-custom-emphasis-color)>Call-in time</span> increased by <span style=color:var(--wiki-custom-emphasis-color)>50%</span>.\n*[[Orbital Fluctuations]] – Stratagem <span style=color:var(--wiki-custom-emphasis-color)>cooldown</span> increased by <span style=color:var(--wiki-custom-emphasis-color)>25%</span>.\n*[[Poor Intel]] – <span style=color:var(--wiki-custom-emphasis-color)>Objective locations</span> are hidden.\n*[[Civilians and SEAF in Area]] - [[SEAF Soldier]] squads and [[Civilian|Civilians]] are both on the battlefield. (Event modifier only present in [[Biomes#City Biomes|Metropolis Biomes]])\n\n===Faction-Specific===\n{{Terminid|text}}\n\n*[[Atmospheric Spores]] – <span style=color:var(--wiki-custom-emphasis-color)>Map obscured</span> by Bug Spores.\n*[[Roving Shriekers]] - Flying Shrieker swarms traverse the battlefield.\n\n{{Automaton|text}}\n*[[Gunship Patrols]] - Flying Gunships patrol the battlefield.\n\n{{Illuminate|text}}\n*[[Leviathan Blockade]] - Flying Leviathan warships patrol the battlefield.\n\n===Removed===\n*[[AA Defenses]] – <span style=color:var(--wiki-custom-emphasis-color)>Stratagem slots</span> reduced by 1.\n*[[Atmospheric Interference]] – Orbital Stratagems <span style=color:var(--wiki-custom-emphasis-color)>Scatter Increased</span>.\n*[[Electronic Countermeasures]] – <span style=color:var(--wiki-custom-emphasis-color)>Stratagem Codes</span> Scrambled.\n\n== Combatant Forces ==\nSome planets or cities will have modifiers that affect the types of units that spawn, whether it be friendly units or enemy ones, with them either increasing the frequency of specific units, replacing certain units with unique variants, or having entirely unique units.\n\n'''{{Terminid|text}}'''\n* Subfactions:\n** [[Predator Strain]] - Unique cunning variants of [[Predator Hunter|Hunters]] and [[Predator Stalker|Stalkers]] will appear.\n** [[Rupture Strain]] - Unique burrowing variants of [[Rupture Warrior|Warriors]], [[Rupture Spewer|Spewers]] and [[Rupture Charger|Chargers]] will appear.\n** [[Spore Burst Strain]] - Unique explosive variants of [[Spore Burst Scavenger|Scavengers]], [[Spore Burst Hunter|Hunter]]<nowiki/>s and [[Spore Burst Warrior|Warriors]] will appear.\n** [[Dragonroach|Dragonroaches]] - [[Bile Titan|Bile Titans]] will be replaced with a unique flying enemy;  the [[Dragonroach|Dragonroach.]]\n** [[Hive Lord|Hive Lords]] - The colossal worm-like [[Hive Lord]] will appear. (Requires {{Difficulty|7}} or above.)\n\n'''{{Automaton|text}}'''\n* Subfactions:\n** [[Jet Brigade]] - Unique [[Assault Raider]] units will appear alongside jetpack-equipped variants of [[Jet Brigade Trooper|Troopers]], [[Jet Brigade MG Raider|MG Raiders]], [[Jet Brigade Commissar|Commissars]], [[Jet Brigade Devastator|Devastators]], [[Jet Brigade Hulk Scorcher|Hulk Scorchers]] and [[Jet Brigade Hulk Bruiser|Hulk Bruisers]]. \n** [[Incineration Corps]] - Unique [[Conflagration Devastator]] and [[Hulk Firebomber]] units will appear alongside incendiary-wielding variants of [[Pyro Trooper|Troopers]], [[Incendiary Rocket Raider|Rocket Raiders]] and [[Incendiary MG Devastator|Heavy Devastators]]. \n** [[Cyborg Legion|Cyborgs]] - Unique cyborg [[Agitator]], [[Radical]] and [[Vox Engine]] units will appear. \n* Enemy Divisions:\n** Hulk Surge - [[Hulk|Hulk units]] will spawn with increased frequency. \n** Heavy Armor Surge - [[Tank|Tanks]] and [[Strider|Striders]] will spawn with increased frequency.\n** Devastator Surge - [[Devastator]] units will spawn with increased frequency.\n\n'''{{Illuminate|text}}'''\n* Subfaction:\n** [[Appropriators]] - Unique [[Obtruder]], [[Veracitor]], and [[Gatekeeper]] units will appear.\n** [[Vote Snatchers]] - Unique [[Wretch]] and [[Crusher]] units will appear\n* Enemy Division:\n** [[Mindless Masses]] - [[Voteless]] and [[Fleshmob]] units will spawn with increased frequency.\n** [[Invasion Fleet]] - [[Voteless]], [[Overseer]], [[Crescent Overseer]], [[Elevated Overseer]], [[Fleshmob]], [[Watcher]], [[Harvester]] and [[Stingray]] units will spawn with increased frequency.\n\n'''{{Super Earth|text= Federation of Super Earth}}\n*Division:\n** [[Heavy SEAF Presence]] - [[SEAF Soldier]]s will be deployed into mission areas via [[Pelican Shuttle|Pelican Shuttles]].\n\n== Other Effects ==\n=== Armor Passives ===\n[[Armor Passives]] are unique, player-specific abilities or enhancements that are tied to their corresponding body armors. Depending on the perk, different stat(s) will be affected, altering the way Helldivers can operate in the mission.\n\n=== Boosters ===\nEach Helldiver has the option to equip a [[Boosters|booster]] before deployment, which applies buff to the entire squad. Depending on the booster, it can alter a Helldiver's stats, certain pieces of equipment, or mission mechanics.\n\n=== Status Effects === \n[[Status Effects]] are various status effects that can alter the Helldiver or their Enemies. These range to effects from the burning or gas effects of specific weaponry, to effects from stratagems, enemies, or environmental conditions.\n\n=== Physical Conditions ===\n[[Physical Conditions]] refer to adverse effects that a Helldiver may experience on the battlefield. These conditions can range from minor debuffs to being fatal if left untreated. Depending on the condition, it can be self-inflicted, caused by the environment, or applied by an enemy attack.\n\n[[Category:Effects|!]]\n[[Category:Missions|!]]\n\n[[zh:效果]]"
+ },
+ "statusEffects": {
+  "revision": 142045,
+  "timestamp": "2026-11-07T02:19:44Z",
+  "text": "{{Tabs\n | name1 = Helldivers 2\n | link1 = Status Effects\n | name2 = Helldivers 1\n | link2 = Helldivers 1:Status Effects\n }}\n{{Breadcrumb Auto|parent=Game Mechanics}}\n\nThere are various status effects that can alter the [[Helldiver]] or their [[Enemies]]. The following effects exist in Helldivers 2.\n== Stagger and Ragdoll ==\nStaggering can range from mere flinching to being knocked off your feet entirely. It is caused by dealing or taking damage with sufficient Stagger Force to meet an enemy's stagger thresholds. Higher thresholds impart stronger effects, such as completely interrupting animations. Unlike other status effects, Stagger Force does not build up over multiple attacks.\n\n==== Enemies ====\n\n* Staggering will cause an enemy to be pushed back and usually interrupts their movement, with the distance pushed scaling with Stagger Force.\n* Most enemies have abilities that can be interrupted upon being attacked with sufficient Stagger Force.\n** Some notable interruptable abilities include certain attacks and calling for reinforcements.\n** Stagger thresholds listed on enemy pages will be the value required to cause interrupting stagger.\n\n* Stagger Force required to interrupt an enemy can vary wildely, from the lowely [[Scavenger|Scavenger's]] 1 to the unyielding [[Fleshmob|Fleshmob's]] 45.\n* Weapons that fire multiple projectiles (Such as the [[SG-8 Punisher]]) will have every projectile apply full Stagger Force, allowing just a single pellet to stagger an enemy.\n\n==== Stagger Force vs. Enemies ====\n{| class=\"wikitable sortable mw-collapsible mw-collapsed\"flamer\n\n|+ Stagger Threshold Table\n! Faction !! Enemy !! Stagger Threshold\n|-\n! rowspan=\"28\" | {{Terminids|text}}\n| [[Caustic Spitter|Caustic Spitter]] || 1\n|-\n| [[Pouncer|Pouncer]] || 1\n|-\n| [[Scavenger|Scavenger]] || 1\n|-\n| [[Spore Burst Scavenger|Spore Burst Scavenger]] || 1\n|-\n| [[Hunter|Hunter]] || 15\n|-\n| [[Predator Hunter|Predator Hunter]] || 15\n|-\n| [[Spore Burst Hunter|Spore Burst Hunter]] || 15\n|-\n| [[Alpha Warrior|Alpha Warrior]] || 20\n|-\n| [[Caustic Warrior|Caustic Warrior]] || 20\n|-\n| [[Hive Guard|Hive Guard]] || 20\n|-\n| [[Rupture Warrior|Rupture Warrior]] || 20\n|-\n| [[Spore Burst Warrior|Spore Burst Warrior]] || 20\n|-\n| [[Warrior|Warrior]] || 20\n|-\n| [[Alpha Commander|Alpha Commander]] || 25\n|-\n| [[Brood Commander|Brood Commander]] || 25\n|-\n| [[Caustic Spewer|Caustic Spewer]] || 30\n|-\n| [[Nursing Spewer|Nursing Spewer]] || 30\n|-\n| [[Predator Stalker|Predator Stalker]] || 30\n|-\n| [[Rupture Spewer|Rupture Spewer]] || 30\n|-\n| [[Stalker|Stalker]] || 30\n|-\n| [[Dragonroach|Dragonroach]] || 38\n|-\n| [[Charger|Charger]] || 38\n|-\n| [[Charger Behemoth|Charger Behemoth]] || 38\n|-\n| [[Rupture Charger|Rupture Charger]] || 38\n|-\n| [[Caustic Charger|Caustic Charger]] || 38\n|-\n| [[Impaler|Impaler]] || 50\n|-\n| [[Bile Titan|Bile Titan]] || 50\n|-\n| [[Spore Burst Bile Titan|Spore Burst Bile Titan]] || 50\n|-\n! rowspan=\"30\" | {{Automatons|text}}\n| [[Assault Raider|Assault Raider]] || 10\n|-\n| [[Brawler|Brawler]] || 10\n|-\n| [[Commissar|Commissar]] || 10\n|-\n| [[Incendiary Rocket Raider|Incendiary Rocket Raider]] || 10\n|-\n| [[Jet Brigade Commissar|Jet Brigade Commissar]] || 10\n|-\n| [[Jet Brigade MG Raider|Jet Brigade MG Raider]] || 10\n|-\n| [[Jet Brigade Trooper|Jet Brigade Trooper]] || 10\n|-\n| [[MG Raider|MG Raider]] || 10\n|-\n| [[Marauder|Marauder]] || 10\n|-\n| [[Pyro Trooper|Pyro Trooper]] || 10\n|-\n| [[Rocket Raider|Rocket Raider]] || 10\n|-\n| [[Trooper|Trooper]] || 10\n|-\n| [[Agitator|Agitator]] || 20\n|-\n| [[Radical|Radical]] || 20\n|-\n| [[Berserker|Berserker]] || 30\n|-\n| [[Conflagration Devastator|Conflagration Devastator]] || 30\n|-\n| [[Devastator|Devastator]] || 30\n|-\n| [[Heavy Devastator|Heavy Devastator]] || 30\n|-\n| [[Incendiary MG Devastator|Incendiary MG Devastator]] || 30\n|-\n| [[Jet Brigade Devastator|Jet Brigade Devastator]] || 30\n|-\n| [[Reinforced Scout Strider|Reinforced Scout Strider]] || 30\n|-\n| [[Rocket Devastator|Rocket Devastator]] || 30\n|-\n| [[Scout Strider|Scout Strider]] || 30\n|-\n| [[Hulk Bruiser|Hulk Bruiser]] || 40\n|-\n| [[Hulk Firebomber|Hulk Firebomber]] || 40\n|-\n| [[Hulk Obliterator|Hulk Obliterator]] || 40\n|-\n| [[Hulk Scorcher|Hulk Scorcher]] || 40\n|-\n| [[Jet Brigade Hulk Bruiser|Jet Brigade Hulk Bruiser]] || 40\n|-\n| [[Jet Brigade Hulk Scorcher|Jet Brigade Hulk Scorcher]] || 40\n|-\n| [[War Strider|War Strider]] || 40\n|-\n! rowspan=\"8\" | {{Illuminate|text}}\n| [[Voteless|Voteless]] || 1\n|-\n| [[Elevated Overseer|Elevated Overseer]] || 30\n|-\n| [[Crescent Overseer|Crescent Overseer]] || 35\n|-\n| [[Overseer|Overseer]] || 35\n|-\n| [[Gatekeeper|Gatekeeper]] || 40\n|-\n| [[Harvester|Harvester]] || 40\n|-\n| [[Veracitor|Veracitor]] || 40\n|-\n| [[Fleshmob|Fleshmob]] || 45\n|}\n\n==== Helldivers ====\n* Helldivers that are hit by any enemy attack will flinch, causing their reticle to be thrown off the point of aim temporarily.\n* Helldivers that are hit by enemy attacks with a stagger value of '''10''' or greater will be staggered. This will interrupt certain animations, such as stimming.\n* Helldivers that are hit by enemy attacks with a stagger value of '''25''' or greater will be ragdolled. This throws the player, interrupts all animations, stops actions like typing on a terminal, and temporarily takes away all player control. This does, however, have a plus of providing '''90%''' explosion damage reduction while in this state.\n* The [[Rock Solid]] armor passive '''reduces''' incoming stagger by '''30%'''. This enables you to avoid being ragdolled by many attacks, such as [[Rocket Devastator]] rockets, Devastator punches, and [[Overseer]] staff swings, but not stronger attacks like [[Cannon Turret]] shots or [[Reinforced Scout Strider]] rockets. \n** Attacks with stagger force values of 36 or above can ragdoll you with the Rock Solid Passive.\n\n== Acid Splash ==\n* Acid covered targets will be slowed and may additionally take damage over time. This effect lasts 4 seconds.\n* Can be inflicted by the following [[Terminids|Terminid]] Enemies: [[Caustic Spitter|Caustic Spitters]], [[Hunter|Hunters]], [[Caustic Warrior|Caustic Warriors]], [[Caustic Spewer|Caustic Spewers]], [[Nursing Spewer|Nursing Spewers]], [[Caustic Charger|Caustic Chargers]], [[Bile Titan|Bile Titans]], [[Bug Mine|Bug Mines]], [[Predator Hunter|Predator Hunters]], and all [[Spore Burst Strain|Spore Burst Strain Terminids]].\n{{Attack_Data/attack|status|Acid Splash}}\n\n== Bleed ==\nInflicted on Helldivers from being injured in the chest or from coming into contact with either a [[Spike Plant|Spike Plant]] or a [[Automaton Barbed Wire|Barbed Wire]].  These all counts as separate effects. Deals damage over time.\n\n<div class=\"flextablediv\">\n{{Attack_Data/attack|status|Bleed}}\n{{Attack_Data/attack|status|Thornbush}}\n{{Attack_Data/attack|status|Barbwire}}\n</div>\n\n== Fire ==\n* Can be inflicted by most fire-based weapons and stratagems;\n\n<details>\n<summary>Notable fire threats</summary>\n<big>[[Environmental Hazards]]</big>\n*[[Exploding barrels]]\n*[[Fire tornadoes]]\n*[[Volcano plants]]\n\n<big>[[Enemies]]</big>\n*Specific [[Automaton]]s\n**[[Hulk Scorcher]]s\n**[[Incineration Corps]]\n***[[Pyro Trooper]]s\n***[[Incendiary MG Devastator]]s\n***[[Conflagration Devastator]]s\n***[[Incendiary Rocket Devastator]]\n***[[Hulk Firebomber]]s\n*[[Terminids|Terminid]] [[Dragonroach|Dragonroaches]]\n*[[Illuminate]] laser weapons\n**[[Harvester|Harvesters]]\n**[[Gazer|Gazers]]\n\n<big>[[Helldiver]]s</big>\n*[[Primary weapon]]s\n**[[AR-2 Coyote]]\n**[[SMG/FLAM-34 Stoker]]\n**[[FLAM-66 Torcher]]\n**[[LAS-5 Scythe]]\n**[[LAS-17 Double-Edge Sickle]] (overheating)\n**[[SG-225IE Breaker Incendiary]]\n**[[SG-451 Cookout]]\n*[[Secondary weapon]]s\n**[[LAS-7 Dagger]]\n**[[P-72 Crisper]]\n*[[Throwable]]s\n**[[G-10 Incendiary]]\n**[[G-13 Incendiary Impact]]\n**[[G-142 Pyrotech]]\n*[[Support weapon]]s\n**[[FLAM-40 Flamethrower]]\n**[[B/FLAM-80 Cremator]]\n**[[LAS-98 Laser Cannon]]\n**[[EAT-700 Expendable Napalm]]\n*[[Stratagem]]s\n**[[A/FLAM-40 Flame Sentry]]\n**[[A/LAS-98 Laser Sentry]]\n**[[Eagle Napalm Airstrike]]\n**[[Orbital Napalm Barrage]]\n**[[AX/FLAM-75 Hot Dog]]\n**[[AX/LAS-5 Rover]]\n**[[MD-I4 Incendiary Mines|MD-14 Incendiary Mines]]\n</details>\n\nFire damage can penetrate {{Armor|4|AP}} armor and has an unmodified duration of 3 seconds.\n* Many entities have a fire damage multiplier.\n** For instance, [[Caustic Spewer|Caustic Spewers]] take the standard amount of fire damage, but [[Impaler|Impalers]] take a 1.7x Fire Damage Multiplier due to being a larger enemy.\n{{Attack_Data/attack|status|Fire}}\n\n== Fire Panic ==\nAn effect similar to [[Status_Effects#Gas Confusion Mk1|Gas Confusion]], enemies hit by a direct stream of fire will move and attack randomly. Only direct-flame firing weapons such as the [[FLAM-40 Flamethrower]], [[B/FLAM-80 Cremator]], [[A/FLAM-40 Flame Sentry]], [[FLAM-66 Torcher]], and (uniquely) [[40-K Meltagun]] can apply this effect. Large/Massive non-[[Terminids|Terminid]] enemies are immune to this effect.\n{{Attack_Data/attack|status|Fire_Panic}}\n\n== Flamer Slowed ==\nEnemies being hit by a direct stream of fire will be slowed. Only direct-flame firing weapons such as the [[FLAM-40 Flamethrower]], [[B/FLAM-80 Cremator]], [[A/FLAM-40 Flame Sentry]], [[FLAM-66 Torcher]], and (uniquely) [[40-K Meltagun]] can apply this effect. Large/Massive non-[[Terminids|Terminid]] enemies are immune to this effect.\n{{Attack_Data/attack|status|FlamerSlowed}}\n\n== Burning Heavy ==\nAn additional fire DPS inflicted by [[Eagle Napalm Airstrike]] and [[Orbital Napalm Barrage]], or shooting an enemy with the [[EAT-700 Expendable Napalm|Expendable Napalm]]. It inflicts significantly more damage than standard burning, but only lasts for 1 second after being inflicted on an enemy or Helldiver. \n\n* Burning Heavy also benefits from fire damage multipliers (such as the [[Enhanced Combustion]] ship module).\n{{Attack_Data/attack|status|BurningHeavy}}\n\n== Gas ==\nEnemies and Helldivers afflicted by gas will suffer damage over time only to the Main health pool, as well as the Gas Confusion status effect on anything inside the gas cloud. The disorientation effect is delayed if the affected unit was already engaged in an attack motion (e.g. an [[Overseer]] chasing a Helldiver).\n==== Gas Mk1 ====\n* Duration: '''6''' seconds.\n** Inflicted by: [[A/GM-17 Gas Mortar Sentry]], [[MD-8 Gas Mines]], [[G-4 Gas]], [[Orbital Gas Strike]], [[Eagle Gas Airstrike]], [[S-11 Speargun]] and [[P-35 Re-Educator]]\n{{Attack_Data/attack|status|Gas}}\n\n==== Gas Mk2 ====\n* Duration: '''10''' seconds.\n** Inflicted by: [[TX-41 Sterilizer]], [[AX/TX-13 \"Guard Dog\" Dog Breath]]\n{{Attack_Data/attack|status|Gas_Var2}}\n\n== Gas Confusion==\nAfter being afflicted by Gas, enemies and Helldivers will enter a confused state which disrupts a Helldiver's vision, and causes enemies to move and attack in random directions, typically away from Helldivers. All units afflicted by gas are also slowed by 25%.\n==== Gas Confusion Mk1 ====\n\n* Duration: '''5''' seconds.\n** Inflicted by: [[A/GM-17 Gas Mortar Sentry]], [[MD-8 Gas Mines]], [[G-4 Gas]], [[Orbital Gas Strike]], [[S-11 Speargun]] and [[P-35 Re-Educator]]\n{{Attack_Data/attack|status|Gas_Confusion}}\n\n==== Gas Confusion Mk2 ====\n* Duration: '''9''' seconds.\n** Inflicted by: [[TX-41 Sterilizer]], [[AX/TX-13 \"Guard Dog\" Dog Breath]]\n{{Attack_Data/attack|status|Gas_Confusion_Var2}}\n\n== Stun ==\nEnemies hit by stunning attacks will be unable to move or attack for a short time. Helldivers become severely slowed down.\n==== Stun 1 [Small]====\n* Duration: '''1.5''' seconds.\n** Inflicted by: [[ARC-12 Blitzer]], [[ARC-3 Arc Thrower]], [[A/ARC-3 Tesla Tower]], [[AX/ARC-3 \"Guard Dog\" K-9]], [[G-31 Arc|G-31 Arc grenade]], [[GL-52 De-Escalator]], [[CQC-9 Defoliation Tool]], [[G-11 Caltrops]]\n{{Attack_Data/attack|status|Stun Small}}\n==== Stun 2 [Medium]====\n* Duration: '''3.0''' seconds.\n** Inflicted by: [[A/M-23 EMS Mortar Sentry]], [[SMG-72 Pummeler]], [[AR-32 Pacifier]]\n{{Attack_Data/attack|status|Stun Medium}}\n==== Stun 3 [Large] ====\n* Duration: '''5.0''' seconds.\n** Inflicted by: [[G-23 Stun]], [[G-109 Urchin]], [[SG-20 Halt]], [[CQC-19 Stun Lance]], [[CQC-30 Stun Baton]], [[CQC-1 One True Flag]]\n{{Attack_Data/attack|status|Stun Large}}\n==== Stun 4 [Massive] ====\n* Duration: '''10.0''' seconds.\n** Inflicted by: [[Stun Pods]] booster.\n{{Attack_Data/attack|status|Stun Massive}}\n\n==== EMS Stun ====\nThe [[Orbital_EMS_Strike|Orbital EMS Strike]] Stratagem, [[EMS_Mortar_Sentry|EMS Mortar Sentry]] Emplacement, and [[SEAF Artillery]] Static Field Shells inflict a special variant of Stun which creates a ''cloud of static'' that renders most enemies unable to move. \nHelldivers are severely slowed down and lose stamina while within EMS Stun clouds.\n\n== Poison ==\nPoison refers to three separate statuses: Poison, Heavy Poison, and Poison Vulnerability. All three can only be inflicted by the [[Noxious Strain]].\n\n=== Poison and Heavy Poison ===\nPoison and Heavy Poison are fairly similar in the fact that they both deal {{Damage|Acid|2/s Normal and 5/s Durable Acid Damage|notext}} for 6 seconds. The primary difference is in the fact that Heavy Poison blurs the player's screen for the duration. The true amount of damage dealt, however, is dependent on the amount of Poison Vulnerability stacks.\n<div class=flextablediv>\n{{Attack_Data/attack|status|Poison}}\n{{Attack_Data/attack|status|Poison_Heavy}}\n</div>\n\n=== Poison Vulnerability ===\nPoison Vulnerability multiplies the damage dealt by both Poison effects with each stack.\n* The poison damage is multiplied by 1.4x at 1 stack of Poison Vulnerability\n* Multiplied by 1.8x at 2 stacks\n* Multiplied by 2.8x at 3 stacks\n* Multiplied by 4.2x at 4 stacks\n\nThis status effect only stacks up to four. Stimming will reduce the amount of stacks by 2, but will not stop the poison statuses from dealing damage. \n\nAdditionally, from three stacks of vulnerability and onwards, when poison is applied, the Helldiver will lose their ability to sprint for the duration of the poison. '''Stimming does not help recover from the loss of sprinting''', therefore it is recommended to not let Poison Vulnerability stack more than twice. The inability to sprint does not affect stamina reserves.\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.007.202|changes=\nAddition\n* Added the Poison, Heavy Poison and Poison Vulnerability status effects.\n}}\n{{Change History Update|1.006.100|changes=\nChanges\n* Fire will now cause slowing effects and confusion effects on small to medium sized enemies\n}}\n{{Change History Update|1.003.000|changes=\nChanges\n* Fire has been reworked to deal damage based on the \"Size\" of the enemy\n** Small enemies take less burning damage and Larger enemies take more burning damage\n* Large and Robotic Enemies require more burning status buildup before being ignited \nUndocumented Changes\n* Burn damage increased from 50 to 100.\n* Heavy Burn armor penetration increased from {{Armor|2|AP}} to {{Armor|4|AP}}\n* Heavy Burn standard damage decreased from 400 to 200\n* Heavy Burn durable damage increased from 80 to 200\n}}\n{{Change History Update|1.002.101|changes=\nChanges\n* The [[TX-41 Sterilizer]] & [[AX/TX-13 \"Guard Dog\" Dog Breath]] now Inflict \"Gas MKII\", with a longer effect duration (6s to 10s)\n}}\n{{Change History Update|1.001.100|changes=\nChanges\n* Reduced Gas Damage from 50 to 25 Gas DPS\n* Added confusion to the Gas status effect\n}}\n{{Change History Update|1.000.400|changes=\nChanges\n* The acid effect applied by Caustic Spitters and other Terminids now allows you to sprint while under the effect.\n* Acid now slows movement speed by 30% instead of 50%.\n* Acid duration increased from 3 seconds to 4 seconds.\n* [[Spike Plant]]s no longer causes bleed or stamina drain if hit by the plant explosion or spikes.\n}}\n{{Change History Update|1.000.300|changes=\nChange\n* Burning damage reduced by 15%.\n** Reduced Burning Damage from 60 to 50 Fire DPS\n}}\n{{Change History Update|1.000.200|changes=\nChange\n* Fire damage per tick increased by 50% (from all sources).\n** Increased Burning Damage from 40 to 60 Fire DPS\n}}\n\n[[Category:Helldivers 2]]\n\n[[Category:Game Mechanics]]\n__FORCETOC__\n\n{{Nav Mechanic}}\n[[Category:Combat Mechanics]]\n\n[[zh:状态效果]]"
+ },
+ "environmentModule": {
+  "revision": 103330,
+  "timestamp": "2026-02-23T15:01:19Z",
+  "text": "local getArgs = require(\"Module:Arguments\").getArgs\n\nlocal p = {}\n\nlocal conditions = {\n    [\"acid storms\"] = {\n        file = \"Acid Storms Environmental Condition Icon.svg\",\n        page = \"Acid Storms\",\n        desc = \"'''[[Acid Storms]]''' – Corrosive acid storms <span style=color:var(--wiki-custom-emphasis-color)>temporarily reduce armor effectiveness</span> for both enemy and friendly units.\"\n    },\n    [\"blizzards\"] = {\n        file = \"Blizzards Environmental Condition Icon.svg\",\n        page = \"Blizzards\",\n        desc = \"'''[[Blizzards]]''' – Intense blizzards <span style=color:var(--wiki-custom-emphasis-color)>reduce mobility</span> and <span style=color:var(--wiki-custom-emphasis-color)>moderately reduce visibility</span> for both enemy and friendly units.\"\n    },\n    [\"extreme cold\"] = {\n        file = \"Extreme Cold Environmental Condition Icon.svg\",\n        page = \"Extreme Cold\",\n        desc = \"'''[[Extreme Cold]]''' – Periods of freezing temperatures <span style=color:var(--wiki-custom-emphasis-color)>reduce rate of fire</span> and <span style=color:var(--wiki-custom-emphasis-color)>delay heat buildup in weapons</span>.\"\n    },\n    [\"fire tornados\"] = {\n        file = \"Fire Tornados Environmental Condition Icon.svg\",\n        page = \"Fire Tornados\",\n        desc = \"'''[[Fire Tornados]]''' – Planet is ravaged by <span style=color:var(--wiki-custom-emphasis-color)>deadly fire tornados</span>.\"\n    },\n    [\"intense heat\"] = {\n        file = \"Intense Heat Environmental Condition Icon.svg\",\n        page = \"Intense Heat\",\n        desc = \"'''[[Intense Heat]]''' – Periods of high temperatures <span style=color:var(--wiki-custom-emphasis-color)>increase stamina drain</span> and <span style=color:var(--wiki-custom-emphasis-color)>speed up heat buildup in weapons</span>.\"\n    },\n    [\"ion storms\"] = {\n        file = \"Ion Storms Environmental Condition Icon.svg\",\n        page = \"Ion Storms\",\n        desc = \"'''[[Ion Storms]]''' – Ion storms intermittently <span style=color:var(--wiki-custom-emphasis-color)>disable Stratagems</span>.\"\n    },\n    [\"meteor storms\"] = {\n        file = \"Meteor Storms Environmental Condition Icon.svg\",\n        page = \"Meteor Storms\",\n        desc = \"'''[[Meteor Storms]]''' – Meteors impact the surface <span style=color:var(--wiki-custom-emphasis-color)>causing massive damage</span>.\"\n    },\n    [\"rainstorms\"] = {\n        file = \"Rainstorms Environmental Condition Icon.svg\",\n        page = \"Rainstorms\",\n        desc = \"'''[[Rainstorms]]''' – Torrential rainstorms <span style=color:var(--wiki-custom-emphasis-color)>reduce visibility</span>.\"\n    },\n    [\"sandstorms\"] = {\n        file = \"Sandstorms Environmental Condition Icon.svg\",\n        page = \"Sandstorms\",\n        desc = \"'''[[Sandstorms]]''' – Dense sandstorms <span style=color:var(--wiki-custom-emphasis-color)>reduce mobility</span> and <span style=color:var(--wiki-custom-emphasis-color)>greatly reduce visibility</span> for both enemy and friendly units.\"\n    },\n    [\"thick fog\"] = {\n        file = \"Thick Fog Environmental Condition Icon.svg\",\n        page = \"Thick Fog\",\n        desc = \"'''[[Thick Fog]]''' – Dense fog <span style=color:var(--wiki-custom-emphasis-color)>lightly reduces visibility</span> for both enemy and friendly units.\"\n    },\n    [\"tremors\"] = {\n        file = \"Tremors Environmental Condition Icon.svg\",\n        page = \"Tremors\",\n        desc = \"'''[[Tremors]]''' – Frequent earthquakes <span style=color:var(--wiki-custom-emphasis-color)>stun players and enemies</span> alike.\"\n    },\n    [\"volcanic activity\"] = {\n        file = \"Volcanic Activity Environmental Condition Icon.svg\",\n        page = \"Volcanic Activity\",\n        desc = \"'''[[Volcanic Activity]]''' – Volcanos <span style=color:var(--wiki-custom-emphasis-color)>throw burning rocks</span> around this planet.\"\n    },\n    [\"heavy gloom shroud\"] = {\n        file = \"Generic Effect Icon.png\",\n        page = \"The Gloom\",\n        desc = \"'''[[The Gloom|Heavy Gloom Shroud]]''' This planet is completely engulfed by the Gloom, severely impeding logistical support. Extraction times are increased by 40 seconds, Eagle Re-arm time is increased by 30% and Ammo from pickups is reduced by 50%.\"\n    },\n    [\"none\"] = {\n        file = \"Generic Effect Icon.png\",\n        page = \"None\",\n        desc = \"'''None'''\"\n    }\n}\n\nlocal generic_icon = \"Generic Effect Icon.png\"\n\nlocal function switch(envDesc)\n    local key = string.lower(envDesc or \"\")\n    if conditions[key] then\n        return conditions[key].desc\n    else\n        return \"Unknown Condition\"\n    end\nend\n\nfunction p.main(frame)\n    local args = getArgs(frame)\n    return p._main(args)\nend\n\nfunction p._main(args)\n    local output = \"\"\n    for _, arg in ipairs(args) do\n        local key = string.lower(arg or \"\")\n        local data = conditions[key]\n        local description = switch(arg)\n\n        if key == \"none\" then\n            output = output .. string.format(\n                '<span class=\"faction-icon\">[[File:%s|50px|link=]] %s</span><br>',\n                generic_icon, description\n            )\n        elseif data then\n            output = output .. string.format(\n                '<span class=\"faction-icon\">[[File:%s|50px|link=%s]] %s</span><br>',\n                data.file, data.page, description\n            )\n        elseif description ~= \"Unknown Condition\" then\n            output = output .. string.format(\n                '<span class=\"faction-icon\">[[File:%s|50px|link=%s]] %s</span><br>',\n                generic_icon, arg, description\n            )\n        else\n            output = output .. string.format(\n                '<span class=\"faction-icon\">[[File:%s|50px|link=%s]] %s</span>',\n                generic_icon, arg, arg\n            )\n        end\n    end\n    return output\nend\n\nreturn p"
+ },
+ "biomesRevision": 142325,
+ "biomes": {
+  "Supercolony": {
+   "revision": 130671,
+   "internal": "primordial_bug",
+   "archetype": "Primordial",
+   "description": "Entirely unforeseeable mutations from the Termicide led to hyper-accelerated bug growth on this planet, turning it into a Supercolony. It is corrupted beyond saving. The bugs infest every inch of it, down to the mantle, spawning trillions of spores every day.",
+   "conditions": []
+  },
+  "Volcanic Jungle": {
+   "revision": 140258,
+   "internal": "primordial_base",
+   "archetype": "Primordial",
+   "description": "Abundant with life, this wet planet is covered in deep oceans, thick forests, and tall grasses.",
+   "conditions": [
+    "Rainstorms",
+    "Volcanic Activity"
+   ]
+  },
+  "Haunted Swamp": {
+   "revision": 141006,
+   "internal": "swamp_haunted",
+   "archetype": "Swamp",
+   "description": "Squelching mud, twisting roots; the odor of rot and anarchy. A teeming, endless morass.",
+   "conditions": [
+    "Thick Fog"
+   ]
+  },
+  "Icy Glaciers": {
+   "revision": 142571,
+   "internal": "arctic_glacier_base",
+   "archetype": "Arctic",
+   "description": "Submerged in eternal winter, this world's frosty peaks glimmer in the light of its too-distant star.",
+   "conditions": [
+    "Blizzards",
+    "Extreme Cold"
+   ]
+  },
+  "Boneyard": {
+   "revision": 140250,
+   "internal": "arctic_glacier_coldrocky",
+   "archetype": "Arctic",
+   "description": "Ice and moss-covered rock can be found across most of the surface of this planet.",
+   "conditions": [
+    "Extreme Cold"
+   ]
+  },
+  "Basic Swamp": {
+   "revision": 140262,
+   "internal": "swamp_base",
+   "archetype": "Swamp",
+   "description": "Tall, gnarled trees flourish across the surface of this forested world. Sunlight filters past dangling vines, to the saturated undergrowth below.",
+   "conditions": [
+    "Rainstorms"
+   ]
+  },
+  "Desert Dunes": {
+   "revision": 140241,
+   "internal": "sandy_base",
+   "archetype": "Sandy",
+   "description": "A blazing-hot desert planet, its rocky mesas are the sole interruptions to the endless sea of dunes.",
+   "conditions": [
+    "Intense Heat",
+    "Extreme Cold",
+    "Sandstorms"
+   ]
+  },
+  "Acidic Badlands": {
+   "revision": 140243,
+   "internal": "sandy_acid",
+   "archetype": "Sandy",
+   "description": "Dense, toxic fumes from deep within the planet's crust seep out of cracks in the earth and coat the ground in a sickly haze.",
+   "conditions": [
+    "Acid Storms"
+   ]
+  },
+  "Moon": {
+   "revision": 140252,
+   "internal": "sandy_moon",
+   "archetype": "Sandy",
+   "description": "A rocky, lonely moon with extremely valuable mineral deposits underneath the surface.",
+   "conditions": [
+    "Extreme Cold",
+    "Meteor Storms"
+   ]
+  },
+  "Rocky Canyons": {
+   "revision": 138839,
+   "internal": "sandy_mineral",
+   "archetype": "Sandy",
+   "description": "This arid, rocky biome covering this world has driven the evolution of exceptionally efficient water usage in its various organisms.",
+   "conditions": [
+    "Tremors"
+   ]
+  },
+  "Desert Cliffs": {
+   "revision": 140248,
+   "internal": "sandy_spiky",
+   "archetype": "Sandy",
+   "description": "A desert planet prone to unpredictable and dangerous sand twisters.",
+   "conditions": [
+    "Intense Heat",
+    "Tremors"
+   ]
+  },
+  "Deadlands": {
+   "revision": 140251,
+   "internal": "primordial_dead",
+   "archetype": "Primordial",
+   "description": "The lifeless grey of this planet is interrupted only by the violet flowers that grow from strange, parasitic outcroppings.",
+   "conditions": [
+    "Thick Fog"
+   ]
+  },
+  "Ethereal Jungle": {
+   "revision": 136201,
+   "internal": "primordial_purple",
+   "archetype": "Primordial",
+   "description": "This world teems with ethereal, boundless, and peculiar plant life that spreads silent and uninterrupted across its entire surface.",
+   "conditions": []
+  },
+  "Ionic Jungle": {
+   "revision": 140247,
+   "internal": "primordial_blue",
+   "archetype": "Primordial",
+   "description": "The strange subversion of photosynthesis that sustains the oddly-hued flora that flourishes on this planet remains an intriguing mystery to Super Earth's greatest exo-biologists.",
+   "conditions": [
+    "Ion Storms"
+   ]
+  },
+  "Plains": {
+   "revision": 140265,
+   "internal": "moor_baseplanet",
+   "archetype": "Moor",
+   "description": "Rocky outcroppings punctuate fields of tall grass in a planet dominated by misty highland terrain.",
+   "conditions": [
+    "Rainstorms"
+   ]
+  },
+  "Tundra": {
+   "revision": 140264,
+   "internal": "moor_tundra",
+   "archetype": "Moor",
+   "description": "A perenially chilly climate has allowed short, colorful shrubs to flourish across this planet's surface.",
+   "conditions": []
+  },
+  "Scorched Moor": {
+   "revision": 140244,
+   "internal": "moor_arid",
+   "archetype": "Moor",
+   "description": "Scorching temperatures, high winds, and low precipitation cause a near-constant cycle of fires to sweep this planet, punctuated by short bursts of lush rebirth between infernos.",
+   "conditions": [
+    "Intense Heat",
+    "Fire Tornados"
+   ]
+  },
+  "Ionic Crimson": {
+   "revision": 140266,
+   "internal": "moor_red",
+   "archetype": "Moor",
+   "description": "A crimson algae has propagated wildly across this entire planet, coating its rocky hills with a constant red that masks the spilt blood of the heroes who defend it from tyranny.",
+   "conditions": [
+    "Ion Storms"
+   ]
+  },
+  "Super Earth Metropolis": {
+   "revision": 138098,
+   "internal": null,
+   "archetype": "Special",
+   "description": "The blinding beacon that illuminates the stars with the light of Democracy. The patriotic paradise for citizens who truly serve their Federation. And the utopian future awaiting the entire galaxy.",
+   "conditions": [
+    "Rainstorms"
+   ]
+  },
+  "Hive World": {
+   "revision": 142331,
+   "internal": "bug_hiveworld",
+   "archetype": "Special",
+   "description": "This planet has been completely infested by the Terminids, transformed inside and out into a hive of Tyranny.",
+   "conditions": []
+  },
+  "Magma Desert": {
+   "revision": 140249,
+   "internal": "magma_base",
+   "archetype": "Special",
+   "description": "Constant eruptions keep this planet covered in lava flows and utterly inhospitable to Democratic life. It also makes it a treasure trove of rare minerals.",
+   "conditions": [
+    "Intense Heat"
+   ]
+  },
+  "Cyberstan Megafactory": {
+   "revision": 130691,
+   "internal": "no_name",
+   "archetype": "Arctic",
+   "description": "Cyberstan, once again, forms the axis of the Cyborg Legion's insurrection. Massive Megafactories cover its surface, churning out mechanical armies and weapons of mass extinction.",
+   "conditions": [
+    "Extreme Cold"
+   ]
+  },
+  "Deciduous Forest": {
+   "revision": 140263,
+   "internal": "deciduous_base",
+   "archetype": "Forest",
+   "description": null,
+   "conditions": []
+  },
+  "Desert Oasis": {
+   "revision": 140246,
+   "internal": "oasis_base",
+   "archetype": "Oasis",
+   "description": null,
+   "conditions": [
+    "Intense Heat"
+   ]
+  },
+  "Autumn Forest": {
+   "revision": 140245,
+   "internal": "deciduous_fall",
+   "archetype": "Forest",
+   "description": null,
+   "conditions": []
+  },
+  "Bleak Oasis": {
+   "revision": 130693,
+   "internal": "oasis_bleak",
+   "archetype": "Oasis",
+   "description": null,
+   "conditions": []
+  },
+  "Crimson Forest": {
+   "revision": 140257,
+   "internal": "deciduous_crimson",
+   "archetype": "Forest",
+   "description": null,
+   "conditions": []
+  },
+  "Void Forest": {
+   "revision": 142176,
+   "internal": "rift_active",
+   "archetype": "Special",
+   "description": null,
+   "conditions": []
+  }
+ },
+ "icons": {
+  "acid-storms": {
+   "file": "acid-storms.svg",
+   "title": "Acid Storms Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Acid_Storms_Environmental_Condition_Icon.svg",
+   "sha256": "4b7b01678619265894cdb69683a1ad1bee0254125da3fccbe896cd9008bc0ebe"
+  },
+  "blizzards": {
+   "file": "blizzards.svg",
+   "title": "Blizzards Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Blizzards_Environmental_Condition_Icon.svg",
+   "sha256": "63ffb2e1f3bd9afec4a5c729e5594b0ed603fe014ebd46d3a90582ed2683c7a1"
+  },
+  "extreme-cold": {
+   "file": "extreme-cold.svg",
+   "title": "Extreme Cold Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Extreme_Cold_Environmental_Condition_Icon.svg",
+   "sha256": "b9881b9eea7c0ff7f1ec7810a86ac2d2dd719f3bf72a252c7daabb985dd5ccf4"
+  },
+  "fire-tornados": {
+   "file": "fire-tornados.svg",
+   "title": "Fire Tornados Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Fire_Tornados_Environmental_Condition_Icon.svg",
+   "sha256": "ffec26e3665bd6ed5695c18450c22ed03e0ece9cd8767f6838fe21f874920480"
+  },
+  "intense-heat": {
+   "file": "intense-heat.svg",
+   "title": "Intense Heat Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Intense_Heat_Environmental_Condition_Icon.svg",
+   "sha256": "bd67b75cedc431346ae448840ea2d1241b5ffc4a6def4d8aac62faabb7a89f7d"
+  },
+  "ion-storms": {
+   "file": "ion-storms.svg",
+   "title": "Ion Storms Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Ion_Storms_Environmental_Condition_Icon.svg",
+   "sha256": "68b98bdefe4835d637677bb99c4ad11f47f1ee387529efc07c90ad3e1e311e51"
+  },
+  "meteor-storms": {
+   "file": "meteor-storms.svg",
+   "title": "Meteor Storms Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Meteor_Storms_Environmental_Condition_Icon.svg",
+   "sha256": "62fc45797764e98a3662e76a354070a2e3a8d33f8c19024708aaf80f8c39c5c7"
+  },
+  "rainstorms": {
+   "file": "rainstorms.svg",
+   "title": "Rainstorms Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Rainstorms_Environmental_Condition_Icon.svg",
+   "sha256": "67b9bfec422977f1e5cb99cf684fdcd5df750bed31f243a4239c11481165c714"
+  },
+  "sandstorms": {
+   "file": "sandstorms.svg",
+   "title": "Sandstorms Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Sandstorms_Environmental_Condition_Icon.svg",
+   "sha256": "c14e5e794c9ad23d9859eb8ac9ac9b10492964c89b40329f13cc9ee6803646fb"
+  },
+  "thick-fog": {
+   "file": "thick-fog.svg",
+   "title": "Thick Fog Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Thick_Fog_Environmental_Condition_Icon.svg",
+   "sha256": "bfb0ba83342bc793ae1215420e0c67e8c5b7ad1227e6fc7c54dab713d7b1e9fa"
+  },
+  "tremors": {
+   "file": "tremors.svg",
+   "title": "Tremors Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Tremors_Environmental_Condition_Icon.svg",
+   "sha256": "560d70aaf36a114ff43e29f70f0e7cfa2fd12be0a7f3007196b83d87f021b38b"
+  },
+  "volcanic-activity": {
+   "file": "volcanic-activity.svg",
+   "title": "Volcanic Activity Environmental Condition Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
+   "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
+  }
+ }
+}

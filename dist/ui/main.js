@@ -11,11 +11,12 @@ const VIEW_MODULES = {
   enemy: () => import('./views/enemy.js'),
   demolition: () => import('./views/demolition.js'),
   factions: () => import('./views/factions.js'),
+  planets: () => import('./views/planets.js'),
 };
 const TITLES = {
   warbonds: L('전쟁 채권', 'Warbonds'),
   arsenal: L('스트라타젬', 'Stratagems'), gear: L('장비', 'Gear'), enemy: L('적 대응', 'Enemies'),
-  demolition: L('철거', 'Demolition'), factions: L('팩션 추천', 'Faction picks'),
+  demolition: L('철거', 'Demolition'), factions: L('팩션 추천', 'Faction picks'), planets: L('행성', 'Planets'),
 };
 const SITE = L('HD2 필드 가이드', 'HD2 Field Guide');
 

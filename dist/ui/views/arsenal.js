@@ -10,6 +10,7 @@ import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
 import { shipModulesSource } from '../../data/ship-modules.js';
+import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
 
 const SORTS = [
   { id: '', name: L('기본 순서', 'Default order') },
@@ -214,6 +215,26 @@ globalThis.document?.addEventListener('click', event => {
   for (const panel of $$('[data-fire-mode-panel]', group)) panel.hidden = panel.dataset.fireModePanel !== pick.dataset.fireMode;
 });
 
+// Planet conditions, modifiers and events that change this stratagem, applied to the value shown above.
+const EFFECT_KIND = { condition: L('환경 조건', 'Environment'), gloom: L('글룸', 'Gloom'), modifier: L('작전 제한 조건', 'Operation modifier'), event: L('이벤트 효과', 'Event effect') };
+function planetLines(t) {
+  const s = L('초', 's');
+  const pct = factor => Math.round((factor - 1) * 100);
+  const lines = stratagemEffects.filter(effect => !effect.types || effect.types.includes(t.type)).flatMap(effect => {
+    const label = `${T(effect.name)} (${EFFECT_KIND[effect.kind]})`;
+    if (effect.disable) return [L(`${label}: 스트라타젬이 간헐적으로 막힘`, `${label}: stratagems are disabled at times`)];
+    if (effect.cooldownUp && t.cooldown != null) return [L(`${label}: 재사용 대기 증가(수치 미확인)`, `${label}: longer cooldown (amount unverified)`)];
+    const rows = [];
+    if (effect.cooldown && t.cooldown != null) rows.push(L(`${label}: 재사용 대기 +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown * 100) / 100)}${s}`, `${label}: cooldown +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown * 100) / 100)}${s}`));
+    if (effect.callIn && t.callIn != null) rows.push(L(`${label}: 호출 시간 +${pct(effect.callIn)}% → ${num(Math.round(t.callIn * effect.callIn * 100) / 100)}${s}`, `${label}: call-in +${pct(effect.callIn)}% → ${num(Math.round(t.callIn * effect.callIn * 100) / 100)}${s}`));
+    if (effect.rearm && t.rearm != null) rows.push(L(`${label}: 재무장 +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`, `${label}: rearm +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`));
+    return rows;
+  });
+  if (!lines.length) return '';
+  return html`<div class="planet-effects"><h4>${L('행성 효과가 붙으면', 'With planet effects')}</h4><ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
+    <p class="faint" style="font-size:12.5px">${L('위에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the value shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p></div>`;
+}
+
 // Cooldown, call-in time, uses and Eagle rearm, with the ship modules that change them.
 function timingBlock(item) {
   const t = timingOf(item);
@@ -236,6 +257,7 @@ function timingBlock(item) {
       ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
     </dl>
     ${on && t.modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${t.modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}
+    ${planetLines(t)}
     <div class="sources">${external(item.source, L('위키 수치', 'Wiki stats'))}${external(shipModulesSource.page, L('함선 모듈', 'Ship Modules'))}</div>
   </section>`;
 }

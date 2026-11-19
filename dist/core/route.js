@@ -5,7 +5,8 @@
 //   #/enemy[/<enemy>]?w=<weapon>&m=<mode>&shield=1
 //   #/demolition?s=<structure> | #/demolition?w=<stratagem>&m=<mode>
 //   #/factions[/<guide>]
-export const VIEWS = ['warbonds', 'arsenal', 'gear', 'enemy', 'demolition', 'factions'];
+//   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>
+export const VIEWS = ['warbonds', 'arsenal', 'gear', 'enemy', 'demolition', 'factions', 'planets'];
 export const HOME = 'warbonds';
 // Hashes used by the previous site keep working.
 const LEGACY = { catalog: 'arsenal', combat: 'enemy', demolition: 'demolition', factions: 'factions' };

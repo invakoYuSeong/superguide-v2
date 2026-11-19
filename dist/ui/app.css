@@ -781,23 +781,34 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-stats dd .dim { color: var(--text-3); font: 600 13px/1.25 var(--font); }
 .armor-source { margin-top: 7px; font-size: 12.5px; color: var(--text-2); }
 .armor-source a { color: var(--accent-text); font-weight: 650; }
+.planet-tabs { margin-bottom: 14px; flex-wrap: wrap; }
+.planet-effects { margin-top: 10px; }
+.planet-effects h4 { font-size: 14px; font-weight: 750; margin-bottom: 4px; }
+.planet-sub { margin: 26px 0 8px; font-size: 20px; font-weight: 800; }
+.lede-note { margin: 0 0 12px; font-size: 14px; color: var(--text-2); }
+.info-icon:empty { display: none; }
+.info-item:has(.info-icon:empty) { grid-template-columns: minmax(0, 1fr); }
+.biome-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.biome-planets { margin-top: 8px; font-size: 13.5px; color: var(--text-2); }
+.biome-planets summary { cursor: pointer; font-weight: 650; color: var(--text); }
+.biome-planets p { margin-top: 6px; line-height: 1.7; }
 .mission-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .mission-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .mission-list a { color: var(--text); font-weight: 650; }
 .mission-list .badge { height: 20px; padding: 0 6px; font-size: 11px; }
-.booster-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
-.booster-item { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; padding: 16px; background: var(--surface); border: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + 16px); }
-.booster-item::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--accent); }
-.booster-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-.booster-icon { width: 64px; height: 64px; display: grid; place-items: center; padding: 6px; background: #141714; border: 1px solid var(--line-strong); }
-.booster-icon img { width: 100%; height: 100%; object-fit: contain; }
-.booster-body { min-width: 0; }
-.booster-body h3 { font-size: 17px; font-weight: 800; line-height: 1.25; }
-.booster-body .en { margin-top: 2px; font: 600 13px/1.2 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
-.booster-desc { margin-top: 8px; font-size: 14px; color: var(--text-2); }
-.booster-detail { position: relative; margin-top: 6px; padding-left: 16px; font-size: 14px; color: var(--text); }
-.booster-detail::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
-@media (max-width: 420px) { .booster-list { grid-template-columns: 1fr; } .booster-item { grid-template-columns: 48px minmax(0, 1fr); } .booster-icon { width: 48px; height: 48px; } }
+.info-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+.info-item { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; padding: 16px; background: var(--surface); border: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + 16px); }
+.info-item::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--accent); }
+.info-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.info-icon { width: 64px; height: 64px; display: grid; place-items: center; padding: 6px; background: #141714; border: 1px solid var(--line-strong); }
+.info-icon img { width: 100%; height: 100%; object-fit: contain; }
+.info-body { min-width: 0; }
+.info-body h3 { font-size: 17px; font-weight: 800; line-height: 1.25; }
+.info-body .en { margin-top: 2px; font: 600 13px/1.2 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+.info-desc { margin-top: 8px; font-size: 14px; color: var(--text-2); }
+.info-detail { position: relative; margin-top: 6px; padding-left: 16px; font-size: 14px; color: var(--text); }
+.info-detail::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
+@media (max-width: 420px) { .info-list { grid-template-columns: 1fr; } .info-item { grid-template-columns: 48px minmax(0, 1fr); } .info-icon { width: 48px; height: 48px; } }
 .armor-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* Armor in the warbond item pane: the render on a dark plate, like .gear-art.large. */
 .armor-detail-art { display: grid; place-items: center; height: 220px; background: #141714; border: 1px solid var(--line-strong); font: 600 13px/1.2 var(--cond); color: var(--text-3); }
@@ -969,7 +980,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
   .tabs { display: none; }
   .bar { gap: 12px; }
   .tabbar {
-    display: grid; grid-template-columns: repeat(6, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    display: grid; grid-template-columns: repeat(7, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
     padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); background: var(--bg); border-top: 1px solid var(--line);
   }
   .tabbar::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: 3px; pointer-events: none;
