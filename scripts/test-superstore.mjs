@@ -37,8 +37,12 @@ for (const page of superstorePages) {
     ok(Number.isInteger(item.cost) && item.cost > 0, `${item.name}: no price`);
     if (item.kind === 'weapon') ok(personalWeapons.some(weapon => weapon.id === item.ref?.id), `${item.name}: not linked to a weapon`);
     else if (item.kind === 'armor' || item.kind === 'helmet') ok(armors.some(armor => armor.id === item.ref?.id && armor.en === item.set), `${item.name}: not linked to its armor set`);
-    else ok(item.ko && parsed.pages.flatMap(p => p.items).filter(p => p.name === item.name).flatMap(superstoreGameKeys).some(key => gameNames[key] === item.ko), `${item.name}: Korean name is not the game's`);
-    ok(item.image && (warbondItemImages[item.image] || warbondItemImagesMissing.includes(item.image)), `${item.name}: image ${item.image} not fetched (run fetch-warbond-item-images.py)`);
+    // A cosmetic without the game's Korean yet (the game table is refreshed on one PC) keeps its English
+    // name, and a tile without a fetched image shows its name only: both only inform, so a new store
+    // page never blocks a deploy (user decision 2026-11-19). A Korean name must still be the game's.
+    else if (!item.ko) notes.push(`${item.name}: no game Korean name yet (run build-game-names after the game table update)`);
+    else ok(parsed.pages.flatMap(p => p.items).filter(p => p.name === item.name).flatMap(superstoreGameKeys).some(key => gameNames[key] === item.ko), `${item.name}: Korean name is not the game's`);
+    if (!item.image || !(warbondItemImages[item.image] || warbondItemImagesMissing.includes(item.image))) notes.push(`${item.name}: image ${item.image} not fetched (run fetch-warbond-item-images.py)`);
   }
 }
 ok(parseRoute('#/superstore').view === 'superstore' && TAB_OF.superstore === 'warbonds', 'the Superstore opens under the Store tab');
