@@ -8,6 +8,8 @@ import { weaponImages } from '../../data/weapon-images.js';
 import { pickerEnemyImages } from '../../data/selector-images.js';
 import { combatImages } from '../../data/combat-images.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
+import { enemyPages } from '../../data/enemy-pages.js';
+import { factionGuides } from '../../data/faction-data.js';
 import { stratagems, stratagemById } from '../../core/catalog.js';
 import { solveMatchup, withHitAssumption, spearCannotLock, partPool, isFatal, FATAL } from '../../core/combat.js';
 import { compareAttacks } from '../../core/compare.js';
@@ -156,15 +158,29 @@ function renderPicker() {
   $('#picker-current', root).textContent = T(enemyById.get(state.enemy).name);
 }
 
+// Wiki fire damage multiplier shown like the explosive resistance: x0.8 = 20%, x1.5 = -50% (takes more).
+const fireText = mult => mult == null ? L('미확인', 'Unverified') : pct(Math.round((1 - mult) * 100));
+
+// Spawning and Behavior from the enemy's wiki page, summarized (enemy-pages.js).
+function lore(enemy) {
+  const info = enemyPages[enemy.id];
+  const block = (title, lines, linesEn) => lines.length ? html`<div><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${line}</li>`)}</ul></div>` : '';
+  if (!info || !(info.spawning.length || info.behavior.length)) return '';
+  return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</section>`;
+}
+
 function hero(enemy) {
   const m = enemy.main;
+  const info = enemyPages[enemy.id];
+  const sub = info?.subfaction && factionGuides.find(guide => guide.id === info.subfaction);
   const vitals = [
     [L('본체 체력', 'Main health'), num(m.hp)], [L('본체 장갑', 'Main armor'), m.armor], [L('내구도', 'Durability'), pct(m.durability)], [L('폭발 저항', 'Explosive resistance'), pct(m.exdr)],
     ...(m.constitution ? [[L('출혈 여유', 'Bleed-out health'), num(m.constitution)]] : []),
+    [L('화염 저항', 'Fire resistance'), fireText(info?.fireMult)], [L('경직치', 'Stagger threshold'), info?.staggerReq == null ? L('미확인', 'Unverified') : num(info.staggerReq)],
   ];
   return html`<section class="panel enemy-hero" data-faction="${enemy.faction}">
     ${portrait(enemy, '', true)}
-    <div><span class="faction-tag">${enemy.faction}</span>${sizeTag(enemy)}<h1>${enemy.name}</h1>
+    <div><span class="faction-tag">${enemy.faction}${sub ? html`·${sub.name}` : ''}</span>${sizeTag(enemy)}<h1>${enemy.name}</h1>
       <div class="vitals">${vitals.map(([label, value]) => html`<span>${label}<b>${value}</b></span>`)}</div>
       <p class="note">${enemy.note}</p>
       <p class="sources">${external(enemy.source, L('위키 항목', 'Wiki page'))}</p>
@@ -491,7 +507,7 @@ function renderMain({ scrollToMatchup = false } = {}) {
   const enemy = enemyById.get(state.enemy);
   const entries = rankWeapons(enemy, state.shield);
   const selected = weaponsOf[state.group].some(weapon => weapon.id === state.weapon) ? state.weapon : null;
-  render($('#enemy-main', root), html`${hero(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
+  render($('#enemy-main', root), html`${hero(enemy)}${lore(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
   renderTray();
   renderPicker();
   if (scrollToMatchup) $('.rank-row[aria-expanded="true"]', root)?.scrollIntoView({ block: 'start' });

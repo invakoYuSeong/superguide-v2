@@ -1,0 +1,886 @@
+{
+ "source": "https://helldivers.wiki.gg/api.php",
+ "retrievedAt": "2026-11-19",
+ "pages": {
+  "Agitator": {
+   "title": "Agitator",
+   "revision": 142502,
+   "faction": "Cyborg Legion",
+   "fireMult": "0.5",
+   "staggerReq": "20",
+   "minDifficulty": "1",
+   "spawning": "Agitators can be found on all difficulties on planets where the Cyborg Legion is present.\nAgitators can spawn from [[Dropship|Bot Drops]], within patrols, and guarding [[Automaton Outpost]]s and [[Objectives]].",
+   "behavior": "Compared to Automatons, Agitators [[Agitator#Gameplay|do not hesitate when detecting]] a Helldiver, and will immediately attack them. Agitators will often attempt to command nearby [[Trooper]]s/other light humanoid Automatons, [[Berserker]]s, and [[Devastator]]s of any kind, granting them an increase in movement speed; this is signified by glowing yellow eyes on affected Automatons. Agitators can continue to command nearby Automatons as long as the commanding Agitator is alive. They prefer to fire their Plasma Charger cannon at range, utilizing Automatons as a frontline.\n\nAt range, Agitators will attack using their slow-firing Plasma Charger in two to seven round volleys, dealing moderate damage. They can also overcharge it, altering the projectile to deal higher damage and explode within a small radius; they will brace their cannon with their left arm when this is performed. After 20 shots, Agitators will cool down their Plasma Charger. When a Helldiver exits their line of sight, Agitators will throw a grenade at the Helldiver's last position.\n\nDuring combat, Agitators can utilize cover, ducking behind waist-high objects and leaning out from corners to fire. Out of cover, they will occasionally sidestep to throw off a Helldiver's aim. Rarely, Agitators will perform a taunt.\n\nAt close range, Agitators utilize \"techno-martial arts,\" which can be a frontal kick with either leg, a roundhouse kick with their left leg, and a swing or backhand strike using either of their upper limbs. These attacks will deal a moderate amount of damage and will knock a Helldiver off their feet. If a Helldiver is on the ground, Agitators can stomp on them."
+  },
+  "Alpha Commander": {
+   "title": "Alpha Commander",
+   "revision": 142329,
+   "faction": "Terminids",
+   "fireMult": "1",
+   "staggerReq": "25",
+   "minDifficulty": "8",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|8}}, completely replacing Brood Commanders. They can spawn from [[Bug Breach|Bug Breaches]], within patrols, and guarding [[Objectives]], [[Bug Nest]]s, and [[Minor Places of Interest]].",
+   "behavior": "''Alpha Commanders behave similarly to [[Brood Commander#Behavior|Brood Commanders]].''\n\nAlpha Commanders have slightly more health and durability compared to Brood Commanders, but otherwise behave the same. The Alpha Commander can instead summon a trio of [[Alpha Warrior]]s, which are faster and potentially deadlier [[Warrior]]s. Sometimes the Alpha Commander summons [[Hive Guard|Hive Guards]], which usually indicates that a large number of Hive Guards and other heavily armored enemies will spawn during the mission.\n\nAlpha Commanders are able to release a cloud of pheromones into the air that causes a [[Bug Breach]]."
+  },
+  "Alpha Warrior": {
+   "title": "Alpha Warrior",
+   "revision": 141592,
+   "faction": "Terminids",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "8",
+   "spawning": "{{PAGENAME}}s appear only on {{Difficulty|8}} and above, which is when Alpha Commanders begin appearing. They are summoned in a trio by Alpha Commanders.",
+   "behavior": "{{PAGENAME}}s are identical to [[Warrior]]s in behavior, but due to their increased movement speed, they are more likely to keep up with [[The Helldivers|Helldivers]], allowing them to constantly attack. When their head is destroyed, Alpha Warriors will enter a \"berserk\" state, where they gain increased movement speed but continuously bleed out.\n\n{{PAGENAME}}s can release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Annihilator Tank": {
+   "title": "Annihilator Tank",
+   "revision": 139864,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": null,
+   "minDifficulty": "3",
+   "spawning": "Annihilator Tanks first appear on {{Difficulty|3}} with a low spawning chance, where it may spawn in specific medium-to-large [[Automaton Outpost|Automaton Outposts]].\n\nWhen they begin appearing normally starting on {{Difficulty|4}}, they can spawn from Bot Drops, within patrols, guarding Automaton Outposts, Fortresses, and [[Minor Places of Interest]]. They may also occasionally be found patrolling the map on their own.\n\nAnnihilator Tanks share a spawn chance with [[Shredder Tank|Shredder Tanks]], but starting on {{Difficulty|7}}, they are both occasionally replaced by [[Barrager Tank|Barrager Tanks]].",
+   "behavior": "When encountered outside of a Bot Drop, Annihilator Tanks can be found still or moving with patrols. When it notices a [[Helldiver]], it will fire any of its armaments if a Helldiver is in its line of sight. \n\nIts coaxial Fusion Cycler has a high fire rate but lower damage, while its hull Heavy Fusion Repeater has a slower fire rate but higher damage. Its Fusion Battle Cannon will flash a red light before firing two seconds later, before reloading for about six seconds.\n\nDestroying its tracks will render it immobile. Destroying its back engine or turret will disable the Annihilator Tank, followed by it exploding. Significant amounts of damage will immediately cause it to explode."
+  },
+  "Anti-Air Emplacement": {
+   "title": "Anti-Air Emplacement",
+   "revision": 137727,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "4",
+   "spawning": null,
+   "behavior": null
+  },
+  "Assault Raider": {
+   "title": "Assault Raider",
+   "revision": 138971,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "Starting on {{Difficulty|1}}, {{PAGENAME}}s can be found on normal planets. {{PAGENAME}}s can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nIf they appear on planets invaded by the {{Incineration Corps}}[[Incineration Corps]], they will have the paint job of the Incineration Corps while being functionally the same.\n\nOn [[Planets and Sectors|planets]] invaded by the {{Jet Brigade}}[[Jet Brigade]], they are replaced by [[Jet Brigade Commissar]], which are functionally the same.\n\nIts original appearance was completely replaced by its Jet Brigade appearance after {{MajorOrderLink|id=A1-10-4|text=their debut in the invasion of Matar Bay}} but have since returned within the ranks of the [[Automatons|Automatons]].",
+   "behavior": "{{PAGENAME}}s will fire their Fusion Pistol in three-round bursts four times before reloading for four seconds. If they are [[Trooper#Gameplay|being suppressed]] by gunfire, they will erratically move their pistol, significantly reducing their accuracy. Should a Helldiver stray too close, they will instead attempt to slash the Helldiver with their Heat Blade.\n\nLike all Trooper variants, they come equipped with Grenades to flush out enemies within cover.\n\n{{PAGENAME}}s will use their jump pack to quickly approach [[The Helldivers|Helldivers]], then begin running at them to get in close range with their sword. Their jump pack can unintentionally explode if damaged, instantly killing the {{PAGENAME}}s but significantly damaging and burning nearby {{Automaton}}[[Automatons]] or Helldivers. \n\nWhen alerted to a Helldiver's presence, {{PAGENAME}}s can fire a flare to call in a [[Dropship|Bot Drops]]."
+  },
+  "Barrager Tank": {
+   "title": "Barrager Tank",
+   "revision": 139879,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": null,
+   "minDifficulty": "7",
+   "spawning": "Barrager Tanks first appear on {{Difficulty|7}}, having a chance to replace [[Annihilator Tank|Annihilator]] and [[Shredder Tank|Shredder]] Tanks. They can spawn from Bot Drops, within patrols, guarding heavy [[Automaton Outpost]]s, Fortresses, and [[Minor Places of Interest]]. They may also occasionally be found patrolling the map on their own.",
+   "behavior": "When encountered outside of a Bot Drop, Barrager Tanks can be found still or moving with patrols. Based on where a [[The Helldivers|Helldiver]] is when it spots them, Barrager Tanks will either fire their Heavy MRLS directly at Helldivers at close range, or point them upwards to act as artillery at medium-long range. In both firing modes, Barragers will fire a three-rocket volley.\n\nDestroying its tracks will render it immobile; however, Helldivers must move further away from Barrager Tanks to take advantage of this state. Destroying its back engine or turret will disable the Barrager Tank, followed by it exploding. Significant amounts of damage will immediately cause it to explode."
+  },
+  "Berserker": {
+   "title": "Berserker",
+   "revision": 138975,
+   "faction": "Automatons",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost|Automaton Outposts]] and [[Objectives]].  \n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\nOn planets invaded by the {{Incineration Corps}}[[Incineration Corps]], the {{PAGENAME}} is absent.",
+   "behavior": "{{PAGENAME}}s will simply path their way towards a [[Helldiver]] to get close enough to use their Meatsaws. If a Helldiver is on the ground or it is missing both of its arms, it will stomp on them."
+  },
+  "Bile Titan": {
+   "title": "Bile Titan",
+   "revision": 141861,
+   "faction": "Terminids",
+   "fireMult": "1.7",
+   "staggerReq": "50",
+   "minDifficulty": "4",
+   "spawning": "Bile Titans can be first found on {{Difficulty|4}} as the Mission Target of the [[Eliminate Bile Titans]] [[Missions|mission]].\n\nStarting on {{Difficulty|6}}, Bile Titans can spawn from [[Bug Breach|Bug Breaches]] and can be found patrolling the map on its own.\n\nStarting on {{Difficulty|7}}, Bile Titans can be found guarding certain heavy [[Bug Nest]]s layouts, and {{Difficulty|10}}'s Mega Nests; these Nests can also contain a [[Bug Hole#Bile_Titan_Bug_Hole|Bug Hole that Bile Titans can spawn from]].\n\nOn planets invaded by the {{Spore Burst Strain|text}}, Bile Titans are replaced completely by [[Spore Burst Bile Titan|Spore Burst Bile Titans]] starting at {{Difficulty|5}}.\n\nBile Titans cannot spawn on missions containing [[Dragonroach]]es; in situations where a Bile Titan would normally spawn, a [[Charger]] is spawned instead.",
+   "behavior": "When encountered outside of a Bug Breach, Bile Titans will usually remain still or follow a fixed patrol path. Upon noticing Helldivers, they will turn to face them. Bile Titans will signify when they will begin attacking Helldivers by roaring and slamming their front legs into the ground — the background music will also change. When spawning from a Bug Breach or Bile Titan Bug Hole, they will immediately be aggressive and seek any nearby Helldivers.\n\nA Bile Titan spews its bile when it is 25-30m away from Helldivers, with a 10 second cooldown between bile attacks. Helldivers that are directly in front of a Bile Titan can be attacked by a right leg slam. If Helldivers are under a Bile Titan, it will attack using both of its front legs, rapidly stomping the area in front of it. The legs of the Bile Titan can also damage and kill Helldivers while the Bile Titan is moving. Near-miss leg attacks can cause Helldivers to be knocked down."
+  },
+  "Brawler": {
+   "title": "Brawler",
+   "revision": 138833,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on any difficulty. They can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\n{{PAGENAME}}s spawn more frequently on higher difficulties, mostly replacing [[Trooper]]s.",
+   "behavior": "{{PAGENAME}}s will continuously move towards [[The Helldivers|Helldivers]] and attack by swinging their Heat Blades once close. They lack unique means of performing ranged attacks, though they are capable of manning machine gun emplacements and throwing grenades at [[The Helldivers|Helldivers]] behind cover, as all Trooper variants do.\n\nWhen alerted to a [[The Helldivers|Helldiver's]] presence, {{PAGENAME}}s can fire a flare to call in a [[Dropship|Bot Drop]]."
+  },
+  "Brood Commander": {
+   "title": "Brood Commander",
+   "revision": 141213,
+   "faction": "Terminids",
+   "fireMult": "1",
+   "staggerReq": "25",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|1}} as the Mission Target of the [[Eliminate Brood Commanders]] [[Missions|Mission]].\n\nStarting on {{Difficulty|3}}, they can spawn from [[Bug Breach|Bug Breaches]], within patrols, and guarding [[Objectives]] and [[Bug Nest]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\nStarting on {{Difficulty|8}}, {{PAGENAME}}s are replaced by their variant, the [[Alpha Commander]].",
+   "behavior": "Brood Commanders will approach [[The Helldivers|Helldivers]], climbing over terrain and obstacles in an attempt to attack with their claws at close range. They can strafe sideways, and will attempt to cut off Helldivers trying to run past them. Similarly to Warriors, when their head is destroyed, Brood Commanders will enter a \"berserk\" state, during which they gain increased movement speed but continuously bleed out. Brood Commanders will also occasionally summon a trio of Warriors.\n\nBrood Commanders are able to charge at Helldivers, usually when a Helldiver is 15-20m away from them. The charge will deal damage upon contact and can knock down Helldivers, potentially inflicting a concussive effect onto them. The Brood Commander's charge can be dodged or can be stopped by colliding with terrain or a larger entity, like a [[Charger]]. \n\nBrood Commanders are able to release a cloud of pheromones into the air that causes a [[Bug Breach]]."
+  },
+  "Bunker Turret": {
+   "title": "Bunker Turret",
+   "revision": 142047,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "5",
+   "spawning": "It is most commonly seen atop [[Destroy Command Bunkers|Command Bunkers]], but have a chance to spawn at Automaton occupied [[Minor Place of Interest|Minor Place of Interests]], which start appearing at {{Difficulty|7}} difficulty. \n\nOn {{Difficulty|10}} difficulty, it can be seen defending Automaton Fortresses.",
+   "behavior": "The Bunker Turret slowly fires two times before cooling down for roughly five seconds, and has very little warning of when it is going to fire at Helldivers, besides it aiming at them."
+  },
+  "Caustic Charger": {
+   "title": "Caustic Charger",
+   "revision": 142179,
+   "faction": "Caustic Strain",
+   "fireMult": "1.5",
+   "staggerReq": "38",
+   "minDifficulty": "6",
+   "spawning": "{{PAGENAME}}s can be found on planets invaded by the {{Caustic Strain|text=Caustic Strain}}. Like the Charger, {{PAGENAME}}s can spawn from [[Bug Breach]]es, patrolling the map with other Terminids. They can also be found guarding heavy [[Bug Nest]]s, [[Objectives]] and [[Minor Places of Interest]], where they can sometimes be found burrowed.",
+   "behavior": "''{{PAGENAME}}s [[Charger#Behavior|behave similarly to Chargers]].''\n\nUpon death, Caustic Chargers will cause a spore explosion, damaging any nearby entities. This doesn't always happen, though. {{PAGENAME}}s are slightly more vulnerable compared to Chargers and Charger Behemoths, as their spore flesh can be damaged by any weapon, and it has less armor compared to the regular Chargers and Charger Behemoths. However, damaging it will only transfer 20% of the damage dealt to its main health."
+  },
+  "Caustic Spewer": {
+   "title": "Caustic Spewer",
+   "revision": 142383,
+   "faction": "Caustic Strain",
+   "fireMult": "1",
+   "staggerReq": "30",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be found on {{Caustic Strain|text=Caustic Strain}}-invaded planets, starting at {{Difficulty|3}}. They can spawn from [[Bug Breach]]es, within patrols, and guarding [[Objectives]], [[Minor Places of Interest]]s, and [[Bug Nest]]s.",
+   "behavior": "{{PAGENAME}}s approach Helldivers and, at 11- 20 m, will spit their bile at them. At 10m, Caustic Spewers will resort to using their front leg to attack Helldivers.\n\nA lethal shot to a Caustic Spewer's butt region will cause it to explode, dealing damage to nearby Terminids and Helldivers. Dead Caustic Spewers with their butts intact can still explode once enough damage is dealt to them. Destroying legs will slow them down, further slowing them for each leg destroyed.\n\nStarting on {{Difficulty|6}}, at around 30m, Caustic Spewers will begin firing two bile bombs into the air, which can potentially fall and explode on Helldivers."
+  },
+  "Caustic Spitter": {
+   "title": "Caustic Spitter",
+   "revision": 142385,
+   "faction": "Caustic Strain",
+   "fireMult": "0.5",
+   "staggerReq": "1",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on [{{Caustic Strain|text=Caustic Strain}}-invaded planets, starting at {{Difficulty|1}}, spawning from [[Bug Breach]]es, within patrols, or from [[Bug Hole]]s. They can also be found guarding [[Bug Nest]]s, [[Minor Places of Interest]], and [[Objectives]].",
+   "behavior": "{{PAGENAME}}s will simply approach [[Helldiver]]s, climbing over terrain and obstacles in an attempt to spit their bile. {{PAGENAME}}s will spit every three seconds once a Helldiver is within 15m of them. Their bile slows Helldivers' movement speed while dealing a mild damage-over-time effect. Upon death, {{PAGENAME}}s will cause a small explosion of bile, dealing damage to nearby Terminids and Helldivers.\n\n{{PAGENAME}}s are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Caustic Warrior": {
+   "title": "Caustic Warrior",
+   "revision": 142384,
+   "faction": "Caustic Strain",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be found on {{Caustic Strain|text=Caustic Strain}}-invaded planet, starting {{Difficulty|2}}. They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s, [[Objectives]], and [[Minor Places of Interest]], or from [[Bug Hole]]s.",
+   "behavior": "{{PAGENAME}}s are identical to [[Warrior]]s in behavior, but explode in bile upon taking a fatal blow to their body/main, damaging nearby Terminids and [[The Helldivers|Helldivers]].\n\n{{PAGENAME}}s can release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Charger": {
+   "title": "Charger",
+   "revision": 141505,
+   "faction": "Terminids",
+   "fireMult": "1.5",
+   "staggerReq": "38",
+   "minDifficulty": "4",
+   "spawning": "Starting on {{Difficulty|4}}, {{PAGENAME}}s can spawn from [[Bug Breach|Bug Breaches]], patrolling the map with other Terminids, and guarding [[Objectives]]. Higher difficulties will increase how often they can spawn. In addition, they can be found guarding [[Minor Places of Interest]], where they can be sometimes found burrowed.\n\nStarting on {{Difficulty|7}}, {{PAGENAME}}s can be found guarding heavy [[Bug Nest]]s and {{Difficulty|10}}'s mega Nests. In addition, Chargers have a chance of being replaced by its variants, the [[Charger Behemoth]] and the [[Caustic Charger]]. Higher difficulties will increase this chance.\n\nWhen the game attempts to spawn a [[Bile Titan]] on missions with [[Dragonroach]]es active, such as through [[Bile Titan Bug Hole]]s, a normal Charger is spawned instead. This makes it possible to encounter regular Chargers on {{Difficulty|10}}, where their spawns are otherwise replaced entirely by their tougher variants.",
+   "behavior": "When encountered outside of a Bug Breach, Chargers will usually remain still. Upon noticing Helldiver movement or sounds caused by them, they will turn to face where a Helldiver or the sound was. Chargers will signify when they will begin attacking with a roar, and will often immediately begin charging towards Helldivers. In patrols, they will also stop moving to turn towards any nearby movement or sounds. When spawning from a Bug Breach, they will immediately be aggressive and seek any nearby Helldivers to trample. \n\nUpon initiating a charge, Chargers will not stop until it charges past a Helldiver, collides with solid terrain, or even other Chargers. Helldivers hit by a charge will be knocked down/sent flying and will often be inflicted with a concussive effect. Chargers will also attempt to attack Helldivers up close with its front legs.\n\nHelldivers that destroy a Charger's rear or blow off its torso armor will cripple it, slowing its movement and causing it to bleed out."
+  },
+  "Charger Behemoth": {
+   "title": "Charger Behemoth",
+   "revision": 141504,
+   "faction": "Terminids",
+   "fireMult": "1.5",
+   "staggerReq": "38",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|3}} as the Mission Target of the [[Eliminate Chargers]] [[Missions|mission]].\n\nStarting on {{Difficulty|7}}, the {{PAGENAME}}, along with the [[Caustic Charger]], will have a chance of replacing Chargers. Higher difficulties will increase this chance. Like the Charger, {{PAGENAME}}s can spawn from [[Bug Breach]]es, patrolling the map with other Terminids, and guarding [[Objectives]]. They can also be found guarding heavy [[Bug Nest]]s, {{Difficulty|10}}'s mega Nests, and [[Minor Places of Interest]], where they can sometimes be found burrowed.",
+   "behavior": "''{{PAGENAME}}s [[Charger#Behavior|behave similarly to Chargers]].'' They have slightly more health and durability compared to Chargers."
+  },
+  "Commissar": {
+   "title": "Commissar",
+   "revision": 138835,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on any difficulty. They can spawn from [[Dropship|Bot Drops]], leading patrols, and guarding [[Automaton Outpost]]s and [[Objectives]]. Unlike other light Automatons, they do not spawn from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\n{{PAGENAME}}s on higher difficulties may be replaced by more dangerous light {{Automaton}}[[Automatons]], such as [[Rocket Raider]]s and [[MG Raider]]s.\n\nIf a planet is invaded by the {{Jet Brigade}}[[Jet Brigade]], Commissars will begin to be replaced by their Jet Brigade variant on {{Difficulty|1}}.",
+   "behavior": "{{PAGENAME}}s will fire their Fusion Pistol in three-round bursts if a [[The Helldivers|Helldiver]] is in their line of sight. They take 3 and a half seconds to cool their Fusion Pistol before firing again. Commissars will keep some distance from Helldivers, backing up if they approach, and will swing their Heat Blade if they are too close. If a Helldiver is behind cover, {{PAGENAME}}s will toss a grenade. If it is [[Trooper#Gameplay|being suppressed]] by gunfire, it will erratically move its pistol, significantly reducing its accuracy.\n\nWhen alerted to a [[The Helldivers|Helldiver's]] presence, Commissars can fire a flare to call in a [[Dropship|Bot Drop]].\n\nIts {{Jet Brigade}}[[Jet Brigade]] variant can utilize a jump pack, allowing it to constantly close the distance between itself and a Helldiver."
+  },
+  "Conflagration Devastator": {
+   "title": "Conflagration Devastator",
+   "revision": 140049,
+   "faction": "Incineration Corps",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on {{Difficulty|1}} on planets invaded by the {{Incineration Corps}}[[Incineration Corps]]. {{PAGENAME}}s can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Bulk Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Like [[Heavy Devastator|Heavy Devastators]], {{PAGENAME}}s will slowly but constantly push if a [[Helldiver]] is within their line of sight, firing their Conflagration Scattergun at a steady 40RPM fire rate, though can on occasion fire 2 shots at a more rapid 100RPM, quickly killing Helldivers who are not careful.\n\n{{PAGENAME}}s can bash Helldivers with their shield if they're too close, knocking them down. They can also stomp on Helldivers if they are prone."
+  },
+  "Crescent Overseer": {
+   "title": "Crescent Overseer",
+   "revision": 142610,
+   "faction": "Illuminate",
+   "fireMult": "1",
+   "staggerReq": "35",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s appear naturally throughout a map, in patrols, and can be summoned via reinforcements. They're the least plentiful Overseer variant, being limited to 1-2 instances in a given spawn condition.\n\nOn planets where the {{Appropriators}} '''[[Appropriators]]''' or {{Vote Snatchers}} '''[[Vote Snatchers]]''' subfactions are active, the {{PAGENAME}} are completely absent, unless the {{Invasion Fleet}} '''[[Invasion Fleet]]''' is also present.",
+   "behavior": "{{PAGENAME}}s slowly roam the battlefield and stop to aim their Plasma Bombard and lob plasma projectiles in an arcing trajectory once they detect enemies in their effective range. These attacks are able to cover a massive range and flush Helldivers out from cover and behind tall structures.\n\nShould a Helldiver confront them up close, they will instead shift their stance to hold their Bombard with both hands and aim directly at their target, firing projectiles in a manner similar to the [[Overseer]].\n\nAt point-blank range, they'll free up one hand to punch enemies in front of them."
+  },
+  "Crusher": {
+   "title": "Crusher",
+   "revision": 141041,
+   "faction": "Vote Snatchers",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "* Since there are no [[Watcher]]s to call reinforcements on a planet occupied by Vote Snatchers, Crushers will only spawn naturally as patrols, and guarding points of interest.\n** However, they spawn in much greater numbers comparatively\n*They, along with [[Wretch]]es, are spawned from [[Warp Ship]]s during [[Repel Invasion Fleet]] missions and Warp Ships spawned by [[Illuminate Overship|Overships]] during [[Take Down Overship]] missions on planets where the Vote Snatchers are active.",
+   "behavior": "* Crushers naturally walk around with their club dragging behind them. When a Crusher spots a Helldiver, they will sling the club over their shoulder and approach in a straight line until they are in range to attack with their club. Crushers produce an audio cue when engaging in combat that sounds similar to a loud horn or ringing bell.\n* Crushers will lunge forward when swinging, giving them deceptively long striking range."
+  },
+  "Devastator": {
+   "title": "Devastator",
+   "revision": 138977,
+   "faction": "Automatons",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can first be found on {{Difficulty|2}}. They can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost]]s and [[Objectives]].\n\nStarting on {{Difficulty|4}}, {{PAGENAME}}s begin being replaced by their variants, the [[Heavy Devastator]] and [[Rocket Devastator]]. This chance increases the higher the difficulty. In addition, {{PAGENAME}}s can be found guarding [[Minor Places of Interest]].\n\nThe [[Factory Strider]] can spawn four {{PAGENAME}}s from its undercarriage.",
+   "behavior": "{{PAGENAME}}s will slowly approach [[Helldiver]]s while firing their Fusion Assault Cannon. They fire a two-shot burst, then pause for around two seconds before shooting again.\n\n{{PAGENAME}}s are able to punch Helldivers if they're too close, knocking them down. They can also stomp on Helldivers if they are prone."
+  },
+  "Dragonroach": {
+   "title": "Dragonroach",
+   "revision": 142362,
+   "faction": "Terminids",
+   "fireMult": "1.7",
+   "staggerReq": "38",
+   "minDifficulty": "5",
+   "spawning": "Dragonroaches can only spawn in solitary patrols that can be spotted from long range. They do not have fixed spawns at Objective locations or [[Minor Places of Interest|POIs]], nor can they be spawned through [[Bug Breach]]es.\n\nBile Titan and Dragonroach spawns are mutually exclusive (except on the [[Spore Burst Strain]], where Dragonroaches spawn alongside [[Spore Burst Bile Titan|Spore Burst Bile Titans]]); in situations where a Bile Titan would normally spawn, such as [[Bile Titan Bug Hole]]s, distant patrols, and Bug Breaches, a [[Charger]] is spawned instead. Notably, this makes it possible to encounter normal Chargers on {{Difficulty|10}} [[missions]], where their spawns are otherwise replaced entirely by [[Charger Behemoth]]s and [[Caustic Charger]]s.\n\nOn [[Evacuate High-Value Assets]] missions on planets where Dragonroaches are active, they can spawn before the pre-mission timer finishes counting down; therefore it is advised to prepare for its attacks immediately.",
+   "behavior": "The Dragonroach eerily soars across the skies of the Hive World when not alerted. Upon spotting a Helldiver or being shot at, the Dragonroach will begin to perform a strafing run towards its target and will spew its fire breath over a large linear area. After which it will hover low in midair behind its target for a moment, before performing another concentrated fire breath attack and returning to higher altitudes. Once engaged in combat with a Helldiver, the Dragonroach will circle its target at high altitude between attacks. \n\nLike Bile Titans, Dragonroaches have a heavily armored carapace, and their main weak spot is their head."
+  },
+  "Dropship": {
+   "title": "Dropship",
+   "revision": 139884,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "1",
+   "spawning": null,
+   "behavior": null
+  },
+  "Elevated Overseer": {
+   "title": "Elevated Overseer",
+   "revision": 142611,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": "30",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s are often seen accompanying patrolling hordes of [[Voteless]] on their own. Additionally, they may spawn naturally on specific objectives throughout the map, via [[Grounded Warp Ship]], and via [[Warp Ship]] reinforcements.\n\nOn planets where {{Mindless Masses}} [[Mindless Masses]] or {{Vote Snatchers}} [[Vote Snatchers]] subfactions are active, {{PAGENAME}}s will be completely absent, unless the {{Invasion Fleet}} '''[[Invasion Fleet]]''' is also present.",
+   "behavior": "{{PAGENAME}}s move by flying above the ground and taking sharp turns to evade attacks. They otherwise slowly advance towards Helldivers while firing quick, 7-round bursts from their Storm Rifles.\n\n{{PAGENAME}}s will intermittently throw Plasma Detonator grenades between attacks."
+  },
+  "Factory Strider": {
+   "title": "Factory Strider",
+   "revision": 139888,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": null,
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be first found in the [[Eliminate Automaton Factory Strider]] [[Mission]] starting on {{Difficulty|4}}. \nStarting on {{Difficulty|7}} (and on {{Difficulty|6}} when the {{Cyborg Legion}}[[Cyborg Legion]] is present), they begin spawning from Bot Drops or guarding Heavy [[Automaton Outpost]]s. \n\nThe secondary objective [[Intercept Convoy]] spawns five {{PAGENAME}}s, patrolling from one end of the map to the other. One of them uniquely carries a Stratagem Scrambler that resembles a miniature [[Stratagem Jammer]].  \n\nOn planets invaded by the {{Cyborg Legion}}[[Cyborg Legion]], they are replaced by [[Vox Engine]]s starting on {{Difficulty|7}}, including on convoy secondary objectives. The objective icon, however, does not change.",
+   "behavior": "Upon being alerted to a [[The Helldivers|Helldiver's]] presence, the {{PAGENAME}} will audibly roar, and the {{PAGENAME}}'s armaments will fire independently at the Helldiver as long as they are in the {{PAGENAME}}'s line of sight. As its cannon can rotate 360° and independently from the {{PAGENAME}}, it will often be the first to fire. It can fire up to three rounds as long as a Helldiver is in its line of sight and not too close to the {{PAGENAME}}. Its Fusion Gatling Guns have a limited rotation, mainly tied to the {{PAGENAME}}'s head, but fire at a deadly 1200 RPM. The Factory Strider can also knock down and damage Helldivers as it walks.\n\nThe {{PAGENAME}}, pertaining to its name, will also spawn four Devastators every 50-55 seconds, and makes a sound akin to a mechanical door opening when it is doing so.\n\nUpon taking a lethal blow, it will let out a shriek before violently exploding. As it is dying, its body can crush Helldivers near it."
+  },
+  "Fleshmob": {
+   "title": "Fleshmob",
+   "revision": 140060,
+   "faction": "Illuminate",
+   "fireMult": "1.8",
+   "staggerReq": "45",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s spawn naturally throughout the map near POIs, in patrols, and via enemy reinforcements. Their quantity in a given spawn condition increases with higher difficulties.\n\nOn planets where the {{Appropriators|text=Appropriators}} and {{Vote Snatchers|text=Vote Snatchers}} subfactions are active, the {{PAGENAME}}s are completely absent.",
+   "behavior": "{{PAGENAME}}s lumber aimlessly throughout the map alongside Voteless and [[Overseer]]s, can be found guarding certain areas, or appear via reinforcements. Upon detecting any SEAF asset or Helldiver, based on their current proximity, Fleshmobs will initiate one of three behaviors:  \n\n* <15 meters: Slowly walk toward targets and swipe at them when in range.\n\n* 15-30 meters: Enter an aggressive state, moving quicker toward targets whilst constantly flailing their numerous arms around, knocking back Helldivers and destroying nearby objects.\n\n* 30+ meters: Perform a short windup in which they roar with their arms spread out and begin charging at their target at high speed, similar to a [[Charger]]. This ragdolls and heavily damages Helldivers."
+  },
+  "Gatekeeper": {
+   "title": "Gatekeeper",
+   "revision": 140067,
+   "faction": "Appropriators",
+   "fireMult": "1",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "Gatekeepers are part of the {{Appropriators}} Appropriators sub-faction of the Illuminate and can only spawn on worlds where the Appropriators are present. They begin spawning on {{Difficulty|4}} and above.",
+   "behavior": "Gatekeepers rarely spawn, and typically present less of a threat than more commonly spawned [[Harvester|Harvesters]] on higher difficulties. When they do arrive, they typically are positioned between [[Veracitor|Veracitors]] at the front and Harvesters at the back, occupying a suppressive midline role on the battlefield.\n\nThey have two attacks with their twin Plasma Starcannons, which project blue guiding lasers at their target:\n\n* A two-shot, concussive plasma burst that is capable of ragdolling a Helldiver behind cover. After the attack, the ends of the barrels will flare out, closing back in while preparing another attack.\n* A much longer plasma volley that can very easily shred apart a Helldiver if they do not take evasive maneuvers. This is preceded by the Starcannons \"pumping\", and the barrels rapidly winding up."
+  },
+  "Gunship": {
+   "title": "Gunship",
+   "revision": 142465,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "5",
+   "spawning": "Gunships spawn from [[Gunship Facility|Gunship Facilities]] on {{Difficulty|5}} and above. Gunship Facilities will begin spawning Gunships when [[Helldiver|Helldivers]] are within 150m from it, spawning up to two at a time, with a maximum of four per tower.\n\nThey may also spawn as patrols in groups of two to four if the Gunship Patrols [[Operation Modifiers|operation modifier]] is active.",
+   "behavior": "Upon spawning from a Gunship Facility, the Gunship will search for [[The Helldivers|Helldivers]] in its immediate vicinity. If it's within patrols, it will fly across the map in a straight line. Any Helldivers that alert one Gunship within a patrol will alert the rest.\n\nUpon locating a Helldiver, it will begin hovering over them from a distance, firing its Heavy Fusion Cycler. It will occasionally fire a six rocket salvo, up to four times. After exhausting its rockets, it will begin firing its Heavy Fusion Cycler only for up to eight seconds, varying in length based on the Gunship's line of sight to a Helldiver. Its Heavy Fusion Cycler has a one second cooldown between bursts.\n\nWhen a Helldiver deals a lethal blow, the Gunship will crash land, before violently exploding. The Gunship itself can crush Helldivers during its crash landing."
+  },
+  "Harvester": {
+   "title": "Harvester",
+   "revision": 142505,
+   "faction": "Illuminate",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "3",
+   "spawning": "The Harvester may be encountered in patrols, guarding Monoliths, and can be summoned as part of Illuminate reinforcements. They do not spawn on planets occupied by [[Vote Snatchers]].",
+   "behavior": "Harvesters do not deploy their shields until alerted. In combat, their main attack is a sweeping disintegration beam which they charge for a small moment before firing, near-instantaneously killing Helldivers. At close range, Harvesters will instead discharge an equally deadly arc of electricity from their eye-mounted Tesla Ripper."
+  },
+  "Heavy Devastator": {
+   "title": "Heavy Devastator",
+   "revision": 142504,
+   "faction": "Automatons",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "1",
+   "spawning": "Heavy Devastators can be first found on {{Difficulty|1}} as the Mission Target of the [[Eliminate Devastators]] [[Missions|mission]].\n\nStarting on {{Difficulty|4}}, Heavy Devastators, alongside [[Rocket Devastator]]s, will have a chance of replacing [[Devastator]]s. This chance increases the higher the difficulty. Heavy Devastators can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]].\n\nIf a planet is invaded by the {{Incineration Corps}} [[Incineration Corps]], Heavy Devastators are replaced by [[Conflagration Devastator|Conflagration Devastators]] starting on {{Difficulty|1}}, and additionally by [[Incendiary MG Devastator|Incendiary MG Devastators]] starting on {{Difficulty|3}}.",
+   "behavior": "{{PAGENAME}}s will slowly but constantly push if a [[The Helldivers|Helldiver]] is within their line of sight, firing a deadly volley from their Fusion Repeater for three seconds, before cooling down for two seconds. \n\nHeavy Devastators can bash Helldivers with their shield if they're too close, knocking them down. They can also stomp on Helldivers if they are prone."
+  },
+  "Hive Guard": {
+   "title": "Hive Guard",
+   "revision": 141215,
+   "faction": "Terminids",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Bug Breach|Bug Breaches]], within patrols, and guarding [[Objectives]] and [[Bug Nest]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Hive Guards will approach [[The Helldivers|Helldivers]], climbing over terrain and obstacles in an attempt to attack with their claws at close range. They can strafe sideways, and will attempt to cut off Helldivers trying to run past them. Upon being shot a few times, be that nearby or directly, they will hunker down into a crouching stance, bringing their front legs closer to their body for about three seconds. If a Helldiver continuously fires their weapon, Hive Guards will continue to crouch until the Helldiver stops firing.\n\nSimilar to [[Warrior]]s, Hive Guards can go into a \"berserk\" state after their heads begin to bleed out (specifically, when it releases green fluids from its head). This will briefly increase its movement speed before they die.\n\nHive Guards are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Hive Lord": {
+   "title": "Hive Lord",
+   "revision": 139241,
+   "faction": "Terminids",
+   "fireMult": "1",
+   "staggerReq": null,
+   "minDifficulty": "7",
+   "spawning": "A Hive Lord may spawn during any Mission rated {{Difficulty|7}} or higher regardless of any ongoing objectives or enemy reinforcements, should a planet feature them. The [[Democracy Officer]] will announce its presence after it emerges, should a player face it for the first time.\n\nAlthough the conditions for a Hive Lord emerging from the ground are unknown, it seems they are most likely to respond to [[Bug Breach|Bug Breaches]] when they occur. When one happens, it is most probable that the Hive Lord will show up soon after. Multiple explosions in one place can also summon the Hive Lord, such as orbital barrages. If the Hive Lord \"retreats\" and stops attacking or appearing, it will retain the damage it has taken if it returns to the surface.\n\nThere is only one Hive Lord per mission. Once it has been slain, another will not replace it.",
+   "behavior": "By default, {{PAGENAME}}s will stay underground, appearing as a massive wave of trembling earth that kicks up clouds of dust and slowly approaches [[Helldiver|Helldivers]]. {{PAGENAME}}s will often follow a specific Helldiver until they are within range of an attack. When approximately 100 meters from a target, it will emerge from the ground before performing an attack. {{PAGENAME}}s can attack multiple times before re-burrowing. \n\nIf it takes enough damage, the Hive Lord will attempt to retreat, sinking back into the ground. It randomly opts to forgo attacks to roar instead.\n\n=== Attacks ===\n* '''Surface:''' The Hive Lord's emergence inflicts a slowing effect within its vicinity due to the tremors it creates, launches any entities if they are too close, and boulders into the air that deal damage upon impact. Helldivers standing too close to the emerging {{PAGENAME}} are likely to be launched high up into the air.\n* '''Burrow:''' Partially emerging, the Hive Lord will continue burrowing forwards instead of fully surfacing upright, This move can still injure and knock away Helldivers if they are caught in the motion.\n* '''Body Slam:''' The Hive Lord will throw itself forwards, attempting to crush its target under its body. It will remain in a lying position for a moment afterwards before burrowing back into the ground. This attack can destroy or clip through terrain.\n** A variation of this attack can be performed by the {{PAGENAME}} by immediately slamming down upon emerging, and momentarily afterward burrowing back. When it slams it lands on it's back, allowing for a brief moment of exposure to fire.\n* '''Bile Rain:''' The Hive Lord will lean forwards, before shaking, shuddering, and releasing an enormous quantity of bile in three sweeps. The area of effect this attack creates covers a wide area and slows Helldivers, but there are gaps between each sweep that allows a careful Helldiver to survive.\n** There is a variation of this attack where the Hive Lord will do one large stream of bile straight in a line, a bit easier to avoid but higher potential for large damage on uncareful Helldivers, mechs or emplacements. It has a longer range than its counterpart.\n\nUpon taking lethal damage, the Hive Lord will surface if previously burrowed, spew large amounts of Terminid blood before collapsing to the ground in spectacular fashion.\n\nAfter successfully killing a Hive Lord, Helldivers are rewarded with a completed objective and {{Currency|experience|222}}."
+  },
+  "Hulk Bruiser": {
+   "title": "Hulk Bruiser",
+   "revision": 141870,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|4}}. {{PAGENAME}}s can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]], or from [[Bulk Fabricator]]s.\n\nIf a [[Planets and Sectors|planet]] is invaded by the {{Jet Brigade}} [[Jet Brigade]], [[Jet Brigade Hulk Bruiser|its variant]] will be equipped with a jump pack.\n\nHulk Bruisers do not appear on planets invaded by the {{Incineration Corps}} [[Incineration Corps]], and are instead replaced by [[Hulk Firebomber]]s.",
+   "behavior": "Upon noticing a [[Helldiver]], Hulk Bruisers will either fire their Fusion Autocannon or Rotary Launcher. The Fusion Autocannon fires a 20 round volley and the Rotary Launcher fires a seven rocket salvo. They will fire from a distance if a Helldiver is in their line of sight. Hulk Bruisers can raise and slam one of their arms if a Helldiver gets too close to them. If they are missing their arms, Hulk Bruisers can perform a stomp with their leg."
+  },
+  "Hulk Firebomber": {
+   "title": "Hulk Firebomber",
+   "revision": 141867,
+   "faction": "Incineration Corps",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|4}} on planets invaded by the Incineration Corps. They can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]], or from [[Bulk Fabricator]]s.",
+   "behavior": "Hulk Firebombers will sprint towards [[The Helldivers|Helldivers]], firing two White Phosphorus Shells, once every two seconds; these shells will leave lingering fire where it lands. It will then pause for five seconds before firing two more Shells again. Hulk Firebombers will often aim their Rotary Launcher up into the air, allowing the Phosphorus Shells to arc over cover and terrain.\n\nAt 25m and closer, Hulk Firebombers will use their Heavy Flamethrower; they can also use their Heavy Flamer right after firing their Rotary Launcher if Helldivers are within range. \n\nIf they are missing their arms, Hulk Firebombers can perform a stomp with their leg."
+  },
+  "Hulk Obliterator": {
+   "title": "Hulk Obliterator",
+   "revision": 141862,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "3",
+   "spawning": "Hulk Obliterators only spawn in the [[Eliminate Automaton Hulks]] [[Missions|Mission]], which is exclusive to {{Difficulty|3}} difficulty.",
+   "behavior": "Hulk Obliterators fire a three rocket salvo with their Munition Launchers, alternating between each weapon. Compared to [[Hulk Bruiser]]s, Hulk Obliterators fire their rockets at a lower fire rate. Hulk Obliterators can raise and slam one of their arms if a [[Helldiver]] gets too close to them. If they are missing their arms, Hulk Obliterators can perform a stomp with their leg."
+  },
+  "Hulk Scorcher": {
+   "title": "Hulk Scorcher",
+   "revision": 141866,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|4}}. {{PAGENAME}}s can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]], or from [[Bulk Fabricator]]s.\n\nIf a [[Planets and Sectors|planet]] is invaded by the {{Jet Brigade}} [[Jet Brigade]], [[Jet Brigade Hulk Scorcher|its variant]] will be equipped with a jump pack.",
+   "behavior": "Upon noticing a [[Helldiver]], Hulk Scorchers will sprint towards them. They will spray their Heavy Flamethrowers in a wide arc if a Helldiver is within roughly 25m. At close range, Hulk Scorchers will swing their Rotary Saw. If they are missing their arms, Hulk Scorchers can perform a stomp with their leg."
+  },
+  "Hunter": {
+   "title": "Hunter",
+   "revision": 136565,
+   "faction": "Terminids",
+   "fireMult": "0.7",
+   "staggerReq": "15",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from specific [[Bug Hole]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "{{PAGENAME}}s will mainly attempt to flank and surround Helldivers, moving faster than other Terminids. While approaching Helldivers, they are able to quickly strafe sideways or perform short jumps, which can throw off a Helldiver's aim. Upon reaching about 15-20m from Helldivers, they will pounce onto them, dealing damage, and can quickly follow up with another attack from their claws or tongues.\n\n{{PAGENAME}}s can use their tongues at short-medium range, which causes an Acid burn that will slow Helldivers; they can use their claws at extremely close range, usually when next to a Helldiver.\n\n{{PAGENAME}}s are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Impaler": {
+   "title": "Impaler",
+   "revision": 136861,
+   "faction": "Terminids",
+   "fireMult": "1.7",
+   "staggerReq": "50",
+   "minDifficulty": "5",
+   "spawning": "Impalers can be first found on {{Difficulty|5}} as the mission target of the [[Eliminate Impaler]] [[Missions|mission]].\n\nStarting on {{Difficulty|6}}, Impalers can spawn from [[Bug Breach|Bug Breaches]] and can be found patrolling the map on its own. Higher difficulties will increase how often they can spawn.\n\nStarting on {{Difficulty|10}}, Impalers can be found guarding Mega Nests.",
+   "behavior": "When encountered outside of a Bug Breach, Impalers will usually remain still. Upon noticing Helldiver movement or sounds caused by them, they will turn to face where a Helldiver or the sound was. When in a combat or encountered in a Bug Breach, Impalers will often immediately burrow its \"head,\" using its three tentacles to attack Helldivers in its line of sight. The tentacles can be damaged to force them to retract. After some time, losing sight of Helldivers, or upon death, Impalers will retract all of their tentacles. \n\nWhen patrolling, Impalers will also stop moving to turn towards any nearby movement or sounds.\n\nAt close range, Impalers can use its frontal weight to crush anything in front of it."
+  },
+  "Incendiary MG Devastator": {
+   "title": "Incendiary MG Devastator",
+   "revision": 140048,
+   "faction": "Incineration Corps",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|3}} on planets invaded by the {{Incineration Corps}}[[Incineration Corps]]. {{PAGENAME}}s can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Bulk Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Like [[Heavy Devastator|Heavy Devastators]], {{PAGENAME}}s will slowly but constantly push if a [[The Helldivers|Helldiver]] is within their line of sight, firing their Fusion Conflagrator eight times before cooling down for two seconds.\n\n{{PAGENAME}}s can bash Helldivers with their shield if they're too close, knocking them down. They can also stomp on Helldivers if they are prone."
+  },
+  "Incendiary Rocket Raider": {
+   "title": "Incendiary Rocket Raider",
+   "revision": 140047,
+   "faction": "Incineration Corps",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on all difficulties on planets invaded by the Incineration Corps. {{PAGENAME}}s can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Incendiary Rocket Raiders will raise and point their Portable Fusion Cannon at [[Helldiver|Helldivers]] and fire one fusion bolt before recharging and firing again after about five seconds. They will often fire from medium range, and can fire from afar if they have a Helldiver in their line of sight, and have been alerted to their presence. Rocket Raiders will slowly distance themselves from Helldivers if they approach, and will punch them if they get too close. Like all Incineration Corp Trooper variants, the Rocket Raider will attempt to toss a incendiary grenade if a Helldiver is hidden within cover. \n\nWhen alerted to a Helldiver's presence, Incendiary Rocket Raiders can fire a flare to call in a [[Dropship|Bot Drop]]."
+  },
+  "Jet Brigade Commissar": {
+   "title": "Jet Brigade Commissar",
+   "revision": 138837,
+   "faction": "Jet Brigade",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on any difficulty on a planet where the {{Jet Brigade}} [[Jet Brigade]] is currently invading/occupying. They can spawn from [[Dropship|Bot Drops]], leading patrols, and guarding [[Automaton Outpost]]s and [[Objectives]]. Unlike other light Automatons, they do not spawn from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\n{{PAGENAME}}s on higher difficulties may be replaced by more dangerous light {{Automaton}}[[Automatons]], such as [[Rocket Raider]]s and [[MG Raider]]s.",
+   "behavior": "{{PAGENAME}}s are essentially unchanged from their standard counterparts, but are equipped with a jump-pack that covers their back and allows them to jump long distances.\n\nWhen initially detected, Jet Brigade Commissars at medium to long range will use their jump-pack to close the distance to Helldivers, proceeding to engage with their Fusion Pistol or Heat Blade depending on how close they are to the Helldiver. In addition they are equipped with Grenades to use to flush out Helldivers in cover.\n\nWhen a Helldiver exits their range, they will reengage by using their jump-pack."
+  },
+  "Jet Brigade Devastator": {
+   "title": "Jet Brigade Devastator",
+   "revision": 136520,
+   "faction": "Jet Brigade",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": null,
+   "spawning": "Jet Brigade Devastators can first be found on {{Difficulty|2}} on planets invaded by the [[Jet Brigade]]. They can be spawned from Bot drops and within patrols.\n\nThe [[Factory Strider]] can spawn four Jet Brigade Devastators from its undercarriage.",
+   "behavior": "Jet Brigade Devastators will slowly approach [[Helldiver|Helldivers]] while firing their Fusion Assault Cannon. They'll rapidly fire six 2-shot bursts, before pausing for about 3 seconds to cool their weapons.\n\nLike regular [[Devastator]]s, Jet Brigade Devastators are able to punch Helldivers if they're too close, knocking them down. They can also stomp on them if they are prone.\n\nIn the case that there is a large amount of distance between a Jet Brigade Devastator and the Helldiver it is targeting, they will use their jump pack to rapidly close the distance. Their jump pack can explode if damaged, significantly damaging and burning themselves and nearby {{Automaton}}[[Automatons]] or Helldivers."
+  },
+  "Jet Brigade Hulk Bruiser": {
+   "title": "Jet Brigade Hulk Bruiser",
+   "revision": 141869,
+   "faction": "Jet Brigade",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "All Hulks are replaced with their Jet Brigade variant on planets occupied by the Jet Brigade. This includes the [[Hulk Scorcher]] and [[Hulk Bruiser]] but not the [[Hulk Obliterator]].\n\nLike other Hulk Variants, Jet Brigade Hulks spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s, [[Objectives]],  [[Minor Places of Interest]], and [[Bulk Fabricator]]s.",
+   "behavior": "Jet Brigade Bruiser Hulks are essentially unchanged from their standard counterparts, but are equipped with a large jump-pack that covers their rear vent. The jetpack is covered in {{Armor|3|AP}} armor. \n\nWhen initially detected, Jet Brigade Bruiser Hulks at medium to long range will use their jump-pack to close the distance to Helldivers, firing either its Fusion Autocannon or Rotary Launcher in an attempt to blast its foe. When a Helldiver exits their range, they will reengage by using their jump-pack."
+  },
+  "Jet Brigade Hulk Scorcher": {
+   "title": "Jet Brigade Hulk Scorcher",
+   "revision": 141868,
+   "faction": "Jet Brigade",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "All Hulks are replaced with their Jet Brigade variant on planets occupied by the Jet Brigade. This includes the [[Hulk Scorcher]] and [[Hulk Bruiser]] but not the [[Hulk Obliterator]].\n\nLike other Hulk Variants, Jet Brigade Hulks spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s, [[Objectives]],  [[Minor Places of Interest]], and [[Bulk Fabricator]]s.",
+   "behavior": "Jet Brigade Scorcher Hulks are essentially unchanged from their standard counterparts, but are equipped with a gargantuan Jump Pack that covers their rear vent. The Jump Pack is covered in {{Armor|3|AP}} armor. \n\nWhen initially detected, Jet Brigade Scorcher Hulks at medium to long range will use their Jump Pack to close the distance to Helldivers, where it will either choose to sweep the area with its Heavy Flamethrower or rip the Helldivers apart with its Rotary Saw. When a Helldiver exits their range, they will reengage by using their jump-pack."
+  },
+  "Jet Brigade MG Raider": {
+   "title": "Jet Brigade MG Raider",
+   "revision": 139889,
+   "faction": "Jet Brigade",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\nMG Raiders spawn more frequently on higher difficulties, mostly replacing [[Trooper]]s.",
+   "behavior": "{{PAGENAME}}s are essentially unchanged from their standard counterparts, but are equipped with a jump-pack that covers their back and allows them to jump long distances.\n\nWhen initially detected, {{PAGENAME}}s at medium to long range will use their jump-pack to close the distance to Helldivers, firing their Light Fusion Repeaters to suppress Helldivers caught in the open, or throwing Grenades at those hidden in cover. When a Helldiver exits their range, they will reengage by using their jump-pack."
+  },
+  "Jet Brigade Trooper": {
+   "title": "Jet Brigade Trooper",
+   "revision": 140765,
+   "faction": "Jet Brigade",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be found on {{Difficulty|3}} and above. They can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s. They are more likely to be replaced by more dangerous light Automatons, such as the[[Jet Brigade MG Raider]] on higher difficulties.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "{{PAGENAME}}s are essentially unchanged from their standard counterparts, but are equipped with a jump-pack that covers their back and allows them to jump long distances.\n\nWhen initially detected, {{PAGENAME}}s at medium to long range will use their jump-pack to close the distance to Helldivers, proceeding to open fire with their Fusion SMGs or throwing Grenades should the Helldiver rush into cover.. When a Helldiver exits their range, they will reengage by using their jump-pack."
+  },
+  "Leviathan": {
+   "title": "Leviathan",
+   "revision": 140064,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "8",
+   "spawning": "Leviathans spawn beyond the mission area, similarly to the [[Stingray]]. Up to 5 Leviathans may appear at any time on {{Difficulty|8}} and above.\n\nThey will exclusively spawn within the [[Metropolis|Megacities]] of planets with the [[Leviathan Blockade]] [[Operation Modifiers|Operation Modifier]]. \n[[File:Leviathan Blockade.png|thumb|Icon of the Leviathan Blockade operation modifier]]",
+   "behavior": "The Leviathan hovers above the battlefield at a variable altitude. It attacks any [[Helldiver]], [[SEAF Soldier]], or [[Civilian]] with four ventral Disintegration Culverins and ten Plasma Bomb Generators. Said Generators only drop their payload on enemies directly below or near the Leviathan."
+  },
+  "MG Raider": {
+   "title": "MG Raider",
+   "revision": 138978,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\n{{PAGENAME}}s spawn more frequently on higher difficulties, mostly replacing [[Trooper]]s.\n\nIf a planet is invaded by the {{Jet Brigade}}[[Jet Brigade]], {{PAGENAME}}s will begin to be replaced by their Jet Brigade variant on {{Difficulty|2}}.",
+   "behavior": "{{PAGENAME}}s will fire 12 shots from their Light Fusion Repeater if a [[Helldiver]] is in their line of sight before quickly reloading. {{PAGENAME}}s will keep some distance from Helldivers, backing up if they approach, and punching them if they are too close. {{PAGENAME}}s will toss a grenade if Helldivers are behind cover. Their powerpack can unintentionally explode if damaged, instantly killing the {{PAGENAME}} but significantly damaging and burning nearby Automatons or Helldivers. If it is [[Trooper#Gameplay|being suppressed]] by gunfire, it will erratically move its rifle, significantly reducing its accuracy.\n\nWhen alerted to a [[Helldiver]]'s presence, {{PAGENAME}}s can fire a flare to call in a [[Dropship|Bot Drop]].\n\nIts {{Jet Brigade}}[[Jet Brigade]] variant can utilize a jump pack, allowing it to constantly close the distance between itself and a Helldiver."
+  },
+  "Marauder": {
+   "title": "Marauder",
+   "revision": 138973,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "5",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|5}}. They can spawn from [[Dropship|Bot Drops]], [[Automaton Fabricator]]s, within patrols, and guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]].",
+   "behavior": "{{PAGENAME}}s will fire their Fusion SMG in five-round bursts if a [[Helldiver]] is in their line of sight. They take three and a half seconds to cool their Fusion SMG before firing again. {{PAGENAME}}s will keep some distance from Helldivers, backing up if they approach, and punching them if they are too close. If a Helldiver is behind cover, {{PAGENAME}}s will toss a grenade. If it is [[Trooper#Gameplay|being suppressed]] by gunfire, it will erratically move its SMG, significantly reducing its accuracy.\n\nWhen alerted to a [[Helldiver|Helldiver's]] presence, Marauders can fire a flare to call in a [[Dropship|Bot Drop]]."
+  },
+  "Mortar Emplacement": {
+   "title": "Mortar Emplacement",
+   "revision": 136791,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "4",
+   "spawning": null,
+   "behavior": null
+  },
+  "Noxious Scavenger": {
+   "title": "Noxious Scavenger",
+   "revision": 142272,
+   "faction": "Noxious Strain",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be found on [[Noxious Strain]]-invaded planets, where they replace [[Scavenger]]s and [[Pouncer]]s, spawning from [[Bug Breach]]es, within patrols, or from [[Bug Hole]]s. They can also be found guarding [[Bug Nest]]s, [[Minor Places of Interest]], and [[Objectives]],",
+   "behavior": "Noxious Scavengers will simply approach Helldivers, climbing over terrain and obstacles in an attempt to attack with their claws. After striking, they will retreat a short distance before approaching again. Noxious Scavengers will also attempt to bite [[Helldiver]]s when close, inflicting [[Poison]].\n\nRarely, and when a Helldiver is out of its reach, they will dig underground, only to suddenly emerge and attack the Helldiver.\n\nNoxious Scavengers are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Noxious Spewer": {
+   "title": "Noxious Spewer",
+   "revision": 142233,
+   "faction": "Noxious Strain",
+   "fireMult": "1",
+   "staggerReq": "30",
+   "minDifficulty": "5",
+   "spawning": "{{stub}}",
+   "behavior": "{{stub}}"
+  },
+  "Nursing Spewer": {
+   "title": "Nursing Spewer",
+   "revision": 141638,
+   "faction": "Terminids",
+   "fireMult": "1",
+   "staggerReq": "30",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|3}}. They can spawn from [[Bug Breach|Bug Breaches]], within patrols, and guarding [[Objectives]] and [[Bug Nest]]s. \n\nStarting on {{Difficulty|4}}, {{PAGENAME}}s can be found guarding [[Minor Places of Interest]].\n\nOccasionally, Nursing Spewers will replace Caustic Spewers.",
+   "behavior": "''{{PAGENAME}}s [[Caustic Spewer#Behavior|behave similarly to Caustic Spewers]].''\n\nNursing Spewers act similarly to Caustic Spewers. However, upon spawning in, they will emit a thin spore cloud around them, obscuring smaller Terminids such as [[Scavenger]]s. Killing them will dissipate the spore cloud. Unlike Caustic Spewers, Nursing Spewers are unable to fire bile bombs into the air on any difficulty.\n\nNursing Spewers have {{Armor|2|AV}} armor on all difficulties, unlike Caustic Spewers' {{Armor|3|AV}} armor on {{Difficulty|6}} and above."
+  },
+  "Obtruder": {
+   "title": "Obtruder",
+   "revision": 138037,
+   "faction": "Appropriators",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "1",
+   "spawning": "Obtruders are part of the [[Appropriators]] sub-faction of the Illuminate and can only spawn on worlds where the Appropriators are present. As a relatively weak unit, they spawn and are usually encountered in groups during missions.",
+   "behavior": "Obtruders resemble [[Watcher]]s but differ in that they cannot call for reinforcements and spawn in extremely large groups of up to 18(tbd), either in fast-moving patrols or directly from [[Warp Ship]]s. They act as a flying chaff unit, quickly closing in over any type of terrain to surround a Helldiver at close range before firing. They can fly quite high in the air and tend to gravitate very quickly towards nearby suspected Helldiver activity, so caution should be exercised if trying to avoid Obtruder patrols. \n\nObtruders fire single energy blasts from their Plasma Torches towards their targets instead of an electrical arc like the [[Watcher]] uses. They have an extremely slow fire rate, display a charging animation before each shot, and are highly inaccurate. It will usually require several or even dozens of Obtruders to pose a threat to Helldivers, but since they fly and spawn in groups, their numbers can quickly add up if a Helldiver draws too much attention."
+  },
+  "Overseer": {
+   "title": "Overseer",
+   "revision": 142612,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": "35",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s spawn via patrols, specific mission objectives, [[Grounded Warp Ship]]s, and [[Warp Ship]] reinforcements. They do not spawn on planets where the {{Vote Snatchers|text=Vote Snatchers}} subfaction is presented, unless the {{Invasion Fleet}} '''[[Invasion Fleet]]''' is also present.",
+   "behavior": "{{PAGENAME}}s fire single, high-damage projectiles from their Lightspear when at range, after a minor charge-up delay. When receiving heavy fire, {{PAGENAME}}s raise their collapsible energy shields, which cover their upper and middle body.\n\nWhen facing Helldivers at close range, {{PAGENAME}}s will charge toward them and use their Lightspear as a melee weapon, swinging in quick, wide sweeps that ragdoll targets.\n\nUpon first noticing a Helldiver, they will point towards them with their Lightspear and order nearby [[Voteless]] to attack."
+  },
+  "Pouncer": {
+   "title": "Pouncer",
+   "revision": 141525,
+   "faction": "Terminids",
+   "fireMult": "0.5",
+   "staggerReq": "1",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from [[Bug Hole]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\nIn certain spawn tables/constellations, {{PAGENAME}}s will replace [[Scavenger]]s and [[Caustic Spitter]]s, and vice versa.",
+   "behavior": "{{PAGENAME}}s will use their wings to leap great distances directly towards Helldivers. They can occasionally undershoot or overshoot their leaps. When not leaping, they will approach Helldivers in as direct a path as possible, climbing over terrain and obstacles in an attempt to attack with their claws.\n\n{{PAGENAME}}s are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Predator Hunter": {
+   "title": "Predator Hunter",
+   "revision": 141544,
+   "faction": "Predator Strain",
+   "fireMult": "0.7",
+   "staggerReq": "15",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s only spawn on planets where the {{Predator Strain}} [[Predator Strain]] is presented and replace regular [[Hunter]].",
+   "behavior": "{{PAGENAME}}s will attempt to cloak and attack [[Helldiver]]s by flanking them and jumping at them. They are much more aggressive than their standard variant.\n\n{{PAGENAME}}s are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Predator Stalker": {
+   "title": "Predator Stalker",
+   "revision": 137847,
+   "faction": "Predator Strain",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|4}} on planets invaded by the Predator Strain. Unlike Stalkers, {{PAGENAME}}s do not require a [[Stalker Lair]] to spawn, instead spawning normally with other Terminids. They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s, [[Objectives]], and [[Minor Places of Interest]].",
+   "behavior": "Unlike Stalkers, {{PAGENAME}}s cannot camouflage or attack with their tongues, and instead solely use their claws. They also do not retreat when taking enough damage, and will continuously pursue until it or Helldivers die."
+  },
+  "Pyro Trooper": {
+   "title": "Pyro Trooper",
+   "revision": 139895,
+   "faction": "Incineration Corps",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on all difficulties on planets invaded by the Incineration Corps. {{PAGENAME}}s can spawn from Bot Drops, within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Pyro Troopers will sprint towards [[The Helldivers|Helldivers]] to get in range with their flamethrower, continuously using it in quick 2.4 second bursts 3 times before having to cool off the weapon for 3.4 seconds. If within cover, they may occasionally throw a specialised White Phosphorus incendiary grenade to flush out Helldivers.\n\nTheir fuel tank can unintentionally explode if damaged, instantly killing the Pyro Trooper but significantly damaging and burning nearby Automatons or Helldivers.\n\nWhen alerted to a Helldiver's presence, Pyro Troopers can fire a flare to call in a Bot Drop."
+  },
+  "Radical": {
+   "title": "Radical",
+   "revision": 141659,
+   "faction": "Cyborg Legion",
+   "fireMult": "0.5",
+   "staggerReq": "20",
+   "minDifficulty": "1",
+   "spawning": "Radicals can be found on all difficulties on planets where the Cyborg Legion is present.\nRadicals can spawn from [[Dropship|Bot Drops]], within patrols, and guarding [[Automaton Outpost]]s and [[Objectives]].",
+   "behavior": "Compared to Automatons, Radicals [[Radical#Gameplay|do not hesitate when detecting]] a Helldiver, and will immediately attack them.  Before attacking, Radicals will yell and will immediately throw a smoke grenade between them and a Helldiver, sprinting towards them while attempting to be concealed; their sprint speed can keep up with a sprinting Helldiver, even in light armor. Radicals can throw another smoke grenade about every 30 seconds to conceal and continue their pursuit. Occasionally during combat, Radicals can perform a backstep.\n\nAt close range (15m), Radicals will fire their Scattergun while approaching or chasing after a Helldiver. Radicals will often close the distance to perform techno-martial arts, which can be a frontal kick with either leg, a flying right knee strike, a roundhouse kick with their left leg, and a swing or backhand strike using either of their upper limbs. These attacks will deal a moderate amount of damage and will knock a Helldiver off their feet. If a Helldiver is on the ground, Radicals can stomp on them, or use their Scattergun to execute them.\n\nRadicals have been seen destroying [[Shield Generator Relay]] strategems with their kicking attack, even while a Helldiver is nearby enough to fire at."
+  },
+  "Reinforced Scout Strider": {
+   "title": "Reinforced Scout Strider",
+   "revision": 139395,
+   "faction": "Automatons",
+   "fireMult": "1",
+   "staggerReq": "30",
+   "minDifficulty": "8",
+   "spawning": "Reinforced Scout Striders are first found on {{Difficulty|8}}, replacing Scout Striders. {{PAGENAME}}s can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]].\n\nOn planets invaded by the {{Cyborg Legion}}[[Cyborgs]], the {{PAGENAME}} is absent and is replaced by [[Radical]] and [[Agitator]].",
+   "behavior": "{{PAGENAME}}s will quickly approach [[Helldiver]]s once alerted to their presence. It will fire its heavy fusion repeater three times before cooling down for four seconds. It will also occasionally fire one of its four rockets, usually after being alerted to a Helldiver's presence; before firing a rocket, it will briefly remain still, with the prepared rocket releasing exhaust before it is fired.\n\nThe {{PAGENAME}} can stomp on a Helldiver if they get too close."
+  },
+  "Rocket Devastator": {
+   "title": "Rocket Devastator",
+   "revision": 138979,
+   "faction": "Automatons",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can first be found on {{Difficulty|1}} as the Mission Target of the [[Eliminate Devastators]] [[Missions|mission]].\n\nStarting on {{Difficulty|4}}, {{PAGENAME}}s, alongside [[Heavy Devastator]]s, will have a chance of replacing [[Devastator]]s. This chance increases the higher the difficulty. {{PAGENAME}}s can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost]]s, [[Objectives]], and [[Minor Places of Interest]].",
+   "behavior": "{{PAGENAME}}s will often fire their rockets first when it spots a [[Helldiver]]. Before firing its rockets, it takes one second to put itself into a firing position, then sends a four-rocket salvo towards a Helldiver. After this, it takes four to five seconds before firing another salvo. Between salvos, it will occasionally fire its Fusion Assault Cannon twice. After firing all twelve of its rockets, it will reload its Rocket Pods once. Once it exhausts these rockets, it will begin using only its Fusion Assault Cannon.\n\n{{PAGENAME}}s are able to punch [[Helldiver|Helldivers]] if they're too close, knocking them down. They can also stomp on Helldivers if they are prone."
+  },
+  "Rocket Raider": {
+   "title": "Rocket Raider",
+   "revision": 138836,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}. They can spawn from [[Dropship|Bot Drops]], within patrols, guarding [[Automaton Outpost]]s and [[Objectives]], or from [[Automaton Fabricator]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\n{{PAGENAME}}s spawn more frequently on higher difficulties, mostly replacing [[Trooper]]s.",
+   "behavior": "{{PAGENAME}}s will raise and point their Portable Launcher at [[Helldiver|Helldivers]] and fire one rocket before reloading for about three seconds. They will often fire from medium range, and can fire from afar if they have a Helldiver in their line of sight and have been alerted to their presence. {{PAGENAME}}s will slowly distance themselves from Helldivers if they approach, and will punch them if they get too close. Like all Trooper variants, the {{PAGENAME}} will attempt to toss a grenade if a Helldiver is hidden within cover. \n\nWhen alerted to a [[Helldiver|Helldiver's]] presence, {{PAGENAME}}s can fire a flare to call in a [[Dropship|Bot Drop]]."
+  },
+  "Rupture Charger": {
+   "title": "Rupture Charger",
+   "revision": 141506,
+   "faction": "Rupture Strain",
+   "fireMult": "1.5",
+   "staggerReq": "38",
+   "minDifficulty": null,
+   "spawning": "{{PAGENAME}} appear exclusively on planets with the {{Rupture Strain}} [[Rupture Strain]] present.",
+   "behavior": "The {{PAGENAME}} behaves similarly to a regular Charger with the capability of burrowing and charging [[Helldiver]]s from underground."
+  },
+  "Rupture Spewer": {
+   "title": "Rupture Spewer",
+   "revision": 141639,
+   "faction": "Rupture Strain",
+   "fireMult": null,
+   "staggerReq": "30",
+   "minDifficulty": "6",
+   "spawning": "{{PAGENAME}}s first appear on {{Difficulty|6}} on planets with the {{Rupture Strain}} [[Rupture Strain]] present, replacing all [[Nursing Spewer]]s and some [[Caustic Spewer]]s. They can spawn from [[Bug Breach]]es, within patrols, or guarding [[Bug Nest]]es and [[Objectives]].",
+   "behavior": "The {{PAGENAME}} acts similarly to [[Nursing Spewer]]s before detecting enemies. Once engaged in combat, if far enough away from Helldivers, it will burrow into the ground and loosely follow its target before re-emerging its head and shooting either a short-range bile breath, or a longer ranged three-round burst of bile projectiles if close/far enough from its target, respectively."
+  },
+  "Rupture Warrior": {
+   "title": "Rupture Warrior",
+   "revision": 141596,
+   "faction": "Rupture Strain",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "6",
+   "spawning": "{{PAGENAME}}s first appear on {{Difficulty|6}} on planets with the {{Rupture Strain}} [[Rupture Strain]] present, replacing Warriors completely. They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from specific [[Bug Hole]]s.",
+   "behavior": "The '''{{PAGENAME}}''' is capable of burrowing and emerging from the ground, often taking [[Helldiver|Helldivers]] by surprise if they aren't paying attention."
+  },
+  "Sabotage Air Base": {
+   "title": "Sabotage Air Base",
+   "revision": 142431,
+   "faction": "Automatons",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": null,
+   "spawning": null,
+   "behavior": null
+  },
+  "Scavenger": {
+   "title": "Scavenger",
+   "revision": 142256,
+   "faction": "Terminids",
+   "fireMult": "0.5",
+   "staggerReq": "1",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on all difficulties, spawning from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from [[Bug Hole]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "{{PAGENAME}}s will simply approach Helldivers, climbing over terrain and obstacles in an attempt to attack with their claws. After striking, they will retreat a short distance before approaching again. \n\nRarely, and when a Helldiver is out of its reach, they will dig underground, only to suddenly emerge and attack the Helldiver.\n\n{{PAGENAME}}s are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Scout Strider": {
+   "title": "Scout Strider",
+   "revision": 139387,
+   "faction": "Automatons",
+   "fireMult": "1",
+   "staggerReq": "30",
+   "minDifficulty": "3",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|3}}. {{PAGENAME}}s can spawn from Bot Drops, within patrols, and guarding [[Automaton Outpost]]s and [[Objectives]].\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].\n\nStarting on {{Difficulty|8}}, {{PAGENAME}}s are replaced by a fully armored variant, the [[Reinforced Scout Strider]].\n\nOn planets invaded by the {{Cyborg Legion}}[[Cyborgs]], the {{PAGENAME}} is absent and is replaced by [[Radical]] and [[Agitator]].",
+   "behavior": "{{PAGENAME}} will quickly approach [[Helldiver]]s once alerted to their presence. It will fire its Heavy Fusion Repeater three times before cooling down for four seconds. The Scout Strider can stomp on a Helldiver if they get too close.\n\nShooting the waist of the Scout Strider will destroy the vehicle and will cause the [[Trooper]] to jump out; they are no different from standard Troopers. Killing the Trooper while it is on the Scout Strider will immediately destroy the vehicle."
+  },
+  "Shredder Tank": {
+   "title": "Shredder Tank",
+   "revision": 139871,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": null,
+   "minDifficulty": "3",
+   "spawning": "Shredder Tanks first appear on {{Difficulty|3}} with a low spawning chance, where they may spawn in specific medium-to-large [[Automaton Outpost|Automaton Outposts]].\n\nWhen they begin appearing normally starting on {{Difficulty|4}}, they can spawn from Bot Drops, within patrols, and guarding Automaton Outposts, Fortresses, and [[Minor Places of Interest]]. They may also occasionally be found patrolling the map on their own.\n\nShredder Tanks share a spawn chance with [[Annihilator Tank|Annihilator Tanks]], but starting on {{Difficulty|7}}, they are both occasionally replaced by [[Barrager Tank|Barrager Tanks]].",
+   "behavior": "When encountered outside of a Bot Drop, Shredder Tanks can be found still or moving with patrols. When it notices a [[Helldiver]], it will continuously fire its Fusion Cyclers in one of 2 patterns, With one being a brief, 1-second precision burst and another being a longer 2-second burst where it will sweep its turret across the immediate area whilst firing. \n\nDestroying its tracks will render it immobile. Destroying its back engine or turret will disable the Shredder Tank, followed by it exploding. Significant amounts of damage will immediately cause it to explode."
+  },
+  "Shrieker": {
+   "title": "Shrieker",
+   "revision": 136531,
+   "faction": "Terminids",
+   "fireMult": "1",
+   "staggerReq": null,
+   "minDifficulty": "4",
+   "spawning": "{{PAGENAME}}s can be found spawning from [[Shrieker Nest]]s, which begin appearing on {{Difficulty|4}}. Helldivers that are roughly within 150m will cause a Nest to begin spawning Shriekers. \n\nStarting on {{Difficulty|5}}, operations may have the Roving Shriekers [[Operation Modifiers|Operation Modifier]], which spawns groups of Shriekers that patrol the map.",
+   "behavior": "Once a {{PAGENAME}} has marked a Helldiver as their target, they circle and dive into fly-by-slashing Helldivers with their razor-sharp claws.  Generally, these blade-winged Terminids always target and hit the arms and torso of Helldivers, but they have been known to decapitate as well.\n\nUpon death, a {{PAGENAME}}'s corpse will deal damage to anything it falls onto."
+  },
+  "Spore Burst Bile Titan": {
+   "title": "Spore Burst Bile Titan",
+   "revision": 140147,
+   "faction": "Spore Burst Strain",
+   "fireMult": "1.7",
+   "staggerReq": "50",
+   "minDifficulty": "5",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|5}}, replacing Bile Titans on planets invaded by the {{Spore Burst Strain|text}} as the Mission Target of the [[Eliminate Bile Titans]] [[Missions|mission]].\n\nStarting on {{Difficulty|6}}, {{PAGENAME}}s can spawn from [[Bug Breach|Bug Breaches]] and can be found patrolling the map on their own.\n\nStarting on {{Difficulty|7}}, {{PAGENAME}}s can be found guarding certain heavy [[Bug Nest]]s layouts, and {{Difficulty|10}}'s Mega Nests; these Nests can also contain a [[Bug Hole#Bile_Titan_Bug_Hole|Bug Hole that {{PAGENAME}}s can spawn from]].",
+   "behavior": "{{PAGENAME}}s behave identically to natural Bile Titans with the exception of its attacking, trading off its corrosive bile spew with a powerful spewing of Spores.\n\nSaid Spore Spew will cause Helldivers not wearing armor with the [[Rock Solid]] passive to be ragdolled on hit, as well as leaving a vision-blocking cloud of spores on impact that increase the speed of other nearby Spore Burst Terminids."
+  },
+  "Spore Burst Hunter": {
+   "title": "Spore Burst Hunter",
+   "revision": 137849,
+   "faction": "Spore Burst Strain",
+   "fireMult": "0.7",
+   "staggerReq": "15",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}, replacing all Hunters on planets with the {{Spore Burst Strain|text}} present. They can spawn from [[Bug Breach|Bug Breaches]], within patrols, guarding [[Bug Nest|Bug Nests]] and [[Objectives]], or from [[Bug Hole|Bug Holes]].",
+   "behavior": "{{PAGENAME}}s behave identically to natural [[Hunter]]. However, upon death, they will explode, causing damage to Helldivers near them."
+  },
+  "Spore Burst Scavenger": {
+   "title": "Spore Burst Scavenger",
+   "revision": 142257,
+   "faction": "Spore Burst Strain",
+   "fireMult": "0.5",
+   "staggerReq": "1",
+   "minDifficulty": "2",
+   "spawning": "The '''{{PAGENAME}}''' only spawns on planets where the [[Spore Burst Strain]] is presented and replaces the [[Scavenger]].",
+   "behavior": "The {{PAGENAME}} is behaves identically to normal [[Scavenger]]. However, upon death, it will explode, dealing damage to any Helldiver who is unfortunate enough to be near it when that happens."
+  },
+  "Spore Burst Warrior": {
+   "title": "Spore Burst Warrior",
+   "revision": 141595,
+   "faction": "Spore Burst Strain",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "2",
+   "spawning": "{{PAGENAME}}s can be first found on {{Difficulty|2}}, replacing Warriors on planets with the {{Spore Burst Strain|text}} present (including those spawned by [[Brood Commander]]s). They can spawn from [[Bug Breach]]es, within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from [[Bug Hole]]s.",
+   "behavior": "{{PAGENAME}}s behave identically to regular [[Warrior]]s. However, upon death, they will explode, causing damage to Helldivers who are near them."
+  },
+  "Stalker": {
+   "title": "Stalker",
+   "revision": 136802,
+   "faction": "Terminids",
+   "fireMult": "1.25",
+   "staggerReq": "30",
+   "minDifficulty": "4",
+   "spawning": "Stalkers spawn only from [[Stalker Lair|Stalker Lairs]], an optional objective that begins appearing on {{Difficulty|4}}. Stalker Lairs will contain [[Bug Hole]]s, up to two, and will periodically spawn Stalkers until they are destroyed. Certain Stalker Lairs will also include a normal Bug Hole that spawns [[Scavenger]]s and [[Pouncer]]s.",
+   "behavior": "Stalkers will begin pursuing while camouflaged once a Helldiver is roughly 150m away from a Stalker Lair; actively pursuing Stalkers will make a distinct chittering noise. From their Lairs, they will move directly towards Helldivers, and attempt to flank Helldivers and attack from the rear when possible. \n\nStalkers will reveal themselves once they are roughly 20m away from a Helldiver or take enough damage. If they are attacked as they reveal themselves, they will retaliate with their tongue attack before switching to their claws at close range; their tongues are able to knock Helldivers away from them. After taking at least 50% of their Health (~400HP), they will jump while retreating and camouflage, regenerating health (about 50/s) while camouflaged. After a brief amount of time, they will restart their pursuit."
+  },
+  "Stingray": {
+   "title": "Stingray",
+   "revision": 142534,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": null,
+   "spawning": "Stingrays spawn intermittently throughout a mission, coming into range from beyond the mission area. They are unable to naturally spawn as part of an enemy patrol, and cannot spawn at the beginning of a mission.\n\nOn planets where the {{Appropriators}} [[Appropriators]], {{Mindless Masses}} [[Mindless Masses]], or {{Vote Snatchers}} [[Vote Snatchers]] subfactions are active, the Stingrays are completely absent. This, however, can change if the Illuminate \n\n{{Invasion Fleet}}  [[Invasion Fleet]] is present - it will cause the Stingrays to begin appearing as normal alongside any faction-specific enemies.",
+   "behavior": "Stingrays passively fly around the map at blinding speeds, encircling Helldivers at distances of over 800+ meters. They can be spotted while flying thanks to their bright blue plasma trails that briefly follow behind them. They initially fly 2-3 loops around the entire map before engaging enemies. This can change, however, if the density of buildings or high-rise terrain is too great. This will cause the Stingray to orbit the battlefield in search for a good spot for a strafing run. \n\nThey attack by slowing down and descending to an advancing hover, telegraphing a long, bright blue column on the ground which they then progressively bombard with sweeping plasma munitions through their Plasma Destructors, akin to an [[Eagle Strafing Run]]. Once this is finished, they resume high-speed flight and attack again once enemies are in its range."
+  },
+  "Trooper": {
+   "title": "Trooper",
+   "revision": 139995,
+   "faction": "Automatons",
+   "fireMult": "0.5",
+   "staggerReq": "10",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on all difficulties. They can spawn from [[Dropship|Bot Drops]] or from [[Automaton Fabricator]]s. They can often be found guarding [[Automaton Outpost]]s and [[Objectives]], or from patrols with other Automaton units. They are more likely to be replaced by more dangerous light Automatons, such as the [[Rocket Raider]] and [[MG Raider]], on higher difficulties.\n\nIf a planet is invaded by the {{Jet Brigade}} [[Jet Brigade]], Troopers will begin being replaced by their [[Jet Brigade Trooper|Jet Brigade variant]] on {{Difficulty|3}}.\n\nIf a planet is invaded by the {{Incineration Corps}} [[Incineration Corps]], Troopers will begin being replaced by their [[Pyro Trooper|Incineration Corps variant]] on {{Difficulty|4}}.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Troopers and Raiders will fire their Fusion SMG in five-round bursts if a [[The Helldivers|Helldiver]] is in their line of sight. They take four seconds to cool their Fusion SMG before firing again, remaining stationary as they do. Troopers and Raiders will keep some distance from Helldivers, backing up if they approach, and punching them if they are too close. If a Helldiver is behind cover, Troopers and Raiders will toss a High Explosive Grenade. If it is [[Trooper#Gameplay|being suppressed]] by gunfire, it will erratically move its SMG, significantly reducing its accuracy.\n\nWhen alerted to a Helldiver's presence, Troopers can fire a flare to call in a [[Dropship|Bot Drop]]. This behavior is shared by all Trooper-type Automatons, including [[Commissar]]s.\n\n[[Cyborg Legion|Cyborg]] [[Agitator]]s can command squads of Troopers, making them move faster and group together. When under the orders of Agitators, their eyes glow bright orange."
+  },
+  "Veracitor": {
+   "title": "Veracitor",
+   "revision": 140066,
+   "faction": "Appropriators",
+   "fireMult": "1",
+   "staggerReq": "40",
+   "minDifficulty": "4",
+   "spawning": "Veracitors are part of the {{Appropriators}}[[Appropriators]] sub-faction of the Illuminate and can only spawn on worlds where the Appropriators are present. They begin spawning on {{Difficulty|4}} and onwards from [[Warp Ship]]s or patrols.",
+   "behavior": "Veracitors will pursue [[Helldiver|Helldivers]] by charging and approaching them with their leg-like appendages. Once close enough, they will swipe with their claws to deal damage. At range, they will cross their arms in order to protect the piloting [[Overseer]].\nThe pilot will also sometimes do a charge if far enough from the [[Helldiver|Helldivers]]."
+  },
+  "Voteless": {
+   "title": "Voteless",
+   "revision": 141977,
+   "faction": "Illuminate",
+   "fireMult": "0.75",
+   "staggerReq": "1",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}} are the most prevalent Illuminate unit and are present in virtually every settlement, patrol, and enemy reinforcement. They additionally emerge frequently from [[Grounded Warp Ship]].\n\nOn planets where the {{Appropriators|text=Appropriators}} are exclusively active, the {{PAGENAME}} are completely absent. This absence is nullified by the addition of other subfactions which include the {{PAGENAME}}.",
+   "behavior": "{{PAGENAME}} attack by running towards Helldivers, attacking with a swipe of their claws when within melee range. Voteless are able to lunge a short distance towards targets that are slightly out of reach of their default attacking range."
+  },
+  "Vox Engine": {
+   "title": "Vox Engine",
+   "revision": 142149,
+   "faction": "Cyborg Legion",
+   "fireMult": "1.5",
+   "staggerReq": null,
+   "minDifficulty": "7",
+   "spawning": "Vox Engines are part of the Cyborg Legion sub-faction of the [[Automaton]]s and can only spawn on worlds where the Cyborgs are present. They begin spawning on {{Difficulty|7}} missions, either as part of a patrol, reinforcements, or in enemy-occupied locations.\nThe secondary objective [[Intercept Convoy]] on a cyborg-present planet will instead spawn five Vox Engines, patrolling from one end of the map to the other.",
+   "behavior": "* Vox Engines replace [[Factory Strider]]s on {{Difficulty|7}} and above on planets where Cyborgs are present.\n* Vox Engines can be heard spewing Cyborg propaganda, allowing Helldivers early warning of their approach.\n* Vox Engines have three sets of two weapons each: \n** Plasma Macro-Culverins mounted on each side of its torso.\n** Plasma Duster Miniguns mounted on each side of its undercarriage.\n** and Icarus Missile Launcher Pods mounted on the back of its Torso, right behind its Macro-Culverins.\n* When alerted, Vox Engines will blare an alarm from the loudspeakers atop the units as they begin to approach Helldivers, engaging with their various weaponry depending on distance."
+  },
+  "War Strider": {
+   "title": "War Strider",
+   "revision": 139410,
+   "faction": "Automatons",
+   "fireMult": "1.5",
+   "staggerReq": "40",
+   "minDifficulty": "6",
+   "spawning": "Appearing at {{Difficulty|6}} and above, the War Strider can spawn in [[Automaton Outpost]]s, from [[Bulk Fabricator]]s, or within [[Dropship|Bot Drops]]. They also spawn in patrols outside of the [[Metropolis]] biome.\n\nCertain mission types are devoid of War Striders unless they take place in an urban environment such as a [[Metropolis]]. These missions include [[Emergency Evacuation]], [[Retrieve Valuable Data]], [[Conduct Geological Survey]], and [[Spread Democracy]].<ref>https://www.reddit.com/r/Helldivers/comments/1nhp8k9/psa_war_strider_does_not_spawn_in_these_missions/</ref>\n\nDuring a mission, War Striders replace [[Tank (disambiguation)#Helldivers 2|Automaton Tanks]] slots.",
+   "behavior": "Upon spotting [[Helldiver]]s, the War Strider will fire volleys of grenades and lasers if at range, or will stomp if a Helldiver gets too close. Their Culverins are fired in bursts of 8 before cooling down for about 4 seconds.\n\nWar Striders are slow and will not often pursue Helldivers, instead launching a salvo of 10 grenades at them with their Grenade Projectors if at a sufficient distance and generally firing their Fusion Culverins. Such grenades are fired on a steep arc, allowing them to potentially ignore cover."
+  },
+  "Warp Ship": {
+   "title": "Warp Ship",
+   "revision": 141833,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "1",
+   "spawning": null,
+   "behavior": null
+  },
+  "Warrior": {
+   "title": "Warrior",
+   "revision": 141593,
+   "faction": "Terminids",
+   "fireMult": "0.8",
+   "staggerReq": "20",
+   "minDifficulty": "1",
+   "spawning": "{{PAGENAME}}s can be found on all difficulties, spawning from [[Bug Breach|Bug Breaches]], within patrols, guarding [[Bug Nest]]s and [[Objectives]], or from [[Bug Hole|Bug Holes]]. They can also be spawned in a trio by [[Brood Commander]]s.\n\nStarting on {{Difficulty|4}}, they can be found guarding [[Minor Places of Interest]].",
+   "behavior": "Warriors will simply approach [[The Helldivers|Helldivers]], climbing over terrain and obstacles in an attempt to attack with their claws at close range. They can strafe sideways, and will attempt to cut off Helldivers trying to run past them. When their head is destroyed, Warriors will enter a \"berserk\" state, where they gain increased movement speed but continuously bleed out.\n\nRarely, and when a Helldiver is out of its reach, it will dig underground, then suddenly emerge and attack the Helldiver.\n\nWarriors are able to release a cloud of pheromones into the air that causes a Bug Breach."
+  },
+  "Watcher": {
+   "title": "Watcher",
+   "revision": 140766,
+   "faction": "Illuminate",
+   "fireMult": null,
+   "staggerReq": null,
+   "minDifficulty": "1",
+   "spawning": "Watchers can be found on all difficulties, spawning throughout the map. They do not spawn on planets occupied by [[Vote Snatchers]].",
+   "behavior": "Watchers fly around the map and scan its surroundings with a luminescent blue light, visualizing its point of view. Once alerted, through direct line of sight of a [[Helldiver]], attacks directly at them, or near them, it will shine a bright pink light and begin investigating.\n\nUpon spotting Helldivers once more, or while being continuously attacked by them, Watchers will typically halt and emit holographic flares that call in [[Warp Ship|Warp Ships]] for reinforcements. \n\nThey may also attack with its Tesla Suppressor, firing debilitating [[Damage#Damage Types|arcs]] of lightning when [[Helldivers]] are close to it."
+  },
+  "Wretch": {
+   "title": "Wretch",
+   "revision": 140071,
+   "faction": "Vote Snatchers",
+   "fireMult": "1.5",
+   "staggerReq": "20",
+   "minDifficulty": "1",
+   "spawning": "* Since there are no [[Watcher|Watchers]] to call reinforcements on a planet occupied by [[Vote Snatchers]], Wretches will only spawn naturally as patrols and guarding points of interest.\n** However, they spawn in much greater numbers comparatively.\n* They, along with [[Crusher|Crushers]], are spawned from [[Warp Ship|Warp Ships]] during [[Repel Invasion Fleet]] missions on planets where the Vote Snatchers are active.",
+   "behavior": "When a Wretch spots a Helldiver they will generally approach in a straight line, but will sometimes dart around cover to try and flank the Helldiver. It is not uncommon to be firing at a pair of Wretches only for another to attack from behind. They can move surprisingly fast and once in range they will pounce at Helldivers, dealing significant damage. This pounce attack also strongly tracks a moving Helldiver which makes it difficult to dodge."
+  }
+ }
+}

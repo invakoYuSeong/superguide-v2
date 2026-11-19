@@ -1,0 +1,2358 @@
+{
+ "Agitator": {
+  "revision": 142502,
+  "spawning": [
+   {
+    "ko": "사이보그가 있는 행성에서 모든 난이도에 나옵니다.",
+    "en": "Appears on all difficulties on planets with the Cyborg Legion."
+   },
+   {
+    "ko": "봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비로 나타납니다.",
+    "en": "Spawns from Bot Drops, in patrols, and guarding Automaton Outposts and Objectives."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 망설이지 않고 바로 공격합니다.",
+    "en": "Attacks immediately on spotting a Helldiver, without hesitating."
+   },
+   {
+    "ko": "주변의 트루퍼 등 가벼운 인간형 오토마톤, 버서커, 모든 종류의 데버스테이터를 지휘해 이동 속도를 높입니다. 영향을 받은 적은 눈이 노랗게 빛나며, 애지테이터가 살아 있는 동안 계속됩니다.",
+    "en": "Commands nearby Troopers and other light humanoid Automatons, Berserkers and all Devastators, raising their movement speed. Affected units have glowing yellow eyes, and it lasts while the Agitator lives."
+   },
+   {
+    "ko": "멀리서는 느린 플라스마 차저 포를 2~7발씩 쏩니다. 왼팔로 포를 받치면 더 세고 작은 범위로 터지는 과충전 탄을 쏘며, 20발을 쏘면 포를 식힙니다.",
+    "en": "At range it fires its slow Plasma Charger in 2~7 round volleys. Bracing it with the left arm means an overcharged shot that hits harder and explodes in a small radius. It cools down after 20 shots."
+   },
+   {
+    "ko": "헬다이버가 시야에서 사라지면 마지막 위치에 수류탄을 던집니다. 엄폐물을 쓰고 옆걸음으로 조준을 흐트러뜨리기도 합니다.",
+    "en": "Throws a grenade at your last known position when you leave its sight. It also uses cover and sidesteps to throw off your aim."
+   },
+   {
+    "ko": "가까이 가면 발차기와 팔 휘두르기로 중간 정도 피해를 주고 넘어뜨리며, 쓰러진 헬다이버는 짓밟습니다.",
+    "en": "Up close it kicks and swings its arms for moderate damage that knocks you down, and stomps on downed Helldivers."
+   }
+  ]
+ },
+ "Alpha Commander": {
+  "revision": 142329,
+  "spawning": [
+   {
+    "ko": "난이도 8부터 나오며, 브루드 커맨더를 완전히 대신합니다.",
+    "en": "Appears starting at Difficulty 8, fully replacing Brood Commanders."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다.",
+    "en": "Spawns from Bug Breaches, in patrols, and guarding Objectives, Bug Nests and Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "브루드 커맨더와 똑같이 행동하지만 체력과 내구도가 조금 더 높습니다.",
+    "en": "Behaves like a Brood Commander, with slightly more health and durability."
+   },
+   {
+    "ko": "워리어 대신 더 빠르고 위험한 알파 워리어 3마리를 불러냅니다.",
+    "en": "Summons a trio of Alpha Warriors, faster and deadlier Warriors, instead of regular Warriors."
+   },
+   {
+    "ko": "가끔 하이브 가드를 불러내는데, 이는 그 임무에 하이브 가드와 다른 중장갑 적이 많이 나온다는 신호입니다.",
+    "en": "Sometimes summons Hive Guards, a sign that many Hive Guards and other heavily armored enemies will spawn in that mission."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release pheromones to call a Bug Breach."
+   }
+  ]
+ },
+ "Alpha Warrior": {
+  "revision": 141592,
+  "spawning": [
+   {
+    "ko": "알파 커맨더가 나오는 난이도 8 이상에서만 나오며, 알파 커맨더가 3마리씩 불러냅니다.",
+    "en": "Appears only at Difficulty 8 and above, summoned in trios by Alpha Commanders."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "워리어와 똑같이 행동하지만 이동 속도가 빨라 헬다이버를 끈질기게 따라붙어 공격합니다.",
+    "en": "Behaves like a Warrior, but its higher speed lets it keep up with Helldivers and attack constantly."
+   },
+   {
+    "ko": "머리가 부서지면 광폭 상태가 되어 더 빨라지지만 계속 피를 흘리다 죽습니다.",
+    "en": "When its head is destroyed it goes berserk: it moves faster but keeps bleeding out."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release pheromones to call a Bug Breach."
+   }
+  ]
+ },
+ "Annihilator Tank": {
+  "revision": 139864,
+  "spawning": [
+   {
+    "ko": "난이도 3에서는 낮은 확률로 일부 중형~대형 오토마톤 전초기지에만 나옵니다.",
+    "en": "At Difficulty 3 it has a low chance to appear, only in certain medium-to-large Automaton Outposts."
+   },
+   {
+    "ko": "난이도 4부터 봇 투하, 순찰대, 오토마톤 전초기지·요새·소규모 관심 지점 경비로 나오며, 혼자 맵을 돌아다니기도 합니다.",
+    "en": "Starting at Difficulty 4 it spawns from Bot Drops, in patrols, and guarding Automaton Outposts, Fortresses and Minor Places of Interest, and sometimes roams the map alone."
+   },
+   {
+    "ko": "슈레더 탱크와 출현 확률을 나누며, 난이도 7부터는 둘 다 가끔 바라저 탱크로 바뀝니다.",
+    "en": "Shares a spawn chance with Shredder Tanks; starting at Difficulty 7 both are sometimes replaced by Barrager Tanks."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "시야에 헬다이버가 있으면 가진 무장을 모두 쏩니다.",
+    "en": "Fires any of its weapons at a Helldiver in its line of sight."
+   },
+   {
+    "ko": "동축 융합 사이클러는 연사가 빠르지만 피해가 낮고, 차체의 대형 융합 연발포는 느리지만 피해가 높습니다.",
+    "en": "The coaxial Fusion Cycler fires fast with lower damage; the hull Heavy Fusion Repeater fires slower with higher damage."
+   },
+   {
+    "ko": "융합 주포는 빨간 빛이 번쩍이고 2초 뒤에 발사되며, 그 뒤 약 6초 동안 재장전합니다.",
+    "en": "The Fusion Battle Cannon flashes a red light and fires two seconds later, then reloads for about six seconds."
+   },
+   {
+    "ko": "무한궤도를 부수면 움직이지 못합니다. 뒤쪽 엔진이나 포탑을 부수면 멈춘 뒤 폭발하고, 큰 피해를 한 번에 주면 바로 폭발합니다.",
+    "en": "Destroying the tracks immobilizes it. Destroying the rear engine or turret disables it and it then explodes; enough damage at once makes it explode immediately."
+   }
+  ]
+ },
+ "Anti-Air Emplacement": {
+  "revision": 137727,
+  "spawning": [],
+  "behavior": []
+ },
+ "Assault Raider": {
+  "revision": 138971,
+  "spawning": [
+   {
+    "ko": "난이도 1부터 일반 행성에서 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소로 나옵니다.",
+    "en": "Starting at Difficulty 1 on normal planets, it spawns from Bot Drops, in patrols, guarding Automaton Outposts and Objectives, or from Automaton Fabricators."
+   },
+   {
+    "ko": "소각대 행성에서는 소각대 도색으로 나오지만 성능은 같습니다.",
+    "en": "On Incineration Corps planets it wears their paint job but is functionally the same."
+   },
+   {
+    "ko": "제트 여단 행성에서는 성능이 같은 제트 여단 커미서로 바뀝니다.",
+    "en": "On Jet Brigade planets it is replaced by the functionally identical Jet Brigade Commissar."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "융합 권총을 3발씩 4번 쏜 뒤 4초 동안 재장전합니다. 총격으로 제압당하면 총이 흔들려 명중률이 크게 떨어집니다.",
+    "en": "Fires its Fusion Pistol in three-round bursts four times, then reloads for four seconds. Under suppressing fire its aim shakes and accuracy drops sharply."
+   },
+   {
+    "ko": "제트팩으로 빠르게 다가온 뒤 달려와 히트 블레이드로 벱니다.",
+    "en": "Uses its jump pack to close in fast, then runs in to slash with its Heat Blade."
+   },
+   {
+    "ko": "제트팩이 피해를 받으면 터질 수 있습니다. 그러면 어설트 레이더는 즉사하고, 주변의 오토마톤과 헬다이버는 큰 피해와 화상을 입습니다.",
+    "en": "Its jump pack can explode when damaged, killing the Assault Raider instantly and heavily damaging and burning nearby Automatons and Helldivers."
+   },
+   {
+    "ko": "엄폐한 적에게 수류탄을 던지며, 헬다이버를 발견하면 신호탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "Throws grenades at targets in cover, and can fire a flare to call a Bot Drop when it spots a Helldiver."
+   }
+  ]
+ },
+ "Barrager Tank": {
+  "revision": 139879,
+  "spawning": [
+   {
+    "ko": "난이도 7부터 나오며, 일정 확률로 어나이얼레이터 탱크와 슈레더 탱크를 대신합니다.",
+    "en": "Appears starting at Difficulty 7, with a chance to replace Annihilator and Shredder Tanks."
+   },
+   {
+    "ko": "봇 투하, 순찰대, 상급 오토마톤 전초기지·요새·소규모 관심 지점 경비로 나오며, 혼자 맵을 돌아다니기도 합니다.",
+    "en": "Spawns from Bot Drops, in patrols, and guarding heavy Automaton Outposts, Fortresses and Minor Places of Interest, and sometimes roams the map alone."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버가 가까이 있으면 대형 다연장 로켓을 직접 쏘고, 중장거리에서는 발사대를 위로 들어 포격처럼 쏩니다. 두 방식 모두 로켓 3발을 한 번에 쏩니다.",
+    "en": "At close range it fires its Heavy MRLS straight at Helldivers; at medium-long range it aims upward and fires like artillery. Both modes fire a three-rocket volley."
+   },
+   {
+    "ko": "무한궤도를 부수면 움직이지 못하지만, 이 틈을 이용하려면 바라저 탱크에게서 더 멀리 떨어져야 합니다.",
+    "en": "Destroying the tracks immobilizes it, but you must move further away from it to take advantage of that."
+   },
+   {
+    "ko": "뒤쪽 엔진이나 포탑을 부수면 멈춘 뒤 폭발하고, 큰 피해를 한 번에 주면 바로 폭발합니다.",
+    "en": "Destroying the rear engine or turret disables it and it then explodes; enough damage at once makes it explode immediately."
+   }
+  ]
+ },
+ "Berserker": {
+  "revision": 138975,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 2 it spawns from Bot Drops, in patrols, and guarding Automaton Outposts and Objectives; starting at Difficulty 4 it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "소각대 행성에서는 나오지 않습니다.",
+    "en": "Absent on Incineration Corps planets."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버에게 곧장 다가와 회전 톱으로 공격합니다.",
+    "en": "Walks straight toward Helldivers to attack with its Meatsaws."
+   },
+   {
+    "ko": "쓰러진 헬다이버를 짓밟으며, 두 팔을 모두 잃으면 짓밟기로 공격합니다.",
+    "en": "Stomps on downed Helldivers, and stomps instead once it has lost both arms."
+   }
+  ]
+ },
+ "Bile Titan": {
+  "revision": 141861,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 '바일 타이탄 제거하기' 임무의 목표로 나옵니다.",
+    "en": "Appears starting at Difficulty 4 as the target of the Eliminate Bile Titans mission."
+   },
+   {
+    "ko": "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+    "en": "Starting at Difficulty 6 it spawns from Bug Breaches and roams the map alone."
+   },
+   {
+    "ko": "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 벌레굴이 있을 수 있습니다.",
+    "en": "Starting at Difficulty 7 it guards some heavy Bug Nests and Difficulty 10 Mega Nests, which can contain a Bug Hole that spawns Bile Titans."
+   },
+   {
+    "ko": "스포어 버스트 변종 행성에서는 난이도 5부터 스포어 버스트 바일 타이탄으로 완전히 바뀝니다.",
+    "en": "On Spore Burst Strain planets it is fully replaced by the Spore Burst Bile Titan starting at Difficulty 5."
+   },
+   {
+    "ko": "드래곤로치가 나오는 임무에서는 바일 타이탄 대신 차저가 나옵니다.",
+    "en": "On missions with Dragonroaches, a Charger spawns in its place."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "버그 침공 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
+    "en": "Outside Bug Breaches it usually stands still or follows a fixed patrol path, turning to face Helldivers it notices. A roar and front-leg slam signal its attack, and the music changes."
+   },
+   {
+    "ko": "버그 침공이나 바일 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+    "en": "Those spawned from a Bug Breach or Bile Titan Bug Hole are aggressive at once and seek nearby Helldivers."
+   },
+   {
+    "ko": "헬다이버와 25~30m 떨어져 있으면 담즙을 뿜으며, 담즙 공격 사이에는 10초 대기가 있습니다.",
+    "en": "Spews bile when 25~30m from Helldivers, with a 10 second cooldown between bile attacks."
+   },
+   {
+    "ko": "바로 앞에 있으면 오른쪽 다리로 내려찍고, 몸 아래에 있으면 두 앞다리로 앞쪽을 빠르게 짓밟습니다.",
+    "en": "Directly in front of it you get a right leg slam; underneath it, it rapidly stomps the area in front with both front legs."
+   },
+   {
+    "ko": "걸어갈 때 다리에 닿아도 피해를 입거나 죽을 수 있고, 다리 공격이 아슬아슬하게 빗나가도 넘어질 수 있습니다.",
+    "en": "Its legs can hurt or kill Helldivers while it walks, and near-miss leg attacks can knock you down."
+   }
+  ]
+ },
+ "Brawler": {
+  "revision": 138833,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Appears on any difficulty from Bot Drops, in patrols, guarding Automaton Outposts and Objectives, or from Automaton Fabricators; starting at Difficulty 4 it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "높은 난이도일수록 자주 나오며, 주로 트루퍼를 대신합니다.",
+    "en": "Spawns more often on higher difficulties, mostly replacing Troopers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "계속 헬다이버에게 다가와 가까워지면 히트 블레이드를 휘두릅니다.",
+    "en": "Keeps moving toward Helldivers and swings its Heat Blade once close."
+   },
+   {
+    "ko": "고유한 원거리 공격은 없지만, 다른 트루퍼처럼 기관총 거치포를 쓰거나 엄폐물 뒤로 수류탄을 던질 수 있습니다.",
+    "en": "It has no ranged attack of its own, but like other Troopers it can man machine gun emplacements and throw grenades behind cover."
+   },
+   {
+    "ko": "헬다이버를 발견하면 신호탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "Can fire a flare to call a Bot Drop when it spots a Helldiver."
+   }
+  ]
+ },
+ "Brood Commander": {
+  "revision": 141213,
+  "spawning": [
+   {
+    "ko": "난이도 1부터 '브루드 커맨더 제거하기' 임무의 목표로 나옵니다.",
+    "en": "Appears starting at Difficulty 1 as the target of the Eliminate Brood Commanders mission."
+   },
+   {
+    "ko": "난이도 3부터 버그 침공, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 3 it spawns from Bug Breaches, in patrols, and guarding Objectives and Bug Nests; starting at Difficulty 4 it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "난이도 8부터는 알파 커맨더로 바뀝니다.",
+    "en": "Starting at Difficulty 8 it is replaced by the Alpha Commander."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형을 타고 넘어 다가와 발톱으로 근접 공격하며, 옆으로 움직이거나 지나가려는 헬다이버의 길을 막습니다.",
+    "en": "Climbs over terrain to claw at close range, strafes sideways, and tries to cut off Helldivers running past."
+   },
+   {
+    "ko": "머리가 부서지면 광폭 상태가 되어 더 빨라지지만 계속 피를 흘리다 죽습니다. 가끔 워리어 3마리를 불러냅니다.",
+    "en": "When its head is destroyed it goes berserk: faster, but it keeps bleeding out. It occasionally summons a trio of Warriors."
+   },
+   {
+    "ko": "보통 15~20m 거리에서 돌진합니다. 맞으면 피해를 입고 넘어지며 충격 효과를 받을 수 있습니다. 피하거나, 지형이나 차저 같은 큰 적에 부딪히게 하면 멈춥니다.",
+    "en": "Usually charges when you are 15~20m away. A hit deals damage, can knock you down and may concuss you. Dodge it, or let it hit terrain or a larger enemy like a Charger to stop it."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release pheromones to call a Bug Breach."
+   }
+  ]
+ },
+ "Bunker Turret": {
+  "revision": 142047,
+  "spawning": [
+   {
+    "ko": "주로 지휘 벙커 위에 있으며, 난이도 7부터 오토마톤이 점령한 소규모 관심 지점에도 나올 수 있습니다.",
+    "en": "Most often sits atop Command Bunkers, and starting at Difficulty 7 can appear at Automaton-held Minor Places of Interest."
+   },
+   {
+    "ko": "난이도 10에서는 오토마톤 요새를 지킵니다.",
+    "en": "On Difficulty 10 it defends Automaton Fortresses."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "천천히 2발을 쏜 뒤 약 5초 동안 식힙니다.",
+    "en": "Slowly fires two shots, then cools down for about five seconds."
+   },
+   {
+    "ko": "헬다이버를 겨누는 것 말고는 발사 전 경고가 거의 없습니다.",
+    "en": "Gives almost no warning before firing, other than aiming at you."
+   }
+  ]
+ },
+ "Caustic Charger": {
+  "revision": 142179,
+  "spawning": [
+   {
+    "ko": "커스틱 변종 행성에서 나오며, 차저처럼 버그 침공과 다른 테르미니드와 함께하는 순찰대로 나타납니다.",
+    "en": "Found on Caustic Strain planets; like the Charger it spawns from Bug Breaches and patrols the map with other Terminids."
+   },
+   {
+    "ko": "상급 버그 둥지, 임무 목표, 소규모 관심 지점도 지키며, 땅속에 숨어 있기도 합니다.",
+    "en": "Also guards heavy Bug Nests, Objectives and Minor Places of Interest, sometimes burrowed."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "차저와 비슷하게 행동합니다.",
+    "en": "Behaves like a Charger."
+   },
+   {
+    "ko": "죽을 때 포자 폭발을 일으켜 주변에 피해를 줄 수 있지만, 항상 터지지는 않습니다.",
+    "en": "Can burst in a spore explosion on death that damages anything nearby, but not every time."
+   },
+   {
+    "ko": "포자 살덩이는 어떤 무기로도 피해를 줄 수 있고 장갑도 차저·차저 베히모스보다 적지만, 여기에 준 피해는 20%만 본체 체력에 들어갑니다.",
+    "en": "Its spore flesh can be damaged by any weapon and it has less armor than Chargers and Charger Behemoths, but only 20% of damage there carries over to its main health."
+   }
+  ]
+ },
+ "Caustic Spewer": {
+  "revision": 142383,
+  "spawning": [
+   {
+    "ko": "커스틱 변종 행성에서 난이도 3부터 나오며, 버그 침공, 순찰대, 임무 목표·소규모 관심 지점·버그 둥지 경비로 나타납니다.",
+    "en": "Found on Caustic Strain planets starting at Difficulty 3, spawning from Bug Breaches, in patrols, and guarding Objectives, Minor Places of Interest and Bug Nests."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "다가오다가 11~20m에서 담즙을 뱉고, 10m에서는 앞다리로 공격합니다.",
+    "en": "Approaches and spits bile at 11~20m, switching to front-leg attacks at 10m."
+   },
+   {
+    "ko": "난이도 6부터는 약 30m에서 담즙 폭탄 2발을 하늘로 쏘며, 헬다이버 위로 떨어져 터질 수 있습니다.",
+    "en": "Starting at Difficulty 6, at around 30m it lobs two bile bombs into the air that can fall and explode on Helldivers."
+   },
+   {
+    "ko": "엉덩이에 치명타를 맞으면 터져 주변 테르미니드와 헬다이버에게 피해를 줍니다. 엉덩이가 남은 채 죽은 개체도 피해를 더 주면 터질 수 있습니다.",
+    "en": "A lethal shot to its butt makes it explode, damaging nearby Terminids and Helldivers. A corpse with its butt intact can still explode with enough damage."
+   },
+   {
+    "ko": "다리를 부술 때마다 점점 더 느려집니다.",
+    "en": "Each leg destroyed slows it down further."
+   }
+  ]
+ },
+ "Caustic Spitter": {
+  "revision": 142385,
+  "spawning": [
+   {
+    "ko": "커스틱 변종 행성에서 난이도 1부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다.",
+    "en": "Found on Caustic Strain planets starting at Difficulty 1, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Minor Places of Interest and Objectives."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형을 타고 넘어 다가오며, 헬다이버가 15m 안에 들어오면 3초마다 담즙을 뱉습니다.",
+    "en": "Climbs over terrain toward Helldivers and spits bile every three seconds once you are within 15m."
+   },
+   {
+    "ko": "담즙에 맞으면 느려지고 약한 지속 피해를 입습니다.",
+    "en": "Its bile slows you and deals mild damage over time."
+   },
+   {
+    "ko": "죽을 때 작은 담즙 폭발을 일으켜 주변 테르미니드와 헬다이버에게 피해를 줍니다.",
+    "en": "On death it bursts in a small bile explosion that damages nearby Terminids and Helldivers."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release pheromones to call a Bug Breach."
+   }
+  ]
+ },
+ "Caustic Warrior": {
+  "revision": 142384,
+  "spawning": [
+   {
+    "ko": "커스틱 변종 행성에서 난이도 2부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다.",
+    "en": "Found on Caustic Strain planets starting at Difficulty 2, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Objectives and Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "워리어와 똑같이 행동하지만, 몸통에 치명타를 맞고 죽으면 담즙을 터뜨려 주변 테르미니드와 헬다이버에게 피해를 줍니다.",
+    "en": "Behaves like a Warrior, but when killed by a blow to its body it bursts in bile, damaging nearby Terminids and Helldivers."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release pheromones to call a Bug Breach."
+   }
+  ]
+ },
+ "Charger": {
+  "revision": 141505,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 버그 침공, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
+    "en": "Starting at Difficulty 4 it spawns from Bug Breaches, patrols with other Terminids, and guards Objectives, more often on higher difficulties. At Minor Places of Interest it is sometimes burrowed."
+   },
+   {
+    "ko": "난이도 7부터 상급 버그 둥지와 난이도 10의 최상급 둥지를 지킵니다. 이때부터 차저 베히모스나 커스틱 차저로 바뀔 확률이 생기고, 난이도가 높을수록 커집니다.",
+    "en": "Starting at Difficulty 7 it guards heavy Bug Nests and Difficulty 10 Mega Nests, and gains a chance to be replaced by the Charger Behemoth or Caustic Charger, higher on higher difficulties."
+   },
+   {
+    "ko": "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(바일 타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다.",
+    "en": "On Difficulty 10 it is otherwise fully replaced by its tougher variants, but on missions with Dragonroaches a regular Charger spawns in place of a Bile Titan, including from Bile Titan Bug Holes."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리 쪽으로 몸을 돌립니다. 포효하면 공격 신호이며, 바로 돌진하는 경우가 많습니다.",
+    "en": "Outside Bug Breaches it usually stands still and turns toward Helldiver movement or sounds. A roar signals its attack, often followed right away by a charge."
+   },
+   {
+    "ko": "버그 침공에서 나온 개체는 바로 주변 헬다이버를 찾아 짓밟으려 합니다.",
+    "en": "Those spawned from a Bug Breach are aggressive at once and seek nearby Helldivers to trample."
+   },
+   {
+    "ko": "한 번 돌진하면 헬다이버를 지나치거나 단단한 지형이나 다른 차저에 부딪힐 때까지 멈추지 않습니다. 맞으면 넘어지거나 날아가고, 충격 효과를 받는 경우가 많습니다.",
+    "en": "Once charging it does not stop until it passes a Helldiver or hits solid terrain or another Charger. A hit knocks you down or sends you flying, often concussing you."
+   },
+   {
+    "ko": "가까이 있으면 앞다리로 공격합니다.",
+    "en": "Up close it attacks with its front legs."
+   },
+   {
+    "ko": "엉덩이를 부수거나 몸통 장갑을 떼어 내면 느려지고 피를 흘리다 죽습니다.",
+    "en": "Destroying its rear or blowing off its torso armor cripples it, slowing it and making it bleed out."
+   }
+  ]
+ },
+ "Charger Behemoth": {
+  "revision": 141504,
+  "spawning": [
+   {
+    "ko": "난이도 3부터 '차저 제거하기' 임무의 목표로 나옵니다.",
+    "en": "Appears starting at Difficulty 3 as the target of the Eliminate Chargers mission."
+   },
+   {
+    "ko": "난이도 7부터 커스틱 차저와 함께 일정 확률로 차저를 대신하며, 난이도가 높을수록 확률이 커집니다.",
+    "en": "Starting at Difficulty 7, along with the Caustic Charger, it has a chance to replace Chargers, higher on higher difficulties."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 임무 목표 경비로 나오고, 상급 버그 둥지, 난이도 10의 최상급 둥지, 소규모 관심 지점도 지키며 땅속에 숨어 있기도 합니다.",
+    "en": "Spawns from Bug Breaches, in patrols and guarding Objectives, and also guards heavy Bug Nests, Difficulty 10 Mega Nests and Minor Places of Interest, sometimes burrowed."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "차저와 비슷하게 행동하지만 체력과 내구도가 조금 더 높습니다.",
+    "en": "Behaves like a Charger, with slightly more health and durability."
+   }
+  ]
+ },
+ "Commissar": {
+  "revision": 138835,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 봇 투하, 순찰대 지휘, 오토마톤 전초기지·임무 목표 경비로 나옵니다. 다른 경량 오토마톤과 달리 오토마톤 제조소에서는 나오지 않습니다.",
+    "en": "Appears on any difficulty from Bot Drops, leading patrols, and guarding Automaton Outposts and Objectives. Unlike other light Automatons it does not come from Automaton Fabricators."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다. 높은 난이도에서는 로켓 레이더·MG 레이더 같은 더 위험한 경량 오토마톤으로 바뀌기도 합니다.",
+    "en": "Starting at Difficulty 4 it also guards Minor Places of Interest. On higher difficulties it may be replaced by more dangerous light Automatons such as Rocket Raiders and MG Raiders."
+   },
+   {
+    "ko": "제트 여단 행성에서는 난이도 1부터 제트 여단 커미서로 바뀌기 시작합니다.",
+    "en": "On Jet Brigade planets it starts being replaced by its Jet Brigade variant from Difficulty 1."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "시야에 헬다이버가 있으면 융합 권총을 3발씩 쏘고, 다시 쏘기까지 3.5초 동안 식힙니다. 총격으로 제압당하면 총이 흔들려 명중률이 크게 떨어집니다.",
+    "en": "Fires its Fusion Pistol in three-round bursts at Helldivers in sight, cooling for 3.5 seconds between bursts. Under suppressing fire its aim shakes and accuracy drops sharply."
+   },
+   {
+    "ko": "헬다이버와 거리를 두려고 뒤로 물러나며, 너무 가까우면 히트 블레이드를 휘두르고, 엄폐물 뒤에는 수류탄을 던집니다.",
+    "en": "Keeps its distance and backs off as you approach, swings its Heat Blade if you get too close, and throws grenades behind cover."
+   },
+   {
+    "ko": "헬다이버를 발견하면 신호탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "Can fire a flare to call a Bot Drop when it spots a Helldiver."
+   },
+   {
+    "ko": "제트 여단 커미서는 제트팩으로 계속 거리를 좁혀 옵니다.",
+    "en": "The Jet Brigade variant uses a jump pack to keep closing the distance."
+   }
+  ]
+ },
+ "Conflagration Devastator": {
+  "revision": 140049,
+  "spawning": [
+   {
+    "ko": "소각대 행성에서 난이도 1부터 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 대형 제조소로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Found on Incineration Corps planets starting at Difficulty 1, from Bot Drops, in patrols, guarding Automaton Outposts and Objectives, or from Bulk Fabricators; starting at Difficulty 4 it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "거대 데버스테이터처럼 시야에 헬다이버가 있으면 천천히 계속 밀고 들어오며, 화염 산탄포를 분당 40발 속도로 쏩니다.",
+    "en": "Like the Heavy Devastator, it slowly but steadily pushes toward Helldivers in sight, firing its Conflagration Scattergun at 40RPM."
+   },
+   {
+    "ko": "가끔 분당 100발의 빠른 속도로 2발을 연달아 쏘는데, 방심하면 순식간에 죽습니다.",
+    "en": "Occasionally it fires 2 shots at a faster 100RPM, which can quickly kill careless Helldivers."
+   },
+   {
+    "ko": "너무 가까우면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버를 짓밟습니다.",
+    "en": "Bashes you down with its shield if you are too close, and stomps on prone Helldivers."
+   }
+  ]
+ },
+ "Crescent Overseer": {
+  "revision": 142610,
+  "spawning": [
+   {
+    "ko": "맵 곳곳과 순찰대에서 나오고, 증원으로 불려 오기도 합니다. 오버시어 중 가장 드물어서 한 번에 1~2마리만 나옵니다.",
+    "en": "Appears across the map, in patrols, and through reinforcements. It is the rarest Overseer, limited to 1~2 at a time."
+   },
+   {
+    "ko": "적임자나 보트 스내처가 있는 행성에서는 나오지 않지만, 침공 함대가 함께 있으면 나옵니다.",
+    "en": "Absent on planets with the Appropriators or Vote Snatchers, unless the Invasion Fleet is also present."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "천천히 돌아다니다 사거리 안의 적을 발견하면 멈춰서 플라스마 포격기로 포물선을 그리는 플라스마 탄을 쏩니다. 사거리가 매우 넓어 엄폐물이나 높은 건물 뒤의 헬다이버도 몰아냅니다.",
+    "en": "Roams slowly, then stops to lob arcing plasma shots from its Plasma Bombard at enemies in range. The huge range flushes Helldivers out from cover and behind tall structures."
+   },
+   {
+    "ko": "가까이 가면 포격기를 두 손으로 잡고 직접 겨눠 오버시어처럼 쏩니다.",
+    "en": "Up close it holds the Bombard in both hands and fires directly, like the Overseer."
+   },
+   {
+    "ko": "바로 앞까지 붙으면 한 손으로 주먹을 날립니다.",
+    "en": "At point-blank range it punches with one hand."
+   }
+  ]
+ },
+ "Crusher": {
+  "revision": 141041,
+  "spawning": [
+   {
+    "ko": "보트 스내처 행성에는 증원을 부르는 와처가 없어서, 크러셔는 순찰대와 관심 지점 경비로만 나오지만 수가 훨씬 많습니다.",
+    "en": "Vote Snatcher planets have no Watchers to call reinforcements, so Crushers only spawn in patrols and guarding points of interest, but in much greater numbers."
+   },
+   {
+    "ko": "보트 스내처가 있는 행성의 '침공 함대 격퇴' 임무와 '오버쉽 파괴' 임무에서는 렛치와 함께 워프 함선에서 나옵니다.",
+    "en": "On Vote Snatcher planets they come out of Warp Ships with Wretches during Repel Invasion Fleet and Take Down Overship missions."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "평소에는 곤봉을 끌고 다니다가 헬다이버를 발견하면 어깨에 메고 공격 거리까지 일직선으로 다가옵니다. 전투에 들어갈 때 큰 경적이나 종소리 같은 소리를 냅니다.",
+    "en": "Normally drags its club behind it; on spotting a Helldiver it shoulders the club and walks straight in to attack range. It makes a loud horn- or bell-like sound when entering combat."
+   },
+   {
+    "ko": "휘두를 때 앞으로 뛰어들어서 보기보다 공격 거리가 깁니다.",
+    "en": "It lunges forward when swinging, giving it deceptively long reach."
+   }
+  ]
+ },
+ "Devastator": {
+  "revision": 138977,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비로 나옵니다.",
+    "en": "Appears from Difficulty 2, from Bot Drops, in patrols, and guarding Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 거대 데버스테이터와 로켓 데버스테이터로 바뀌어 나오기 시작하며, 난이도가 높을수록 그 확률이 커집니다. 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4 it begins to be replaced by Heavy and Rocket Devastators, more often at higher difficulties. It also guards Minor Places of Interest."
+   },
+   {
+    "ko": "팩토리 스트라이더가 아래쪽에서 4마리를 내보낼 수 있습니다.",
+    "en": "A Factory Strider can release four of them from its underside."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "융합 돌격포를 쏘며 천천히 다가옵니다. 2발씩 점사한 뒤 약 2초 쉬고 다시 쏩니다.",
+    "en": "Slowly advances while firing its Fusion Assault Cannon: a two-shot burst, then about a two-second pause."
+   },
+   {
+    "ko": "가까이 붙으면 주먹으로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
+    "en": "If you get too close it punches you down, and it stomps on prone Helldivers."
+   }
+  ]
+ },
+ "Dragonroach": {
+  "revision": 142362,
+  "spawning": [
+   {
+    "ko": "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 침공으로도 나오지 않습니다.",
+    "en": "Spawns only as a lone patrol visible from long range. It has no fixed spawns at Objectives or POIs and does not come from Bug Breaches."
+   },
+   {
+    "ko": "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 바일 타이탄 벌레굴·먼 순찰대·버그 침공처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+    "en": "It never spawns alongside Bile Titans (except on Spore Burst Strain, with Spore Burst Bile Titans). Where a Bile Titan would spawn, such as Bile Titan Bug Holes, distant patrols and Bug Breaches, a Charger spawns instead."
+   },
+   {
+    "ko": "그래서 원래 차저 베히모스와 커스틱 차저로 모두 바뀌는 난이도 10에서도 일반 차저를 만날 수 있습니다.",
+    "en": "This means regular Chargers can appear on Difficulty 10, where they are otherwise fully replaced by Charger Behemoths and Caustic Chargers."
+   },
+   {
+    "ko": "고가치 자산 후송하기 임무에서는 시작 전 카운트다운이 끝나기 전에도 나올 수 있으니 바로 대비해야 합니다.",
+    "en": "On Evacuate High-Value Assets missions it can spawn before the pre-mission countdown ends, so be ready for it right away."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "경계 전에는 하이브 월드 하늘을 날아다닙니다. 헬다이버를 발견하거나 공격받으면 목표를 향해 날아오며 넓은 직선 구역에 화염을 뿜습니다.",
+    "en": "Unalerted, it soars over the Hive World. When it spots a Helldiver or is shot, it makes a strafing run and breathes fire over a large straight-line area."
+   },
+   {
+    "ko": "그 뒤 목표 뒤쪽 낮은 높이에 잠시 떠 있다가 한 번 더 집중 화염을 뿜고 높이 올라갑니다. 공격 사이에는 높은 곳에서 목표 주위를 돕니다.",
+    "en": "It then hovers low behind its target for a moment, breathes a concentrated burst of fire, and climbs again. Between attacks it circles its target at high altitude."
+   },
+   {
+    "ko": "바일 타이탄처럼 등껍질 장갑이 두껍고, 주된 약점은 머리입니다.",
+    "en": "Like the Bile Titan it has a heavily armored carapace; its main weak spot is the head."
+   }
+  ]
+ },
+ "Dropship": {
+  "revision": 139884,
+  "spawning": [],
+  "behavior": []
+ },
+ "Elevated Overseer": {
+  "revision": 142611,
+  "spawning": [
+   {
+    "ko": "무권자 순찰 무리와 함께 자주 나옵니다. 지도 곳곳의 특정 목표, 착륙한 워프 함선, 워프 함선 증원으로도 나옵니다.",
+    "en": "Often accompanies patrolling hordes of Voteless. It also spawns at certain objectives, from Grounded Warp Ships, and from Warp Ship reinforcements."
+   },
+   {
+    "ko": "무분별한 대중이나 보트 스내처가 있는 행성에서는 나오지 않습니다. 단, 침공 함대도 함께 있으면 나옵니다.",
+    "en": "Absent on planets with Mindless Masses or Vote Snatchers, unless the Invasion Fleet is also present."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "땅 위를 날며 급선회로 공격을 피합니다. 천천히 다가오면서 스톰 소총으로 7발씩 빠르게 점사합니다.",
+    "en": "Flies above the ground, turning sharply to dodge fire, and slowly advances while firing quick 7-round bursts from its Storm Rifle."
+   },
+   {
+    "ko": "공격 사이사이 플라스마 기폭 수류탄을 던집니다.",
+    "en": "Throws Plasma Detonator grenades between attacks."
+   }
+  ]
+ },
+ "Factory Strider": {
+  "revision": 139888,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 '오토마톤 팩토리 스트라이더 제거' 임무에 처음 나옵니다.",
+    "en": "First appears in the Eliminate Automaton Factory Strider mission starting at Difficulty 4."
+   },
+   {
+    "ko": "난이도 7부터(사이보그가 있으면 난이도 6부터) 봇 투하로 나오거나 상급 오토마톤 전초기지를 지킵니다.",
+    "en": "Starting at Difficulty 7 (Difficulty 6 with Cyborg Legion), it comes from Bot Drops and guards Heavy Automaton Outposts."
+   },
+   {
+    "ko": "보조 목표 '호송대 요격하기'에서는 5대가 지도 한쪽 끝에서 반대쪽으로 순찰하며, 그중 1대는 작은 스트라타젬 교란기처럼 생긴 전략 교란기를 싣고 있습니다.",
+    "en": "The Intercept Convoy secondary objective spawns five that patrol across the map; one carries a Stratagem Scrambler that looks like a small Stratagem Jammer."
+   },
+   {
+    "ko": "사이보그가 침공한 행성에서는 난이도 7부터 복스 엔진으로 바뀝니다(호송대 보조 목표 포함). 목표 아이콘은 그대로입니다.",
+    "en": "On Cyborg Legion planets it is replaced by the Vox Engine starting at Difficulty 7, convoys included. The objective icon stays the same."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 크게 포효하고, 시야 안의 헬다이버에게 무장들이 각각 따로 사격합니다.",
+    "en": "When alerted it roars, and each of its weapons fires independently at Helldivers in its line of sight."
+   },
+   {
+    "ko": "위쪽 포는 360도로 따로 돌아 가장 먼저 쏘는 경우가 많고, 헬다이버가 시야 안에 있고 너무 가깝지 않으면 최대 3발까지 쏩니다.",
+    "en": "Its cannon rotates 360 degrees on its own and often fires first, up to three rounds while a Helldiver is in sight and not too close."
+   },
+   {
+    "ko": "융합 개틀링은 머리 방향 위주로만 돌지만 분당 1200발로 매우 치명적입니다. 걸어가면서 헬다이버를 넘어뜨리고 피해를 줄 수 있습니다.",
+    "en": "Its Fusion Gatling Guns turn mostly with the head but fire a deadly 1200 RPM. It can also knock down and damage Helldivers as it walks."
+   },
+   {
+    "ko": "50~55초마다 데버스테이터 4마리를 내보내며, 이때 기계 문이 열리는 소리가 납니다.",
+    "en": "Every 50~55 seconds it releases four Devastators, with a sound like a mechanical door opening."
+   },
+   {
+    "ko": "치명타를 맞으면 비명을 지른 뒤 크게 폭발하고, 쓰러지는 몸체에 가까이 있는 헬다이버가 깔릴 수 있습니다.",
+    "en": "On a lethal blow it shrieks and explodes violently; its falling body can crush nearby Helldivers."
+   }
+  ]
+ },
+ "Fleshmob": {
+  "revision": 140060,
+  "spawning": [
+   {
+    "ko": "지도 곳곳의 관심 지점 근처, 순찰대, 적 증원으로 나옵니다. 난이도가 높을수록 한 번에 나오는 수가 늘어납니다.",
+    "en": "Spawns near POIs across the map, in patrols, and from enemy reinforcements, in larger numbers at higher difficulties."
+   },
+   {
+    "ko": "적임자나 보트 스내처가 있는 행성에서는 나오지 않습니다.",
+    "en": "Absent on planets with Appropriators or Vote Snatchers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "무권자, 오버시어과 함께 돌아다니거나 특정 구역을 지킵니다. SEAF 자산이나 헬다이버를 발견하면 거리에 따라 행동이 달라집니다.",
+    "en": "Wanders with Voteless and Overseers or guards certain areas. When it detects a SEAF asset or Helldiver, its behavior depends on distance."
+   },
+   {
+    "ko": "15m 미만: 천천히 걸어와 사거리에 들어오면 팔을 휘두릅니다.",
+    "en": "Under 15m: walks slowly toward the target and swipes when in range."
+   },
+   {
+    "ko": "15~30m: 흥분 상태가 되어 더 빨리 다가오며 여러 팔을 계속 휘둘러 헬다이버를 밀쳐내고 주변 물체를 부숩니다.",
+    "en": "15~30m: becomes aggressive, moving faster and flailing its many arms, knocking Helldivers back and destroying nearby objects."
+   },
+   {
+    "ko": "30m 이상: 팔을 벌리고 포효하는 짧은 준비 동작 뒤 차저처럼 빠르게 돌진합니다. 맞으면 넘어지고 큰 피해를 입습니다.",
+    "en": "30m or more: roars with arms spread in a short windup, then charges at high speed like a Charger, ragdolling and heavily damaging Helldivers."
+   }
+  ]
+ },
+ "Gatekeeper": {
+  "revision": 140067,
+  "spawning": [
+   {
+    "ko": "일루미닛의 적임자 세력에 속해 적임자가 있는 행성에서만 나오며, 난이도 4 이상부터 나옵니다.",
+    "en": "Part of the Illuminate Appropriators subfaction; spawns only on Appropriators planets, at Difficulty 4 and above."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "드물게 나오며, 높은 난이도에서 더 자주 나오는 하베스터보다 대체로 덜 위협적입니다. 보통 앞쪽 버레이시터와 뒤쪽 하베스터 사이에서 견제 사격을 맡습니다.",
+    "en": "Spawns rarely and is usually less of a threat than the more common Harvesters at high difficulty. It typically holds a suppressive middle line between Veracitors in front and Harvesters behind."
+   },
+   {
+    "ko": "쌍둥이 플라스마 스타캐넌으로 표적에 파란 유도 레이저를 비추고 두 가지 공격을 합니다.",
+    "en": "Its twin Plasma Starcannons paint the target with blue guiding lasers and have two attacks."
+   },
+   {
+    "ko": "2발짜리 충격 플라스마 점사는 엄폐물 뒤의 헬다이버도 넘어뜨릴 수 있습니다. 쏜 뒤 포신 끝이 벌어졌다가 다시 닫히며 다음 공격을 준비합니다.",
+    "en": "A two-shot concussive plasma burst that can ragdoll a Helldiver behind cover. Afterward the barrel ends flare out, then close as it prepares the next attack."
+   },
+   {
+    "ko": "훨씬 긴 플라스마 연사는 피하지 않으면 헬다이버를 쉽게 갈아 버립니다. 스타캐넌이 '펌프질'하고 포신이 빠르게 회전하는 것이 예고 동작입니다.",
+    "en": "A much longer plasma volley that easily shreds a Helldiver who does not evade. It is telegraphed by the Starcannons \"pumping\" and the barrels rapidly winding up."
+   }
+  ]
+ },
+ "Gunship": {
+  "revision": 142465,
+  "spawning": [
+   {
+    "ko": "난이도 5 이상에서 건십 시설에서 나옵니다. 헬다이버가 150m 안에 들어오면 한 번에 최대 2대씩, 시설 하나당 최대 4대를 내보냅니다.",
+    "en": "Spawns from Gunship Facilities at Difficulty 5 and above. A facility starts spawning when Helldivers are within 150m, up to two at a time and four in total per tower."
+   },
+   {
+    "ko": "작전 제한 조건 '건십 순찰'이 켜져 있으면 2~4대 무리의 순찰로도 나옵니다.",
+    "en": "With the Gunship Patrols operation modifier active, it also patrols in groups of 2~4."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "건십 시설에서 나오면 바로 주변의 헬다이버를 찾고, 순찰 중이면 지도를 직선으로 가로지릅니다. 순찰 무리 중 1대에게 들키면 나머지도 모두 경계합니다.",
+    "en": "From a facility it searches its immediate area; on patrol it flies straight across the map. Alerting one Gunship in a patrol alerts the rest."
+   },
+   {
+    "ko": "헬다이버를 찾으면 거리를 두고 떠서 대형 융합 사이클러를 쏘며(연사 사이 1초 대기), 가끔 로켓 6발 일제 사격을 최대 4번 합니다.",
+    "en": "Once it finds a Helldiver it hovers at a distance firing its Heavy Fusion Cycler (1 second between bursts), with occasional six-rocket salvos, up to four times."
+   },
+   {
+    "ko": "로켓을 다 쓰면 대형 융합 사이클러만 최대 8초 쏘며, 사격 시간은 헬다이버가 보이는지에 따라 달라집니다.",
+    "en": "After its rockets are spent it fires only the Heavy Fusion Cycler for up to eight seconds, depending on its line of sight."
+   },
+   {
+    "ko": "격추되면 추락한 뒤 크게 폭발하며, 추락하는 기체에 헬다이버가 깔릴 수 있습니다.",
+    "en": "When downed it crash-lands and explodes violently; the falling Gunship can crush Helldivers."
+   }
+  ]
+ },
+ "Harvester": {
+  "revision": 142505,
+  "spawning": [
+   {
+    "ko": "순찰대, 모노리스 경비, 일루미닛 증원으로 나옵니다. 보트 스내처가 있는 행성에서는 나오지 않습니다.",
+    "en": "Found in patrols, guarding Monoliths, and in Illuminate reinforcements. Does not spawn on Vote Snatchers planets."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "경계하기 전에는 보호막을 펼치지 않습니다.",
+    "en": "It does not raise its shields until alerted."
+   },
+   {
+    "ko": "주 공격은 잠깐 충전한 뒤 휩쓸듯 쏘는 분해 광선으로, 헬다이버를 거의 즉시 죽입니다.",
+    "en": "Its main attack is a sweeping disintegration beam fired after a brief charge, killing Helldivers almost instantly."
+   },
+   {
+    "ko": "가까운 거리에서는 대신 눈에 달린 테슬라 리퍼로 똑같이 치명적인 전기 아크를 뿜습니다.",
+    "en": "At close range it instead discharges an equally deadly electric arc from its eye-mounted Tesla Ripper."
+   }
+  ]
+ },
+ "Heavy Devastator": {
+  "revision": 142504,
+  "spawning": [
+   {
+    "ko": "난이도 1의 '데버스테이터 제거하기' 임무 목표로 처음 나옵니다.",
+    "en": "First appears at Difficulty 1 as the target of the Eliminate Devastators mission."
+   },
+   {
+    "ko": "난이도 4부터 로켓 데버스테이터와 함께 데버스테이터 대신 나올 확률이 생기고, 난이도가 높을수록 확률이 커집니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표·소규모 관심 지점 경비로 나옵니다.",
+    "en": "Starting at Difficulty 4 it can replace Devastators along with Rocket Devastators, more often at higher difficulties. It comes from Bot Drops, in patrols, and guarding Automaton Outposts, Objectives and Minor Places of Interest."
+   },
+   {
+    "ko": "소각대가 침공한 행성에서는 난이도 1부터 컨플래그레이션 데버스테이터로, 난이도 3부터는 인센디어리 MG 데버스테이터로도 바뀝니다.",
+    "en": "On Incineration Corps planets it is replaced by Conflagration Devastators starting at Difficulty 1, and also by Incendiary MG Devastators starting at Difficulty 3."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버가 시야에 있으면 천천히 꾸준히 밀고 들어오며, 융합 연발포를 3초 쏘고 2초 식힙니다.",
+    "en": "Pushes slowly but steadily while a Helldiver is in sight, firing its Fusion Repeater for three seconds and cooling down for two."
+   },
+   {
+    "ko": "가까이 붙으면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
+    "en": "If you get too close it bashes you down with its shield, and it stomps on prone Helldivers."
+   }
+  ]
+ },
+ "Hive Guard": {
+  "revision": 141215,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 버그 침공, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
+    "en": "Appears from Difficulty 2, from Bug Breaches, in patrols, and guarding Objectives and Bug Nests."
+   },
+   {
+    "ko": "난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형과 장애물을 타고 넘어 다가와 가까이서 발톱으로 공격합니다. 옆으로 움직이며, 옆을 지나 달아나려는 헬다이버의 길을 막으려 합니다.",
+    "en": "Climbs over terrain and obstacles to attack with its claws up close. It strafes sideways and tries to cut off Helldivers running past it."
+   },
+   {
+    "ko": "근처나 몸에 총알을 몇 번 맞으면 앞다리를 몸 가까이 모으고 약 3초 웅크립니다. 헬다이버가 계속 쏘면 사격을 멈출 때까지 웅크린 채로 있습니다.",
+    "en": "After being shot at a few times, nearby or directly, it hunkers down with its front legs drawn in for about three seconds, and stays crouched as long as the Helldiver keeps firing."
+   },
+   {
+    "ko": "워리어처럼 머리에서 초록 체액이 흐르기 시작하면 '광폭' 상태가 되어 죽기 전까지 잠깐 빨라집니다.",
+    "en": "Like the Warrior, once its head starts leaking green fluid it goes berserk and briefly moves faster before dying."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "It can release pheromones that call a Bug Breach."
+   }
+  ]
+ },
+ "Hive Lord": {
+  "revision": 139241,
+  "spawning": [
+   {
+    "ko": "하이브 로드가 있는 행성에서는 난이도 7 이상 모든 임무에서 목표나 증원과 상관없이 나올 수 있습니다.",
+    "en": "On planets that feature it, it can appear in any mission of Difficulty 7 or higher, regardless of objectives or reinforcements."
+   },
+   {
+    "ko": "나오는 조건은 알려지지 않았지만, 버그 침공이 일어나면 곧이어 나올 가능성이 높습니다. 궤도 포격처럼 한곳에 폭발이 여러 번 일어나도 나올 수 있습니다.",
+    "en": "Its exact trigger is unknown, but it most likely shows up soon after a Bug Breach. Many explosions in one place, such as orbital barrages, can also summon it."
+   },
+   {
+    "ko": "임무당 1마리만 나오며, 처치하면 다시 나오지 않습니다. 물러났다가 다시 올라와도 입은 피해는 그대로 남아 있습니다.",
+    "en": "Only one per mission, and it is not replaced once killed. If it retreats and returns, it keeps the damage it has taken."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "평소에는 땅속에서 흙먼지를 일으키는 거대한 땅울림으로 헬다이버에게 천천히 다가옵니다. 특정 헬다이버를 따라가다 약 100m 거리에서 땅 위로 올라와 공격하며, 다시 파고들기 전에 여러 번 공격할 수 있습니다.",
+    "en": "It normally moves underground as a huge, dust-raising tremor that slowly follows a Helldiver. At about 100 meters it emerges to attack, and can attack several times before burrowing again."
+   },
+   {
+    "ko": "피해를 충분히 입으면 땅속으로 물러나려 합니다. 처치하면 임무 목표 하나가 완료됩니다.",
+    "en": "After enough damage it tries to retreat underground. Killing it completes an objective."
+   },
+   {
+    "ko": "출현: 올라올 때 주변이 흔들려 느려지고, 너무 가까운 대상은 높이 날아가며, 튀어 오른 바위에 맞으면 피해를 입습니다.",
+    "en": "Surface: its emergence slows those nearby, launches anything too close high into the air, and throws damaging boulders."
+   },
+   {
+    "ko": "굴착: 반쯤 나온 채로 앞으로 파고들며, 휩쓸리면 다치고 밀려납니다.",
+    "en": "Burrow: half-emerged, it tunnels forward, injuring and knocking away Helldivers caught in its path."
+   },
+   {
+    "ko": "몸통 내려찍기: 앞으로 몸을 던져 깔아뭉개고 잠시 누워 있다가 다시 파고들며, 지형을 부수거나 통과합니다. 나오자마자 내려찍는 변형은 등으로 떨어져 잠깐 사격할 틈이 생깁니다.",
+    "en": "Body Slam: it throws itself forward to crush its target, lies there briefly, then burrows; it can destroy or clip through terrain. A variant slams right after emerging and lands on its back, briefly exposing it to fire."
+   },
+   {
+    "ko": "담즙 비: 몸을 떨며 담즙을 3번 넓게 뿌려 헬다이버를 느리게 하며, 줄기 사이에 틈이 있어 조심하면 피할 수 있습니다. 한 줄기로 길게 뿜는 변형은 피하기 쉽지만 사거리가 더 길고 엑소슈트·거치포에도 큰 피해를 줍니다.",
+    "en": "Bile Rain: it sprays bile over a wide area in three sweeps that slow Helldivers, with gaps between sweeps to survive in. A variant fires one long straight stream: easier to dodge, longer range, and heavy damage to the careless, mechs and emplacements."
+   }
+  ]
+ },
+ "Hulk Bruiser": {
+  "revision": 141870,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표·소규모 관심 지점 경비, 대형 제조소에서 나옵니다.",
+    "en": "Appears from Difficulty 4. Comes from Bot Drops, in patrols, guarding Automaton Outposts, Objectives and Minor Places of Interest, and from Bulk Fabricators."
+   },
+   {
+    "ko": "제트 여단이 침공한 행성에서는 제트팩을 단 변종이 나옵니다.",
+    "en": "On Jet Brigade planets its variant wears a jump pack."
+   },
+   {
+    "ko": "소각대가 침공한 행성에서는 나오지 않고 헐크 파이어보머로 바뀝니다.",
+    "en": "Does not appear on Incineration Corps planets; it is replaced by the Hulk Firebomber."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 융합 기관포(20발 연사)나 회전식 발사기(로켓 7발 일제 사격)를 쏘며, 시야에 있으면 멀리서도 쏩니다.",
+    "en": "When it spots a Helldiver it fires its Fusion Autocannon (20-round volley) or Rotary Launcher (seven-rocket salvo), even from a distance if it has line of sight."
+   },
+   {
+    "ko": "가까이 붙으면 팔을 들어 내려칩니다. 팔이 없으면 다리로 밟습니다.",
+    "en": "Up close it raises and slams an arm. If it has lost its arms, it stomps with its leg."
+   }
+  ]
+ },
+ "Hulk Firebomber": {
+  "revision": 141867,
+  "spawning": [
+   {
+    "ko": "소각대가 침공한 행성에서 난이도 4부터 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표·소규모 관심 지점 경비, 대형 제조소에서 나옵니다.",
+    "en": "Appears from Difficulty 4 on Incineration Corps planets. Comes from Bot Drops, in patrols, guarding Automaton Outposts, Objectives and Minor Places of Interest, and from Bulk Fabricators."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버에게 달려오며 2초마다 1발씩 백린탄 2발을 쏘고, 떨어진 곳에 불이 남습니다. 그 뒤 5초 쉬고 다시 2발을 쏩니다.",
+    "en": "Sprints toward Helldivers firing two White Phosphorus Shells, one every two seconds, which leave lingering fire. It then pauses five seconds before firing two more."
+   },
+   {
+    "ko": "회전식 발사기를 위로 들어 쏘는 경우가 많아, 백린탄이 엄폐물과 지형을 넘어 곡선으로 날아옵니다.",
+    "en": "It often aims its Rotary Launcher upward so the shells arc over cover and terrain."
+   },
+   {
+    "ko": "25m 이내에서는 중화염방사기를 쓰며, 발사기를 쏜 직후에도 사거리 안이면 바로 화염을 뿜을 수 있습니다.",
+    "en": "At 25m and closer it uses its Heavy Flamethrower, even right after firing its launcher if Helldivers are in range."
+   },
+   {
+    "ko": "팔이 없으면 다리로 밟습니다.",
+    "en": "If it has lost its arms, it stomps with its leg."
+   }
+  ]
+ },
+ "Hulk Obliterator": {
+  "revision": 141862,
+  "spawning": [
+   {
+    "ko": "난이도 3 전용인 '오토마톤 헐크 제거하기' 임무에서만 나옵니다.",
+    "en": "Spawns only in the Eliminate Automaton Hulks mission, which is exclusive to Difficulty 3."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "양팔의 탄약 발사기를 번갈아 쏘며 로켓 3발씩 일제 사격합니다. 헐크 브루저보다 연사 속도는 느립니다.",
+    "en": "Fires three-rocket salvos, alternating between its two Munition Launchers, at a lower rate than the Hulk Bruiser."
+   },
+   {
+    "ko": "가까이 붙으면 팔을 들어 내려칩니다. 팔이 없으면 다리로 밟습니다.",
+    "en": "Up close it raises and slams an arm. If it has lost its arms, it stomps with its leg."
+   }
+  ]
+ },
+ "Hulk Scorcher": {
+  "revision": 141866,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표·소규모 관심 지점 경비, 대형 제조소에서 나옵니다.",
+    "en": "Appears from Difficulty 4. Comes from Bot Drops, in patrols, guarding Automaton Outposts, Objectives and Minor Places of Interest, and from Bulk Fabricators."
+   },
+   {
+    "ko": "제트 여단이 침공한 행성에서는 제트팩을 단 변종이 나옵니다.",
+    "en": "On Jet Brigade planets its variant wears a jump pack."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 달려오며, 약 25m 이내에서는 중화염방사기를 넓게 뿜습니다.",
+    "en": "When it spots a Helldiver it sprints in, spraying its Heavy Flamethrower in a wide arc within roughly 25m."
+   },
+   {
+    "ko": "가까이서는 회전 톱을 휘두릅니다. 팔이 없으면 다리로 밟습니다.",
+    "en": "At close range it swings its Rotary Saw. If it has lost its arms, it stomps with its leg."
+   }
+  ]
+ },
+ "Hunter": {
+  "revision": 136565,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 버그 침공, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
+    "en": "Appears from Difficulty 2, from Bug Breaches, in patrols, guarding Bug Nests and Objectives, and from certain Bug Holes."
+   },
+   {
+    "ko": "난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "다른 테르미니드보다 빠르며, 주로 측면으로 돌아 헬다이버를 포위하려 합니다. 다가오며 옆으로 빠르게 움직이거나 짧게 뛰어 조준을 흐트러뜨립니다.",
+    "en": "Faster than other Terminids, it tries to flank and surround Helldivers, strafing quickly or making short jumps that throw off your aim."
+   },
+   {
+    "ko": "헬다이버에게서 약 15~20m에 이르면 덮쳐 피해를 주고, 곧바로 발톱이나 혀로 이어서 공격할 수 있습니다.",
+    "en": "At about 15~20m it pounces for damage and can quickly follow up with its claws or tongue."
+   },
+   {
+    "ko": "짧은~중간 거리에서는 혀를 써서 산성 화상으로 헬다이버를 느리게 하고, 바로 옆에서는 발톱을 씁니다.",
+    "en": "At short to medium range its tongue causes an Acid burn that slows Helldivers; right next to you it uses its claws."
+   },
+   {
+    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "It can release pheromones that call a Bug Breach."
+   }
+  ]
+ },
+ "Impaler": {
+  "revision": 136861,
+  "spawning": [
+   {
+    "ko": "난이도 5의 '임페일러 제거하기' 임무 목표로 처음 나옵니다.",
+    "en": "First appears at Difficulty 5 as the target of the Eliminate Impaler mission."
+   },
+   {
+    "ko": "난이도 6부터 버그 침공과 단독 순찰로 나오며, 난이도가 높을수록 더 자주 나옵니다.",
+    "en": "Starting at Difficulty 6 it comes from Bug Breaches and patrols alone, more often at higher difficulties."
+   },
+   {
+    "ko": "난이도 10부터는 최상급 둥지도 지킵니다.",
+    "en": "Starting at Difficulty 10 it also guards Mega Nests."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리가 나면 그쪽을 돌아봅니다. 순찰 중에도 근처에서 움직임이나 소리가 나면 멈춰서 돌아봅니다.",
+    "en": "Outside Bug Breaches it usually stays still and turns toward Helldiver movement or sounds; on patrol it also stops to face nearby movement or sounds."
+   },
+   {
+    "ko": "전투 중이거나 버그 침공으로 나오면 곧바로 '머리'를 땅에 박고, 촉수 3개로 시야 안의 헬다이버를 공격합니다.",
+    "en": "In combat or when it comes from a Bug Breach, it quickly burrows its \"head\" and attacks Helldivers in sight with its three tentacles."
+   },
+   {
+    "ko": "촉수에 피해를 주면 거둬들이게 할 수 있습니다. 시간이 지나거나 헬다이버를 놓치거나 죽으면 촉수를 모두 거둡니다.",
+    "en": "Damaging a tentacle forces it to retract. It pulls in all tentacles after a while, on losing sight of Helldivers, or on death."
+   },
+   {
+    "ko": "가까이서는 앞쪽 무게로 앞에 있는 모든 것을 짓누릅니다.",
+    "en": "At close range it crushes anything in front of it with its frontal weight."
+   }
+  ]
+ },
+ "Incendiary MG Devastator": {
+  "revision": 140048,
+  "spawning": [
+   {
+    "ko": "소각대가 침공한 행성에서 난이도 3부터 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 대형 제조소에서 나옵니다.",
+    "en": "Appears from Difficulty 3 on Incineration Corps planets, from Bot Drops, in patrols, guarding Automaton Outposts and Objectives, and from Bulk Fabricators."
+   },
+   {
+    "ko": "난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "거대 데버스테이터처럼 시야에 헬다이버가 있으면 천천히 꾸준히 밀고 들어오며, 융합 소이포를 8번 쏘고 2초 식힙니다.",
+    "en": "Like the Heavy Devastator, it pushes slowly but steadily while a Helldiver is in sight, firing its Fusion Conflagrator eight times before cooling down for two seconds."
+   },
+   {
+    "ko": "가까이 붙으면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
+    "en": "If you get too close it bashes you down with its shield, and it stomps on prone Helldivers."
+   }
+  ]
+ },
+ "Incendiary Rocket Raider": {
+  "revision": 140047,
+  "spawning": [
+   {
+    "ko": "소각대가 침공한 행성의 모든 난이도에서 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소에서 나옵니다.",
+    "en": "Appears on all difficulties on Incineration Corps planets, from Bot Drops, in patrols, guarding Automaton Outposts and Objectives, and from Automaton Fabricators."
+   },
+   {
+    "ko": "난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "휴대용 융합포를 들어 융합탄 1발을 쏘고, 약 5초 재충전한 뒤 다시 쏩니다. 주로 중거리에서 쏘지만, 경계 상태에서 헬다이버가 보이면 멀리서도 쏩니다.",
+    "en": "Raises its Portable Fusion Cannon and fires one fusion bolt, then recharges for about five seconds. It usually fires from medium range, but from afar if alerted and in line of sight."
+   },
+   {
+    "ko": "헬다이버가 다가오면 천천히 거리를 벌리고, 너무 가까우면 주먹으로 칩니다.",
+    "en": "It slowly backs away from approaching Helldivers and punches if they get too close."
+   },
+   {
+    "ko": "다른 소각대 트루퍼처럼 헬다이버가 엄폐물에 숨으면 소이 수류탄을 던집니다.",
+    "en": "Like other Incineration Corps Troopers, it tosses an incendiary grenade at Helldivers hiding in cover."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏴 봇 투하를 부를 수 있습니다.",
+    "en": "When alerted it can fire a flare to call in a Bot Drop."
+   }
+  ]
+ },
+ "Jet Brigade Commissar": {
+  "revision": 138837,
+  "spawning": [
+   {
+    "ko": "제트 여단이 침공·점령한 행성의 모든 난이도에서 나옵니다. 봇 투하, 순찰대 지휘, 오토마톤 전초기지·임무 목표 경비로 나오며, 다른 경량 오토마톤과 달리 오토마톤 제조소에서는 나오지 않습니다.",
+    "en": "Appears on any difficulty on Jet Brigade planets, from Bot Drops, leading patrols, and guarding Automaton Outposts and Objectives. Unlike other light Automatons, it does not come from Automaton Fabricators."
+   },
+   {
+    "ko": "난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "높은 난이도에서는 로켓 레이더나 MG 레이더 같은 더 위험한 경량 오토마톤으로 바뀌어 나올 수 있습니다.",
+    "en": "At higher difficulties it may be replaced by more dangerous light Automatons such as Rocket Raiders and MG Raiders."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 커미서와 거의 같지만, 등에 제트팩을 달아 멀리 뛸 수 있습니다.",
+    "en": "Essentially the standard Commissar, but with a jump pack on its back for long jumps."
+   },
+   {
+    "ko": "처음 발견되면 중~장거리에서 제트팩으로 다가온 뒤, 거리에 따라 융합 권총이나 히트 블레이드로 공격합니다. 엄폐물에 숨은 헬다이버는 수류탄으로 몰아냅니다.",
+    "en": "When it first spots you at medium to long range, it jumps in and attacks with its Fusion Pistol or Heat Blade depending on distance. It uses grenades to flush Helldivers out of cover."
+   },
+   {
+    "ko": "헬다이버가 사거리를 벗어나면 다시 제트팩으로 따라붙습니다.",
+    "en": "If a Helldiver moves out of range, it jumps in again."
+   }
+  ]
+ },
+ "Jet Brigade Devastator": {
+  "revision": 136520,
+  "spawning": [
+   {
+    "ko": "제트 여단이 침공한 행성에서 난이도 2부터 봇 투하와 순찰대로 나옵니다.",
+    "en": "Appears from Difficulty 2 on Jet Brigade planets, from Bot Drops and in patrols."
+   },
+   {
+    "ko": "팩토리 스트라이더가 아래쪽에서 4마리를 내보낼 수 있습니다.",
+    "en": "A Factory Strider can release four of them from its underside."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "융합 돌격포를 쏘며 천천히 다가옵니다. 2발 점사를 6번 빠르게 쏜 뒤 약 3초 식힙니다.",
+    "en": "Slowly advances firing its Fusion Assault Cannon: six rapid 2-shot bursts, then about 3 seconds to cool down."
+   },
+   {
+    "ko": "가까이 붙으면 주먹으로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
+    "en": "If you get too close it punches you down, and it stomps on prone Helldivers."
+   },
+   {
+    "ko": "목표와 거리가 멀면 제트팩으로 빠르게 다가옵니다. 제트팩이 손상되면 폭발해 자신과 주변 오토마톤·헬다이버에게 큰 피해와 화상을 줍니다.",
+    "en": "If far from its target it closes in with its jump pack. A damaged jump pack can explode, heavily damaging and burning itself and nearby Automatons or Helldivers."
+   }
+  ]
+ },
+ "Jet Brigade Hulk Bruiser": {
+  "revision": 141869,
+  "spawning": [
+   {
+    "ko": "제트 여단이 점령한 행성에서는 헐크가 모두 제트 여단 변종으로 바뀝니다. 헐크 스코처와 헐크 브루저가 바뀌고, 헐크 오블리터레이터는 바뀌지 않습니다.",
+    "en": "On Jet Brigade planets, all Hulks are replaced by Jet Brigade variants: the Hulk Scorcher and Hulk Bruiser, but not the Hulk Obliterator."
+   },
+   {
+    "ko": "다른 헐크처럼 봇 투하와 순찰대로 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점·대형 제조소를 지킵니다.",
+    "en": "Like other Hulks, it comes from Bot Drops and patrols and guards Automaton Outposts, Objectives, Minor Places of Interest and Bulk Fabricators."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 헐크 브루저와 거의 같지만, 등 뒤 방열판을 가리는 큰 제트팩을 메고 있습니다. 제트팩은 장갑으로 덮여 있습니다.",
+    "en": "Almost the same as the normal Hulk Bruiser, but a large armored jet pack covers its rear vent."
+   },
+   {
+    "ko": "중거리~원거리에서 헬다이버를 발견하면 제트팩으로 날아와 거리를 좁히고, 융합 기관포나 회전식 발사기로 공격합니다.",
+    "en": "When it spots a Helldiver at medium to long range, it jumps in with the jet pack and attacks with its Fusion Autocannon or Rotary Launcher."
+   },
+   {
+    "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
+    "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
+   }
+  ]
+ },
+ "Jet Brigade Hulk Scorcher": {
+  "revision": 141868,
+  "spawning": [
+   {
+    "ko": "제트 여단이 점령한 행성에서는 헐크가 모두 제트 여단 변종으로 바뀝니다. 헐크 스코처와 헐크 브루저가 바뀌고, 헐크 오블리터레이터는 바뀌지 않습니다.",
+    "en": "On Jet Brigade planets, all Hulks are replaced by Jet Brigade variants: the Hulk Scorcher and Hulk Bruiser, but not the Hulk Obliterator."
+   },
+   {
+    "ko": "다른 헐크처럼 봇 투하와 순찰대로 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점·대형 제조소를 지킵니다.",
+    "en": "Like other Hulks, it comes from Bot Drops and patrols and guards Automaton Outposts, Objectives, Minor Places of Interest and Bulk Fabricators."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 헐크 스코처와 거의 같지만, 등 뒤 방열판을 가리는 거대한 제트팩을 메고 있습니다. 제트팩은 장갑으로 덮여 있습니다.",
+    "en": "Almost the same as the normal Hulk Scorcher, but a huge armored jet pack covers its rear vent."
+   },
+   {
+    "ko": "중거리~원거리에서 헬다이버를 발견하면 제트팩으로 날아와 거리를 좁힌 뒤, 중화염방사기로 주변을 쓸거나 회전 톱으로 공격합니다.",
+    "en": "When it spots a Helldiver at medium to long range, it jumps in with the jet pack, then sweeps the area with its Heavy Flamethrower or attacks with its Rotary Saw."
+   },
+   {
+    "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
+    "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
+   }
+  ]
+ },
+ "Jet Brigade MG Raider": {
+  "revision": 139889,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "First appears at Difficulty 2. Comes from Bot Drops, patrols and Automaton Fabricators, and guards Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "난이도가 높을수록 자주 나오며, 주로 트루퍼 자리를 대신합니다.",
+    "en": "Appears more often at higher difficulties, mostly replacing Troopers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 MG 레이더와 거의 같지만, 등에 제트팩을 메고 있어 먼 거리를 뛰어오를 수 있습니다.",
+    "en": "Almost the same as the normal MG Raider, but a jet pack on its back lets it jump long distances."
+   },
+   {
+    "ko": "중거리~원거리에서 헬다이버를 발견하면 제트팩으로 거리를 좁힌 뒤, 트인 곳의 헬다이버에게는 경량 융합 연발포를 퍼붓고 엄폐한 헬다이버에게는 수류탄을 던집니다.",
+    "en": "When it spots a Helldiver at medium to long range, it closes in with the jet pack, then suppresses Helldivers in the open with its Light Fusion Repeater or throws grenades at those in cover."
+   },
+   {
+    "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
+    "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
+   }
+  ]
+ },
+ "Jet Brigade Trooper": {
+  "revision": 140765,
+  "spawning": [
+   {
+    "ko": "난이도 3 이상에서 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "Appears at Difficulty 3 and above. Comes from Bot Drops, patrols and Automaton Fabricators, and guards Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "높은 난이도에서는 제트 여단 MG 레이더 같은 더 위험한 소형 오토마톤으로 바뀌어 나오는 경우가 많습니다.",
+    "en": "At higher difficulties it is often replaced by more dangerous light Automatons such as the Jet Brigade MG Raider."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 트루퍼와 거의 같지만, 등에 제트팩을 메고 있어 먼 거리를 뛰어오를 수 있습니다.",
+    "en": "Almost the same as the normal Trooper, but a jet pack on its back lets it jump long distances."
+   },
+   {
+    "ko": "중거리~원거리에서 헬다이버를 발견하면 제트팩으로 거리를 좁힌 뒤 융합 기관단총을 쏘고, 헬다이버가 엄폐하면 수류탄을 던집니다.",
+    "en": "When it spots a Helldiver at medium to long range, it closes in with the jet pack and opens fire with its Fusion SMG, throwing grenades if the Helldiver takes cover."
+   },
+   {
+    "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
+    "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
+   }
+  ]
+ },
+ "Leviathan": {
+  "revision": 140064,
+  "spawning": [
+   {
+    "ko": "스팅레이처럼 임무 지역 바깥에서 나타납니다. 난이도 8 이상에서는 한 번에 최대 5대까지 나올 수 있습니다.",
+    "en": "Spawns outside the mission area, like the Stingray. At Difficulty 8 and above, up to 5 can be present at once."
+   },
+   {
+    "ko": "작전 제한 조건 '리바이어던 봉쇄'가 걸린 행성의 메가시티에서만 나옵니다.",
+    "en": "Only appears in the Megacities of planets with the Leviathan Blockade Operation Modifier."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "높이를 바꿔 가며 전장 위를 떠다니고, 헬다이버·SEAF 병사·민간인을 가리지 않고 공격합니다.",
+    "en": "Hovers over the battlefield at varying altitude and attacks Helldivers, SEAF Soldiers and Civilians alike."
+   },
+   {
+    "ko": "배 아래의 분해 컬버린 4문과 플라스마 폭탄 발생기 10개로 공격합니다. 폭탄은 리바이어던 바로 아래나 근처에 있는 대상에게만 떨어집니다.",
+    "en": "It attacks with four ventral Disintegration Culverins and ten Plasma Bomb Generators. The bombs only drop on targets directly below or near it."
+   }
+  ]
+ },
+ "MG Raider": {
+  "revision": 138978,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "First appears at Difficulty 2. Comes from Bot Drops, patrols and Automaton Fabricators, and guards Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "난이도가 높을수록 자주 나오며, 주로 트루퍼 자리를 대신합니다.",
+    "en": "Appears more often at higher difficulties, mostly replacing Troopers."
+   },
+   {
+    "ko": "제트 여단이 침공한 행성에서는 난이도 2부터 제트 여단 변종으로 바뀌기 시작합니다.",
+    "en": "On planets invaded by the Jet Brigade, it starts being replaced by its Jet Brigade variant from Difficulty 2."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버가 시야에 있으면 경량 융합 연발포를 12발 쏜 뒤 빠르게 재장전합니다.",
+    "en": "With a Helldiver in sight, it fires 12 shots from its Light Fusion Repeater, then reloads quickly."
+   },
+   {
+    "ko": "다가오면 뒤로 물러나고 너무 가까우면 주먹으로 칩니다. 헬다이버가 엄폐하면 수류탄을 던집니다.",
+    "en": "It backs away when approached, punches at close range, and throws grenades at Helldivers in cover."
+   },
+   {
+    "ko": "등의 동력 팩이 피해를 받으면 터질 수 있습니다. 이때 MG 레이더는 즉사하고, 주변 오토마톤과 헬다이버도 큰 피해를 입고 불이 붙습니다.",
+    "en": "Its power pack can explode when damaged, killing the MG Raider instantly and badly damaging and burning nearby Automatons and Helldivers."
+   },
+   {
+    "ko": "총격으로 제압당하면 총이 마구 흔들려 명중률이 크게 떨어집니다.",
+    "en": "When suppressed by gunfire, its aim shakes and accuracy drops sharply."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
+   }
+  ]
+ },
+ "Marauder": {
+  "revision": 138973,
+  "spawning": [
+   {
+    "ko": "난이도 5부터 나옵니다. 봇 투하·오토마톤 제조소·순찰대에서 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점을 지킵니다.",
+    "en": "First appears at Difficulty 5. Comes from Bot Drops, Automaton Fabricators and patrols, and guards Automaton Outposts, Objectives and Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버가 시야에 들어오면 융합 기관단총을 5발씩 끊어 쏘고, 다시 쏘기 전에 3.5초 동안 총을 식힙니다.",
+    "en": "With a Helldiver in sight, it fires its Fusion SMG in five-round bursts, then needs 3.5 seconds to cool before firing again."
+   },
+   {
+    "ko": "헬다이버와 거리를 두려고 해서 다가오면 뒤로 물러나고, 너무 가까우면 주먹으로 칩니다.",
+    "en": "It keeps its distance, backing away when approached and punching if a Helldiver gets too close."
+   },
+   {
+    "ko": "헬다이버가 엄폐하면 수류탄을 던집니다. 총격으로 제압당하면 총이 마구 흔들려 명중률이 크게 떨어집니다.",
+    "en": "It throws a grenade at Helldivers in cover. When suppressed by gunfire, its aim shakes and accuracy drops sharply."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
+   }
+  ]
+ },
+ "Mortar Emplacement": {
+  "revision": 136791,
+  "spawning": [],
+  "behavior": []
+ },
+ "Noxious Scavenger": {
+  "revision": 142272,
+  "spawning": [
+   {
+    "ko": "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다.",
+    "en": "On Noxious Strain planets it replaces Scavengers and Pouncers. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests, Minor Places of Interest and Objectives."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형과 장애물을 타고 넘어 다가와 발톱으로 공격하고, 공격한 뒤에는 잠시 물러났다가 다시 다가옵니다.",
+    "en": "It climbs over terrain to attack with its claws, then backs off a short distance before coming in again."
+   },
+   {
+    "ko": "가까이 붙으면 물기도 하며, 물리면 독에 걸립니다.",
+    "en": "Up close it also bites, inflicting Poison."
+   },
+   {
+    "ko": "드물게, 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
+    "en": "Rarely, when a Helldiver is out of reach, it burrows underground and suddenly emerges to attack."
+   },
+   {
+    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "en": "It can release a pheromone cloud that causes a Bug Breach."
+   }
+  ]
+ },
+ "Noxious Spewer": {
+  "revision": 142233,
+  "spawning": [],
+  "behavior": []
+ },
+ "Nursing Spewer": {
+  "revision": 141638,
+  "spawning": [
+   {
+    "ko": "난이도 3부터 나옵니다. 버그 침공과 순찰대로 나오고, 임무 목표와 버그 둥지를 지킵니다.",
+    "en": "First appears at Difficulty 3. Comes from Bug Breaches and patrols, and guards Objectives and Bug Nests."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "가끔 커스틱 스퓨어 대신 나옵니다.",
+    "en": "It occasionally replaces Caustic Spewers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "커스틱 스퓨어와 비슷하게 행동합니다. 다만 어떤 난이도에서도 공중으로 담즙 폭탄을 쏘지 못합니다.",
+    "en": "It behaves like the Caustic Spewer, but cannot lob bile bombs into the air on any difficulty."
+   },
+   {
+    "ko": "나타날 때 주변에 옅은 포자 구름을 뿜어 스캐빈저 같은 작은 테르미니드를 가립니다. 너싱 스퓨어를 죽이면 포자 구름이 사라집니다.",
+    "en": "When it spawns it gives off a thin spore cloud that hides small Terminids such as Scavengers. Killing it clears the cloud."
+   },
+   {
+    "ko": "모든 난이도에서 장갑이 있습니다. 커스틱 스퓨어는 난이도 6부터 장갑이 생깁니다.",
+    "en": "It is armored on all difficulties, unlike the Caustic Spewer, which gains armor starting at Difficulty 6."
+   }
+  ]
+ },
+ "Obtruder": {
+  "revision": 138037,
+  "spawning": [
+   {
+    "ko": "일루미닛의 적임자 세력에 속하며, 적임자가 있는 행성에서만 나옵니다. 약한 적이라 보통 무리 지어 나옵니다.",
+    "en": "Part of the Illuminate Appropriators subfaction and only appears where the Appropriators are present. A weak unit, it usually comes in groups."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "와처와 닮았지만 지원 병력을 부르지 못합니다. 대신 최대 18마리(미확정)의 아주 큰 무리로, 빠른 순찰대나 워프 함선에서 바로 나옵니다.",
+    "en": "It resembles the Watcher but cannot call reinforcements. Instead it comes in very large groups of up to 18 (unconfirmed), as fast patrols or straight from Warp Ships."
+   },
+   {
+    "ko": "날아다니며 어떤 지형이든 빠르게 넘어와 헬다이버를 가까이에서 둘러싼 뒤 사격합니다. 꽤 높이 날 수 있고 헬다이버 활동이 의심되는 곳으로 매우 빠르게 몰려드니, 순찰대를 피하려면 조심해야 합니다.",
+    "en": "It flies over any terrain to surround a Helldiver at close range before firing. It can fly quite high and quickly swarms toward suspected Helldiver activity, so take care when avoiding its patrols."
+   },
+   {
+    "ko": "와처의 전기 아크 대신 플라스마 토치로 에너지탄을 한 발씩 쏩니다. 연사가 매우 느리고, 쏘기 전에 충전 동작이 보이며, 명중률도 매우 낮습니다.",
+    "en": "Instead of the Watcher's electric arc, it fires single energy blasts from its Plasma Torch, with a very slow fire rate, a visible charge-up before each shot, and poor accuracy."
+   },
+   {
+    "ko": "몇 마리에서 수십 마리는 모여야 위협이 되지만, 날아다니고 무리로 나오기 때문에 주의를 많이 끌면 숫자가 금방 불어납니다.",
+    "en": "It takes several to dozens of them to be a real threat, but because they fly and come in groups, their numbers add up fast if you draw too much attention."
+   }
+  ]
+ },
+ "Overseer": {
+  "revision": 142612,
+  "spawning": [
+   {
+    "ko": "순찰대, 특정 임무 목표, 착륙한 워프 함선, 워프 함선 증원으로 나옵니다.",
+    "en": "Comes from patrols, certain objectives, Grounded Warp Ships and Warp Ship reinforcements."
+   },
+   {
+    "ko": "보트 스내처 세력이 있는 행성에서는 나오지 않습니다. 단, 침공 함대도 함께 있으면 나옵니다.",
+    "en": "It does not appear on planets with the Vote Snatchers subfaction, unless the Invasion Fleet is also present."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "먼 거리에서는 빛의 창을 잠깐 충전한 뒤 강력한 탄을 한 발씩 쏩니다.",
+    "en": "At range it fires single high-damage shots from its Lightspear after a short charge-up."
+   },
+   {
+    "ko": "집중 사격을 받으면 접이식 에너지 방패를 펼쳐 상체와 몸 가운데를 가립니다.",
+    "en": "Under heavy fire it raises a collapsible energy shield that covers its upper and middle body."
+   },
+   {
+    "ko": "가까운 거리에서는 돌진해 빛의 창을 빠르고 넓게 휘두르며, 맞으면 넘어집니다(쓰러뜨림).",
+    "en": "At close range it charges in and swings its Lightspear in quick, wide sweeps that ragdoll targets."
+   },
+   {
+    "ko": "헬다이버를 처음 발견하면 빛의 창으로 가리키며 주변 무권자에게 공격을 명령합니다.",
+    "en": "When it first notices a Helldiver, it points with its Lightspear and orders nearby Voteless to attack."
+   }
+  ]
+ },
+ "Pouncer": {
+  "revision": 141525,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
+    "en": "First appears at Difficulty 2. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "일부 등장 조합에서는 스캐빈저·커스틱 스피터와 서로 바뀌어 나옵니다.",
+    "en": "In some spawn tables it swaps places with Scavengers and Caustic Spitters."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "날개를 써서 헬다이버 쪽으로 먼 거리를 곧장 뛰어듭니다. 가끔 덜 뛰거나 지나쳐 떨어지기도 합니다.",
+    "en": "It uses its wings to leap long distances straight at Helldivers, sometimes falling short or overshooting."
+   },
+   {
+    "ko": "뛰지 않을 때는 지형과 장애물을 넘어 최대한 곧장 다가와 발톱으로 공격합니다.",
+    "en": "When not leaping, it comes as directly as possible over terrain and obstacles to attack with its claws."
+   },
+   {
+    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "en": "It can release a pheromone cloud that causes a Bug Breach."
+   }
+  ]
+ },
+ "Predator Hunter": {
+  "revision": 141544,
+  "spawning": [
+   {
+    "ko": "프레데터 변종이 있는 행성에서만 나오며, 일반 헌터를 대신합니다.",
+    "en": "Only appears on Predator Strain planets, replacing the regular Hunter."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "몸을 감춘 채 옆으로 돌아 들어와 헬다이버에게 뛰어들어 공격합니다. 일반 헌터보다 훨씬 공격적입니다.",
+    "en": "It tries to cloak, flank and leap at Helldivers, and is much more aggressive than the regular Hunter."
+   },
+   {
+    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "en": "It can release a pheromone cloud that causes a Bug Breach."
+   }
+  ]
+ },
+ "Predator Stalker": {
+  "revision": 137847,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 프레데터 변종이 침공한 행성에서 나옵니다.",
+    "en": "First appears at Difficulty 4 on Predator Strain planets."
+   },
+   {
+    "ko": "일반 스토커와 달리 스토커 둥지 없이 다른 테르미니드와 함께 나옵니다. 버그 침공과 순찰대로 나오고, 버그 둥지·임무 목표·소규모 관심 지점을 지킵니다.",
+    "en": "Unlike Stalkers, it needs no Stalker Lair and spawns with other Terminids: from Bug Breaches and patrols, and guarding Bug Nests, Objectives and Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 스토커와 달리 위장하거나 혀로 공격하지 못하고, 발톱으로만 공격합니다.",
+    "en": "Unlike Stalkers, it cannot camouflage or use its tongue, and attacks only with its claws."
+   },
+   {
+    "ko": "피해를 많이 받아도 물러나지 않고, 자신이나 헬다이버가 죽을 때까지 계속 쫓아옵니다.",
+    "en": "It does not retreat when badly hurt and keeps chasing until it or the Helldiver dies."
+   }
+  ]
+ },
+ "Pyro Trooper": {
+  "revision": 139895,
+  "spawning": [
+   {
+    "ko": "소각대가 침공한 행성에서 모든 난이도에 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "Appears on all difficulties on Incineration Corps planets. Comes from Bot Drops, patrols and Automaton Fabricators, and guards Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "화염방사기 사거리까지 달려와, 2.4초씩 3번 불을 뿜은 뒤 3.4초 동안 무기를 식힙니다.",
+    "en": "It sprints into flamethrower range and fires three 2.4-second bursts, then cools the weapon for 3.4 seconds."
+   },
+   {
+    "ko": "헬다이버가 엄폐하면 가끔 백린 소이 수류탄을 던져 몰아냅니다.",
+    "en": "Against Helldivers in cover, it sometimes throws a White Phosphorus incendiary grenade to flush them out."
+   },
+   {
+    "ko": "연료통이 피해를 받으면 터질 수 있습니다. 이때 파이로 트루퍼는 즉사하고, 주변 오토마톤과 헬다이버도 큰 피해를 입고 불이 붙습니다.",
+    "en": "Its fuel tank can explode when damaged, killing the Pyro Trooper instantly and badly damaging and burning nearby Automatons and Helldivers."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
+   }
+  ]
+ },
+ "Radical": {
+  "revision": 141659,
+  "spawning": [
+   {
+    "ko": "사이보그 세력이 있는 행성에서 모든 난이도에 나옵니다. 봇 투하·순찰대로 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "Appears on all difficulties on planets with the Cyborg Legion. Comes from Bot Drops and patrols, and guards Automaton Outposts and Objectives."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "다른 오토마톤과 달리 헬다이버를 발견하면 망설이지 않고 바로 공격합니다. 소리를 지르며 헬다이버와의 사이에 연막탄을 던지고, 연막에 숨어 달려옵니다.",
+    "en": "Unlike other Automatons, it attacks immediately on spotting a Helldiver: it yells, throws a smoke grenade between itself and the Helldiver, and sprints in under cover of the smoke."
+   },
+   {
+    "ko": "경량 방어구를 입고 달리는 헬다이버도 따라잡을 만큼 빠르게 달립니다. 약 30초마다 연막탄을 다시 던지며 추격합니다.",
+    "en": "It can keep up with a sprinting Helldiver even in light armor, and throws another smoke grenade about every 30 seconds while chasing."
+   },
+   {
+    "ko": "가까운 거리(15m)에서는 다가오거나 쫓아오면서 산탄총을 쏩니다.",
+    "en": "At close range (15m) it fires its Scattergun while approaching or chasing."
+   },
+   {
+    "ko": "자주 바짝 붙어 발차기·무릎 차기·팔 휘두르기 같은 격투 공격을 합니다. 중간 정도 피해를 주고 헬다이버를 넘어뜨리며, 쓰러진 헬다이버는 짓밟거나 산탄총으로 마무리합니다.",
+    "en": "It often closes in for martial-arts kicks, knee strikes and arm swings that deal moderate damage and knock Helldivers down; it then stomps on them or finishes them with its Scattergun."
+   },
+   {
+    "ko": "헬다이버가 근처에 있어도 발차기로 방어막 생성 릴레이 스트라타젬을 부순 사례가 있습니다.",
+    "en": "It has been seen kicking apart Shield Generator Relay stratagems even with a Helldiver nearby."
+   }
+  ]
+ },
+ "Reinforced Scout Strider": {
+  "revision": 139395,
+  "spawning": [
+   {
+    "ko": "난이도 8부터 스카우트 스트라이더 대신 나옵니다. 봇 투하·순찰대로 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점을 지킵니다.",
+    "en": "First appears at Difficulty 8, replacing Scout Striders. Comes from Bot Drops and patrols, and guards Automaton Outposts, Objectives and Minor Places of Interest."
+   },
+   {
+    "ko": "사이보그가 침공한 행성에서는 나오지 않고, 래디컬과 애지테이터가 대신 나옵니다.",
+    "en": "On Cyborg Legion planets it is absent and replaced by the Radical and Agitator."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 빠르게 다가옵니다. 대형 융합 연발포를 3번 쏜 뒤 4초 동안 식힙니다.",
+    "en": "Once alerted it approaches quickly, firing its heavy fusion repeater three times before cooling for four seconds."
+   },
+   {
+    "ko": "로켓 4발을 달고 있으며, 주로 헬다이버를 발견한 직후에 가끔 한 발씩 쏩니다. 쏘기 전에는 잠시 멈춰 서고, 준비된 로켓에서 연기가 나옵니다.",
+    "en": "It carries four rockets and occasionally fires one, usually right after spotting a Helldiver. Before firing it briefly stands still while the readied rocket vents exhaust."
+   },
+   {
+    "ko": "너무 가까이 붙으면 헬다이버를 짓밟습니다.",
+    "en": "It stomps on Helldivers who get too close."
+   }
+  ]
+ },
+ "Rocket Devastator": {
+  "revision": 138979,
+  "spawning": [
+   {
+    "ko": "난이도 1부터 '데버스테이터 제거하기' 임무의 대상으로 나옵니다.",
+    "en": "Appears from Difficulty 1 as the target of the Eliminate Devastators mission."
+   },
+   {
+    "ko": "난이도 4부터 거대 데버스테이터와 함께 데버스테이터을 대신해 나올 확률이 생기고, 난이도가 높을수록 확률이 오릅니다. 봇 투하·순찰대로 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점을 지킵니다.",
+    "en": "Starting at Difficulty 4, it and the Heavy Devastator can replace regular Devastators, more often at higher difficulties. Comes from Bot Drops and patrols, and guards Automaton Outposts, Objectives and Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 보통 로켓부터 쏩니다. 1초 동안 사격 자세를 잡은 뒤 로켓 4발을 한꺼번에 쏘고, 4~5초 뒤에 다시 쏩니다.",
+    "en": "It usually opens with rockets: it takes 1 second to brace, fires a four-rocket salvo, and waits 4~5 seconds before the next one."
+   },
+   {
+    "ko": "일제 사격 사이에는 가끔 팔의 융합 돌격포를 2번 쏩니다.",
+    "en": "Between salvos it sometimes fires its Fusion Assault Cannon twice."
+   },
+   {
+    "ko": "로켓 12발을 다 쏘면 로켓 포드를 한 번 재장전하고, 그것도 다 쓰면 융합 돌격포만 씁니다.",
+    "en": "After all twelve rockets it reloads its Rocket Pods once; when those run out, it only uses the Fusion Assault Cannon."
+   },
+   {
+    "ko": "너무 가까우면 주먹으로 쳐서 넘어뜨리고, 엎드린 헬다이버는 짓밟습니다.",
+    "en": "It punches Helldivers who get too close, knocking them down, and stomps on prone Helldivers."
+   }
+  ]
+ },
+ "Rocket Raider": {
+  "revision": 138836,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
+    "en": "First appears at Difficulty 2. Comes from Bot Drops, patrols and Automaton Fabricators, and guards Automaton Outposts and Objectives."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "난이도가 높을수록 자주 나오며, 주로 트루퍼 자리를 대신합니다.",
+    "en": "Appears more often at higher difficulties, mostly replacing Troopers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "휴대용 발사기로 로켓을 1발 쏜 뒤 약 3초 동안 재장전합니다.",
+    "en": "It fires one rocket from its Portable Launcher, then reloads for about three seconds."
+   },
+   {
+    "ko": "주로 중거리에서 쏘지만, 헬다이버를 알아챘고 시야에 있으면 먼 거리에서도 쏩니다.",
+    "en": "It usually fires from medium range, but will fire from afar if alerted and the Helldiver is in sight."
+   },
+   {
+    "ko": "다가오면 천천히 물러나고 너무 가까우면 주먹으로 칩니다. 헬다이버가 엄폐하면 수류탄을 던집니다.",
+    "en": "It slowly backs away when approached, punches at close range, and throws grenades at Helldivers in cover."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
+    "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
+   }
+  ]
+ },
+ "Rupture Charger": {
+  "revision": 141506,
+  "spawning": [
+   {
+    "ko": "럽처 변종이 있는 행성에서만 나옵니다.",
+    "en": "Only appears on planets with the Rupture Strain."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 차저와 비슷하지만, 땅속으로 파고들어 땅 밑에서 헬다이버에게 돌진할 수 있습니다.",
+    "en": "Behaves like a regular Charger, but can burrow and charge Helldivers from underground."
+   }
+  ]
+ },
+ "Rupture Spewer": {
+  "revision": 141639,
+  "spawning": [
+   {
+    "ko": "난이도 6부터 럽처 변종 행성에 나오며, 너싱 스퓨어 전부와 커스틱 스퓨어 일부를 대신합니다.",
+    "en": "Appears from Difficulty 6 on Rupture Strain planets, replacing all Nursing Spewers and some Caustic Spewers."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비로 나옵니다.",
+    "en": "Spawns from Bug Breaches, in patrols, and guarding Bug Nests and Objectives."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "적을 발견하기 전에는 너싱 스퓨어처럼 행동합니다.",
+    "en": "Acts like a Nursing Spewer before it detects enemies."
+   },
+   {
+    "ko": "전투 중 헬다이버와 거리가 멀면 땅속으로 파고들어 따라온 뒤 머리를 내밉니다.",
+    "en": "In combat, if far from Helldivers, it burrows, loosely follows its target, then pops its head back out."
+   },
+   {
+    "ko": "가까우면 짧은 거리의 담즙 분사를, 멀면 담즙 덩어리 3발 점사를 쏩니다.",
+    "en": "It then uses a short-range bile breath when close, or a longer-ranged three-round bile burst when far."
+   }
+  ]
+ },
+ "Rupture Warrior": {
+  "revision": 141596,
+  "spawning": [
+   {
+    "ko": "난이도 6부터 럽처 변종 행성에 나오며, 워리어를 모두 대신합니다.",
+    "en": "Appears from Difficulty 6 on Rupture Strain planets, fully replacing Warriors."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다.",
+    "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from certain Bug Holes."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "땅속으로 파고들었다가 튀어나올 수 있어, 주의하지 않으면 기습을 당합니다.",
+    "en": "Can burrow and burst out of the ground, often surprising Helldivers who are not paying attention."
+   }
+  ]
+ },
+ "Sabotage Air Base": {
+  "revision": 142431,
+  "spawning": [],
+  "behavior": []
+ },
+ "Scavenger": {
+  "revision": 142256,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "en": "Found on all difficulties, spawning from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형과 장애물을 타고 넘어 다가와 발톱으로 공격하고, 한 번 때린 뒤 조금 물러났다가 다시 다가옵니다.",
+    "en": "Climbs over terrain and obstacles to claw at Helldivers, backing off a short distance after each strike before coming again."
+   },
+   {
+    "ko": "드물게 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
+    "en": "Rarely, when a Helldiver is out of reach, it digs underground and suddenly emerges to attack."
+   },
+   {
+    "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release a pheromone cloud that calls a Bug Breach."
+   }
+  ]
+ },
+ "Scout Strider": {
+  "revision": 139387,
+  "spawning": [
+   {
+    "ko": "난이도 3부터 봇 투하, 순찰대, 오토마톤 전초기지와 임무 목표 경비로 나옵니다. 난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Appears from Difficulty 3 in Bot Drops, patrols, and guarding Automaton Outposts and Objectives. From Difficulty 4 it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "난이도 8부터는 전신이 장갑으로 덮인 강화 스카우트 스트라이더로 바뀝니다.",
+    "en": "Starting at Difficulty 8, it is replaced by the fully armored Reinforced Scout Strider."
+   },
+   {
+    "ko": "사이보그 행성에서는 나오지 않고 래디컬과 애지테이터가 대신합니다.",
+    "en": "Absent on Cyborg Legion planets, where Radicals and Agitators take its place."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 빠르게 다가와 대형 융합 연발포를 3번 쏜 뒤 4초 동안 식힙니다. 너무 가까이 가면 밟습니다.",
+    "en": "Once alerted it closes in fast, fires its Heavy Fusion Repeater three times, then cools down for four seconds. It stomps Helldivers who get too close."
+   },
+   {
+    "ko": "허리를 쏘면 기체가 부서지고 트루퍼가 뛰어내립니다. 이 트루퍼는 일반 트루퍼와 같습니다.",
+    "en": "Shooting the waist destroys the walker and the Trooper jumps out; it is a normal Trooper."
+   },
+   {
+    "ko": "타고 있는 트루퍼를 처치하면 기체도 바로 파괴됩니다.",
+    "en": "Killing the Trooper while it is riding destroys the walker immediately."
+   }
+  ]
+ },
+ "Shredder Tank": {
+  "revision": 139871,
+  "spawning": [
+   {
+    "ko": "난이도 3에서는 낮은 확률로 일부 중대형 오토마톤 전초기지에만 나옵니다.",
+    "en": "On Difficulty 3 it rarely appears, only in certain medium-to-large Automaton Outposts."
+   },
+   {
+    "ko": "난이도 4부터 정상적으로 나오며, 봇 투하, 순찰대, 오토마톤 전초기지·요새·소규모 관심 지점 경비로 나옵니다. 가끔 혼자 맵을 돌아다니기도 합니다.",
+    "en": "From Difficulty 4 it appears normally in Bot Drops, patrols, and guarding Automaton Outposts, Fortresses and Minor Places of Interest. It sometimes patrols the map alone."
+   },
+   {
+    "ko": "어나이얼레이터 탱크와 출현 확률을 나눠 가지며, 난이도 7부터는 둘 다 가끔 바라저 탱크로 바뀝니다.",
+    "en": "Shares a spawn chance with the Annihilator Tank; starting at Difficulty 7 both are sometimes replaced by the Barrager Tank."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 융합 사이클러를 계속 쏩니다. 1초 동안의 짧은 정밀 점사와, 포탑을 돌리며 주변을 쓸어 버리는 2초 연사 두 가지 방식이 있습니다.",
+    "en": "Once it spots a Helldiver it keeps firing its Fusion Cyclers in two patterns: a short 1-second precise burst, or a 2-second burst that sweeps the turret across the area."
+   },
+   {
+    "ko": "궤도를 부수면 움직이지 못합니다.",
+    "en": "Destroying its tracks immobilizes it."
+   },
+   {
+    "ko": "뒤쪽 엔진이나 포탑을 부수면 작동이 멈춘 뒤 폭발하고, 큰 피해를 한 번에 주면 바로 폭발합니다.",
+    "en": "Destroying the rear engine or turret disables it and it then explodes; a large burst of damage makes it explode immediately."
+   }
+  ]
+ },
+ "Shrieker": {
+  "revision": 136531,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 나오는 슈리커 둥지에서 나오며, 헬다이버가 약 150m 안에 들어오면 둥지가 슈리커를 내보내기 시작합니다.",
+    "en": "Spawns from Shrieker Nests, which appear from Difficulty 4; a Nest starts releasing Shriekers when a Helldiver comes within roughly 150m."
+   },
+   {
+    "ko": "난이도 5부터는 작전 제한 조건 '배회하는 슈리커'가 붙으면 슈리커 무리가 맵을 돌아다닙니다.",
+    "en": "From Difficulty 5, the Roving Shriekers operation modifier can add Shrieker groups that patrol the map."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "목표를 정하면 주위를 돌다가 급강하하며 날카로운 발톱으로 베고 지나갑니다. 주로 팔과 몸통을 노리지만 머리를 맞히기도 합니다.",
+    "en": "Once it marks a target it circles, then dives in for fly-by slashes with its claws. It usually hits the arms and torso but can also hit the head."
+   },
+   {
+    "ko": "죽은 슈리커의 시체가 떨어지면 깔린 대상에게 피해를 줍니다.",
+    "en": "A dead Shrieker's falling corpse damages whatever it lands on."
+   }
+  ]
+ },
+ "Spore Burst Bile Titan": {
+  "revision": 140147,
+  "spawning": [
+   {
+    "ko": "난이도 5부터 스포어 버스트 변종 행성의 '바일 타이탄 제거하기' 임무에서 목표인 바일 타이탄을 대신해 나옵니다.",
+    "en": "From Difficulty 5 it replaces the Bile Titan as the target of Eliminate Bile Titans missions on Spore Burst Strain planets."
+   },
+   {
+    "ko": "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+    "en": "From Difficulty 6 it spawns from Bug Breaches and can patrol the map alone."
+   },
+   {
+    "ko": "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 벌레굴이 있을 수 있습니다.",
+    "en": "From Difficulty 7 it guards certain heavy Bug Nest layouts and Difficulty 10 Mega Nests, which may also have a Bug Hole it spawns from."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 바일 타이탄과 같지만, 부식성 담즙 대신 강력한 포자를 뿜습니다.",
+    "en": "Behaves like a normal Bile Titan, but spews powerful spores instead of corrosive bile."
+   },
+   {
+    "ko": "포자에 맞으면 '굳건한 바위' 패시브 방어구를 입지 않은 헬다이버는 넘어집니다.",
+    "en": "Helldivers hit by the spores are ragdolled unless they wear armor with the Rock Solid passive."
+   },
+   {
+    "ko": "맞은 자리에 시야를 가리는 포자 구름이 남고, 이 구름은 근처 스포어 버스트 테르미니드의 속도를 높입니다.",
+    "en": "The impact leaves a vision-blocking spore cloud that speeds up nearby Spore Burst Terminids."
+   }
+  ]
+ },
+ "Spore Burst Hunter": {
+  "revision": 137849,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 스포어 버스트 변종 행성에 나오며, 헌터를 모두 대신합니다.",
+    "en": "Appears from Difficulty 2 on Spore Burst Strain planets, replacing all Hunters."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 헌터와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
+    "en": "Behaves like a normal Hunter, but explodes on death, damaging nearby Helldivers."
+   }
+  ]
+ },
+ "Spore Burst Scavenger": {
+  "revision": 142257,
+  "spawning": [
+   {
+    "ko": "스포어 버스트 변종 행성에만 나오며, 스캐빈저를 대신합니다.",
+    "en": "Only appears on Spore Burst Strain planets, replacing the Scavenger."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 스캐빈저와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
+    "en": "Behaves like a normal Scavenger, but explodes on death, damaging nearby Helldivers."
+   }
+  ]
+ },
+ "Spore Burst Warrior": {
+  "revision": 141595,
+  "spawning": [
+   {
+    "ko": "난이도 2부터 스포어 버스트 변종 행성에 나오며, 워리어를 대신합니다. 브루드 커맨더가 부르는 워리어도 포함됩니다.",
+    "en": "Appears from Difficulty 2 on Spore Burst Strain planets, replacing Warriors, including those called by Brood Commanders."
+   },
+   {
+    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "일반 워리어와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
+    "en": "Behaves like a normal Warrior, but explodes on death, damaging nearby Helldivers."
+   }
+  ]
+ },
+ "Stalker": {
+  "revision": 136802,
+  "spawning": [
+   {
+    "ko": "난이도 4부터 나오는 선택 목표인 스토커 둥지에서만 나옵니다.",
+    "en": "Spawns only from Stalker Lairs, an optional objective that appears from Difficulty 4."
+   },
+   {
+    "ko": "둥지에는 벌레굴이 최대 2개 있고, 둥지를 부술 때까지 주기적으로 스토커가 나옵니다. 일부 둥지에는 스캐빈저와 파운서가 나오는 일반 벌레굴도 있습니다.",
+    "en": "A Lair has up to two Bug Holes and keeps spawning Stalkers until destroyed. Some Lairs also have a normal Bug Hole that spawns Scavengers and Pouncers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버가 스토커 둥지에서 약 150m 안에 오면 위장한 채 추격을 시작하며, 추격 중에는 특유의 딸깍거리는 소리를 냅니다.",
+    "en": "Starts hunting while camouflaged once a Helldiver is roughly 150m from its Lair; hunting Stalkers make a distinct chittering noise."
+   },
+   {
+    "ko": "헬다이버에게 곧장 다가오되, 가능하면 옆이나 뒤로 돌아가 공격합니다.",
+    "en": "Heads straight for Helldivers and tries to flank and attack from behind when it can."
+   },
+   {
+    "ko": "헬다이버와 약 20m까지 가까워지거나 충분한 피해를 입으면 모습을 드러냅니다. 혀 공격은 헬다이버를 밀쳐 내고, 가까이서는 발톱으로 공격합니다.",
+    "en": "Reveals itself at roughly 20m from a Helldiver or after taking enough damage. Its tongue attack knocks Helldivers away, and it uses claws up close."
+   },
+   {
+    "ko": "체력의 50% 이상(약 400HP)을 잃으면 뛰어 물러나며 다시 위장하고, 위장 중에 체력을 회복합니다(초당 약 50). 잠시 뒤 다시 추격합니다.",
+    "en": "After losing at least 50% of its Health (~400HP) it leaps away and camouflages, regenerating about 50 HP per second, then resumes the hunt after a short while."
+   }
+  ]
+ },
+ "Stingray": {
+  "revision": 142534,
+  "spawning": [
+   {
+    "ko": "임무 도중 수시로 작전 지역 밖에서 날아옵니다. 순찰대로 나오지 않고, 임무 시작 시점에도 나오지 않습니다.",
+    "en": "Arrives intermittently from outside the mission area during a mission. It never spawns in patrols or at mission start."
+   },
+   {
+    "ko": "적임자·무분별한 대중·보트 스내처 행성에서는 나오지 않습니다. 단, 일루미닛 침공 함대가 있으면 평소처럼 나옵니다.",
+    "en": "Absent on planets with the Appropriators, Mindless Masses or Vote Snatchers, unless the Illuminate Invasion Fleet is present, in which case it appears as normal."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "800m 넘는 거리에서 아주 빠르게 헬다이버 주위를 돌며, 뒤에 남는 밝은 파란색 플라스마 궤적으로 알아볼 수 있습니다.",
+    "en": "Circles Helldivers at very high speed from over 800m away and can be spotted by its bright blue plasma trail."
+   },
+   {
+    "ko": "처음에는 맵 전체를 2~3바퀴 돈 뒤 공격합니다. 건물이나 높은 지형이 많으면 공격하기 좋은 자리를 찾아 계속 돕니다.",
+    "en": "It first flies 2~3 loops around the whole map before engaging. With many buildings or high terrain, it keeps orbiting to find a good strafing spot."
+   },
+   {
+    "ko": "공격할 때는 속도를 줄이고 내려와, 땅에 길고 밝은 파란 기둥을 표시한 뒤 플라스마 디스트로이어로 그 줄을 따라 쓸어 버립니다. 이글 기총소사와 비슷합니다.",
+    "en": "To attack it slows and descends, marks a long bright blue column on the ground, then sweeps it with its Plasma Destructors, much like an Eagle Strafing Run."
+   },
+   {
+    "ko": "공격이 끝나면 다시 빠르게 날다가 적이 범위에 들어오면 또 공격합니다.",
+    "en": "Afterward it returns to high-speed flight and attacks again once targets are in range."
+   }
+  ]
+ },
+ "Trooper": {
+  "revision": 139995,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 봇 투하나 오토마톤 제조소에서 나오며, 오토마톤 전초기지·임무 목표 경비와 순찰대에 자주 섞여 있습니다. 난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Found on all difficulties from Bot Drops or Automaton Fabricators, often guarding Automaton Outposts and Objectives or in patrols. From Difficulty 4 it also guards Minor Places of Interest."
+   },
+   {
+    "ko": "높은 난이도에서는 로켓 레이더·MG 레이더 같은 더 위험한 경량 오토마톤으로 바뀌는 경우가 많습니다.",
+    "en": "On higher difficulties it is often replaced by more dangerous light Automatons such as the Rocket Raider and MG Raider."
+   },
+   {
+    "ko": "제트 여단 행성에서는 난이도 3부터, 소각대 행성에서는 난이도 4부터 각 세력의 트루퍼로 바뀌기 시작합니다.",
+    "en": "On Jet Brigade planets it starts being replaced by the Jet Brigade variant from Difficulty 3, and on Incineration Corps planets by that variant from Difficulty 4."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "트루퍼와 레이더는 시야에 헬다이버가 보이면 융합 기관단총을 5발씩 끊어 쏘고, 4초 동안 제자리에서 식힌 뒤 다시 쏩니다.",
+    "en": "Troopers and Raiders fire their Fusion SMG in five-round bursts at Helldivers in sight, then stand still for four seconds to cool it down."
+   },
+   {
+    "ko": "헬다이버와 거리를 두려고 물러나며, 너무 가까우면 주먹으로 칩니다. 엄폐물 뒤에 있으면 고폭 수류탄을 던집니다.",
+    "en": "They back off to keep their distance and punch Helldivers who get too close. They throw a High Explosive Grenade at Helldivers behind cover."
+   },
+   {
+    "ko": "총격으로 제압당하면 기관단총이 마구 흔들려 명중률이 크게 떨어집니다.",
+    "en": "When suppressed by gunfire, their SMG shakes erratically and accuracy drops sharply."
+   },
+   {
+    "ko": "헬다이버를 발견하면 조명탄을 쏴 봇 투하를 부를 수 있습니다. 커미서를 포함한 모든 트루퍼 계열이 이렇게 합니다.",
+    "en": "When alerted, Troopers can fire a flare to call a Bot Drop. All Trooper-type Automatons, including Commissars, can do this."
+   },
+   {
+    "ko": "사이보그 애지테이터가 트루퍼 분대를 지휘하면 더 빨리 움직이고 뭉쳐 다니며, 눈이 밝은 주황색으로 빛납니다.",
+    "en": "Squads led by a Cyborg Agitator move faster and stay grouped, and their eyes glow bright orange."
+   }
+  ]
+ },
+ "Veracitor": {
+  "revision": 140066,
+  "spawning": [
+   {
+    "ko": "일루미닛의 적임자 세력 소속이라 적임자가 있는 행성에만 나옵니다.",
+    "en": "Part of the Illuminate Appropriators subfaction; only appears where the Appropriators are present."
+   },
+   {
+    "ko": "난이도 4부터 워프 함선이나 순찰대로 나옵니다.",
+    "en": "From Difficulty 4 it arrives from Warp Ships or in patrols."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "다리 같은 부속지로 돌진하며 다가와 가까우면 발톱으로 휘두릅니다.",
+    "en": "Charges toward Helldivers on its leg-like limbs and swipes with its claws up close."
+   },
+   {
+    "ko": "멀리 있을 때는 팔을 교차해 조종석의 오버시어를 보호합니다.",
+    "en": "At range it crosses its arms to shield the Overseer piloting it."
+   },
+   {
+    "ko": "헬다이버와 거리가 멀면 조종사가 돌진하기도 합니다.",
+    "en": "When far from Helldivers, the pilot sometimes charges."
+   }
+  ]
+ },
+ "Voteless": {
+  "revision": 141977,
+  "spawning": [
+   {
+    "ko": "가장 흔한 일루미닛 적으로, 거의 모든 거주지·순찰대·증원에 나옵니다. 착륙한 워프 함선에서도 자주 나옵니다.",
+    "en": "The most common Illuminate unit, found in almost every settlement, patrol and reinforcement. It also often comes out of Grounded Warp Ships."
+   },
+   {
+    "ko": "적임자만 있는 행성에서는 나오지 않지만, 무권자가 포함된 다른 세력이 함께 있으면 나옵니다.",
+    "en": "Absent on planets where only the Appropriators are active, but appears if another subfaction that includes the Voteless is also present."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버에게 달려와 근접 거리에서 발톱으로 휘두릅니다.",
+    "en": "Runs at Helldivers and swipes with its claws in melee range."
+   },
+   {
+    "ko": "공격 거리보다 조금 먼 대상에게는 짧게 덤벼듭니다.",
+    "en": "Lunges a short distance at targets just out of its normal reach."
+   }
+  ]
+ },
+ "Vox Engine": {
+  "revision": 142149,
+  "spawning": [
+   {
+    "ko": "오토마톤의 사이보그 세력 소속이라 사이보그가 있는 행성에만 나옵니다.",
+    "en": "Part of the Automaton Cyborg Legion subfaction; only appears where the Cyborgs are present."
+   },
+   {
+    "ko": "난이도 7부터 순찰대·증원·적 점령 지역에 나오며, 팩토리 스트라이더를 대신합니다.",
+    "en": "From Difficulty 7 it appears in patrols, reinforcements and enemy-held locations, replacing the Factory Strider."
+   },
+   {
+    "ko": "사이보그 행성의 보조 목표 '호송대 요격하기'에서는 복스 엔진 5대가 맵 끝에서 끝까지 순찰합니다.",
+    "en": "On Cyborg planets, the Intercept Convoy secondary objective instead spawns five Vox Engines patrolling from one end of the map to the other."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "사이보그 선전 방송을 틀고 다녀 다가오는 것을 미리 알 수 있습니다.",
+    "en": "It blares Cyborg propaganda, giving early warning of its approach."
+   },
+   {
+    "ko": "무기는 두 개씩 세 종류입니다. 몸통 양옆의 플라스마 매크로 컬버린, 하부 양쪽의 플라스마 더스터 미니건, 몸통 뒤쪽 매크로 컬버린 바로 뒤의 이카루스 미사일 포드입니다.",
+    "en": "It has three pairs of weapons: Plasma Macro-Culverins on each side of the torso, Plasma Duster Miniguns on each side of the undercarriage, and Icarus Missile Launcher Pods on the back of the torso right behind the Macro-Culverins."
+   },
+   {
+    "ko": "헬다이버를 발견하면 꼭대기 확성기로 경보를 울리며 다가오고, 거리에 따라 무기를 바꿔 씁니다.",
+    "en": "When alerted it sounds an alarm from its rooftop loudspeakers and advances, using different weapons depending on distance."
+   }
+  ]
+ },
+ "War Strider": {
+  "revision": 139410,
+  "spawning": [
+   {
+    "ko": "난이도 6부터 오토마톤 전초기지, 대형 제조소, 봇 투하에서 나오고, 도시 지역이 아닌 곳에서는 순찰대로도 나옵니다.",
+    "en": "From Difficulty 6 it spawns in Automaton Outposts, from Bulk Fabricators and in Bot Drops, and in patrols outside the Metropolis biome."
+   },
+   {
+    "ko": "비상 탈출·가치 있는 데이터 회수하기·지형 조사 시행하기·민주주의 전파하기 임무에는 도시 지역이 아니면 나오지 않습니다.",
+    "en": "Emergency Evacuation, Retrieve Valuable Data, Conduct Geological Survey and Spread Democracy missions have none unless they take place in an urban area such as a Metropolis."
+   },
+   {
+    "ko": "임무 중 오토마톤 탱크 자리를 대신해 나옵니다.",
+    "en": "During a mission it takes up Automaton tank slots."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "멀리 있으면 유탄과 레이저를 쏘고, 너무 가까이 오면 밟습니다. 융합 컬버린은 8발씩 쏜 뒤 약 4초 동안 식힙니다.",
+    "en": "Fires grenades and lasers at range and stomps Helldivers who get too close. Its Fusion Culverins fire in bursts of 8, then cool down for about 4 seconds."
+   },
+   {
+    "ko": "느리고 잘 쫓아오지 않으며, 충분히 멀면 유탄 발사기로 유탄 10발을 한꺼번에 쏩니다. 높은 포물선으로 날아와 엄폐물을 넘어올 수 있습니다.",
+    "en": "It is slow and rarely gives chase; at enough distance it launches a salvo of 10 grenades from its Grenade Projectors on a steep arc that can get past cover."
+   }
+  ]
+ },
+ "Warp Ship": {
+  "revision": 141833,
+  "spawning": [],
+  "behavior": []
+ },
+ "Warrior": {
+  "revision": 141593,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
+    "en": "Found on all difficulties from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes; Brood Commanders also call them in trios."
+   },
+   {
+    "ko": "난이도 4부터 소규모 관심 지점도 지킵니다.",
+    "en": "Starting at Difficulty 4, also guards Minor Places of Interest."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "지형과 장애물을 넘어 다가와 근접 거리에서 발톱으로 공격합니다. 옆으로 움직이며, 옆을 지나쳐 달리는 헬다이버의 길을 막으려 합니다.",
+    "en": "Climbs over terrain and obstacles to claw at Helldivers up close. It can strafe sideways and tries to cut off Helldivers running past."
+   },
+   {
+    "ko": "머리가 부서지면 '광폭' 상태가 되어 더 빨리 움직이지만, 계속 피를 흘리다 죽습니다.",
+    "en": "With its head destroyed it goes berserk, moving faster but steadily bleeding out."
+   },
+   {
+    "ko": "드물게 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
+    "en": "Rarely, when a Helldiver is out of reach, it digs underground and suddenly emerges to attack."
+   },
+   {
+    "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
+    "en": "Can release a pheromone cloud that calls a Bug Breach."
+   }
+  ]
+ },
+ "Watcher": {
+  "revision": 140766,
+  "spawning": [
+   {
+    "ko": "모든 난이도에서 맵 곳곳에 나옵니다. 보트 스내처 행성에는 나오지 않습니다.",
+    "en": "Found on all difficulties throughout the map, but not on planets held by the Vote Snatchers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "맵을 날아다니며 파란 빛으로 주변을 훑습니다. 빛이 비치는 곳이 와처의 시야입니다.",
+    "en": "Flies around scanning with a glowing blue light that shows its field of view."
+   },
+   {
+    "ko": "헬다이버를 직접 보거나, 자신이나 근처가 공격받으면 밝은 분홍빛을 내며 조사를 시작합니다.",
+    "en": "If it sees a Helldiver or is attacked directly or nearby, it turns bright pink and starts investigating."
+   },
+   {
+    "ko": "다시 헬다이버를 발견하거나 계속 공격받으면 보통 멈춰서 홀로그램 신호탄을 쏴 워프 함선 증원을 부릅니다.",
+    "en": "If it spots Helldivers again or keeps taking fire, it usually stops and fires holographic flares that call Warp Ships as reinforcements."
+   },
+   {
+    "ko": "헬다이버가 가까이 있으면 테슬라 서프레서로 전기를 쏘아 공격하기도 합니다.",
+    "en": "It may also zap nearby Helldivers with arcs of lightning from its Tesla Suppressor."
+   }
+  ]
+ },
+ "Wretch": {
+  "revision": 140071,
+  "spawning": [
+   {
+    "ko": "보트 스내처 행성에는 증원을 부를 와처가 없어서 순찰대와 관심 지점 경비로만 나오지만, 그만큼 훨씬 많은 수가 나옵니다.",
+    "en": "On Vote Snatchers planets there are no Watchers to call reinforcements, so it only spawns in patrols and guarding points of interest, but in much greater numbers."
+   },
+   {
+    "ko": "보트 스내처 행성의 '침공 함대 격퇴' 임무에서는 크러셔와 함께 워프 함선에서 나옵니다.",
+    "en": "In Repel Invasion Fleet missions on Vote Snatchers planets, it arrives from Warp Ships along with Crushers."
+   }
+  ],
+  "behavior": [
+   {
+    "ko": "헬다이버를 발견하면 대체로 곧장 다가오지만, 때로는 엄폐물을 돌아 옆이나 뒤를 노립니다. 앞의 렛치를 쏘는 사이 다른 렛치가 뒤에서 덮치는 일도 흔합니다.",
+    "en": "Usually approaches in a straight line but sometimes darts around cover to flank; another Wretch often attacks from behind while you shoot at the ones in front."
+   },
+   {
+    "ko": "생각보다 빠르게 움직이며, 사거리에 들어오면 헬다이버에게 덤벼들어 큰 피해를 줍니다. 이 공격은 움직이는 헬다이버를 잘 따라와 피하기 어렵습니다.",
+    "en": "It moves surprisingly fast and pounces once in range for heavy damage. The pounce tracks moving Helldivers well, making it hard to dodge."
+   }
+  ]
+ }
+}
