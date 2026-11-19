@@ -68,7 +68,7 @@ function cardModes(item) {
   return html`<span class="card-modes" data-kind="${item.variantKind || 'modes'}">${rest.map(v => html`<span><b>${v.tab || v.name}</b> ${variantBrief(item, v)}</span>`)}</span>`;
 }
 
-// Cooldown in seconds beside the compare button, following the ship module choice.
+// Cooldown in seconds at the right end of the stratagem code row, following the ship module choice.
 // Cooldowns show whole seconds (user decision 2026-11-19); call-in and rearm keep their decimals.
 const seconds = value => `${num(Math.round(value))}${L('초', 's')}`;
 function cardCooldown(item) {
@@ -83,12 +83,11 @@ function card(item) {
   return html`<article class="card ${selected ? 'selected' : ''}" style="--cat:${categoryOf(item.category).color}" data-id="${item.id}">
     <button class="card-open" type="button" data-open="${item.id}" aria-label="${item.name} ${L('자세히 보기', 'details')}">
       <div class="card-head">${iconOf(item)}<div><h3>${item.name}</h3><p class="en">${subtitle(item)}</p></div></div>
-      <div class="card-keys">${item.input ? keycaps(item.input) : html`<span>${categoryOf(item.category).name}</span>`}</div>
+      <div class="card-keys">${item.input ? keycaps(item.input) : html`<span>${categoryOf(item.category).name}</span>`}${cardCooldown(item)}</div>
       <p class="summary">${item.summary}</p>
       ${statRow(item)}
       ${cardModes(item)}
     </button>
-    ${cardCooldown(item)}
     <button class="compare-toggle" type="button" data-compare="${item.id}" aria-pressed="${selected}" aria-label="${item.name} ${selected ? L('비교에 담김', 'added to compare') : L('비교에 담기', 'add to compare')}" title="${L('비교에 담기', 'Add to compare')}">${icon(selected ? 'check' : 'plus', 16)}</button>
   </article>`;
 }
