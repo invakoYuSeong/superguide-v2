@@ -233,7 +233,6 @@ function detailContent(warbond) {
       ${external(warbond.source, L('위키 항목', 'Wiki page'))}
       ${image ? external(image.source, L('표지 원본', 'Cover source')) : ''}
     </div>
-    <p class="faint" style="font-size:12.5px">${L('한국어 이름을 확인하지 못한 항목은 위키의 영문 표기를 그대로 씁니다. 메달 비용은 위키의 획득 템플릿 값이며, 같은 문서의 접힌 표와 다르면 ‘미확인’으로 둡니다. 실시간 패치와 연동되지 않습니다.', 'Items without a confirmed Korean name keep the wiki’s English name. Medal costs are the wiki’s acquisitions template values; where the collapsed table on the same page disagrees, the value is left unconfirmed. Not linked to live patches.')}</p>
   </div>`;
 }
 
