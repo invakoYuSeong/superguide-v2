@@ -10,4 +10,5 @@ await import('./test-warbond-detail.mjs');
 await import('./test-armor.mjs');
 await import('./test-attachments.mjs');
 await import('./test-stratagem-stats.mjs');
+await import('./test-boosters.mjs');
 await import('./test-i18n.mjs');

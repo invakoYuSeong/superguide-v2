@@ -3,6 +3,7 @@
 //   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text>&sort=<key>
 //   #/gear?tab=loadout&p=<primary>&s=<secondary>&g=<throwable>&st=<a,b,c,d>&f=<faction>
 //   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>   (body armor grouped by passive, gear-armor.js)
+//   #/gear?tab=boosters&b=<booster>   (boosters, gear-boosters.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
@@ -115,7 +116,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -345,11 +346,26 @@ async function renderArmor() {
   module.renderArmor(panel, { state: armor, onChange: () => { syncUrl(); renderArmor(); } });
 }
 
+// --- Boosters ----------------------------------------------------------------------
+const booster = { focus: '' };
+let boostersUi = null;
+async function renderBoosters() {
+  const panel = $('#gear-boosters', root);
+  if (!boostersUi) {
+    render(panel, html`<p class="faint" style="padding:24px 0">${L('부스터 목록을 불러오는 중…', 'Loading the booster list…')}</p>`);
+    boostersUi = import('./gear-boosters.js');
+  }
+  const module = await boostersUi;
+  if (state.tab !== 'boosters') return;
+  module.renderBoosters(panel, { state: booster });
+}
+
 // --- View lifecycle -------------------------------------------------------------------
 const LEDES = {
   browse: '',
   loadout: L('무기와 스트라타젬을 담고 팩션을 고르면, 주요 적마다 무엇으로 몇 번 만에 처치하는지와 대응 공백을 보여 줍니다.', 'Fill in your weapons and stratagems and pick a faction to see what kills each key enemy in how many shots — and where your loadout has gaps.'),
   armor: L('몸통 방어구를 패시브별로 묶었습니다. 장갑 등급이 높을수록 덜 다치는 대신 속도와 스태미나 회복이 낮아집니다.', 'Body armor grouped by passive. A higher armor rating means less damage taken, at the cost of speed and stamina regen.'),
+  boosters: L('출격 전에 한 명당 하나씩 고르는 부스터입니다. 효과는 분대 전원에게 적용되고, 같은 부스터는 겹쳐 쓸 수 없습니다.', 'Each Helldiver picks one booster before the drop. Its effect applies to the whole squad, and the same booster does not stack.'),
 };
 function showTab() {
   for (const button of $$('[data-tab-pick]', root)) button.setAttribute('aria-pressed', String(button.dataset.tabPick === state.tab));
@@ -357,8 +373,10 @@ function showTab() {
   $('#gear-browse', root).hidden = state.tab !== 'browse';
   $('#gear-loadout', root).hidden = state.tab !== 'loadout';
   $('#gear-armor', root).hidden = state.tab !== 'armor';
+  $('#gear-boosters', root).hidden = state.tab !== 'boosters';
   if (state.tab === 'browse') renderBrowse();
   else if (state.tab === 'armor') renderArmor().catch(error => { console.error(error); ctx.toast(L('방어구 목록을 불러오지 못했습니다.', 'The armor list could not be loaded.')); });
+  else if (state.tab === 'boosters') renderBoosters().catch(error => { console.error(error); ctx.toast(L('부스터 목록을 불러오지 못했습니다.', 'The booster list could not be loaded.')); });
   else renderLoadout().catch(error => { console.error(error); ctx.toast(L('로드아웃 점검 도구를 불러오지 못했습니다.', 'The loadout check could not be loaded.')); });
 }
 
@@ -370,7 +388,7 @@ export function mount(container, context) {
   LEDES.browse = L(`주무기 ${count('primary')}종 · 보조무기 ${count('secondary')}종 · 투척 ${count('throwable')}종의 수치. 카드를 누르면 자세한 기준이 열립니다.`, `Stats for ${count('primary')} primaries, ${count('secondary')} secondaries and ${count('throwable')} throwables. Open a card for the details behind the numbers.`);
   render(root, html`<div class="page-head gear-head"><div><div class="eyebrow">Armory</div>
     <h1 class="sr-only">${L('장비', 'Gear')}</h1>
-    <div class="gear-tabs" role="group" aria-label="${L('장비 보기', 'Gear views')}"><button type="button" data-tab-pick="browse">${L('장비 둘러보기', 'Browse gear')}</button><button type="button" data-tab-pick="loadout">${L('로드아웃 점검', 'Loadout check')}</button><button type="button" data-tab-pick="armor">${L('방어구', 'Armor')}</button></div>
+    <div class="gear-tabs" role="group" aria-label="${L('장비 보기', 'Gear views')}"><button type="button" data-tab-pick="browse">${L('장비 둘러보기', 'Browse gear')}</button><button type="button" data-tab-pick="loadout">${L('로드아웃 점검', 'Loadout check')}</button><button type="button" data-tab-pick="armor">${L('방어구', 'Armor')}</button><button type="button" data-tab-pick="boosters">${L('부스터', 'Boosters')}</button></div>
     <p id="gear-lede"></p></div></div>
   <div id="gear-browse">
     <div class="arsenal-tools">
@@ -385,7 +403,8 @@ export function mount(container, context) {
     <div id="gear-grid" class="grid gear-grid"></div>
   </div>
   <div id="gear-loadout" hidden></div>
-  <div id="gear-armor" hidden></div>`);
+  <div id="gear-armor" hidden></div>
+  <div id="gear-boosters" hidden></div>`);
 
   const input = $('#gear-q', root);
   input.addEventListener('input', () => { state.q = input.value; renderBrowse(); syncUrl(); });
@@ -420,8 +439,9 @@ function selectVariant(id) {
 
 export function update(route) {
   const q = route.query;
-  state.tab = q.tab === 'loadout' || q.tab === 'armor' ? q.tab : 'browse';
+  state.tab = q.tab === 'loadout' || q.tab === 'armor' || q.tab === 'boosters' ? q.tab : 'browse';
   if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', focus: q.a || '' });
+  else if (state.tab === 'boosters') booster.focus = q.b || '';
   else if (state.tab === 'browse') {
     Object.assign(state, {
       cat: GROUPS.some(group => group.id === q.cat) ? q.cat : 'primary',
