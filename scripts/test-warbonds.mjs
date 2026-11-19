@@ -18,6 +18,7 @@ import { stratagemById } from '../dist/core/catalog.js';
 import { parseRoute } from '../dist/core/route.js';
 import { armors } from '../dist/data/armor.js';
 import { currencyIcons } from '../dist/data/currency-icons.js';
+import { superstorePages } from '../dist/data/superstore.js';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -270,7 +271,8 @@ for (const body of [
 assert.throws(() => validateSvg(Buffer.from('<!DOCTYPE svg [<!ENTITY x "test">]><svg/>')), /Unsafe or invalid SVG/); checks++;
 assert.throws(() => validateSvg(Buffer.alloc(MAX_SVG_BYTES + 1)), /size exceeds/); checks++;
 const { readdir } = await import('node:fs/promises');
-const usedImages = new Set(warbonds.flatMap(w => w.pages.flatMap(p => p.items.map(i => i.image))));
+// The Superstore boards share this image set (fetch-warbond-item-images.py reads both).
+const usedImages = new Set([...warbonds.flatMap(w => w.pages), ...superstorePages].flatMap(p => p.items.map(i => i.image)));
 const itemDir = new URL('dist/assets/warbond-items/', root);
 const onDiskImages = new Set(await readdir(itemDir));
 // Wiki redirects can map multiple filenames to the same proven shared SVG.
@@ -292,7 +294,7 @@ for (const [file, image] of Object.entries(warbondItemImages)) {
       eq(decodeURIComponent(new URL(icon.source).pathname), `/wiki/File:${icon.title.replaceAll(' ', '_')}`, `${file}: shared wiki source confirms identity`);
     }
   } else {
-    const uses = warbonds.flatMap(w => w.pages.flatMap(p => p.items)).filter(item => item.image === file);
+    const uses = [...warbonds.flatMap(w => w.pages), ...superstorePages].flatMap(p => p.items).filter(item => item.image === file);
     eq(image.box, [Math.max(...uses.map(item => item.colspan * 360)), Math.max(...uses.map(item => item.rowspan * 360))], `${file}: raster encoded for 360 px cells (run fetch-warbond-item-images.py)`);
     ok(image.width <= image.box[0] && image.height <= image.box[1], `${file}: raster no larger than its largest tile box`);
     ok(bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP', `${file}: WebP bytes`);

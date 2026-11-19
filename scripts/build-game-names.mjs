@@ -9,6 +9,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { shipModules } from '../dist/data/ship-modules.js';
 import { warbonds } from '../dist/data/warbonds.js';
 import { gameTileKeys } from './warbond-parse.mjs';
+import { parseSuperstore, superstoreGameKeys } from './superstore-parse.mjs';
 
 // Warbond cosmetic and booster tiles (the kinds build-warbonds.mjs names in Korean).
 const TILE_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
@@ -54,6 +55,13 @@ out.strings.warbondItems = {};
 for (const key of [...new Set(warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => TILE_KINDS.includes(item.kind)).flatMap(gameTileKeys))].sort()) {
   const korean = exact.get(key) ?? folded.get(key.toLowerCase());
   if (korean) out.strings.warbondItems[key] = korean;
+}
+// Superstore capes, player cards and emotes: same rule (armor and weapons are named by their own data).
+out.strings.superstoreItems = {};
+const superstore = parseSuperstore((await source('wiki_superstore.json')).text);
+for (const key of [...new Set(superstore.pages.flatMap(page => page.items).filter(item => ['cape', 'player-card', 'emote'].includes(item.kind)).flatMap(superstoreGameKeys))].sort()) {
+  const korean = exact.get(key) ?? folded.get(key.toLowerCase());
+  if (korean) out.strings.superstoreItems[key] = korean;
 }
 if (missing.length) throw new Error(`No Korean in db/source/game_strings_ko.tsv for:\n  ${missing.join('\n  ')}\nCheck the English against the table (it is the game's exact text).`);
 await writeFile(new URL('../db/source/game_names_ko.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');

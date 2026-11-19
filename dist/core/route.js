@@ -5,8 +5,11 @@
 //   #/enemy[/<enemy>]?w=<weapon>&m=<mode>&shield=1
 //   #/demolition?s=<structure> | #/demolition?w=<stratagem>&m=<mode>
 //   #/factions[/<guide>]
+//   #/superstore   (the Store tab's second page, beside the warbonds)
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>
-export const VIEWS = ['warbonds', 'arsenal', 'gear', 'enemy', 'demolition', 'factions', 'planets'];
+export const VIEWS = ['warbonds', 'arsenal', 'gear', 'enemy', 'demolition', 'factions', 'planets', 'superstore'];
+// Views shown under another view's navigation tab (the Store tab holds warbonds and the Superstore).
+export const TAB_OF = { superstore: 'warbonds' };
 export const HOME = 'warbonds';
 // Hashes used by the previous site keep working.
 const LEGACY = { catalog: 'arsenal', combat: 'enemy', demolition: 'demolition', factions: 'factions' };

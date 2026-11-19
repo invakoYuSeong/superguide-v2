@@ -404,6 +404,25 @@
    "Windswept Wayfinder": "바람에 맞서는 길잡이",
    "You're Next": "다음은 너다",
    "[REDACTED]": "[검열 삭제]"
+  },
+  "superstoreItems": {
+   "Arctic Decree": "극지의 법령",
+   "Badge of Order": "명령의 배지",
+   "Cover of Darkness": "드리우는 어둠",
+   "De-Forester's Sailcloth": "삼림 벌채자의 범포",
+   "Diagram of the Noblest Payload": "가장 숭고한 탑재물의 도식",
+   "Draw!": "권총 뽑기",
+   "Enthusiastic Mirth": "열정적인 웃음",
+   "Eternal Corona": "영원한 태양의 광채",
+   "Gilded Quill": "금박 깃",
+   "Schema Laid Bare": "규명된 지식의 구조",
+   "Seal of General Consensus": "컨센서스 장군의 인장",
+   "Stone-Wrought Perseverance": "돌과 같은 인내심",
+   "Testament to Attrition": "소모전의 증거",
+   "Thundering Hooves of Loyalty": "우렁찬 충성의 발굽 소리",
+   "Tread of Liberty": "자유의 트레드",
+   "Veil of the Valorous Vagabond": "용감한 방랑자의 베일",
+   "Vision of Freedom": "자유의 비전"
   }
  }
 }

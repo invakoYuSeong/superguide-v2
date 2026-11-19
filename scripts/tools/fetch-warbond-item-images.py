@@ -1,4 +1,4 @@
-"""Download the item images shown on the warbond page boards (Helldivers Wiki).
+"""Download the item images shown on the warbond and Superstore page boards (Helldivers Wiki).
 
 Reads dist/data/warbonds.js (run scripts/build-warbonds.mjs first): every item carries the
 `image` file name from the wiki {{Acquisitions Page}} template and its tile size (colspan ×
@@ -54,9 +54,11 @@ def slug(name):
 
 def tiles():
     """{file name: (box width, box height)} — the largest tile each image appears in."""
+    # Superstore boards (dist/data/superstore.js) use the same tiles and share this image set.
     script = ('import { warbonds } from "./dist/data/warbonds.js";'
-              'console.log(JSON.stringify(warbonds.flatMap(w => w.pages.flatMap(p => p.items'
-              '.filter(i => i.image).map(i => [i.image, i.colspan || 1, i.rowspan || 1])))))')
+              'import { superstorePages } from "./dist/data/superstore.js";'
+              'console.log(JSON.stringify([...warbonds.flatMap(w => w.pages), ...superstorePages].flatMap(p => p.items'
+              '.filter(i => i.image).map(i => [i.image, i.colspan || 1, i.rowspan || 1]))))')
     rows = json.loads(subprocess.run(['node', '--input-type=module', '-e', script], cwd=root,
                                      capture_output=True, text=True, check=True).stdout)
     boxes = {}

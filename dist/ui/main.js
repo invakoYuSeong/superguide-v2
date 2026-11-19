@@ -1,5 +1,5 @@
 // App shell: hash router, navigation, shared sheet/palette/toast.
-import { parseRoute, formatRoute } from '../core/route.js';
+import { parseRoute, formatRoute, TAB_OF } from '../core/route.js';
 import { lang, L, addEnglish } from '../core/i18n.js';
 import { $, $$, icon, render, html } from './dom.js';
 import { initAnalytics } from './analytics.js';
@@ -12,11 +12,13 @@ const VIEW_MODULES = {
   demolition: () => import('./views/demolition.js'),
   factions: () => import('./views/factions.js'),
   planets: () => import('./views/planets.js'),
+  superstore: () => import('./views/superstore.js'),
 };
 const TITLES = {
   warbonds: L('전쟁 채권', 'Warbonds'),
   arsenal: L('스트라타젬', 'Stratagems'), gear: L('장비', 'Gear'), enemy: L('적 대응', 'Enemies'),
   demolition: L('철거', 'Demolition'), factions: L('팩션 추천', 'Faction picks'), planets: L('행성', 'Planets'),
+  superstore: L('슈퍼 스토어', 'Superstore'),
 };
 const SITE = L('HD2 필드 가이드', 'HD2 Field Guide');
 
@@ -105,7 +107,7 @@ async function handle() {
   if (!location.hash || /^#(catalog|combat|demolition|factions)$/.test(location.hash)) history.replaceState(null, '', formatRoute(route));
   document.body.dataset.view = route.view;
   for (const link of $$('[data-tab]')) {
-    if (link.dataset.tab === route.view) link.setAttribute('aria-current', 'page');
+    if (link.dataset.tab === (TAB_OF[route.view] ?? route.view)) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
   document.title = `${TITLES[route.view]} — ${SITE}`;
