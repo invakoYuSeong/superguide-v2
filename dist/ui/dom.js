@@ -27,7 +27,9 @@ export const external = (url, label) => html`<a class="ext" href="${url}" target
 // Stroke icons, 24px grid.
 const ICONS = {
   warbonds: '<path d="M8 2.5h8l-2.5 6.5h-3z"/><circle cx="12" cy="15.5" r="6"/><path d="m12 12.4 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3z"/>',
-  arsenal: '<rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/>',
+  // Stratagem mark (arrow landing on a dome), from the Namu Wiki stratagem icon (126 px grid, scaled to 24):
+  // the dome keeps its red, the arrow follows the text colour like the other icons.
+  arsenal: '<g transform="scale(.1905)" stroke="none"><path fill="#de7b6c" d="M94.5 93h15.3a53.7 53.7 0 0 1 7.2 27H99c-.4-11-2-19.9-4.5-27M74.2 67.2A54 54 0 0 1 107.9 90H93.4c-5.3-13-13-19.5-19.2-22.8M90.3 90H65V67a37 37 0 0 1 25.3 23m-54.8 3H62v27H31a85.5 85.5 0 0 1 4.5-27M62 67v23H36.7A37 37 0 0 1 62 67M33.6 90H18.1a54 54 0 0 1 35.3-23.1A42.4 42.4 0 0 0 33.6 90m-5.5 30H9a53.7 53.7 0 0 1 7.2-27h16.3c-2.4 7.1-4.1 16-4.4 27m67.5 43a54 54 0 0 1-65.2 0zm-4-70a85.5 85.5 0 0 1 4.5 27H65V93h26.5Z"/><path fill="currentColor" d="M54 39V11H29l18 28zm19-28h25L80 39h-7z"/><path fill="currentColor" d="M59 11h9v33h9L64 64 50 44h9"/></g>',
   enemy: '<circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2"/><path d="M12 1.5v5M12 17.5v5M1.5 12h5M17.5 12h5"/>',
   demolition: '<path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="m9 13 3 3 3-3M12 16V9"/>',
   factions: '<path d="M5 21V3.5M5 4h12.5l-2.5 4.5 2.5 4.5H5"/>',
