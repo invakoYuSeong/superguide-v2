@@ -36,7 +36,7 @@ const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ 
 // Planet tab: the game's Korean names and descriptions, biome descriptions and status effect lines, each with its English.
 const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operationModifiers, ...eventEffects].flatMap(item => [item, { name: item.description, en: item.descriptionEn }])
   .concat(specialEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
-  .concat(planetBiomes, planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })))
+  .concat(planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })), planetBiomes)
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
 // Enemy view: the summarized wiki Spawning and Behavior lines, each with its English.
