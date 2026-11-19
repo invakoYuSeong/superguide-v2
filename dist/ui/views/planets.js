@@ -92,7 +92,7 @@ function biomeCard(biome) {
 
 function biomesTab() {
   return html`<p class="lede-note">${L('행성의 지형과 기후를 정하는 생물군계입니다. 행성 목록은 게임 데이터 기준입니다.', 'The biome sets a planet\'s terrain and climate. Planet lists follow the game data.')}</p>
-    <ul class="info-list">${biomes.map(biomeCard)}</ul>`;
+    <ul class="info-list biome-list">${biomes.map(biomeCard)}</ul>`;
 }
 
 function statusTab() {

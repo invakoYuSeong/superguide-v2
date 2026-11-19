@@ -81,6 +81,9 @@ def main():
         for title, biome in wiki["biomes"].items()
         if biome.get("landscape")
     }
+    # Volcanic Jungle's infobox picture redirects to the Deadlands one; use a landscape from its
+    # own page gallery instead (Regnus, "A blue, Earth-like Volcanic Jungle's surface").
+    wanted.update({"volcanic-jungle": "Regnus Planet Landscape Header.png"})
     meta = shared.image_info(list(wanted.values()), 480)
     # A file name that the wiki redirects onto another biome's picture would show the wrong
     # biome (Volcanic Jungle's primordial_base image redirects to Deadlands'): leave it out.
