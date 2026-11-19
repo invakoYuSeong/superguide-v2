@@ -60,5 +60,7 @@ for (const [, key, file] of out.environmentModule.text.matchAll(/\["([a-z ]+)"\]
   await writeFile(new URL(`../dist/assets/conditions/${name}`, import.meta.url), bytes);
   out.icons[slug(key)] = { file: name, title: file, source: `https://helldivers.wiki.gg/wiki/File:${file.replaceAll(' ', '_')}`, sha256: createHash('sha256').update(bytes).digest('hex') };
 }
+// Planets that have a wiki page (the biome tab links their names; many game planets have none).
+out.planetPages = (await get({ action: 'query', list: 'categorymembers', cmtitle: 'Category:Planets', cmnamespace: '0', cmlimit: '500' })).query.categorymembers.map(page => page.title).sort();
 await writeFile(new URL('../db/source/wiki_planets.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
 console.log(`${Object.keys(out.biomes).length} biomes, ${Object.keys(out.icons).length} condition icons`);

@@ -84,7 +84,7 @@ function biomeCard(biome) {
       <div class="armor-title"><h3>${title(biome)}</h3>${biome.archetype ? badge(lang === 'en' ? biome.archetype : biome.archetypeName ?? biome.archetype, 'outline') : ''}</div>${enLine(biome)}
       ${biome.description ? html`<p class="info-desc">${text(biome.description, biome.descriptionEn)}</p>` : ''}
       <p class="armor-source">${L('대표 환경 조건', 'Typical conditions')}: ${biome.conditions.length ? biome.conditions.map((id, i) => html`${i ? ' · ' : ''}${T(conditionById.get(id).name)}`) : L('없음', 'None')}</p>
-      ${biome.planets.length ? html`<details class="biome-planets"><summary>${L(`행성 ${biome.planets.length}개`, `${biome.planets.length} ${biome.planets.length === 1 ? 'planet' : 'planets'}`)}</summary><p>${biome.planets.map(planet => lang === 'en' ? planet.en : planet.name).join(' · ')}</p></details>` : ''}
+      ${biome.planets.length ? html`<details class="biome-planets"><summary>${L(`행성 ${biome.planets.length}개`, `${biome.planets.length} ${biome.planets.length === 1 ? 'planet' : 'planets'}`)}</summary><p>${biome.planets.map((planet, i) => html`${i ? ' · ' : ''}${planetLink(planet)}`)}</p></details>` : ''}
       <p class="armor-source">${external(biome.wiki, L('위키', 'Wiki'))}</p>
     </div>
   </li>`;
@@ -94,6 +94,12 @@ function biomesTab() {
   return html`<p class="lede-note">${L('행성의 지형과 기후를 정하는 생물군계입니다. 행성 목록은 게임 데이터 기준입니다.', 'The biome sets a planet\'s terrain and climate. Planet lists follow the game data.')}</p>
     <ul class="info-list biome-list">${biomes.map(biomeCard)}</ul>`;
 }
+
+// A planet with a wiki page links to it (many game planets have none).
+const planetLink = planet => {
+  const name = lang === 'en' ? planet.en : planet.name;
+  return planet.wiki ? html`<a href="https://helldivers.wiki.gg/wiki/${encodeURIComponent(planet.wiki.replaceAll(' ', '_'))}" target="_blank" rel="noopener noreferrer">${name}</a>` : name;
+};
 
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>

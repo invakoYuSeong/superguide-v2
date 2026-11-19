@@ -12,6 +12,9 @@ const wiki = await read('wiki_planets.json');
 const game = await read('game_names_ko.json');
 const gamePlanets = await read('game_planets_ko.json');
 if (gamePlanets.build !== game.build) throw new Error('game_planets_ko.json and game_names_ko.json come from different game builds');
+// Game planet name (upper case) -> its wiki page title, matched without case or accents.
+const pageKey = text => text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const planetPage = new Map((wiki.planetPages ?? []).map(title => [pageKey(title), title]));
 const wikiUrl = page => `https://helldivers.wiki.gg/wiki/${page.replaceAll(' ', '_')}`;
 const ko = key => {
   const value = game.strings.planets[key];
@@ -46,7 +49,7 @@ const biomes = Object.entries(wiki.biomes).map(([title, biome]) => {
     id: slug(title), name, en: title, archetype: biome.archetype, archetypeName: text.archetypeNames[biome.archetype] ?? null, internal,
     description: description?.ko ?? null, descriptionEn: description?.en ?? null,
     conditions: biome.conditions.map(page => text.conditions.find(item => item.page === page)?.id).filter(Boolean),
-    planets: gamePlanets.planets.filter(planet => planet.biome === internal).map(({ ko: name, en }) => ({ name, en })).sort((a, b) => a.name.localeCompare(b.name, 'ko')),
+    planets: gamePlanets.planets.filter(planet => planet.biome === internal).map(({ ko: name, en }) => ({ name, en, ...(planetPage.has(pageKey(en)) && { wiki: planetPage.get(pageKey(en)) }) })).sort((a, b) => a.name.localeCompare(b.name, 'ko')),
     wiki: wikiUrl(title), revision: biome.revision,
   };
 });

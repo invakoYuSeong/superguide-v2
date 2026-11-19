@@ -90,4 +90,10 @@ for (const effect of stratagemEffects) {
   const item = groups.flatMap(([, list]) => list).find(entry => entry.id === effect.id);
   for (const key of ['cooldown', 'callIn', 'rearm']) if (effect[key]) ok(item.descriptionEn.includes(`${Math.round((effect[key] - 1) * 100)}%`), `${effect.id}: ${key} x${effect[key]} does not match "${item.descriptionEn}"`);
 }
+// Planet names link only to wiki pages that exist (Category:Planets in wiki_planets.json).
+{
+  const pages = new Set(wiki.planetPages);
+  const linked = planets.biomes.flatMap(biome => biome.planets).filter(planet => planet.wiki);
+  ok(linked.every(planet => pages.has(planet.wiki)) && linked.length > 250, 'every linked planet has a wiki page, and most planets are linked');
+}
 console.log(`PASS planets: ${checks} checks (${planets.conditions.length} conditions, ${planets.gloomLevels.length} Gloom levels, ${planets.operationModifiers.length} modifiers, ${planets.eventEffects.length} events, ${planets.biomes.length} biomes, ${planets.statusEffects.length} status effects, game build ${game.build}).`);
