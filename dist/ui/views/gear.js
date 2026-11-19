@@ -156,6 +156,7 @@ function detailRows(w) {
   else if (w.rpm != null) add(L('연사', 'Fire rate'), num(w.rpm), '', L('분당 발수', 'Rounds per minute'));
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', L('기본 상태 · 높을수록 조준이 빨리 따라옴', 'Base · higher = the aim follows faster'));
+  if (w.sway != null) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
   if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
   if (w.fuse != null) add(L('신관', 'Fuse'), num(w.fuse), s, L('던진 뒤 폭발까지', 'From throw to detonation'));

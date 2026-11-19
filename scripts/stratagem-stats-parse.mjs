@@ -43,6 +43,8 @@ const KIND = { projectile: 'direct', beam: 'beam', arc: 'arc', spray: 'spray', e
 // or the stratagem datamine; null when neither has attack records for it.
 /** Weapon handling (datamine `ergonomics`) of a stratagem whose datamine entry is a weapon; else null. */
 export const ergonomicsOf = found => Number.isFinite(found?.entry?.ergonomics) ? found.entry.ergonomics : null;
+/** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
+export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
 
 export function datamineEntry(id, title, strat, weapons) {
   const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');

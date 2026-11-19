@@ -35,7 +35,7 @@ const typeNames = ['Assault Rifles', 'Marksman Rifles', 'Shotguns', 'Submachine 
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const normalize = value => value.toUpperCase().replace(/[^A-Z0-9]/g, '');
 const numericStats = ['direct', 'durable', 'ap', 'splash', 'splashDurable', 'splashAp', 'radius', 'innerRadius', 'pellets', 'shrapnelCount', 'demolition', 'stun', 'push'];
-const handling = ['magazine', 'spareMags', 'rpm', 'ergonomics', 'fuse', 'reload', 'reloadTactical', 'spareRounds', 'beamFireRate', 'beams', 'barrels', 'throwableCapacity', 'throwableStart'];
+const handling = ['magazine', 'spareMags', 'rpm', 'ergonomics', 'sway', 'fuse', 'reload', 'reloadTactical', 'spareRounds', 'beamFireRate', 'beams', 'barrels', 'throwableCapacity', 'throwableStart'];
 const perHit = [...numericStats, 'apAll', 'splashApAll', 'delivery', 'element', 'statuses', 'splashElement', 'splashStatuses', 'damageKind', 'unit'];
 const count = (items, field) => Object.fromEntries([...new Set(items.map(item => item[field] ?? 'null'))].sort().map(value => [value, items.filter(item => (item[field] ?? 'null') === value).length]));
 const finite = (value, path) => assert(value === null || typeof value === 'number' && Number.isFinite(value) && value >= 0, path);
@@ -228,7 +228,7 @@ for (const weapon of weapons) {
   assert.deepEqual(weapon.attacks, raw.attacks ?? []);
   assert.deepEqual(weapon.charge, raw.charge ?? null);
   assert.deepEqual(weapon.fireModes, raw.fire_modes ?? []);
-  for (const [field, sourceField] of Object.entries({ magazine: 'cap', spareMags: 'mags', rpm: 'rpm', ergonomics: 'ergonomics', spareRounds: 'rounds', beamFireRate: 'beam_fire_rate', beams: 'beams', barrels: 'barrels', throwableCapacity: 'max', throwableStart: 'start' })) assert.equal(weapon[field], raw[sourceField] ?? (['rpm', 'spareRounds'].includes(field) ? extras[field] : null));
+  for (const [field, sourceField] of Object.entries({ magazine: 'cap', spareMags: 'mags', rpm: 'rpm', ergonomics: 'ergonomics', sway: 'sway', spareRounds: 'rounds', beamFireRate: 'beam_fire_rate', beams: 'beams', barrels: 'barrels', throwableCapacity: 'max', throwableStart: 'start' })) assert.equal(weapon[field], raw[sourceField] ?? (['rpm', 'spareRounds'].includes(field) ? extras[field] : null));
   assert(Array.isArray(weapon.notes) && weapon.notes.every(note => typeof note === 'string'));
   for (const field of handling) finite(weapon[field], `${weapon.id}.${field}`);
   allNumbers(weapon, weapon.id);

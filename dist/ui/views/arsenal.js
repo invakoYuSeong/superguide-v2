@@ -327,8 +327,10 @@ function specialBlock(item, profile) {
 
 // The detail grid adds a support weapon's ergonomics (weapon handling, datamine) to the card stats.
 const detailStats = item => {
-  const ergonomics = stratagemStats[item.id]?.ergonomics;
-  return ergonomics == null ? stats(item) : [...stats(item), { label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }];
+  const { ergonomics, sway } = stratagemStats[item.id] ?? {};
+  return [...stats(item),
+    ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
+    ...(sway == null ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }])];
 };
 const statGrid = item => html`<dl class="detail-grid">${detailStats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${ammoCells(item)}
@@ -515,6 +517,8 @@ export function update(route) {
     q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '',
     mod: q.mod !== 'off',
   });
+  // A category and type that cannot meet (from a link) drop the type, as a click would.
+  if (state.c && state.p && !stratagems.some(item => item.category === state.c && permitOf(item) === state.p)) { state.p = ''; syncUrl(); }
   setModulesOn(state.mod);
   $('#arsenal-q', root).value = state.q;
   $('#arsenal-sort', root).value = state.sort;
