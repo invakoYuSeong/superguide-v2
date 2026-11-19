@@ -11,12 +11,15 @@ export const value = text => {
   return match ? Number(match[1]) : null;
 };
 
+const PERMITS = { supply: 'supply', offensive: 'offensive', offense: 'offensive', defensive: 'defensive' };
 export function statsOf(entry) {
   if (!entry || entry.missing) return null;
   const table = entry.statsTable, box = entry.infobox;
   const cooldown = value(field(table, 'cooldown')) ?? value(field(box, 'base_cooldown'));
   return {
     type: field(box, 'stratagem_type') || null,
+    // In-game permit (menu colour): the infobox permit_type; mission stratagems have none.
+    permit: PERMITS[(field(box, 'permit_type') || '').toLowerCase()] ?? 'mission',
     cooldown: typeof cooldown === 'number' ? cooldown : null,
     callIn: value(field(table, 'call_time')),
     callInModules: value(field(table, 'call_time_upgraded')),
