@@ -70,8 +70,9 @@ const css = await readFile(new URL('../dist/ui/app.css', import.meta.url), 'utf8
 // window.scrollY across open/close still need browser measurements.
 const rule = (source, selector) => [...source.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)]
   .find(([, selectors]) => selectors.trim() === selector)?.[2] || '';
-const desktopCss = css.match(/@media\s*\(min-width:\s*760px\)\s*\{([\s\S]*?)\n\}/)?.[1] || '';
-ok(/display:\s*none/.test(rule(desktopCss, '.wb-item-toolbar .wb-item-back')), 'wide-screen Back button uses two classes to outrank .button and hide from display and keyboard focus at 760px');
+// The side pane needs 360px left of the 980px sheet, so it starts at 1340px (user decision 2026-11-19).
+const desktopCss = css.match(/@media\s*\(min-width:\s*1340px\)\s*\{([\s\S]*?)\n\}/)?.[1] || '';
+ok(/display:\s*none/.test(rule(desktopCss, '.wb-item-toolbar .wb-item-back')), 'wide-screen Back button uses two classes to outrank .button and hide from display and keyboard focus at 1340px');
 ok(/overflow:\s*hidden/.test(rule(css, 'html:has(dialog:modal), html:has(dialog:modal) body')), 'all modal dialogs lock page scrolling, including the palette; closing the last modal releases the CSS lock');
 ok(/overflow:\s*hidden/.test(rule(css, '.sheet')), 'the dialog itself never owns a scrollbar');
 ok(/width:\s*min\(var\(--sheet-width\),\s*100%\)/.test(rule(css, '.sheet')) && /max-width:\s*100%/.test(rule(css, '.sheet')), 'ordinary and wide sheets fit the available viewport width even with a page scrollbar');
@@ -90,9 +91,9 @@ ok(/z-index:\s*3/.test(desktopPane) && /border-left:/.test(desktopPane) && /box-
 ok(/animation:\s*none/.test(rule(desktopCss, '.sheet[open].split')), 'direct item links and early clicks remove the animated transform that would contain the fixed pane');
 const phoneCss = css.slice(css.indexOf('@media (max-width: 820px)'));
 ok(/--sheet-width:\s*100vw/.test(rule(phoneCss, '.sheet, .sheet.wide')) && /height:\s*92dvh/.test(rule(phoneCss, '.sheet, .sheet.wide')), 'bottom sheets keep their full width and 92dvh height');
-ok(/@media\s*\(min-width:\s*760px\)\s*\{\s*\.wb-item-pane\s*\{[^}]*top:\s*8dvh/.test(phoneCss), '760–820px item overlay starts at the bottom sheet top instead of covering the full viewport');
-const narrowCss = css.match(/@media\s*\(max-width:\s*759px\)\s*\{([\s\S]*?)\n\}/)?.[1] || '';
-ok(/display:\s*none/.test(rule(narrowCss, '.sheet.split .wb-bond-pane')) && !/position:\s*fixed/.test(rule(css, '.wb-item-pane')), 'below 760px item details still replace the board within the sheet');
+ok(!/\.wb-item-pane\s*\{[^}]*top:\s*8dvh/.test(phoneCss), 'bottom sheets no longer carry a side-pane overlay: the item opens in place of the board');
+const narrowCss = css.match(/@media\s*\(max-width:\s*1339px\)\s*\{([\s\S]*?)\n\}/)?.[1] || '';
+ok(/display:\s*none/.test(rule(narrowCss, '.sheet.split .wb-bond-pane')) && !/position:\s*fixed/.test(rule(css, '.wb-item-pane')), 'below 1340px item details replace the board within the sheet instead of covering it');
 for (const language of ['ko', 'en']) {
   setLang(language);
   const ref = resolveWarbondItem('scope-of-authority', 'gear/sightliner');
