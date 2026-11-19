@@ -11,6 +11,7 @@ import { armors, armorPassives } from '../data/armor.js';
 import { attachmentParts } from '../data/weapon-attachments.js';
 import { shipModules } from '../data/ship-modules.js';
 import { boosters } from '../data/boosters.js';
+import { structureObjectives } from '../data/structure-objectives.js';
 import stratagemText from './en/stratagems.js';
 import enemyText from './en/enemies.js';
 import gearText from './en/gear.js';
@@ -27,8 +28,11 @@ const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passiv
 const warbondTileNames = warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => item.ko).map(item => ({ name: item.ko, en: item.name }));
 // Boosters: the game's Korean name and description, and the detail line, each with its English.
 const boosterText = boosters.flatMap(item => [item, { name: item.description, en: item.descriptionEn }, { name: item.detail, en: item.detailEn }]);
+// Missions per demolition structure: the game's Korean and English objective names.
+const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().replace(/(^|[\s:(-])([a-z])/g, (_, gap, letter) => gap + letter.toUpperCase()) : text;
+const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ name: item.name, en: titleCase(item.en) }));
 // Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.
 const attachmentNames = Object.values(attachmentParts).filter(part => part.ko).map(part => ({ name: part.ko, en: part.name }));
-export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames, ...shipModules, ...boosterText].filter(item => item.name && item.en).map(item => [item.name, item.en]);
+export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames, ...shipModules, ...boosterText, ...objectiveNames].filter(item => item.name && item.en).map(item => [item.name, item.en]);
 export const areas = { stratagems: stratagemText, enemies: enemyText, gear: gearText, demolition: demolitionText, factions: factionText, warbonds: warbondText, armor: armorText };
 export const english = Object.assign(Object.fromEntries(officialNames), ...Object.values(areas));

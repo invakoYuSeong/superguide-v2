@@ -1,12 +1,13 @@
 // Demolition: look up by structure (what destroys it?) or by stratagem (what can it destroy?).
 import { structures, demolitionProfiles, demolitionCheckedAt, demolitionSource, structureDamageSource } from '../../data/demolition-data.js';
 import { pickerStructureImages } from '../../data/selector-images.js';
+import { structureObjectives } from '../../data/structure-objectives.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { stratagems, stratagemById, categories, categoryOf } from '../../core/catalog.js';
 import { solveDemolition, structureOverview, forceRange } from '../../core/demolition.js';
 import { search, stratagemFields } from '../../core/search.js';
 import { num, unitText } from '../../core/explain.js';
-import { L, T } from '../../core/i18n.js';
+import { L, T, lang } from '../../core/i18n.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 
 const MAX_FORCE = 60;
@@ -82,6 +83,17 @@ function conditionToggles(needShield, needJammer) {
   </div>`;
 }
 
+// Missions whose objective is this structure; ones that never reach difficulty 10 are dimmed.
+const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().replace(/(^|[\s:(-])([a-z])/g, (_, gap, letter) => gap + letter.toUpperCase()) : text;
+function missionsBlock(structure) {
+  const list = structureObjectives[structure.id];
+  if (!list?.length) return '';
+  const range = item => item.min == null ? '' : item.min === item.max ? L(`난이도 ${item.min}`, `difficulty ${item.min}`) : L(`난이도 ${item.min}~${item.max}`, `difficulty ${item.min}-${item.max}`);
+  return html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('나오는 임무', 'Missions that target it')}</div>
+    <ul class="mission-list">${list.map(item => html`<li class="${item.max != null && item.max < 10 ? 'faint' : ''}">${badge(item.kind === 'main' ? L('주요 목표', 'Main objective') : L('전술 목표', 'Tactical objective'), item.kind === 'main' ? 'accent' : 'outline')}
+      <a href="${item.wiki}" target="_blank" rel="noopener noreferrer">${lang === 'en' ? titleCase(item.en) : item.name}</a>${range(item) ? html` <span class="faint">· ${range(item)}${item.max != null && item.max < 10 ? L(' (난이도 10에는 없음)', ' (not at difficulty 10)') : ''}</span>` : ''}</li>`)}</ul></div>`;
+}
+
 function structurePanel(structure) {
   const h = structure.health;
   return html`<section class="panel" style="padding:18px;display:grid;gap:14px" data-faction="${structure.faction}">
@@ -90,6 +102,7 @@ function structurePanel(structure) {
     <div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('필요한 철거력', 'Demolition force needed')} <span class="faint" style="font-weight:500">· ${L('한 번의 명중·폭발 기준, 합산 안 됨', 'per single hit or explosion; does not add up')}</span></div>${forceScale(structure)}</div>
     ${h ? html`<p class="note">${L(html`체력으로도 부술 수 있습니다: <b style="color:var(--text)">체력 ${num(h.hp)}</b> · 장갑 ${h.armor} · 내구도 ${h.durability}%${h.exdr < 0 ? ` · 폭발 피해 ×${num(1 - h.exdr / 100)}` : ''}`, html`It can also be destroyed through health: <b style="color:var(--text)">health ${num(h.hp)}</b> · armor ${h.armor} · durability ${h.durability}%${h.exdr < 0 ? ` · explosion damage ×${num(1 - h.exdr / 100)}` : ''}`)}</p>` : ''}
     ${structure.note ? html`<p class="note">${structure.note}</p>` : ''}
+    ${missionsBlock(structure)}
     <p class="sources">${external(structure.source, L('시설 철거 조건', 'Demolition requirements'))}${structure.healthSource ? external(structure.healthSource, L('시설 체력', 'Structure health')) : ''}</p>
   </section>`;
 }

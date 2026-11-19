@@ -781,6 +781,10 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-stats dd .dim { color: var(--text-3); font: 600 13px/1.25 var(--font); }
 .armor-source { margin-top: 7px; font-size: 12.5px; color: var(--text-2); }
 .armor-source a { color: var(--accent-text); font-weight: 650; }
+.mission-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.mission-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.mission-list a { color: var(--text); font-weight: 650; }
+.mission-list .badge { height: 20px; padding: 0 6px; font-size: 11px; }
 .booster-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
 .booster-item { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; padding: 16px; background: var(--surface); border: 1px solid var(--line); scroll-margin-top: calc(var(--bar-h) + 16px); }
 .booster-item::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--accent); }

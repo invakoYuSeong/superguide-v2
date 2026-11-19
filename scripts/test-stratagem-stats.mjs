@@ -43,6 +43,10 @@ for (const module of shipModules) {
   if (percent) ok(module.text.includes(`'''${Math.round((1 - percent) * 100)}%'''`), `${module.en}: rate ${percent} does not match its text`);
 }
 
+// Module names are the game's Korean (db/source/game_names_ko.json).
+const game = JSON.parse(await readFile(new URL('../db/source/game_names_ko.json', import.meta.url), 'utf8'));
+for (const module of shipModules) ok(module.name === game.strings.shipModules[module.en], `${module.en}: Korean name ${module.name} is not the game's ${game.strings.shipModules[module.en]}`);
+
 // --- Computed values ------------------------------------------------------------------------
 ok(modulesOn() === true, 'ship modules are on by default');
 const near = (a, b) => Math.abs(a - b) <= 0.5;

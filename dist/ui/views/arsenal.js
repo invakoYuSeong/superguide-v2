@@ -240,11 +240,23 @@ function timingBlock(item) {
   </section>`;
 }
 
+// Demolition force per mode (demolition-data.js): a single hit or blast must reach a structure's threshold.
+function forceBlock(profile) {
+  if (!profile?.modes?.length) return '';
+  const value = force => force == null ? '—' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
+  return html`<section class="block"><h3>${L('철거력', 'Demolition force')}</h3>
+    <dl class="detail-grid">${profile.modes.map(mode => html`<div><dt>${T(mode.name)}</dt>${mode.forceUnknown
+      ? html`<dd class="dim">${L('확인 중', 'Unverified')}</dd>`
+      : html`<dd>${value(mode.direct)}<small> / ${value(mode.explosion)}</small></dd><div class="caption">${L('직격 / 폭발', 'Direct / blast')}</div>`}</div>`)}</dl>
+    <p class="faint" style="font-size:12.5px;margin-top:8px">${L('시설마다 필요한 철거력이 있고, 한 번의 명중이나 폭발이 그 값 이상이어야 무너집니다. 여러 번 맞혀도 합산되지 않습니다.', 'Each structure needs a certain demolition force, and a single hit or blast has to reach it. Several hits do not add up.')}</p>
+  </section>`;
+}
+
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${ammoCells(item)}
   ${rateCell(item)}</dl>`;
 
-export function stratagemDetail(item, { demolition = false, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
+export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
   const cat = categoryOf(item.category);
   const variants = item.variants?.length > 1 ? item.variants : null;
   const current = variantOf(item, variant);
@@ -264,6 +276,7 @@ export function stratagemDetail(item, { demolition = false, header = null, title
       : html`${statGrid(item)}${blastFigure(item)}`}
     ${spreadBlock(item)}
     ${timingBlock(item)}
+    ${forceBlock(force)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
     ${defenseBlock(item)}
@@ -283,11 +296,11 @@ export function stratagemDetail(item, { demolition = false, header = null, title
   </div>`;
 }
 
-let demolitionIds = null;
+let demolitionProfiles = null;
 function openDetail(id) {
   const item = stratagemById.get(id);
   if (!item) return;
-  const show = () => ctx.openSheet(stratagemDetail(item, { demolition: demolitionIds?.has(id) }), {
+  const show = () => ctx.openSheet(stratagemDetail(item, { demolition: Boolean(demolitionProfiles?.[id]), force: demolitionProfiles?.[id] }), {
     label: `${T(item.name)} ${L('상세', 'details')}`,
     onClose: () => {
       if (state.detail !== id) return;
@@ -297,9 +310,9 @@ function openDetail(id) {
   });
   show();
   // Demolition data is large; learn which stratagems have it only when needed.
-  if (!demolitionIds) import('../../data/demolition-data.js').then(({ demolitionProfiles }) => {
-    demolitionIds = new Set(Object.keys(demolitionProfiles));
-    if (state.detail === id && demolitionIds.has(id)) show();
+  if (!demolitionProfiles) import('../../data/demolition-data.js').then(module => {
+    demolitionProfiles = module.demolitionProfiles;
+    if (state.detail === id && demolitionProfiles[id]) show();
   });
 }
 

@@ -1,0 +1,26 @@
+{
+ "note": "Missions whose objective is to destroy a demolition structure. page = wiki page title (difficulty from its Cargo row; test-structure-objectives.mjs checks that the page names the structure, by its English name or by keyword), game = the game's own English objective name (Korean from game_names_ko.json), kind = main (main objective) or tactical (tactical objective). Structures with no such mission (cargo container, bug holes, fabricators, megafactory gates, lightning spire, gazer) are left out.",
+ "structures": {
+  "broadcast": [{ "page": "Terminate Illegal Broadcast", "game": "TERMINATE ILLEGAL BROADCAST", "kind": "main" }, { "page": "Terminate Illegal Broadcast", "game": "TERMINATE ILLEGAL BROADCAST", "kind": "tactical" }],
+  "research": [{ "page": "Destroy Rogue Research Station", "game": "DESTROY ROGUE RESEARCH STATION", "kind": "tactical" }],
+  "stalker-lair": [{ "page": "Stalker Lair", "game": "Destroy Stalker Lair", "kind": "tactical" }],
+  "spore-spewer": [{ "page": "Spore Spewer", "game": "DESTROY SPORE SPEWER", "kind": "tactical" }],
+  "shrieker-nest": [{ "page": "Shrieker Nest", "game": "Destroy the Shrieker Nest", "kind": "tactical" }],
+  "infested-tower": [{ "page": "Cleanse Infested District", "game": "CLEANSE INFESTED DISTRICT", "kind": "main" }],
+  "spore-lung": [{ "page": "Destroy Spore Lung", "game": "DESTROY SPORE LUNG", "kind": "main" }],
+  "detector": [{ "page": "Detector Tower", "game": "Destroy Automaton Detector Tower", "kind": "tactical" }],
+  "jammer": [{ "page": "Stratagem Jammer", "game": "Destroy Stratagem Jammer", "kind": "tactical" }],
+  "gunship-facility": [{ "page": "Gunship Facility", "game": "GUNSHIP FACILITY", "kind": "tactical" }],
+  "orbital-cannon": [{ "page": "Neutralize Ground-to-Orbit Defenses", "game": "NEUTRALIZE GROUND-TO-ORBIT DEFENSES", "kind": "main" }],
+  "fuel-reserve": [{ "page": "Sabotage Supply Bases", "game": "SABOTAGE SUPPLY BASES", "kind": "main" }, { "page": "Destroy Fuel Reserves", "game": "DESTROY FUEL RESERVES", "kind": "tactical" }],
+  "bio-processor": [{ "page": "Blitz: Destroy Bio-Processors", "game": "DESTROY BIO-PROCESSORS", "kind": "main" }, { "page": "Sabotage Orgo-Plasma Synthesis", "game": "SABOTAGE ORGO-PLASMA SYNTHESIS", "kind": "main" }, { "page": "Enemy Bio-Processors", "game": "ENEMY BIO-PROCESSORS", "kind": "tactical" }],
+  "terrorist-memorial": [{ "page": "Erase Terrorist Memorials", "game": "ERASE TERRORIST MEMORIALS", "kind": "tactical" }],
+  "transmission-network": [{ "page": "Destroy Transmission Network", "game": "DESTROY TRANSMISSION NETWORK", "kind": "main" }, { "page": "Destroy Transmission Network", "game": "DESTROY TRANSMISSION NETWORK", "kind": "tactical" }],
+  "cooling-tower": [{ "page": "Halt Cyborg Production", "game": "HALT CYBORG PRODUCTION", "kind": "main" }],
+  "warp-ship": [{ "page": "Blitz: Destroy Illuminate Warp Ships", "game": "DESTROY ILLUMINATE WARP SHIPS", "kind": "main", "keyword": "Warp Ship" }],
+  "warp-gate": [{ "page": "Blitz: Destroy Illuminate Warp Gateways", "game": "DESTROY WARP GATEWAYS", "kind": "main" }],
+  "disruptor-psu": [{ "page": "Cognitive Disruptor", "game": "COGNITIVE DISRUPTOR", "kind": "tactical" }],
+  "monolith": [{ "page": "Free Colony", "game": "FREE COLONY", "kind": "main" }, { "page": "Democratize the Void", "game": "DEMOCRATIZE THE VOID", "kind": "main" }],
+  "gazer-spire": [{ "page": "Destroy Gazer Spire", "game": "DESTROY GAZER SPIRE", "kind": "main" }, { "page": "Infiltrate Illuminate Lair", "game": "INFILTRATE ILLUMINATE LAIR", "kind": "main" }]
+ }
+}

@@ -294,7 +294,7 @@ export async function itemDetailContent(warbondId, value, mode = '') {
   const [{ stratagemDetail }, { demolitionProfiles }] = await Promise.all([
     import('./arsenal.js'), import('../../data/demolition-data.js'),
   ]);
-  return stratagemDetail(ref.target, { ...options, demolition: Object.hasOwn(demolitionProfiles, ref.id) });
+  return stratagemDetail(ref.target, { ...options, demolition: Object.hasOwn(demolitionProfiles, ref.id), force: demolitionProfiles[ref.id] });
 }
 
 async function showItem(value, mode) {

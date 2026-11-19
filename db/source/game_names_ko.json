@@ -56,6 +56,34 @@
    "Grants two free uses of the Expendable Anti-Tank (EAT) Stratagem per mission; enough to grant a full squad one single-use rocket launcher each, provided squad members employ the proper equipment distribution protocol.": "임무 당 일회성 대전차 스트라타젬(EAT)을 무료로 두 번 사용할 수 있습니다. 분대원들이 적절한 장비 분배 규정을 준수한다면, 분대원 전원에게 일회용 로켓 발사기를 하나씩 지급하기에 충분합니다.",
    "Integrated Extinguishers": "통합 화재 진압기",
    "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering maneuvers.": "몸에 꼭 맞는 자동화된 화재 신속 진압 시스템을 탑재한 헬다이버 전투복입니다. 지상 지원으로 소화 작업을 하지 않아도 자연히 화염을 끄는 데 걸리는 시간을 크게 단축합니다."
+  },
+  "objectives": {
+   "TERMINATE ILLEGAL BROADCAST": "불법 방송 종료하기",
+   "DESTROY ROGUE RESEARCH STATION": "불법 연구소 파괴하기",
+   "Destroy Stalker Lair": "스토커 둥지 파괴하기",
+   "DESTROY SPORE SPEWER": "포자 스퓨어 파괴하기",
+   "Destroy the Shrieker Nest": "슈리커 둥지 파괴하기",
+   "CLEANSE INFESTED DISTRICT": "감염된 구역 정화하기",
+   "DESTROY SPORE LUNG": "스포어 렁 파괴하기",
+   "Destroy Automaton Detector Tower": "오토마톤 탐지 탑 파괴하기",
+   "Destroy Stratagem Jammer": "스트라타젬 교란기 파괴",
+   "GUNSHIP FACILITY": "건십 시설",
+   "NEUTRALIZE GROUND-TO-ORBIT DEFENSES": "지상-궤도 방어 무력화하기",
+   "SABOTAGE SUPPLY BASES": "보급 기지 파괴하기",
+   "DESTROY FUEL RESERVES": "연료 저장고 파괴하기",
+   "DESTROY BIO-PROCESSORS": "바이오 프로세서 파괴하기",
+   "SABOTAGE ORGO-PLASMA SYNTHESIS": "오르고 플라스마 합성 중단시키기",
+   "ENEMY BIO-PROCESSORS": "적 바이오 프로세서",
+   "ERASE TERRORIST MEMORIALS": "테러리스트 기념물 제거하기",
+   "DESTROY TRANSMISSION NETWORK": "전송 네트워크 파괴하기",
+   "HALT CYBORG PRODUCTION": "사이보그 생산 중단하기",
+   "DESTROY ILLUMINATE WARP SHIPS": "일루미닛 워프 함선 파괴하기",
+   "DESTROY WARP GATEWAYS": "워프 게이트웨이 파괴하기",
+   "COGNITIVE DISRUPTOR": "인지 분열기",
+   "FREE COLONY": "식민지 해방하기",
+   "DEMOCRATIZE THE VOID": "공허에 민주주의를 도입하기",
+   "DESTROY GAZER SPIRE": "게이저 스파이어 파괴하기",
+   "INFILTRATE ILLUMINATE LAIR": "일루미닛 둥지 침투하기"
   }
  }
 }
