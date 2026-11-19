@@ -19,9 +19,11 @@ const read = async file => JSON.parse(await readFile(new URL(file, root), 'utf8'
 const snapshot = await read('db/source/wiki_attachments.json');
 const weaponPages = await read('db/source/wiki_pages.json');
 const namu = await read('db/source/namu_attachments.json');
+const gameNames = await read('db/source/game_names_ko.json');
+const gameAttachmentNames = gameNames.strings.attachments ?? {};
 
 // --- Generated file -------------------------------------------------------------------
-const built = buildAttachments(snapshot, weaponPages, namu);
+const built = buildAttachments(snapshot, weaponPages, namu, PRIMARIES, gameNames);
 const onDisk = await readFile(new URL('dist/data/weapon-attachments.js', root), 'utf8');
 ok(formatModule(built) === onDisk, 'dist/data/weapon-attachments.js is up to date (run node scripts/build-attachments.mjs)');
 ok(!onDisk.includes('\r'), 'LF line endings');
@@ -59,6 +61,7 @@ for (const weapon of PRIMARIES) {
 // choices ('없음' / none) are left out. Every `ko` must have at least one such match, and every
 // such match of that English name must give that Korean name.
 ok(weaponAttachmentsSource.koreanNames === namu.source && weaponAttachmentsSource.koreanNamesModifiedAt === namu.modifiedAt, 'Namu page and its modified time recorded');
+ok(weaponAttachmentsSource.gameNamesBuild === gameNames.build, 'game string build recorded');
 ok(namu.weapons.some(entry => entry.rows.length) && !namu.unparsed.length, 'Namu tables parsed with no leftover rows');
 const unlockFits = (row, item) => row.default ? item.level === 1 && (item.cost === 0 || item.builtIn === true) : row.cost != null && row.level === item.level && row.cost === item.cost;
 const namuNames = new Map(); // English name -> Set of Korean names from single matches
@@ -85,7 +88,8 @@ for (const part of Object.values(attachmentParts)) {
   if (part.none) { ok(!part.ko, `${part.name}: the empty choice has no Korean name (shown as 장착 안 함)`); continue; }
   const found = namuNames.get(part.name);
   const ranked = [...(namuVotes.get(part.name) ?? [])].sort((a, b) => b[1] - a[1]);
-  if (USER_NAMED[part.name]) ok(part.ko === USER_NAMED[part.name], `${part.name}: the user's Korean name ${USER_NAMED[part.name]}`);
+  if (gameAttachmentNames[part.name]) ok(part.ko === gameAttachmentNames[part.name], `${part.name}: official game Korean name ${gameAttachmentNames[part.name]}`);
+  else if (USER_NAMED[part.name]) ok(part.ko === USER_NAMED[part.name], `${part.name}: the user's Korean name ${USER_NAMED[part.name]}`);
   else if (part.ko && MAJORITY_ACCEPTED.includes(part.name)) ok(ranked[0]?.[0] === part.ko && (ranked.length === 1 || ranked[0][1] > ranked[1][1]), `${part.name}: Korean name ${part.ko} is the Namu majority (${ranked.map(([ko, n]) => `${ko} ${n}`).join(' / ')})`);
   else if (part.ko) ok(found?.size === 1 && found.has(part.ko), `${part.name}: Korean name ${part.ko} is the only one Namu rows give (${[...(found ?? [])].join(' / ') || 'none'})`);
   else ok(!(found?.size === 1), `${part.name}: Namu rows agree on ${[...(found ?? [])][0]}, so it should have a Korean name`);

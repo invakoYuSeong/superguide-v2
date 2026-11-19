@@ -90,36 +90,44 @@ export function namuMatches(namu, parts, list, weapon) {
   }
   return matches;
 }
-function koreanNames(namu, parts, out, weapons) {
+function koreanNames(namu, parts, out, weapons, gameNames = null) {
+  const game = gameNames?.strings?.attachments ?? {};
   const votes = new Map(); // English name -> Map(Korean name -> [weapon id])
-  for (const weapon of weapons) {
-    if (!out[weapon.id]) continue;
-    for (const { item, row } of namuMatches(namu, parts, out[weapon.id], weapon)) {
-      const en = parts[item.part].name, ko = row.name.replace(/\s+/g, ' ').trim();
-      if (!votes.has(en)) votes.set(en, new Map());
-      votes.get(en).set(ko, [...(votes.get(en).get(ko) ?? []), weapon.id]);
+  if (namu) {
+    for (const weapon of weapons) {
+      if (!out[weapon.id]) continue;
+      for (const { item, row } of namuMatches(namu, parts, out[weapon.id], weapon)) {
+        const en = parts[item.part].name, ko = row.name.replace(/\s+/g, ' ').trim();
+        if (!votes.has(en)) votes.set(en, new Map());
+        votes.get(en).set(ko, [...(votes.get(en).get(ko) ?? []), weapon.id]);
+      }
     }
   }
   const names = new Map(), gaps = [];
   for (const [en, kos] of votes) {
+    if (game[en]) continue;
     const ranked = [...kos].sort((a, b) => b[1].length - a[1].length);
     if (kos.size === 1) names.set(en, ranked[0][0]);
     else if (MAJORITY_ACCEPTED.includes(en) && ranked[0][1].length > ranked[1][1].length) names.set(en, ranked[0][0]);
     else gaps.push({ name: en, issue: `Namu rows disagree: ${[...kos].map(([ko, ids]) => `${ko} (${ids.join(', ')})`).join(' / ')}` });
   }
-  for (const [en, ko] of Object.entries(USER_NAMED)) names.set(en, ko);
+  if (namu) for (const [en, ko] of Object.entries(USER_NAMED)) if (!game[en]) names.set(en, ko);
+  // Official in-game Korean names take precedence over Namu Wiki (AGENTS.md).
+  for (const en of new Set(Object.values(parts).filter(part => !part.none).map(part => part.name))) {
+    if (game[en]) names.set(en, game[en]);
+  }
   for (const [en, ko] of names) {
     const shared = [...names].filter(([, other]) => other === ko).map(([name]) => name);
     if (shared.length > 1) gaps.push({ name: en, issue: `Korean name "${ko}" also matched ${shared.filter(name => name !== en).join(', ')}` });
   }
   for (const gap of gaps) names.delete(gap.name);
-  for (const en of new Set(Object.values(parts).filter(part => !part.none).map(part => part.name))) if (!votes.has(en) && !USER_NAMED[en]) gaps.push({ name: en, issue: 'no single Namu row matches by slot, level and cost' });
+  for (const en of new Set(Object.values(parts).filter(part => !part.none).map(part => part.name))) if (!names.has(en) && !gaps.some(gap => gap.name === en)) gaps.push({ name: en, issue: 'no single Namu row matches by slot, level and cost' });
   return { names, gaps: gaps.sort((a, b) => a.name < b.name ? -1 : 1) };
 }
 
 // Primary weapons only: on the wiki, secondaries and support weapons have at most a fixed built-in part.
 export const PRIMARIES = personalWeapons.filter(w => w.category === 'primary');
-export function buildAttachments(snapshot, weaponPages, namu = null, weapons = PRIMARIES) {
+export function buildAttachments(snapshot, weaponPages, namu = null, weapons = PRIMARIES, gameNames = null) {
   const discrepancies = [];
   const costs = snapshot.costs.data;
 
@@ -187,7 +195,7 @@ export function buildAttachments(snapshot, weaponPages, namu = null, weapons = P
   const used = new Set(Object.values(out).flat().map(item => item.part));
   for (const id of Object.keys(parts)) if (!used.has(id)) delete parts[id];
   // Korean names (ko) go right after the English name.
-  const korean = namu ? koreanNames(namu, parts, out, weapons) : { names: new Map(), gaps: [] };
+  const korean = namu || gameNames ? koreanNames(namu, parts, out, weapons, gameNames) : { names: new Map(), gaps: [] };
   for (const [id, { slot, name, ...rest }] of Object.entries(parts)) parts[id] = { slot, name, ...(korean.names.has(name) ? { ko: korean.names.get(name) } : {}), ...rest };
 
   return {
@@ -197,6 +205,7 @@ export function buildAttachments(snapshot, weaponPages, namu = null, weapons = P
       cargo: snapshot.cargo.source, cargoRows: snapshot.cargo.rows.length, attachmentPages: Object.keys(snapshot.pages).length,
       code: Object.fromEntries(Object.entries(snapshot.code).map(([title, page]) => [title, page.revision])),
       ...(namu ? { koreanNames: namu.source, koreanNamesModifiedAt: namu.modifiedAt, koreanNamesRetrievedAt: namu.retrievedAt } : {}),
+      ...(gameNames ? { gameNamesBuild: gameNames.build } : {}),
       skipped,
     },
     parts,
@@ -231,7 +240,7 @@ ${built.discrepancies.map(item => `  ${JSON.stringify(item)}`).join(',\n')}
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const read = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'));
-  const built = buildAttachments(await read('db/source/wiki_attachments.json'), await read('db/source/wiki_pages.json'), await read('db/source/namu_attachments.json'));
+  const built = buildAttachments(await read('db/source/wiki_attachments.json'), await read('db/source/wiki_pages.json'), await read('db/source/namu_attachments.json'), PRIMARIES, await read('db/source/game_names_ko.json'));
   const text = formatModule(built);
   if (process.argv.includes('--stdout')) process.stdout.write(text);
   else {
