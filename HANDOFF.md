@@ -3,12 +3,12 @@
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
 - 마지막 갱신: 2026-11-19, Claude Code 담당
-- 기준: 브랜치 `work/wiki-features` (master `cac2f64` 위 로컬 커밋, **미게시**)
-- 진행 중인 작업: 없음. 사용자가 게시하자고 할 때 master에 올립니다.
+- 기준: master `51eb532`(2026-11-19 배포됨, `work/wiki-features` 60커밋을 그대로 올림)
+- 진행 중인 작업: 없음.
 
 ## 지금 상태
 
-- **위키·게임 자료 기능 묶음(2026-11-19, 로컬 커밋·미게시)**
+- **위키·게임 자료 기능 묶음(2026-11-19, 배포됨)**
   - **한국어 이름 규칙 변경**(AGENTS.md): 게임 안 자료로 확인한 최신 표기가 우선, 나무위키는 보조, 게임에도 없으면 알맞게 번역. 게임 공식 문장표(음성 대사·300자 넘는 글 제외, 10,306줄, 게임 빌드 26568081)가 `db/source/game_strings_ko.tsv`에 있고, `node scripts/build-game-names.mjs`가 사이트가 쓰는 문장만 `db/source/game_names_ko.json`에 뽑습니다. 게임 업데이트 뒤 문장표 갱신은 원본 표가 있는 PC에서 `scripts/tools/import-game-strings.mjs <tsv> --planets <행성.json>`(행성 이름·생물군계 설명은 `db/source/game_planets_ko.json`).
   - **게임 이름으로 바꾼 36개**(`db/source/game_name_targets.json`, `test-game-names.mjs`): 포격 FRV·화물 컨테이너·휴대용 통신 릴레이·증원 포드·지진 탐지기·전술용 비디오 카메라·로버·핫도그·K-9·독 브레스, 퍼니셔 플라스마·핫샷 마크맨 라이플, O-3 자유로운 영혼·O-44 조종사와의 유대감·운동 에너지 변위 완화·충격 방지 패드, 강화 버전·산소공급기, 차저 베히모스·어설트 레이더·머로더·MG 레이더·데버스테이터(로켓·거대·제트 여단)·바라저 탱크·벙커 포탑·옵트루더·버레이시터, 건십 시설·워프 게이트웨이·탐지 탑·궤도 캐넌·테러리스트 기념물·인지 분열기 전원 장치. 무기·방어구 빌드(`build-weapons`·`build-armor`)는 이 표의 게임 이름을 나무위키보다 먼저 씁니다. 스트라타젬 옛 이름은 검색 별칭으로 남김.
   - **함선 모듈**: 스트라타젬 도감에 '함선 모듈 적용/미적용'(기본 적용, `?mod=off`), 카드마다 재사용 시간. 기본값은 각 위키 문서 Stratagem Stats Table(`fetch-stratagem-stats` → `build-stratagem-stats`, `dist/data/stratagem-stats.js`), 모듈 비율은 Ship Modules rev 134806(`dist/data/ship-modules.js`, 계산 `dist/core/modules.js`). 비율은 곱하고 '사기 증강' 5%도 넣음(위키 문서 대부분은 5%를 빼고 적음). 불릿 스톰 위키값 66.5초는 확인한 차이로 `test-stratagem-stats.mjs`에 기록.
@@ -38,7 +38,6 @@
 
 ## 남은 일 (각각 사용자 승인 후 진행)
 
-- **게시**: `work/wiki-features`를 사용자가 게시하자고 할 때 master에 올립니다(push = 배포).
 - **실제 기기 확인**: 스토어·슈퍼 스토어(휴대폰에서 3×2 보드 글자 크기), 휴대폰 하단 탭 7칸(360px에서 글자 넘침 없음은 헤드리스로 확인), 행성·부스터 탭, 게임 스타일·방어구 탭, 5×3 보드.
 - **전술 재장전 미확인 32종**: 리버레이터·브레이커·세네터 등 주·보조무기 32종은 위키 인포박스에 `tac_reload_time`이 없음(2026-11-19 현재 판 확인, datamine에도 재장전 시간 없음). 출처 없이 채우지 않고 '탄창을 비웠을 때' 값만 표시. 위키에 올라오면 `fetch-weapons-source` → `build-weapons`로 자동 반영.
 - **중기관총 인체공학성 0**: datamine 값 그대로 표시 중. 위키 MG-206 문서 값과 대조해 다르면 사용자에게 물어보기.
