@@ -101,7 +101,7 @@ export const stratagemStats = {
   "maelstrom": {"type":"Vehicle","permit":"supply","cooldown":780,"callIn":10.5,"callInModules":null,"uses":"unlimited","rearm":null,"revision":140394,"forces":[{"weapon":"MAELSTROM","parts":[{"kind":"direct","demo":15,"stun":25,"push":20}]},{"weapon":"MAELSTROMIII","parts":[{"kind":"blast","demo":40,"stun":50,"push":70}]}]},
   "reinforce": {"type":"Ship","permit":"mission","cooldown":0,"callIn":null,"callInModules":null,"uses":"unlimited","rearm":null,"revision":137587,"forces":[]},
   "resupply": {"type":"Ship","permit":"mission","cooldown":180,"callIn":8,"callInModules":null,"uses":"unlimited","rearm":null,"revision":137826,"forces":[]},
-  "sos": {"type":"Ship","permit":"supply","cooldown":0,"callIn":1,"callInModules":null,"uses":1,"rearm":null,"revision":130603,"forces":[]},
+  "sos": {"type":"Ship","permit":"mission","cooldown":0,"callIn":1,"callInModules":null,"uses":1,"rearm":null,"revision":130603,"forces":[]},
   "eagle-rearm": {"type":"Ship","permit":"mission","cooldown":0,"callIn":0,"callInModules":null,"uses":"unlimited","rearm":150,"revision":129610,"forces":[]},
   "hellbomb": {"type":"Objective","permit":"mission","cooldown":30,"callIn":10,"callInModules":null,"uses":"unlimited","rearm":null,"revision":142280,"forces":[]},
   "seaf-artillery": {"type":null,"permit":"mission","cooldown":14,"callIn":null,"callInModules":null,"uses":5,"rearm":null,"revision":139226,"forces":[{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20},{"kind":"blast","demo":60,"stun":50,"push":100}]},{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20},{"kind":"blast","demo":30,"stun":50,"push":40}]},{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20}]},{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20},{"kind":"blast","demo":30,"stun":50,"push":0}]},{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20},{"kind":"blast","demo":50,"stun":70,"push":60}]},{"weapon":null,"parts":[{"kind":"direct","demo":50,"stun":50,"push":20},{"kind":"blast","demo":50,"stun":100,"push":40}]}]},
@@ -116,6 +116,6 @@ export const stratagemStats = {
   "upload-data": {"type":"Objective","permit":"mission","cooldown":0,"callIn":4,"callInModules":null,"uses":1,"rearm":null,"revision":136973,"forces":[]},
   "e711-drill": {"type":null,"permit":"mission","cooldown":null,"callIn":null,"callInModules":null,"uses":null,"rearm":null,"revision":136872,"forces":[]},
   "aquifer-drill": {"type":"Objective","permit":"mission","cooldown":0,"callIn":10,"callInModules":null,"uses":1,"rearm":null,"revision":131906,"forces":[]},
-  "tactical-camera": {"type":"Objective","permit":"supply","cooldown":null,"callIn":null,"callInModules":null,"uses":null,"rearm":null,"revision":136974,"forces":[]},
+  "tactical-camera": {"type":"Objective","permit":"mission","cooldown":null,"callIn":null,"callInModules":null,"uses":null,"rearm":null,"revision":136974,"forces":[]},
   "comms-relay": {"type":null,"permit":"mission","cooldown":null,"callIn":null,"callInModules":null,"uses":null,"rearm":null,"revision":139247,"forces":[]},
 };

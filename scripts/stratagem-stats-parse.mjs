@@ -12,6 +12,8 @@ export const value = text => {
 };
 
 const PERMITS = { supply: 'supply', offensive: 'offensive', offense: 'offensive', defensive: 'defensive' };
+// Type (permit) the user set over the wiki's Supply: these are mission tools (user decision 2026-11-19).
+export const PERMIT_OVERRIDES = { sos: 'mission', 'tactical-camera': 'mission' };
 export function statsOf(entry) {
   if (!entry || entry.missing) return null;
   const table = entry.statsTable, box = entry.infobox;
