@@ -32,7 +32,7 @@ function effectCard(item) {
       <h3>${title(item)}</h3>${enLine(item)}
       <p class="info-desc">${text(item.description, item.descriptionEn)}</p>
       ${item.where === 'metropolis' ? html`<p class="info-detail">${L('도시(메트로폴리스) 지역에서만 나옵니다.', 'Only in Metropolis areas.')}</p>` : ''}
-      ${item.biomes?.length ? html`<p class="armor-source">${L('나오는 생물군계', 'Biomes')}: ${item.biomes.map((id, i) => html`${i ? ' · ' : ''}<a href="#/planets?tab=biomes&b=${id}">${biomeById.get(id)?.en ?? id}</a>`)}</p>` : ''}
+      ${item.biomes?.length ? html`<p class="armor-source">${L('나오는 생물군계', 'Biomes')}: ${item.biomes.map((id, i) => html`${i ? ' · ' : ''}<a href="#/planets?tab=biomes&b=${id}">${biomeById.get(id) ? title(biomeById.get(id)) : id}</a>`)}</p>` : ''}
       <p class="armor-source">${external(item.wiki, L('위키', 'Wiki'))}</p>
     </div>
   </li>`;
@@ -60,7 +60,7 @@ function modifiersTab() {
 function biomeCard(biome) {
   return html`<li class="info-item biome-item" id="biome-${biome.id}" ${biome.id === state.biome ? 'data-focus' : ''}>
     <div class="info-body" style="grid-column:1/-1">
-      <div class="armor-title"><h3>${biome.en}</h3>${biome.archetype ? badge(biome.archetype, 'outline') : ''}</div>
+      <div class="armor-title"><h3>${title(biome)}</h3>${biome.archetype ? badge(lang === 'en' ? biome.archetype : biome.archetypeName ?? biome.archetype, 'outline') : ''}</div>${enLine(biome)}
       ${biome.description ? html`<p class="info-desc">${text(biome.description, biome.descriptionEn)}</p>` : ''}
       <p class="armor-source">${L('대표 환경 조건', 'Typical conditions')}: ${biome.conditions.length ? biome.conditions.map((id, i) => html`${i ? ' · ' : ''}${T(conditionById.get(id).name)}`) : L('없음', 'None')}</p>
       ${biome.planets.length ? html`<details class="biome-planets"><summary>${L(`행성 ${biome.planets.length}개`, `${biome.planets.length} ${biome.planets.length === 1 ? 'planet' : 'planets'}`)}</summary><p>${biome.planets.map(planet => lang === 'en' ? planet.en : planet.name).join(' · ')}</p></details>` : ''}
@@ -70,7 +70,7 @@ function biomeCard(biome) {
 }
 
 function biomesTab() {
-  return html`<p class="lede-note">${L('행성의 지형과 기후를 정하는 생물군계입니다. 이름은 위키 커뮤니티의 영어 이름이고, 행성 목록은 게임 데이터 기준입니다.', 'The biome sets a planet\'s terrain and climate. Names are the wiki community\'s; planet lists follow the game data.')}</p>
+  return html`<p class="lede-note">${L('행성의 지형과 기후를 정하는 생물군계입니다. 행성 목록은 게임 데이터 기준입니다.', 'The biome sets a planet\'s terrain and climate. Planet lists follow the game data.')}</p>
     <ul class="info-list">${biomes.map(biomeCard)}</ul>`;
 }
 

@@ -1,5 +1,5 @@
 {
- "note": "Planet tab text for build-planets.mjs. name / description are the game's own English strings (Korean from game_names_ko.json); values fill the game's #V_ONE / #V_TWO placeholders (from the wiki). page = wiki page. stratagem = how it changes stratagems in the stratagem details (factor on the shown value; types = wiki stratagem_type, none = every stratagem). Status effects have no single game description, so detail lines summarize the wiki Status Effects page; test-planets.mjs checks every number in them against that page. name null = no game name found (shown in English).",
+ "note": "Planet tab text for build-planets.mjs. name / description are the game's own English strings (Korean from game_names_ko.json); values fill the game's #V_ONE / #V_TWO placeholders (from the wiki). page = wiki page. stratagem = how it changes stratagems in the stratagem details (factor on the shown value; types = wiki stratagem_type, none = every stratagem). Status effects have no single game description, so detail lines summarize the wiki Status Effects page; test-planets.mjs checks every number in them against that page. name null = no game name: ko is the site's own translation (user decision 2026-11-19), as are biomeNames and archetypeNames (the game names neither).",
  "conditions": [
   { "id": "acid-storms", "name": "ACID STORMS", "description": "Corrosive acid storms <i=1>temporarily reduce armor effectiveness</i> for both enemy and friendly units.", "page": "Acid Storms" },
   { "id": "blizzards", "name": "BLIZZARDS", "description": "Intense blizzards <i=1>reduce mobility</i> and <i=1>moderately reduce visibility</i> for both enemy and friendly units.", "page": "Blizzards" },
@@ -36,6 +36,8 @@
   { "id": "pilot-shortage", "name": "PILOT SHORTAGE", "description": "Extraction takes #V_TWO additional seconds.", "values": { "V_TWO": "30" }, "page": "Effects" },
   { "id": "slower-eagle-rearm", "name": "SLOWER EAGLE REARM", "description": "<i=1>Eagle Rearm</i> time is <i=1>#V_ONE%</i> slower.", "values": { "V_ONE": "25" }, "page": "Effects", "stratagem": { "rearm": 1.25 } }
  ],
+ "biomeNames": {"Desert Dunes": "사막 모래언덕", "Desert Cliffs": "사막 절벽", "Acidic Badlands": "산성 불모지", "Rocky Canyons": "바위 협곡", "Moon": "위성", "Volcanic Jungle": "화산 정글", "Deadlands": "죽음의 땅", "Ethereal Jungle": "신비로운 정글", "Ionic Jungle": "이온 정글", "Icy Glaciers": "얼음 빙하", "Boneyard": "뼈 무덤", "Plains": "평원", "Tundra": "툰드라", "Scorched Moor": "불탄 황무지", "Ionic Crimson": "붉은 이온 황무지", "Basic Swamp": "늪지", "Haunted Swamp": "음산한 늪지", "Deciduous Forest": "낙엽수림", "Autumn Forest": "가을 숲", "Crimson Forest": "진홍 숲", "Desert Oasis": "사막 오아시스", "Bleak Oasis": "황량한 오아시스", "Super Earth Metropolis": "슈퍼지구 대도시", "Hive World": "하이브 월드", "Supercolony": "슈퍼식민지", "Magma Desert": "마그마 사막", "Cyberstan Megafactory": "사이버스탄 메가팩토리", "Void Forest": "공허의 숲"},
+ "archetypeNames": {"Sandy": "사막형", "Primordial": "원시형", "Arctic": "극지형", "Moor": "황무지형", "Swamp": "늪지형", "Forest": "숲형", "Oasis": "오아시스형", "Special": "특수"},
  "biomeInternal": { "Autumn Forest": "deciduous_autumn", "Super Earth Metropolis": "super_earth", "Cyberstan Megafactory": "cyberstan" },
  "status": [
   { "id": "acid", "name": "Acid", "en": "Acid Splash",
@@ -56,7 +58,7 @@
   { "id": "poison", "name": "POISON", "en": "Poison",
    "detail": { "ko": ["녹셔스 변종만 겁니다. 6초 동안 초당 2(내구 5) 산성 피해를 주고, 강한 독은 화면도 흐리게 만듭니다.", "독 취약이 쌓일수록 독 피해가 1.4·1.8·2.8·4.2배가 되며 최대 4중첩입니다. 각성제는 중첩을 2 줄이지만 독 피해는 막지 못합니다.", "3중첩부터는 독이 걸린 동안 질주할 수 없으니 2중첩을 넘기지 마세요."],
     "en": ["Only the Noxious Strain applies it: 2 per second (5 durable) acid damage for 6 seconds; Heavy Poison also blurs your screen.", "Each stack of Poison Vulnerability raises poison damage to 1.4, 1.8, 2.8 and 4.2 times, up to 4 stacks. A stim removes 2 stacks but does not stop the poison.", "From 3 stacks you cannot sprint while poisoned, so do not let it pass 2."] } },
-  { "id": "stagger", "name": null, "en": "Stagger and Ragdoll",
+  { "id": "stagger", "name": null, "ko": "경직·넘어짐", "en": "Stagger and Ragdoll",
    "detail": { "ko": ["적 공격의 경직 수치가 10 이상이면 비틀거려 각성제 사용 같은 동작이 끊기고, 25 이상이면 날아가 넘어집니다. 넘어진 동안은 폭발 피해가 90% 줄어듭니다.", "굳건한 바위 패시브는 경직을 30% 줄여 36 미만 공격에는 넘어지지 않습니다."],
     "en": ["Enemy attacks with stagger 10 or more stagger you and interrupt actions such as stimming; 25 or more ragdoll you, with 90% less explosion damage while down.", "The Rock Solid passive cuts stagger by 30%, so attacks under 36 no longer ragdoll you."] } }
  ]

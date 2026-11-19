@@ -49,6 +49,7 @@ ok(planets.biomes.length === Object.keys(wiki.biomes).length, 'every wiki biome 
 for (const biome of planets.biomes) {
   const page = wiki.biomes[biome.en];
   ok(page && page.revision === biome.revision && biome.id === slug(biome.en), `${biome.en}: stale (run build-planets)`);
+  ok(biome.name === text.biomeNames[biome.en] && biome.archetypeName === (text.archetypeNames[biome.archetype] ?? null), `${biome.en}: Korean name or archetype is stale (run build-planets)`);
   ok(biome.planets.length === gamePlanets.planets.filter(planet => planet.biome === biome.internal).length, `${biome.en}: planet list does not match the game data`);
   for (const id of biome.conditions) ok(planets.conditions.some(item => item.id === id), `${biome.en}: unknown condition ${id}`);
 }
@@ -59,7 +60,7 @@ ok(!unlisted.length, `game biomes with planets but no wiki biome page: ${unliste
 // Status effects: every number in the detail lines is on the wiki Status Effects page.
 for (const item of planets.statusEffects) {
   const source = text.status.find(entry => entry.id === item.id);
-  ok(source.name ? item.name === game.strings.status[source.name] : item.name === null, `${item.id}: name is not the game's Korean`);
+  ok(source.name ? item.name === game.strings.status[source.name] : item.name === source.ko && Boolean(source.ko), `${item.id}: name is not the game's Korean or the site's translation`);
   ok(item.detail.length === item.detailEn.length, `${item.id}: detail needs Korean and English line by line`);
   ok(wiki.statusEffects.text.includes(`== ${item.en} ==`), `${item.id}: no "${item.en}" section on the wiki Status Effects page`);
   for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(wiki.statusEffects.text.includes(number), `${item.id}: ${number} is not on the wiki Status Effects page`);

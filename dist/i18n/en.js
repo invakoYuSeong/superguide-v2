@@ -34,6 +34,7 @@ const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().repla
 const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ name: item.name, en: titleCase(item.en) }));
 // Planet tab: the game's Korean names and descriptions, biome descriptions and status effect lines, each with its English.
 const planetText = [...conditions, ...gloomLevels, ...operationModifiers, ...eventEffects].flatMap(item => [item, { name: item.description, en: item.descriptionEn }])
+  .concat(planetBiomes, planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })))
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
 // Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.

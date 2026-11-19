@@ -38,8 +38,10 @@ const events = text.events.map(item => entry(item));
 const biomes = Object.entries(wiki.biomes).map(([title, biome]) => {
   const internal = text.biomeInternal[title] ?? biome.internal;
   const description = gamePlanets.biomes[internal] ?? null;
+  const name = text.biomeNames[title];
+  if (!name) throw new Error(`${title}: add its Korean name to biomeNames in db/source/planet_korean.json`);
   return {
-    id: slug(title), en: title, archetype: biome.archetype, internal,
+    id: slug(title), name, en: title, archetype: biome.archetype, archetypeName: text.archetypeNames[biome.archetype] ?? null, internal,
     description: description?.ko ?? null, descriptionEn: description?.en ?? null,
     conditions: biome.conditions.map(page => text.conditions.find(item => item.page === page)?.id).filter(Boolean),
     planets: gamePlanets.planets.filter(planet => planet.biome === internal).map(({ ko: name, en }) => ({ name, en })).sort((a, b) => a.name.localeCompare(b.name, 'ko')),
@@ -48,7 +50,7 @@ const biomes = Object.entries(wiki.biomes).map(([title, biome]) => {
 });
 
 const status = text.status.map(item => ({
-  id: item.id, name: item.name ? game.strings.status[item.name] : null, en: item.en,
+  id: item.id, name: item.name ? game.strings.status[item.name] : item.ko, en: item.en,
   detail: item.detail.ko, detailEn: item.detail.en, wiki: `${wikiUrl('Status Effects')}#${item.en.replaceAll(' ', '_')}`,
 }));
 
