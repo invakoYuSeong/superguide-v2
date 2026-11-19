@@ -34,6 +34,7 @@
   --illuminate: #ab8cff;
   --c-support: #ffd400; --c-orbital: #ff7a59; --c-eagle: #5cc8ff; --c-defense: #8fd16a;
   --c-backpack: #c89bff; --c-vehicle: #ffb44d; --c-mission: #9aa7b3;
+  --w-light: #5cc8ff; --w-medium: #8fd16a; --w-heavy: #ff7a59;
   --g-primary: #ffd400; --g-secondary: #6fb6ff; --g-throwable: #ff8a5c;
   --radius: 3px;
   --radius-sm: 2px;
@@ -63,6 +64,7 @@
     --terminid: #c07000; --automaton: #cf2e28; --illuminate: #6b47d6;
     --c-support: #b89800; --c-orbital: #d4492a; --c-eagle: #1a86c2; --c-defense: #4b8f2a;
     --c-backpack: #8250d0; --c-vehicle: #c77a00; --c-mission: #5f6b76;
+    --w-light: #1a86c2; --w-medium: #4b8f2a; --w-heavy: #d4492a;
     --g-primary: #b89800; --g-secondary: #1f6fc2; --g-throwable: #d4582a;
     --shadow: 0 18px 50px rgba(30, 34, 20, .18);
   }
@@ -82,6 +84,7 @@
   --terminid: #c07000; --automaton: #cf2e28; --illuminate: #6b47d6;
   --c-support: #b89800; --c-orbital: #d4492a; --c-eagle: #1a86c2; --c-defense: #4b8f2a;
   --c-backpack: #8250d0; --c-vehicle: #c77a00; --c-mission: #5f6b76;
+  --w-light: #1a86c2; --w-medium: #4b8f2a; --w-heavy: #d4492a;
   --g-primary: #b89800; --g-secondary: #1f6fc2; --g-throwable: #d4582a;
   --shadow: 0 18px 50px rgba(30, 34, 20, .18);
 }
@@ -791,8 +794,15 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-effects li { position: relative; padding-left: 16px; }
 .armor-effects li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
 .armor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; }
-.armor-item { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 10px; background: var(--surface-2); border: 1px solid var(--line);
+.armor-item { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 10px; background: var(--surface-2); border: 1px solid var(--line);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
+/* Armor weight colours (like the stratagem categories): a top bar on each set, the weight badge and filter dots. */
+[data-weight="light"], .weight-light { --wc: var(--w-light); }
+[data-weight="medium"], .weight-medium { --wc: var(--w-medium); }
+[data-weight="heavy"], .weight-heavy { --wc: var(--w-heavy); }
+.armor-item::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--wc, var(--line-strong)); pointer-events: none; }
+.badge.weight-light, .badge.weight-medium, .badge.weight-heavy { color: var(--wc); border-color: var(--wc); }
+.armor-tools .segmented .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wc); }
 .armor-art { display: grid; place-items: center; height: 124px; overflow: hidden; font: 600 12px/1.2 var(--cond); text-align: center;
   background: radial-gradient(120% 70% at 50% 100%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%), var(--bg-raise); }
 .armor-art img { max-width: 100%; max-height: 116px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }

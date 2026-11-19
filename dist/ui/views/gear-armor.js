@@ -101,7 +101,7 @@ export function renderArmor(panel, { state, onChange, onOpen = null }) {
   render(panel, html`<div class="arsenal-tools armor-tools">
       <div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
         <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${armors.length}</span></button>
-        ${armorWeights.map(weight => html`<button type="button" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}">${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
+        ${armorWeights.map(weight => html`<button type="button" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
       </div>
       <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!state.passive}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${state.passive === passive.id}">${passive.name} <span class="count">${list.length}</span></button>`)}</div>
     </div>
