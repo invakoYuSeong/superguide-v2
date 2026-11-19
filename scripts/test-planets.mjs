@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import * as planets from '../dist/data/planets.js';
 import { stratagemEffects } from '../dist/data/planet-stratagem-effects.js';
 import { validateSvg } from './svg-safety.mjs';
+import { biomeImages } from '../dist/data/biome-images.js';
 import { cleanGameText, slug } from './planet-parse.mjs';
 
 const read = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
@@ -62,6 +63,14 @@ for (const biome of planets.biomes) {
   ok(biome.planets.length === gamePlanets.planets.filter(planet => planet.biome === biome.internal).length, `${biome.en}: planet list does not match the game data`);
   for (const id of biome.conditions) ok(planets.conditions.some(item => item.id === id), `${biome.en}: unknown condition ${id}`);
 }
+// Biome thumbnails: small WebP files, unchanged since fetch-biome-images.py (Volcanic Jungle has none:
+// its wiki picture redirects to the Deadlands one).
+for (const [id, image] of Object.entries(biomeImages)) {
+  ok(planets.biomes.some(biome => biome.id === id), `biome-images.js: unknown biome ${id}`);
+  const bytes = await readFile(new URL(`../dist/${image.src.slice(2)}`, import.meta.url));
+  ok(bytes.length <= 24_000 && createHash('sha256').update(bytes).digest('hex') === image.sha256, `${id}: thumbnail changed or over 24 KB (run scripts/tools/fetch-biome-images.py)`);
+}
+ok(Object.keys(biomeImages).length >= planets.biomes.length - 1, 'every biome but Volcanic Jungle has a thumbnail');
 const listed = new Set(planets.biomes.map(biome => biome.internal));
 const unlisted = [...new Set(gamePlanets.planets.map(planet => planet.biome))].filter(biome => biome !== '?' && !listed.has(biome));
 ok(!unlisted.length, `game biomes with planets but no wiki biome page: ${unlisted.join(', ')}`);

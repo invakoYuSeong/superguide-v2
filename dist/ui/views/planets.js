@@ -1,6 +1,7 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>   (b: scroll to and mark one biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, planetsCheckedAt } from '../../data/planets.js';
+import { biomeImages } from '../../data/biome-images.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
@@ -76,7 +77,9 @@ function modifiersTab() {
 }
 
 function biomeCard(biome) {
+  const image = biomeImages[biome.id];
   return html`<li class="info-item biome-item" id="biome-${biome.id}" ${biome.id === state.biome ? 'data-focus' : ''}>
+    ${image ? html`<img class="biome-thumb" src="${image.src}" alt="" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : ''}
     <div class="info-body" style="grid-column:1/-1">
       <div class="armor-title"><h3>${title(biome)}</h3>${biome.archetype ? badge(lang === 'en' ? biome.archetype : biome.archetypeName ?? biome.archetype, 'outline') : ''}</div>${enLine(biome)}
       ${biome.description ? html`<p class="info-desc">${text(biome.description, biome.descriptionEn)}</p>` : ''}
@@ -121,7 +124,7 @@ export function mount(container, context) {
     <div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${tab.name}</button>`)}</div>
     <div class="arsenal-meta"><span></span><span>${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
     <div id="planet-body"></div>
-    <p class="faint" style="font-size:12.5px;margin-top:12px">${L('환경 조건 아이콘은 Helldivers Wiki 기여자들의 원본(CC BY-NC-SA 4.0)입니다.', 'Condition icons are the originals by Helldivers Wiki contributors (CC BY-NC-SA 4.0).')}</p>`);
+    <p class="faint" style="font-size:12.5px;margin-top:12px">${L('환경 조건 아이콘과 생물군계 사진은 Helldivers Wiki 기여자들의 작업(CC BY-NC-SA 4.0, 사진은 축소)입니다.', 'Condition icons and biome pictures are the work of Helldivers Wiki contributors (CC BY-NC-SA 4.0; pictures resized).')}</p>`);
   root.addEventListener('click', event => {
     const button = event.target.closest('[data-planet-tab]');
     if (!button) return;
