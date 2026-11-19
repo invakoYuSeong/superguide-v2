@@ -69,7 +69,8 @@ function cardModes(item) {
 }
 
 // Cooldown in seconds beside the compare button, following the ship module choice.
-const seconds = value => `${num(Math.round(value * 10) / 10)}${L('초', 's')}`;
+// Cooldowns show whole seconds (user decision 2026-11-19); call-in and rearm keep their decimals.
+const seconds = value => `${num(Math.round(value))}${L('초', 's')}`;
 function cardCooldown(item) {
   const cooldown = timingOf(item)?.cooldown;
   if (cooldown == null) return '';
@@ -225,7 +226,7 @@ function planetLines(t) {
     if (effect.disable) return [L(`${label}: 스트라타젬이 간헐적으로 막힘`, `${label}: stratagems are disabled at times`)];
     if (effect.cooldownUp && t.cooldown != null) return [L(`${label}: 재사용 대기 증가(수치 미확인)`, `${label}: longer cooldown (amount unverified)`)];
     const rows = [];
-    if (effect.cooldown && t.cooldown != null) rows.push(L(`${label}: 재사용 대기 +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown * 100) / 100)}${s}`, `${label}: cooldown +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown * 100) / 100)}${s}`));
+    if (effect.cooldown && t.cooldown != null) rows.push(L(`${label}: 재사용 대기 +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown))}${s}`, `${label}: cooldown +${pct(effect.cooldown)}% → ${num(Math.round(t.cooldown * effect.cooldown))}${s}`));
     if (effect.callIn && t.callIn != null) rows.push(L(`${label}: 호출 시간 +${pct(effect.callIn)}% → ${num(Math.round(t.callIn * effect.callIn * 100) / 100)}${s}`, `${label}: call-in +${pct(effect.callIn)}% → ${num(Math.round(t.callIn * effect.callIn * 100) / 100)}${s}`));
     if (effect.rearm && t.rearm != null) rows.push(L(`${label}: 재무장 +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`, `${label}: rearm +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`));
     return rows;
@@ -251,7 +252,7 @@ function timingBlock(item) {
     : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`) : L('호출 시간 단축', 'faster call-in');
   return html`<section class="block"><h3>${L('재사용 대기와 호출', 'Cooldown and call-in')}</h3>
     <dl class="detail-grid">
-      ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(t.cooldown), s, caption(t.cooldown, t.cooldownBase)) : ''}
+      ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(Math.round(t.cooldown)), s, caption(t.cooldown, t.cooldownBase)) : ''}
       ${t.rearm != null ? cell(L('재무장 시간', 'Rearm time'), num(t.rearm), s, caption(t.rearm, t.rearmBase)) : ''}
       ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption(t.uses, t.usesBase, false)) : ''}
       ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
