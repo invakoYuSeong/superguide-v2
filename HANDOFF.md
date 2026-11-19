@@ -2,83 +2,67 @@
 
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
-- 마지막 갱신: 2026-11-10, Claude Code 담당
-- 기준: master (PR #9 병합·배포 후 작은 수정 2개, 배포)
-- 진행 중인 작업: 없음
+- 마지막 갱신: 2026-11-19, Claude Code 담당
+- 기준: 브랜치 `work/wiki-features` (master `cac2f64` 위 로컬 커밋, **미게시**)
+- 진행 중인 작업: 없음. 사용자가 게시하자고 할 때 master에 올립니다.
 
 ## 지금 상태
 
-- **작은 수정(2026-11-10, 배포)**: 영어 화면의 다크·라이트 버튼 설명을 영어로(`index.html` `data-en-label`/`data-en-title`). 세력 안내 '확인 날짜'를 안내마다 둘 수 있게 함(`faction-data.js`의 `checkedAt`, 없으면 `factionCheckedAt`): 커스틱·녹셔스는 2026-11-09, 나머지는 2026-09-17 그대로.
+- **위키·게임 자료 기능 묶음(2026-11-19, 로컬 커밋·미게시)**
+  - **한국어 이름 규칙 변경**(AGENTS.md): 게임 안 자료로 확인한 최신 표기가 우선, 나무위키는 보조, 게임에도 없으면 알맞게 번역. 게임 공식 문장표(음성 대사·300자 넘는 글 제외, 10,306줄, 게임 빌드 26568081)가 `db/source/game_strings_ko.tsv`에 있고, `node scripts/build-game-names.mjs`가 사이트가 쓰는 문장만 `db/source/game_names_ko.json`에 뽑습니다. 게임 업데이트 뒤 문장표 갱신은 원본 표가 있는 PC에서 `scripts/tools/import-game-strings.mjs <tsv> --planets <행성.json>`(행성 이름·생물군계 설명은 `db/source/game_planets_ko.json`).
+  - **게임 이름으로 바꾼 36개**(`db/source/game_name_targets.json`, `test-game-names.mjs`): 포격 FRV·화물 컨테이너·휴대용 통신 릴레이·증원 포드·지진 탐지기·전술용 비디오 카메라·로버·핫도그·K-9·독 브레스, 퍼니셔 플라스마·핫샷 마크맨 라이플, O-3 자유로운 영혼·O-44 조종사와의 유대감·운동 에너지 변위 완화·충격 방지 패드, 강화 버전·산소공급기, 차저 베히모스·어설트 레이더·머로더·MG 레이더·데버스테이터(로켓·거대·제트 여단)·바라저 탱크·벙커 포탑·옵트루더·버레이시터, 건십 시설·워프 게이트웨이·탐지 탑·궤도 캐넌·테러리스트 기념물·인지 분열기 전원 장치. 무기·방어구 빌드(`build-weapons`·`build-armor`)는 이 표의 게임 이름을 나무위키보다 먼저 씁니다. 스트라타젬 옛 이름은 검색 별칭으로 남김.
+  - **함선 모듈**: 스트라타젬 도감에 '함선 모듈 적용/미적용'(기본 적용, `?mod=off`), 카드마다 재사용 시간. 기본값은 각 위키 문서 Stratagem Stats Table(`fetch-stratagem-stats` → `build-stratagem-stats`, `dist/data/stratagem-stats.js`), 모듈 비율은 Ship Modules rev 134806(`dist/data/ship-modules.js`, 계산 `dist/core/modules.js`). 비율은 곱하고 '사기 증강' 5%도 넣음(위키 문서 대부분은 5%를 빼고 적음). 불릿 스톰 위키값 66.5초는 확인한 차이로 `test-stratagem-stats.mjs`에 기록.
+  - **부스터 탭**(장비 → 방어구 오른쪽, `#/gear?tab=boosters&b=`): 20종, 게임 이름·설명 + 위키 효과 요약(숫자는 위키 본문과 대조), 아이콘 SVG. `fetch-boosters` → `build-game-names` → `build-boosters`.
+  - **행성 탭**(`#/planets?tab=conditions|modifiers|biomes|status`): 환경 조건 12종(아이콘)·글룸 4단계, 작전 제한 조건 8종(난이도 5부터 1개·8부터 2개)·이벤트 효과 4종, 생물군계 28종(행성 379개, 이름·분류는 사이트 번역), 상태 이상 7종(위키 Status Effects 요약). 스트라타젬 상세에 행성 효과 반영값(표시값 × 비율). `fetch-planet-pages` → `build-planets`(`dist/data/planets.js`, `planet-stratagem-effects.js`). 하단 탭이 7칸이 됨.
+  - **임무 연결·철거력**: 철거 화면에서 시설을 부수는 주요·전술 목표와 난이도(10에 없는 임무는 흐리게), 21개 시설·28개 임무(`db/source/structure_objectives.json`, `fetch-objectives` → `build-structure-objectives`). 스트라타젬 상세에 모드별 철거력.
+  - **기타**: 전체 검색에 방어구·부스터, 채권 항목 상세는 1340px 미만에서 보드 자리에 열림(겹침 해결), README·계산 방식의 자료 날짜를 '9월 16일 처음 확인, 11월 8일 다시 대조'로.
+  - 검사: `npm run check` 16종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
 
-- **[PR #9](https://github.com/modocracy/superguide-v2/pull/9) 병합(2026-11-10, 기여자 YuSeong, 배포됨)**: 무기 모드 탭(`?m=`), 주 무기 부착물 표(`weapon-attachments.js`, 54종 566줄), 지원 무기 연사·탄창 수치, 스트라타젬 호출 코드 110개, 무기·스트라타젬 상세의 채권 칩(`warbond-sources.js`), 채권 치장품·부스터·헬멧 한국어 이름, 철거 시설 11종 추가, 오토마톤 방어 시설 4종(대공포·박격포 진지·벙커 포탑·드롭십)을 철거 → 적 대응 화면으로 이동, 커스틱·녹셔스 변종 세력 안내, 칭호 배지 원래 색, 화면 간 상세 창이 닫혀 열리던 버그 수정. 적 이름을 나무위키 표기로 바로잡음(커미서·소각대·렛치·무분별한 대중·적임자 등, 2026-11-10 나무위키 대조로 확인). 새 검사 `test-structures`·`test-attachments`(`npm run check` 11종). 새 파이프라인: `fetch-attachments` + `fetch-namu-attachments` → `build-attachments`, `fetch-namu-warbond-items`, `fetch-structure-pages`.
-
-- **새 적 2종·M-104 추가(2026-11-08, 배포됨)**: 패치 1.007.202의 'Noxious Strain' 적 녹셔스 스캐빈저(`noxious-scavenger`, 위키 rev 142101, 부위 = 스캐빈저)와 녹셔스 스퓨어(`noxious-spewer`, rev 142006, 부위 = 커스틱 스퓨어). 한국어 이름은 나무위키 'HELLDIVERS 2/테르미니드'. 초상화·부위 사진 포함, 크기 분류 소형·중형. 스트라타젬 M-104 소각형 고속 정찰 차량(`incinerator-frv`, 이름은 나무위키 '스트라타젬/보급', 위키 rev 142150): 탑재 화염방사기는 datamine(stratagems_data 141276)상 크리메이터와 같아 225 DPS·AP 4·재사용 480초, 연료 800. 철거력 프로필은 넣지 않음(크리메이터도 없음). 사진 스크립트가 11/3에 추가한 '양쪽' 부위(하이브 가드·브루드/알파 커맨더 앞발, 복스 엔진 대포) 사진도 함께 받음. 적 86개(종류 84), 스트라타젬 114개. 화면 확인(콘솔 오류 없음).
-
-- **위키 재대조(2026-11-08, 배포됨)**: 모든 위키 원본을 다시 받아 대조. 무기 107종·채권 26종·방어구 113종·지원 무기 수치·적 부위 수치는 변화 없음. 바뀐 것: ① LAS-16 Sickle 열 용량 8초(105발) → 8.4초(106발)(위키 인포박스 수정, datamine 발당 열 0.95·한도 100과 일치). ② 위키가 패치 1.007.200의 'Caustic Strain' 분리에 맞춰 벌레 4종 페이지 이름을 바꿈(Bile Spitter/Bile Warrior/Bile Spewer/Spore Charger → Caustic Spitter/Warrior/Spewer/Charger). 적 출처 링크와 영어 이름을 새 이름으로 고침. 한국어 이름은 PR #9에서 '커스틱 스피터·워리어·스퓨어·차저'로 바뀜(아래 남은 일 참고). ③ `fetch-enemy-anatomy.mjs`가 위키 넘겨주기(redirect)를 따라가도록 수정(전에는 이름 바뀐 페이지의 부위 표가 빈 채로 저장됨). ④ 위키 편집으로 판번호만 바뀐 적 32종의 `anatomyRevision`을 새 판으로 올림(부위 수치는 줄마다 비교해 같음 확인). datamine 판 142136(바뀐 건 쓰지 않는 `is_huge`뿐).
-
-- **채권 ↔ 방어구 연결(2026-11-03, master 반영·배포)**: 채권 보드의 방어구 타일 64개를 누르면 무기·스트라타젬처럼 항목 상세 패널에 방어구 상세(그림·무게·장갑/속도/스태미나·얻는 곳·패시브 효과)가 열립니다(`#/warbonds/<채권>?item=armor/<id>`, `gear-armor.js`의 `armorDetail`). 타일에 ref가 없어서 채권 id + 영어 이름(끝의 " Armor"는 떼고)으로 `armor.js`와 맞춥니다. '전체 페이지로 열기'·'같은 패시브 방어구 보기'는 방어구 탭에서 그 방어구로 스크롤하고 노란 테두리로 표시(`#/gear?tab=armor&a=<id>`). 반대로 방어구 탭의 채권 이름 링크는 그 채권을 열고 해당 방어구 상세까지 띄웁니다. 1400·375px 확인(가로 넘침·콘솔 오류 없음).
-
-- **방어구 페이지(2026-11-03, master 반영·배포)**: 장비 화면 위쪽 '장비 둘러보기 / 로드아웃 점검 / 방어구' 중 세 번째(`#/gear?tab=armor&w=light|medium|heavy`). 몸통 방어구 113종을 패시브 32종별로 묶고, 패시브마다 한국어 이름·효과, 방어구마다 그림·장갑/속도/스태미나 회복·출처(채권 링크·페이지·메달/SC). 무게 필터와 패시브 바로가기 칩. 파이프라인: `node scripts/fetch-armor.mjs`(위키 `db/source/wiki_armor.json` + 나무위키 제목만 `db/source/namu_armor.json`) → `node scripts/build-armor.mjs`(`dist/data/armor.js`) → `python scripts/tools/fetch-armor-images.py`(`dist/assets/armor/` 그림 113 + 패시브 아이콘 30, 1.6MB, `dist/data/armor-images.js`) → `npm run check`(`scripts/test-armor.mjs`). 패시브 한국어 이름·효과 문장은 `db/source/armor_passive_korean.json`(게임 문구, 나무위키 기준)에 있고, 빌드가 위키 영어 문장과 숫자가 하나라도 다르면 실패합니다. 채권 보드(warbonds.js)와 방어구 페이지의 채권·페이지·메달 비용은 전부 일치. 한국어 이름 미확인(영어로 표시): O-3 Free Spirit, O-44 Bonded Pilot, 패시브 Kinetic Displacement Mitigation. BFM-77 Reformer는 위키 분류는 중량이지만 인포박스가 일반이라 일반으로 표시(`armorDiscrepancies`). 1440·375px 다크·라이트, 영어 화면 확인(가로 넘침·콘솔 오류 없음).
-
-- **위키 재대조(2026-11-03, master 반영·배포)**: 모든 위키 원본을 다시 받아 대조. 무기 107종·전쟁 채권 26종·적 크기·지원 무기 수치는 변화 없음(datamine 141275는 사이트가 쓰지 않는 `is_huge` 표시만 바뀜). 패치 1.007.202(에이펙스 철거력 30·구경 20·AP 표시, 부시웨커 486/135)는 `60233c1`에서 이미 반영돼 있음을 재확인. 바뀐 것: 위키 편집자가 2026-11-02에 하이브 가드·브루드 커맨더·알파 커맨더(앞발)와 복스 엔진(대포)에 '양쪽 모두 파괴 시 처치'를 추가 → 엔진에 부위 `copies`(복수 개체) 지원을 넣고 각 적에 '양쪽' 경로(`claw-both`, `cannon-both`)를 추가. 한쪽을 부순 사격의 남은 피해는 다른 쪽에 넘기지 않고, 본체 전달은 누적. 기존 '한쪽' 경로(부위 파괴)는 그대로. 구현은 Codex(gpt-6.1-terra), 검토·복스 엔진 이름·설명 문구 수정은 Claude.
-
-- **게임 스타일 적용(master 반영·배포)**: 사용자가 승인한 시안(전쟁 채권 화면, 다크·라이트)을 사이트 전체에 적용. 다크 = 올리브 블랙, 라이트 = 종이색 바탕에 올리브 글자. 노란색(#f4e454)은 채우기(버튼·눌린 칩·깃발·경고 줄무늬)로 쓰고, 라이트의 노란 글자는 진한 금색(#6b5f00). 상단 바·하단 탭 경고 줄무늬, 카드 오른쪽 위 잘린 모서리 + 위쪽 색 띠, 주요 버튼 잘린 모서리. 영문 라벨·숫자는 Barlow Condensed(Google Fonts), 한글은 Pretendard. 채권 카드: 표지 전체 폭, 등급·출시일, 가격·전체 메달·구성, 무기·스트라타젬 수. 최신 채권: 전체 폭 띠 배너 + 'New Warbond · 최신 출시 채권' 깃발, 이름 줄 오른쪽에 노란 버튼(배너 아래 수치 칸 없음). 라이트 포커스는 진한 글자색, 보조 글자 대비 개선. 채권 보드 안쪽 게임 색은 그대로. 375·1440px 캡처에서 가로 넘침·콘솔 오류 없음.
-- **거절된 개편**: 브랜치 `auto/2026-11-03-hallmark-redesign`(hallmark Console 테마)은 사용자가 거절(헬다이버즈 색이 빠지고 흔한 AI 디자인 같음). 병합하지 않음. 삭제 여부는 사용자 결정 대기.
-
-- **PR 검사 워크플로 없앰**: `.github/workflows/check.yml`을 지웠습니다(2026-11-03, 느려서 사용자 지시). `node scripts/check-weapons.mjs`는 이제 GitHub에서 자동으로 돌지 않으니 PC에서 직접 돌립니다. 배포용 `deploy-pages.yml`은 그대로입니다(`npm run check` 후 배포).
-- **채권 상세 화면**([PR #6](https://github.com/modocracy/superguide-v2/pull/6), 병합 `a7a1d26`): 대화상자가 열린 동안 페이지 스크롤을 잠가 스크롤바가 1개만 보입니다. 항목을 눌러도 채권 패널의 위치·폭이 그대로입니다. 760px 이상에서는 항목 상세가 채권 패널 왼쪽 빈 공간에 별도 패널(폭 360~560px)로 열리고, 760px 미만에서는 보드 자리를 대신하며 뒤로 버튼을 씁니다.
-- **이미지 고해상도**(`b220992`, master 반영): 전쟁 채권 이미지를 위키 원본에서 표시 크기의 2배 이상으로 받습니다(원본보다 키우지 않음). 표지 720×360, 최신 배너 2048×1024(WebP 품질 72, 배너만 `srcset` 720w/2048w), 항목 이미지 `CELL=360`. 용량 한도: 항목 폴더 합계 12,500,000바이트, 항목 파일당 140,000바이트, 배너 350,000바이트, SVG 파일당 50,000바이트.
-- **5×3 보드**([PR #5](https://github.com/modocracy/superguide-v2/pull/5)): 26개 채권·85페이지·603개 항목, 이미지 511종 모두 연결(누락 0). 출처는 Helldivers Wiki(CC BY-NC-SA 4.0). 전설 채권의 실제 게임 색상은 미확인.
+- **PR #9 병합(2026-11-10, 배포됨)**: 무기 모드 탭, 주 무기 부착물 표, 지원 무기 연사·탄창, 스트라타젬 호출 코드, 채권 칩, 철거 시설 추가, 오토마톤 방어 시설 4종을 적 대응으로 이동, 커스틱·녹셔스 세력 안내. 이후 작은 수정 2개(영어 테마 버튼 설명, 세력 안내별 확인 날짜) 배포.
+- **새 적 2종·M-104(2026-11-08, 배포됨)**: 녹셔스 스캐빈저·녹셔스 스퓨어(부위 수치는 스캐빈저·커스틱 스퓨어 것을 옮김), M-104 소각형 고속 정찰 차량.
+- **위키 재대조(2026-11-08, 배포됨)**: 모든 원본 재대조. LAS-16 Sickle 열 용량 8.4초(106발), 커스틱 4종 페이지 이름 변경 반영, `fetch-enemy-anatomy`가 넘겨주기를 따라감. datamine 판 142136.
+- **방어구 페이지·채권 ↔ 방어구 연결(2026-11-03, 배포됨)**: 장비 화면의 방어구 탭(113종, 패시브 32종). 파이프라인 `fetch-armor` → `build-armor` → `python scripts/tools/fetch-armor-images.py` → `npm run check`. BFM-77 Reformer는 인포박스대로 일반 표시(`armorDiscrepancies`).
+- **게임 스타일 적용(배포됨)**: 올리브 블랙·노란색·경고 줄무늬·잘린 모서리, Barlow Condensed + Pretendard. 거절된 개편 브랜치 `auto/2026-11-03-hallmark-redesign`은 병합하지 않음(삭제 여부 사용자 결정 대기).
+- **채권 화면**: 5×3 보드(26개 채권·603개 항목), 이미지는 위키 원본에서 표시 크기 2배 이상(용량 한도: 항목 폴더 12,500,000B, 파일당 140,000B, 배너 350,000B, SVG 50,000B). 1340px 이상에서는 항목 상세가 채권 패널 왼쪽에 별도 패널(360~560px)로 열림.
+- **PR 검사 워크플로 없음**: `check.yml`은 지움(2026-11-03). `deploy-pages.yml`이 `npm run check` 후 배포합니다. `check-weapons.mjs`는 PC에서 직접 돌립니다.
 
 ## 남은 일 (각각 사용자 승인 후 진행)
 
-- **녹셔스 적 재확인**: 녹셔스 스캐빈저·녹셔스 스퓨어의 위키 문서가 작성 중(WIP)이라 부위 수치가 일반 스캐빈저·커스틱 스퓨어 것을 옮겨 둔 상태입니다. 위키가 고유 수치를 올리면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다. 적 체력 datamine(`Module:Decodedata-Attacks/enemydata.json`)은 2025-06 이후 갱신이 없어 대조 불가.
-- **커스틱 4종 한국어 이름 확인**: 헬다이버즈 위키상 7.2.0 패치로 게임 영어 이름이 Caustic으로 바뀜(Caustic Charger 문서 Trivia). 사이트는 PR #9에서 '커스틱 스피터·워리어·스퓨어·차저'로 바꿨지만 게임 속 한국어 표기는 미확인이고, 나무위키는 2026-11-10 현재 아직 '바일 스피터·바일 워리어·바일 스퓨어·스포어 차저'. 게임 화면이나 나무위키 갱신으로 확인되면 맞춥니다.
-- **전송 네트워크 철거력 10**: 위키에 값이 없음(Destroy Transmission Network rev 142145, Demolition 표에 없음). PR #9 기여자가 정한 값이고 사용자가 받아들임(`thresholdSource: 'user'`). 위키가 값을 주면 `test-structures.mjs`가 알려 줍니다.
-- 부착물 한국어 이름(고용량 방열판·레이저 조준경·반사식 조준경 MK2)은 나무위키 대조를 하지 않았음. Flashlight·Focus Lens·Triple Lens는 영어로 표시 중.
-- 한국어 표기 차이 후보: 나무위키는 M-102를 '포격 FRV'(2026-08-12 패치 이후 게임 표기)로 적지만 사이트는 '고속 정찰 차량'. 바꿀지 사용자 결정 전.
-- 위키 스트라타젬 분류 중 사이트에 없는 나머지(Eagle Fly By, Orbital Confetti, Orbital Illumination Flare(삭제된 것), 임무용 Tectonic Drill·Dark Fluid Vessel·Seize Industrial Complex 등)는 피해가 없거나 장비가 아니라 넣지 않음.
-- 적 크기 분류에서 사이트에 없는 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship은 전부터 넣지 않은 대상.
-
-- **Codex 위임 중단(2026-11-03)**: 사용자가 다시 지시할 때까지 Codex에 일을 맡기지 않음(자동 위임 포함).
-- **게임 스타일 실제 기기 확인**: 휴대폰에서 줄무늬·잘린 모서리·글꼴 확인 필요. 옛 화면이 섞여 보이면 브라우저 캐시 문제(강력 새로고침).
-- 전쟁 채권 SVG 18개·이미지 목록 3개가 작업 폴더에서 줄바꿈(LF/CRLF) 차이로만 '변경'으로 보일 수 있음. 내용 변경 없음, 커밋하지 않음.
-
-- **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 채권·페이지마다 다른 보상 타일의 위치·모양·크기를 게임과 일치시키는 작업입니다. 다른 페이지를 채권 레이아웃으로 바꾸는 것이 아닙니다. 사용자가 시작하라고 할 때 진행합니다.
-- **방어구 실제 기기 확인**: 휴대폰에서 방어구 탭(그림·수치 줄·패시브 바로가기 칩) 확인 필요.
-- 방어구 후속 후보(사용자 결정 전): 전체 검색(팔레트)에 방어구 넣기, 나무위키에 이름이 생기면 O-3·O-44·Kinetic Displacement Mitigation 한국어 이름 채우기(`fetch-armor` → `build-armor`).
-- wiki.gg는 짧은 시간에 많이 요청하면 429(속도 제한)를 줍니다. `fetch-armor-images.py`는 기다렸다 다시 시도합니다.
-- 확인 필요: 채권 패널 왼쪽 빈 공간이 360px보다 좁으면(화면 폭 약 1340px 미만) 항목 상세가 채권 패널 왼쪽 일부를 덮습니다. 이대로 둘지 결정이 필요합니다.
-- 실제 기기 확인 필요: 휴대폰 하단 탭 6칸, 360px에서 5×3 보드 가독성·가로 넘침, 항목 상세 전환(뒤로·스크롤 복원). 헤드리스 Chrome 360·1280px 캡처로는 문제가 없었습니다.
-- StA-52 예비 탄창: datamine 7, 위키 인포박스 6(revision 140347). 위키가 7로 바뀌면 `db/source`를 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
-- 전쟁 채권 위키 불일치 '미확인' 21건(`warbondDiscrepancies`, PR #3 설명): 위키가 고쳐지면 다시 받아 빌드합니다.
-- 반영하지 않은 것: Eagle Fly By / Orbital Confetti(피해 없음), LAS-44 Nova의 Anti-Tank 태그.
+- **게시**: `work/wiki-features`를 사용자가 게시하자고 할 때 master에 올립니다(push = 배포).
+- **실제 기기 확인**: 휴대폰 하단 탭 7칸(360px에서 글자 넘침 없음은 헤드리스로 확인), 행성·부스터 탭, 게임 스타일·방어구 탭, 5×3 보드.
+- **녹셔스 적 재확인**: 위키 문서가 작성 중(WIP). 고유 수치가 올라오면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다.
+- **전송 네트워크 철거력 10**: 위키에 값 없음, 사용자가 받아들인 값(`thresholdSource: 'user'`).
+- 부착물 Flashlight·Focus Lens·Triple Lens는 영어 표시 중. 게임 이름(조명·초점 렌즈·삼중 렌즈)이 문장표에 있으니 바꿀지 사용자 결정 전.
+- 채권 보드의 O-3 Free Spirit 헬멧 타일은 영어 이름(방어구 타일은 게임 이름으로 열림).
+- StA-52 예비 탄창: datamine 7, 위키 6(rev 140347). 위키가 7로 바뀌면 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
+- 전쟁 채권 위키 불일치 '미확인' 21건(`warbondDiscrepancies`).
+- **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 사용자가 시작하라고 할 때 진행.
+- 넣지 않은 것: Eagle Fly By·Orbital Confetti 등 피해 없는 스트라타젬, 적 크기 분류의 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship, LAS-44 Nova의 Anti-Tank 태그.
+- 전쟁 채권 SVG 18개·이미지 목록 3개가 줄바꿈 차이로만 '변경'으로 보일 수 있음(내용 변경 없음, 커밋하지 않음).
+- **Codex 위임 중단(2026-11-03)**: 사용자가 다시 지시할 때까지 Codex에 일을 맡기지 않음.
 
 ## 사용자가 이미 정한 것 (다시 묻지 않기)
 
-- 병렬 하위 작업 결과는 특정 AI(그로기)가 아니라 그 일을 맡긴 AI에게 보고하고, HANDOFF.md도 맡긴 AI가 통합할 때 한 번 갱신한다(2026-11-03).
+- 한국어 이름은 게임 안 자료가 우선, 게임에 없으면 알맞게 번역(2026-11-19). 게임 문장표는 음성 대사·긴 글을 빼고 저장소에 둠.
+- 게시는 수정마다 하지 않고, 로컬에서 충분히 테스트한 뒤 사용자가 게시하자고 할 때 한 번에 master에 올림(2026-11-19).
+- 함선 모듈: 기본 '적용', 비율은 곱하고 모든 모듈 최고 단계 기준. 재사용 대기는 정수 초로 반올림해 표시(호출·재무장 시간은 소수 그대로)(2026-11-19).
+- 상태 이상 안내는 행성 탭 안에. 행성 탭은 팩션 추천 오른쪽, 부스터는 장비 탭의 방어구 오른쪽(2026-11-19).
+- 채권 항목 상세는 왼쪽 자리가 360px 미만(1340px 미만 화면)이면 보드 자리에 열림(2026-11-19).
+- 병렬 하위 작업 결과는 그 일을 맡긴 AI에게 보고하고, HANDOFF.md도 맡긴 AI가 통합할 때 한 번 갱신한다(2026-11-03).
 - Elevated Overseer 몸통은 공식 패치 노트 값 450(`anatomyOfficial`). Voteless Heavy 팔 피해 상한 변경은 유지.
-- AI 기능(TypeSafe Jev 등)은 사이트에 넣지 않음. 데이터·번역 대량 검사에만 사용.
-- 팩션별 장비 평가 기능은 보류. 사용자가 다시 꺼내기 전에는 제안하지 않음.
-- 사이트 메인 화면은 전쟁 채권 페이지.
-- Exo Experts 한국어 이름은 '외계 전문가(오역)'. 한국어 전쟁 채권 이름은 게임 표기이므로 출처 표기 없음. 화면에 출처·제공자 표기(예: 한국어 이름: 나무위키)를 넣지 않음.
+- AI 기능은 사이트에 넣지 않음. 팩션별 장비 평가 기능은 보류(사용자가 꺼내기 전에는 제안하지 않음).
+- 사이트 메인 화면은 전쟁 채권 페이지. Exo Experts 한국어 이름은 '외계 전문가(오역)'. 화면에 출처·제공자 표기(예: 한국어 이름: 나무위키)를 넣지 않음.
 - 넓은 화면의 항목 상세는 닫기(X)만, 좁은 화면은 뒤로 버튼.
-- 채권 목록: 구역 구분 없이 한 개의 연속 그리드, 출시일 오름차순(같은 날짜는 기존 순서), 위쪽 종류 칩(전체/기본/프리미엄/전설)은 필터로 유지.
-- 채권 상세의 페이지별 보상은 게임과 같은 5×3 타일 배치.
-- 전쟁 채권 이미지는 위키 원본에서 표시 크기의 2배 이상(원본보다 키우지 않음).
-- 사이트 디자인은 헬다이버즈 게임 스타일(올리브 블랙·노란색·경고 줄무늬·잘린 모서리). 일반적인 미니멀 테마(hallmark Console 등)로 바꾸지 않음(2026-11-03).
-- 최신 채권 배너는 화면 폭 전체를 쓰는 띠 모양, 아래에 이름 줄과 '페이지별 목록 보기' 버튼만. 배너 아래 수치 칸 없음(`b5c8770`).
-- 채권 상세의 정보는 상자·구분선 없이 가볍게 나열(`4e03e42`).
-- 디자인을 바꿀 때는 git 기록의 과거 레이아웃 결정을 먼저 확인하고 되돌리지 않음.
-- 위키의 '양쪽 모두 파괴 시 처치'(Fatal: Yes (When both are destroyed))는 계산에 반영함(2026-11-03).
-- 방어구 페이지(2026-11-03): 장비 화면 안의 탭(새 하단 탭 아님). 패시브·방어구 한국어 이름은 나무위키 표기(=게임 표기), 화면에 출처 표기 없음. 방어구 그림은 113종 모두.
-- PR #9 전체 수용(2026-11-10): 전송 네트워크 철거력 10(위키에 없는 값), 칭호 배지 원래 색(흰색 통일 취소), 오토마톤 방어 시설 4종을 적 대응 화면으로 이동, 커스틱·녹셔스 변종 세력 안내 추가.
+- 채권 목록은 한 개의 연속 그리드(출시일 오름차순), 종류 칩은 필터. 채권 상세 보상은 게임과 같은 5×3 타일, 정보는 상자·구분선 없이 나열(`4e03e42`). 최신 채권 배너는 화면 폭 띠 + 이름 줄과 버튼만(`b5c8770`).
+- 사이트 디자인은 헬다이버즈 게임 스타일. 일반적인 미니멀 테마로 바꾸지 않음. 디자인을 바꿀 때는 git 기록의 과거 레이아웃 결정을 먼저 확인하고 되돌리지 않음.
+- 위키의 '양쪽 모두 파괴 시 처치'는 계산에 반영(2026-11-03).
+- 방어구 페이지는 장비 화면 안의 탭, 방어구 그림은 113종 모두.
+- PR #9 전체 수용(2026-11-10): 전송 네트워크 철거력 10, 칭호 배지 원래 색, 오토마톤 방어 시설 4종을 적 대응으로 이동, 커스틱·녹셔스 세력 안내.
 
 ## 다음 AI에게
 
-- 위키 데이터 갱신: revision 먼저 확인(MediaWiki API `api.php?action=query&prop=revisions`) → `scripts/fetch-*` → `build-*` → `npm run check`.
-- wiki.gg는 curl 기본 User-Agent로 받으세요. 브라우저(Mozilla) User-Agent는 차단 페이지가 옵니다.
+- 위키 데이터 갱신: revision 먼저 확인(MediaWiki API `api.php?action=query&prop=revisions`) → `scripts/fetch-*` → `build-*` → `npm run check`. 새 부스터·환경 조건·임무·이름 변경은 `db/source/*_korean.json`, `structure_objectives.json`, `game_name_targets.json`에 게임 영어 원문으로 적고 `node scripts/build-game-names.mjs` → 해당 `build-*`. 문장표에 없는 영어면 빌드가 멈춥니다(게임 원문과 글자 그대로 맞춰야 함).
+- wiki.gg는 curl 기본 User-Agent로 받으세요(브라우저 User-Agent는 차단). 짧은 시간에 많이 요청하면 429를 줍니다.
 - 전쟁 채권 갱신: `node scripts/fetch-warbonds.mjs` → `node scripts/build-warbonds.mjs` → `npm run check`. 새 채권은 `db/source/warbond_korean_names.json`에 한국어 이름이 없으면 빌드가 실패하니 사용자에게 이름을 받으세요.
-- 전쟁 채권 이미지 갱신(채권 빌드 후): `python3 scripts/tools/fetch-warbond-covers.py` → `... --latest-large` → `python3 scripts/tools/fetch-warbond-item-images.py` → `python3 scripts/tools/test-warbond-item-images.py` → `npm run check` → `node scripts/check-weapons.mjs`. 카드·상세 표지·타일은 `loading="lazy"`, `srcset`은 배너에만.
-- 항목 이미지 다운로더는 Node.js, curl, Pillow(WebP)가 필요합니다. 원본 sha1·타일 크기·파일 해시가 같으면 재인코딩하지 않고, 쓰지 않는 `warbond-items` 파일은 지웁니다. `--force`는 전부 재인코딩·SVG 재확인, `--reuse-local`은 네트워크 없이 기존 매핑 검증(누락은 채우지 않음). SVG 안전 검사는 `scripts/svg-safety.mjs`.
+- 전쟁 채권 이미지 갱신(채권 빌드 후): `python3 scripts/tools/fetch-warbond-covers.py` → `... --latest-large` → `python3 scripts/tools/fetch-warbond-item-images.py` → `python3 scripts/tools/test-warbond-item-images.py` → `npm run check` → `node scripts/check-weapons.mjs`. 다운로더는 Node.js, curl, Pillow(WebP)가 필요합니다. SVG 안전 검사는 `scripts/svg-safety.mjs`.
 - `scripts/tools/fetch-weapon-images.py`는 모든 이미지를 다시 인코딩합니다. 새 이미지·원본이 바뀐 이미지만 커밋하세요.
