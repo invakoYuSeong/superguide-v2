@@ -56,9 +56,12 @@ function conditionsTab() {
     <h2 class="planet-sub">${L('글룸', 'The Gloom')}</h2>
     <p class="lede-note">${L('글룸에 덮인 행성의 물류 효과입니다. 단계가 높을수록 탈출이 늦어지고 이글 재무장이 느려집니다.', 'Logistics effects on planets covered by the Gloom. Higher levels slow extraction and Eagle rearm more.')}</p>
     <ul class="info-list">${gloomLevels.map(effectCard)}</ul>
-    <h2 class="planet-sub">${L('엑소스톰 · SEAF', 'Exostorms · SEAF')}</h2>
-    <p class="lede-note">${L('갤럭시 맵에서 행성에 붙는 특수 상황입니다.', 'Special situations shown on planets in the galactic map.')}</p>
-    <ul class="info-list">${specialEffects.map(effectCard)}</ul>`;
+    <h2 class="planet-sub">${L('엑소스톰', 'Exostorms')}</h2>
+    <p class="lede-note">${L('일루미닛 세력 행성에서만 생기는 폭풍입니다. 시간이 지날수록 1단계에서 3단계로 강해집니다.', 'Storms that only rise on Illuminate planets, growing from class 1 to class 3 over time.')}</p>
+    <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('exostorm')).map(effectCard)}</ul>
+    <h2 class="planet-sub">SEAF</h2>
+    <p class="lede-note">${L('슈퍼 지구 세력의 지원 효과로, 어느 세력의 행성에서든 붙을 수 있습니다.', 'A Super Earth support effect that can appear on a planet of any faction.')}</p>
+    <ul class="info-list">${specialEffects.filter(item => !item.id.startsWith('exostorm')).map(effectCard)}</ul>`;
 }
 
 function modifiersTab() {
