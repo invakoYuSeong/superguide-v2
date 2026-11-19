@@ -98,7 +98,8 @@ function biomesTab() {
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
     <ul class="info-list">${statusEffects.map(item => html`<li class="info-item">
-      <div class="info-body" style="grid-column:1/-1">
+      <span class="info-icon drawn" aria-hidden="true">${icon(`status-${item.id}`, 30)}</span>
+      <div class="info-body">
         <h3>${title(item)}</h3>${enLine(item)}
         ${(lang === 'en' ? item.detailEn : item.detail).map(line => html`<p class="info-detail">${line}</p>`)}
         <p class="armor-source">${external(item.wiki, L('위키', 'Wiki'))}</p>
