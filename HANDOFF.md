@@ -16,6 +16,7 @@
   - **행성 탭**(`#/planets?tab=conditions|modifiers|biomes|status`): 환경 조건 12종(아이콘)·글룸 4단계, 작전 제한 조건 8종(난이도 5부터 1개·8부터 2개)·이벤트 효과 4종, 생물군계 28종(행성 379개, 이름·분류는 사이트 번역), 상태 이상 7종(위키 Status Effects 요약). 스트라타젬 상세에 '행성 조건에 따른 변화'(표시값 × 비율, 기본 접힘, 함선 모듈 문구는 그 블록 맨 아래). `fetch-planet-pages` → `build-planets`(`dist/data/planets.js`, `planet-stratagem-effects.js`). 하단 탭이 7칸이 됨.
   - **임무 연결**: 철거 화면에서 시설을 부수는 주요·전술 목표와 난이도(10에 없는 임무는 흐리게), 21개 시설·28개 임무(`db/source/structure_objectives.json`, `fetch-objectives` → `build-structure-objectives`).
   - **특수 효과**(스트라타젬·장비 상세, 기본 수치표 바로 아래): 철거력, 저지력(stun), 넉백(push). 직격 중 가장 센 것과 폭발 중 가장 센 것만 한 줄씩(철거력 · 저지력 · 넉백, 철거력 → 저지력 → 넉백 순으로 비교, 파편 제외, 사용자 결정 2026-11-19). 스트라타젬은 datamine 공격 기록(`db/source/stratagems_data.json` + `weapons_data.json`, `stratagem-stats.js`의 `forces`)이고, 철거 데이터가 범위로 둔 값(500kg 직격 40~50)은 범위로 표시, 공격 기록이 없으면 철거 데이터의 철거력만. 장비는 `db/weapons.js`의 기록별 값(`personal-weapons.js`에 demolition·stun·push 추가). 공격 기록이 없는 배낭·보호막·임무 장비와 datamine에 없는 테슬라 탑·거치포·지옥폭탄은 저지력·넉백 없음.
+  - **2026-11-19 추가**: 행성 환경 조건에 '엑소스톰'(일루미닛 행성만, 1~3단계)·'SEAF'(슈퍼 지구, 모든 행성) 구역, 작전 제한 조건·이벤트·글룸·엑소스톰·SEAF는 사이트에서 그린 선 아이콘(`dom.js` ICONS, 위키에 아이콘 없음). 생물군계 썸네일 27장(`python scripts/tools/fetch-biome-images.py`, 320×180 WebP 합계 116KB, 화산 정글은 위키 그림이 죽음의 땅 그림으로 넘겨져 제외). 방어구 탭에서 카드를 누르면 상세 창(`#/gear?tab=armor&d=<id>`, 큰 그림). 레일건·에포크의 과충전 폭발은 별도 줄과 경고. 채권 보드의 치장품·부스터 247칸 모두 게임 이름 우선(`build-game-names`가 `strings.warbondItems`를 만들고 `build-warbonds`가 나무위키보다 먼저 씀, 패턴은 그림 파일 이름으로 매칭).
   - **기타**: 전체 검색에 방어구·부스터, 채권 항목 상세는 1340px 미만에서 보드 자리에 열림(겹침 해결), README·계산 방식의 자료 날짜를 '9월 16일 처음 확인, 11월 8일 다시 대조'로.
   - 검사: `npm run check` 16종 통과, `node scripts/check-weapons.mjs` 통과. 1280·1440·360px 화면 확인(콘솔 오류 없음).
 
@@ -34,7 +35,6 @@
 - **녹셔스 적 재확인**: 위키 문서가 작성 중(WIP). 고유 수치가 올라오면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다.
 - **전송 네트워크 철거력 10**: 위키에 값 없음, 사용자가 받아들인 값(`thresholdSource: 'user'`).
 - 부착물 Flashlight·Focus Lens·Triple Lens는 영어 표시 중. 게임 이름(조명·초점 렌즈·삼중 렌즈)이 문장표에 있으니 바꿀지 사용자 결정 전.
-- 채권 보드의 O-3 Free Spirit 헬멧 타일은 영어 이름(방어구 타일은 게임 이름으로 열림).
 - StA-52 예비 탄창: datamine 7, 위키 6(rev 140347). 위키가 7로 바뀌면 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
 - 전쟁 채권 위키 불일치 '미확인' 21건(`warbondDiscrepancies`).
 - **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 사용자가 시작하라고 할 때 진행.

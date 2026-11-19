@@ -7,6 +7,11 @@
 // Usage: node scripts/build-game-names.mjs
 import { readFile, writeFile } from 'node:fs/promises';
 import { shipModules } from '../dist/data/ship-modules.js';
+import { warbonds } from '../dist/data/warbonds.js';
+import { gameTileKeys } from './warbond-parse.mjs';
+
+// Warbond cosmetic and booster tiles (the kinds build-warbonds.mjs names in Korean).
+const TILE_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
 
 const source = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
 const lines = (await readFile(new URL('../db/source/game_strings_ko.tsv', import.meta.url), 'utf8')).split('\n');
@@ -42,6 +47,13 @@ for (const [group, keys] of Object.entries(wanted)) {
     const korean = exact.get(key) ?? folded.get(key.toLowerCase());
     if (korean) out.strings[group][key] = korean; else missing.push(`${group}: ${key}`);
   }
+}
+// Warbond tiles: every English string a tile may carry; only the ones the game table has are kept
+// (a tile without one keeps its Namu Wiki name or stays English).
+out.strings.warbondItems = {};
+for (const key of [...new Set(warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => TILE_KINDS.includes(item.kind)).flatMap(gameTileKeys))].sort()) {
+  const korean = exact.get(key) ?? folded.get(key.toLowerCase());
+  if (korean) out.strings.warbondItems[key] = korean;
 }
 if (missing.length) throw new Error(`No Korean in db/source/game_strings_ko.tsv for:\n  ${missing.join('\n  ')}\nCheck the English against the table (it is the game's exact text).`);
 await writeFile(new URL('../db/source/game_names_ko.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');

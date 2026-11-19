@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg, MAX_SVG_BYTES } from './svg-safety.mjs';
-import { parseWarbondPage, parseCurrency, parseDate, findTemplates, templateParams, parseTableRows, layoutProblems, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
+import { parseWarbondPage, parseCurrency, parseDate, findTemplates, templateParams, parseTableRows, layoutProblems, BOARD, UNCONFIRMED, gameTileKeys } from './warbond-parse.mjs';
 import { generate, buildWarbonds, warbondId, baseTitle, RENAMED, pickLatest, koreanItemMatcher, KOREAN_ITEM_KINDS, ORDER_MATCHED } from './build-warbonds.mjs';
 import { parseBoosters, parseTitles, parseBoards, BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
 import { warbonds, warbondTiers, warbondBoard, warbondDiscrepancies, warbondLinks, latestWarbondId } from '../dist/data/warbonds.js';
@@ -415,8 +415,16 @@ ok(/^\d{4}-\d\d-\d\d$/.test(namu.retrievedAt) && namu.pages.length === 3 && namu
 ok([...namu.boosters, ...namu.titles, ...namu.boards.flatMap(b => b.pages.flatMap(p => p.items))].every(r => /[가-힣]/.test(r.name)), 'Namu source: every name is Korean');
 ok(namu.boards.every(board => warbonds.some(w => w.name === board.warbond)), 'Namu source: every board is a warbond of the site');
 const tiles = warbonds.flatMap(w => w.pages.flatMap(p => p.items.map(item => ({ warbond: w, page: p, item }))));
+// A tile's Korean name is the game's own (db/source/game_names_ko.json) when the game table has it,
+// otherwise the Namu Wiki name for this English name or board tile.
+const gameItems = JSON.parse(await readFile(new URL('db/source/game_names_ko.json', root), 'utf8')).strings.warbondItems ?? {};
+for (const { warbond, page, item } of tiles.filter(t => KOREAN_ITEM_KINDS.includes(t.item.kind))) {
+  const game = gameTileKeys(item).map(key => gameItems[key]).find(Boolean);
+  if (game) ok(item.ko === game, `${warbond.id} p${page.number} ${item.name}: shows ${item.ko}, the game says ${game} (run build-game-names and build-warbonds)`);
+}
 for (const { warbond, page, item } of tiles.filter(t => t.item.ko)) {
   ok(KOREAN_ITEM_KINDS.includes(item.kind) && !item.ref, `${warbond.id} p${page.number} ${item.name}: Korean name only on a cosmetic or booster tile`);
+  if (gameTileKeys(item).some(key => gameItems[key])) continue;
   const listed = { booster: namu.boosters, title: namu.titles }[item.kind]?.filter(r => r.en.toLowerCase() === item.name.toLowerCase()).map(r => r.name) ?? [];
   const board = namu.boards.find(b => b.warbond === warbond.name)?.pages.find(p => p.number === page.number)?.items.filter(c => BOARD_KINDS[c.kind] === item.kind && c.cost === item.cost).map(c => c.name) ?? [];
   const ordered = ORDER_MATCHED.some(rule => rule.warbond === warbond.name && rule.page === page.number && rule.kind === item.kind);

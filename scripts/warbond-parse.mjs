@@ -94,6 +94,22 @@ export function editDistance(a, b) {
 }
 
 const firstLink = raw => String(raw ?? '').match(/\[\[([^|\]#]*)(?:#[^|\]]*)?(?:\|[^\]]*)?\]\]/)?.[1]?.trim() || null;
+// English strings a cosmetic or booster tile may have in the game's own text: patterns name the
+// hellpod / shuttle / exosuit / vehicle / tank variant only in their image file name, and some
+// tiles add " Player Card" or " Pattern" to the game name.
+export function gameTileKeys(item) {
+  const keys = [];
+  const fromImage = item.image?.replace(/ (Icon|Render)\.(png|webp|jpe?g)$/i, '');
+  if (item.kind === 'pattern' && fromImage) {
+    keys.push(fromImage, fromImage.replace(/ Pattern$/, ' Tank Pattern'));
+    // The wiki file names a vehicle model or a plural the game text leaves out
+    // ("Chameleon Camo Emancipator Exosuit", "Castellans Green" for "Castellan Green").
+    keys.push(fromImage.replace(/ \w+ (Exosuit|Vehicle) Pattern$/, ' $1 Pattern'), fromImage.replace(/^(\w+)s /, '$1 '));
+  }
+  keys.push(item.name, item.name.replace(/ (Player Card|Pattern|Cape)$/, ''));
+  return [...new Set(keys)];
+}
+
 export const normalizeName = text => String(text ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
 const stem = file => normalizeName(String(file ?? '').replace(/\.(png|svg|jpe?g|webp|gif)$/i, ''));
 

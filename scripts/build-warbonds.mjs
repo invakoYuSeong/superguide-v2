@@ -7,7 +7,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseWarbondPage, normalizeName, layoutProblems, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
+import { parseWarbondPage, normalizeName, layoutProblems, gameTileKeys, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
 import { BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { stratagems } from '../dist/core/catalog.js';
@@ -72,7 +72,9 @@ export function koreanItemMatcher(namu) {
   };
 }
 
-export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems, namuItems = null } = {}) {
+// gameNames: { English game string: Korean } (db/source/game_names_ko.json strings.warbondItems); a tile's
+// game name wins over the Namu Wiki one (AGENTS.md naming rule).
+export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems, namuItems = null, gameNames = null } = {}) {
   const koreanItem = namuItems ? koreanItemMatcher(namuItems) : null;
   const koreanMisses = [];
   const weaponByName = new Map(weapons.map(item => [normalizeName(item.en), item]));
@@ -135,9 +137,10 @@ export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons
           ...(item.link && item.link !== item.name ? { link: item.link } : {}), // wiki page title when it differs from the name
         };
       });
-      if (koreanItem) items.forEach((item, index) => {
+      if (koreanItem || gameNames) items.forEach((item, index) => {
         if (!KOREAN_ITEM_KINDS.includes(item.kind)) return;
-        const { ko, reason } = koreanItem(name, p.number, item, items);
+        const game = gameNames && gameTileKeys(item).map(key => gameNames[key]).find(Boolean);
+        const { ko, reason } = game ? { ko: game } : koreanItem ? koreanItem(name, p.number, item, items) : { reason: 'not in the game strings' };
         if (ko) items[index] = { name: item.name, ko, ...item }; // Korean name next to the English one
         else koreanMisses.push({ warbondId: id, page: p.number, kind: item.kind, name: item.name, reason });
       });
@@ -196,14 +199,16 @@ export async function generate() {
   const snapshot = JSON.parse(await readFile(new URL('db/source/wiki_warbonds.json', root), 'utf8'));
   const koreanNames = JSON.parse(await readFile(new URL('db/source/warbond_korean_names.json', root), 'utf8'));
   const namuItems = JSON.parse(await readFile(new URL('db/source/namu_warbond_items.json', root), 'utf8'));
-  const { warbonds, discrepancies, links, layouts, latestId, koreanMisses } = buildWarbonds(snapshot, koreanNames, { namuItems });
+  const gameNames = JSON.parse(await readFile(new URL('db/source/game_names_ko.json', root), 'utf8')).strings.warbondItems ?? {};
+  const { warbonds, discrepancies, links, layouts, latestId, koreanMisses } = buildWarbonds(snapshot, koreanNames, { namuItems, gameNames });
   const exports = {
     warbondsCheckedAt: snapshot.retrievedAt,
     warbondsSource: {
       source: snapshot.source, site: 'https://helldivers.wiki.gg/', license: 'CC BY-NC-SA 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/', file: 'db/source/wiki_warbonds.json',
       koreanNamesFile: 'db/source/warbond_korean_names.json',
-      koreanItemNamesFile: 'db/source/namu_warbond_items.json', // tile `ko`: Korean names of cosmetics and boosters
+      koreanItemNamesFile: 'db/source/namu_warbond_items.json', // tile `ko`: Korean names of cosmetics and boosters (fallback)
+      gameNamesFile: 'db/source/game_names_ko.json', // tile `ko` from the game's own strings first
     },
     warbondBoard: BOARD, // page board size in tiles (columns × rows)
     warbondTiers: [{ id: 'standard', name: '기본' }, { id: 'premium', name: '프리미엄' }, { id: 'legendary', name: '전설' }],
