@@ -9,7 +9,7 @@
 ## 지금 상태
 
 - **보수 점검 수정(2026-11-19, 브랜치 `fix/maintenance-audit`, PR 예정)**
-  - **모바일 영어 화면(360~375px) 가로 넘침·하단 탭바 수정**(`dist/ui/app.css`): 영어 화면에서 채권 필터 칩 줄(`.wb-filters .chips`)이 `flex-wrap: nowrap`으로 378px까지 밀려나 모바일 뷰포트 전체가 축소되고, 하단 7칸 탭바(`.tabbar`)도 `Stratagems`·`Demolition` 폭으로 넘치던 문제를 `flex-wrap: wrap`·`repeat(7, minmax(0, 1fr))`·유동 글자 크기(`clamp(9px, 2.5vw, 11px)`)로 해결. `.biome-thumb` 중복 `width` 정리.
+  - **모바일 영어 화면(360~375px) 가로 넘침·하단 탭바 수정**(`dist/ui/app.css`): 영어 화면에서 채권 필터 칩 줄(`.wb-filters .chips`)이 `flex-wrap: nowrap`으로 378px까지 밀려나 모바일 뷰포트 전체가 축소되고, 하단 7칸 탭바(`.tabbar`)도 `Stratagems`·`Demolition` 폭으로 넘치던 문제를 `flex-wrap: wrap`·`repeat(7, minmax(0, 1fr))`·영어 전용 유동 글자 크기(`:root[lang="en"] .tabbar a`, 한국어는 원래 11px 유지)로 해결. `.biome-thumb` 중복 `width` 정리.
   - **테마 색·오래된 문구·문서 동기화**: `dist/ui/main.js`의 `THEME_COLORS`를 게임 스타일 색(`#0c0e0d` / `#f1f1ea`)으로 `index.html`과 맞춤. `dist/index.html` 하단 확인 날짜(`11-08 재대조`)와 검색창 안내 문구(방어구·부스터 포함), `README.md`(7탭 기준) 최신화.
   - **부착물 3종 게임 공식 이름 반영**: `build-game-names.mjs`가 `attachments` 항목을 추출하고 `build-attachments.mjs`가 게임 문장표를 나무위키보다 우선 적용하도록 보강 → `Flashlight`(조명)·`Focus Lens`(초점 렌즈)·`Triple Lens`(삼중 렌즈)까지 주무기 부착물 29종 모두 한국어 표시(`left in English: 0`). `test-attachments.mjs` 검증 추가.
   - **중기관총(MG-206) 인체공학성 확인**: 위키 인포박스(`rev 142132`)에는 인체공학성 항목이 없고, datamine(`weapons_data.json` `MG-206 HEAVY MACHINE GUN`) 값이 `0`임을 확인해 그대로 유지.

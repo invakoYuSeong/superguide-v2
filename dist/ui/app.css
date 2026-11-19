@@ -1054,7 +1054,8 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
   .detail-grid.wb-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wb-latest-cover { aspect-ratio: 5 / 2; }
   .wb-latest-name h2 { font-size: 28px; }
-  .tabbar a { display: grid; justify-items: center; gap: 2px; min-width: 0; padding: 6px 0; font-size: clamp(9px, 2.5vw, 11px); letter-spacing: -0.02em; white-space: nowrap; font-weight: 650; color: var(--text-3); text-decoration: none; overflow: hidden; }
+  .tabbar a { display: grid; justify-items: center; gap: 2px; min-width: 0; padding: 6px 0; font-size: 11px; white-space: nowrap; font-weight: 650; color: var(--text-3); text-decoration: none; overflow: hidden; }
+  :root[lang="en"] .tabbar a { font-size: clamp(9px, 2.5vw, 11px); letter-spacing: -0.02em; }
   .tabbar a[aria-current] { color: var(--accent-text); }
   body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
   main { padding: 20px 16px 40px; }
