@@ -9,6 +9,7 @@ import { html, render, $, $$, badge, external } from '../dom.js';
 import { L, lang } from '../../core/i18n.js';
 
 export const WEIGHT_IDS = armorWeights.map(weight => weight.id);
+export const armorById = id => armors.find(armor => armor.id === id) ?? null;
 const weightName = id => armorWeights.find(weight => weight.id === id)?.name ?? id;
 const warbondById = new Map(warbonds.map(warbond => [warbond.id, warbond]));
 const unconfirmed = () => html`<span class="dim">${L('미확인', 'Unconfirmed')}</span>`;
@@ -40,7 +41,7 @@ let focus = '';
 const stat = (label, value) => html`<div><dt>${label}</dt><dd>${value != null ? num(value) : unconfirmed()}</dd></div>`;
 
 function armorCard(armor) {
-  return html`<li class="armor-item" id="armor-item-${armor.id}" data-weight="${armor.weight}" ${armor.id === focus ? 'data-focus' : ''}>
+  return html`<li class="armor-item" id="armor-item-${armor.id}" data-weight="${armor.weight}" data-armor-open="${armor.id}" tabindex="0" role="button" aria-label="${armor.name} ${L('자세히 보기', 'details')}" ${armor.id === focus ? 'data-focus' : ''}>
     <span class="armor-art">${picture(armor.image, '', '') || html`<span class="faint">${armor.code || ''}</span>`}</span>
     <div class="armor-body">
       <div class="armor-title"><h4>${armor.name}</h4>${badge(weightName(armor.weight), `outline weight-${armor.weight}`)}</div>
@@ -64,7 +65,7 @@ function passiveSection(passive, list) {
 }
 
 /** One armor set in the warbond item pane, in the same shape as the weapon and stratagem details. */
-export function armorDetail(armor, { header = null, titleId = 'sheet-title' } = {}) {
+export function armorDetail(armor, { header = null, titleId = 'sheet-title', inGear = false } = {}) {
   const passive = armorPassives.find(item => item.id === armor.passive);
   const row = (label, value, caption = '') => html`<div><dt>${label}</dt><dd class="${value == null ? 'dim' : ''}">${value != null ? num(value) : unconfirmed()}</dd>${caption ? html`<div class="caption">${caption}</div>` : ''}</div>`;
   return html`${header}
@@ -79,7 +80,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title' } = 
       <div><dt>${L('얻는 곳', 'Where to get it')}</dt><dd class="dim">${source(armor)}</dd></div>
     </dl>
     ${passive ? html`<section class="block"><h3>${L('패시브', 'Passive')} · ${passive.name}</h3><ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul></section>` : ''}
-    <div class="links"><a class="button primary" href="#/gear?tab=armor&a=${armor.id}">${L('같은 패시브 방어구 보기', 'Armor with the same passive')}</a></div>
+    ${inGear ? '' : html`<div class="links"><a class="button primary" href="#/gear?tab=armor&a=${armor.id}">${L('같은 패시브 방어구 보기', 'Armor with the same passive')}</a></div>`}
     <div class="sources">
       <span>${L('자료 확인', 'Checked')} ${armorCheckedAt}</span>
       ${external(armor.wiki, L('위키 항목', 'Wiki page'))}
@@ -89,7 +90,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title' } = 
 }
 
 /** Renders the armor tab into panel. state.weight filters by weight ('' = all); state.focus marks one set. */
-export function renderArmor(panel, { state, onChange }) {
+export function renderArmor(panel, { state, onChange, onOpen = null }) {
   focus = state.focus || '';
   const shown = armors.filter(armor => !state.weight || armor.weight === state.weight);
   const groups = armorPassives.map(passive => [passive, shown.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length);
@@ -105,7 +106,12 @@ export function renderArmor(panel, { state, onChange }) {
     <div class="armor-passives">${groups.map(([passive, list]) => passiveSection(passive, list))}</div>`);
   const marked = focus && $(`#armor-item-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
-  for (const button of $$('[data-weight]', panel)) button.addEventListener('click', () => { state.weight = button.dataset.weight; state.focus = ''; onChange(); });
+  for (const button of $$('button[data-weight]', panel)) button.addEventListener('click', () => { state.weight = button.dataset.weight; state.focus = ''; onChange(); });
+  // A set opens its details in the side sheet (click, Enter or Space).
+  if (onOpen) for (const item of $$('[data-armor-open]', panel)) {
+    item.addEventListener('click', event => { if (!event.target.closest('a')) onOpen(item.dataset.armorOpen); });
+    item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onOpen(item.dataset.armorOpen); } });
+  }
   for (const button of $$('[data-jump]', panel)) button.addEventListener('click', () => {
     const target = $(`#armor-${button.dataset.jump}`, panel);
     target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });

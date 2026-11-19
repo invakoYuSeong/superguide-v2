@@ -2,7 +2,7 @@
 // check a loadout against a faction's key enemies.
 //   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text>&sort=<key>
 //   #/gear?tab=loadout&p=<primary>&s=<secondary>&g=<throwable>&st=<a,b,c,d>&f=<faction>
-//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>   (body armor grouped by passive, gear-armor.js)
+//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>&d=<armor>   (body armor grouped by passive, gear-armor.js; d: open its details)
 //   #/gear?tab=boosters&b=<booster>   (boosters, gear-boosters.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
@@ -116,7 +116,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -351,7 +351,7 @@ async function renderLoadout() {
 }
 
 // --- Armor -------------------------------------------------------------------------
-const armor = { weight: '', focus: '' };
+const armor = { weight: '', focus: '', detail: '' };
 const ARMOR_WEIGHTS = ['light', 'medium', 'heavy'];
 let armorUi = null;
 async function renderArmor() {
@@ -362,7 +362,19 @@ async function renderArmor() {
   }
   const module = await armorUi;
   if (state.tab !== 'armor') return;
-  module.renderArmor(panel, { state: armor, onChange: () => { syncUrl(); renderArmor(); } });
+  module.renderArmor(panel, { state: armor, onChange: () => { syncUrl(); renderArmor(); }, onOpen: id => { armor.detail = id; syncUrl(); openArmor(); } });
+  if (armor.detail) openArmor();
+}
+// An armor set's details in the side sheet, like a weapon or stratagem (#/gear?tab=armor&d=<armor>).
+async function openArmor() {
+  const module = await armorUi;
+  const item = module.armorById(armor.detail);
+  if (!item || state.tab !== 'armor') { armor.detail = ''; return; }
+  const header = html`<div class="sheet-top"><span>${L('방어구', 'Armor')} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`;
+  ctx.openSheet(module.armorDetail(item, { header, inGear: true }), {
+    label: `${T(item.name)} ${L('상세', 'details')}`,
+    onClose: () => { if (armor.detail === item.id) { armor.detail = ''; syncUrl(); } },
+  });
 }
 
 // --- Boosters ----------------------------------------------------------------------
@@ -459,7 +471,7 @@ function selectVariant(id) {
 export function update(route) {
   const q = route.query;
   state.tab = q.tab === 'loadout' || q.tab === 'armor' || q.tab === 'boosters' ? q.tab : 'browse';
-  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', focus: q.a || '' });
+  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', focus: q.a || '', detail: q.d || '' });
   else if (state.tab === 'boosters') booster.focus = q.b || '';
   else if (state.tab === 'browse') {
     Object.assign(state, {

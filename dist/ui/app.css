@@ -822,6 +822,10 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 @media (max-width: 420px) { .info-list { grid-template-columns: 1fr; } .info-item { grid-template-columns: 48px minmax(0, 1fr); } .info-icon { width: 48px; height: 48px; } }
 .armor-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* Armor in the warbond item pane: the render on a dark plate, like .gear-art.large. */
+.armor-item[data-armor-open] { cursor: pointer; }
+.armor-item[data-armor-open]:hover, .armor-item[data-armor-open]:focus-visible { border-color: var(--text-3); }
+.sheet .armor-detail-art { height: 360px; }
+.sheet .armor-detail-art img { max-height: 340px; }
 .armor-detail-art { display: grid; place-items: center; height: 220px; background: #141714; border: 1px solid var(--line-strong); font: 600 13px/1.2 var(--cond); color: var(--text-3); }
 .armor-detail-art img { max-width: 90%; max-height: 200px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
 .detail-grid dd.dim a { color: var(--accent-text); font-weight: 650; }
