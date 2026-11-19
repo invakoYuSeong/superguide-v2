@@ -5,6 +5,12 @@ import { explosionsOf, partPool } from './combat.js';
 import { L, T, lang, locale, plural } from './i18n.js';
 
 export const num = value => Number.isFinite(value) ? value.toLocaleString(locale(), { maximumFractionDigits: 2 }) : L('미확인', 'Unverified');
+// The strongest of several attacks ({ demo, stun, push }): highest demolition, then stagger, then push.
+const forceRank = part => [part.demo ?? -1, part.stun ?? -1, part.push ?? -1];
+export function strongest(list) {
+  const beats = (a, b) => { const x = forceRank(a), y = forceRank(b); for (let i = 0; i < x.length; i++) if (x[i] !== y[i]) return x[i] > y[i]; return false; };
+  return list.reduce((best, part) => !best || beats(part, best) ? part : best, null);
+}
 export const pct = value => Number.isFinite(value) ? `${num(value)}%` : L('미확인', 'Unverified');
 export const stageName = stage => stage.copy ? `${T(stage.part.name)} (${L(`${stage.copy}번째`, `copy ${stage.copy}`)})` : T(stage.part.name);
 

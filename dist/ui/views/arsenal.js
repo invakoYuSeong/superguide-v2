@@ -1,7 +1,7 @@
 // Stratagem catalogue: filter, sort, detail sheet and side-by-side comparison.
 import { stratagems, stratagemById, categories, categoryOf, apBands, apBandOf, withVariant, variantOf, CHECKED_AT } from '../../core/catalog.js';
 import { search, stratagemFields } from '../../core/search.js';
-import { num } from '../../core/explain.js';
+import { num, strongest } from '../../core/explain.js';
 import { shieldRecovery } from '../../core/defense.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom.js';
@@ -269,6 +269,14 @@ function timingBlock(item) {
 const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment') };
 export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
   'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
+const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
+function fallbackRows(profile, value) {
+  const top = key => profile.modes.map(mode => mode[key]).filter(force => force != null)
+    .reduce((best, force) => best == null || (typeof force === 'number' ? force : force.max) > (typeof best === 'number' ? best : best.max) ? force : best, null);
+  const rows = [['direct', L('직격', 'Direct')], ['explosion', L('폭발', 'Blast')]].map(([key, label]) => [label, top(key)]).filter(([, force]) => force != null)
+    .map(([label, force]) => ({ label, text: html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${value(force)}</span>` }));
+  return rows.length ? rows : [{ label: L('철거력', 'Demolition'), text: html`<span class="force-line dim">${L('확인 중', 'Unverified')}</span>` }];
+}
 function specialBlock(item, profile) {
   const forces = stratagemStats[item.id]?.forces ?? [];
   if (!profile?.modes?.length && !forces.length) return '';
@@ -276,14 +284,17 @@ function specialBlock(item, profile) {
   // Where the demolition data keeps a range (sources disagree), show that range instead of the datamine number.
   const range = kind => profile?.modes?.map(mode => kind === 'blast' ? mode.explosion : mode.direct).find(force => force && typeof force === 'object');
   const line = (demo, stun, push) => html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${demo} · <b>${L('저지력', 'Stagger')}</b> ${stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${push ?? '?'}</span>`;
+  // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
+  // demolition, then stagger, then push. Fragments are left out.
+  const parts = forces.flatMap(group => group.parts);
+  const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast'))].filter(Boolean);
   const rows = forces.length
-    ? forces.flatMap((group, index) => group.parts.map(part => ({
-      label: [group.weapon ?? (forces.length > 1 ? L(`공격 ${index + 1}`, `Attack ${index + 1}`) : null), FORCE_KIND[part.kind]].filter(Boolean).join(' · '),
+    ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
+      label: FORCE_KIND[part.kind],
       text: line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push),
-    })))
-    // No attack records in the datamine: the demolition data alone.
-    : profile.modes.map(mode => ({ label: T(mode.name), text: mode.forceUnknown ? html`<span class="force-line dim">${L('철거력 확인 중', 'Demolition force unverified')}</span>`
-      : html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${[mode.direct != null ? L(`직격 ${value(mode.direct)}`, `direct ${value(mode.direct)}`) : '', mode.explosion != null ? L(`폭발 ${value(mode.explosion)}`, `blast ${value(mode.explosion)}`) : ''].filter(Boolean).join(' · ')}</span>` }));
+    }))
+    // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.
+    : fallbackRows(profile, value);
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
     <dl class="detail-grid">${rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`)}</dl>
     <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>

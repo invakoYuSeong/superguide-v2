@@ -10,7 +10,7 @@ import { weaponImages } from '../../data/weapon-images.js';
 import { attachmentParts, weaponAttachments } from '../../data/weapon-attachments.js';
 import { apBandOf } from '../../core/catalog.js';
 import { search, personalNames } from '../../core/search.js';
-import { num } from '../../core/explain.js';
+import { num, strongest } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure } from '../blast.js';
 import { warbondChip } from '../warbond-chip.js';
@@ -270,11 +270,15 @@ export function attachmentTable(w) {
 
 // Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
 function specialBlock(w) {
-  const rows = (w.variants?.length ? w.variants.map(v => ({ ...v, label: variantLabel(v) })) : [{ ...w, label: null }])
+  // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
+  // demolition, then stagger, then push. A record delivered as an explosion counts as a blast.
+  const all = (w.variants?.length ? w.variants : [w])
     .filter(row => row.demolition != null || row.stun != null || row.push != null)
-    .filter((row, index, list) => list.findIndex(other => other.demolition === row.demolition && other.stun === row.stun && other.push === row.push && String(other.label) === String(row.label)) === index);
+    .map(row => ({ ...row, blast: row.delivery === 'explosion' }));
+  const top = list => strongest(list.map(row => ({ ...row, demo: row.demolition })));
+  const rows = [top(all.filter(row => !row.blast)), top(all.filter(row => row.blast))].filter(Boolean);
   if (!rows.length) return '';
-  const cell = row => html`<div><dt>${row.label ?? L('기본 공격', 'Main attack')}</dt><dd class="force-lines">
+  const cell = row => html`<div><dt>${row.blast ? L('폭발', 'Blast') : L('직격', 'Direct')}</dt><dd class="force-lines">
     <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
     <dl class="detail-grid">${rows.map(cell)}</dl>
