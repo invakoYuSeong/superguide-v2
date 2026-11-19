@@ -356,15 +356,32 @@ for (const warbond of warbonds) for (const p of warbond.pages) {
   });
   ok(p.number === 1 ? text.includes('처음부터 해금') : p.unlock == null || text.includes(`메달 <b>${p.unlock.toLocaleString('ko-KR')}</b>개 사용 시 해금`), `${warbond.id} p${p.number}: unlock text`);
 }
-ok(warbonds.flatMap(w => w.pages.flatMap(p => p.items)).filter(i => i.costStatus !== 'confirmed' || i.nameStatus || i.pageStatus).length > 0, 'the real data has unconfirmed tiles to show');
+// A cost the warbond page disagrees on is settled by the item's own page (scripts/warbond-resolve.mjs).
+{
+  const { itemPageFacts } = await import('./warbond-resolve.mjs');
+  const itemPages = JSON.parse(await readFile(new URL('db/source/wiki_warbond_item_pages.json', root), 'utf8')).pages;
+  const settledTiles = warbonds.flatMap(w => w.pages.flatMap(p => p.items.map(item => ({ w, p, item })))).filter(t => t.item.costSource);
+  ok(settledTiles.length >= 7, 'the item pages settle the disputed warbond tiles');
+  for (const { w, p, item } of settledTiles) {
+    const own = itemPages[item.costSource.page];
+    ok(own && own.revision === item.costSource.revision && itemPageFacts(item, own.text)?.cost === item.cost && item.costStatus === 'confirmed', `${w.id} p${p.number} ${item.name}: cost ${item.cost} is what its own page says (run fetch-warbond-item-pages and build-warbonds)`);
+  }
+}
+// Every tile disagreement is settled now (item pages, game strings); an unconfirmed tile is still
+// shown with its marker, checked on a copy whose first tile is made unconfirmed.
+const unsureBond = structuredClone(warbonds.find(w => w.id === 'castellans-creed'));
+Object.assign(unsureBond.pages[0].items[0], { cost: null, costStatus: UNCONFIRMED, templateCost: 30, tableCost: 39 });
+{
+  const body = String(pageBlock(unsureBond.pages[0], unsureBond));
+  ok(body.includes(`>${UNCONFIRMED}</span>`) && body.includes('data-unsure'), 'an unconfirmed tile shows the 미확인 marker');
+}
 addEnglish(Object.entries(english));
 setLang('en');
 const sampleBond = warbonds.find(w => w.id === 'democratic-detonation');
 const enBoard = String(pageBlock(sampleBond.pages[1], sampleBond));
 ok(enBoard.includes('Unlocks after spending <b>') && enBoard.includes('>PAGE_2<') && enBoard.includes('>Page 2<') && enBoard.includes('medals</span>'), 'English board header and price text');
 ok(String(pageBlock(sampleBond.pages[0], sampleBond)).includes('Unlocked from the start'), 'English page 1 text');
-const unsureBond = warbonds.find(w => w.pages.some(p => p.items.some(i => i.costStatus !== 'confirmed')));
-const unsureEn = String(pageBlock(unsureBond.pages.find(p => p.items.some(i => i.costStatus !== 'confirmed')), unsureBond));
+const unsureEn = String(pageBlock(unsureBond.pages[0], unsureBond));
 ok(unsureEn.includes('>Unconfirmed</span>') && unsureEn.includes('Cost unconfirmed: template'), 'English unconfirmed marker and note');
 ok(!/[가-힣]/.test(enBoard.replace(/<[^>]*>/g, ' ')), 'English board text has no Korean');
 for (const warbond of warbonds) for (const p of warbond.pages) {

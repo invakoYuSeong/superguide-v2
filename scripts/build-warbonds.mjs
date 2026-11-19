@@ -9,6 +9,7 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseWarbondPage, normalizeName, layoutProblems, gameTileKeys, BOARD, UNCONFIRMED } from './warbond-parse.mjs';
 import { BOARD_KINDS } from './fetch-namu-warbond-items.mjs';
+import { resolveWithItemPages } from './warbond-resolve.mjs';
 import { personalWeapons } from '../dist/data/personal-weapons.js';
 import { stratagems } from '../dist/core/catalog.js';
 
@@ -74,7 +75,9 @@ export function koreanItemMatcher(namu) {
 
 // gameNames: { English game string: Korean } (db/source/game_names_ko.json strings.warbondItems); a tile's
 // game name wins over the Namu Wiki one (AGENTS.md naming rule).
-export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems, namuItems = null, gameNames = null } = {}) {
+// itemPages: db/source/wiki_warbond_item_pages.json `pages`, the items' own wiki pages that settle a
+// template/table cost disagreement (scripts/warbond-resolve.mjs).
+export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons, strats = stratagems, namuItems = null, gameNames = null, itemPages = null } = {}) {
   const koreanItem = namuItems ? koreanItemMatcher(namuItems) : null;
   const koreanMisses = [];
   const weaponByName = new Map(weapons.map(item => [normalizeName(item.en), item]));
@@ -101,7 +104,13 @@ export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons
     usedKorean.add(key);
     if (!parsed.tier) throw new Error(`${title}: tier unknown`);
     const id = warbondId(title);
-    for (const { reason, ...record } of parsed.discrepancies) discrepancies.push({ warbondId: id, ...record });
+    // A disagreement the item's own page settles, or a name the game's own text confirms, is no longer 미확인.
+    const settled = itemPages ? resolveWithItemPages(parsed, itemPages) : [];
+    const settledKey = new Set(settled.map(entry => `${entry.page}|${entry.name}`));
+    for (const page of parsed.pages) for (const item of page.items) if (item.nameStatus && gameNames?.[item.name]) { delete item.nameStatus; delete item.tableName; }
+    const stillOpen = ({ code, page, item, template }) => !(['cost-differs', 'page-differs'].includes(code) && [...settledKey].some(key => key.startsWith(`${page}|`) && item?.startsWith(`${key.split('|')[1]} (`)))
+      && !(code === 'name-differs' && gameNames?.[template]);
+    for (const { reason, ...record } of parsed.discrepancies) if (stillOpen(record)) discrepancies.push({ warbondId: id, ...record });
     const counts = { weapons: 0, stratagems: 0 };
     const pages = parsed.pages.map(p => {
       const items = p.items.map(item => {
@@ -130,6 +139,7 @@ export function buildWarbonds(snapshot, koreanNames, { weapons = personalWeapons
           ...(item.type && /Armor$/.test(item.type) ? { weight: item.type.split(' ')[0].toLowerCase() } : {}),
           cost: item.cost, costStatus: item.costStatus,
           ...(confirmed ? {} : { templateCost: item.templateCost, tableCost: item.tableCost }),
+          ...(item.costSource ? { costSource: item.costSource } : {}), // the item's own page settled the cost
           ...(item.pageStatus ? { pageStatus: item.pageStatus, tablePage: item.tablePage } : {}),
           ...(item.nameStatus ? { nameStatus: item.nameStatus, tableName: item.tableName } : {}),
           ...(item.superCredits ? { superCredits: item.superCredits } : {}),
@@ -200,7 +210,8 @@ export async function generate() {
   const koreanNames = JSON.parse(await readFile(new URL('db/source/warbond_korean_names.json', root), 'utf8'));
   const namuItems = JSON.parse(await readFile(new URL('db/source/namu_warbond_items.json', root), 'utf8'));
   const gameNames = JSON.parse(await readFile(new URL('db/source/game_names_ko.json', root), 'utf8')).strings.warbondItems ?? {};
-  const { warbonds, discrepancies, links, layouts, latestId, koreanMisses } = buildWarbonds(snapshot, koreanNames, { namuItems, gameNames });
+  const itemPages = JSON.parse(await readFile(new URL('db/source/wiki_warbond_item_pages.json', root), 'utf8')).pages;
+  const { warbonds, discrepancies, links, layouts, latestId, koreanMisses } = buildWarbonds(snapshot, koreanNames, { namuItems, gameNames, itemPages });
   const exports = {
     warbondsCheckedAt: snapshot.retrievedAt,
     warbondsSource: {

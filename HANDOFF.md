@@ -36,7 +36,7 @@
 - **전송 네트워크 철거력 10**: 위키에 값 없음, 사용자가 받아들인 값(`thresholdSource: 'user'`).
 - 부착물 Flashlight·Focus Lens·Triple Lens는 영어 표시 중. 게임 이름(조명·초점 렌즈·삼중 렌즈)이 문장표에 있으니 바꿀지 사용자 결정 전.
 - StA-52 예비 탄창: datamine 7, 위키 6(rev 140347). 위키가 7로 바뀌면 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
-- 전쟁 채권 위키 불일치 '미확인' 21건(`warbondDiscrepancies`).
+- 전쟁 채권 '미확인' 12건은 모두 페이지 해금 메달 수입니다(2쪽 'Unknown' 9건, 마지막 쪽 해금이 인포박스와 다른 3건: 철갑의 민주주의·공성 파괴자·존재하지 않는 부대). 위키·나무위키·게임 문장표 어디에도 값이 없어 그대로 둠. 항목 비용 불일치는 2026-11-19에 항목 개별 문서로 판정(`node scripts/fetch-warbond-item-pages.mjs` → `build-warbonds`, `scripts/warbond-resolve.mjs`): TG-8 헬멧 30, SS-33 방어구 45·헬멧 30, CPG-48 헬멧 35, 무결의 문장 카드 6, 초과 EAT 할당 2쪽 55, 통합 화재 진압기 3쪽 65. CPG-48 헬멧·무결의 문장 카드는 나무위키 총 메달 수(888)가 보드 틀 값(30·7) 합과 맞아, 개별 문서 값(35·6)과 다름에 유의.
 - **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 사용자가 시작하라고 할 때 진행.
 - 넣지 않은 것: Eagle Fly By·Orbital Confetti 등 피해 없는 스트라타젬, 적 크기 분류의 Civilian·Helldiver·SEAF Soldier·GATER·Illuminate Overship, LAS-44 Nova의 Anti-Tank 태그.
 - 전쟁 채권 SVG 18개·이미지 목록 3개가 줄바꿈 차이로만 '변경'으로 보일 수 있음(내용 변경 없음, 커밋하지 않음).
@@ -64,6 +64,6 @@
 
 - 위키 데이터 갱신: revision 먼저 확인(MediaWiki API `api.php?action=query&prop=revisions`) → `scripts/fetch-*` → `build-*` → `npm run check`. 새 부스터·환경 조건·임무·이름 변경은 `db/source/*_korean.json`, `structure_objectives.json`, `game_name_targets.json`에 게임 영어 원문으로 적고 `node scripts/build-game-names.mjs` → 해당 `build-*`. 문장표에 없는 영어면 빌드가 멈춥니다(게임 원문과 글자 그대로 맞춰야 함).
 - wiki.gg는 curl 기본 User-Agent로 받으세요(브라우저 User-Agent는 차단). 짧은 시간에 많이 요청하면 429를 줍니다.
-- 전쟁 채권 갱신: `node scripts/fetch-warbonds.mjs` → `node scripts/build-warbonds.mjs` → `npm run check`. 새 채권은 `db/source/warbond_korean_names.json`에 한국어 이름이 없으면 빌드가 실패하니 사용자에게 이름을 받으세요.
+- 전쟁 채권 갱신: `node scripts/fetch-warbonds.mjs` → `node scripts/fetch-warbond-item-pages.mjs` → `node scripts/build-warbonds.mjs` → `npm run check`. 새 채권은 `db/source/warbond_korean_names.json`에 한국어 이름이 없으면 빌드가 실패하니 사용자에게 이름을 받으세요.
 - 전쟁 채권 이미지 갱신(채권 빌드 후): `python3 scripts/tools/fetch-warbond-covers.py` → `... --latest-large` → `python3 scripts/tools/fetch-warbond-item-images.py` → `python3 scripts/tools/test-warbond-item-images.py` → `npm run check` → `node scripts/check-weapons.mjs`. 다운로더는 Node.js, curl, Pillow(WebP)가 필요합니다. SVG 안전 검사는 `scripts/svg-safety.mjs`.
 - `scripts/tools/fetch-weapon-images.py`는 모든 이미지를 다시 인코딩합니다. 새 이미지·원본이 바뀐 이미지만 커밋하세요.
