@@ -27,7 +27,7 @@ function tile(item) {
   const weapon = item.ref?.view === 'gear' ? weaponById.get(item.ref.id) : null;
   const kind = weapon ? L(...(WEAPON_KIND[weapon.category] ?? KIND.weapon)) : L(...KIND[item.kind]);
   const ko = weapon ? weapon.name : item.ko;
-  const en = weapon ? weapon.en : item.set ?? item.name.replace(/\s*\((Cape|Player ?Card|Emote)\)$/i, '');
+  const en = weapon ? weapon.en : item.base;
   const name = ko ? L(ko, en) : en;
   const sub = lang === 'en' || !ko ? '' : en;
   const image = item.image ? warbondItemImages[item.image] : null;

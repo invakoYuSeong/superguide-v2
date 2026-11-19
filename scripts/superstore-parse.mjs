@@ -18,8 +18,10 @@ export function itemKind(name) {
 export const superstoreGameKeys = item => [...new Set([item.base, item.name.replace(/\s*\((Cape|Player ?Card|Emote)\)$/i, '')])];
 
 export function parseSuperstore(wikitext) {
-  const stock = wikitext.slice(wikitext.indexOf('== Stock =='), wikitext.indexOf('</tabber>'));
-  const tabs = stock.split(/\n\|-\|/).slice(1);
+  const start = wikitext.search(/^==\s*Stock\s*==\s*$/m), end = wikitext.indexOf('</tabber>', start);
+  if (start < 0 || end < 0) throw new Error('Superstore page: no "== Stock ==" section with a <tabber> (the wiki layout changed)');
+  const tabs = wikitext.slice(start, end).split(/\n\|-\|/).slice(1);
+  if (!tabs.length) throw new Error('Superstore page: the Stock tabber has no pages (the wiki layout changed)');
   const pages = tabs.map((tab, index) => {
     const number = Number(/^Page (\d+)\s*=/.exec(tab)?.[1]);
     const titleFile = /\[\[File:([^|\]]+?Superstore[^|\]]*?Title\.png)([^\]]*)\]\]/.exec(tab);
@@ -47,6 +49,7 @@ export function parseSuperstore(wikitext) {
       layout: layoutProblems(items, SUPERSTORE_BOARD),
     };
   });
-  const total = /\|\s*TOTAL\s*\n\|\s*'*\{\{\s*Currency\s*\|\s*SC\s*\|\s*([\d,]+)/i.exec(wikitext.slice(wikitext.indexOf('=== Total Cost ===')))?.[1];
+  const totalAt = wikitext.search(/^===\s*Total Cost\s*===\s*$/m);
+  const total = totalAt < 0 ? null : /\|\s*TOTAL\s*\n\|\s*'*\{\{\s*Currency\s*\|\s*SC\s*\|\s*([\d,]+)/i.exec(wikitext.slice(totalAt))?.[1];
   return { pages, listedTotal: total ? Number(total.replaceAll(',', '')) : null };
 }

@@ -43,7 +43,7 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
 // Enemy view: the summarized wiki Spawning and Behavior lines, each with its English.
 const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] }))]);
 // Superstore tiles: the game's Korean cosmetic names and the armor set names, with the wiki's English.
-const superstoreNames = superstorePages.flatMap(page => page.items).filter(item => item.ko).map(item => ({ name: item.ko, en: item.set ?? item.name.replace(/\s*\((Cape|Player ?Card|Emote)\)$/i, '').replace(/ (Cape|Player Card)$/, '') }));
+const superstoreNames = superstorePages.flatMap(page => page.items).filter(item => item.ko).map(item => ({ name: item.ko, en: item.base }));
 // Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.
 const attachmentNames = Object.values(attachmentParts).filter(part => part.ko).map(part => ({ name: part.ko, en: part.name }));
 export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames, ...shipModules, ...boosterText, ...objectiveNames, ...planetText, ...enemyLore, ...superstoreNames].filter(item => item.name && item.en).map(item => [item.name, item.en]);

@@ -27,7 +27,7 @@ const out = pages.map(page => {
   if (page.warbondPage && !warbond) problems.push(`page ${page.number}: no warbond for ${page.warbondPage}`);
   if (!page.warbondPage && !page.warHorses) problems.push(`page ${page.number}: no title`);
   const items = page.items.map(item => {
-    const entry = { name: item.name, kind: item.kind, cost: item.cost, image: item.image, link: item.link, col: item.col, row: item.row, colspan: item.colspan, rowspan: item.rowspan };
+    const entry = { name: item.name, base: item.base, kind: item.kind, cost: item.cost, image: item.image, link: item.link, col: item.col, row: item.row, colspan: item.colspan, rowspan: item.rowspan };
     if (item.cost == null) problems.push(`page ${page.number}: ${item.name} has no price`);
     if (item.kind === 'weapon') {
       const weapon = weaponByEn.get(fold(item.name));

@@ -7,7 +7,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
 import { factionGuides } from '../dist/data/faction-data.js';
-import { pageTitle } from './enemy-page-title.mjs';
+import { pageTitle, infoboxNumber } from './enemy-page-title.mjs';
 
 const read = async path => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
 const wiki = await read('../db/source/wiki_enemy_pages.json');
@@ -20,7 +20,6 @@ const SUBFACTIONS = {
 };
 const MAIN = new Set(['Terminids', 'Automatons', 'Illuminate']);
 const guideIds = new Set(factionGuides.map(guide => guide.id));
-const number = value => value == null ? null : Number.isFinite(Number(value)) ? Number(value) : (() => { throw new Error(`not a number: ${value}`); })();
 
 // Never blocks a build (user decision 2026-11-19): an enemy whose page is not fetched yet has no entry,
 // one without a summary shows no Spawning/Behavior, and a summary written from an older wiki revision
@@ -36,10 +35,11 @@ for (const enemy of enemies) {
   else if (summary.revision !== page.revision) notes.push(`${title}: summary written from revision ${summary.revision}, wiki is now ${page.revision}`);
   if (page.faction && !MAIN.has(page.faction) && !SUBFACTIONS[page.faction]) notes.push(`${title}: unknown faction ${page.faction} (no subfaction shown)`);
   const subfaction = guideIds.has(SUBFACTIONS[page.faction]) ? SUBFACTIONS[page.faction] : null;
+  for (const [key, value] of [['fire_mult', page.fireMult], ['stagger_req', page.staggerReq]]) if (value != null && infoboxNumber(value) == null) notes.push(`${title}: ${key} "${value}" is not a number (shown as unverified)`);
   const lines = key => summary?.[key] ?? [];
   out[enemy.id] = {
     page: title, revision: page.revision, ...(summary && { summaryRevision: summary.revision }), subfaction,
-    fireMult: number(page.fireMult), staggerReq: number(page.staggerReq),
+    fireMult: infoboxNumber(page.fireMult), staggerReq: infoboxNumber(page.staggerReq),
     spawning: lines('spawning').map(line => line.ko), spawningEn: lines('spawning').map(line => line.en),
     behavior: lines('behavior').map(line => line.ko), behaviorEn: lines('behavior').map(line => line.en),
   };

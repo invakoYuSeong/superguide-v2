@@ -12,6 +12,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "SS-500 Pale Prosecutor Helmet",
+    "base": "SS-500 Pale Prosecutor",
     "kind": "helmet",
     "cost": 125,
     "image": "SS-500 Pale Prosecutor Helmet Render.png",
@@ -29,6 +30,7 @@ export const superstorePages = [
    },
    {
     "name": "SS-500 Pale Prosecutor Armor",
+    "base": "SS-500 Pale Prosecutor",
     "kind": "armor",
     "cost": 250,
     "image": "SS-500 Pale Prosecutor Armor Render.png",
@@ -46,6 +48,7 @@ export const superstorePages = [
    },
    {
     "name": "Arctic Decree Cape",
+    "base": "Arctic Decree",
     "kind": "cape",
     "cost": 100,
     "image": "Arctic Decree Cape Render.png",
@@ -58,6 +61,7 @@ export const superstorePages = [
    },
    {
     "name": "Arctic Decree Player Card",
+    "base": "Arctic Decree",
     "kind": "player-card",
     "cost": 35,
     "image": "Arctic Decree Player Card Icon.png",
@@ -78,6 +82,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Tread of Liberty (Cape)",
+    "base": "Tread of Liberty",
     "kind": "cape",
     "cost": 100,
     "image": "Tread of Liberty Cape Render.png",
@@ -90,6 +95,7 @@ export const superstorePages = [
    },
    {
     "name": "BFM-77 Reformer (Armor)",
+    "base": "BFM-77 Reformer",
     "kind": "armor",
     "cost": 250,
     "image": "BFM-77 Reformer Armor Render.png",
@@ -107,6 +113,7 @@ export const superstorePages = [
    },
    {
     "name": "BFM-77 Reformer (Helmet)",
+    "base": "BFM-77 Reformer",
     "kind": "helmet",
     "cost": 125,
     "image": "BFM-77 Reformer Helmet Render.png",
@@ -124,6 +131,7 @@ export const superstorePages = [
    },
    {
     "name": "Tread of Liberty (Player Card)",
+    "base": "Tread of Liberty",
     "kind": "player-card",
     "cost": 35,
     "image": "Tread of Liberty Player Card Icon.png",
@@ -136,6 +144,7 @@ export const superstorePages = [
    },
    {
     "name": "LAS-12 Sai",
+    "base": "LAS-12 Sai",
     "kind": "weapon",
     "cost": 400,
     "image": "LAS-12 Sai Primary Render.png",
@@ -159,6 +168,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Diagram of the Noblest Payload (Cape)",
+    "base": "Diagram of the Noblest Payload",
     "kind": "cape",
     "cost": 100,
     "image": "Diagram of the Noblest Payload Cape Render.png",
@@ -171,6 +181,7 @@ export const superstorePages = [
    },
    {
     "name": "O-44 Bonded Pilot (Armor)",
+    "base": "O-44 Bonded Pilot",
     "kind": "armor",
     "cost": 250,
     "image": "O-44 Bonded Pilot Armor Render.png",
@@ -188,6 +199,7 @@ export const superstorePages = [
    },
    {
     "name": "O-44 Bonded Pilot (Helmet)",
+    "base": "O-44 Bonded Pilot",
     "kind": "helmet",
     "cost": 125,
     "image": "O-44 Bonded Pilot Helmet Render.png",
@@ -205,6 +217,7 @@ export const superstorePages = [
    },
    {
     "name": "Diagram of the Noblest Payload (Player Card)",
+    "base": "Diagram of the Noblest Payload",
     "kind": "player-card",
     "cost": 35,
     "image": "Diagram of The Noblest Payload Player Card Icon.png",
@@ -225,6 +238,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Testament to Attrition (Cape)",
+    "base": "Testament to Attrition",
     "kind": "cape",
     "cost": 100,
     "image": "Testament to Attrition Cape Render.png",
@@ -237,6 +251,7 @@ export const superstorePages = [
    },
    {
     "name": "CPR-80 Bulwark (Armor)",
+    "base": "CPR-80 Bulwark",
     "kind": "armor",
     "cost": 250,
     "image": "CPR-80 Bulwark Armor Render.png",
@@ -254,6 +269,7 @@ export const superstorePages = [
    },
    {
     "name": "CPR-80 Bulwark (Helmet)",
+    "base": "CPR-80 Bulwark",
     "kind": "helmet",
     "cost": 125,
     "image": "CPR-80 Bulwark Helmet Render.png",
@@ -271,6 +287,7 @@ export const superstorePages = [
    },
    {
     "name": "SG-97 Sweeper",
+    "base": "SG-97 Sweeper",
     "kind": "weapon",
     "cost": 400,
     "image": "SG-97 Shotgun Primary Render.png",
@@ -286,6 +303,7 @@ export const superstorePages = [
    },
    {
     "name": "Testament to Attrition (Player Card)",
+    "base": "Testament to Attrition",
     "kind": "player-card",
     "cost": 35,
     "image": "Testament to Attrition Player Card Icon.png",
@@ -306,6 +324,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "RS-100 Sanctioner (Helmet)",
+    "base": "RS-100 Sanctioner",
     "kind": "helmet",
     "cost": 125,
     "image": "RS-100 Sanctioner Cipher Helmet Armory.png",
@@ -323,6 +342,7 @@ export const superstorePages = [
    },
    {
     "name": "RS-100 Sanctioner (Armor)",
+    "base": "RS-100 Sanctioner",
     "kind": "armor",
     "cost": 250,
     "image": "RS-100 Sanctioner Body Armory.png",
@@ -340,6 +360,7 @@ export const superstorePages = [
    },
    {
     "name": "Gilded Quill (PlayerCard)",
+    "base": "Gilded Quill",
     "kind": "player-card",
     "cost": 35,
     "image": "Gilded Quill Player Card Icon.png",
@@ -352,6 +373,7 @@ export const superstorePages = [
    },
    {
     "name": "G-89 Smokescreen",
+    "base": "G-89 Smokescreen",
     "kind": "weapon",
     "cost": 300,
     "image": "G-89 Smokescreen Throwable Render.png",
@@ -367,6 +389,7 @@ export const superstorePages = [
    },
    {
     "name": "Gilded Quill (Cape)",
+    "base": "Gilded Quill",
     "kind": "cape",
     "cost": 100,
     "image": "Gilded Quill Cape Render.png",
@@ -387,6 +410,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "De-Forester's Sailcloth (Player Card)",
+    "base": "De-Forester's Sailcloth",
     "kind": "player-card",
     "cost": 40,
     "image": "De-Forester's Sailcloth Player Card Icon.png",
@@ -399,6 +423,7 @@ export const superstorePages = [
    },
    {
     "name": "De-Forester's Sailcloth (Cape)",
+    "base": "De-Forester's Sailcloth",
     "kind": "cape",
     "cost": 120,
     "image": "De-Forester's Sailcloth Cape Render.png",
@@ -411,6 +436,7 @@ export const superstorePages = [
    },
    {
     "name": "RS-6 Fiend Destroyer (Helmet)",
+    "base": "RS-6 Fiend Destroyer",
     "kind": "helmet",
     "cost": 150,
     "image": "RS-6 Fiend Destroyer Helmet Render.png",
@@ -428,6 +454,7 @@ export const superstorePages = [
    },
    {
     "name": "DBS-2 Double Freedom",
+    "base": "DBS-2 Double Freedom",
     "kind": "weapon",
     "cost": 400,
     "image": "DBS-2 Shotgun Primary Render.png",
@@ -443,6 +470,7 @@ export const superstorePages = [
    },
    {
     "name": "RS-6 Fiend Destroyer (Armor)",
+    "base": "RS-6 Fiend Destroyer",
     "kind": "armor",
     "cost": 300,
     "image": "RS-6 Fiend Destroyer Armor Render.png",
@@ -468,6 +496,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "DS-10 Big Game Hunter (Helmet)",
+    "base": "DS-10 Big Game Hunter",
     "kind": "helmet",
     "cost": 150,
     "image": "DS-10 Big Game Hunter Helmet Render.png",
@@ -485,6 +514,7 @@ export const superstorePages = [
    },
    {
     "name": "Eternal Corona (Cape)",
+    "base": "Eternal Corona",
     "kind": "cape",
     "cost": 120,
     "image": "Eternal Corona Cape Render.png",
@@ -497,6 +527,7 @@ export const superstorePages = [
    },
    {
     "name": "Eternal Corona (Player Card)",
+    "base": "Eternal Corona",
     "kind": "player-card",
     "cost": 40,
     "image": "Eternal Corona Player Card Icon.png",
@@ -509,6 +540,7 @@ export const superstorePages = [
    },
    {
     "name": "CQC-42 Machete",
+    "base": "CQC-42 Machete",
     "kind": "weapon",
     "cost": 200,
     "image": "CQC-42 Machete Secondary Render.png",
@@ -524,6 +556,7 @@ export const superstorePages = [
    },
    {
     "name": "DS-10 Big Game Hunter (Armor)",
+    "base": "DS-10 Big Game Hunter",
     "kind": "armor",
     "cost": 300,
     "image": "DS-10 Big Game Hunter Armor Render.png",
@@ -549,6 +582,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Schema Laid Bare (Player Card)",
+    "base": "Schema Laid Bare",
     "kind": "player-card",
     "cost": 40,
     "image": "Schema Laid Bare Player Card Icon.png",
@@ -561,6 +595,7 @@ export const superstorePages = [
    },
    {
     "name": "Schema Laid Bare (Cape)",
+    "base": "Schema Laid Bare",
     "kind": "cape",
     "cost": 120,
     "image": "Schema Laid Bare Cape Render.png",
@@ -573,6 +608,7 @@ export const superstorePages = [
    },
    {
     "name": "AD-11 Livewire (Helmet)",
+    "base": "AD-11 Livewire",
     "kind": "helmet",
     "cost": 150,
     "image": "AD-11 Livewire Helmet Render.png",
@@ -590,6 +626,7 @@ export const superstorePages = [
    },
    {
     "name": "Enthusiastic Mirth (Emote)",
+    "base": "Enthusiastic Mirth",
     "kind": "emote",
     "cost": 250,
     "image": "Enthusiastic Mirth Emote Icon.png",
@@ -602,6 +639,7 @@ export const superstorePages = [
    },
    {
     "name": "AD-11 Livewire (Armor)",
+    "base": "AD-11 Livewire",
     "kind": "armor",
     "cost": 300,
     "image": "AD-11 Livewire Armor Render.png",
@@ -627,6 +665,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Badge of Order (Cape)",
+    "base": "Badge of Order",
     "kind": "cape",
     "cost": 100,
     "image": "Badge of Order Cape Render.png",
@@ -639,6 +678,7 @@ export const superstorePages = [
    },
    {
     "name": "Badge of Order (Player Card)",
+    "base": "Badge of Order",
     "kind": "player-card",
     "cost": 35,
     "image": "Badge of Order Player Card Icon.png",
@@ -651,6 +691,7 @@ export const superstorePages = [
    },
    {
     "name": "BP-77 Grand Juror (Helmet)",
+    "base": "BP-77 Grand Juror",
     "kind": "helmet",
     "cost": 125,
     "image": "BP-77 Grand Juror Helmet Render.png",
@@ -668,6 +709,7 @@ export const superstorePages = [
    },
    {
     "name": "P-92 Warrant",
+    "base": "P-92 Warrant",
     "kind": "weapon",
     "cost": 300,
     "image": "P-92 Warrant Secondary Render.png",
@@ -683,6 +725,7 @@ export const superstorePages = [
    },
    {
     "name": "BP-77 Grand Juror (Armor)",
+    "base": "BP-77 Grand Juror",
     "kind": "armor",
     "cost": 250,
     "image": "BP-77 Grand Juror Armor Render.png",
@@ -708,6 +751,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Seal of General Consensus (Player Card)",
+    "base": "Seal of General Consensus",
     "kind": "player-card",
     "cost": 75,
     "image": "Seal of General Consensus Player Card Icon.png",
@@ -720,6 +764,7 @@ export const superstorePages = [
    },
    {
     "name": "Seal of General Consensus (Cape)",
+    "base": "Seal of General Consensus",
     "kind": "cape",
     "cost": 250,
     "image": "Seal of General Consensus Cape Render.png",
@@ -732,6 +777,7 @@ export const superstorePages = [
    },
    {
     "name": "RE-824 Bearer of the Standard (Helmet)",
+    "base": "RE-824 Bearer of the Standard",
     "kind": "helmet",
     "cost": 200,
     "image": "RE-824 Bearer of the Standard Helmet Render.png",
@@ -749,6 +795,7 @@ export const superstorePages = [
    },
    {
     "name": "RE-824 Bearer of the Standard (Armor)",
+    "base": "RE-824 Bearer of the Standard",
     "kind": "armor",
     "cost": 400,
     "image": "RE-824 Bearer of the Standard Armor Render.png",
@@ -774,6 +821,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "DP-8 Mountain-Scaled (Helmet)",
+    "base": "DP-8 Mountain-Scaled",
     "kind": "helmet",
     "cost": 125,
     "image": "DP-8 Mountain-Scaled Helmet Render.png",
@@ -791,6 +839,7 @@ export const superstorePages = [
    },
    {
     "name": "Thundering Hooves of Loyalty (Player Card)",
+    "base": "Thundering Hooves of Loyalty",
     "kind": "player-card",
     "cost": 35,
     "image": "Thundering Hooves of Loyalty Player Card Icon.png",
@@ -803,6 +852,7 @@ export const superstorePages = [
    },
    {
     "name": "DP-8 Mountain-Scaled (Armor)",
+    "base": "DP-8 Mountain-Scaled",
     "kind": "armor",
     "cost": 250,
     "image": "DP-8 Mountain-Scaled Armor Render.png",
@@ -820,6 +870,7 @@ export const superstorePages = [
    },
    {
     "name": "Thundering Hooves of Loyalty (Cape)",
+    "base": "Thundering Hooves of Loyalty",
     "kind": "cape",
     "cost": 100,
     "image": "Thundering Hooves of Loyalty Cape Render.png",
@@ -840,6 +891,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Veil of the Valorous Vagabond (Cape)",
+    "base": "Veil of the Valorous Vagabond",
     "kind": "cape",
     "cost": 120,
     "image": "Veil of the Valorous Vagabond Cape Render.png",
@@ -852,6 +904,7 @@ export const superstorePages = [
    },
    {
     "name": "Veil of the Valorous Vagabond (Player Card)",
+    "base": "Veil of the Valorous Vagabond",
     "kind": "player-card",
     "cost": 40,
     "image": "Veil of the Valorous Vagabond Player Card Icon.png",
@@ -864,6 +917,7 @@ export const superstorePages = [
    },
    {
     "name": "GS-11 Democracy's Deputy (Helmet)",
+    "base": "GS-11 Democracy's Deputy",
     "kind": "helmet",
     "cost": 150,
     "image": "GS-11 Democracy's Deputy Helmet Render.png",
@@ -881,6 +935,7 @@ export const superstorePages = [
    },
    {
     "name": "Draw! (Emote)",
+    "base": "Draw!",
     "kind": "emote",
     "cost": 250,
     "image": "Draw! Emote Icon.png",
@@ -893,6 +948,7 @@ export const superstorePages = [
    },
    {
     "name": "GS-11 Democracy's Deputy (Armor)",
+    "base": "GS-11 Democracy's Deputy",
     "kind": "armor",
     "cost": 300,
     "image": "GS-11 Democracy's Deputy Armor Render.png",
@@ -918,6 +974,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "CQC-5 Combat Hatchet",
+    "base": "CQC-5 Combat Hatchet",
     "kind": "weapon",
     "cost": 200,
     "image": "CQC-5 Combat Hatchet Secondary Render.png",
@@ -933,6 +990,7 @@ export const superstorePages = [
    },
    {
     "name": "Vision of Freedom (Cape)",
+    "base": "Vision of Freedom",
     "kind": "cape",
     "cost": 100,
     "image": "Vision of Freedom Cape Render.png",
@@ -945,6 +1003,7 @@ export const superstorePages = [
    },
    {
     "name": "Vision of Freedom (Player Card)",
+    "base": "Vision of Freedom",
     "kind": "player-card",
     "cost": 35,
     "image": "Vision of Freedom Player Card Icon.png",
@@ -957,6 +1016,7 @@ export const superstorePages = [
    },
    {
     "name": "IE-57 Hell-Bent (Helmet)",
+    "base": "IE-57 Hell-Bent",
     "kind": "helmet",
     "cost": 125,
     "image": "IE-57 Hell-Bent Helmet Render.png",
@@ -974,6 +1034,7 @@ export const superstorePages = [
    },
    {
     "name": "IE-57 Hell-Bent (Armor)",
+    "base": "IE-57 Hell-Bent",
     "kind": "armor",
     "cost": 250,
     "image": "IE-57 Hell-Bent Armor Render.png",
@@ -999,6 +1060,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Stone-Wrought Perseverance (Player Card)",
+    "base": "Stone-Wrought Perseverance",
     "kind": "player-card",
     "cost": 35,
     "image": "Stone-Wrought Perseverance Player Card Icon.png",
@@ -1011,6 +1073,7 @@ export const superstorePages = [
    },
    {
     "name": "CQC-30 Stun Baton",
+    "base": "CQC-30 Stun Baton",
     "kind": "weapon",
     "cost": 200,
     "image": "CQC-30 Stun Baton Secondary Render.png",
@@ -1026,6 +1089,7 @@ export const superstorePages = [
    },
    {
     "name": "SR-64 Cinderblock (Helmet)",
+    "base": "SR-64 Cinderblock",
     "kind": "helmet",
     "cost": 125,
     "image": "SR-64 Cinderblock Helmet Render.png",
@@ -1043,6 +1107,7 @@ export const superstorePages = [
    },
    {
     "name": "Stone-Wrought Perseverance (Cape)",
+    "base": "Stone-Wrought Perseverance",
     "kind": "cape",
     "cost": 100,
     "image": "Stone-Wrought Perseverance Cape Render.png",
@@ -1055,6 +1120,7 @@ export const superstorePages = [
    },
    {
     "name": "SR-64 Cinderblock (Armor)",
+    "base": "SR-64 Cinderblock",
     "kind": "armor",
     "cost": 250,
     "image": "SR-64 Cinderblock Armor Render.png",
@@ -1080,6 +1146,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "Cover of Darkness (Player Card)",
+    "base": "Cover of Darkness",
     "kind": "player-card",
     "cost": 75,
     "image": "Cover of Darkness Player Card Icon.png",
@@ -1092,6 +1159,7 @@ export const superstorePages = [
    },
    {
     "name": "UF-84 Doubt Killer (Armor)",
+    "base": "UF-84 Doubt Killer",
     "kind": "armor",
     "cost": 400,
     "image": "UF-84 Doubt Killer Armor Render.png",
@@ -1109,6 +1177,7 @@ export const superstorePages = [
    },
    {
     "name": "Cover of Darkness (Cape)",
+    "base": "Cover of Darkness",
     "kind": "cape",
     "cost": 250,
     "image": "Cover of Darkness Cape Render.png",
@@ -1121,6 +1190,7 @@ export const superstorePages = [
    },
    {
     "name": "UF-84 Doubt Killer (Helmet)",
+    "base": "UF-84 Doubt Killer",
     "kind": "helmet",
     "cost": 200,
     "image": "UF-84 Doubt Killer Helmet Render.png",
@@ -1146,6 +1216,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "AF-52 Lockdown (Armor)",
+    "base": "AF-52 Lockdown",
     "kind": "armor",
     "cost": 400,
     "image": "AF-52 Lockdown Armor Render.png",
@@ -1163,6 +1234,7 @@ export const superstorePages = [
    },
    {
     "name": "AF-52 Lockdown (Helmet)",
+    "base": "AF-52 Lockdown",
     "kind": "helmet",
     "cost": 250,
     "image": "AF-52 Lockdown Helmet Render.png",
@@ -1180,6 +1252,7 @@ export const superstorePages = [
    },
    {
     "name": "AF-91 Field Chemist (Armor)",
+    "base": "AF-91 Field Chemist",
     "kind": "armor",
     "cost": 250,
     "image": "AF-91 Field Chemist Armor Render.png",
@@ -1197,6 +1270,7 @@ export const superstorePages = [
    },
    {
     "name": "AF-91 Field Chemist (Helmet)",
+    "base": "AF-91 Field Chemist",
     "kind": "helmet",
     "cost": 125,
     "image": "AF-91 Field Chemist Helmet Render.png",
@@ -1222,6 +1296,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "I-44 Salamander (Armor)",
+    "base": "I-44 Salamander",
     "kind": "armor",
     "cost": 250,
     "image": "I-44 Salamander Armor Render.png",
@@ -1239,6 +1314,7 @@ export const superstorePages = [
    },
    {
     "name": "I-44 Salamander (Helmet)",
+    "base": "I-44 Salamander",
     "kind": "helmet",
     "cost": 125,
     "image": "I-44 Salamander Helmet Render.png",
@@ -1256,6 +1332,7 @@ export const superstorePages = [
    },
    {
     "name": "I-92 Fire Fighter (Armor)",
+    "base": "I-92 Fire Fighter",
     "kind": "armor",
     "cost": 250,
     "image": "I-92 Fire Fighter Armor Render.png",
@@ -1273,6 +1350,7 @@ export const superstorePages = [
    },
    {
     "name": "I-92 Fire Fighter (Helmet)",
+    "base": "I-92 Fire Fighter",
     "kind": "helmet",
     "cost": 125,
     "image": "I-92 Fire Fighter Helmet Render.png",
@@ -1299,6 +1377,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "PH-56 Jaguar (Armor)",
+    "base": "PH-56 Jaguar",
     "kind": "armor",
     "cost": 150,
     "image": "PH-56 Jaguar Armor Render.png",
@@ -1316,6 +1395,7 @@ export const superstorePages = [
    },
    {
     "name": "PH-56 Jaguar (Helmet)",
+    "base": "PH-56 Jaguar",
     "kind": "helmet",
     "cost": 75,
     "image": "PH-56 Jaguar Helmet Render.png",
@@ -1333,6 +1413,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-101 Guerilla Gorilla (Armor)",
+    "base": "CE-101 Guerilla Gorilla",
     "kind": "armor",
     "cost": 250,
     "image": "CE-101 Guerilla Gorilla Armor Render.png",
@@ -1350,6 +1431,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-101 Guerilla Gorilla (Helmet)",
+    "base": "CE-101 Guerilla Gorilla",
     "kind": "helmet",
     "cost": 125,
     "image": "CE-101 Guerilla Gorilla Helmet Render.png",
@@ -1375,6 +1457,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "CW-9 White Wolf (Armor)",
+    "base": "CW-9 White Wolf",
     "kind": "armor",
     "cost": 300,
     "image": "CW-9 White Wolf Armor Render.png",
@@ -1392,6 +1475,7 @@ export const superstorePages = [
    },
    {
     "name": "CW-9 White Wolf (Helmet)",
+    "base": "CW-9 White Wolf",
     "kind": "helmet",
     "cost": 150,
     "image": "CW-9 White Wolf Helmet Render.png",
@@ -1409,6 +1493,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-64 Grenadier (Armor)",
+    "base": "CE-64 Grenadier",
     "kind": "armor",
     "cost": 300,
     "image": "CE-64 Grenadier Armor Render.png",
@@ -1426,6 +1511,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-64 Grenadier (Helmet)",
+    "base": "CE-64 Grenadier",
     "kind": "helmet",
     "cost": 150,
     "image": "CE-64 Grenadier Helmet Render.png",
@@ -1451,6 +1537,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "CM-10 Clinician (Armor)",
+    "base": "CM-10 Clinician",
     "kind": "armor",
     "cost": 250,
     "image": "CM-10 Clinician Armor Render.png",
@@ -1468,6 +1555,7 @@ export const superstorePages = [
    },
    {
     "name": "CM-10 Clinician (Helmet)",
+    "base": "CM-10 Clinician",
     "kind": "helmet",
     "cost": 125,
     "image": "CM-10 Clinician Helmet Render.png",
@@ -1485,6 +1573,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-37 Ravager (Armor)",
+    "base": "FS-37 Ravager",
     "kind": "armor",
     "cost": 250,
     "image": "FS-37 Ravager Armor Render.png",
@@ -1502,6 +1591,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-37 Ravager (Helmet)",
+    "base": "FS-37 Ravager",
     "kind": "helmet",
     "cost": 125,
     "image": "FS-37 Ravager Helmet Render.png",
@@ -1527,6 +1617,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "CM-17 Butcher (Armor)",
+    "base": "CM-17 Butcher",
     "kind": "armor",
     "cost": 250,
     "image": "CM-17 Butcher Body Icon.png",
@@ -1544,6 +1635,7 @@ export const superstorePages = [
    },
    {
     "name": "CM-17 Butcher (Helmet)",
+    "base": "CM-17 Butcher",
     "kind": "helmet",
     "cost": 125,
     "image": "CM-17 Butcher Helmet Icon.png",
@@ -1561,6 +1653,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-67 Titan (Armor)",
+    "base": "CE-67 Titan",
     "kind": "armor",
     "cost": 150,
     "image": "CE-67 Titan Armor Render.png",
@@ -1578,6 +1671,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-67 Titan (Helmet)",
+    "base": "CE-67 Titan",
     "kind": "helmet",
     "cost": 75,
     "image": "CE-67 Titan Helmet Render.png",
@@ -1603,6 +1697,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "SC-37 Legionnaire (Armor)",
+    "base": "SC-37 Legionnaire",
     "kind": "armor",
     "cost": 150,
     "image": "SC-37 Legionnaire Armor Render.png",
@@ -1620,6 +1715,7 @@ export const superstorePages = [
    },
    {
     "name": "SC-37 Legionnaire (Helmet)",
+    "base": "SC-37 Legionnaire",
     "kind": "helmet",
     "cost": 75,
     "image": "SC-37 Legionnaire Helmet Render.png",
@@ -1637,6 +1733,7 @@ export const superstorePages = [
    },
    {
     "name": "SC-15 Drone Master (Armor)",
+    "base": "SC-15 Drone Master",
     "kind": "armor",
     "cost": 250,
     "image": "SC-15 Drone Master Armor Render.png",
@@ -1654,6 +1751,7 @@ export const superstorePages = [
    },
    {
     "name": "SC-15 Drone Master (Helmet)",
+    "base": "SC-15 Drone Master",
     "kind": "helmet",
     "cost": 125,
     "image": "SC-15 Drone Master Helmet Render.png",
@@ -1679,6 +1777,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "B-24 Enforcer (Armor)",
+    "base": "B-24 Enforcer",
     "kind": "armor",
     "cost": 150,
     "image": "B-24 Enforcer Body Icon.png",
@@ -1696,6 +1795,7 @@ export const superstorePages = [
    },
    {
     "name": "B-24 Enforcer (Helmet)",
+    "base": "B-24 Enforcer",
     "kind": "helmet",
     "cost": 75,
     "image": "B-24 Enforcer Helmet Icon.png",
@@ -1713,6 +1813,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-74 Breaker (Armor)",
+    "base": "CE-74 Breaker",
     "kind": "armor",
     "cost": 250,
     "image": "CE-74 Breaker Armor Render.png",
@@ -1730,6 +1831,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-74 Breaker (Helmet)",
+    "base": "CE-74 Breaker",
     "kind": "helmet",
     "cost": 125,
     "image": "CE-74 Breaker Helmet Render.png",
@@ -1755,6 +1857,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "B-27 Fortified Commando (Armor)",
+    "base": "B-27 Fortified Commando",
     "kind": "armor",
     "cost": 400,
     "image": "B-27 Fortified Commando Armor Render.png",
@@ -1772,6 +1875,7 @@ export const superstorePages = [
    },
    {
     "name": "B-27 Fortified Commando (Helmet)",
+    "base": "B-27 Fortified Commando",
     "kind": "helmet",
     "cost": 200,
     "image": "B-27 Fortified Commando Helmet Render.png",
@@ -1789,6 +1893,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-38 Eradicator (Armor)",
+    "base": "FS-38 Eradicator",
     "kind": "armor",
     "cost": 250,
     "image": "FS-38 Eradicator Armor Render.png",
@@ -1806,6 +1911,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-38 Eradicator (Helmet)",
+    "base": "FS-38 Eradicator",
     "kind": "helmet",
     "cost": 125,
     "image": "FS-38 Eradicator Helmet Render.png",
@@ -1831,6 +1937,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "B-08 Light Gunner (Armor)",
+    "base": "B-08 Light Gunner",
     "kind": "armor",
     "cost": 150,
     "image": "B-08 Light Gunner Armor Render.png",
@@ -1848,6 +1955,7 @@ export const superstorePages = [
    },
    {
     "name": "B-08 Light Gunner (Helmet)",
+    "base": "B-08 Light Gunner",
     "kind": "helmet",
     "cost": 75,
     "image": "B-08 Light Gunner Helmet Render.png",
@@ -1865,6 +1973,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-61 Dreadnought (Armor)",
+    "base": "FS-61 Dreadnought",
     "kind": "armor",
     "cost": 250,
     "image": "FS-61 Dreadnought Armor Render.png",
@@ -1882,6 +1991,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-61 Dreadnought (Helmet)",
+    "base": "FS-61 Dreadnought",
     "kind": "helmet",
     "cost": 125,
     "image": "FS-61 Dreadnought Helmet Render.png",
@@ -1907,6 +2017,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "FS-11 Executioner (Armor)",
+    "base": "FS-11 Executioner",
     "kind": "armor",
     "cost": 150,
     "image": "FS-11 Executioner Armor Render.png",
@@ -1924,6 +2035,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-11 Executioner (Helmet)",
+    "base": "FS-11 Executioner",
     "kind": "helmet",
     "cost": 75,
     "image": "FS-11 Executioner Helmet Render.png",
@@ -1941,6 +2053,7 @@ export const superstorePages = [
    },
    {
     "name": "CM-21 Trench Paramedic (Armor)",
+    "base": "CM-21 Trench Paramedic",
     "kind": "armor",
     "cost": 250,
     "image": "CM-21 Trench Paramedic Armor Render.png",
@@ -1958,6 +2071,7 @@ export const superstorePages = [
    },
    {
     "name": "CM-21 Trench Paramedic (Helmet)",
+    "base": "CM-21 Trench Paramedic",
     "kind": "helmet",
     "cost": 125,
     "image": "CM-21 Trench Paramedic Helmet Render.png",
@@ -1983,6 +2097,7 @@ export const superstorePages = [
   "items": [
    {
     "name": "CE-81 Juggernaut (Armor)",
+    "base": "CE-81 Juggernaut",
     "kind": "armor",
     "cost": 250,
     "image": "CE-81 Juggernaut Armor Render.png",
@@ -2000,6 +2115,7 @@ export const superstorePages = [
    },
    {
     "name": "CE-81 Juggernaut (Helmet)",
+    "base": "CE-81 Juggernaut",
     "kind": "helmet",
     "cost": 125,
     "image": "CE-81 Juggernaut Helmet Render.png",
@@ -2017,6 +2133,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-34 Exterminator (Armor)",
+    "base": "FS-34 Exterminator",
     "kind": "armor",
     "cost": 400,
     "image": "FS-34 Exterminator Armor Render.png",
@@ -2034,6 +2151,7 @@ export const superstorePages = [
    },
    {
     "name": "FS-34 Exterminator (Helmet)",
+    "base": "FS-34 Exterminator",
     "kind": "helmet",
     "cost": 200,
     "image": "FS-34 Exterminator Helmet Render.png",

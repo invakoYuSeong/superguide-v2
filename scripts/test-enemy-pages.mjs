@@ -6,14 +6,14 @@ import { readFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
 import { enemyPages } from '../dist/data/enemy-pages.js';
 import { factionGuides } from '../dist/data/faction-data.js';
-import { pageTitle } from './enemy-page-title.mjs';
+import { pageTitle, infoboxNumber } from './enemy-page-title.mjs';
 
 const read = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
 const wiki = (await read('wiki_enemy_pages.json')).pages;
 const summaries = await read('enemy_behavior_korean.json');
 let checks = 0;
 const ok = (condition, message) => { assert(condition, message); checks++; };
-const numberOf = value => value == null ? null : Number(value);
+const numberOf = infoboxNumber;
 // Korean, ASCII and the middle dot only (no arrows, dashes, curly quotes or emoji).
 const PLAIN = /^[\x20-\x7e가-힣·]*$/;
 // English may spell small numbers out ("three-rocket salvo"); compare them as digits.
