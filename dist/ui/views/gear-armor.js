@@ -1,5 +1,5 @@
 // Armor tab of the gear view: body armor grouped by passive.
-//   #/gear?tab=armor&w=<light|medium|heavy>&p=<passive>&a=<armor>   (p: show one passive; a: scroll to and mark one set)
+//   #/gear?tab=armor&w=<light|medium|heavy>&p=<passive,passive>&a=<armor>   (p: show these passives; a: scroll to and mark one set)
 // Loaded on demand by gear.js and by the warbond item pane (armorDetail).
 import { armors, armorPassives, armorWeights, armorCheckedAt } from '../../data/armor.js';
 import { armorImages } from '../../data/armor-images.js';
@@ -89,21 +89,22 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
   </div>`;
 }
 
-/** Renders the armor tab into panel. state.weight and state.passive filter ('' = all); state.focus marks one set. */
+/** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set. */
 export function renderArmor(panel, { state, onChange, onOpen = null }) {
   focus = state.focus || '';
   const shown = armors.filter(armor => !state.weight || armor.weight === state.weight);
   const groups = armorPassives.map(passive => [passive, shown.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length);
-  // A passive with no set in the chosen weight is let go.
-  if (state.passive && !groups.some(([passive]) => passive.id === state.passive)) state.passive = '';
-  const visible = state.passive ? groups.filter(([passive]) => passive.id === state.passive) : groups;
+  // Several passives can be picked; one with no set in the chosen weight is let go.
+  const picked = (state.passive || '').split(',').filter(id => groups.some(([passive]) => passive.id === id));
+  state.passive = picked.join(',');
+  const visible = picked.length ? groups.filter(([passive]) => picked.includes(passive.id)) : groups;
   const countOf = id => armors.filter(armor => armor.weight === id).length;
   render(panel, html`<div class="arsenal-tools armor-tools">
       <div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
         <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${armors.length}</span></button>
         ${armorWeights.map(weight => html`<button type="button" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
       </div>
-      <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!state.passive}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${state.passive === passive.id}">${passive.name} <span class="count">${list.length}</span></button>`)}</div>
+      <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!picked.length}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${picked.includes(passive.id)}">${passive.name} <span class="count">${list.length}</span></button>`)}</div>
     </div>
     <div class="arsenal-meta"><span role="status">${L(html`패시브 <b>${visible.length}</b>종 · 방어구 <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b>종`, html`<b>${visible.length}</b> passives · <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b> armor sets`)}</span><span>${L(`자료 확인 ${armorCheckedAt}`, `Checked ${armorCheckedAt}`)}</span></div>
     <div class="armor-passives">${visible.map(([passive, list]) => passiveSection(passive, list))}</div>`);
@@ -115,8 +116,10 @@ export function renderArmor(panel, { state, onChange, onOpen = null }) {
     item.addEventListener('click', event => { if (!event.target.closest('a')) onOpen(item.dataset.armorOpen); });
     item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onOpen(item.dataset.armorOpen); } });
   }
-  // A passive chip filters the list to that passive (pick it again or All for every passive).
+  // Passive chips add or remove that passive from the filter; All shows every passive.
   for (const button of $$('button[data-passive]', panel)) button.addEventListener('click', () => {
-    state.passive = state.passive === button.dataset.passive ? '' : button.dataset.passive; state.focus = ''; onChange();
+    const id = button.dataset.passive;
+    state.passive = id ? (picked.includes(id) ? picked.filter(item => item !== id) : [...picked, id]).join(',') : '';
+    state.focus = ''; onChange();
   });
 }

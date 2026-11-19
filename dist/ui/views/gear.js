@@ -471,7 +471,7 @@ function selectVariant(id) {
 export function update(route) {
   const q = route.query;
   state.tab = q.tab === 'loadout' || q.tab === 'armor' || q.tab === 'boosters' ? q.tab : 'browse';
-  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '' });
+  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+(,[a-z0-9-]+)*$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '' });
   else if (state.tab === 'boosters') booster.focus = q.b || '';
   else if (state.tab === 'browse') {
     Object.assign(state, {
