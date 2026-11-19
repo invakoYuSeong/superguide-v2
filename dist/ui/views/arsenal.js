@@ -232,8 +232,9 @@ function planetLines(t) {
     return rows;
   });
   if (!lines.length) return '';
-  return html`<div class="planet-effects"><h4>${L('행성 효과가 붙으면', 'With planet effects')}</h4><ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
-    <p class="faint" style="font-size:12.5px">${L('위에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the value shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p></div>`;
+  // Folded by default (user decision 2026-11-19).
+  return html`<details class="planet-effects"><summary>${L('행성 조건에 따른 변화', 'Changes under planet conditions')}</summary><ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
+    <p class="faint" style="font-size:12.5px">${L('위에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the value shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p></details>`;
 }
 
 // Cooldown, call-in time, uses and Eagle rearm, with the ship modules that change them.
@@ -257,9 +258,9 @@ function timingBlock(item) {
       ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption(t.uses, t.usesBase, false)) : ''}
       ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
     </dl>
-    ${on && t.modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${t.modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}
     ${planetLines(t)}
     <div class="sources">${external(item.source, L('위키 수치', 'Wiki stats'))}${external(shipModulesSource.page, L('함선 모듈', 'Ship Modules'))}</div>
+    ${on && t.modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${t.modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}
   </section>`;
 }
 
