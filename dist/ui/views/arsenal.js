@@ -8,6 +8,8 @@ import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom
 import { blastFigure } from '../blast.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
+import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
+import { shipModulesSource } from '../../data/ship-modules.js';
 
 const SORTS = [
   { id: '', name: L('기본 순서', 'Default order') },
@@ -19,7 +21,7 @@ const SORTS = [
 const MAX_COMPARE = 3;
 
 let root, ctx;
-const state = { c: '', ap: '', q: '', sort: '', compare: new Set(), detail: null, variant: '', pushedDetail: false };
+const state = { c: '', ap: '', q: '', sort: '', mod: true, compare: new Set(), detail: null, variant: '', pushedDetail: false };
 
 const subtitle = item => lang === 'en' ? (item.code && !item.en.startsWith(item.code) ? item.code : '') : item.en;
 export const iconOf = item => html`<img class="strat-icon" src="${wikiIcons[item.id]?.src}" alt="" width="44" height="44" loading="lazy" decoding="async">`;
@@ -65,6 +67,15 @@ function cardModes(item) {
   return html`<span class="card-modes" data-kind="${item.variantKind || 'modes'}">${rest.map(v => html`<span><b>${v.tab || v.name}</b> ${variantBrief(item, v)}</span>`)}</span>`;
 }
 
+// Cooldown in seconds beside the compare button, following the ship module choice.
+const seconds = value => `${num(Math.round(value * 10) / 10)}${L('초', 's')}`;
+function cardCooldown(item) {
+  const cooldown = timingOf(item)?.cooldown;
+  if (cooldown == null) return '';
+  const label = modulesOn() ? L('재사용 대기 · 함선 모듈 적용', 'Cooldown with ship modules') : L('재사용 대기 · 함선 모듈 미적용', 'Cooldown without ship modules');
+  return html`<span class="card-cooldown" title="${label}" aria-label="${label} ${seconds(cooldown)}">${seconds(cooldown)}</span>`;
+}
+
 function card(item) {
   const selected = state.compare.has(item.id);
   return html`<article class="card ${selected ? 'selected' : ''}" style="--cat:${categoryOf(item.category).color}" data-id="${item.id}">
@@ -75,6 +86,7 @@ function card(item) {
       ${statRow(item)}
       ${cardModes(item)}
     </button>
+    ${cardCooldown(item)}
     <button class="compare-toggle" type="button" data-compare="${item.id}" aria-pressed="${selected}" aria-label="${item.name} ${selected ? L('비교에 담김', 'added to compare') : L('비교에 담기', 'add to compare')}" title="${L('비교에 담기', 'Add to compare')}">${icon(selected ? 'check' : 'plus', 16)}</button>
   </article>`;
 }
@@ -90,7 +102,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  ctx.replace({ view: 'arsenal', id: state.detail, query: { c: state.c, ap: state.ap, q: state.q, sort: state.sort, m: state.detail ? state.variant : '' } });
+  ctx.replace({ view: 'arsenal', id: state.detail, query: { c: state.c, ap: state.ap, q: state.q, sort: state.sort, mod: state.mod ? '' : 'off', m: state.detail ? state.variant : '' } });
 }
 
 function renderList() {
@@ -100,6 +112,7 @@ function renderList() {
   render($('#arsenal-grid'), items.length ? items.map(card) : html`<div class="empty" style="grid-column:1/-1"><h3>${L('맞는 스트라타젬이 없습니다', 'No matching stratagems')}</h3><p>${L('검색어를 줄이거나 필터를 해제해 보세요.', 'Try a shorter search or clear the filters.')}</p><button class="button" type="button" data-reset>${L('필터 초기화', 'Reset filters')}</button></div>`);
   for (const chip of $$('[data-cat]', root)) chip.setAttribute('aria-pressed', String(chip.dataset.cat === state.c));
   for (const chip of $$('[data-ap]', root)) chip.setAttribute('aria-pressed', String(chip.dataset.ap === state.ap));
+  for (const chip of $$('[data-mod]', root)) chip.setAttribute('aria-pressed', String((chip.dataset.mod === 'on') === state.mod));
   $('[data-reset-inline]', root).hidden = !state.c && !state.ap && !state.q && !state.sort;
   renderTray();
 }
@@ -122,7 +135,6 @@ function defenseBlock(item) {
   const rows = [];
   const add = (label, value, unit = '', caption = '') => rows.push({ label, value, unit, caption });
   const s = L('초', 's');
-  add(L('기본 재사용 대기', 'Base cooldown'), Number.isFinite(d.cooldown) ? num(d.cooldown) : L('미확인', 'Unverified'), s, L('함선 강화 제외', 'Without ship modules'));
   if (d.type === 'energy') {
     const shield = d.shield || {};
     add(L('보호막 용량', 'Shield capacity'), num(shield.capacity), '', L('장치 체력과 별개', 'Separate from device health'));
@@ -202,10 +214,35 @@ globalThis.document?.addEventListener('click', event => {
   for (const panel of $$('[data-fire-mode-panel]', group)) panel.hidden = panel.dataset.fireModePanel !== pick.dataset.fireMode;
 });
 
+// Cooldown, call-in time, uses and Eagle rearm, with the ship modules that change them.
+function timingBlock(item) {
+  const t = timingOf(item);
+  if (!t || (t.cooldown == null && t.rearm == null && t.callIn == null)) return '';
+  const on = modulesOn();
+  const s = L('초', 's');
+  const caption = (value, base, unit = true) => !on ? L('함선 모듈 미적용', 'Without ship modules')
+    : value !== base ? (unit ? L(`기본 ${num(base)}초`, `Base ${num(base)}s`) : L(`기본 ${num(base)}회`, `Base ${num(base)}`))
+    : L('함선 모듈 영향 없음', 'No ship module changes it');
+  const cell = (label, value, unit, text) => html`<div><dt>${label}</dt><dd>${value}${unit ? html`<small>${unit}</small>` : ''}</dd>${text ? html`<div class="caption">${text}</div>` : ''}</div>`;
+  const pct = factor => Math.round((1 - factor) * 100);
+  const effect = module => module.cooldown ? L(`재사용 -${pct(module.cooldown)}%`, `cooldown -${pct(module.cooldown)}%`)
+    : module.rearm ? L(`재무장 -${pct(module.rearm)}%`, `rearm -${pct(module.rearm)}%`)
+    : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`) : L('호출 시간 단축', 'faster call-in');
+  return html`<section class="block"><h3>${L('재사용 대기와 호출', 'Cooldown and call-in')}</h3>
+    <dl class="detail-grid">
+      ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(t.cooldown), s, caption(t.cooldown, t.cooldownBase)) : ''}
+      ${t.rearm != null ? cell(L('재무장 시간', 'Rearm time'), num(t.rearm), s, caption(t.rearm, t.rearmBase)) : ''}
+      ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption(t.uses, t.usesBase, false)) : ''}
+      ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
+    </dl>
+    ${on && t.modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${t.modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}
+    <div class="sources">${external(item.source, L('위키 수치', 'Wiki stats'))}${external(shipModulesSource.page, L('함선 모듈', 'Ship Modules'))}</div>
+  </section>`;
+}
+
 const statGrid = item => html`<dl class="detail-grid">${stats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
   ${ammoCells(item)}
-  ${rateCell(item)}
-  ${item.cooldown ? html`<div><dt>${L('재사용 대기', 'Cooldown')}</dt><dd>${num(item.cooldown)}<small>${L('초', 's')}</small></dd><div class="caption">${L('함선 강화 제외', 'Without ship modules')}</div></div>` : ''}</dl>`;
+  ${rateCell(item)}</dl>`;
 
 export function stratagemDetail(item, { demolition = false, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
   const cat = categoryOf(item.category);
@@ -226,6 +263,7 @@ export function stratagemDetail(item, { demolition = false, header = null, title
       ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
       : html`${statGrid(item)}${blastFigure(item)}`}
     ${spreadBlock(item)}
+    ${timingBlock(item)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
     ${defenseBlock(item)}
@@ -241,7 +279,7 @@ export function stratagemDetail(item, { demolition = false, header = null, title
       ${wikiIcons[item.id] ? external(wikiIcons[item.id].source, L('아이콘 원본', 'Icon source')) : ''}
       ${item.extraSource ? external(item.extraSource, L('추가 수치 근거', 'Extra source')) : ''}
     </div>
-    <p class="faint" style="font-size:12.5px">${L('기본값 기준입니다. 함선 강화·행성 효과는 제외하며, 실제 피해는 맞은 부위의 장갑·내구도와 거리, 각도에 따라 달라집니다.', 'Base values without ship modules or planetary effects. Real damage depends on the armor and durability of the part you hit, range and angle.')}</p>
+    <p class="faint" style="font-size:12.5px">${L('피해 수치는 함선 모듈·행성 효과를 뺀 기본값입니다. 실제 피해는 맞은 부위의 장갑·내구도와 거리, 각도에 따라 달라집니다.', 'Damage figures are base values without ship modules or planetary effects. Real damage depends on the armor and durability of the part you hit, range and angle.')}</p>
   </div>`;
 }
 
@@ -319,6 +357,7 @@ export function mount(container, context) {
     </div>
     <div class="chips" role="group" aria-label="${L('종류', 'Category')}"><button class="chip" type="button" data-cat="">${L('전체', 'All')} <span class="count">${stratagems.length}</span></button>${categories.map(cat => html`<button class="chip" type="button" data-cat="${cat.id}" style="--dot:${cat.color}"><span class="dot"></span>${cat.name} <span class="count">${count(cat.id)}</span></button>`)}</div>
     <div class="chips" role="group" aria-label="${L('관통력', 'Penetration')}"><button class="chip" type="button" data-ap="">${L('모든 관통력', 'Any penetration')}</button>${apBands.map(band => html`<button class="chip" type="button" data-ap="${band.id}">${band.name} <span class="count">${band.label}</span></button>`)}</div>
+    <div class="chips" role="group" aria-label="${L('함선 모듈', 'Ship modules')}"><button class="chip" type="button" data-mod="on">${L('함선 모듈 적용', 'Ship modules on')}</button><button class="chip" type="button" data-mod="off">${L('미적용', 'Off')}</button></div>
   </div>
   <div class="arsenal-meta"><span id="arsenal-count" role="status"></span><button class="link" type="button" data-reset data-reset-inline>${L('필터 초기화', 'Reset filters')}</button></div>
   <div id="arsenal-grid" class="grid"></div>
@@ -332,6 +371,7 @@ export function mount(container, context) {
     if (!target) return;
     if (target.dataset.cat != null) { state.c = state.c === target.dataset.cat ? '' : target.dataset.cat; renderList(); syncUrl(); }
     else if (target.dataset.ap != null) { state.ap = state.ap === target.dataset.ap ? '' : target.dataset.ap; renderList(); syncUrl(); }
+    else if (target.dataset.mod) { state.mod = target.dataset.mod === 'on'; setModulesOn(state.mod); renderList(); syncUrl(); }
     else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'arsenal', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
     else if (target.dataset.compare) toggleCompare(target.dataset.compare);
     else if (target.hasAttribute('data-compare-clear')) { state.compare.clear(); renderList(); }
@@ -366,7 +406,9 @@ export function update(route) {
     c: categories.some(cat => cat.id === q.c) ? q.c : '',
     ap: apBands.some(band => band.id === q.ap) ? q.ap : '',
     q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '',
+    mod: q.mod !== 'off',
   });
+  setModulesOn(state.mod);
   $('#arsenal-q', root).value = state.q;
   $('#arsenal-sort', root).value = state.sort;
   renderList();

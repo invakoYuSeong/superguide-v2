@@ -1,0 +1,810 @@
+{
+ "source": "https://helldivers.wiki.gg/api.php",
+ "retrievedAt": "2026-11-19",
+ "stratagems": {
+  "autocannon": {
+   "title": "AC-8 Autocannon",
+   "revision": 142279,
+   "timestamp": "2026-11-11T03:19:45Z",
+   "infobox": "{{Infobox Support Weapon\n| title = AC-8 Autocannon\n| stratagem_image = Autocannon Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 10\n| unlock_cost = {{Currency|Requisition|7000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Backpack {{*}} Heavy Armor Penetrating {{*}} Stationary Reload\n| stratagem_code = {{Stratagem code|down|left|down|up|up|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = AC-8_Autocannon_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|325 Projectile|notext}} (APHET)<br>{{Damage|Explosion|150}}<hr>{{Damage|Ballistic|110}} (Flak x30)<br>{{Damage|Explosion|190}}<hr>\n| penetration = {{Armor|4|AP}} (APHET)<br>{{Armor|3|AP}} (Flak)\n| capacity = 10\n| fire_rate = 190 rpm\n| dps = 1,504.17\n| spare_rounds = 50 (Backpack)\n| firing_modes = Semi{{*}} Auto<br> APHET {{*}} Flak\n| weapon_traits = Support Weapon {{*}} Hellpod {{*}} Backpack {{*}} Heavy Armor Penetrating {{*}} Stationary Reload\n| weapon_category = Support Weapons\n| weapon_type = Heavy Explosives\n| rounds_reload_full_time = 4s<br>3.55s (Upgraded)<br>0.66s (Assisted Per Clip)\n| rounds_reload_first = 2.6s<br>2.35s (Upgraded)\n| rounds_reload_rest = 1.25s<br>1.15s (Upgraded)\n| supply_box_refill = 25\n| ammo_box_refill = 10\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "recoilless": {
+   "title": "GR-8 Recoilless Rifle",
+   "revision": 140365,
+   "timestamp": "2026-10-25T12:36:12Z",
+   "infobox": "{{Infobox Support Weapon\n| title = GR-8 Recoilless Rifle\n| stratagem_image = Recoilless Rifle Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 5\n| unlock_cost = {{Currency|Requisition|6000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Backpack {{*}} Anti-Tank {{*}} Stationary Reload\n| stratagem_code = {{Stratagem_code|down|left|right|right|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = GR-8_Recoilless_Rifle_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|3,200 Projectile|notext}} (HEAT)<br> {{Damage|Explosion|150}}<hr> {{Damage|Ballistic|750 Projectile|notext}}(HE)<br> {{Damage|Explosion|800}}<hr>\n| penetration = {{Armor|6|AP}} (HEAT)<br> {{Armor|3|AP}}<hr> {{Armor|5|AP}} (HE)<br> {{Armor|4|AP}}<hr>\n| fire_rate = 600 rpm\n| capacity = 1\n| reload_time = 6.1s<br>5.5s (Upgraded)<br>1.7s (Assisted)\n| spare_shells = 5 (Backpack)\n| firing_modes = Semi {{*}} HEAT {{*}} HE\n| weapon_category = Support Weapons\n| weapon_type = Anti-Tank\n| supply_box_refill = 3\n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "machine-gun": {
+   "title": "MG-43 Machine Gun",
+   "revision": 142134,
+   "timestamp": "2026-11-07T17:33:48Z",
+   "infobox": "{{Infobox Support Weapon\n| title = MG-43 Machine Gun\n| stratagem_image = Machine Gun Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 1\n| unlock_cost = Free\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Medium Armor Penetrating {{*}} Stationary Reload\n| stratagem_code = {{Stratagem_code|down|left|down|up|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = MG-43 Machine Gun Support Render.png\n| damage = {{Damage|Ballistic|90}}\n| penetration = {{Armor|3|AP}}\n| capacity = 175\n| fire_rate = 630rpm {{*}} 760rpm {{*}} 900rpm\n| dps = 945{{*}}1,140.3{{*}}1,350\n| reload_time = 4.55s<br>4.1s (Upgraded)\n| tac_reload_time = 3.83s<br>3.45s (Upgraded)\n| spare_mags = 3\n| firing_modes = Auto\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 3\n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "stalwart": {
+   "title": "M-105 Stalwart",
+   "revision": 142377,
+   "timestamp": "2026-11-13T07:17:36Z",
+   "infobox": "{{Infobox Support Weapon\n| title = M-105 Stalwart\n| stratagem_image = Stalwart Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 1\n| unlock_cost = {{Currency|Requisition|3500}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Light Armor Penetrating\n| stratagem_code = {{Stratagem_code|down|left|down|up|up|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = M-105 Stalwart Support Render.png\n| damage = {{Damage|Ballistic|90}}\n| penetration = {{Armor|2|AP}}\n| dps = 1,050 {{*}} 1,275 {{*}} 1,725\n| reload_time = 5.9s<br>5.33s (Upgraded)\n| tac_reload_time = 4.4s<br>4s (Upgraded)\n| spare_mags = 3\n| capacity = 250\n| ergonomics = 35\n| fire_rate = 700rpm {{*}} 850rpm {{*}} 1150rpm\n| firing_modes = Auto\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "heavy-machine-gun": {
+   "title": "MG-206 Heavy Machine Gun",
+   "revision": 142132,
+   "timestamp": "2026-11-07T17:31:11Z",
+   "infobox": "{{Infobox Support Weapon\n| title = MG-206 Heavy Machine Gun\n| stratagem_image = Heavy Machine Gun Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 12\n| unlock_cost = {{Currency|Requisition Slips|6000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Heavy Armor Penetrating {{*}} Stationary Reload\n| stratagem_code = {{Stratagem_code|down|left|up|down|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = MG-206 Heavy Machine Gun Support Render.png\n| damage = {{Damage|Ballistic|150}}\n| penetration = {{Armor|4|AP}}\n| capacity = 100\n| fire_rate = 450rpm {{*}} 600rpm {{*}} 750rpm\n| dps = 1,125 {{*}} 1,500 {{*}} 1,875\n| reload_time = 5.55s<br>5s (Upgraded) \n| tac_reload_time = 3.9s<br>3.5s (Upgraded)\n| spare_mags = 2\n| firing_modes = Auto\n| cost = {{Currency|Requisition Slips|6000}}\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 2\n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "anti-materiel": {
+   "title": "APW-1 Anti-Materiel Rifle",
+   "revision": 142376,
+   "timestamp": "2026-11-13T06:45:01Z",
+   "infobox": "{{Infobox Support Weapon\n| title = APW-1 Anti-Materiel Rifle\n| stratagem_image = Anti-Materiel Rifle Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 1\n| unlock_cost = {{Currency|Requisition|5000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Heavy Armor Penetrating\n| stratagem_code = {{Stratagem_code|down|left|right|up|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = APW-1 Anti-Materiel Rifle Support Render.png\n| damage = {{Damage|Ballistic|450}}\n| damage_durable = {{Damage|Ballistic|225}}\n| penetration = {{Armor|4|AP}}\n| fire_rate = 400 rpm\n| dps = 3,000\n| capacity = 7\n| ergonomics = 31\n| reload_time = 3.05s<br>2.75s (Upgraded)\n| tac_reload_time = 2.05s<br>1.85s (Upgraded)\n| spare_mags = 8\n| firing_modes = Semi\n| scope_options = 50m {{*}} 100m {{*}} 200m\n| weapon_category = Support Weapons\n| weapon_type = Anti-Armor Precision\n| supply_box_refill = 4\n| ammo_box_refill = 2\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown= 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "apex": {
+   "title": "AMW-20 Apex",
+   "revision": 142478,
+   "timestamp": "2026-11-16T15:00:17Z",
+   "infobox": "{{Infobox Support Weapon\n| title = AMW-20 Apex\n| permit_type = Supply\n| stratagem_image = Apex Stratagem Icon Background.svg\n| unlock_cost = {{Currency|Medals|50}}\n| source = [[Scope of Authority Premium Warbond#Page 2|Scope of Authority]]<small>{{Tooltip|P2|Page 2}}</small>\n| traits = Support Weapon {{*}} Backpack {{*}} Heavy Armour Penetrating {{*}} Stationary Reload\n| stratagem_code = {{Stratagem code|down|left|left|up|down|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = AMW-20 Apex_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|1,550}}\n| fire_rate = 50 rpm\n| dps = 1,291.67\n| penetration = {{Armor|5|AP}}\n| capacity = 5\n| ergonomics = 10\n| reload_time = 5.0s<br>4.55s (Upgraded)<br>3s (Assisted)\n| tac_reload_time = 3.65<br>3.3s (Upgraded)\n| spare_mags = 4\n| firing_modes = Semi\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = \n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 410\n}}"
+  },
+  "expendable-at": {
+   "title": "EAT-17 Expendable Anti-Tank",
+   "revision": 140352,
+   "timestamp": "2026-10-25T12:35:37Z",
+   "infobox": "{{Infobox Support Weapon\n| title = EAT-17 Expendable Anti-Tank\n| stratagem_image = Expendable Anti-Tank Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 3\n| unlock_cost = {{Currency|Requisition|3000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Expendable\n| stratagem_code = {{Stratagem_code|down|down|left|up|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 70s\n| weapon_image = EAT-17 Expendable Anti-Tank Support Render.png\n| damage = {{Damage|Ballistic|2,000 Projectile|notext}}<br> {{Damage|Explosion|150}}\n| penetration = {{Armor|6|AP}} (Projectile)<br> {{Armor|3|AP}} (Explosion)\n| capacity = 1\n| firing_modes = \n| weapon_category = Support Weapons\n| weapon_type = Anti-Tank\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 6.75\n| call_time_upgraded = 3.75\n| uses = Unlimited\n| cooldown = 70\n| cooldown_upgraded = 63\n}}"
+  },
+  "quasar": {
+   "title": "LAS-99 Quasar Cannon",
+   "revision": 141666,
+   "timestamp": "2026-11-03T21:37:30Z",
+   "infobox": "{{Infobox Support Weapon\n| title = LAS-99 Quasar Cannon\n| stratagem_image = Quasar Cannon Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 18\n| unlock_cost = {{Currency|Requisition Slips|7500}}\n| source = Engineering Bay\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Chargeup\n| stratagem_code = {{Stratagem code|down|down|up|left|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = LAS-99 Quasar Cannon Support Render.png\n| damage = {{Damage|Ballistic|2000 Projectile|notext}}<br> {{Damage|Explosion|150}}\n| penetration = {{Armor|6|AP}}\n| capacity = ∞\n| fire_rate = ~3.34 rpm\n| weapon_category = Support Weapons\n| weapon_type = Heavy Energy-Based\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "nova": {
+   "title": "LAS-44 Nova",
+   "revision": 142479,
+   "timestamp": "2026-11-16T15:47:56Z",
+   "infobox": "{{Infobox Support Weapon\n| title = LAS-44 Nova\n| stratagem_image = Nova Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|110}}\n| source = [[Scope of Authority Premium Warbond#Page 3|Scope of Authority]] <small>{{Tooltip|P3|Page 3}}</small>\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Heat\n| stratagem_code = {{Stratagem_code|down|left|right|down|down}}\n| stratagem_type = Support Weapon \n| base_cooldown = 480s\n| ergonomics = 68\n| weapon_image = LAS-44 Nova Support Render.png\n| damage = {{Damage|Ballistic|880}}\n| penetration = {{Armor|5|AP}}\n| fire_rate = 30 rpm\n| dps = 440\n| capacity = ∞\n| weapon_category = Support Weapons\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 410\n}}"
+  },
+  "spear": {
+   "title": "FAF-14 Spear",
+   "revision": 141516,
+   "timestamp": "2026-11-03T18:09:10Z",
+   "infobox": "{{Infobox Support Weapon\n | title = FAF-14 Spear\n | stratagem_image = Spear Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 20\n | unlock_cost = {{Currency|Requisition|9000}}\n | source = Patriotic Administration Center\n | traits = Support Weapon {{*}} Backpack {{*}} Anti-Tank {{*}} Stationary Reload {{*}} Guided\n | stratagem_code = {{Stratagem_code|down|down|up|down|down}}\n | stratagem_type = Support Weapon\n | base_cooldown = 480s\n | weapon_image = FAF-14 Spear Weapon and Backpack Support Render.png\n | damage= {{Damage|Ballistic|4,000 Projectile|notext}}<br> {{Damage|Explosion|200}}\n | penetration= {{Armor|7|AP}} (Projectile)<br>{{Armor|3|AP}} (Explosion)\n | capacity= 1\n | fire_rate = 240 rpm\n | reload_time = 4.65s<br>4.2s (Upgraded)<br>2.1s (Assisted)\n | spare_rounds = 4 (Backpack)\n | firing_modes= Semi\n | weapon_category= Support Weapons\n | weapon_type= Missiles\n | supply_box_refill= 2\n | ammo_box_refill= 1\n }}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "commando": {
+   "title": "MLS-4X Commando",
+   "revision": 141271,
+   "timestamp": "2026-11-03T07:23:14Z",
+   "infobox": "{{Infobox Support Weapon\n| title = MLS-4X Commando\n| stratagem_image = Commando Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition|8000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Expendable\n| stratagem_code = {{Stratagem_code|down|left|up|down|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 120s\n| weapon_image = MLS-4X Commando Support Render.png\n| damage = {{Damage|Ballistic|1,100 Projectile|notext}}<br> {{Damage|Explosion|150}}\n| penetration = {{Armor|6|AP}}\n| capacity = 4\n| fire_rate = 240 rpm\n| firing_modes = Semi {{*}} Laser-guided {{*}} Dumb-Fire\n| weapon_category = Support Weapons\n| weapon_type = Missiles\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| cooldown_upgraded = 108\n}}"
+  },
+  "railgun": {
+   "title": "RS-422 Railgun",
+   "revision": 141141,
+   "timestamp": "2026-11-01T20:21:33Z",
+   "infobox": "{{Infobox Support Weapon\n| title = RS-422 Railgun\n| stratagem_image = Railgun Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 20\n| unlock_cost = {{Currency|Requisition|10000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Chargeup\n| stratagem_code = {{Stratagem_code|down|right|down|up|left|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = RS-422 Railgun Support Render.png\n| damage = {{Damage|Ballistic|600-1500}}\n| penetration = {{Armor|5|AP}}\n| reload_time = 1.2s {{*}} 1.35s (Base)\n| capacity = 1\n| fire_rate = 34 rpm\n| spare_rounds = 20\n| firing_modes = Safe {{*}} Unsafe\n| weapon_category = Support Weapons\n| weapon_type = Anti-Armor Precision\n| supply_box_refill = 10\n| ammo_box_refill = 5\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "arc-thrower": {
+   "title": "ARC-3 Arc Thrower",
+   "revision": 141657,
+   "timestamp": "2026-11-03T21:04:42Z",
+   "infobox": "{{Infobox Support Weapon\n| title = ARC-3 Arc Thrower\n| stratagem_image = Arc Thrower Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition|7000}}\n| source = Engineering Bay\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Chargeup {{*}} Arc\n| stratagem_code = {{Stratagem code|down|right|down|up|left|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = ARC-3 Arc Thrower Support Render.png\n| damage = {{Damage|Arc|250}}\n| penetration = {{Armor|7|AP}}\n| dps = 250\n| capacity = ∞\n| fire_rate = 60 rpm\n| weapon_category = Support Weapons\n| weapon_type = Heavy Energy-Based\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "laser-cannon": {
+   "title": "LAS-98 Laser Cannon",
+   "revision": 141653,
+   "timestamp": "2026-11-03T20:36:20Z",
+   "infobox": "{{Infobox Support Weapon\n| title = LAS-98 Laser Cannon\n| stratagem_image = Laser Cannon Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 5\n| unlock_cost = {{Currency|Requisition|4000}}\n| source = Engineering Bay\n| traits = Support Weapon {{*}} Hellpod {{*}} Heavy Armor Penetrating {{*}} Heat {{*}} Beam\n| stratagem_code = {{Stratagem code|down|left|down|up|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = LAS-98 Laser Cannon Support Render.png\n| damage = {{Damage|Laser|350 DPS}} <br> {{Damage|Fire|100 DPS}}\n| penetration = {{Armor|4|AP}}\n| capacity = 12.5s\n| reload_time = 3.65s <br> 3.3s (Upgraded)\n| tac_reload_time = 5.1s <br> 4.6s (Upgraded)\n| spare_mags = 2\n| weapon_category = Support Weapons\n| weapon_type = Heavy Energy-Based\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses=  Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "flamethrower": {
+   "title": "FLAM-40 Flamethrower",
+   "revision": 140360,
+   "timestamp": "2026-10-25T12:35:59Z",
+   "infobox": "{{Infobox Support Weapon\n| title = FLAM-40 Flamethrower\n| stratagem_image = Flamethrower Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 10\n| unlock_cost = {{Currency|Requisition|6000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Hellpod {{*}} Incendiary\n| stratagem_code = {{Stratagem_code|down|left|up|down|up}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = FLAM-40 Flamethrower Support Render.png\n| damage = {{Damage|Fire|150 DPS}}\n| penetration = {{Armor|4|AP}}\n| capacity = 150\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| spare_mags = 5\n| reload_time = 4s<br>3.6s (Upgraded)\n| tac_reload_time = 4s<br>3.6s (Upgraded)\n| supply_box_refill = 5\n| ammo_box_refill = 2\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "grenade-launcher": {
+   "title": "GL-21 Grenade Launcher",
+   "revision": 142040,
+   "timestamp": "2026-11-07T01:14:22Z",
+   "infobox": "{{Infobox Support Weapon\n| title = GL-21 Grenade Launcher\n| stratagem_image = Grenade Launcher Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 5\n| unlock_cost = {{Currency|Requisition|6000}}\n| source = Engineering Bay\n| traits = Support Weapon {{*}} Explosive {{*}} Medium Armor Penetrating\n| stratagem_code = {{Stratagem code|down|left|up|left|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = GL-21 Grenade Launcher Support Render.png\n| damage = {{Damage|Explosion|400}}\n| penetration = {{Armor|3|AP}}\n| capacity = 10\n| fire_rate = 160 RPM\n| dps = 1066.67\n| reload_time = 3.55s<br>3.2s (Upgraded)\n| tac_reload_time = 3s<br>2.7s (Upgraded)\n| spare_mags = 3\n| firing_modes = Semi {{*}} Auto\n| scope_options = None\n| weapon_category = Support Weapons\n| weapon_type = Heavy Explosives\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "airburst-launcher": {
+   "title": "RL-77 Airburst Rocket Launcher",
+   "revision": 140387,
+   "timestamp": "2026-10-25T12:37:08Z",
+   "infobox": "{{Infobox Support Weapon\n| title = RL-77 Airburst Rocket Launcher\n| stratagem_image = Airburst Rocket Launcher Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition Slips|8000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Backpack {{*}} Medium Armor Penetrating {{*}} Stationary Reload\n| stratagem_code = {{Stratagem code|down|up|up|left|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = RL-77_Airburst_Rocket_Launcher_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|350}} (Rocket) <br> {{Damage|Explosion|150}} <hr> {{Damage|Ballistic|150}}(Bomblets<br>{{Damage|Explosion|500}} x25)\n| penetration = {{Armor|3|AP}}\n| capacity = 1\n| fire_rate = 16 rpm\n| reload_time = 5.1s<br> 4.6s (Upgraded)<br>1.8s (Assisted)\n| spare_rounds = 5 (Backpack)\n| firing_modes = Cluster {{*}} Flak\n| weapon_category = Support Weapons\n| weapon_type= Rocket Launcher\n| supply_box_refill = 3\n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "wasp": {
+   "title": "StA-X3 W.A.S.P. Launcher",
+   "revision": 140393,
+   "timestamp": "2026-10-25T12:37:23Z",
+   "infobox": "{{Infobox Support Weapon\n| title = StA-X3 W.A.S.P. Launcher\n| stratagem_image = W.A.S.P. Launcher Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 20\n| unlock_cost = {{Currency|Requisition|12000}}\n| source = Patriotic Administration Center\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Backpack {{*}}Stationary Reload {{*}} Guided\n| stratagem_code = {{Stratagem_code|down|down|up|down|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = StA-X3_W.A.S.P._Launcher_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|200 Projectile|notext}}<br> {{Damage|Explosion|600}}\n| penetration = {{Armor|6|AP}} (Projectile)<br> {{Armor|3|AP}} (Explosion)\n| capacity = 7\n| recoil = 6\n| fire_rate = 500 rpm\n| dps = 6,666.66\n| reload_time = 4.9s<br>4.4s (Upgraded)<br>3.33s (Assisted)\n| tac_reload_time = 4.9s<br>4.4s (Upgraded)\n| spare_mags = 5 (Backpack)\n| firing_modes = Burst {{*}} Artillery\n| weapon_category = Support Weapons\n| weapon_type = Missiles\n| supply_box_refill = 3\n| ammo_box_refill = 1\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "sterilizer": {
+   "title": "TX-41 Sterilizer",
+   "revision": 140396,
+   "timestamp": "2026-10-25T12:37:32Z",
+   "infobox": "{{Infobox Support Weapon\n| title = TX-41 Sterilizer\n| stratagem_image = Sterilizer Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|85}} \n| source = [[Chemical Agents Premium Warbond#Page 2|Chemical Agents]] <small>{{Tooltip|P2|Page 2}}</small>\n| traits = Support Weapon {{*}} Caustic\n| stratagem_code = {{Stratagem code|down|left|up|down|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = TX-41 Sterilizer Support Render.png\n| damage = {{Damage|Gas|30 DPS}}\n| penetration = {{Armor|5}}\n| capacity = 100\n| reload_time = 4s<br>3.6s (Upgraded)\n| tac_reload_time = 4s<br>3.6s (Upgraded)\n| spare_magazines = 4\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 4\n| ammo_box_refill = 2\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "meltagun": {
+   "title": "40-K Meltagun",
+   "revision": 141879,
+   "timestamp": "2026-11-05T16:37:11Z",
+   "infobox": "{{Infobox Support Weapon\n| title = 40-K Meltagun\n| stratagem_image=Meltagun Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|110}}\n| source = [[Castellan’s Creed Legendary Warbond#Page_3|Castellan’s Creed]] <small>{{Tooltip|P3|Page 3}}</small>\n| traits = Support Weapon {{*}} Chargeup {{*}} Anti-Tank\n| stratagem_code = {{Stratagem_code|down|left|up|left|left|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = 40-K Meltagun Support Render.png\n| damage = {{Damage|Laser|2,600 DPS|notext}}\n| penetration = {{Armor|7|AP}}\n| reload_time = 3.75s<br>3.35s (Upgraded)\n| tac_reload_time = 3.75s<br>3.35s (Upgraded)\n| capacity = 3\n| fire_rate = 50 rpm\n| weapon_category = Support Weapons\n| weapon_type = Heavy Energy-Based\n| supply_box_refill = 3\n| ammo_box_refill = 1\n|spare_mags=4}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = \n}}"
+  },
+  "cremator": {
+   "title": "B/FLAM-80 Cremator",
+   "revision": 141857,
+   "timestamp": "2026-11-05T15:08:19Z",
+   "infobox": "{{Infobox Support Weapon\n| title = B/FLAM-80 Cremator\n| stratagem_image = Cremator Stratagem Icon Background.svg\n| permit_type = Supply\n| stratagem_code = {{Stratagem_code|down|down|right|down|up|up}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| source = [[Entrenched Division Premium Warbond#Page_3|Entrenched Division]] <small>{{Tooltip|P3|Page 3}}</small>\n| unlock_cost = {{Currency|Medals|110}}\n| weapon_image = B_FLAM-80_Cremator_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Fire|225 DPS}}\n| penetration = {{Armor|4|AP}}\n| capacity = 500\n| fire_rate = \n| dps = 225\n| traits = Support Weapon {{*}} Hellpod {{*}} Backpack {{*}} Incendiary\n| firing_modes = Auto\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 500\n| ammo_box_refill = 250\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "c4-pack": {
+   "title": "B/MD C4 Pack",
+   "revision": 140344,
+   "timestamp": "2026-10-25T12:35:19Z",
+   "infobox": "{{Infobox Support Weapon\n| title = B/MD C4 Pack\n| stratagem_image = C4 Pack Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|110}}\n| source = [[Redacted Regiment Premium Warbond#Page 3|Redacted Regiment]] <small>{{Tooltip|P3|Page 3}}</small>\n| traits = Support Weapon {{*}} Backpack {{*}} Anti-Tank {{*}} Sticky\n| stratagem_code = {{Stratagem_code|down|right|up|up|right|up}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = B MD C4 Pack Support Render.png\n| damage = {{Damage|Explosion|2000}}\n| penetration = {{Armor|7|AP}}\n| capacity = 1\n| reload_time = 1.1s<br>1s (Upgraded)\n| firing_modes = Deploy {{*}} Detonate\n| spare_rounds = 6\n| ammo_box_refill = 1\n| supply_box_refill = 3\n| weapon_category = Support Weapons\n| weapon_type = Anti-Tank\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n|call_time_upgraded=4.75}}"
+  },
+  "one-true-flag": {
+   "title": "CQC-1 One True Flag",
+   "revision": 140345,
+   "timestamp": "2026-10-25T12:35:22Z",
+   "infobox": "{{Infobox Support Weapon\n | title = CQC-1 One True Flag\n | stratagem_image = One True Flag Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|110}}\n | source = [[Masters_of_Ceremony_Premium_Warbond#Page_3|Masters of Ceremony]] <small>{{Tooltip|P3|Page 3}}</small>\n | traits = Support Weapon {{*}} Medium Armor Penetrating {{*}} Melee {{*}} One Handed\n | stratagem_code = {{Stratagem code|down|left|right|right|up}}\n | stratagem_type = Support Weapon\n | base_cooldown = 480s\n | weapon_image  = CQC-1 One True Flag Support Render.png\n | damage        = {{Damage|Melee|200}}\n | penetration   = {{Armor|3|AP}}\n | capacity      = N/A\n | recoil        = 8\n | fire_rate     = 117 rpm\n | weapon_category= Support Weapons\n | weapon_type= Melee\n | supply_box_refill=\n | ammo_box_refill= \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n|call_time_upgraded=4.75}}"
+  },
+  "breaching-hammer": {
+   "title": "CQC-20 Breaching Hammer",
+   "revision": 141572,
+   "timestamp": "2026-11-03T18:18:23Z",
+   "infobox": "{{Infobox Support Weapon\n | title = CQC-20 Breaching Hammer\n | stratagem_image = Breaching Hammer Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|75}}\n | source = [[Siege Breakers Premium Warbond#Page 1|Siege Breakers]] <small>{{Tooltip|P1|Page 1}}</small>\n | traits = Support Weapon {{*}} Explosive {{*}} Anti-Tank {{*}} Melee\n | stratagem_code = {{Stratagem_code|down|left|right|left|up}}\n | stratagem_type = Support Weapon\n | base_cooldown = 480s\n | weapon_image = CQC-20 Breaching Hammer Render.png\n | damage = {{Damage|Melee|300}}<br>{{Damage|Explosion|2,200}}\n | penetration = {{Armor|3|AP}} (Melee)<br>{{Armor|6|AP}} (Explosion)\n | capacity = 1\n | reload_time = 1s<br>0.9s (Upgraded)\n | spare_rounds = 10\n | fire_rate = \n | weapon_category= Support Weapons\n | weapon_type= Melee\n | supply_box_refill = 7\n | ammo_box_refill = 3\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "defoliation-tool": {
+   "title": "CQC-9 Defoliation Tool",
+   "revision": 140348,
+   "timestamp": "2026-10-25T12:35:27Z",
+   "infobox": "{{Infobox Support Weapon\n| title = CQC-9 Defoliation Tool\n| stratagem_image = Defoliation Tool Stratagem Icon Background.svg\n| permit_type = Supply\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Melee \n| stratagem_code = {{Stratagem code|down|left|right|right|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| source = [[Python Commandos_Premium_Warbond#Page 2|Python Commandos]] <small>{{Tooltip|P2|Page 2}}</small>\n| unlock_cost = {{Currency|Medals|85}}\n| weapon_image = CQC-9 Defoliation Tool Support Render.png\n| damage = {{Damage|Melee|450/s}}\n| penetration = {{Armor|5|AP}}\n| fire_rate = \n| dps = 450\n| weapon_category = Support Weapons\n| weapon_type = Melee\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses=  Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "leveller": {
+   "title": "EAT-411 Leveller",
+   "revision": 142237,
+   "timestamp": "2026-11-10T00:05:00Z",
+   "infobox": "{{Infobox Support Weapon\n| title = EAT-411 Leveller\n| stratagem_image = Leveller Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|85}}\n| source = [[Siege Breakers Premium Warbond#Page 2|Siege Breakers]] <small>{{Tooltip|P2|Page 2}}</small>\n| traits = Support Weapon {{*}} Anti-Tank {{*}} Expendable\n| stratagem_code = {{Stratagem_code|down|down|left|up|down}}\n| stratagem_type = Support Weapon\n| base_cooldown = 140s\n| weapon_image = EAT-411_Leveller_Support_Render.png\n| damage = {{Damage|Ballistic|1,000}}<br> {{Damage|Explosion|2,500}}\n| penetration = {{Armor|6|AP}}\n| fire_rate = 600 rpm\n| capacity = 1\n| spare_rounds =\n| firing_modes = \n| weapon_category = Support Weapons\n| weapon_type = Anti-Tank\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 140\n}}"
+  },
+  "expendable-napalm": {
+   "title": "EAT-700 Expendable Napalm",
+   "revision": 140354,
+   "timestamp": "2026-10-25T12:35:41Z",
+   "infobox": "{{Infobox Support Weapon\n| title = EAT-700 Expendable Napalm\n| stratagem_image = Expendable Napalm Stratagem Icon Background.svg\n| permit_type = Supply\n| traits = Support Weapon {{*}} Incendiary {{*}} Expendable\n| stratagem_code = {{Stratagem_code|down|down|left|up|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 140s\n| unlock_cost = {{Currency|Medals|85}}\n| source = [[Dust Devils Premium Warbond#Page 2|Dust Devils]] <small>{{Tooltip|P2|Page 2}}</small>\n| weapon_image = EAT-700 Expendable Napalm Support Render.png\n| damage = {{Damage|Ballistic|500}} (Projectile)<br>{{Damage|Explosion|250}}<hr>{{Damage|Ballistic|200}} (Bomblets <br>{{Damage|Explosion|50}} x25)\n| penetration = {{Armor|3|AP}} (Bomblets)\n| capacity = 1\n| fire_rate = 600 rpm\n| firing_modes = \n| weapon_category = Support Weapons\n| weapon_type = Incendiary\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = unlimited\n| cooldown = 140\n| cooldown_upgraded = 120\n}}"
+  },
+  "belt-fed-gl": {
+   "title": "GL-28 Belt-Fed Grenade Launcher",
+   "revision": 140363,
+   "timestamp": "2026-10-25T12:36:07Z",
+   "infobox": "{{Infobox Support Weapon\n| title = GL-28 Belt-Fed Grenade Launcher\n| stratagem_image = Belt-Fed Grenade Launcher Stratagem Icon Background.svg\n| permit_type = Supply\n| traits = Support Weapon {{*}} Backpack {{*}} Heavy Armor Penetrating {{*}} Explosive\n| stratagem_code = {{Stratagem_code|down|left|up|left|up|up}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| source = [[Siege Breakers Premium Warbond#Page_3|Siege Breakers]] <small>{{Tooltip|P3|Page 3}}</small>\n| unlock_cost = {{Currency|Medals|110}}\n| weapon_image = \nGL-28_Belt-Fed_Grenade_Launcher_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Explosion|150}}\n| penetration = {{Armor|4|AP}}\n| capacity = 120 (Backpack)\n| fire_rate = 160rpm {{*}} 240rpm {{*}} 320rpm\n| dps = 400 {{*}} 600 {{*}} 800\n| firing_modes = Auto\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 60\n| ammo_box_refill = 30\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "de-escalator": {
+   "title": "GL-52 De-Escalator",
+   "revision": 141545,
+   "timestamp": "2026-11-03T18:16:22Z",
+   "infobox": "{{Infobox Support Weapon\n| title = GL-52 De-Escalator\n| stratagem_image = De-Escalator Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|85}} \n| source = [[Force of Law Premium Warbond#Page 2|Force of Law]] <small>{{Tooltip|P2|Page 2}}</small>\n| traits = Support Weapon {{*}} Explosive {{*}} Heavy Armor Penetrating {{*}} Arc\n| stratagem_code = {{Stratagem code|down|right|up|left|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = GL-52 De-Escalator Support Render.png\n| caption-image = \n| damage = {{Damage|Arc|100}} (x10)\n| damage_durable = {{Damage|Arc|70}}\n| penetration = {{Armor|4|AP}}\n| capacity = 6\n| rounds_reload_full_time = 4.7s <br> 4.25s (Upgraded)\n| rounds_reload_first = 1.9s <br> 1.7s (Upgraded)\n| rounds_reload_rest = 0.6s <br> 0.55s (Upgraded)\n| fire_rate = 200 RPM\n| dps = 3,333.33\n| firing_modes = Semi {{*}} Auto\n| scope_options = None\n| weapon_category = Support Weapons\n| weapon_type = Stun {{*}} Tesla\n| spare_rounds = 40\n| supply_box_refill = 40\n| ammo_box_refill = 20\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "maxigun": {
+   "title": "M-1000 Maxigun",
+   "revision": 140372,
+   "timestamp": "2026-10-25T12:36:29Z",
+   "infobox": "{{Infobox Support Weapon\n| title = M-1000 Maxigun\n| stratagem_image = Maxigun Stratagem Icon Background.svg\n| permit_type = Supply\n| traits = Support Weapon {{*}} Medium Armor Penetrating {{*}} Backpack\n| stratagem_code = {{Stratagem code|down|left|right|down|up|up}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| source = [[Python Commandos Premium Warbond#Page 3|Python Commandos]] <small>{{Tooltip|P3|Page 3}}</small>\n| unlock_cost = {{Currency|Medals|110}}\n| weapon_image = M-1000_Maxigun_Weapon_and_Backpack_Support_Render.png\n| damage = {{Damage|Ballistic|80}}\n| penetration = {{Armor|3|AP}}\n| capacity = 1,000 (Backpack)\n| fire_rate = 1,500 rpm\n| dps = 2,000\n| firing_modes = Auto\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| supply_box_refill = 500\n| ammo_box_refill = 250\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses=  Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "bullet-storm": {
+   "title": "MGX-42 Bullet Storm",
+   "revision": 141086,
+   "timestamp": "2026-10-31T18:17:09Z",
+   "infobox": "{{Infobox Support Weapon\n| title = MGX-42 Bullet Storm\n| stratagem_image = Bullet Storm Stratagem Icon Background.svg\n| permit_type = Supply\n| source = [[Exo Experts Premium Warbond#Page 1|Exo Experts]] <small>{{Tooltip|P1|Page 1}}</small>\n| unlock_cost = {{Currency|Medals|75}}\n| traits = Support Weapon {{*}} Light Armor Penetrating {{*}} Expendable\n| stratagem_code = {{Stratagem code|down|left|down|right|up|left}}\n| stratagem_type = Support Weapon\n| base_cooldown = 70s\n| weapon_image = {{PAGENAME}} Support Render.png\n| damage = {{Damage|Ballistic|100}}\n| fire_rate = 1,300 rpm\n| dps = 2,166.67\n| penetration = {{Armor|2|AP}}\n| capacity = 300\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 6.75\n| call_time_upgraded = 3.75\n| uses = Unlimited\n| cooldown = 70\n| cooldown_upgraded = 66.5\n}}"
+  },
+  "epoch": {
+   "title": "PLAS-45 Epoch",
+   "revision": 140386,
+   "timestamp": "2026-10-25T12:37:06Z",
+   "infobox": "{{Infobox Support Weapon\n| title = PLAS-45 Epoch\n| stratagem_image = Epoch Stratagem Icon Background.svg\n| permit_type = Supply\n| source = [[Control Group Premium Warbond#Page 1|Control Group]] <small>{{Tooltip|P1|Page 1}}</small>\n| unlock_cost = {{Currency|Medals|75}}\n| traits = Support Weapon {{*}} Explosive {{*}} Heavy Armor Penetrating {{*}} Stationary Reload {{*}} Chargeup\n| stratagem_code = {{Stratagem code|down|left|up|left|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = {{PAGENAME}} Support Render.png|Model\n| damage = {{Damage|Ballistic|400 Uncharged Bolt|notext}}<br>{{Damage|Explosion|500 Uncharged Explosion}} <hr> {{Damage|Ballistic|800 Charged Bolt|notext}}<br>{{Damage|Explosion|800 Charged Explosion}}\n| fire_rate = 600 rpm\n| firing_modes = \n| reload_time = 5.15s<br>4.65s (Upgraded)\n| tac_reload_time = 5.15s<br>4.65s (Upgraded)\n| dps = 1,600\n| penetration = {{Armor|5|AP}}\n| capacity = 3\n| spare_mags = 4\n| ammo_box_refill = 1\n| supply_box_refill = 2\n| weapon_category = Support Weapons\n| weapon_type = Heavy Weapons\n| max_charge_time = 3.25 s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75 \n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 480\n}}"
+  },
+  "solo-silo": {
+   "title": "MS-11 Solo Silo",
+   "revision": 141268,
+   "timestamp": "2026-11-03T07:07:40Z",
+   "infobox": "{{Infobox Support Weapon\n| title = MS-11 Solo Silo\n| stratagem_image = Solo Silo Stratagem Icon Background.svg\n| permit_type = Supply\n| traits = Support Weapon {{*}} Explosive {{*}} Anti-Tank {{*}} Expendable\n| source = [[Dust Devils Premium Warbond#Page 3|Dust Devils]] <small>{{Tooltip|P3|Page 3}}</small>\n| unlock_cost = {{Currency|Medals|110}}\n| stratagem_type = Support Weapon\n| base_cooldown = 180s\n| stratagem_code = {{Stratagem Code|down|up|right|down|down}}\n| weapon_image = MS-11 Solo Silo Support Render.png\n| damage = {{Damage|Explosion|2,500}} <br> (Main Explosion) <hr> {{Damage|Explosion|1,500}} <br> (Impact Explosion)\n| penetration = {{Armor|7|AP}} <br> (Main Explosion) <hr> {{Armor|9|AP}} <br> (Impact Explosion)\n| weapon_category = Support Weapons\n| weapon_type = Heavy Explosive\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| uses = Unlimited\n| cooldown = 180\n|call_time_upgraded=4.75}}"
+  },
+  "speargun": {
+   "title": "S-11 Speargun",
+   "revision": 142133,
+   "timestamp": "2026-11-07T17:31:49Z",
+   "infobox": "{{Infobox Support Weapon\n| title = S-11 Speargun\n| stratagem_image = Speargun Stratagem Icon Background.svg\n| permit_type = Supply\n| source = [[Dust Devils Premium Warbond#Page 2|Dust Devils]] <small>{{Tooltip|P2|Page 2}}</small>\n| unlock_cost = {{Currency|Medals|85}}\n| traits = Support Weapon {{*}} Caustic {{*}} Anti-Tank\n| stratagem_code = {{Stratagem_code|down|right|down|left|up|right}}\n| stratagem_type = Support Weapon\n| base_cooldown = 480s\n| weapon_image = S-11 Speargun Support Render.png\n| damage = {{Damage|Ballistic|650 Impact|notext}}<br>{{Damage|Gas|3 Gas (Explosion)|notext}}<br>{{Damage|Gas|25 DPS}}\n| penetration = {{Armor|5|AP}}\n| capacity = 1\n| fire_rate = 60 rpm\n| reload_time = 2.5s <br> 2.25s (Upgraded)\n| spare_rounds = 12\n| weapon_category = Support Weapons\n| weapon_type = Anti-Armor Precision\n| supply_box_refill = \n| ammo_box_refill = \n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses=  Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "orbital-precision": {
+   "title": "Orbital Precision Strike",
+   "revision": 140410,
+   "timestamp": "2026-10-25T12:51:11Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Precision Strike\n | image = Orbital Precision Strike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 1\n | unlock_cost = Free\n | source = Bridge\n | traits = Explosive {{*}} Orbital {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|right|right|up}}\n | stratagem_type = Orbital\n | base_cooldown = 80s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.45\n|call_time_upgraded = 3.45\n| uses = Unlimited\n| cooldown = 80\n| cooldown_upgraded = 72\n}}"
+  },
+  "orbital-gatling": {
+   "title": "Orbital Gatling Barrage",
+   "revision": 140407,
+   "timestamp": "2026-10-25T12:49:25Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Gatling Barrage\n | image = Orbital Gatling Barrage Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition|1500}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Heavy Armor Penetrating\n | stratagem_code = {{Stratagem_code|right|down|left|up|up}}\n | stratagem_type = Orbital\n | base_cooldown = 70s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 3.05\n| call_time_upgraded = 2.05\n| uses = Unlimited\n| cooldown = 70\n| cooldown_upgraded = 63\n}}"
+  },
+  "orbital-airburst": {
+   "title": "Orbital Airburst Strike",
+   "revision": 140404,
+   "timestamp": "2026-10-25T12:47:55Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Airburst Strike\n | image = Orbital Airburst Strike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 5\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|right|right|right}}\n | stratagem_type = Orbital\n | base_cooldown = 90s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.45\n| call_time_upgraded = 3.45\n| uses = Unlimited\n| cooldown = 90\n| cooldown_upgraded = 76.95\n}}"
+  },
+  "orbital-120": {
+   "title": "Orbital 120mm HE Barrage",
+   "revision": 140402,
+   "timestamp": "2026-10-25T12:46:41Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital 120mm HE Barrage\n | image = Orbital 120mm HE Barrage Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 5\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|right|right|down|left|right|down}}\n | stratagem_type = Orbital\n | base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.45\n| call_time_upgraded = 6.45\n| uses = Unlimited\n| cooldown = 180\n| cooldown_upgraded = 162\n}}"
+  },
+  "orbital-380": {
+   "title": "Orbital 380mm HE Barrage",
+   "revision": 140403,
+   "timestamp": "2026-10-25T12:47:24Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital 380mm HE Barrage\n | image = Orbital 380mm HE Barrage Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 8\n | unlock_cost = {{Currency|Requisition|7500}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|right|down|up|up|left|down|down}}\n | stratagem_type = Orbital\n | base_cooldown = 240s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 8.45\n| call_time_upgraded = 7.45\n| uses = Unlimited\n| cooldown = 240\n| cooldown_upgraded = 216\n}}"
+  },
+  "orbital-walking": {
+   "title": "Orbital Walking Barrage",
+   "revision": 140416,
+   "timestamp": "2026-10-25T12:57:05Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Walking Barrage\n | image = Orbital Walking Barrage Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 10\n | unlock_cost = {{Currency|Requisition|7500}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|right|down|right|down|right|down}}\n | stratagem_type = Orbital\n | base_cooldown = 240s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 5.45\n| call_time_upgraded = 4.45\n| uses = Unlimited\n| cooldown = 240\n| cooldown_upgraded = 216\n}}"
+  },
+  "orbital-napalm": {
+   "title": "Orbital Napalm Barrage",
+   "revision": 141574,
+   "timestamp": "2026-11-03T18:18:29Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Napalm Barrage\n | image = Orbital Napalm Barrage Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 18\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Orbital Cannons\n | traits = Explosive {{*}} Orbital {{*}} Incendiary\n | stratagem_code = {{Stratagem code|right|right|down|left|right|up}}\n | stratagem_type = Orbital\n | base_cooldown = 240s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.45\n| call_time_upgraded = 6.45\n| uses = Unlimited\n| cooldown = 240\n| cooldown_upgraded = 216\n}}"
+  },
+  "orbital-laser": {
+   "title": "Orbital Laser",
+   "revision": 140408,
+   "timestamp": "2026-10-25T12:50:02Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Laser\n | image = Orbital Laser Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 15\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Orbital Cannons\n | traits = Orbital {{*}} Anti-Tank {{*}} Beam\n | stratagem_code = {{Stratagem code|right|down|up|right|down}}\n | stratagem_type = Orbital\n | base_cooldown = 300s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 2\n| call_time_upgraded = 1\n| uses = 3\n| cooldown = 300\n| cooldown_upgraded = 270\n}}"
+  },
+  "orbital-railcannon": {
+   "title": "Orbital Railcannon Strike",
+   "revision": 140412,
+   "timestamp": "2026-10-25T12:53:25Z",
+   "infobox": "{{Infobox Stratagem\n | title = Orbital Railcannon Strike\n | image = Orbital Railcannon Strike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 20\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Orbital Cannons\n | traits = Orbital {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|right|up|down|down|right}}\n | stratagem_type = Orbital\n | base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 0\n| uses = Unlimited\n| cooldown = 180\n|cooldown_upgraded_all=153.9\n|cooldown_upgraded_ma=162\n|cooldown_upgraded_zbl=171\n}}"
+  },
+  "orbital-gas": {
+   "title": "Orbital Gas Strike",
+   "revision": 140406,
+   "timestamp": "2026-10-25T12:48:59Z",
+   "infobox": "{{Infobox Stratagem\n| title = Orbital Gas Strike\n| image = Orbital Gas Strike Stratagem Icon Background.svg\n| permit_type = Offensive\n| unlock_level = 1\n| unlock_cost = {{Currency|Requisition|4000}}\n| source = Bridge\n| traits = Explosive {{*}} Orbital {{*}} Caustic\n| stratagem_code = {{Stratagem code|right|right|down|right}}\n| stratagem_type = Orbital\n| base_cooldown = 75s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.45\n| call_time_upgraded = 3.45\n| uses = Unlimited\n| cooldown= 75\n| cooldown_upgraded = 67.5\n}}"
+  },
+  "orbital-ems": {
+   "title": "Orbital EMS Strike",
+   "revision": 140405,
+   "timestamp": "2026-10-25T12:48:27Z",
+   "infobox": "{{Infobox Stratagem\n| title = Orbital EMS Strike\n| image = Orbital EMS Strike Stratagem Icon Background.svg\n| permit_type = Offensive\n| unlock_level = 5\n| unlock_cost = {{Currency|Requisition|6000}}\n| source = Bridge\n| traits = Orbital {{*}} Anti-Tank {{*}} Stun\n| stratagem_code = {{Stratagem code|right|right|left|down}}\n| stratagem_type = Orbital\n| base_cooldown = 75s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.45\n| call_time_upgraded = 3.45\n| uses = Unlimited\n| cooldown = 75\n| cooldown_upgraded = 67.5\n}}"
+  },
+  "orbital-smoke": {
+   "title": "Orbital Smoke Strike",
+   "revision": 140415,
+   "timestamp": "2026-10-25T12:56:10Z",
+   "infobox": "{{Infobox Stratagem\n| title = Orbital Smoke Strike\n| image = Orbital Smoke Strike Stratagem Icon Background.svg\n| permit_type = Offensive\n| unlock_level = 8\n| unlock_cost = {{Currency|Requisition|4000}}\n| source = Bridge\n| traits = Explosive {{*}} Orbital\n| stratagem_code = {{Stratagem code|right|right|down|up}}\n| stratagem_type = Orbital\n| base_cooldown = 75s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.45\n| call_time_upgraded = 3.45\n| uses = Unlimited\n| cooldown = 75\n}}"
+  },
+  "eagle-500kg": {
+   "title": "Eagle 500kg Bomb",
+   "revision": 142623,
+   "timestamp": "2026-11-19T03:43:33Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle 500kg Bomb\n | image = Eagle 500kg Bomb Stratagem Icon Background.svg\n | permit_type = Offense\n | unlock_level = 15\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle {{*}} Anti-Tank\n | stratagem_code = {{Stratagem_code|up|right|down|down|down}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 3.45\n| uses = 1\n| uses_upgraded = 2\n| cooldown = 15\n| cooldown_upgraded = \n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-airstrike": {
+   "title": "Eagle Airstrike",
+   "revision": 142621,
+   "timestamp": "2026-11-19T02:47:25Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Airstrike\n | image = Eagle Airstrike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle {{*}} Anti-Tank\n | stratagem_code = {{Stratagem_code|up|right|down|right}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.1\n| uses = 2\n| uses_upgraded = 3\n| cooldown = 15\n| cooldown_upgraded = 7\n| rearm_time = 150\n| rearm_time_upgraded = 120\n|cooldown_upgraded_all=7|cooldown_upgraded_ma=7|cooldown_upgraded_lvc=8}}"
+  },
+  "eagle-strafing": {
+   "title": "Eagle Strafing Run",
+   "revision": 140430,
+   "timestamp": "2026-10-25T13:15:25Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Strafing Run\n | image = Eagle Strafing Run Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition|1500}}\n | source = Hangar\n | traits = Eagle {{*}} Anti-Tank\n | stratagem_code = {{Stratagem_code|up|right|right}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 2.4\n| uses = 4\n| uses_upgraded = 5\n| cooldown = 15\n| cooldown_upgraded = 8\n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-cluster": {
+   "title": "Eagle Cluster Bomb",
+   "revision": 142597,
+   "timestamp": "2026-11-18T22:27:18Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Cluster Bomb\n | image = Eagle Cluster Bomb Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 3\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|up|right|down|down|right}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.1\n| uses = 4\n| uses_upgraded = 5\n| cooldown = 15\n| cooldown_upgraded = 8\n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-napalm": {
+   "title": "Eagle Napalm Airstrike",
+   "revision": 142599,
+   "timestamp": "2026-11-18T22:28:58Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Napalm Airstrike\n | image = Eagle Napalm Airstrike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 5\n | unlock_cost = {{Currency|Requisition|5000}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle {{*}} Incendiary\n | stratagem_code = {{Stratagem_code|up|right|down|up}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.1\n| uses = 2\n| uses_upgraded = 3\n| cooldown = 15\n| cooldown_upgraded = 8\n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-rockets": {
+   "title": "Eagle 110mm Rocket Pods",
+   "revision": 142014,
+   "timestamp": "2026-11-06T22:26:05Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle 110mm Rocket Pods\n | image = Eagle 110mm Rocket Pods Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 10\n | unlock_cost = {{Currency|Requisition|7500}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|up|right|up|left}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 3.4\n| uses = 3\n| uses_upgraded = 4\n| cooldown = 15\n| cooldown_upgraded = 8\n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-smoke": {
+   "title": "Eagle Smoke Strike",
+   "revision": 142602,
+   "timestamp": "2026-11-18T23:02:39Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Smoke Strike\n | image = Eagle Smoke Strike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = 8\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Hangar\n | traits = Explosive {{*}} Eagle\n | stratagem_code = {{Stratagem_code|up|right|up|down}}\n | stratagem_type = Eagle\n | base_cooldown = 15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.4\n| uses = 2\n| uses_upgraded = 3\n| cooldown = 15\n| cooldown_upgraded = 8\n| rearm_time = 150\n| rearm_time_upgraded = 120\n}}"
+  },
+  "eagle-gas": {
+   "title": "Eagle Gas Airstrike",
+   "revision": 142600,
+   "timestamp": "2026-11-18T22:30:02Z",
+   "infobox": "{{Infobox Stratagem\n | title = Eagle Gas Airstrike\n | image = Eagle Gas Airstrike Stratagem Icon Background.svg\n | permit_type = Offensive\n | unlock_level = \n | unlock_cost =\n | source =[[Campaigns#Counterdissident_Hammer|Counterdissident Hammer]]\n | traits = Explosive {{*}} Eagle {{*}} Caustic\n | stratagem_code = {{Stratagem_code|up|right|left|right}}\n | stratagem_type = Eagle\n | base_cooldown =15s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4.1\n| uses = 2\n| uses_upgraded = 3\n| cooldown = 15\n| cooldown_upgraded = 7\n| rearm_time = 150\n| rearm_time_upgraded = 120\n| cooldown_upgraded_all = 7\n| cooldown_upgraded_ma = 7\n| cooldown_upgraded_lvc = 8\n}}"
+  },
+  "machine-gun-sentry": {
+   "title": "A/MG-43 Machine Gun Sentry",
+   "revision": 140329,
+   "timestamp": "2026-10-25T12:34:44Z",
+   "infobox": "{{Infobox Stratagem\n | title = A/MG-43 Machine Gun Sentry\n | image = Machine Gun Sentry Stratagem Icon Background.svg\n | permit_type = Defensive\n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition|1500}}\n | source = Robotics Workshop\n | traits = Hellpod {{*}} Sentry {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|down|up|right|right|up}}\n | stratagem_type = Sentry \n | base_cooldown = 90s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 90\n| sentry_rpm = 660\n| sentry_ammo = 175\n| sentry_ammo_upgraded = 263\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_turn_rate = 96\n| sentry_turn_rate_upgraded = 160\n}}"
+  },
+  "gatling-sentry": {
+   "title": "A/G-16 Gatling Sentry",
+   "revision": 140319,
+   "timestamp": "2026-10-25T12:32:11Z",
+   "infobox": "{{Infobox Stratagem\n | title = A/G-16 Gatling Sentry\n | image = Gatling Sentry Stratagem Icon Background.svg\n | permit_type = Defensive\n | unlock_level = 5\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Robotics Workshop\n | traits = Hellpod {{*}} Sentry {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|down|up|right|left}}\n | stratagem_type = Sentry\n | base_cooldown = 150s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 150\n| sentry_rpm = 1600\n| sentry_ammo = 500\n| sentry_turn_rate = 96\n| sentry_turn_rate_upgraded = 160\n| sentry_health = 400\n| sentry_health_upgraded = 600\n}}"
+  },
+  "autocannon-sentry": {
+   "title": "A/AC-8 Autocannon Sentry",
+   "revision": 140315,
+   "timestamp": "2026-10-25T12:32:03Z",
+   "infobox": "{{Infobox Stratagem\n| title = A/AC-8 Autocannon Sentry\n| image = Autocannon Sentry Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_level = 13\n| unlock_cost = {{Currency|Requisition|6000}}\n| source = Robotics Workshop\n| traits = Hellpod {{*}} Sentry {{*}} Anti-Tank\n| stratagem_code = {{Stratagem code|down|up|right|up|left|up}}\n| stratagem_type = Sentry\n| base_cooldown = 150s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 150\n| sentry_ammo = 24\n| sentry_ammo_upgraded = 36\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_turn_rate = 32\n| sentry_turn_rate_upgraded = 48\n}}"
+  },
+  "rocket-sentry": {
+   "title": "A/MLS-4X Rocket Sentry",
+   "revision": 140330,
+   "timestamp": "2026-10-25T12:34:47Z",
+   "infobox": "{{Infobox Stratagem\n | title = A/MLS-4X Rocket Sentry\n | image = Rocket Sentry Stratagem Icon Background.svg\n | permit_type = Defensive\n | unlock_level = 15\n | unlock_cost = {{Currency|Requisition|7500}}\n | source = Robotics Workshop\n | traits = Hellpod {{*}} Explosive {{*}} Sentry {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|down|up|right|right|left}}\n | stratagem_type = Sentry\n | base_cooldown = 150s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 150\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_ammo = 32\n| sentry_ammo_upgraded = 40*\n| sentry_turn_rate = 32\n| sentry_turn_rate_upgraded = 48\n}}"
+  },
+  "mortar-sentry": {
+   "title": "A/M-12 Mortar Sentry",
+   "revision": 142234,
+   "timestamp": "2026-11-09T22:07:04Z",
+   "infobox": "{{Infobox Stratagem\n| title = A/M-12 Mortar Sentry\n| image = Mortar Sentry Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_level = 8\n| unlock_cost = {{Currency|Requisition|7000}}\n| source = Robotics Workshop\n| traits = Hellpod {{*}} Explosive {{*}} Sentry {{*}} Medium Armor Penetrating\n| stratagem_code = {{Stratagem code|down|up|right|right|down}}\n| stratagem_type = Sentry\n| base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 180\n| cooldown_upgraded = 162\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_rpm = ~32\n| sentry_ammo = 36\n| sentry_ammo_upgraded = 54\n}}"
+  },
+  "ems-mortar": {
+   "title": "A/M-23 EMS Mortar Sentry",
+   "revision": 140328,
+   "timestamp": "2026-10-25T12:34:42Z",
+   "infobox": "{{Infobox Stratagem\n| title = A/M-23 EMS Mortar Sentry\n| image = EMS Mortar Sentry Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_level = 20\n| unlock_cost = {{Currency|Requisition|8000}}\n| source = Robotics Workshop\n| traits = Hellpod {{*}} Explosive {{*}} Sentry {{*}} Stun\n| stratagem_code = {{Stratagem code|down|up|right|down|right}}\n| stratagem_type = Sentry\n| base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 180\n| cooldown_upgraded = 162\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_rpm = 10\n| sentry_ammo = 15\n| sentry_ammo_upgraded = 23\n}}"
+  },
+  "gas-mortar": {
+   "title": "A/GM-17 Gas Mortar Sentry",
+   "revision": 140325,
+   "timestamp": "2026-10-25T12:34:34Z",
+   "infobox": "{{Infobox Stratagem\n| title = A/GM-17 Gas Mortar Sentry\n| image = Gas Mortar Sentry Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_cost = {{Currency|Medals|85}}\n| source = [[Entrenched Division Premium Warbond#Page 2|Entrenched Division]] <small>{{Tooltip|P2|Page 2}}</small>\n| traits = Hellpod {{*}} Caustic {{*}} Sentry\n| stratagem_code = {{Stratagem code|down|up|right|down|left}}\n| stratagem_type = Sentry\n| base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 180\n| cooldown_upgraded = 162\n| sentry_health = 400\n| sentry_health_upgraded = 600\n| sentry_rpm = ~32\n| sentry_ammo = 15\n| sentry_ammo_upgraded = 23\n}}"
+  },
+  "tesla-tower": {
+   "title": "A/ARC-3 Tesla Tower",
+   "revision": 140316,
+   "timestamp": "2026-10-25T12:32:06Z",
+   "infobox": "{{Infobox Stratagem\n| title = A/ARC-3 Tesla Tower\n| image = Tesla Tower Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition|8000}}\n| source = Bridge\n| traits = Hellpod {{*}} Sentry {{*}} Arc\n| stratagem_code = {{Stratagem Code|down|up|right|up|left|right}}\n| stratagem_type = Sentry\n| base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| sentry_health = 600\n| sentry_health_upgraded = 900\n}}"
+  },
+  "flame-sentry": {
+   "title": "A/FLAM-40 Flame Sentry",
+   "revision": 142584,
+   "timestamp": "2026-11-18T19:11:05Z",
+   "infobox": "{{Infobox Stratagem\n| title          = A/FLAM-40 Flame Sentry\n| image = Flame Sentry Stratagem Icon Background.svg\n| permit_type    = Defensive\n| unlock_cost    = {{Currency|Medals|85}}\n| source = [[Urban Legends Premium Warbond#Page 2|Urban Legends]] <small>{{Tooltip|P2|Page 2}}</small>\n| traits         = Hellpod {{*}} Incendiary {{*}} Sentry\n| stratagem_type = Sentry\n| base_cooldown = 100s\n| stratagem_code = {{Stratagem Code|down|up|right|down|up|up}}\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 100\n| sentry_ammo = 600\n| sentry_ammo_upgraded = 900\n| sentry_health = 400\n| sentry_health_upgraded = 600\n}}"
+  },
+  "laser-sentry": {
+   "title": "A/LAS-98 Laser Sentry",
+   "revision": 140326,
+   "timestamp": "2026-10-25T12:34:37Z",
+   "infobox": "{{Infobox Stratagem\n | title          = A/LAS-98 Laser Sentry\n | image = Laser Sentry Stratagem Icon Background.svg\n | permit_type    = Defensive\n | unlock_cost    = {{Currency|Medals|85}}\n | source = [[Control Group Premium Warbond#Page 2|Control Group]] <small>{{Tooltip|P2|Page 2}}</small>\n | traits         = Hellpod {{*}} Sentry {{*}} Heavy Armor Penetrating {{*}} Heat {{*}} Beam\n | stratagem_type = Sentry\n | base_cooldown = 150s\n | stratagem_code = {{Stratagem_code|down|up|right|down|up|right}}\n}}",
+   "statsTable": "{{Stratagem Stats Table\n | call_time = 7.75\n | call_time_upgraded = 4.75\n | uses = Unlimited\n | cooldown = 150\n | sentry_turn_rate = 96\n | sentry_turn_rate_upgraded = 160\n | sentry_health = 400\n | sentry_health_upgraded = 600\n}}"
+  },
+  "hmg-emplacement": {
+   "title": "E/MG-101 HMG Emplacement",
+   "revision": 141662,
+   "timestamp": "2026-11-03T21:19:37Z",
+   "infobox": "{{Infobox Stratagem\n | title = E/MG-101 HMG Emplacement\n | image = HMG Emplacement Stratagem Icon Background.svg\n | permit_type = Defensive\n | unlock_level = 10\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Bridge\n | traits = Hellpod {{*}} Heavy Armor Penetrating\n | stratagem_code = {{Stratagem code|down|up|left|right|right|left}}\n | stratagem_type = Emplacement\n | base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 180\n| cooldown_time = 162\n}}"
+  },
+  "at-emplacement": {
+   "title": "E/AT-12 Anti-Tank Emplacement",
+   "revision": 140349,
+   "timestamp": "2026-10-25T12:35:29Z",
+   "infobox": "{{Infobox Stratagem\n| title = E/AT-12 Anti-Tank Emplacement\n| permit_type = Defensive\n| image = Anti-Tank Emplacement Stratagem Icon Background.svg\n| unlock_cost = {{Currency|Medals|110}}\n| source = [[Urban Legends Premium Warbond#Page 3|Urban Legends]] <small>{{Tooltip|P3|Page 3}}</small>\n| traits = Hellpod {{*}} Anti-Tank\n| stratagem_type = Emplacement\n| base_cooldown = 180s\n| stratagem_code = {{Stratagem Code|down|up|left|right|right|right}}\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time          = 7.75\n| call_time_upgraded = 4.75\n| uses               = Unlimited\n| cooldown           = 180\n}}"
+  },
+  "grenadier-battlement": {
+   "title": "E/GL-21 Grenadier Battlement",
+   "revision": 142041,
+   "timestamp": "2026-11-07T01:20:52Z",
+   "infobox": "{{Infobox Stratagem\n| title = E/GL-21 Grenadier Battlement\n| image = Grenadier Battlement Stratagem Icon Background.svg\n| permit_type = Defensive\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition|10000}}\n| source = Bridge\n| traits = Hellpod {{*}} Explosive {{*}} Medium Armor Penetrating\n| stratagem_code = {{Stratagem code|down|right|down|left|right}}\n| stratagem_type = Emplacement\n| base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| cooldown_time = 100\n|cooldown_upgraded_all=102}}"
+  },
+  "shield-relay": {
+   "title": "FX-12 Shield Generator Relay",
+   "revision": 140361,
+   "timestamp": "2026-10-25T12:36:02Z",
+   "infobox": "{{Infobox Stratagem\n | title = FX-12 Shield Generator Relay\n | image = Shield Generator Relay Stratagem Icon Background.svg\n | permit_type = Defensive\n | unlock_level = 10\n | unlock_cost = {{Currency|Requisition|9000}}\n | source = Bridge\n | traits = Hellpod\n | stratagem_code = {{Stratagem code|down|down|left|right|left|right}}\n | stratagem_type = Emplacement\n | base_cooldown = 90s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 90\n| cooldown_upgraded = 81\n| sentry_health = 450\n| sentry_health_upgraded = 675\n}}"
+  },
+  "at-mines": {
+   "title": "MD-17 Anti-Tank Mines",
+   "revision": 141514,
+   "timestamp": "2026-11-03T18:09:00Z",
+   "infobox": "{{Infobox Stratagem\n| title = MD-17 Anti-Tank Mines\n| image = Anti-Tank Mines Stratagem Icon Background.svg\n| main_image = Anti-Tank Mine Stratagem Render SINGLE.png\n| permit_type = Defensive\n| unlock_level = 15\n| unlock_cost = {{Currency|Requisition|7000}}\n| source = Engineering Bay\n| traits = Hellpod {{*}} Explosive {{*}} Anti-Tank\n| stratagem_code = {{Stratagem code|down|left|up|up}}\n| stratagem_type = Emplacement\n| base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| cooldown_time = 108\n}}"
+  },
+  "personnel-mines": {
+   "title": "MD-6 Anti-Personnel Minefield",
+   "revision": 140753,
+   "timestamp": "2026-10-27T19:23:42Z",
+   "infobox": "{{Infobox Stratagem\n| title = MD-6 Anti-Personnel Minefield\n| image = Anti-Personnel Minefield Stratagem Icon Background.svg\n| main_image = Anti-Personnel Mine Stratagem Render SINGLE.png\n| permit_type = Defensive\n| unlock_level = 1\n| unlock_cost = {{Currency|Requisition|1500}}\n| source = Engineering Bay\n| traits = Hellpod {{*}} Explosive {{*}} Medium Armor Penetrating\n| stratagem_code = {{Stratagem code|down|left|up|right}}\n| stratagem_type = Emplacement\n| base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| cooldown_time = 108\n}}"
+  },
+  "incendiary-mines": {
+   "title": "MD-I4 Incendiary Mines",
+   "revision": 140755,
+   "timestamp": "2026-10-27T19:24:33Z",
+   "infobox": "{{Infobox Stratagem\n | title = MD-I4 Incendiary Mines\n | image = Incendiary Mines Stratagem Icon Background.svg\n | main_image = Incendiary Mine Stratagem Render SINGLE.png\n | permit_type = Defensive\n | unlock_level = 8\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Engineering Bay\n | traits = Hellpod {{*}} Explosive {{*}} Incendiary\n | stratagem_code = {{Stratagem code|down|left|left|down}}\n | stratagem_type = Emplacement\n | base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 7.75\n| call_time_upgraded = 4.75\n| uses = Unlimited\n| cooldown = 120\n| cooldown_time = 108\n}}"
+  },
+  "gas-mines": {
+   "title": "MD-8 Gas Mines",
+   "revision": 140754,
+   "timestamp": "2026-10-27T19:24:05Z",
+   "infobox": "{{Infobox Stratagem\n| title          = MD-8 Gas Mines\n| image          = Gas Mines Stratagem Icon Background.svg\n| main_image = Gas Mine Stratagem Render SINGLE.png\n| permit_type    = Defensive\n| stratagem_code = {{Stratagem code|down|left|left|right}}\n| source    = Engineering Bay\n| unlock_cost    = {{Currency|Requisition|12000}}\n| traits         = Hellpod {{*}} Explosive {{*}} Caustic\n| unlock_level   = 20\n| stratagem_type = Emplacement\n| base_cooldown = 120s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time          = 3\n| call_time_upgraded = 0\n| uses               = Unlimited\n| cooldown           = 120\n| cooldown_time      =\n}}"
+  },
+  "guard-dog": {
+   "title": "AX/AR-23 Guard Dog",
+   "revision": 140336,
+   "timestamp": "2026-10-25T12:35:00Z",
+   "infobox": "{{Infobox Stratagem\n | title = AX/AR-23 Guard Dog\n | image = Guard Dog Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 10\n | unlock_cost = {{Currency|Requisition|7500}}\n | source = Engineering Bay\n | traits = Hellpod {{*}} Backpack {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|down|up|left|up|right|down}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "rover": {
+   "title": "AX/LAS-5 Rover",
+   "revision": 140339,
+   "timestamp": "2026-10-25T12:35:07Z",
+   "infobox": "{{Infobox Stratagem\n| title = AX/LAS-5 Rover\n| image = Rover Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = 10\n| unlock_cost = {{Currency|Requisition|7500}}\n| source = Engineering Bay\n| traits = Hellpod {{*}} Backpack {{*}} Light Armor Penetrating {{*}} Beam\n| stratagem_code = {{Stratagem code|down|up|left|up|right|right}}\n| stratagem_type = Backpack\n| base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "k9": {
+   "title": "AX/ARC-3 K-9",
+   "revision": 142034,
+   "timestamp": "2026-11-07T01:02:17Z",
+   "infobox": "{{Infobox Stratagem\n | title = AX/ARC-3 K-9\n | image = K-9 Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|110}}\n | source = [[Force of Law Premium Warbond#Page 3|Force of Law]] <small>{{Tooltip|P3|Page 3}}</small>\n | traits = Hellpod {{*}} Backpack {{*}} Anti-Tank {{*}} Arc\n | stratagem_code = {{Stratagem code|down|up|left|up|right|left}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "hot-dog": {
+   "title": "AX/FLAM-75 Hot Dog",
+   "revision": 140338,
+   "timestamp": "2026-10-25T12:35:05Z",
+   "infobox": "{{Infobox Stratagem\n | title = AX/FLAM-75 Hot Dog\n | image = Hot Dog Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|75}}\n | source = [[Python Commandos Premium Warbond#Page 1|Python Commandos]] <small>{{Tooltip|P1|Page 1}}</small>\n | traits = Hellpod {{*}} Backpack {{*}} Incendiary\n | stratagem_code = {{Stratagem code|down|up|left|up|left|left}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "dog-breath": {
+   "title": "AX/TX-13 Dog Breath",
+   "revision": 140340,
+   "timestamp": "2026-10-25T12:35:10Z",
+   "infobox": "{{Infobox Stratagem\n | title = AX/TX-13 Dog Breath\n | image = Dog Breath Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|110}}\n | source = [[Chemical Agents Premium Warbond#Page 3|Chemical Agents]] <small>{{Tooltip|P3|Page 3}}</small>\n | traits = Hellpod {{*}} Backpack {{*}} Caustic\n | stratagem_code = {{Stratagem code|down|up|left|up|right|up}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "supply-pack": {
+   "title": "B-1 Supply Pack",
+   "revision": 140341,
+   "timestamp": "2026-10-25T12:35:12Z",
+   "infobox": "{{Infobox Stratagem\n | title = B-1 Supply Pack\n | image = Supply Pack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition|4000}}\n | source = Engineering Bay\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem code|down|left|down|up|up|down}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "portable-hellbomb": {
+   "title": "B-100 Portable Hellbomb",
+   "revision": 140342,
+   "timestamp": "2026-10-25T12:35:14Z",
+   "infobox": "{{Infobox Stratagem\n |title          = B-100 Portable Hellbomb\n |image          = Portable Hellbomb Stratagem Icon Background.svg\n |permit_type    = Supply\n |unlock_cost    = {{Currency|Medals|110}}\n |source    =  [[Servants_of_Freedom_Premium_Warbond#Page 3|Servants of Freedom]] <small>{{Tooltip|P3|Page 3}}</small>\n |traits         = Hellpod {{*}} Explosive {{*}} Backpack {{*}} Anti-Tank\n |stratagem_code = {{Stratagem code|down|right|up|up|up}}\n |stratagem_type = Backpack\n | base_cooldown = 300s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n |call_time         = 9.75\n |uses              = Unlimited\n |cooldown          = 300\n |cooldown_upgraded = 270\n}}"
+  },
+  "jump-pack": {
+   "title": "LIFT-850 Jump Pack",
+   "revision": 140370,
+   "timestamp": "2026-10-25T12:36:25Z",
+   "infobox": "{{Infobox Stratagem\n | title = LIFT-850 Jump Pack\n | image = Jump Pack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 8\n | unlock_cost = {{Currency|Requisition|6000}}\n | source = Hangar\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem code|down|up|up|down|up}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "hover-pack": {
+   "title": "LIFT-860 Hover Pack",
+   "revision": 141664,
+   "timestamp": "2026-11-03T21:25:28Z",
+   "infobox": "{{Infobox Stratagem\n | title = Hover Pack\n | image = Hover Pack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|110}}\n | source =  [[Borderline Justice Premium Warbond#Page 3|Borderline Justice]] <small>{{Tooltip|P3|Page 3}}</small>\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem code|down|up|up|down|left|right}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "warp-pack": {
+   "title": "LIFT-182 Warp Pack",
+   "revision": 140369,
+   "timestamp": "2026-10-25T12:36:22Z",
+   "infobox": "{{Infobox Stratagem\n | title = LIFT-182 Warp Pack\n | image = Warp Pack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|110}}\n | source = [[Control Group Premium Warbond#Page_3|Control Group]] <small>{{Tooltip|P3|Page 3}}</small>\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem Code|down|left|right|down|left|right}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480}}"
+  },
+  "ballistic-shield": {
+   "title": "SH-20 Ballistic Shield Backpack",
+   "revision": 140390,
+   "timestamp": "2026-10-25T12:37:16Z",
+   "infobox": "{{Infobox Stratagem\n | title = SH-20 Ballistic Shield Backpack\n | image = Ballistic Shield Backpack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 12\n | unlock_cost = {{Currency|Requisition|6000}}\n | source = Engineering Bay\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem code|down|left|down|down|up|left}}\n | stratagem_type = Backpack\n | base_cooldown = 240s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 240\n}}"
+  },
+  "shield-pack": {
+   "title": "SH-32 Shield Generator Pack",
+   "revision": 140391,
+   "timestamp": "2026-10-25T12:37:18Z",
+   "infobox": "{{Infobox Stratagem\n | title = SH-32 Shield Generator Pack\n | image = Shield Generator Pack Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 20\n | unlock_cost = {{Currency|Requisition|10000}}\n | source = Engineering Bay\n | traits = Hellpod {{*}} Backpack\n | stratagem_code = {{Stratagem code|down|up|left|right|left|right}}\n | stratagem_type = Backpack\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 9.75\n| uses = Unlimited\n| cooldown = 480\n| cooldown_upgraded = 432\n}}"
+  },
+  "directional-shield": {
+   "title": "SH-51 Directional Shield",
+   "revision": 140392,
+   "timestamp": "2026-10-25T12:37:21Z",
+   "infobox": "{{Infobox Stratagem\n |title          = SH-51 Directional Shield\n |image          = Directional Shield Stratagem Icon Background.svg\n |permit_type    = Supply\n |unlock_cost    = {{Currency|Medals|75}} \n | source = [[Urban Legends Premium Warbond#Page 1|Urban Legends]] <small>{{Tooltip|P1|Page 1}}</small>\n |traits         = Hellpod {{*}} Backpack\n |stratagem_code = {{Stratagem code|down|up|left|right|up|up}}\n |stratagem_type = Backpack\n | base_cooldown = 300s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n |call_time         = 9.75\n |uses              = Unlimited\n |cooldown          = 300\n |cooldown_upgraded = 270\n}}"
+  },
+  "patriot": {
+   "title": "EXO-45 Patriot Exosuit",
+   "revision": 140355,
+   "timestamp": "2026-10-25T12:35:44Z",
+   "infobox": "{{Infobox Stratagem\n | title = EXO-45 Patriot Exosuit\n | image = Patriot Exosuit Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 25\n | unlock_cost = {{Currency|Requisition|20000}}\n | source = Robotics Workshop\n | traits = Explosive {{*}} Vehicle {{*}} Anti-Tank {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|left|down|right|up|left|down|down}}\n | stratagem_type = Vehicle\n | base_cooldown = 420s\n}}",
+   "statsTable": ""
+  },
+  "emancipator": {
+   "title": "EXO-49 Emancipator Exosuit",
+   "revision": 140356,
+   "timestamp": "2026-10-25T12:35:47Z",
+   "infobox": "{{Infobox Stratagem\n | title = EXO-49 Emancipator Exosuit\n | image = Emancipator Exosuit Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_level = 25\n | unlock_cost = {{Currency|Requisition|20000}}\n | source = Robotics Workshop\n | traits = Explosive {{*}} Vehicle {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|left|down|right|up|left|down|up}}\n | stratagem_type = Vehicle\n | base_cooldown = 420s\n}}",
+   "statsTable": ""
+  },
+  "lumberer": {
+   "title": "EXO-51 Lumberer Exosuit",
+   "revision": 140357,
+   "timestamp": "2026-10-25T12:35:50Z",
+   "infobox": "{{Infobox Stratagem\n | title = EXO-51 Lumberer Exosuit\n | image = Lumberer Exosuit Stratagem Icon Background.svg\n | permit_type = Supply\n | unlock_cost = {{Currency|Medals|50}}\n | source = [[Exo Experts Premium Warbond#Page 2|Exo Experts]] <small>{{Tooltip|P2|Page 2}}</small>\n | traits = Explosive {{*}} Vehicle {{*}} Incendiary {{*}} Anti-Tank\n | stratagem_code = {{Stratagem code|left|down|right|up|right|left|up}}\n | stratagem_type = Vehicle\n | base_cooldown = 420s\n}}",
+   "statsTable": ""
+  },
+  "breakthrough": {
+   "title": "EXO-55 Breakthrough Exosuit",
+   "revision": 142370,
+   "timestamp": "2026-11-13T03:49:02Z",
+   "infobox": "{{Infobox Stratagem\n| title = EXO-55 Breakthrough Exosuit\n| image = Breakthrough Exosuit Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_cost = {{Currency|Medals|50}}\n| source = [[Exo Experts Premium Warbond#Page 3|Exo Experts]] <small>{{Tooltip|P3|Page 3}}</small>\n| traits = Vehicle {{*}} Heavy Armor Penetrating\n| stratagem_code = {{Stratagem code|left|down|right|left|right|down|up}}\n| stratagem_type = Vehicle \n| base_cooldown = 420s\n}}",
+   "statsTable": ""
+  },
+  "gunner-frv": {
+   "title": "M-102 Gunner FRV",
+   "revision": 140965,
+   "timestamp": "2026-10-30T01:38:50Z",
+   "infobox": "{{Infobox Stratagem\n | title = M-102 Gunner FRV\n | image = Fast Recon Vehicle Stratagem Icon Background.svg\n | permit_type = Supply \n | unlock_level = 25\n | unlock_cost = {{Currency|Requisition|25000}}\n | source = Hangar\n | traits = Vehicle {{*}} Heavy Armor Penetrating\n | stratagem_code = {{Stratagem code|left|down|right|down|right|down|up}}\n | stratagem_type = Vehicle\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10.50\n| uses = Unlimited\n| cooldown = 480\n}}"
+  },
+  "supply-frv": {
+   "title": "M-103 Supply FRV",
+   "revision": 140374,
+   "timestamp": "2026-10-25T12:36:34Z",
+   "infobox": "{{Infobox Stratagem\n | title = M-103 Supply FRV\n | image = Supply FRV Stratagem Icon Background.svg\n | permit_type = Supply \n | unlock_level = 1\n | unlock_cost = {{Currency|Requisition Slips|25000}}\n | source = Hanger\n | traits = Vehicle {{*}} Medium Armor Penetrating\n | stratagem_code = {{Stratagem code|left|down|left|left|down|up|right}}\n | stratagem_type = Vehicle\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10.50\n| uses = Unlimited\n| cooldown = 480\n}}"
+  },
+  "incinerator-frv": {
+   "title": "M-104 Incinerator FRV",
+   "revision": 142515,
+   "timestamp": "2026-11-17T12:42:35Z",
+   "infobox": "{{Infobox Stratagem\n | title = M-104 Incinerator FRV\n | image = Incinerator FRV Stratagem Icon Background.svg\n | permit_type = Supply \n | unlock_level = \n | unlock_cost = \n | source = N/A\n | traits =  Vehicle {{*}} Incendiary\n | stratagem_code = {{Stratagem code|left|down|right|left|down|up|up}}\n | stratagem_type = Vehicle\n | base_cooldown = 480s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10.50\n| uses = Unlimited\n| cooldown = 480\n}}"
+  },
+  "bastion": {
+   "title": "TD-220 Bastion MK XVI",
+   "revision": 141578,
+   "timestamp": "2026-11-03T18:18:49Z",
+   "infobox": "{{Infobox Stratagem\n | title = TD-220 Bastion MK XVI\n | image = Bastion MK XVI Stratagem Icon Background.svg\n | permit_type = Supply \n | unlock_level = 30\n | unlock_cost = {{Currency|Requisition|35000}}\n | source = Hangar\n | traits = Vehicle {{*}} Explosive {{*}} Anti-Tank {{*}} Heavy Armor Penetrating\n | stratagem_code = {{Stratagem_code|left|down|right|down|left|down|up|down|up}}\n | stratagem_type = Vehicle\n | base_cooldown = 780s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10.50\n| uses = Unlimited\n| cooldown = 780\n}}"
+  },
+  "maelstrom": {
+   "title": "TD-110 Maelstrom",
+   "revision": 140394,
+   "timestamp": "2026-10-25T12:37:25Z",
+   "infobox": "{{Infobox Stratagem\n| title = TD-110 Maelstrom\n| image = Maelstrom Stratagem Icon Background.svg\n| permit_type = Supply\n| unlock_level = \n| unlock_cost = \n| source = [[Campaigns#Armored Eagle|Armored Eagle]]\n| traits = Vehicle {{*}} Heavy Armor Penetrating {{*}} Anti-Tank\n| stratagem_code = {{Stratagem_code|left|down|right|down|left|down|up|left|right}}\n| stratagem_type = Vehicle\n| base_cooldown = 780s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10.50\n| uses = Unlimited\n| cooldown = 780\n}}"
+  },
+  "reinforce": {
+   "title": "Reinforce",
+   "revision": 137587,
+   "timestamp": "2026-10-01T05:54:21Z",
+   "infobox": "{{Infobox Stratagem\n| title = Reinforce\n| image = Reinforce Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|up|down|right|left|up}}\n| stratagem_type = Ship\n| base_cooldown = 0s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = Unknown\n| uses = INF\n| cooldown = 0\n}}"
+  },
+  "resupply": {
+   "title": "Resupply",
+   "revision": 137826,
+   "timestamp": "2026-10-03T08:29:45Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Resupply Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|down|down|up|right}}\n| stratagem_type = Ship\n| base_cooldown = 180s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 8\n| uses = Unlimited\n| cooldown = 180\n| cooldown_upgraded = 162\n}}"
+  },
+  "sos": {
+   "title": "SoS Beacon",
+   "revision": 130603,
+   "timestamp": "2026-08-19T16:53:46Z",
+   "infobox": "{{Infobox Stratagem\n| title = SoS Beacon\n| image = SOS Beacon Stratagem Icon Background.svg\n| permit_type = Supply\n| stratagem_code = {{Stratagem_code|up|down|right|up}}\n| stratagem_type = Ship\n| base_cooldown = 0s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 1\n| uses = 1\n| cooldown = 0\n}}"
+  },
+  "eagle-rearm": {
+   "title": "Eagle Rearm",
+   "revision": 129610,
+   "timestamp": "2026-08-15T19:14:38Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Eagle Rearm Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|up|up|left|up|right}}\n| stratagem_type = Ship\n| base_cooldown = 0s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 0\n| uses = INF\n| cooldown = 0\n| rearm_time = 150\n| rearm_time_upgraded = 120 \n}}"
+  },
+  "hellbomb": {
+   "title": "NUX-223 Hellbomb",
+   "revision": 142280,
+   "timestamp": "2026-11-11T08:51:08Z",
+   "infobox": "{{Infobox Stratagem\n| title = Hellbomb\n| image = Hellbomb Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|down|up|left|down|up|right|down|up}}\n| stratagem_type = Objective\n| base_cooldown = 30s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10\n| uses = Unlimited\n| cooldown = 30\n}}"
+  },
+  "seaf-artillery": {
+   "title": "SEAF Artillery",
+   "revision": 139226,
+   "timestamp": "2026-10-20T12:51:53Z",
+   "infobox": "{{Infobox Mission\n| image_optional =  {{PAGENAME}} TO Icon.svg\n| faction_optional =  Super Earth\n| min_difficulty_optional =   2\n| max_difficulty_optional =   10\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = Unknown\n| uses = 5\n| cooldown = 14\n}}"
+  },
+  "destroyer-call": {
+   "title": "Call In Super Destroyer",
+   "revision": 130371,
+   "timestamp": "2026-08-19T00:25:02Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Call In Super Destroyer Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|up|up|down|down|left|right|left|right}}\n| stratagem_type = Ship\n| base_cooldown = N/A\n}}",
+   "statsTable": ""
+  },
+  "reinforcement-pods": {
+   "title": "Reinforcement Pods",
+   "revision": 130372,
+   "timestamp": "2026-08-19T00:25:12Z",
+   "infobox": "{{Infobox Mission\n | title          = {{PAGENAME}}\n | image_optional = {{PAGENAME}} TO Icon.svg\n \n | faction_optional=  Super Earth\n | min_difficulty_optional= 1\n | max_difficulty_optional= 10\n\n }}",
+   "statsTable": ""
+  },
+  "cargo-container": {
+   "title": "Cargo Container",
+   "revision": 139335,
+   "timestamp": "2026-10-20T17:27:25Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Cargo Container Stratagem Icon Background.svg\n| permit_type = \n| stratagem_code = {{Stratagem_code|up|up|down|down|right|down}}\n| stratagem_type = Objective\n| base_cooldown = 0s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10\n| uses = 1\n| cooldown = 0\n}}"
+  },
+  "seismic-probe": {
+   "title": "Conduct Geological Survey",
+   "revision": 138038,
+   "timestamp": "2026-10-06T06:46:20Z",
+   "infobox": "{{Infobox Mission\n| title = {{PAGENAME}}\n| image_main = Conduct Geological Survey Mission Icon.svg\n| time_limit_main = 40 Minutes\n| faction_main = Any\n| min_difficulty_main = 1\n| max_difficulty_main = 10\n| image_optional =  {{PAGENAME}} TO Icon.svg\n| faction_optional =  Any\n| min_difficulty_optional = 3\n| max_difficulty_optional = 10\n}}",
+   "statsTable": ""
+  },
+  "prospecting-drill": {
+   "title": "Conduct Geological Survey",
+   "revision": 138038,
+   "timestamp": "2026-10-06T06:46:20Z",
+   "infobox": "{{Infobox Mission\n| title = {{PAGENAME}}\n| image_main = Conduct Geological Survey Mission Icon.svg\n| time_limit_main = 40 Minutes\n| faction_main = Any\n| min_difficulty_main = 1\n| max_difficulty_main = 10\n| image_optional =  {{PAGENAME}} TO Icon.svg\n| faction_optional =  Any\n| min_difficulty_optional = 3\n| max_difficulty_optional = 10\n}}",
+   "statsTable": ""
+  },
+  "hive-breaker": {
+   "title": "Hive Breaker Drill",
+   "revision": 137116,
+   "timestamp": "2026-09-30T12:42:21Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Drill Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|left|up|down|right|down|down}}\n| stratagem_type = Objective\n| base_cooldown = 119s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10\n| uses = 1\n| cooldown = 119\n}}"
+  },
+  "sssd-delivery": {
+   "title": "Seize Industrial Complex",
+   "revision": 130612,
+   "timestamp": "2026-08-19T16:55:19Z",
+   "infobox": "{{Infobox Mission\n| title = {{PAGENAME}}\n| image_main =  Seize Industrial Complex Mission Icon.svg\n\n\n| time_limit_main =  40 Minutes\n\n| faction_main =  Automaton\n\n| min_difficulty_main =   1\n| max_difficulty_main =   10\n}}",
+   "statsTable": ""
+  },
+  "super-earth-flag": {
+   "title": "Super Earth Flag",
+   "revision": 142032,
+   "timestamp": "2026-11-06T23:38:10Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Super Earth Flag Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|down|up|down|up}}\n| stratagem_type = Objective\n| base_cooldown = N/A\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10\n| uses = 1\n| cooldown = 0\n}}"
+  },
+  "upload-data": {
+   "title": "Upload Data",
+   "revision": 136973,
+   "timestamp": "2026-09-28T06:41:51Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Upload Data Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|left|right|up|up|up}}\n| stratagem_type = Objective\n| base_cooldown = N/A\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 4\n| uses = 1\n| cooldown = 0\n}}"
+  },
+  "e711-drill": {
+   "title": "Conduct Mobile E-711 Extraction",
+   "revision": 136872,
+   "timestamp": "2026-09-27T10:45:18Z",
+   "infobox": "{{Infobox Mission\n| title = {{PAGENAME}}\n| image_main =  Conduct Mobile E-711 Extraction Icon.svg\n| time_limit_main =  40 Minutes\n| faction_main = Terminid\n| min_difficulty_main =   1\n| max_difficulty_main =   10\n}}",
+   "statsTable": ""
+  },
+  "aquifer-drill": {
+   "title": "Aquifer Drill",
+   "revision": 131906,
+   "timestamp": "2026-08-22T02:42:55Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Drill Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|left|left|left|up|down|right|down|down}}\n| stratagem_type = Objective\n| base_cooldown = 0s\n}}",
+   "statsTable": "{{Stratagem Stats Table\n| call_time = 10\n| uses = 1\n| cooldown = 0\n}}"
+  },
+  "tactical-camera": {
+   "title": "Tactical Video Camera",
+   "revision": 136974,
+   "timestamp": "2026-09-28T06:43:19Z",
+   "infobox": "{{Infobox Stratagem\n| title = {{PAGENAME}}\n| image = Tactical Video Camera Stratagem Icon Background.svg\n| stratagem_code = {{Stratagem_code|right|down|down|up|left|left|up}}\n| permit_type = Supply\n| traits = Hellpod \n| stratagem_type = Objective\n| base_cooldown = N/A\n}}",
+   "statsTable": ""
+  },
+  "comms-relay": {
+   "title": "Infiltrate Illuminate Lair",
+   "revision": 139247,
+   "timestamp": "2026-10-20T13:05:14Z",
+   "infobox": "{{Infobox Mission\n| title = {{PAGENAME}}\n| image_main = {{PAGENAME}} Mission Icon.svg\n| caption-image_main = \n| time_limit_main = 40 Minutes\n\n| faction_main = Illuminate\n| min_difficulty_main = 1\n| max_difficulty_main = 10\n}}",
+   "statsTable": ""
+  }
+ },
+ "shipModules": {
+  "title": "Ship Modules",
+  "revision": 134806,
+  "timestamp": "2026-09-08T18:36:55Z",
+  "text": "==Module Upgrades==\nShip Modules cost {{Currency|Common||Common}}, {{Currency|Rare||Rare}}, and {{Currency|Super||Super}} to upgrade. {{Currency|Requisition Slips}} are also required beginning at tier 4.\n\n{| class=\"wikitable\" style=\"width:100%\"\n|+(Swipe to see full table on mobile devices)\n!width=\"10%\"|Ship Section\n!width=\"20%\"|Upgrade Name\n!Common\n!Rare\n!Super\n!Requisition \n!width=\"50%\"|Effect\n|-\n| rowspan=\"5\"| '''[[Patriotic Administration Center]]'''<br>[[File:Patriotic Administration Center Ship Module Icon.svg|64px]]\n|[[Donation Access License]] <span id=\"donation_access_license\"></span>\n|{{Currency|Common|60|notext}}\n|/\n|/\n|/\n|'''[[Weapons#Support Weapons|Support Weapons]]''' deploy with the maximum number of carriable magazines.\n|-\n|[[Streamlined Request Process]] <span id=\"streamlined_request_process\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|40|notext}}\n|/\n|/\n|Decreases '''Support Weapon''' [[Stratagems|stratagem]] cooldown by '''10%'''.\n|-\n|[[Hand Carts]] <span id=\"hand_carts\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|60|notext}}\n|{{Currency|Super|5|notext}}\n|/\n|Decreases cooldown for all '''[[:Category:Backpack Stratagems|Backpack]]''' stratagems by '''10%'''.\n|-\n|[[Superior Packing Methodology]]\n|{{Currency|Common|150|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|15|notext}}\n|{{Currency|Requisition|20,000|notext}}\n|'''[[Resupply]] Stratagem''' boxes refill '''Support Weapons''' with the maximum number of carriable magazines.\n|-\n|[[Payroll Management System]]\n|{{Currency|Common|200|notext}}\n|{{Currency|Rare|200|notext}}\n|{{Currency|Super|20|notext}}\n|{{Currency|Requisition|30,000|notext}}\n|Reduces reload time for all support weapons by '''10%'''.\n|-\n| rowspan=\"5\" | '''[[Orbital Cannons]]'''<br>[[File:Orbital Cannons Ship Module Icon.svg|64px]]\n|[[Exploding Shrapnel]] <span id=\"exploding_shrapnel\"></span>\n|{{Currency|Common|100|notext}}\n|/\n|/\n|/\n|Reduces [[damage]] falloff from center of explosions caused by [[:Category:Orbital Stratagems|orbital]] Stratagems.\n|-\n|[[More Guns]] <span id=\"more_guns\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|60|notext}}\n|/\n|/\n|'''Barrage''' orbitals fire '''1''' additional salvo(s) per barrage.\n|-\n|[[Zero-G Breech Loading]] <span id=\"zero-g_breech_loading\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|80|notext}}\n|{{Currency|Super|10|notext}}\n|/\n|'''Orbital''' stratagem cooldown time reduced by '''10%'''.\n|-\n|[[Atmospheric Monitoring]]\n|{{Currency|Common|200|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|15|notext}}\n|{{Currency|Requisition|25,000|notext}}\n|Orbital HE barrage spread reduced by '''15%'''.\n|-\n|[[High-Density Explosives]]\n|{{Currency|Common|250|notext}}\n|{{Currency|Rare|200|notext}}\n|{{Currency|Super|20|notext}}\n|{{Currency|Requisition|35,000|notext}}\n|Increases the damage radius on explosions caused by orbital Stratagems by '''10%'''.\n|-\n| rowspan=\"5\" | '''[[Hangar]]'''<br>[[File:Hangar Ship Module Icon.svg|64px]]\n|[[Liquid-Ventilated Cockpit]] <span id=\"liquid-ventilated_cockpit\"></span>\n|{{Currency|Common|80|notext}}\n|/\n|/\n|/\n|'''[[:Category:Eagle Stratagems|Eagle]]''' stratagem cooldown time reduced by '''50%'''.\n|-\n|[[Pit Crew Hazard Pay]] <span id=\"pit_crew_hazard_pay\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|40|notext}}\n|/\n|/\n|Reduces [[Eagle Rearm|'''Eagle''' Rearm]] time by '''20%'''.\n|-\n|[[Expanded Weapons Bay]] <span id=\"expanded_weapons_bay\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|80|notext}}\n|{{Currency|Super|10|notext}}\n|/\n|Increases number of '''Eagle''' stratagem uses per '''Rearm''' by 1.\n|-\n|[[XXL Weapons Bay]]\n|{{Currency|Common|150|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|15|notext}}\n|{{Currency|Requisition|25,000|notext}}\n|Eagle stratagems that drop multiple bombs will drop '''1''' additional bomb(s).\n|-\n|[[Advanced Crew Training]]\n|{{Currency|Common|200|notext}}\n|{{Currency|Rare|250|notext}}\n|{{Currency|Super|25|notext}}\n|{{Currency|Requisition|30,000|notext}}\n|Eagle Rearm cooldown further reduced by '''10%''' if called in while Eagle uses still remain.\n|-\n| rowspan=\"5\" | '''[[Bridge]]'''<br>[[File:Bridge Ship Module Icon.svg|64px]]\n|[[Targeting Software Upgrade]] <span id=\"targeting_software_upgrade\"></span>\n|{{Currency|Common|60|notext}}\n|/\n|/\n|/\n|'''1-second''' reduction in call-in time for all '''Orbital''' Stratagems.\n|-\n|[[Nuclear Radar]] <span id=\"nuclear_radar\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|40|notext}}\n|/\n|/\n|Increases minimap enemy ping radius by '''50%'''.\n|-\n|[[Power Steering]] <span id=\"power_steering\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|80|notext}}\n|{{Currency|Super|10|notext}}\n|/\n|Improves steering for Helldivers during [[Hellpod]] deployment.\n|-\n|[[Enhanced Combustion]]\n|{{Currency|Common|200|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|15|notext}}\n|{{Currency|Requisition|25,000|notext}}\n|[[Damage#Damage Types|Fire damage]] from Stratagems increased by '''25%'''.\n|-\n|[[Morale Augmentation]]\n|{{Currency|Common|250|notext}}\n|{{Currency|Rare|200|notext}}\n|{{Currency|Super|20|notext}}\n|{{Currency|Requisition|35,000|notext}}\n|Reduces cooldown time for '''all Stratagems''' by '''5%'''.\n|-\n| rowspan=\"5\" | '''[[Engineering Bay]]'''<br>[[File:Engineering Bay Ship Module Icon.svg|64px]]\n|[[Synthetic Supplementation]] <span id=\"synthetic_supplementation\"></span>\n|{{Currency|Common|60|notext}}\n|{{Currency|Rare|10|notext}}\n|/\n|/\n|Reduces cooldown time for '''[[:Category:Sentry Stratagems|Sentry]], [[:Category:Emplacement Stratagems|Emplacement]], and Resupply''' stratagems by '''10%'''.\n|-\n|[[Advanced Construction]] <span id=\"advanced_construction\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|60|notext}}\n|{{Currency|Super|5|notext}}\n|/\n|Increases health of '''Sentry''' stratagems by '''50%'''.\n|-\n|[[Rapid Launch System]] <span id=\"rapid_launch_system\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|80|notext}}\n|{{Currency|Super|10|notext}}\n|/\n|All '''Emplacement''' stratagems launch immediately once called in, reducing overall deployment time.\n|-\n|[[Circuit Expansion]]\n|{{Currency|Common|200|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|20|notext}}\n|{{Currency|Requisition|20,000|notext}}\n|Lightning arcs, fired from [[weapons]] and turrets, jump to one additional [[Enemies|enemy]].\n|-\n|[[Streamlined Launch Process]]\n|{{Currency|Common|250|notext}}\n|{{Currency|Rare|200|notext}}\n|{{Currency|Super|25|notext}}\n|{{Currency|Requisition|30,000|notext}}\n|All '''Support Weapon''' stratagems launch immediately once called in, reducing overall deployment time.\n|-\n| rowspan=\"5\" | '''[[Robotics Workshop]]'''<br>[[File:Robotics Workshop Ship Module Icon.svg|64px]]\n|[[Dynamic Tracking]] <span id=\"dynamic_tracking\"></span>\n|{{Currency|Common|60|notext}}\n|{{Currency|Rare|20|notext}}\n|/\n|/\n|All '''Sentry''' stratagems launch immediately once called in, reducing overall deployment time.\n|-\n|[[Shock Absorption Gel]] <span id=\"shock_absorption_gel\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|40|notext}}\n|{{Currency|Super|5|notext}}\n|/\n|Increases ammo for all '''Sentry''' stratagems by '''50%'''.\n|-\n|[[High-Quality Lubricant]] <span id=\"high-quality_lubricant\"></span>\n|{{Currency|Common|80|notext}}\n|{{Currency|Rare|80|notext}}\n|{{Currency|Super|10|notext}}\n|/\n|Sentries rotate towards new targets more quickly.\n|-\n|[[Blast Absorption]]\n|{{Currency|Common|150|notext}}\n|{{Currency|Rare|150|notext}}\n|{{Currency|Super|20|notext}}\n|{{Currency|Requisition|25,000|notext}}\n|Sentries take '''50%''' less damage from explosions.\n|-\n|[[Cross-Platform Compatibility]]\n|{{Currency|Common|250|notext}}\n|{{Currency|Rare|200|notext}}\n|{{Currency|Super|30|notext}}\n|{{Currency|Requisition|35,000|notext}}\n|'''Mortar''' Sentries prioritize fire at marked targets.\n|-\n|colspan=\"2\" | <big>'''Total'''</big>\n|{{Currency|Common|3,830|notext}}\n|{{Currency|Rare|2,920|notext}}\n|{{Currency|Super|305|notext}}\n|{{Currency|Requisition|335,000|notext}}\n|\n|}\n\n"
+ }
+}
