@@ -34,6 +34,15 @@ for (const [group, list] of groups) {
     }
   });
 }
+// Exostorm classes and Heavy SEAF Presence: game text, and every number in the detail lines on the wiki page.
+ok(planets.specialEffects.length === text.special.length, 'specialEffects is stale (run build-planets)');
+text.special.forEach((source, index) => {
+  const item = planets.specialEffects[index], page = wiki.specialPages[source.page];
+  ok(item.id === source.id && item.name === game.strings.planets[source.name] && item.description === cleanGameText(game.strings.planets[source.description]), `${source.id}: not the game's Korean (run build-game-names and build-planets)`);
+  ok(page, `${source.id}: wiki page ${source.page} not downloaded (run fetch-planet-pages)`);
+  ok(item.detail.length === item.detailEn.length, `${source.id}: detail needs Korean and English line by line`);
+  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(page.text.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page}`);
+});
 // Environmental conditions: listed in the wiki module, with their original icons.
 for (const item of planets.conditions) {
   ok(wiki.environmentModule.text.includes(`["${item.en.toLowerCase()}"]`), `${item.id}: not in Module:Environmental Conditions`);

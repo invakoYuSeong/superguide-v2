@@ -26,10 +26,12 @@ const pages = async titles => {
 const field = (text, key) => new RegExp(`\\|\\s*${key}\\s*=\\s*([^\\n|]*)`).exec(text)?.[1].trim() ?? '';
 const slug = text => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-const main = await pages(['Effects', 'Status Effects', 'Module:Environmental Conditions', 'Biomes']);
+const main = await pages(['Effects', 'Status Effects', 'Module:Environmental Conditions', 'Biomes', 'Exostorm', 'Heavy SEAF Presence']);
 const out = {
   source: API, retrievedAt: new Date().toISOString().slice(0, 10),
   effects: main.Effects, statusEffects: main['Status Effects'], environmentModule: main['Module:Environmental Conditions'],
+  // Planet effects outside the Environmental Conditions list (exostorm classes, Heavy SEAF Presence).
+  specialPages: { Exostorm: main.Exostorm, 'Heavy SEAF Presence': main['Heavy SEAF Presence'] },
   biomesRevision: main.Biomes.revision, biomes: {}, icons: {},
 };
 // Biome pages named in the Biomes page's {{BiomeBox|...}} lists (the city megastructures are regions, not biomes).
@@ -40,6 +42,7 @@ for (const [title, page] of Object.entries(await pages(titles))) {
   const description = field(page.text, 'description').replace(/<!--.*$/, '').trim();
   out.biomes[title] = {
     revision: page.revision, internal: field(page.text, 'internal_name') || null, archetype: field(page.text, 'archetype') || null,
+    landscape: field(page.text, 'landscape') || null,
     description: /^No description/i.test(description) ? null : description,
     conditions: [...page.text.matchAll(/\{\{Environmental Conditions\|([^}]*)\}\}/g)].flatMap(match => match[1].split('|').map(name => name.trim())).filter(Boolean),
   };

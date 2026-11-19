@@ -245,6 +245,64 @@ export const gloomLevels = [
   "wiki": "https://helldivers.wiki.gg/wiki/Hive_World"
  }
 ];
+export const specialEffects = [
+ {
+  "id": "exostorm-1",
+  "name": "클래스 1 엑소스톰",
+  "en": "Class 1 Exostorm",
+  "description": "고립된 엑소스톰 포켓이 행성 전역에 나타나며 빠르게 탄력을 받고 있습니다.",
+  "descriptionEn": "Isolated Exostorm pockets are materializing across the planet and rapidly gaining momentum.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Exostorm",
+  "detail": [
+   "일루미닛 엑소스파이어가 일으키는 폭풍입니다. 행성의 날씨 관련 환경 조건이 계속 켜져 있고, 짧은 경고 뒤 번개가 가끔 떨어집니다."
+  ],
+  "detailEn": [
+   "A storm raised by Illuminate Exospires. The planet's weather conditions stay on for good, and lightning strikes now and then after a short warning."
+  ]
+ },
+ {
+  "id": "exostorm-2",
+  "name": "클래스 2 엑소스톰",
+  "en": "Class 2 Exostorm",
+  "description": "여러 엑소스톰 전선이 합쳐져 행성 전체를 집어삼킬 듯이 밀집된 구조를 형성하고 있습니다.",
+  "descriptionEn": "Exostorm fronts are coalescing into a dense system that threatens to engulf the entire planet.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Exostorm",
+  "detail": [
+   "보통 엑소스톰이 시작되고 72시간 뒤 2단계가 됩니다. 번개가 잦아지고, 토네이도가 돌아다니며 물건과 생명체를 들어 올립니다."
+  ],
+  "detailEn": [
+   "It usually reaches class 2 72 hours after the exostorm begins. Lightning comes more often, and tornados roam, lifting items and living things."
+  ]
+ },
+ {
+  "id": "exostorm-3",
+  "name": "클래스 3 엑소스톰",
+  "en": "Class 3 Exostorm",
+  "description": "엑소스톰이 치명적인 규모로 성장하면서, 대기 물리 법칙을 무시하는 이 불길한 폭풍이 행성을 뒤덮어 버렸습니다.",
+  "descriptionEn": "The Exostorm has reached critical mass, enveloping the planet in an ominous tempest that defies atmospheric physics.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Exostorm",
+  "detail": [
+   "보통 시작 120시간 뒤 3단계가 됩니다. 번개가 매우 잦고 토네이도가 더 많아지며, 강한 바람이 계속 붑니다."
+  ],
+  "detailEn": [
+   "It usually reaches class 3 120 hours after it begins. Lightning is constant, tornados are more common and a strong wind never stops."
+  ]
+ },
+ {
+  "id": "heavy-seaf-presence",
+  "name": "SEAF 영향력 증가",
+  "en": "Heavy SEAF Presence",
+  "description": "해당 행성 전역에 SEAF의 정규군이 대규모 배치되어 있으며, 헬다이버 임무를 직접 지원할 수도 있습니다.",
+  "descriptionEn": "Conventional SEAF forces are heavily deployed across this planet, and may directly support Helldiver missions.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Heavy_SEAF_Presence",
+  "detail": [
+   "펠리컨이 SEAF 분대를 최대 3개까지 전장에 내려 줍니다. 헬다이버가 SEAF 병사를 죽이면 1명당 요청 신청서 25가 깎이고, 9번 무분별하게 죽이면 반역자로 찍혀 구축함 포격을 받습니다."
+  ],
+  "detailEn": [
+   "Pelicans drop up to 3 SEAF squads into the mission. Each SEAF soldier a Helldiver kills costs 25 Requisition Slips, and 9 reckless kills brand you a traitor under Super Destroyer fire."
+  ]
+ }
+];
 export const operationModifiers = [
  {
   "id": "complex-stratagem-plotting",

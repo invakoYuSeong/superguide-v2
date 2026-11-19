@@ -22,7 +22,7 @@ const ko = key => {
 // Which biomes list each condition (the wiki biome pages; conditions belong to planets, so this is typical, not fixed).
 const biomesWith = page => Object.entries(wiki.biomes).filter(([, biome]) => biome.conditions.includes(page)).map(([title]) => slug(title));
 const entry = (item, extra = {}) => ({
-  id: item.id, name: ko(item.name), en: item.page === 'Effects' || item.page === 'The Gloom' || item.page === 'Hive World' ? cleanGameText(item.name, {}, true) : item.page,
+  id: item.id, name: ko(item.name), en: ['Effects', 'The Gloom', 'Hive World', 'Exostorm'].includes(item.page) ? cleanGameText(item.name, {}, true) : item.page,
   description: cleanGameText(ko(item.description), item.values), descriptionEn: cleanGameText(item.description, item.values),
   wiki: wikiUrl(item.page), ...extra,
 });
@@ -32,6 +32,8 @@ const conditions = text.conditions.map(item => entry(item, {
   biomes: biomesWith(item.page),
 }));
 const gloom = text.gloom.map(item => entry(item));
+// Exostorm classes and Heavy SEAF Presence: game name and description, plus the wiki page's facts.
+const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en }));
 const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null }));
 const events = text.events.map(item => entry(item));
 
@@ -65,6 +67,7 @@ export const planetsCheckedAt = ${JSON.stringify(wiki.retrievedAt)};
 export const planetsGameBuild = ${JSON.stringify(game.build)};
 export const conditions = ${JSON.stringify(conditions, null, 1)};
 export const gloomLevels = ${JSON.stringify(gloom, null, 1)};
+export const specialEffects = ${JSON.stringify(special, null, 1)};
 export const operationModifiers = ${JSON.stringify(modifiers, null, 1)};
 export const eventEffects = ${JSON.stringify(events, null, 1)};
 export const biomes = ${JSON.stringify(biomes)};

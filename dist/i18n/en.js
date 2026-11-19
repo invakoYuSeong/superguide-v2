@@ -12,7 +12,7 @@ import { attachmentParts } from '../data/weapon-attachments.js';
 import { shipModules } from '../data/ship-modules.js';
 import { boosters } from '../data/boosters.js';
 import { structureObjectives } from '../data/structure-objectives.js';
-import { conditions, gloomLevels, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects } from '../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects } from '../data/planets.js';
 import stratagemText from './en/stratagems.js';
 import enemyText from './en/enemies.js';
 import gearText from './en/gear.js';
@@ -33,7 +33,8 @@ const boosterText = boosters.flatMap(item => [item, { name: item.description, en
 const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().replace(/(^|[\s:(-])([a-z])/g, (_, gap, letter) => gap + letter.toUpperCase()) : text;
 const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ name: item.name, en: titleCase(item.en) }));
 // Planet tab: the game's Korean names and descriptions, biome descriptions and status effect lines, each with its English.
-const planetText = [...conditions, ...gloomLevels, ...operationModifiers, ...eventEffects].flatMap(item => [item, { name: item.description, en: item.descriptionEn }])
+const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operationModifiers, ...eventEffects].flatMap(item => [item, { name: item.description, en: item.descriptionEn }])
+  .concat(specialEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
   .concat(planetBiomes, planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })))
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));

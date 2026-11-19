@@ -1,7 +1,7 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>   (b: scroll to and mark one biome)
-import { conditions, gloomLevels, operationModifiers, eventEffects, biomes, statusEffects, planetsCheckedAt } from '../../data/planets.js';
-import { html, render, $, $$, badge, external } from '../dom.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, planetsCheckedAt } from '../../data/planets.js';
+import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const TABS = [
@@ -25,13 +25,25 @@ const text = (ko, en) => lang === 'en' ? en : ko;
 const enLine = item => lang === 'en' || !item.name || item.name === item.en ? '' : html`<p class="en">${item.en}</p>`;
 const title = item => item.name ? (lang === 'en' ? item.en : item.name) : item.en;
 
+// Site-drawn line icons where the wiki has none (dom.js ICONS).
+const ICON_OF = {
+  'complex-stratagem-plotting': 'mod-callin', 'orbital-fluctuations': 'mod-cooldown', 'poor-intel': 'mod-intel', 'civilians-and-seaf': 'mod-civilians',
+  'atmospheric-spores': 'mod-spores', 'roving-shriekers': 'mod-shriekers', 'gunship-patrols': 'mod-gunships', 'leviathan-blockade': 'mod-leviathan',
+  'orbital-fluctuations-event': 'mod-cooldown', 'medical-supply-strain': 'ev-stims', 'pilot-shortage': 'ev-extraction', 'slower-eagle-rearm': 'ev-eagle',
+  'light-gloom-cover': 'gloom', 'moderate-gloom-blanket': 'gloom', 'heavy-gloom-shroud': 'gloom', 'gloom-source': 'gloom',
+  'exostorm-1': 'exostorm', 'exostorm-2': 'exostorm', 'exostorm-3': 'exostorm', 'heavy-seaf-presence': 'shield',
+};
+const effectIcon = item => item.icon ? html`<span class="info-icon"><img src="${item.icon.src}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+  : ICON_OF[item.id] ? html`<span class="info-icon drawn" aria-hidden="true">${icon(ICON_OF[item.id], 30)}</span>` : html`<span class="info-icon" aria-hidden="true"></span>`;
+
 function effectCard(item) {
   return html`<li class="info-item">
-    ${item.icon ? html`<span class="info-icon"><img src="${item.icon.src}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>` : html`<span class="info-icon" aria-hidden="true"></span>`}
+    ${effectIcon(item)}
     <div class="info-body">
       <h3>${title(item)}</h3>${enLine(item)}
       <p class="info-desc">${text(item.description, item.descriptionEn)}</p>
       ${item.where === 'metropolis' ? html`<p class="info-detail">${L('도시(메트로폴리스) 지역에서만 나옵니다.', 'Only in Metropolis areas.')}</p>` : ''}
+      ${(lang === 'en' ? item.detailEn : item.detail)?.map(line => html`<p class="info-detail">${line}</p>`) ?? ''}
       ${item.biomes?.length ? html`<p class="armor-source">${L('나오는 생물군계', 'Biomes')}: ${item.biomes.map((id, i) => html`${i ? ' · ' : ''}<a href="#/planets?tab=biomes&b=${id}">${biomeById.get(id) ? title(biomeById.get(id)) : id}</a>`)}</p>` : ''}
       <p class="armor-source">${external(item.wiki, L('위키', 'Wiki'))}</p>
     </div>
@@ -43,7 +55,10 @@ function conditionsTab() {
     <ul class="info-list">${conditions.map(effectCard)}</ul>
     <h2 class="planet-sub">${L('글룸', 'The Gloom')}</h2>
     <p class="lede-note">${L('글룸에 덮인 행성의 물류 효과입니다. 단계가 높을수록 탈출이 늦어지고 이글 재무장이 느려집니다.', 'Logistics effects on planets covered by the Gloom. Higher levels slow extraction and Eagle rearm more.')}</p>
-    <ul class="info-list">${gloomLevels.map(effectCard)}</ul>`;
+    <ul class="info-list">${gloomLevels.map(effectCard)}</ul>
+    <h2 class="planet-sub">${L('엑소스톰 · SEAF', 'Exostorms · SEAF')}</h2>
+    <p class="lede-note">${L('갤럭시 맵에서 행성에 붙는 특수 상황입니다.', 'Special situations shown on planets in the galactic map.')}</p>
+    <ul class="info-list">${specialEffects.map(effectCard)}</ul>`;
 }
 
 function modifiersTab() {
