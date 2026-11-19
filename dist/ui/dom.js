@@ -56,7 +56,9 @@ const ICONS = {
   'status-poison': '<path d="M9 3h6M10 3v5l-5 9a2.5 2.5 0 0 0 2.2 3.7h9.6A2.5 2.5 0 0 0 19 17l-5-9V3M7.5 14h9"/>',
   'status-stagger': '<path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5 19 19M19 5l-3.5 3.5M8.5 15.5 5 19"/>',
   planets: '<circle cx="12" cy="12" r="6.5"/><path d="M3.5 15.5c-1.8 2.2-.9 3.6 2.2 3.3 3.4-.3 8.6-2.4 12.3-5.4 3.6-2.9 4.6-5.6 2.1-6.1"/>',
-  gear: '<path d="M3 10.5h13.5l1.5-2h3v4h-4l-1 1.5H9.5l-1.5 5h-3l1-5H3z"/><path d="M11 14v2.5"/>',
+  // Primary weapon mark from the Helldivers Wiki (File:Primary Weapon Currency Icon.svg, traced by Dogo314,
+  // CC BY-NC-SA 4.0): its rifle outline (x 2120-2328, y 631-729) fitted 22 units wide, in the text colour.
+  gear: '<path transform="translate(-1.54 -1.56) scale(.1058) translate(-2095.99 -552)" stroke="none" fill="currentColor" d="M2169 685h-3v4h-30l-6 7h-10v-43h94v-4h24v-4h-12v-14h41v18h54v11h7v7h-7v21h-7v14h-25v-14h-26l-30 41-33-14 13-30h-24v8c0 8 2 19 6 29l-20 7c-3-11-6-26-6-34zm61 3-11 28 8 5 19-26-7-7z"/>',
   search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
   close: '<path d="M6 6l12 12M18 6 6 18"/>',
