@@ -46,7 +46,7 @@ function stats(item) {
     : item.radius != null ? { text: num(item.radius), unit: 'm', label: L('반경', 'Radius'), caption: item.innerRadius != null ? L(`중심 ${num(item.innerRadius)}m · 외곽 ${num(item.radius)}m`, `Inner ${num(item.innerRadius)}m · outer ${num(item.radius)}m`) : L('폭발 외곽 반경', 'Outer blast radius') }
     : { text: item.rangeLabel || L('미확인', 'Unverified'), dim: !item.rangeLabel || item.rangeLabel === '미확인', label: L('범위', 'Area'), caption: item.rangeNoteShort };
   return [
-    { label: dps ? L('지속 피해', 'Damage/s') : L('직격', 'Direct'), caption: item.directNoteShort || (none ? L('지원 장비', 'Utility gear') : dps ? L('초당', 'Per second') : item.unit), ...value(item.direct, item.directText) },
+    { label: dps ? L('지속 피해', 'Damage/s') : L('직격', 'Direct'), icon: dps ? streamOf(item) : '', caption: item.directNoteShort || (none ? L('지원 장비', 'Utility gear') : dps ? L('초당', 'Per second') : item.unit), ...value(item.direct, item.directText) },
     { label: L('폭발', 'Blast'), caption: item.splashNoteShort || (item.splash > 0 ? L('중심부 최대', 'Max at center') : ''), ...value(item.splash, item.splashText, L('없음', 'None')) },
     { label: L('관통', 'Penetration'), caption: item.apNoteShort || (item.ap != null ? apBandOf(item).name + (item.splashAp != null && item.splashAp !== item.ap ? L(` · 폭발 AP ${item.splashAp}`, ` · blast AP ${item.splashAp}`) : '') : ''),
       ...(item.ap != null ? { text: `AP ${item.ap}${item.splashAp != null && item.splashAp !== item.ap ? `/${item.splashAp}` : ''}` } : { text: none ? '—' : L('미확인', 'Unverified'), dim: true }) },
@@ -313,9 +313,13 @@ export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
 // Explosions (the blast, an overcharge, a backblast) carry the blast icon in front of their name.
 const BLAST_KINDS = ['blast', 'overcharge', 'backblast'];
-// Arc attacks carry the arc icon, and a spray of gas (Sterilizer, Dog Breath: items with a gas damage cell) the gas icon.
-const kindIcon = (kind, item) => BLAST_KINDS.includes(kind) ? 'ico-blast' : kind === 'arc' ? 'ico-arc'
-  : kind === 'spray' && item.extraStats?.some(cell => cell.icon === 'gas') ? 'ico-gas' : '';
+// What a continuous attack is made of: gas (items with a gas damage cell), fire (the 화염 tag) or a laser
+// (a beam in the datamine attacks, the 레이저 tag, or the Orbital Laser, whose datamine attack is a spray).
+const streamOf = item => item.extraStats?.some(cell => cell.icon === 'gas') ? 'gas' : item.tags?.includes('화염') ? 'fire'
+  : item.tags?.includes('레이저') || item.id === 'orbital-laser' || stratagemStats[item.id]?.forces?.some(group => group.parts.some(part => part.kind === 'beam')) ? 'laser' : '';
+// Explosions carry the blast icon, arc attacks the arc icon, beams the laser icon and a spray what it sprays.
+const kindIcon = (kind, item) => BLAST_KINDS.includes(kind) ? 'ico-blast' : kind === 'arc' ? 'ico-arc' : kind === 'beam' ? 'ico-laser'
+  : kind === 'spray' && streamOf(item) ? `ico-${streamOf(item)}` : '';
 function fallbackRows(profile, value) {
   const top = key => profile.modes.map(mode => mode[key]).filter(force => force != null)
     .reduce((best, force) => best == null || (typeof force === 'number' ? force : force.max) > (typeof best === 'number' ? best : best.max) ? force : best, null);
@@ -450,6 +454,8 @@ const HOLE_CONDITIONS = {
 };
 // No demolition data for these two, but fired into a hole they close it (community guide, user decision 2026-11-20).
 const HOLE_INNER_EXTRA = new Set(['airburst-launcher', 'expendable-napalm']);
+// Known in play not to close bug holes, whatever the demolition numbers say (user decision 2026-11-20).
+const HOLE_NONE = new Set(['breaching-hammer']);
 const HOLE_TAGS = {
   outer: [L('굴 파괴', 'Closes bug holes'), L('철거력이 충분해 굴 밖에 맞혀도 벌레굴이 닫힙니다.', 'Enough demolition force to close a bug hole even hitting outside it.')],
   inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L('폭발을 굴 안쪽에 넣어야 벌레굴이 닫힙니다.', 'Closes a bug hole when the explosion goes inside it.')],
@@ -462,6 +468,7 @@ export async function loadDemolition() {
   const hole = data.structures.find(item => item.id === 'bug-hole');
   bugHoleTier = id => {
     const profile = data.demolitionProfiles[id];
+    if (HOLE_NONE.has(id)) return null;
     if (!profile) return HOLE_INNER_EXTRA.has(id) ? 'inner' : null;
     let outer = false, inner = false;
     for (const mode of profile.modes) for (const result of solver.solveDemolition(hole, profile, mode).routes) {

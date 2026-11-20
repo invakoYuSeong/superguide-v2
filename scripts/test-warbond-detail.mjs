@@ -116,7 +116,8 @@ ok(multiMode.length > 0, 'some weapons have selectable firing modes');
 // One panel's text, so a check cannot pass on another mode's numbers.
 const panel = (content, id) => content.split(`data-variant-panel="${id}"`)[1]?.split('data-variant-panel=')[0] ?? '';
 const shows = (content, label, text) => content.includes(`<dt>${label}</dt><dd class="">${text}`) || content.includes(`<dt>${label}</dt><dd>${text}`);
-const DOT_ROW = /<dt>(?:화상|가스|전기) 피해<\/dt>/;
+// The row may start with its damage icon (ico-fire, ico-gas, ico-arc).
+const DOT_ROW = /<dt>(?:<span class="ico-[a-z]+" aria-hidden="true"><\/span>)?(?:화상|가스|전기) 피해<\/dt>/;
 for (const [id, profile] of multiMode) {
   const w = weaponById.get(id);
   const content = String(weaponDetail(w));

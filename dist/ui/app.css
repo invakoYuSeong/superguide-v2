@@ -377,9 +377,14 @@ main[aria-busy] { opacity: .5; transition: opacity .2s .15s; }
 /* Explosion marker: the Helldivers Wiki 'Damage Explosion Icon' (Dogo314, CC BY-NC-SA 4.0), one 830-byte file, cached once. */
 .ico-blast { display: inline-block; width: 1.1em; height: .95em; margin-right: 3px; vertical-align: -.12em; background: url('../assets/icons/damage-explosion.svg') center / contain no-repeat; }
 /* Arc and gas markers: the wiki's 'Damage Arc Icon' and 'Damage Gas Icon' (Dogo314, CC BY-NC-SA 4.0), same size as the blast marker. */
-.ico-arc, .ico-gas { display: inline-block; width: 1.1em; height: 1.1em; margin-right: 3px; vertical-align: -.18em; background: center / contain no-repeat; }
+.ico-arc, .ico-gas, .ico-fire, .ico-laser, .ico-energy { display: inline-block; width: 1.1em; height: 1.1em; margin-right: 3px; vertical-align: -.18em; background: center / contain no-repeat; }
 .ico-arc { background-image: url('../assets/icons/damage-arc.svg'); }
 .ico-gas { background-image: url('../assets/icons/damage-gas.svg'); }
+/* Fire, laser and energy: the wiki's Damage Fire Icon, Damage Laser Icon (Dogo314) and Damage Energy Icon
+   (Tech Support Squid), CC BY-NC-SA 4.0. */
+.ico-fire { background-image: url('../assets/icons/damage-fire.svg'); }
+.ico-laser { background-image: url('../assets/icons/damage-laser.svg'); }
+.ico-energy { background-image: url('../assets/icons/damage-energy.svg'); }
 .badge.warbond { background: transparent; border: 1px solid var(--accent); color: var(--accent-text); text-decoration: none; }
 .badge.warbond:hover { background: var(--accent-soft); }
 .keys { display: inline-flex; gap: 3px; }
