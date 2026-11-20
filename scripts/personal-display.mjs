@@ -148,6 +148,27 @@ const CAUTIONS = {
   'grenade-pistol': '사용자 근처에서는 터지지 않는 안전 신관이 있어, 아주 가까운 적에게 맞으면 튕겨 나가 먼 곳에서 터집니다.',
 };
 
+// Numbers the wiki pages state in their text that no stat field holds (pages checked 2026-11-20: G-10 Incendiary
+// rev 141990, G-13 Incendiary Impact rev 141989, G-8 Immolation rev 141986, G-142 Pyrotech rev 141988, G-3 Smoke
+// rev 140501, G-89 Smokescreen rev 140510, G-109 Urchin rev 141179, G-50 Seeker rev 140505, G-60 Anti-Tank Seeker
+// rev 140507, P-11 Stim Pistol rev 140476, FLAM-66 Torcher rev 141873, P-72 Crisper rev 140485, SMG/FLAM-34 Stoker
+// rev 141944). `after` places the cell with the damage, reach or ammo rows of the detail sheet.
+const EXTRA_STATS = {
+  incendiary: [{ label: '불 지속 시간', value: 20, unit: '초', caption: '남는 불길 · 소이 충격보다 5초 길다', after: 'reach' }],
+  'incendiary-impact': [{ label: '불 지속 시간', value: 15, unit: '초', caption: '남는 불길', after: 'reach' }],
+  immolation: [{ label: '불 지속 시간', value: 27, unit: '초', caption: '넓은 불 웅덩이', after: 'reach' }],
+  pyrotech: [{ label: '불꽃 회전', value: 4, unit: '초', caption: '터지기 전까지', after: 'reach' }, { label: '불 지속 시간', value: 6, unit: '초', caption: '터진 뒤 남는 불길', after: 'reach' }],
+  smoke: [{ label: '연막 지속 시간', value: 30, unit: '초', caption: '연막 구름 3개 각각', after: 'reach' }],
+  smokescreen: [{ label: '연막 지속 시간', value: 30, unit: '초', caption: '연막 구름 3개 각각', after: 'reach' }],
+  urchin: [{ label: '기절 시간', value: 13.7, unit: '초', caption: '첫 파동부터 약', after: 'reach' }],
+  seeker: [{ label: '탐지 반경', value: 50, unit: 'm', caption: '약 · 적을 찾아 날아가는 거리', after: 'reach' }],
+  'anti-tank-seeker': [{ label: '탐지 반경', value: 50, unit: 'm', caption: '약 · 적을 찾아 날아가는 거리', after: 'reach' }],
+  'stim-pistol': [{ label: '치유', value: 90, unit: '%', caption: '체력의 약 90% · 약 4초에 걸쳐', after: 'damage' }],
+  torcher: [{ label: '연속 분사', value: 12.4, unit: '초', caption: '연료통 하나', after: 'ammo' }],
+  crisper: [{ label: '연속 분사', value: 6.1, unit: '초', caption: '연료통 하나', after: 'ammo' }],
+  stoker: [{ label: '연속 분사', value: 6.1, unit: '초', caption: '연료통 하나', after: 'ammo' }],
+};
+
 // Wiki infobox traits shown as badges on the gear page, in this order.
 const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'stun', 'one handed': 'one-handed' };
 
@@ -186,5 +207,5 @@ export function playerDetails(weapon, box) {
   // Effect badges straight from the wiki infobox trait list ("Incendiary {{*}} Guided ...").
   const traits = String(box.weapon_traits ?? box.throwable_traits ?? '').split('{{*}}').map(trait => trait.trim().toLowerCase());
   const traitTags = Object.entries(TRAIT_TAGS).filter(([wiki]) => traits.includes(wiki)).map(([, tag]) => tag);
-  return { ...fuse, playerNotes, traitTags };
+  return { ...fuse, playerNotes, traitTags, ...(EXTRA_STATS[weapon.id] && { extraStats: EXTRA_STATS[weapon.id] }) };
 }

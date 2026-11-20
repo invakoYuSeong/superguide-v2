@@ -188,13 +188,26 @@ function detailRows(w) {
   // Fires whatever is left in the magazine (Variable "Total"), so the full magazine is the most.
   if (w.ammoAll && w.direct != null && w.magazine != null) add(L('한 번에 발사', 'Fired at once'), num(w.magazine), L('발', ''), L(`남은 탄 전부 · 가득 차 있으면 모두 맞을 때 ${num(w.direct * w.magazine)}`, `Every round left · ${num(w.direct * w.magazine)} if a full magazine all hits`));
   if (w.splash != null) add(L('폭발', 'Blast'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
+  // Extra cells (EXTRA_STATS in personal-display.mjs), each with its group of rows.
+  const UNIT_EN = { '초': 's', '개': '' };
+  const extra = after => (w.extraStats ?? []).filter(cell => cell.after === after)
+    .forEach(cell => add(cell.label, num(cell.value), lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, cell.caption));
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
   if (apOf(w) != null) add(L('관통', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
   if (w.shrapnelCount) add(L('파편', 'Fragments'), num(w.shrapnelCount), L('개', ''), L('폭발 1회당 · 다 맞지는 않음', 'Per explosion · not all of them hit'));
+  extra('damage');
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
   if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
+  extra('reach');
+  // The deployed shield of the Shield grenade (wiki datamine table).
+  if (w.shield) {
+    add(L('실드 내구', 'Shield capacity'), num(w.shield.capacity), '', L(`재생 초당 ${num(w.shield.regen)}`, `Regen ${num(w.shield.regen)}/s`));
+    add(L('실드 반경', 'Shield radius'), num(w.shield.radius), 'm', L('전방위', 'All around'));
+    add(L('재생 대기', 'Regen delay'), num(w.shield.regenDelay), s, L(`맞은 뒤 · 깨지면 ${num(w.shield.brokenDelay)}초`, `After a hit · ${num(w.shield.brokenDelay)} s once broken`));
+  }
   if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
   if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
+  extra('ammo');
   if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
   if (w.heatCapacity?.raw) add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · 방열판 교체로 재장전`, `About ${w.heatCapacity.shots} shots · reload by swapping the heatsink`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink'));
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
