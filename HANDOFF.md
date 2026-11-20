@@ -2,11 +2,20 @@
 
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
-- 마지막 갱신: 2026-11-19, Claude Code 담당
-- 기준: master `51eb532`(2026-11-19 배포됨, `work/wiki-features` 60커밋을 그대로 올림)
+- 마지막 갱신: 2026-11-20, Claude Code 담당
+- 기준: master `51eb532`(2026-11-19 배포됨). 그 뒤 `work/wiki-features`에 로컬 커밋이 쌓여 있음(아직 배포 안 함, 아래 '로컬 작업').
 - 진행 중인 작업: 없음.
 
 ## 지금 상태
+
+- **로컬 작업(2026-11-20, 배포 전)**
+  - **장비 칩**: 슈퍼 스토어 무기 8종(사이·스위퍼·연막·더블 프리덤·마체테·워런트·전투 손도끼·스턴 배턴)에 '슈퍼 스토어' 칩(누르면 `#/superstore`), 나이트에 '슈퍼 시민 에디션' 칩(위키 MP-98 Knight 입수 절). `dist/ui/warbond-chip.js`.
+  - **함선 모듈 탭**(장비 → 부스터 오른쪽, `#/gear?tab=modules&u=<모듈>`): 6개 부서 × 5단계 30개, 비용(일반·희귀·슈퍼 샘플, 요청 신청서)과 합계(3,830 / 2,920 / 305 / 335,000 = 위키 Total 행). 이름·효과는 게임 문장(위키 효과 문장과 #VALUE를 맞춰 자동 대응, `scripts/ship-module-parse.mjs`), 비용은 기존 원본 `wiki_stratagem_stats.json`의 Ship Modules rev 134806. 스트라타젬 도감이 쓰는 12개 모듈은 '재사용 시간에 반영' 링크. 부서 아이콘 6개는 위키 SVG(`fetch-ship-module-icons` → `wiki_ship_module_icons.json`). `build-game-names` → `build-ship-module-upgrades` → `test-ship-module-upgrades`.
+  - **적 공격표**(적 대응 화면, 등장·행동 아래): 각 적 위키 문서의 Weapons Loadout 상자(86종, 247개)를 새 원본 `db/source/wiki_enemy_weapons.json`(`fetch-enemy-weapons`, 기존 `wiki_enemy_pages.json`은 그대로)으로 받고, 공격 이름 151종은 사이트 번역(`db/source/enemy_weapon_korean.json`, 기존 행동 요약과 같은 용어). '경량 50·일반 100·중량 150 몇 방'은 **몸통 기준 어림값**(체력 125 ÷ (피해 × 방어구 배율), 위키 Template:Armor Ratings rev 136845)이고 폭발이 없는 단일 직격(탄도·근접·베기 등)만 계산. 폭발·화염·산성·여러 줄 피해는 숫자만, 관통은 위키에 공식이 없어 계산에서 뺌(사용자에게 보고, 2026-11-20). `build-enemy-weapons` → `test-enemy-weapons`. 좁은 화면 넘침 때문에 `.enemy-layout` 모바일 열을 `minmax(0, 1fr)`로.
+  - **장비 근접 공격**: 주·보조무기 상세에 '근접 공격 75(관통 2)' 또는 '총검 공격 165(관통 3)'. 위키 datamine `Module:Decodedata-Attacks/new gear.json` rev 134811(`fetch-melee` → `wiki_melee.json` → `build-melee` → `dist/data/melee.js`), 총검 무기는 문서에 Melee_Bayonet 틀이 있는 3종(어멘드먼트·컨스티튜션·스위퍼). **한손 무기**: 위키 인포박스 One Handed 특성(35종)을 '한손' 칩으로, 장비 둘러보기에 '한손 무기만' 필터(`h=1`). `personal-display.mjs` TRAIT_TAGS, `build-weapons`로 재생성(traitTags만 바뀜). `test-melee`.
+  - **계산 방식 5~10번 추가**: 출혈, 과관통, 거리 감쇠, 폭발 세 구간(엎드리면 바깥 반경 90% 감소), 지속 피해·화염 배율, 헬다이버가 받는 피해(배율은 `enemy-weapons.js`의 `helldiverArmor`에서 읽음). 위키 Damage rev 142577, Combat rev 142474.
+  - **정찰 패시브 예시**: 방어구 탭·상세에 '트루퍼가 낮 50m·밤 40m → 정찰 35m·28m'(위키 Stealth rev 142153, 30%는 패시브 효과 문장에서 읽음). 나무위키 시야 표(40/30m)는 영문 위키와 달라 쓰지 않음.
+  - 검사: `npm run check` 21종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 화면 확인(콘솔 오류 없음).
 
 - **위키·게임 자료 기능 묶음(2026-11-19, 배포됨)**
   - **한국어 이름 규칙 변경**(AGENTS.md): 게임 안 자료로 확인한 최신 표기가 우선, 나무위키는 보조, 게임에도 없으면 알맞게 번역. 게임 공식 문장표(음성 대사·300자 넘는 글 제외, 10,306줄, 게임 빌드 26568081)가 `db/source/game_strings_ko.tsv`에 있고, `node scripts/build-game-names.mjs`가 사이트가 쓰는 문장만 `db/source/game_names_ko.json`에 뽑습니다. 게임 업데이트 뒤 문장표 갱신은 원본 표가 있는 PC에서 `scripts/tools/import-game-strings.mjs <tsv> --planets <행성.json>`(행성 이름·생물군계 설명은 `db/source/game_planets_ko.json`).
