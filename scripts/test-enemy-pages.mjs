@@ -37,8 +37,8 @@ for (const enemy of enemies) {
   const summary = summaries[item.page];
   if (!summary) { later.noSummary.push(enemy.id); continue; }
   if (summary.revision !== page.revision) later.olderSummary.push(enemy.id);
-  for (const key of ['spawning', 'behavior', 'tactics']) {
-    // tactics is left out of the generated entry when the summary has none.
+  for (const key of ['spawning', 'behavior', 'tactics', 'tips']) {
+    // tactics and tips are left out of the generated entry when the summary has none.
     const lines = item[key] ?? [], linesEn = item[`${key}En`] ?? [];
     ok(lines.length === linesEn.length && lines.length === (summary[key] ?? []).length, `${enemy.id}: ${key} lines and English lines differ (run build-enemy-pages)`);
     lines.forEach((line, i) => {

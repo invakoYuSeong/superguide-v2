@@ -367,6 +367,14 @@ export const enemyPages = {
    "Even when it crouches behind its head, the body can be hit through the small gap between the head and the front legs.",
    "Destroying both front claws (armor 1) also kills it.",
    "Fire has armor penetration 4 and works well. Weapons that set it alight, such as the Flamethrower and incendiary grenades, are effective."
+  ],
+  "tips": [
+   "머리가 부서지면 몇 초 뒤 출혈로 죽습니다.",
+   "무리로 몰려오면 기관총 센트리를 길목에 깔거나 유탄 발사기, 세열 수류탄으로 밀어내세요. 관통이 낮은 주무기만 있다면 스트라타젬과 수류탄으로 처리하는 편이 낫습니다."
+  ],
+  "tipsEn": [
+   "Once the head breaks, it bleeds out a few seconds later.",
+   "When they come in a group, set a Machine Gun Sentry on their path or push them back with the Grenade Launcher and Frag grenades. With only a low-penetration primary, stratagems and grenades are the better answer."
   ]
  },
  "brood-commander": {
@@ -467,6 +475,12 @@ export const enemyPages = {
    "A well-placed grenade near or under it often kills it outright or nearly so. The Impact grenade is especially effective.",
    "Its rear abdomen (butt) has high durability, so bullets do little, but it has no explosive damage resistance, so explosive and plasma weapons work well.",
    "Weapons that stagger, such as the Punisher and the Arc Thrower, can interrupt its spewing attacks."
+  ],
+  "tips": [
+   "뭉쳐 있으면 오토캐넌 대공 모드로 대충 쏴도 정리됩니다."
+  ],
+  "tipsEn": [
+   "When they bunch up, loose Autocannon flak fire clears them."
   ]
  },
  "bile-spewer-armored": {
@@ -493,6 +507,14 @@ export const enemyPages = {
    "Starting at Difficulty 6, at around 30m it lobs two bile bombs into the air that can fall and explode on Helldivers.",
    "A lethal shot to its butt makes it explode, damaging nearby Terminids and Helldivers. A corpse with its butt intact can still explode with enough damage.",
    "Each leg destroyed slows it down further."
+  ],
+  "tips": [
+   "머리와 입은 총탄도 잘 박혀 몇 발이면 죽습니다. 너싱 스퓨어와 같은 방법이 통합니다.",
+   "후방 복부(엉덩이)는 유탄이나 오토캐넌 같은 폭발 무기가 아니면 효율이 매우 낮으니 쏘지 마세요."
+  ],
+  "tipsEn": [
+   "The head and mouth take bullets well and die to a few shots. The same approach as for the Nursing Spewer works.",
+   "Unless you have explosive weapons such as a grenade launcher or the Autocannon, the rear abdomen (butt) is very inefficient, so do not shoot it."
   ]
  },
  "rupture-spewer": {
@@ -531,7 +553,15 @@ export const enemyPages = {
   "spawning": [],
   "spawningEn": [],
   "behavior": [],
-  "behaviorEn": []
+  "behaviorEn": [],
+  "tips": [
+   "머리와 입은 총탄도 잘 박혀 몇 발이면 죽습니다. 너싱 스퓨어와 같은 방법이 통합니다.",
+   "후방 복부(엉덩이)는 유탄이나 오토캐넌 같은 폭발 무기가 아니면 효율이 매우 낮으니 쏘지 마세요."
+  ],
+  "tipsEn": [
+   "The head and mouth take bullets well and die to a few shots. The same approach as for the Nursing Spewer works.",
+   "Unless you have explosive weapons such as a grenade launcher or the Autocannon, the rear abdomen (butt) is very inefficient, so do not shoot it."
+  ]
  },
  "stalker": {
   "page": "Stalker",
@@ -651,6 +681,18 @@ export const enemyPages = {
    "A Thermite stuck to the torso does not kill it outright, so stick it to the head.",
    "Armor penetration 4 support weapons deal reduced damage to most of its body, which takes much longer than against a regular Charger.",
    "The leg flesh exposed after breaking the armor and the unarmored rear abdomen can be damaged even by low-penetration weapons."
+  ],
+  "tips": [
+   "얼티메이텀은 대충 맞혀도 한 발이고, 브리처는 다리를 빼면 어디에 맞혀도 한 발입니다. 보통 얼티메이텀, 대전차 드론, 멜타마인으로 처리합니다.",
+   "정면에서 대물소총을 쓸 때는 머리보다 앞다리(발가락) 장갑을 깨고 드러난 살점을 쏘는 편이 효율적입니다.",
+   "오토캐넌을 맞으면 차저가 밀려나 조준이 어렵습니다. 차저 기준 오른쪽 다리(정면에서 보면 왼쪽)를 쏘면 덜 밀려납니다.",
+   "후방 복부(꼬리)가 터지면 돌진하지 못하고 몇 초 뒤 죽습니다. 다만 돌진을 피하고 뒤로 돌아야 해서 익숙하지 않으면 어렵습니다."
+  ],
+  "tipsEn": [
+   "The Ultimatum kills it with a rough hit, and the Breacher with a hit anywhere but the legs. It is usually handled with the Ultimatum, Anti-Tank Seeker grenades or Melta Mines.",
+   "With the Anti-Materiel Rifle from the front, breaking the front leg (toe) armor and shooting the flesh underneath is more efficient than the head.",
+   "Autocannon hits push it around and make aiming hard. Shooting its right leg (your left when facing it) pushes it less.",
+   "Once the rear abdomen (tail) bursts, it can no longer charge and dies a few seconds later. You have to dodge the charge and get behind it, though, which is hard until you are used to it."
   ]
  },
  "spore-charger": {
@@ -739,6 +781,16 @@ export const enemyPages = {
    "Dealing enough damage to a tentacle that has broken the surface makes it retract. Fire and sentries can also force the tentacles back.",
    "If it does not expose its head, breaking a leg's armor and hitting the flesh underneath is the next best way.",
    "Walking up to bait a melee attack makes it lift its head and reveal its mouth. Hitting the mouth with the Eruptor or the Exploding Crossbow kills it quickly."
+  ],
+  "tips": [
+   "촉수를 땅에 박아 멀리서도 찌르기 때문에 방치하면 가장 위험합니다. 보이면 바로 처리하세요.",
+   "머리가 드러난 동안에는 주무기로도 처리할 만합니다. 오토캐넌 대공 모드나 스털워트처럼 연사가 높은 무기도 좋습니다.",
+   "가까이 있으면 내려찍는 공격을 하는데, 이때 입을 노려도 됩니다."
+  ],
+  "tipsEn": [
+   "It stabs from far away by burrowing its tentacles, so it is the most dangerous thing to leave alive. Deal with it as soon as you see it.",
+   "While the head is exposed, even a primary weapon can handle it. The Autocannon in flak mode and high-rate weapons such as the Stalwart also work well.",
+   "Up close it slams down, and you can aim at the mouth when it does."
   ]
  },
  "shrieker": {
@@ -843,6 +895,16 @@ export const enemyPages = {
    "The Recoilless Rifle and Expendable Anti-Tank need a headshot to kill it in one shot. The Solo Silo and Leveller kill it wherever they hit.",
    "Destroying its sacs stops its spew attacks, leaving it only its legs.",
    "Its falling body and flailing legs can crush Helldivers, so stay clear right after it dies."
+  ],
+  "tips": [
+   "이글 500kg 폭탄은 직격보다 배 밑에서 터지게 해야 한 번에 처치합니다. 이글 110mm 로켓 포드는 보통 두 번 필요하고, 운이 좋으면 한 번입니다.",
+   "얼티메이텀은 머리에 직격시키거나 다이빙하면서 쏘면 한 발에 처치하기 쉽습니다.",
+   "궤도 레일캐넌 타격은 알아서 조준해 한 번에 처치합니다."
+  ],
+  "tipsEn": [
+   "The Eagle 500kg Bomb kills it in one use when it explodes under its belly rather than on a direct hit. The Eagle 110mm Rocket Pods usually take two uses, one if you are lucky.",
+   "The Ultimatum kills it in one shot more easily with a direct head hit or when fired while diving.",
+   "The Orbital Railcannon Strike aims by itself and kills it in one use."
   ]
  },
  "spore-burst-bile-titan": {
@@ -1590,6 +1652,18 @@ export const enemyPages = {
    "Destroying one leg staggers it for several seconds and slows it greatly, and destroying both legs kills it. Legs are often easier targets than the eye or the heat sink.",
    "The heat sink on its back (armor 1) takes damage from any weapon but is durable, and breaking it does not kill at once: it starts bleeding out.",
    "A single Thermite kills it wherever it sticks."
+  ],
+  "tips": [
+   "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+   "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
+  ],
+  "tipsEn": [
+   "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
+   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
+   "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
  },
  "hulk-bruiser": {
@@ -1630,6 +1704,18 @@ export const enemyPages = {
    "Destroying one leg staggers it for several seconds and slows it greatly, and destroying both legs kills it. Legs are often easier targets than the eye or the heat sink.",
    "The heat sink on its back (armor 1) takes damage from any weapon but is durable, and breaking it does not kill at once: it starts bleeding out.",
    "A single Thermite kills it wherever it sticks."
+  ],
+  "tips": [
+   "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+   "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
+  ],
+  "tipsEn": [
+   "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
+   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
+   "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
  },
  "hulk-obliterator": {
@@ -1666,6 +1752,18 @@ export const enemyPages = {
    "Destroying one leg staggers it for several seconds and slows it greatly, and destroying both legs kills it. Legs are often easier targets than the eye or the heat sink.",
    "The heat sink on its back (armor 1) takes damage from any weapon but is durable, and breaking it does not kill at once: it starts bleeding out.",
    "A single Thermite kills it wherever it sticks."
+  ],
+  "tips": [
+   "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+   "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
+  ],
+  "tipsEn": [
+   "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
+   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
+   "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
  },
  "hulk-firebomber": {
@@ -1706,6 +1804,18 @@ export const enemyPages = {
    "Destroying one leg staggers it for several seconds and slows it greatly, and destroying both legs kills it. Legs are often easier targets than the eye or the heat sink.",
    "The heat sink on its back (armor 1) takes damage from any weapon but is durable, and breaking it does not kill at once: it starts bleeding out.",
    "A single Thermite kills it wherever it sticks."
+  ],
+  "tips": [
+   "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+   "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
+  ],
+  "tipsEn": [
+   "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
+   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
+   "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
  },
  "jet-brigade-hulk-scorcher": {
@@ -1800,6 +1910,14 @@ export const enemyPages = {
    "One hull hit from the Spear, Recoilless Rifle or Ultimatum, or a single Thermite, destroys it.",
    "The Eagle 500kg Bomb and Orbital Precision Strike must hit the tank directly to destroy it.",
    "Its tracks can be destroyed with armor penetration 3 weapons to immobilize it. It cannot hurt you on top of its turret, but touching the tracks deals heavy, constant damage."
+  ],
+  "tips": [
+   "정면은 차체를 뚫어도 체력이 4,000이라 한 발에 죽지 않습니다. 정면에서는 포탑을 노리세요.",
+   "포탑이 나를 향하면 뒤 방열판이 반대쪽으로 돌아가 사실상 맞히기 어렵습니다."
+  ],
+  "tipsEn": [
+   "From the front, even a hull penetration does not kill it in one shot because the hull has 4,000 health. Aim for the turret from the front.",
+   "Once the turret faces you, the rear vent turns away and is practically impossible to hit."
   ]
  },
  "shredder-tank": {
@@ -1840,6 +1958,14 @@ export const enemyPages = {
    "The turret's rear vent and the rear of the hull can be destroyed with armor penetration 3 weapons.",
    "The Expendable Anti-Tank and Quasar Cannon need 2 shots on the turret, or 1 shot hitting near the vent at the back of the turret from the side.",
    "The Orbital Precision Strike must hit directly to destroy it. Its tracks can be destroyed with armor penetration 3 weapons to immobilize it."
+  ],
+  "tips": [
+   "정면은 차체를 뚫어도 체력이 4,000이라 한 발에 죽지 않습니다. 정면에서는 포탑을 노리세요.",
+   "포탑이 나를 향하면 뒤 방열판이 반대쪽으로 돌아가 사실상 맞히기 어렵습니다."
+  ],
+  "tipsEn": [
+   "From the front, even a hull penetration does not kill it in one shot because the hull has 4,000 health. Aim for the turret from the front.",
+   "Once the turret faces you, the rear vent turns away and is practically impossible to hit."
   ]
  },
  "barrager-tank": {
@@ -1876,6 +2002,12 @@ export const enemyPages = {
    "Its artillery makes cover useless, so destroy it first when you see it.",
    "The launch tubes at the front and back of the turret are weak spots with 1,500 health and armor 3. The Eruptor destroys them in 2 shots and a fully charged Epoch in 1.",
    "A single Eagle Strafing Run consistently destroys the launch tubes."
+  ],
+  "tips": [
+   "발사관을 부수면 죽습니다. 무반동포와 얼티메이텀도 발사관에 쏘세요."
+  ],
+  "tipsEn": [
+   "Destroying the launch tubes kills it. Aim the Recoilless Rifle and the Ultimatum at the tubes too."
   ]
  },
  "bunker-turret": {
@@ -1912,6 +2044,14 @@ export const enemyPages = {
    "Its range is about 150m, so destroying it from beyond that with a long-range weapon such as the Anti-Materiel Rifle is safe.",
    "The Railgun needs one shot charged to 80%, and the Epoch one fully charged shot. The Spear cannot lock on to it, as it counts as a small enemy.",
    "A Thermite destroys it if it sticks."
+  ],
+  "tips": [
+   "정확도가 매우 높아 뒤를 잡지 못하면 맞고 쓰러지기 쉽습니다.",
+   "코만도, 미사일 권총, 에이펙스는 어디에 맞혀도 한 발입니다."
+  ],
+  "tipsEn": [
+   "It is extremely accurate, so unless you get behind it you are likely to be shot down.",
+   "The Commando, Missile Pistol and Apex destroy it with one hit anywhere."
   ]
  },
  "aa-emplacement": {
@@ -1976,6 +2116,14 @@ export const enemyPages = {
    "The thrusters are its weakest parts. The Autocannon and Anti-Materiel Rifle bring it down with 2 shots to one thruster.",
    "The Railgun brings it down with 1 fully charged unsafe-mode shot to a thruster, or 2 to the fuselage.",
    "When a rocket barrage comes in, move away at once or change your running direction. Bring a weapon with armor penetration 3 or higher whenever a Gunship Facility or Gunship Patrol is expected."
+  ],
+  "tips": [
+   "미사일 권총은 조준을 고정해 한 발에 격추하고, W.A.S.P. 발사기는 알아서 쫓아갑니다. 레이저 캐넌은 엔진에 약 2초면 됩니다.",
+   "레일건은 언세이프 모드로 70%쯤 충전해도 엔진에 한 발입니다. 세이프 모드는 2발이 필요합니다."
+  ],
+  "tipsEn": [
+   "The Missile Pistol locks on and downs it in one shot, and the W.A.S.P. Launcher chases it by itself. The Laser Cannon needs about 2 seconds on an engine.",
+   "The Railgun downs it with one shot to an engine even at about 70% charge in unsafe mode. Safe mode needs 2 shots."
   ]
  },
  "dropship": {
@@ -2038,6 +2186,16 @@ export const enemyPages = {
    "The hip joints are armor 3, so even the Machine Gun can take it down.",
    "The Expendable Anti-Tank, Quasar Cannon and Recoilless Rifle kill it in one shot on the pelvis, hip joints or legs. The Ultimatum and the Spear kill it in one shot wherever they hit.",
    "Its grenades ignore the Shield Generator Relay and the Shield Generator Pack, so secure both cover and an escape route. Strafing sideways dodges its fire easily."
+  ],
+  "tips": [
+   "대물소총은 고관절을 노리되, 노리기 어려운 상황이면 다리에 계속 쏴도 됩니다.",
+   "눈은 정말 가만히 서 있을 때만 노릴 만합니다. 조금만 움직여도 맞히기 어렵습니다. 에이펙스와 노바는 눈에 한 발입니다.",
+   "얼티메이텀은 팔에 맞으면 죽지 않을 때가 있으니 몸통을 노리세요."
+  ],
+  "tipsEn": [
+   "Aim the Anti-Materiel Rifle at the hip joints, but if that is hard, keep firing at the legs.",
+   "The eyes are only worth aiming at when it is standing completely still. The slightest movement makes them hard to hit. The Apex and the Nova destroy an eye in one shot.",
+   "An Ultimatum hit on an arm sometimes does not kill it, so aim for the torso."
   ]
  },
  "factory-strider": {
@@ -2084,6 +2242,20 @@ export const enemyPages = {
    "The eye is a fatal zone that needs armor penetration 4. One shot from the Expendable Anti-Tank, Recoilless Rifle or Quasar Cannon breaks the head armor, exposing the whole head to armor penetration 4 weapons.",
    "The belly doors break to armor penetration 3, and each door has its own health, so focus on one. You have to get underneath, though, which exposes you to the Devastators it deploys.",
    "The top cannon needs armor penetration 5. Its shells are strong enough to destroy demolition force 50 structures (Fabricators, Detector Towers, Jammers and more), so you can bait it into hitting them."
+  ],
+  "tips": [
+   "상부 포탑에 맞으면 날아가 버려 매우 위협적이니 포탑부터 떼는 것을 추천합니다. 무반동포와 코만도는 포탑을 한 발에 뗍니다.",
+   "포탑을 떼고 뒤에 붙으면 거의 공격받지 않습니다. 브리처나 대전차 무기로 겉 장갑을 깨고, 드러난 속 회로에 오토캐넌이나 대물소총을 집중하면 쓰러집니다.",
+   "무반동포는 머리 옆면 틈에 맞아도 한 발입니다. 증원으로 밑에 떨어졌거나 밑으로 기어 들어갔다면 배 밑에 무반동포 한 발이면 됩니다.",
+   "대전차 드론은 2개, C4 팩은 옆구리에 2개면 처치됩니다. 스피어는 약점을 조준하지 못해 정면에 2발쯤 필요합니다.",
+   "배 밑 덮개는 추가 체력이 있어 대물소총이나 오토캐넌으로 2탄창쯤 듭니다."
+  ],
+  "tipsEn": [
+   "Getting hit by the top cannon sends you flying, so taking the cannon off first is recommended. The Recoilless Rifle and the Commando remove it in one shot.",
+   "With the cannon gone, staying behind it means it can barely hit you. Break the outer armor with the Breacher or an anti-tank weapon, then focus the Autocannon or Anti-Materiel Rifle on the exposed circuitry underneath.",
+   "The Recoilless Rifle also kills it with one shot into the gap on the side of the head. If you land or crawl underneath it, one Recoilless Rifle shot to the belly does it.",
+   "It takes 2 Anti-Tank Seeker grenades, or 2 C4 Pack bricks on its side. The Spear cannot lock onto weak spots and needs about 2 shots to the front.",
+   "The belly doors have extra health and take about 2 magazines from the Anti-Materiel Rifle or the Autocannon."
   ]
  },
  "vox-engine": {
@@ -2431,6 +2603,16 @@ export const enemyPages = {
    "Destroying its eye raises its Disintegration Beamer's damage from 1,400 to 1,800 per second. Unless you can kill it in one shot, avoid the eye.",
    "Its exterior takes no explosive damage at all, so explosive stratagems such as the Eagle 500kg Bomb do little until its carapace is broken.",
    "Armor with the Electrical Conduit passive resists its arc attack. Without it, going prone avoids arcs."
+  ],
+  "tips": [
+   "일루미닛 상대로는 대전차 무기의 쓸모가 적은 편이라 대물소총, 기관총, 오토캐넌, W.A.S.P. 발사기를 주로 씁니다.",
+   "이글 110mm 로켓 포드는 보호막을 벗긴 뒤에 쓰세요. 기습할 때는 보호막 생성기(돌기)를 먼저 부숴 두면 좋습니다.",
+   "아주 가깝고 맞히기 좋은 무기가 있으면 발끝도 노릴 수 있습니다."
+  ],
+  "tipsEn": [
+   "Anti-tank weapons are less useful against the Illuminate, so the Anti-Materiel Rifle, Machine Gun, Autocannon and W.A.S.P. Launcher are the usual picks.",
+   "Use the Eagle 110mm Rocket Pods after the shield is down. When ambushing one, break a shield generator (prong) first.",
+   "Very close and with a suitable weapon, you can also go for the tips of its feet."
   ]
  },
  "veracitor": {
@@ -2523,6 +2705,12 @@ export const enemyPages = {
    "Its attack path is marked in light blue on the ground. The mark may not show on some surfaces.",
    "Spear and W.A.S.P. Launcher missiles keep chasing a Stingray and hit when it slows down to attack. The Laser Cannon can hit it even in flight.",
    "Much of its damage is explosive, so explosive-resistant armor or going prone can save you."
+  ],
+  "tips": [
+   "W.A.S.P. 발사기는 버스트 모드로 쓰세요. 미사일이 따라가다가 스팅레이가 내려올 때 맞습니다."
+  ],
+  "tipsEn": [
+   "Use the W.A.S.P. Launcher in burst mode. The missiles follow it and hit when the Stingray comes down."
   ]
  },
  "warp-ship": {

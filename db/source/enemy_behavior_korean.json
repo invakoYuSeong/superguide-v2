@@ -139,6 +139,16 @@
     "ko": "궤도는 관통 3 무기로 부숴 탱크를 멈춰 세울 수 있습니다. 포탑 위에 올라가면 공격받지 않지만, 궤도에 닿으면 계속 큰 피해를 받습니다.",
     "en": "Its tracks can be destroyed with armor penetration 3 weapons to immobilize it. It cannot hurt you on top of its turret, but touching the tracks deals heavy, constant damage."
    }
+  ],
+  "tips": [
+   {
+    "ko": "정면은 차체를 뚫어도 체력이 4,000이라 한 발에 죽지 않습니다. 정면에서는 포탑을 노리세요.",
+    "en": "From the front, even a hull penetration does not kill it in one shot because the hull has 4,000 health. Aim for the turret from the front."
+   },
+   {
+    "ko": "포탑이 나를 향하면 뒤 방열판이 반대쪽으로 돌아가 사실상 맞히기 어렵습니다.",
+    "en": "Once the turret faces you, the rear vent turns away and is practically impossible to hit."
+   }
   ]
  },
  "Anti-Air Emplacement": {
@@ -219,6 +229,12 @@
    {
     "ko": "이글 기총소사 한 번이면 발사관을 꾸준히 부술 수 있습니다.",
     "en": "A single Eagle Strafing Run consistently destroys the launch tubes."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "발사관을 부수면 죽습니다. 무반동포와 얼티메이텀도 발사관에 쏘세요.",
+    "en": "Destroying the launch tubes kills it. Aim the Recoilless Rifle and the Ultimatum at the tubes too."
    }
   ]
  },
@@ -311,6 +327,20 @@
    {
     "ko": "쓰러지는 몸과 휘둘리는 다리에 깔려 죽을 수 있으니 처치 직후에는 가까이 있지 마세요.",
     "en": "Its falling body and flailing legs can crush Helldivers, so stay clear right after it dies."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "이글 500kg 폭탄은 직격보다 배 밑에서 터지게 해야 한 번에 처치합니다. 이글 110mm 로켓 포드는 보통 두 번 필요하고, 운이 좋으면 한 번입니다.",
+    "en": "The Eagle 500kg Bomb kills it in one use when it explodes under its belly rather than on a direct hit. The Eagle 110mm Rocket Pods usually take two uses, one if you are lucky."
+   },
+   {
+    "ko": "얼티메이텀은 머리에 직격시키거나 다이빙하면서 쏘면 한 발에 처치하기 쉽습니다.",
+    "en": "The Ultimatum kills it in one shot more easily with a direct head hit or when fired while diving."
+   },
+   {
+    "ko": "궤도 레일캐넌 타격은 알아서 조준해 한 번에 처치합니다.",
+    "en": "The Orbital Railcannon Strike aims by itself and kills it in one use."
    }
   ]
  },
@@ -415,6 +445,16 @@
     "ko": "테르밋은 붙으면 하나로 부숩니다.",
     "en": "A Thermite destroys it if it sticks."
    }
+  ],
+  "tips": [
+   {
+    "ko": "정확도가 매우 높아 뒤를 잡지 못하면 맞고 쓰러지기 쉽습니다.",
+    "en": "It is extremely accurate, so unless you get behind it you are likely to be shot down."
+   },
+   {
+    "ko": "코만도, 미사일 권총, 에이펙스는 어디에 맞혀도 한 발입니다.",
+    "en": "The Commando, Missile Pistol and Apex destroy it with one hit anywhere."
+   }
   ]
  },
  "Caustic Charger": {
@@ -468,6 +508,16 @@
    {
     "ko": "다리를 부술 때마다 점점 더 느려집니다.",
     "en": "Each leg destroyed slows it down further."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "머리와 입은 총탄도 잘 박혀 몇 발이면 죽습니다. 너싱 스퓨어와 같은 방법이 통합니다.",
+    "en": "The head and mouth take bullets well and die to a few shots. The same approach as for the Nursing Spewer works."
+   },
+   {
+    "ko": "후방 복부(엉덩이)는 유탄이나 오토캐넌 같은 폭발 무기가 아니면 효율이 매우 낮으니 쏘지 마세요.",
+    "en": "Unless you have explosive weapons such as a grenade launcher or the Autocannon, the rear abdomen (butt) is very inefficient, so do not shoot it."
    }
   ]
  },
@@ -594,6 +644,24 @@
    {
     "ko": "장갑을 깬 다리의 살점과 장갑이 없는 후방 복부는 관통이 낮은 무기로도 피해를 줄 수 있습니다.",
     "en": "The leg flesh exposed after breaking the armor and the unarmored rear abdomen can be damaged even by low-penetration weapons."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "얼티메이텀은 대충 맞혀도 한 발이고, 브리처는 다리를 빼면 어디에 맞혀도 한 발입니다. 보통 얼티메이텀, 대전차 드론, 멜타마인으로 처리합니다.",
+    "en": "The Ultimatum kills it with a rough hit, and the Breacher with a hit anywhere but the legs. It is usually handled with the Ultimatum, Anti-Tank Seeker grenades or Melta Mines."
+   },
+   {
+    "ko": "정면에서 대물소총을 쓸 때는 머리보다 앞다리(발가락) 장갑을 깨고 드러난 살점을 쏘는 편이 효율적입니다.",
+    "en": "With the Anti-Materiel Rifle from the front, breaking the front leg (toe) armor and shooting the flesh underneath is more efficient than the head."
+   },
+   {
+    "ko": "오토캐넌을 맞으면 차저가 밀려나 조준이 어렵습니다. 차저 기준 오른쪽 다리(정면에서 보면 왼쪽)를 쏘면 덜 밀려납니다.",
+    "en": "Autocannon hits push it around and make aiming hard. Shooting its right leg (your left when facing it) pushes it less."
+   },
+   {
+    "ko": "후방 복부(꼬리)가 터지면 돌진하지 못하고 몇 초 뒤 죽습니다. 다만 돌진을 피하고 뒤로 돌아야 해서 익숙하지 않으면 어렵습니다.",
+    "en": "Once the rear abdomen (tail) bursts, it can no longer charge and dies a few seconds later. You have to dodge the charge and get behind it, though, which is hard until you are used to it."
    }
   ]
  },
@@ -854,6 +922,28 @@
     "ko": "상부 포탑은 관통 5가 필요합니다. 포탄이 철거력 50 시설(제조소, 탐지 탑, 교란기 등)을 부술 만큼 강해, 포격을 유도해 시설을 부술 수도 있습니다.",
     "en": "The top cannon needs armor penetration 5. Its shells are strong enough to destroy demolition force 50 structures (Fabricators, Detector Towers, Jammers and more), so you can bait it into hitting them."
    }
+  ],
+  "tips": [
+   {
+    "ko": "상부 포탑에 맞으면 날아가 버려 매우 위협적이니 포탑부터 떼는 것을 추천합니다. 무반동포와 코만도는 포탑을 한 발에 뗍니다.",
+    "en": "Getting hit by the top cannon sends you flying, so taking the cannon off first is recommended. The Recoilless Rifle and the Commando remove it in one shot."
+   },
+   {
+    "ko": "포탑을 떼고 뒤에 붙으면 거의 공격받지 않습니다. 브리처나 대전차 무기로 겉 장갑을 깨고, 드러난 속 회로에 오토캐넌이나 대물소총을 집중하면 쓰러집니다.",
+    "en": "With the cannon gone, staying behind it means it can barely hit you. Break the outer armor with the Breacher or an anti-tank weapon, then focus the Autocannon or Anti-Materiel Rifle on the exposed circuitry underneath."
+   },
+   {
+    "ko": "무반동포는 머리 옆면 틈에 맞아도 한 발입니다. 증원으로 밑에 떨어졌거나 밑으로 기어 들어갔다면 배 밑에 무반동포 한 발이면 됩니다.",
+    "en": "The Recoilless Rifle also kills it with one shot into the gap on the side of the head. If you land or crawl underneath it, one Recoilless Rifle shot to the belly does it."
+   },
+   {
+    "ko": "대전차 드론은 2개, C4 팩은 옆구리에 2개면 처치됩니다. 스피어는 약점을 조준하지 못해 정면에 2발쯤 필요합니다.",
+    "en": "It takes 2 Anti-Tank Seeker grenades, or 2 C4 Pack bricks on its side. The Spear cannot lock onto weak spots and needs about 2 shots to the front."
+   },
+   {
+    "ko": "배 밑 덮개는 추가 체력이 있어 대물소총이나 오토캐넌으로 2탄창쯤 듭니다.",
+    "en": "The belly doors have extra health and take about 2 magazines from the Anti-Materiel Rifle or the Autocannon."
+   }
   ]
  },
  "Fleshmob": {
@@ -961,6 +1051,16 @@
     "ko": "로켓 일제 사격이 날아오면 바로 자리를 옮기거나 달리는 방향을 바꾸세요. 건십 시설이나 건십 순찰대가 예상되면 관통 3 이상 무기를 챙기세요.",
     "en": "When a rocket barrage comes in, move away at once or change your running direction. Bring a weapon with armor penetration 3 or higher whenever a Gunship Facility or Gunship Patrol is expected."
    }
+  ],
+  "tips": [
+   {
+    "ko": "미사일 권총은 조준을 고정해 한 발에 격추하고, W.A.S.P. 발사기는 알아서 쫓아갑니다. 레이저 캐넌은 엔진에 약 2초면 됩니다.",
+    "en": "The Missile Pistol locks on and downs it in one shot, and the W.A.S.P. Launcher chases it by itself. The Laser Cannon needs about 2 seconds on an engine."
+   },
+   {
+    "ko": "레일건은 언세이프 모드로 70%쯤 충전해도 엔진에 한 발입니다. 세이프 모드는 2발이 필요합니다.",
+    "en": "The Railgun downs it with one shot to an engine even at about 70% charge in unsafe mode. Safe mode needs 2 shots."
+   }
   ]
  },
  "Harvester": {
@@ -1009,6 +1109,20 @@
    {
     "ko": "전도성 패시브 방어구는 아크 공격을 견디게 해 줍니다. 없다면 엎드려 아크를 피할 수 있습니다.",
     "en": "Armor with the Electrical Conduit passive resists its arc attack. Without it, going prone avoids arcs."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "일루미닛 상대로는 대전차 무기의 쓸모가 적은 편이라 대물소총, 기관총, 오토캐넌, W.A.S.P. 발사기를 주로 씁니다.",
+    "en": "Anti-tank weapons are less useful against the Illuminate, so the Anti-Materiel Rifle, Machine Gun, Autocannon and W.A.S.P. Launcher are the usual picks."
+   },
+   {
+    "ko": "이글 110mm 로켓 포드는 보호막을 벗긴 뒤에 쓰세요. 기습할 때는 보호막 생성기(돌기)를 먼저 부숴 두면 좋습니다.",
+    "en": "Use the Eagle 110mm Rocket Pods after the shield is down. When ambushing one, break a shield generator (prong) first."
+   },
+   {
+    "ko": "아주 가깝고 맞히기 좋은 무기가 있으면 발끝도 노릴 수 있습니다.",
+    "en": "Very close and with a suitable weapon, you can also go for the tips of its feet."
    }
   ]
  },
@@ -1085,6 +1199,16 @@
    {
     "ko": "화염은 관통 4라 잘 통합니다. 화염방사기와 소이 수류탄처럼 불을 붙이는 무기가 효과적입니다.",
     "en": "Fire has armor penetration 4 and works well. Weapons that set it alight, such as the Flamethrower and incendiary grenades, are effective."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "머리가 부서지면 몇 초 뒤 출혈로 죽습니다.",
+    "en": "Once the head breaks, it bleeds out a few seconds later."
+   },
+   {
+    "ko": "무리로 몰려오면 기관총 센트리를 길목에 깔거나 유탄 발사기, 세열 수류탄으로 밀어내세요. 관통이 낮은 주무기만 있다면 스트라타젬과 수류탄으로 처리하는 편이 낫습니다.",
+    "en": "When they come in a group, set a Machine Gun Sentry on their path or push them back with the Grenade Launcher and Frag grenades. With only a low-penetration primary, stratagems and grenades are the better answer."
    }
   ]
  },
@@ -1178,6 +1302,24 @@
     "ko": "테르밋 하나면 몸 어디에 붙여도 처치됩니다.",
     "en": "A single Thermite kills it wherever it sticks."
    }
+  ],
+  "tips": [
+   {
+    "ko": "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+    "en": "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works."
+   },
+   {
+    "ko": "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+    "en": "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one."
+   },
+   {
+    "ko": "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+    "en": "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient."
+   },
+   {
+    "ko": "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다.",
+    "en": "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
+   }
   ]
  },
  "Hulk Firebomber": {
@@ -1227,6 +1369,24 @@
     "ko": "테르밋 하나면 몸 어디에 붙여도 처치됩니다.",
     "en": "A single Thermite kills it wherever it sticks."
    }
+  ],
+  "tips": [
+   {
+    "ko": "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+    "en": "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works."
+   },
+   {
+    "ko": "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+    "en": "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one."
+   },
+   {
+    "ko": "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+    "en": "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient."
+   },
+   {
+    "ko": "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다.",
+    "en": "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
+   }
   ]
  },
  "Hulk Obliterator": {
@@ -1267,6 +1427,24 @@
    {
     "ko": "테르밋 하나면 몸 어디에 붙여도 처치됩니다.",
     "en": "A single Thermite kills it wherever it sticks."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+    "en": "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works."
+   },
+   {
+    "ko": "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+    "en": "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one."
+   },
+   {
+    "ko": "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+    "en": "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient."
+   },
+   {
+    "ko": "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다.",
+    "en": "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
    }
   ]
  },
@@ -1312,6 +1490,24 @@
    {
     "ko": "테르밋 하나면 몸 어디에 붙여도 처치됩니다.",
     "en": "A single Thermite kills it wherever it sticks."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
+    "en": "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works."
+   },
+   {
+    "ko": "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+    "en": "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one."
+   },
+   {
+    "ko": "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
+    "en": "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient."
+   },
+   {
+    "ko": "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다.",
+    "en": "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
    }
   ]
  },
@@ -1396,6 +1592,20 @@
    {
     "ko": "가까이 다가가 근접 공격을 유도하면 머리를 들어 입이 드러납니다. 이럽터나 익스플로딩 크로스보우로 입을 맞히면 빨리 처치할 수 있습니다.",
     "en": "Walking up to bait a melee attack makes it lift its head and reveal its mouth. Hitting the mouth with the Eruptor or the Exploding Crossbow kills it quickly."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "촉수를 땅에 박아 멀리서도 찌르기 때문에 방치하면 가장 위험합니다. 보이면 바로 처리하세요.",
+    "en": "It stabs from far away by burrowing its tentacles, so it is the most dangerous thing to leave alive. Deal with it as soon as you see it."
+   },
+   {
+    "ko": "머리가 드러난 동안에는 주무기로도 처리할 만합니다. 오토캐넌 대공 모드나 스털워트처럼 연사가 높은 무기도 좋습니다.",
+    "en": "While the head is exposed, even a primary weapon can handle it. The Autocannon in flak mode and high-rate weapons such as the Stalwart also work well."
+   },
+   {
+    "ko": "가까이 있으면 내려찍는 공격을 하는데, 이때 입을 노려도 됩니다.",
+    "en": "Up close it slams down, and you can aim at the mouth when it does."
    }
   ]
  },
@@ -1755,7 +1965,17 @@
  "Noxious Spewer": {
   "revision": 142233,
   "spawning": [],
-  "behavior": []
+  "behavior": [],
+  "tips": [
+   {
+    "ko": "머리와 입은 총탄도 잘 박혀 몇 발이면 죽습니다. 너싱 스퓨어와 같은 방법이 통합니다.",
+    "en": "The head and mouth take bullets well and die to a few shots. The same approach as for the Nursing Spewer works."
+   },
+   {
+    "ko": "후방 복부(엉덩이)는 유탄이나 오토캐넌 같은 폭발 무기가 아니면 효율이 매우 낮으니 쏘지 마세요.",
+    "en": "Unless you have explosive weapons such as a grenade launcher or the Autocannon, the rear abdomen (butt) is very inefficient, so do not shoot it."
+   }
+  ]
  },
  "Nursing Spewer": {
   "revision": 141638,
@@ -1803,6 +2023,12 @@
    {
     "ko": "퍼니셔나 아크 발사기처럼 경직을 주는 무기로 토하는 공격을 끊을 수 있습니다.",
     "en": "Weapons that stagger, such as the Punisher and the Arc Thrower, can interrupt its spewing attacks."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "뭉쳐 있으면 오토캐넌 대공 모드로 대충 쏴도 정리됩니다.",
+    "en": "When they bunch up, loose Autocannon flak fire clears them."
    }
   ]
  },
@@ -2263,6 +2489,16 @@
     "ko": "궤도 정밀 타격은 직접 맞아야 처치합니다. 궤도는 관통 3 무기로 부숴 탱크를 멈춰 세울 수 있습니다.",
     "en": "The Orbital Precision Strike must hit directly to destroy it. Its tracks can be destroyed with armor penetration 3 weapons to immobilize it."
    }
+  ],
+  "tips": [
+   {
+    "ko": "정면은 차체를 뚫어도 체력이 4,000이라 한 발에 죽지 않습니다. 정면에서는 포탑을 노리세요.",
+    "en": "From the front, even a hull penetration does not kill it in one shot because the hull has 4,000 health. Aim for the turret from the front."
+   },
+   {
+    "ko": "포탑이 나를 향하면 뒤 방열판이 반대쪽으로 돌아가 사실상 맞히기 어렵습니다.",
+    "en": "Once the turret faces you, the rear vent turns away and is practically impossible to hit."
+   }
   ]
  },
  "Shrieker": {
@@ -2450,6 +2686,12 @@
     "ko": "피해의 상당 부분이 폭발이라 폭발 저항 방어구를 입거나 엎드리면 살아남을 수 있습니다.",
     "en": "Much of its damage is explosive, so explosive-resistant armor or going prone can save you."
    }
+  ],
+  "tips": [
+   {
+    "ko": "W.A.S.P. 발사기는 버스트 모드로 쓰세요. 미사일이 따라가다가 스팅레이가 내려올 때 맞습니다.",
+    "en": "Use the W.A.S.P. Launcher in burst mode. The missiles follow it and hit when the Stingray comes down."
+   }
   ]
  },
  "Trooper": {
@@ -2614,6 +2856,20 @@
    {
     "ko": "유탄은 방어막 생성 릴레이와 방어막 생성 팩을 무시하니 엄폐물과 빠져나갈 길을 함께 확보하세요. 옆으로 계속 움직이면 쉽게 피할 수 있습니다.",
     "en": "Its grenades ignore the Shield Generator Relay and the Shield Generator Pack, so secure both cover and an escape route. Strafing sideways dodges its fire easily."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "대물소총은 고관절을 노리되, 노리기 어려운 상황이면 다리에 계속 쏴도 됩니다.",
+    "en": "Aim the Anti-Materiel Rifle at the hip joints, but if that is hard, keep firing at the legs."
+   },
+   {
+    "ko": "눈은 정말 가만히 서 있을 때만 노릴 만합니다. 조금만 움직여도 맞히기 어렵습니다. 에이펙스와 노바는 눈에 한 발입니다.",
+    "en": "The eyes are only worth aiming at when it is standing completely still. The slightest movement makes them hard to hit. The Apex and the Nova destroy an eye in one shot."
+   },
+   {
+    "ko": "얼티메이텀은 팔에 맞으면 죽지 않을 때가 있으니 몸통을 노리세요.",
+    "en": "An Ultimatum hit on an arm sometimes does not kill it, so aim for the torso."
    }
   ]
  },

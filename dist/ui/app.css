@@ -697,6 +697,16 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .faction-side img { width: 28px; height: 28px; }
 .faction-side[aria-pressed="true"] { border-color: var(--fc); box-shadow: inset 0 -3px 0 var(--fc); }
 .faction-side:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.strat-recs { padding: 16px 18px; display: grid; gap: 10px; margin: 0 0 14px; border-left: 3px solid var(--fc); }
+.strat-recs h2 { font-size: 18px; font-weight: 800; }
+.rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.rec { border: 1px solid var(--line); padding: 12px; display: grid; gap: 8px; align-content: start; }
+.rec.best { border-color: var(--fc); }
+.rec-items { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-weight: 750; }
+.rec-items a { display: inline-flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; }
+.rec-items a:hover { text-decoration: underline; }
+.rec-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.rec p { font-size: 13.5px; color: var(--text-2); margin: 0; }
 .guide-intro { padding: 18px; display: grid; gap: 6px; margin: 14px 0 18px; border-left: 3px solid var(--fc); }
 .guide-intro h2 { font-size: 22px; font-weight: 800; }
 .guide-intro .en { font: 600 14px/1 var(--cond); letter-spacing: .12em; color: var(--text-3); text-transform: uppercase; }

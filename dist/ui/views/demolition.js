@@ -100,6 +100,7 @@ function structurePanel(structure) {
     <div style="display:flex;gap:14px;align-items:center">${structureImage(structure, 56)}<div><span class="faction-tag">${structure.faction}</span><h2 style="font-size:22px;font-weight:800">${structure.name}</h2></div></div>
     <p class="muted">${structure.tip}</p>
     ${structure.tactics ? html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('공략 요령', 'Tactics')}</div><ul class="notes">${structure.tactics.map(line => html`<li>${line}</li>`)}</ul></div>` : ''}
+    ${structure.tips ? html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('실전 팁', 'Field tips')}</div><ul class="notes">${structure.tips.map(line => html`<li>${line}</li>`)}</ul></div>` : ''}
     <div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('필요한 철거력', 'Demolition force needed')} <span class="faint" style="font-weight:500">· ${L('한 번의 명중·폭발 기준, 합산 안 됨', 'per single hit or explosion; does not add up')}</span></div>${forceScale(structure)}</div>
     ${h ? html`<p class="note">${L(html`체력으로도 부술 수 있습니다: <b style="color:var(--text)">체력 ${num(h.hp)}</b> · 장갑 ${h.armor} · 내구도 ${h.durability}%${h.exdr < 0 ? ` · 폭발 피해 ×${num(1 - h.exdr / 100)}` : ''}`, html`It can also be destroyed through health: <b style="color:var(--text)">health ${num(h.hp)}</b> · armor ${h.armor} · durability ${h.durability}%${h.exdr < 0 ? ` · explosion damage ×${num(1 - h.exdr / 100)}` : ''}`)}</p>` : ''}
     ${structure.note ? html`<p class="note">${structure.note}</p>` : ''}
@@ -214,7 +215,8 @@ const scrollToResult = () => requestAnimationFrame(() => $('#demo-result', root)
 
 export function mount(container, context) {
   root = container; ctx = context;
-  render(root, html`<div class="page-head"><div><div class="eyebrow">Demolition</div><h1>${L('철거', 'Demolition')}</h1><p>${L('시설마다 필요한 ‘철거력’이 있고, 한 번의 명중·폭발이 그 값을 넘어야 무너집니다. 일부 시설은 체력을 깎아서도 부술 수 있습니다.', 'Every structure needs a certain demolition force, and a single hit or explosion has to reach it. Some structures can also be destroyed by wearing down their health.')}</p></div>
+  render(root, html`<div class="page-head"><div><div class="eyebrow">Demolition</div><h1>${L('철거', 'Demolition')}</h1><p>${L('시설마다 필요한 ‘철거력’이 있고, 한 번의 명중·폭발이 그 값을 넘어야 무너집니다. 일부 시설은 체력을 깎아서도 부술 수 있습니다.', 'Every structure needs a certain demolition force, and a single hit or explosion has to reach it. Some structures can also be destroyed by wearing down their health.')}</p>
+      <p>${L('주요·보조 임무 자리에 붙은 둥지와 기지는 다 부수지 않아도 임무가 완료됩니다. 다만 굴과 제조소에서 적이 계속 나오고 순찰대까지 오면 앞뒤로 끼이니, 여유가 있으면 부수는 것이 좋습니다. 따로 떨어진 둥지와 기지는 부수면 임무 평가에 들어갑니다.', 'Nests and bases attached to a main or side objective do not have to be destroyed to complete it. Their holes and Fabricators keep spawning enemies, though, and once patrols arrive you get caught from both sides, so destroy them if you have time. Separate nests and bases count toward the mission rating when destroyed.')}</p></div>
     <span class="badge outline">${L(`시설 ${structures.length}곳 · 철거력 확인 ${confirmedCount}종`, `${structures.length} structures · ${confirmedCount} stratagems with verified force`)}</span></div>
   <div class="segmented" role="group" aria-label="${L('찾는 방법', 'Look up by')}" style="margin-bottom:16px"><button type="button" data-by="structure">${icon('demolition', 16)} ${L('시설로 찾기', 'By structure')}</button><button type="button" data-by="weapon">${icon('arsenal', 16)} ${L('스트라타젬으로 찾기', 'By stratagem')}</button></div>
   <div id="demo-body"></div>`);

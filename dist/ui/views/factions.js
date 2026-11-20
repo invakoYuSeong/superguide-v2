@@ -7,6 +7,8 @@ import { enemies, combatCheckedAt } from '../../data/combat-data.js';
 import { pickerEnemyImages } from '../../data/selector-images.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { subfactionIcons } from '../../data/subfaction-icons.js';
+import { factionStratagems, factionStratagemsCheckedAt } from '../../data/faction-stratagems.js';
+import { personalWeapons } from '../../data/personal-weapons.js';
 // A url() inside a custom property resolves against the stylesheet, so pass an absolute URL.
 const iconUrl = id => globalThis.location ? new URL(subfactionIcons[id].src, globalThis.location.href).href : subfactionIcons[id].src;
 import { stratagemById } from '../../core/catalog.js';
@@ -68,6 +70,27 @@ function pickRow(unit, choice, index) {
     </div></details>`;
 }
 
+// Recommended stratagems for the whole faction (faction-stratagems.js): one card per pick, alternatives joined by "or".
+function stratagemPicks(side) {
+  const recs = factionStratagems[side.id];
+  if (!recs) return '';
+  const item = entry => {
+    if (entry.gear) {
+      const weapon = personalWeapons.find(w => w.id === entry.gear);
+      return html`<a href="#/gear/${weapon.id}">${weapon.name}</a>`;
+    }
+    const stratagem = stratagemById.get(entry);
+    return html`<a href="#/arsenal/${stratagem.id}">${weaponIcon(stratagem.id)}${stratagem.name}</a>`;
+  };
+  return html`<section class="panel strat-recs" data-side="${side.id}"><h2>${L(`${side.name} 추천 스트라타젬`, `Recommended stratagems vs ${T(side.name)}`)}</h2>
+    <div class="rec-grid">${recs.picks.map(pick => html`<article class="rec${pick.best ? ' best' : ''}">
+      <div class="rec-items">${pick.items.map((entry, i) => html`${i ? html`<span class="faint">${L('또는', 'or')}</span>` : ''}${item(entry)}`)}</div>
+      <div class="rec-tags">${pick.best ? badge(L('가장 추천', 'Top pick'), 'accent') : ''}${pick.tags.map(tag => badge(tag, 'outline'))}</div>
+      <p>${pick.note}</p></article>`)}</div>
+    ${recs.note ? html`<p class="note">${recs.note}</p>` : ''}
+    <p class="faint" style="font-size:12.5px">${L(`플레이어 경험에 따른 추천입니다(${factionStratagemsCheckedAt} 기준).`, `Recommendations from player experience (as of ${factionStratagemsCheckedAt}).`)}</p></section>`;
+}
+
 function unitCard(unit) {
   const enemy = findEnemy(unit.enemy);
   const base = enemies.find(item => item.id === unit.base);
@@ -86,6 +109,7 @@ function renderView() {
   const side = factionSides.find(item => item.id === guide.side);
   render($('#faction-body', root), html`
     <div class="faction-sides" role="group" aria-label="${L('진영', 'Faction')}">${factionSides.map(item => html`<button class="faction-side" type="button" data-side="${item.id}" aria-pressed="${item.id === side.id}"><img src="${item.icon}" alt="">${item.name}</button>`)}</div>
+    ${stratagemPicks(side)}
     <div class="chips" role="group" aria-label="${L('세력', 'Enemy force')}">${factionGuides.filter(item => item.side === side.id).map(item => html`<button class="chip subfaction-chip" type="button" data-guide="${item.id}" aria-pressed="${item.id === guide.id}">${subfactionIcons[item.id] ? html`<span class="subfaction-icon" data-tint="${item.side}" style="--icon:url('${iconUrl(item.id)}')" aria-hidden="true"></span>` : ''}${item.name}</button>`)}</div>
     <section class="panel guide-intro" data-side="${side.id}">${lang === 'en' ? '' : html`<span class="en">${guide.en}</span>`}<h2>${subfactionIcons[guide.id] ? html`<span class="subfaction-icon large" data-tint="${guide.side}" style="--icon:url('${iconUrl(guide.id)}')" aria-hidden="true"></span>` : ''}${guide.name}</h2><p>${guide.intro}</p>
       ${guide.coverage ? html`<p class="note">${guide.coverage}</p>` : ''}
