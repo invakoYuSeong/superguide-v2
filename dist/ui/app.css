@@ -1120,13 +1120,21 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .module-item h4 { font-size: 16px; font-weight: 800; line-height: 1.25; }
 .module-cost { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 13px; color: var(--text-2); }
 .module-cost b { color: var(--text); font-weight: 750; }
+.module-cost span, .module-total span { display: inline-flex; align-items: center; gap: 4px; }
+.cost-icon { width: 16px; height: 16px; object-fit: contain; flex: none; }
 .module-section-cost { margin-top: 10px; }
 .module-total { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
 .module-applied { margin-top: 6px; font-size: 13px; }
 .module-applied a { color: var(--accent-text); }
 /* Enemy view: the enemy's own attacks and rough torso-hit counts (enemy-weapons.js). */
 .enemy-attacks { padding: 16px 18px; }
-.enemy-attacks h2 { font-size: 15px; font-weight: 800; margin: 0 0 10px; }
+.enemy-attacks summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
+.enemy-attacks summary::-webkit-details-marker { display: none; }
+.enemy-attacks summary::before { content: ''; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 7px; border-color: transparent transparent transparent var(--accent-text); transition: transform .15s; }
+.enemy-attacks[open] summary::before { transform: rotate(90deg); }
+.enemy-attacks[open] summary { margin-bottom: 10px; }
+.enemy-attacks h2 { font-size: 15px; font-weight: 800; margin: 0; }
+.enemy-attacks .count { font: 700 13px/1 var(--cond); color: var(--text-3); }
 .enemy-attack-table { min-width: 560px; }
 .enemy-attack-table tbody th { width: auto; white-space: normal; color: var(--text); font-weight: 700; font-size: 14px; }
 .enemy-attack-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }

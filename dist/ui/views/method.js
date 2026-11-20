@@ -47,7 +47,7 @@ const moreKorean = () => html`
       <li>엎드려 있거나 날아가는 중이면 바깥 반경의 폭발 피해를 90% 덜 받습니다.</li>
     </ul></section>
     <section><h3>9. 지속 피해와 화염 배율</h3><p>화염, 가스, 산성 같은 지속 피해는 본체 체력에만 들어가고, 관통이 본체 장갑과 같으면 65%만 들어갑니다. 적마다 화염 배율이 있어(워리어 0.8배, 차저 1.5배, 바일 타이탄 1.7배) 적 화면의 '화염 저항'으로 표시합니다. 예: 화염 초당 100 x 차저 1.5 x 65% = 초당 97.</p></section>
-    <section><h3>10. 헬다이버가 받는 피해</h3><p>헬다이버 체력은 ${helldiverArmor.health}입니다. 머리는 ${helldiverArmor.head}배, 몸통은 ${helldiverArmor.chest}배, 팔다리는 ${Math.round(helldiverArmor.arm * 100) / 100}배로 맞습니다. 방어구 장갑 등급에 따라 받는 피해가 달라집니다(${ratingList()}). 장갑 등급 100 미만의 추가 피해 배율은 머리에는 붙지 않습니다(머리는 100 이하에서 1배). 강화 패시브는 폭발 피해를 ${helldiverArmor.fortified}배로, 생명력 증진 부스터는 받는 피해를 ${helldiverArmor.vitality}배로 줄입니다. 적 화면의 '이 적의 공격' 표는 이 배율로 몸통 기준 횟수를 어림합니다.</p></section>`;
+    <section><h3>10. 헬다이버가 받는 피해</h3><p>헬다이버 체력은 ${helldiverArmor.health}입니다. 머리는 ${helldiverArmor.head}배, 몸통은 ${helldiverArmor.chest}배, 팔다리는 ${Math.round(helldiverArmor.arm * 100) / 100}배로 맞습니다. 방어구 장갑 등급에 따라 받는 피해가 달라집니다(${ratingList()}). 장갑 등급 100 미만의 추가 피해 배율은 머리에는 붙지 않습니다(머리는 100 이하에서 1배). 강화 패시브는 폭발 피해를 ${helldiverArmor.fortified}배로, 생명력 증진 부스터는 받는 피해를 ${helldiverArmor.vitality}배로 줄입니다. 적 화면의 '공격 패턴' 표는 이 배율로 몸통 기준 횟수를 어림합니다.</p></section>`;
 
 const korean = () => html`
     <h2 id="sheet-title" style="font-size:24px">숫자는 이렇게 나옵니다</h2>
@@ -79,7 +79,7 @@ const moreEnglish = () => html`
       <li>Lying prone or ragdolling cuts outer-radius blast damage by 90%.</li>
     </ul></section>
     <section><h3>9. Damage over time and fire multipliers</h3><p>Fire, gas, acid and other damage over time hits main health only, and deals 65% when its AP equals the main armor. Each enemy has a fire multiplier (Warrior x0.8, Charger x1.5, Bile Titan x1.7), shown as fire resistance on the enemy view. Example: fire at 100 per second x 1.5 for a Charger x 65% = 97 per second.</p></section>
-    <section><h3>10. Damage Helldivers take</h3><p>A Helldiver has ${helldiverArmor.health} health. Head hits take x${helldiverArmor.head}, torso x${helldiverArmor.chest}, limbs x${Math.round(helldiverArmor.arm * 100) / 100}. The armor rating changes the damage taken (${ratingList()}); the extra damage of ratings under 100 does not apply to the head (x1 at 100 or less). The Fortified passive cuts blast damage to x${helldiverArmor.fortified}, and the Vitality Enhancement booster cuts damage taken to x${helldiverArmor.vitality}. The enemy view's attack table uses these factors for its rough torso-hit counts.</p></section>`;
+    <section><h3>10. Damage Helldivers take</h3><p>A Helldiver has ${helldiverArmor.health} health. Head hits take x${helldiverArmor.head}, torso x${helldiverArmor.chest}, limbs x${Math.round(helldiverArmor.arm * 100) / 100}. The armor rating changes the damage taken (${ratingList()}); the extra damage of ratings under 100 does not apply to the head (x1 at 100 or less). The Fortified passive cuts blast damage to x${helldiverArmor.fortified}, and the Vitality Enhancement booster cuts damage taken to x${helldiverArmor.vitality}. The enemy view's Attacks table uses these factors for its rough torso-hit counts.</p></section>`;
 
 const english = () => html`
     <h2 id="sheet-title" style="font-size:24px">Where the numbers come from</h2>

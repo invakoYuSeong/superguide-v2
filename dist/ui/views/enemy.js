@@ -57,7 +57,7 @@ const compare = { picks: [], part: '' }; // [{ weaponId, modeId }] kept across e
 // Only the hit count starts blank; primary-hit options fall back to each mode's
 // own defaults (e.g. W.A.S.P. counts sub-missile hits, not the parent blast).
 const DEFAULT_ASSUME = { hitCount: '' };
-const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false };
+const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false };
 // Until the player picks a count, modes with a conservative default use it.
 // Every multi-hit attack shows a hit-rate slider. Aimed hits (pellets, arcs)
 // start at 100 %, scattering bomblets and fragments at 20 %; the data's own
@@ -187,7 +187,8 @@ function attacks(enemy) {
     return parts.length ? parts : html`<span class="faint">${L('위키 참조', 'See the wiki')}</span>`;
   };
   const wiki = `https://helldivers.wiki.gg/wiki/${encodeURIComponent(info.page.replaceAll(' ', '_'))}#Weapons_Loadout`;
-  return html`<section class="panel enemy-attacks"><h2>${L('이 적의 공격', 'Its attacks')}</h2>
+  // Folded by default; stays open across re-renders once the player opens it (state.attacksOpen).
+  return html`<details class="panel enemy-attacks" data-attacks ${state.attacksOpen ? raw('open') : ''}><summary><h2>${L('공격 패턴', 'Attacks')}</h2><span class="count">${info.attacks.length}</span></summary>
     <div class="compare-scroll" role="region" aria-label="${L('적 공격표', 'Enemy attacks')}" tabindex="0"><table class="compare-table enemy-attack-table">
       <thead><tr><th scope="col">${L('공격', 'Attack')}</th><th scope="col">${L('피해', 'Damage')}</th>${RATINGS.map(([, label]) => html`<th scope="col">${label}</th>`)}</tr></thead>
       <tbody>${info.attacks.map(attack => html`<tr><th scope="row">${L(attack.name, attack.en)}${lang === 'en' || attack.name === attack.en ? '' : html`<small>${attack.en}</small>`}</th><td>${damageCell(attack)}</td>
@@ -196,7 +197,7 @@ function attacks(enemy) {
     <p class="note">${L(html`방어구 칸은 <b>몸통 기준 어림값</b>입니다. 헬다이버 체력 ${helldiverArmor.health}을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다. 관통이 헬다이버 방어구에 미치는 영향은 위키에 공식이 없어 넣지 않았고, 폭발(거리에 따라 줄고 여러 부위에 맞음), 화염, 산성 공격과 피해가 여러 줄인 공격은 횟수를 계산하지 않습니다.`,
       html`The armor columns are a <b>rough torso-hit count</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}. The wiki has no rule for how enemy AP meets Helldiver armor, so it is left out; explosions (they fall off with distance and hit several body parts), fire, acid and attacks with several damage lines get no count.`)}</p>
     <p class="sources">${external(wiki, L('위키 Weapons Loadout', 'Wiki Weapons Loadout'))}${external(helldiverArmor.source.page, L('위키 방어구 배율표', 'Wiki armor rating table'))}</p>
-  </section>`;
+  </details>`;
 }
 
 function hero(enemy) {
@@ -583,6 +584,8 @@ export function mount(container, context) {
   input.addEventListener('keydown', event => {
     if (event.key === 'Enter') { const first = $('[data-enemy]', root); if (first) first.click(); }
   });
+  // <details> toggle does not bubble: listen in the capture phase.
+  root.addEventListener('toggle', event => { if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open; }, true);
   root.addEventListener('change', event => {
     const target = event.target;
     if (target.matches('[data-shield]')) { state.shield = target.checked; renderMain(); syncUrl(); }

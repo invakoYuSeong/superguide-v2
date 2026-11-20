@@ -1,4 +1,4 @@
-// Global search across stratagems, gear, armor, boosters, enemies, structures, faction guides and warbonds.
+// Global search across stratagems, gear, armor, boosters, ship modules, enemies, structures, faction guides and warbonds.
 import { stratagems, categoryOf } from '../core/catalog.js';
 import { search, stratagemFields, personalNames } from '../core/search.js';
 import { html, render, $ } from './dom.js';
@@ -7,12 +7,12 @@ import { L, T, lang } from '../core/i18n.js';
 const LIMIT = 8;
 
 export async function createPalette(ctx) {
-  const [{ enemies }, { structures }, { factionGuides, factionSides }, { pickerEnemyImages, pickerStructureImages }, { wikiIcons }, { personalWeapons }, { weaponImages }, { displayName }, { warbonds, warbondTiers }, { warbondImages }, { armors, armorPassives, armorWeights }, { armorImages }, { boosters }] = await Promise.all([
+  const [{ enemies }, { structures }, { factionGuides, factionSides }, { pickerEnemyImages, pickerStructureImages }, { wikiIcons }, { personalWeapons }, { weaponImages }, { displayName }, { warbonds, warbondTiers }, { warbondImages }, { armors, armorPassives, armorWeights }, { armorImages }, { boosters }, { shipModuleSections }] = await Promise.all([
     import('../data/combat-data.js'), import('../data/demolition-data.js'), import('../data/faction-data.js'),
     import('../data/selector-images.js'), import('../data/wiki-icons.js'),
     import('../data/personal-weapons.js'), import('../data/weapon-images.js'), import('./gear-shared.js'),
     import('../data/warbonds.js'), import('../data/warbond-images.js'),
-    import('../data/armor.js'), import('../data/armor-images.js'), import('../data/boosters.js'),
+    import('../data/armor.js'), import('../data/armor-images.js'), import('../data/boosters.js'), import('../data/ship-module-upgrades.js'),
   ]);
   const tierName = id => T(warbondTiers.find(tier => tier.id === id)?.name || id);
   const GEAR_GROUP = L({ primary: '주무기', secondary: '보조무기', throwable: '투척' }, { primary: 'Primary', secondary: 'Secondary', throwable: 'Throwable' });
@@ -27,6 +27,7 @@ export async function createPalette(ctx) {
       return { fields: { names: [item.name, item.en, item.code].filter(Boolean), text: [passive?.name, passive?.en, weight?.name] }, label: T(item.name), sub: withEn(`${T(weight?.name ?? '')} · ${T(passive?.name ?? '')}`, item.en), image: armorImages[item.image]?.src, route: { view: 'gear', query: { tab: 'armor', a: item.id } } };
     }) },
     { id: 'boosters', name: L('부스터', 'Boosters'), items: boosters.map(item => ({ fields: { names: [item.name, item.en], text: [item.description, item.descriptionEn, item.detail].filter(Boolean) }, label: T(item.name), sub: withEn(L('부스터', 'Booster'), item.en), image: item.icon.src, route: { view: 'gear', query: { tab: 'boosters', b: item.id } } })) },
+    { id: 'modules', name: L('함선 모듈', 'Ship modules'), items: shipModuleSections.flatMap(section => section.modules.map(item => ({ fields: { names: [item.name, item.en], text: [section.name, section.en, item.effect, item.effectEn] }, label: L(item.name, item.en), sub: withEn(L(`${section.name} ${item.tier}단계`, `${section.en}, tier ${item.tier}`), item.en), image: section.icon.src, route: { view: 'gear', query: { tab: 'modules', u: item.id } } }))) },
     { id: 'enemies', name: L('적', 'Enemies'), items: enemies.map(item => ({ fields: { names: [item.name, T(item.name), item.id.replaceAll('-', ' ')], text: [item.faction, T(item.faction)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('무기별 탄수 비교', 'shots to kill by weapon')}`, image: pickerEnemyImages[item.id]?.src, route: { view: 'enemy', id: item.id } })) },
     { id: 'structures', name: L('시설', 'Structures'), items: structures.map(item => ({ fields: { names: [item.name, T(item.name)], text: [item.faction, T(item.faction), item.tip, T(item.tip)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('철거 방법', 'how to demolish')}`, image: pickerStructureImages[item.id]?.src, route: { view: 'demolition', query: { s: item.id } } })) },
     { id: 'factions', name: L('팩션', 'Factions'), items: factionGuides.map(item => ({ fields: { names: [item.name, item.en], text: [item.intro, T(item.intro)] }, label: T(item.name), sub: `${T(factionSides.find(side => side.id === item.side).name)} · ${L('추천 장비', 'recommended loadout')}`, image: factionSides.find(side => side.id === item.side).icon, route: { view: 'factions', id: item.id } })) },

@@ -2,13 +2,15 @@
 //   #/gear?tab=modules&u=<module>   (u: scroll to and mark one upgrade)
 // Loaded on demand by gear.js.
 import { shipModuleSections, shipModuleTotal, shipModuleUpgradesSource } from '../../data/ship-module-upgrades.js';
+import { currencyIcons } from '../../data/currency-icons.js';
 import { html, render, $, external } from '../dom.js';
 import { L, lang, locale } from '../../core/i18n.js';
 
 const count = value => value.toLocaleString(locale());
-// The game's names for the currencies (Common/Rare/Super Sample, Requisition Slips).
+// The game's names for the currencies (Common/Rare/Super Sample, Requisition Slips); samples get the wiki's icons.
 const CURRENCIES = [['common', L('일반 샘플', 'Common Samples')], ['rare', L('희귀 샘플', 'Rare Samples')], ['super', L('슈퍼 샘플', 'Super Samples')], ['requisition', L('요청 신청서', 'Requisition Slips')]];
-const costLine = cost => CURRENCIES.filter(([key]) => cost[key]).map(([key, name]) => html`<span data-currency="${key}">${name} <b>${count(cost[key])}</b></span>`);
+const icon = key => currencyIcons[`${key}-sample`] ? html`<img class="cost-icon" src="${currencyIcons[`${key}-sample`].src}" alt="" width="16" height="16">` : '';
+const costLine = cost => CURRENCIES.filter(([key]) => cost[key]).map(([key, name]) => html`<span data-currency="${key}">${icon(key)}${name} <b>${count(cost[key])}</b></span>`);
 const sectionCost = section => Object.fromEntries(CURRENCIES.map(([key]) => [key, section.modules.reduce((sum, module) => sum + module.cost[key], 0)]));
 
 function moduleItem(module, focus) {
