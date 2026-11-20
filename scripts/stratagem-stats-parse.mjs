@@ -66,6 +66,22 @@ export function timesOf(id, title, strat) {
   const kept = Object.fromEntries(Object.entries(times).filter(([, value]) => Number.isFinite(value)));
   return Object.keys(kept).length ? kept : null;
 }
+// Main Health and Main Armor the wiki's datamine table shows: of a sentry or emplacement (its stratagem entry),
+// or of a backpack drone (its weapon entry, with the drone gun's magazine and Max Rounds; a heat-based
+// drone such as the Rover has no magazine). Mines are left out: their entry's health is not clearly the mine's.
+export function bodyOf(id, title, type, strat, weapons) {
+  const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');
+  const [table, key] = DATAMINE_KEYS[id] ?? [];
+  const drone = [key, upper].filter(Boolean).map(name => weapons.weapons[name]).find(entry => entry?.drone);
+  if (drone) {
+    const gun = (drone.attacks ?? []).filter(attack => attack.type === 'weapons').map(attack => weapons.weapons[attack.name]).find(Boolean);
+    const ammo = gun && !gun.heatdata && Number.isFinite(gun.cap) && Number.isFinite(drone.max);
+    return { drone: true, health: drone.health, armor: drone.armor, ...(ammo && { magazine: gun.cap, mags: drone.max }) };
+  }
+  if (!['Sentry', 'Emplacement'].includes(type) || /mine/i.test(id)) return null;
+  const entry = [table !== 'weapons' && key, upper, bare].filter(Boolean).map(name => strat.stratagems[name]).find(Boolean);
+  return Number.isFinite(entry?.health) ? { health: entry.health, armor: entry.armor } : null;
+}
 /** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
 

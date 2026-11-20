@@ -355,7 +355,7 @@ const statCell = stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ?
 const statGrid = item => {
   const [direct, blast, ap, reach] = stats(item);
   const [durable, ...ammo] = ammoCells(item);
-  const { ergonomics, sway, unlock, times } = stratagemStats[item.id] ?? {};
+  const { ergonomics, sway, unlock, times, body } = stratagemStats[item.id] ?? {};
   // Lifetime, strike duration and pack recharge from the wiki datamine (stratagem-stats.js `times`); a shield
   // relay's lifetime is already in its defense table.
   const s = L('초', 's');
@@ -364,6 +364,12 @@ const statGrid = item => {
     times?.duration != null ? { label: L('지속 시간', 'Duration'), text: num(times.duration), unit: s, caption: L('한 번 호출했을 때', 'Per call-in') } : null,
     times?.recharge != null ? { label: L('재충전', 'Recharge'), text: num(times.recharge), unit: s, caption: L('다시 쓸 수 있을 때까지', 'Until it can be used again') } : null,
   ].filter(Boolean);
+  // Main health and armor of a sentry or emplacement, a drone's health and ammo (wiki datamine table); a shield
+  // relay's or backpack's body is already in its defense table.
+  const bodyCells = body && !item.defense?.body ? [
+    { label: body.drone ? L('드론 체력', 'Drone health') : L('본체 체력', 'Main health'), text: num(body.health), caption: L(`장갑 ${body.armor}`, `Armor ${body.armor}`) },
+    ...(body.magazine != null ? [{ label: L('드론 탄창', 'Drone magazine'), text: num(body.magazine), caption: ['hot-dog', 'dog-breath'].includes(item.id) ? L(`연료 · 최대 ${body.mags}개 보유`, `Fuel · up to ${body.mags} carried`) : L(`최대 ${body.mags}개 보유`, `Up to ${body.mags} carried`) }] : []),
+  ] : [];
   const absent = stat => stat.dim && (stat.text === '—' || stat.text === L('없음', 'None'));
   const handling = [
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
@@ -375,7 +381,7 @@ const statGrid = item => {
   const UNIT_EN = { '발': '', '회': '', '개': '' };
   const extra = after => (item.extraStats ?? []).filter(cell => (cell.after ?? 'damage') === after)
     .map(cell => statCell({ label: cell.label, text: num(cell.value), unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${handling.map(statCell)}</dl>`;
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
@@ -437,6 +443,8 @@ const HOLE_CONDITIONS = {
   'incendiary-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
   'gas-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
 };
+// No demolition data for these two, but fired into a hole they close it (community guide, user decision 2026-11-20).
+const HOLE_INNER_EXTRA = new Set(['airburst-launcher', 'expendable-napalm']);
 const HOLE_TAGS = {
   outer: [L('굴 파괴', 'Closes bug holes'), L('철거력이 충분해 굴 밖에 맞혀도 벌레굴이 닫힙니다.', 'Enough demolition force to close a bug hole even hitting outside it.')],
   inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L('폭발을 굴 안쪽에 넣어야 벌레굴이 닫힙니다.', 'Closes a bug hole when the explosion goes inside it.')],
@@ -449,7 +457,7 @@ export async function loadDemolition() {
   const hole = data.structures.find(item => item.id === 'bug-hole');
   bugHoleTier = id => {
     const profile = data.demolitionProfiles[id];
-    if (!profile) return null;
+    if (!profile) return HOLE_INNER_EXTRA.has(id) ? 'inner' : null;
     let outer = false, inner = false;
     for (const mode of profile.modes) for (const result of solver.solveDemolition(hole, profile, mode).routes) {
       if (!result.parts.some(part => part.verdict === 'pass')) continue;
@@ -479,7 +487,7 @@ function openDetail(id) {
   show();
   // Demolition data is large; learn which stratagems have it only when needed.
   if (!demolitionProfiles) loadDemolition().then(profiles => {
-    if (state.detail === id && profiles[id]) show();
+    if (state.detail === id && (profiles[id] || bugHoleTier(id))) show();
   });
 }
 
