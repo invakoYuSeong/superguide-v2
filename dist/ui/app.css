@@ -1141,6 +1141,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-attack-table thead th { vertical-align: bottom; padding: 8px 12px; font-size: 14px; }
 .enemy-attack-table thead .hits-head { text-align: center; font-size: 13px; font-weight: 700; color: var(--text-2); border-bottom-width: 1px; }
 .enemy-attack-table thead small { font-size: 12px; font-weight: 500; color: var(--text-3); white-space: nowrap; }
+/* Column lines in the header, and the line before the hit counts carried down the body. */
+.enemy-attack-table thead th + th, .enemy-attack-table thead tr + tr th { border-left: 1px solid var(--line); }
+.enemy-attack-table tbody td.hits:nth-child(3) { border-left: 1px solid var(--line); }
 .enemy-attack-table tbody th, .enemy-attack-table tbody td { vertical-align: middle; }
 .enemy-attack-table tbody th { width: auto; white-space: normal; color: var(--text); font-weight: 700; font-size: 14px; }
 .enemy-attack-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
