@@ -134,6 +134,12 @@ for (const expected of golden.demolition) {
   const profile = demolitionProfiles[expected.weapon];
   const mode = profile.modes.find(item => item.id === expected.mode);
   const result = solveDemolition(structure, profile, mode, expected.options);
+  // A structure the stratagem is known not to destroy (profile.notOn, user decision 2026-11-20) departs from the
+  // legacy numbers on purpose: it must come out blocked for that reason.
+  if (profile.notOn?.includes(expected.structure)) {
+    assert.deepEqual([result.outcome, result.reason], ['blocked', 'blocked-known'], `${expected.structure} × ${expected.weapon}: known exception`);
+    continue;
+  }
   assert.deepEqual({
     outcome: result.outcome, method: result.method, route: result.route?.id ?? null, component: result.via, hits: result.hits,
     reason: demolitionReason[result.reason](mode), conditions: result.conditions.map(item => conditionText(item, profile)), health: result.health,
@@ -154,6 +160,8 @@ assert.equal(legacyCatalogue.length, 110, 'legacy catalogue size');
 const legacyStructureIds = new Set(golden.demolition.map(row => row.structure));
 const legacyStructures = structures.filter(item => legacyStructureIds.has(item.id));
 assert.equal(legacyStructures.length, 18, 'legacy structure list size');
+// The known exceptions (profile.notOn) turn the legacy result for that pair into 'cannot'.
+const knownNot = (weapon, structure) => demolitionProfiles[weapon]?.notOn?.includes(structure);
 for (const expected of golden.selections) {
   const options = { shieldCleared: expected.shieldCleared, jammerDisabled: false };
   const structure = structures.find(item => item.id === expected.structure);
@@ -164,13 +172,16 @@ for (const expected of golden.selections) {
     // The new catalogue lists stratagems in plain category order, so compare as sets.
     const overview = structureOverview(structure, legacyCatalogue, demolitionProfiles, options);
     const byId = (a, b) => a[0].localeCompare(b[0]);
-    assert.deepEqual(overview.entries.map(entry => [entry.weapon.id, entry.outcome, entry.attacks.map(attack => attack.mode.id)]).sort(byId), [...expected.entries].sort(byId), label);
-    assert.deepEqual([overview.possible, overview.conditional, overview.unknown, overview.blocked], expected.counts, label);
+    const dropped = expected.entries.filter(entry => knownNot(entry[0], expected.structure));
+    const counts = [...expected.counts];
+    for (const entry of dropped) { counts[entry[1] === 'conditional' ? 1 : 0]--; counts[3]++; }
+    assert.deepEqual(overview.entries.map(entry => [entry.weapon.id, entry.outcome, entry.attacks.map(attack => attack.mode.id)]).sort(byId), expected.entries.filter(entry => !dropped.includes(entry)).sort(byId), label);
+    assert.deepEqual([overview.possible, overview.conditional, overview.unknown, overview.blocked], counts, label);
   } else {
     const profile = demolitionProfiles[expected.weapon];
     const mode = profile?.modes.find(item => item.id === expected.mode);
     const targets = expected.structure === 'all' ? legacyStructures : [structure];
-    assert.deepEqual(weaponOverview(targets, profile, mode, options).map(row => [row.structure.id, row.outcome]), expected.rows, label);
+    assert.deepEqual(weaponOverview(targets, profile, mode, options).map(row => [row.structure.id, row.outcome]), expected.rows.map(([id, outcome]) => [id, knownNot(expected.weapon, id) ? 'blocked' : outcome]), label);
   }
 }
 

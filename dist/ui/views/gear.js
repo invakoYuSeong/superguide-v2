@@ -21,8 +21,6 @@ import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 
-// Energy weapons carry the wiki energy icon in front of their type name.
-const typeLabel = type => type === 'energy-based' ? html`<span class="ico-energy" aria-hidden="true"></span>${typeName(type)}` : typeName(type);
 const DOT_ICON = { gas: 'gas', fire: 'fire', arc: 'arc', electric: 'arc' };
 const ELEMENTS = { fire: L('화상', 'Fire'), gas: L('가스', 'Gas'), arc: L('전격', 'Arc'), electric: L('전격', 'Arc') };
 const TRAIT_BADGES = { fire: L('화상', 'Fire'), guided: L('유도', 'Guided'), arc: L('전격', 'Arc'), stun: L('기절', 'Stun'), 'one-handed': L('한손', 'One-handed') };
@@ -133,7 +131,7 @@ function card(w) {
     <button class="card-open" type="button" data-open="${w.id}" aria-label="${displayName(w)} ${L('자세히 보기', 'details')}">
       ${weaponArt(w)}
       <div class="gear-title"><h3>${displayName(w)}</h3><p class="en">${lang === 'en' ? '' : w.en}</p></div>
-      <div class="chips gear-traits">${badge(typeLabel(w.type), 'outline')}${traits(w)}</div>
+      <div class="chips gear-traits">${badge(typeName(w.type), 'outline')}${traits(w)}</div>
       ${statRow(w)}
     </button>
   </article>`;
@@ -171,7 +169,7 @@ function renderBrowse() {
   const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w)) && (!state.hole || holeTier(w))).length;
   const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type) && (!state.hole || holeTier(w))).length;
   const holeCount = inCat.filter(w => holeTier(w) && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w))).length;
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeLabel(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
@@ -374,7 +372,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
   <div class="sheet-content">
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
-      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeLabel(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
+      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${specialBlock(w)}
     ${attachmentTable(w)}

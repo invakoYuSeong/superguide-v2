@@ -47,6 +47,8 @@ export function healthDamage(structure, attack) {
 export function solveDemolition(structure, profile, attack, { shieldCleared = false, jammerDisabled = false } = {}) {
   const base = { structure, outcome: 'unknown', method: null, route: null, via: null, hits: null, unit: attack?.unit || '발', conditions: [], routes: [], health: null };
   if (!profile || !attack) return { ...base, reason: 'no-data' };
+  // A structure the stratagem is known not to destroy, whatever its numbers say (profile.notOn).
+  if (profile.notOn?.includes(structure.id)) return { ...base, outcome: 'blocked', reason: 'blocked-known' };
 
   const routes = structure.routes.map(route => checkForce(route, attack));
   const health = healthDamage(structure, attack);

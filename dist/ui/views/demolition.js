@@ -33,6 +33,7 @@ const REASON = {
   'health-unknown': L('철거력은 부족합니다. 체력으로 부술 수 있는 시설이지만 이 공격의 피해가 확인되지 않았습니다.', 'Not enough demolition force. The structure can be destroyed through its health, but this attack\'s damage is unverified.'),
   'blocked-armor': L('철거력이 모자라고, 시설 장갑을 뚫는 피해도 없습니다.', 'Not enough demolition force, and no damage that gets through the structure\'s armor.'),
   'blocked-force': L('철거력이 기준에 못 미칩니다. 여러 발의 철거력은 합쳐지지 않습니다.', 'Demolition force falls short. Force from several hits does not add up.'),
+  'blocked-known': L('수치로는 가능해 보이지만, 실제로는 이 시설을 부수지 못하는 것으로 알려져 있습니다.', 'The numbers suggest it could, but in play it is known not to destroy this structure.'),
 };
 const forceText = (value, unknown) => {
   if (unknown) return L('미확인', 'Unverified');

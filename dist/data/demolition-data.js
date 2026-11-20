@@ -85,7 +85,8 @@ export const demolitionProfiles = {
   'breaching-hammer': profile([
     mode('melee', '일반 타격', 30, null, { directLabel: '타격' }),
     mode('charge', '폭발 장약 사용', 30, 30, { directLabel: '타격' }),
-  ]),
+  // Known in play not to close bug holes, even from inside (user decision 2026-11-20).
+  ], { notOn: ['bug-hole'] }),
   'leveller': profile(shot(40, 40)),
   'wasp': profile(shot(30, 30), { conditionalAim: true, note: indirect }),
   'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.' })),
