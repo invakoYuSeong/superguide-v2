@@ -112,6 +112,19 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
   return {};
 }
 
+// Close-range dangers and quirks each weapon's wiki page describes (user decision 2026-11-20; pages checked
+// 2026-11-20: R-36 Eruptor rev 141923, CB-9 Exploding Crossbow rev 141909, PLAS-1 Scorcher rev 141920,
+// PLAS-101 Purifier rev 141921, GP-31 Grenade Pistol rev 141567, GL-15 Evictor rev 142236, AR/GL-21 One-Two rev 142533).
+const CAUTIONS = {
+  evictor: '너무 가까운 적을 쏘면 폭발에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.',
+  'one-two': '하부 유탄 발사기는 안전 신관이 있어 아주 가까운 적에게 맞으면 터지지 않고 튕겨 나가 먼 곳에서 터집니다.',
+  eruptor: '너무 가까운 적을 쏘면 폭발과 파편에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.',
+  'exploding-crossbow': '가까이에서 쓰면 폭발에 사용자도 큰 피해를 입습니다. 적이 다가오면 다른 무기로 바꾸세요.',
+  scorcher: '폭발하는 탄이라 너무 가까이 있는 적을 쏘면 사용자도 다칩니다.',
+  purifier: '아주 가까이에서 쏘면 폭발에 사용자도 크게 다치고, 충전 사격은 폭발 저항이 없으면 죽을 수 있습니다.',
+  'grenade-pistol': '사용자 근처에서는 터지지 않는 안전 신관이 있어, 아주 가까운 적에게 맞으면 튕겨 나가 먼 곳에서 터집니다.',
+};
+
 // Wiki infobox traits shown as badges on the gear page, in this order.
 const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'stun', 'one handed': 'one-handed' };
 
@@ -145,6 +158,7 @@ export function playerDetails(weapon, box) {
   if (weapon.id === 'breacher') playerNotes.push('사격 모드는 하나입니다. 처치 탄수는 직격과 붙은 뒤의 지연 폭발을 함께 반영하며, 지속 피해는 포함하지 않습니다.');
   if (['pyrotech', 'melta-mine'].includes(weapon.id)) playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
   if (weapon.variants.some(v => v.delivery === 'projectile' && !v.id.startsWith('shrapnel')) && ['missile-pistol', 'warrant'].includes(weapon.id)) playerNotes.push('유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.');
+  if (CAUTIONS[weapon.id]) playerNotes.push(CAUTIONS[weapon.id]);
   // Effect badges straight from the wiki infobox trait list ("Incendiary {{*}} Guided ...").
   const traits = String(box.weapon_traits ?? box.throwable_traits ?? '').split('{{*}}').map(trait => trait.trim().toLowerCase());
   const traitTags = Object.entries(TRAIT_TAGS).filter(([wiki]) => traits.includes(wiki)).map(([, tag]) => tag);

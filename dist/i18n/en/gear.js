@@ -154,4 +154,11 @@ export default {
   "탄이 고정한 적을 향해 휘어 날아가며, 휘는 각도는 약 40도까지입니다.": "Rounds curve toward the locked enemy, by up to about 40 degrees.",
   "유도 사격은 약점이 아니라 몸 중앙을 노립니다. 약점을 노리려면 비유도로 쏘세요.": "Guided shots aim at center mass, not weak points. Switch to unguided to hit weak points.",
   "엎드리지 않은 채 22발보다 많이 한꺼번에 쏘면 오른팔에 15 피해를 입고 넘어집니다.": "Firing more than 22 rounds at once while not prone deals 15 damage to your right arm and knocks you down.",
+  "너무 가까운 적을 쏘면 폭발과 파편에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.": "Shooting a target that is too close can kill you with the blast and shrapnel. Mind nearby teammates too.",
+  "가까이에서 쓰면 폭발에 사용자도 큰 피해를 입습니다. 적이 다가오면 다른 무기로 바꾸세요.": "Used up close, the blast badly hurts you too. Switch weapons when enemies get close.",
+  "폭발하는 탄이라 너무 가까이 있는 적을 쏘면 사용자도 다칩니다.": "Its bolts explode, so shooting an enemy that is too close hurts you too.",
+  "아주 가까이에서 쏘면 폭발에 사용자도 크게 다치고, 충전 사격은 폭발 저항이 없으면 죽을 수 있습니다.": "Firing at very close range badly hurts you with the blast, and a charged shot can kill you without explosive resistance.",
+  "사용자 근처에서는 터지지 않는 안전 신관이 있어, 아주 가까운 적에게 맞으면 튕겨 나가 먼 곳에서 터집니다.": "A safety fuse stops it detonating close to you: a grenade that hits an enemy at point-blank range bounces off and explodes far away.",
+  "너무 가까운 적을 쏘면 폭발에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.": "Shooting a target that is too close can kill you with the blast. Mind nearby teammates too.",
+  "하부 유탄 발사기는 안전 신관이 있어 아주 가까운 적에게 맞으면 터지지 않고 튕겨 나가 먼 곳에서 터집니다.": "The underbarrel grenade launcher has a safety fuse: a grenade that hits an enemy at point-blank range bounces off and explodes far away.",
 };

@@ -90,8 +90,9 @@ export function forcesOf(found, strat, weapons) {
       const record = lookup(attack.type, attack.name, data);
       const damage = attack.type === 'damage' ? record : record && lookup('damage', record.damage_id, data);
       if (!damage || (damage.stun == null && damage.push == null && damage.demo == null)) continue;
-      // "..._Overcharge_E" is the weapon blowing up when overcharged (Railgun, Epoch), not a shot.
-      const kind = /Overcharge/i.test(attack.name) ? 'overcharge' : attack.type === 'projectile' && attack.level > 1 ? 'fragment' : KIND[attack.type];
+      // "..._Overcharge_E" is the weapon blowing up when overcharged (Railgun, Epoch), not a shot;
+      // "..._BACKBLAST_E" is the blast out of the back of a launcher when it fires (Recoilless, EATs, Commando...).
+      const kind = /Overcharge/i.test(attack.name) ? 'overcharge' : /BACKBLAST/i.test(attack.name) ? 'backblast' : attack.type === 'projectile' && attack.level > 1 ? 'fragment' : KIND[attack.type];
       const group = local.get(top(attack)) ?? { weapon, parts: [] };
       local.set(top(attack), group);
       if (!group.parts.some(part => part.kind === kind && part.demo === damage.demo && part.stun === damage.stun && part.push === damage.push)) group.parts.push({ kind, demo: damage.demo ?? null, stun: damage.stun, push: damage.push });

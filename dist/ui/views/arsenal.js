@@ -307,7 +307,7 @@ function timingBlock(item) {
 
 // Special effects: demolition, stagger and push force of each attack from the wiki attack
 // datamine (stratagem-stats.js `forces`); demolition-data.js where the datamine has no record.
-const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment'), overcharge: L('과충전 폭발', 'Overcharge blast') };
+const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment'), overcharge: L('과충전 폭발', 'Overcharge blast'), backblast: L('후폭풍', 'Backblast') };
 export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
   'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
@@ -328,12 +328,13 @@ function specialBlock(item, profile) {
   // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
   // demolition, then stagger, then push. Fragments are left out.
   const parts = forces.flatMap(group => group.parts);
-  // The overcharge blast (Railgun, Epoch) is the weapon blowing up, not a shot: its own row with a warning.
-  const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge'))].filter(Boolean);
+  // The overcharge blast (Railgun, Epoch) is the weapon blowing up, and the backblast comes out of the back of a
+  // launcher when it fires: neither is a shot, so each gets its own row with a warning.
+  const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast'))].filter(Boolean);
   const rows = forces.length
     ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
       label: FORCE_KIND[part.kind],
-      text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}`,
+      text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}`,
     }))
     // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.
     : fallbackRows(profile, value);
