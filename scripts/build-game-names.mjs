@@ -65,14 +65,18 @@ for (const key of [...new Set(superstore.pages.flatMap(page => page.items).filte
   if (korean) out.strings.superstoreItems[key] = korean;
 }
 // Ship module upgrades tab: section and module names and each effect's game text (the game's
-// English that reads the same as the wiki effect once #VALUE takes the wiki's number).
+// English that reads the same as the wiki effect once #VALUE takes the wiki's number). A name or
+// effect the table does not have only warns: the tab shows the wiki's English for it (user decision
+// 2026-11-19: do not block deploys), and build-ship-module-upgrades.mjs lists it as 'to check'.
 out.strings.shipModuleUpgrades = {};
 const upgrades = parseShipModules((await source('wiki_stratagem_stats.json')).shipModules.text);
 const gameEnglish = [...exact.keys()];
-for (const section of upgrades.sections) for (const key of [section.en, ...section.modules.flatMap(module => [module.en, gameEffect(module.effect, gameEnglish)?.key ?? `(effect of ${module.en}) ${module.effect}`])]) {
-  const korean = exact.get(key) ?? folded.get(key.toLowerCase());
-  if (korean) out.strings.shipModuleUpgrades[key] = korean; else missing.push(`shipModuleUpgrades: ${key}`);
+const moduleWarnings = [];
+for (const section of upgrades.sections) for (const [key, what] of [[section.en, 'section'], ...section.modules.flatMap(module => [[module.en, 'module'], [gameEffect(module.effect, gameEnglish)?.key, `effect of ${module.en}: ${module.effect}`]])]) {
+  const korean = key && (exact.get(key) ?? folded.get(key.toLowerCase()));
+  if (korean) out.strings.shipModuleUpgrades[key] = korean; else moduleWarnings.push(key ? `${what}: ${key}` : `no game text reads like the ${what}`);
 }
+if (moduleWarnings.length) console.log(`To check (ship modules, shown in English):\n  ${moduleWarnings.join('\n  ')}`);
 if (missing.length) throw new Error(`No Korean in db/source/game_strings_ko.tsv for:\n  ${missing.join('\n  ')}\nCheck the English against the table (it is the game's exact text).`);
 await writeFile(new URL('../db/source/game_names_ko.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
 console.log(`game build ${build}: ${Object.values(out.strings).reduce((sum, group) => sum + Object.keys(group).length, 0)} strings`);

@@ -17,29 +17,33 @@ export async function buildShipModuleUpgrades() {
   const game = await read('game_names_ko.json');
   const icons = (await read('wiki_ship_module_icons.json')).icons;
   const strings = game.strings.shipModuleUpgrades;
-  const ko = key => { if (!strings[key]) throw new Error(`no game Korean for "${key}" (run scripts/build-game-names.mjs)`); return strings[key]; };
+  // Nothing here stops the build (user decision 2026-11-19: do not block deploys). A name or effect
+  // without game Korean keeps the wiki's English, a section without an icon shows none, and a cost
+  // sum that differs from the wiki's hand-kept Total row shows the sum; each is listed in `toCheck`.
+  const toCheck = [];
+  const ko = (key, fallback) => { if (strings[key]) return strings[key]; toCheck.push(`no game Korean for "${fallback}" (shown in English)`); return fallback; };
   const { sections, total } = parseShipModules(page.text);
   const stratagemModule = new Map(shipModules.map(module => [module.en, module.id]));
   const out = sections.map(section => {
     const icon = icons[section.en];
-    if (!icon) throw new Error(`${section.en}: no icon (run scripts/fetch-ship-module-icons.mjs)`);
+    if (!icon) toCheck.push(`${section.en}: no icon (run scripts/fetch-ship-module-icons.mjs)`);
     return {
-      id: slug(section.en), name: ko(section.en), en: section.en,
-      icon: { src: `./assets/ship-modules/${icon.file}`, source: icon.source, sha256: icon.sha256 },
+      id: slug(section.en), name: ko(section.en, section.en), en: section.en,
+      icon: icon ? { src: `./assets/ship-modules/${icon.file}`, source: icon.source, sha256: icon.sha256 } : null,
       modules: section.modules.map(module => {
         const effect = gameEffect(module.effect, Object.keys(strings));
-        if (!effect) throw new Error(`${module.en}: no game text reads like the wiki effect "${module.effect}"`);
+        if (!effect) toCheck.push(`${module.en}: no game text reads like the wiki effect "${module.effect}" (shown in English)`);
         return {
-          id: slug(module.en), tier: module.tier, name: ko(module.en), en: module.en, cost: module.cost,
-          effect: gameText(ko(effect.key), effect.value), effectEn: gameText(effect.key, effect.value),
+          id: slug(module.en), tier: module.tier, name: ko(module.en, module.en), en: module.en, cost: module.cost,
+          effect: effect ? gameText(strings[effect.key], effect.value) : module.effect, effectEn: effect ? gameText(effect.key, effect.value) : module.effect,
           ...(stratagemModule.has(module.en) && { stratagemModule: stratagemModule.get(module.en) }),
         };
       }),
     };
   });
-  const sum = key => out.flatMap(section => section.modules).reduce((acc, module) => acc + module.cost[key], 0);
-  for (const key of Object.keys(total)) if (sum(key) !== total[key]) throw new Error(`Ship Modules: ${key} costs add up to ${sum(key)}, the wiki Total row says ${total[key]}`);
-  return { source: { page: 'https://helldivers.wiki.gg/wiki/Ship_Modules', revision: page.revision }, gameBuild: game.build, total, sections: out };
+  const sum = Object.fromEntries(Object.keys(total).map(key => [key, out.flatMap(section => section.modules).reduce((acc, module) => acc + module.cost[key], 0)]));
+  for (const key of Object.keys(total)) if (sum[key] !== total[key]) toCheck.push(`${key} costs add up to ${sum[key]}, the wiki Total row says ${total[key]} (the sum is shown)`);
+  return { source: { page: 'https://helldivers.wiki.gg/wiki/Ship_Modules', revision: page.revision }, gameBuild: game.build, total: sum, wikiTotal: total, sections: out, toCheck };
 }
 
 if (import.meta.url === `file:///${process.argv[1].replaceAll('\\', '/').replace(/^\//, '')}`) {
@@ -53,4 +57,5 @@ export const shipModuleTotal = ${JSON.stringify(data.total)};
 export const shipModuleSections = ${JSON.stringify(data.sections, null, 1)};
 `);
   console.log(`${data.sections.length} sections, ${data.sections.reduce((n, s) => n + s.modules.length, 0)} modules; total ${JSON.stringify(data.total)}`);
+  if (data.toCheck.length) console.log(`To check:\n  ${data.toCheck.join('\n  ')}`);
 }

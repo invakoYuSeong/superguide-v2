@@ -1,7 +1,8 @@
 // Builds dist/data/enemy-weapons.js: each enemy's attacks from its wiki "Weapons Loadout" boxes
 // (db/source/wiki_enemy_weapons.json, scripts/fetch-enemy-weapons.mjs) with the site's Korean
-// names (db/source/enemy_weapon_korean.json), and the Helldiver health and armor factors from
-// Template:Armor Ratings. Do not edit the output.
+// names (db/source/enemy_weapon_korean.json; an attack without one keeps its English name and is
+// listed as 'to check'), and the Helldiver health and armor factors from Template:Armor Ratings.
+// Do not edit the output.
 // Usage: node scripts/build-enemy-weapons.mjs
 import { readFile, writeFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
@@ -30,11 +31,11 @@ export async function buildEnemyWeapons() {
       }),
     };
   }
-  if (missing.size) throw new Error(`Add Korean names to db/source/enemy_weapon_korean.json:\n  ${[...missing].join('\n  ')}`);
+  // A new or renamed attack never stops the build (user decision 2026-11-19: do not block deploys):
+  // it shows its English name until db/source/enemy_weapon_korean.json gets a Korean one.
   const unused = Object.keys(korean).filter(en => !Object.values(byEnemy).some(item => item.attacks.some(attack => attack.en === en)));
-  if (unused.length) throw new Error(`db/source/enemy_weapon_korean.json has names no enemy uses: ${unused.join(', ')}`);
   return {
-    byEnemy,
+    byEnemy, missing: [...missing], unused,
     helldiver: { health: ratings.health, chest: ratings.chest, head: ratings.head, arm: ratings.arm, leg: ratings.leg, fortified: ratings.fortified, vitality: ratings.vitality, factors: ratings.factors, source: { page: 'https://helldivers.wiki.gg/wiki/Template:Armor_Ratings', revision: source.armorRatings.revision } },
     checkedAt: source.retrievedAt,
   };
@@ -51,4 +52,6 @@ export const enemyWeapons = ${JSON.stringify(data.byEnemy, null, 1)};
 `);
   const attacks = Object.values(data.byEnemy).flatMap(item => item.attacks);
   console.log(`${Object.keys(data.byEnemy).length} enemies, ${attacks.length} attacks (${attacks.filter(a => a.hits).length} with a hit count, ${attacks.filter(a => a.damage == null && a.explosion == null).length} without a plain number)`);
+  if (data.missing.length) console.log(`To check: no Korean name yet (shown in English), add them to db/source/enemy_weapon_korean.json:\n  ${data.missing.join('\n  ')}`);
+  if (data.unused.length) console.log(`To check: db/source/enemy_weapon_korean.json names no enemy uses now (renamed on the wiki?): ${data.unused.join(', ')}`);
 }

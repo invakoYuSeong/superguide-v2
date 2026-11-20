@@ -7,9 +7,10 @@ import { html, render, $, external } from '../dom.js';
 import { L, lang, locale } from '../../core/i18n.js';
 
 const count = value => value.toLocaleString(locale());
-// The game's names for the currencies (Common/Rare/Super Sample, Requisition Slips); samples get the wiki's icons.
+// The game's names for the currencies (Common/Rare/Super Sample, Requisition Slips) with the wiki's icons.
 const CURRENCIES = [['common', L('일반 샘플', 'Common Samples')], ['rare', L('희귀 샘플', 'Rare Samples')], ['super', L('슈퍼 샘플', 'Super Samples')], ['requisition', L('요청 신청서', 'Requisition Slips')]];
-const icon = key => currencyIcons[`${key}-sample`] ? html`<img class="cost-icon" src="${currencyIcons[`${key}-sample`].src}" alt="" width="16" height="16">` : '';
+const ICON_IDS = { common: 'common-sample', rare: 'rare-sample', super: 'super-sample', requisition: 'requisition-slip' };
+const icon = key => currencyIcons[ICON_IDS[key]] ? html`<img class="cost-icon" src="${currencyIcons[ICON_IDS[key]].src}" alt="" width="16" height="16">` : '';
 const costLine = cost => CURRENCIES.filter(([key]) => cost[key]).map(([key, name]) => html`<span data-currency="${key}">${icon(key)}${name} <b>${count(cost[key])}</b></span>`);
 const sectionCost = section => Object.fromEntries(CURRENCIES.map(([key]) => [key, section.modules.reduce((sum, module) => sum + module.cost[key], 0)]));
 
@@ -28,7 +29,7 @@ function moduleItem(module, focus) {
 function sectionBlock(section, focus) {
   return html`<section class="armor-passive module-section" id="ship-${section.id}" aria-labelledby="ship-${section.id}-title">
     <header class="armor-passive-head">
-      <span class="armor-passive-icon"><img src="${section.icon.src}" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
+      <span class="armor-passive-icon">${section.icon ? html`<img src="${section.icon.src}" alt="" width="36" height="36" loading="lazy" decoding="async">` : ''}</span>
       <div><h3 id="ship-${section.id}-title">${L(section.name, section.en)}</h3>${lang === 'en' || section.name === section.en ? '' : html`<p class="en">${section.en}</p>`}</div>
     </header>
     <p class="module-cost module-section-cost">${L('부서 전체', 'Whole section')}: ${costLine(sectionCost(section))}</p>

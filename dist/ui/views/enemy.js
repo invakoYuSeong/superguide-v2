@@ -176,7 +176,7 @@ const DAMAGE_TYPES = {
   ballistic: L('탄도', 'ballistic'), melee: L('근접', 'melee'), slash: L('베기', 'slash'), strike: L('타격', 'strike'), eviscerate: L('절단', 'eviscerate'), eviserate: L('절단', 'eviscerate'),
   fire: L('화염', 'fire'), corrosive: L('부식', 'corrosive'), web: L('거미줄', 'web'), splash: L('튀김', 'splash'),
 };
-const RATINGS = [[50, L('경량 50 몇 방', 'Light 50 hits')], [100, L('일반 100 몇 방', 'Medium 100 hits')], [150, L('중량 150 몇 방', 'Heavy 150 hits')]];
+const RATINGS = [[50, L('경량', 'Light')], [100, L('일반', 'Medium')], [150, L('중량', 'Heavy')]];
 function attacks(enemy) {
   const info = enemyWeapons[enemy.id];
   if (!info?.attacks.length) return '';
@@ -190,12 +190,14 @@ function attacks(enemy) {
   // Folded by default; stays open across re-renders once the player opens it (state.attacksOpen).
   return html`<details class="panel enemy-attacks" data-attacks ${state.attacksOpen ? raw('open') : ''}><summary><h2>${L('공격 패턴', 'Attacks')}</h2><span class="count">${info.attacks.length}</span></summary>
     <div class="compare-scroll" role="region" aria-label="${L('적 공격표', 'Enemy attacks')}" tabindex="0"><table class="compare-table enemy-attack-table">
-      <thead><tr><th scope="col">${L('공격', 'Attack')}</th><th scope="col">${L('피해', 'Damage')}</th>${RATINGS.map(([, label]) => html`<th scope="col">${label}</th>`)}</tr></thead>
+      <colgroup><col class="col-attack"><col class="col-damage">${RATINGS.map(() => html`<col class="col-hits">`)}</colgroup>
+      <thead><tr><th scope="col" rowspan="2">${L('공격', 'Attack')}</th><th scope="col" rowspan="2">${L('피해', 'Damage')}</th><th scope="colgroup" colspan="${RATINGS.length}" class="hits-head">${L('쓰러질 때까지 맞는 횟수 (몸통 기준)', 'Hits until downed (torso)')}</th></tr>
+        <tr>${RATINGS.map(([rating, label]) => html`<th scope="col" class="hits">${label} <small>${L(`장갑 ${rating}`, `armor ${rating}`)}</small></th>`)}</tr></thead>
       <tbody>${info.attacks.map(attack => html`<tr><th scope="row">${L(attack.name, attack.en)}${lang === 'en' || attack.name === attack.en ? '' : html`<small>${attack.en}</small>`}</th><td>${damageCell(attack)}</td>
-        ${RATINGS.map(([rating]) => html`<td>${attack.hits ? L(`${attack.hits[rating]}방`, `${attack.hits[rating]} ${attack.hits[rating] === 1 ? 'hit' : 'hits'}`) : '-'}</td>`)}</tr>`)}</tbody>
+        ${RATINGS.map(([rating]) => attack.hits ? html`<td class="hits"><b>${attack.hits[rating]}</b>${L('회', '')}</td>` : html`<td class="hits none">-</td>`)}</tr>`)}</tbody>
     </table></div>
-    <p class="note">${L(html`방어구 칸은 <b>몸통 기준 어림값</b>입니다. 헬다이버 체력 ${helldiverArmor.health}을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다. 관통이 헬다이버 방어구에 미치는 영향은 위키에 공식이 없어 넣지 않았고, 폭발(거리에 따라 줄고 여러 부위에 맞음), 화염, 산성 공격과 피해가 여러 줄인 공격은 횟수를 계산하지 않습니다.`,
-      html`The armor columns are a <b>rough torso-hit count</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}. The wiki has no rule for how enemy AP meets Helldiver armor, so it is left out; explosions (they fall off with distance and hit several body parts), fire, acid and attacks with several damage lines get no count.`)}</p>
+    <p class="note">${L(html`횟수 칸은 <b>몸통 기준 어림값</b>입니다. 헬다이버 체력 ${helldiverArmor.health}을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다. 관통이 헬다이버 방어구에 미치는 영향은 위키에 공식이 없어 넣지 않았고, 폭발(거리에 따라 줄고 여러 부위에 맞음), 화염, 산성 공격과 피해가 여러 줄인 공격은 횟수를 계산하지 않습니다.`,
+      html`The hit counts are <b>rough, for torso hits</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}. The wiki has no rule for how enemy AP meets Helldiver armor, so it is left out; explosions (they fall off with distance and hit several body parts), fire, acid and attacks with several damage lines get no count.`)}</p>
     <p class="sources">${external(wiki, L('위키 Weapons Loadout', 'Wiki Weapons Loadout'))}${external(helldiverArmor.source.page, L('위키 방어구 배율표', 'Wiki armor rating table'))}</p>
   </details>`;
 }

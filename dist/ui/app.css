@@ -1135,10 +1135,34 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-attacks[open] summary { margin-bottom: 10px; }
 .enemy-attacks h2 { font-size: 15px; font-weight: 800; margin: 0; }
 .enemy-attacks .count { font: 700 13px/1 var(--cond); color: var(--text-3); }
-.enemy-attack-table { min-width: 560px; }
+.enemy-attack-table { min-width: 560px; table-layout: fixed; }
+.enemy-attack-table .col-attack { width: 34%; }
+.enemy-attack-table .col-damage { width: 20%; }
+.enemy-attack-table thead th { vertical-align: bottom; padding: 8px 12px; font-size: 14px; }
+.enemy-attack-table thead .hits-head { text-align: center; font-size: 13px; font-weight: 700; color: var(--text-2); border-bottom-width: 1px; }
+.enemy-attack-table thead small { font-size: 12px; font-weight: 500; color: var(--text-3); white-space: nowrap; }
+.enemy-attack-table tbody th, .enemy-attack-table tbody td { vertical-align: middle; }
 .enemy-attack-table tbody th { width: auto; white-space: normal; color: var(--text); font-weight: 700; font-size: 14px; }
 .enemy-attack-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
+.enemy-attack-table .hits { text-align: center; }
+.enemy-attack-table td.hits b { font: 800 20px/1 var(--cond); color: var(--accent-text); margin-right: 1px; }
+.enemy-attack-table td.hits.none { color: var(--text-3); }
 .enemy-attacks .note { margin-top: 10px; }
+/* Phones: the table fits the screen instead of scrolling, so the hit counts stay in view. */
+@media (max-width: 600px) {
+  .enemy-attacks { padding: 14px 12px; }
+  .enemy-attack-table { min-width: 0; font-size: 13px; }
+  .enemy-attack-table .col-attack { width: 34%; }
+  .enemy-attack-table .col-damage { width: 21%; }
+  .enemy-attack-table th, .enemy-attack-table td { padding: 8px 5px; }
+  .enemy-attack-table thead th { font-size: 13px; }
+  .enemy-attack-table thead .hits-head { font-size: 12px; }
+  .enemy-attack-table thead .hits small { display: none; }
+  .enemy-attack-table thead th { word-break: keep-all; }
+  .enemy-attack-table tbody th { font-size: 13px; word-break: keep-all; overflow-wrap: anywhere; }
+  .enemy-attack-table tbody th small, .enemy-attack-table td small { font-size: 11px; }
+  .enemy-attack-table td.hits b { font-size: 17px; }
+}
 /* Gear browse: the one-handed filter sits after the type chips. */
 .chip-hand { margin-left: 8px; }
 /* Armor passive: a worked example under the effect lines (Scout detection range). */
