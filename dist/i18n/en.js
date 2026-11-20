@@ -17,6 +17,7 @@ import { enemyPages } from '../data/enemy-pages.js';
 import { superstorePages } from '../data/superstore.js';
 import { shipModuleSections } from '../data/ship-module-upgrades.js';
 import { enemyWeapons } from '../data/enemy-weapons.js';
+import { vehicleDurability } from '../data/vehicle-durability.js';
 import stratagemText from './en/stratagems.js';
 import enemyText from './en/enemies.js';
 import gearText from './en/gear.js';
@@ -52,6 +53,8 @@ const attachmentNames = Object.values(attachmentParts).filter(part => part.ko).m
 const shipModuleText = shipModuleSections.flatMap(section => [section, ...section.modules.flatMap(module => [module, { name: module.effect, en: module.effectEn }])]);
 // Enemy attacks: the site's Korean names with the wiki loadout box titles.
 const enemyAttackNames = Object.values(enemyWeapons).flatMap(item => item.attacks).map(attack => ({ name: attack.name, en: attack.en }));
-export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames, ...shipModules, ...boosterText, ...objectiveNames, ...planetText, ...enemyLore, ...superstoreNames, ...shipModuleText, ...enemyAttackNames].filter(item => item.name && item.en).map(item => [item.name, item.en]);
+// Vehicle parts: the site's Korean part names with the wiki's English.
+const vehicleParts = Object.values(vehicleDurability).flatMap(item => item.parts).map(part => ({ name: part.name, en: part.en }));
+export const officialNames = [...warbondTileNames, ...attachmentNames, ...stratagems, ...personalWeapons, ...factionGuides, ...warbonds, ...armorNames, ...shipModules, ...boosterText, ...objectiveNames, ...planetText, ...enemyLore, ...superstoreNames, ...shipModuleText, ...enemyAttackNames, ...vehicleParts].filter(item => item.name && item.en).map(item => [item.name, item.en]);
 export const areas = { stratagems: stratagemText, enemies: enemyText, gear: gearText, demolition: demolitionText, factions: factionText, warbonds: warbondText, armor: armorText };
 export const english = Object.assign(Object.fromEntries(officialNames), ...Object.values(areas));

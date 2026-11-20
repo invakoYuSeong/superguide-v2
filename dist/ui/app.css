@@ -1171,3 +1171,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 /* Armor passive: a worked example under the effect lines (Scout detection range). */
 .passive-note { margin: -6px 0 14px; padding: 8px 10px; font-size: 13.5px; color: var(--text-2); background: var(--surface-2); border-left: 3px solid var(--accent); }
 .passive-note .ext { margin-left: 4px; }
+/* Vehicle durability table in the stratagem details (vehicle-durability.js). */
+.vehicle-table { min-width: 420px; }
+.vehicle-table tbody th { width: auto; white-space: normal; color: var(--text); font-weight: 700; font-size: 14px; }
+.vehicle-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
