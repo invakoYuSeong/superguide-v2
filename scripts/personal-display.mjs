@@ -115,8 +115,26 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
 // Close-range dangers and quirks each weapon's wiki page describes (user decision 2026-11-20; pages checked
 // 2026-11-20: R-36 Eruptor rev 141923, CB-9 Exploding Crossbow rev 141909, PLAS-1 Scorcher rev 141920,
 // PLAS-101 Purifier rev 141921, GP-31 Grenade Pistol rev 141567, GL-15 Evictor rev 142236, AR/GL-21 One-Two rev 142533,
-// LAS-17 Double-Edge Sickle rev 141915). A weapon may carry several lines.
+// LAS-17 Double-Edge Sickle rev 141915, GP-20 Ultimatum rev 140471, P/40-K Bolt Pistol rev 141876,
+// G-48 Giga Grenade rev 140504, G-60 Anti-Tank Seeker rev 140507, G/40-K Melta Mine rev 141875).
+// A weapon may carry several lines.
 const CAUTIONS = {
+  'ultimatum': [
+    '사거리가 매우 짧습니다. 서서 수평으로 쏘면 약 17m, 45도로 쏘면 약 40m까지 날아갑니다. 쏠 때 사용자의 움직임이 탄에 더해져, 다이빙하거나 점프 팩·고속 정찰 차량을 타고 쏘면 더 멀리 갑니다.',
+    '예비 탄은 어떤 방어구 패시브로도 늘지 않지만, 탄약 상자 하나로 예비 탄이 가득 찹니다.',
+  ],
+  'bolt-pistol': [
+    '반동이 325로 모든 무기 중 가장 커서 연사가 어렵습니다. 웅크리거나 조준하면 줄어들고, 강화·공병 키트·충격 방지 패드, 위험물·총잡이 패시브도 반동을 줄여 줍니다.',
+  ],
+  'giga-grenade': [
+    '쿠킹(손에 들고 시간을 보내기)이 되지 않고, 다른 수류탄보다 낮은 궤적으로 날아갑니다. 서보 보조·사막 돌격대 패시브가 투척 거리를 크게 늘려 줍니다.',
+  ],
+  'anti-tank-seeker': [
+    '던지면 드론이 사용자를 따라다니다가 가까운 적을 찾으면 날아가 부딪혀 터집니다. 제조소에 핑을 찍으면 벽을 지나 환풍구 근처에서 터져 보통 하나로 부서집니다.',
+  ],
+  'melta-mine': [
+    '일반 신관이 없어 던진 자리에 붙어 있다가 중형·대형 적이 밟으면 터집니다. 대부분의 표면에 붙고, 안전한 거리에서 쏘면 직접 터뜨릴 수 있습니다. 엑소슈트 같은 차량을 탄 아군이 밟아도 터지니 조심하세요.',
+  ],
   'double-edge-sickle': [
     '열이 오를수록 사용자도 화상 피해를 입습니다. 열 25%까지는 피해가 없고, 26~50%는 초당 10, 51~90%는 초당 20, 91% 이상에서는 사용자에게 불이 붙어 초당 50과 불붙은 피해를 함께 받아 매우 위험합니다.',
     '91% 이상에서는 엎드리면 불이 붙지 않습니다. 인화성 물질 패시브는 화상 피해를 4분의 1로 줄이고, 적응력은 50%, 사막 돌격대는 40% 줄입니다. 방열판을 갈면 열이 초기화되지만 높은 열의 추가 피해도 사라집니다.',

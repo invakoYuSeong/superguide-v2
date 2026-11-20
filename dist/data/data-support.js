@@ -13,7 +13,7 @@
 // input: call-in code from each wiki page's infobox stratagem_code (checked 2026-11-09), written as
 // \u escapes for the arrows (\u2191 up, \u2193 down, \u2190 left, \u2192 right).
 export const support = [
-  { id: 'autocannon', name: '오토캐넌', aliases: ['오토캐논'], en: 'AC-8 Autocannon', code: 'AC-8', input: '\u2193\u2190\u2193\u2191\u2191\u2192', magazine: 10, direct: 325, splash: 150, ap: 4, splashAp: 3, radius: 4, innerRadius: 2, unit: '철갑고폭예광탄(APHET) 1발', tags: ['다목적', '폭발', '배낭 필요'], summary: '일반 장갑 적과 약점을 연속 타격하는 범용 기관포.', usage: '철갑고폭예광탄(APHET) 모드로 장갑이 얇은 부위를 연속 사격하고, 적이 몰리면 대공포탄 모드로 바꾸세요. 탄을 모두 비우기 전에 재장전하면 운용이 편합니다.', warning: '탄약 배낭이 필요합니다. 근접 폭발과 뒤쪽 아군의 사선을 확인하세요.', variants: [
+  { id: 'autocannon', name: '오토캐넌', aliases: ['오토캐논'], en: 'AC-8 Autocannon', code: 'AC-8', input: '\u2193\u2190\u2193\u2191\u2191\u2192', magazine: 10, direct: 325, splash: 150, ap: 4, splashAp: 3, radius: 4, innerRadius: 2, unit: '철갑고폭예광탄(APHET) 1발', tags: ['다목적', '폭발', '배낭 필요'], summary: '일반 장갑 적과 약점을 연속 타격하는 범용 기관포.', usage: '철갑고폭예광탄(APHET) 모드로 장갑이 얇은 부위를 연속 사격하고, 적이 몰리면 대공포탄 모드로 바꾸세요. 탄을 모두 비우기 전에 재장전하면 운용이 편합니다.', warning: '탄약 배낭이 필요합니다. APHET 탄을 아주 가까운 적에게 쏘면 폭발에 사용자가 죽습니다. 대공탄은 사용자 가까이에서 터지지 않아 가까운 아군 옆으로 쏠 수 있지만, 가까이에서 쏘면 파편이 되튀어 크게 다치거나 죽을 수 있습니다.', variants: [
     { id: 'aphet', name: '철갑고폭예광탄(APHET)', tab: 'APHET', durable: 260, direct: 325, splash: 150, ap: 4, splashAp: 3, radius: 4, innerRadius: 2, unit: 'APHET 1발' },
     { id: 'flak', name: '대공포탄', durable: 150, direct: 150, splash: 190, ap: 2, splashAp: 3, radius: 7, innerRadius: 2, unit: '대공포탄 1발', splashNoteShort: '중심부 최대 · 파편 별도', note: '적 근처에서 터지는 추가 파편 피해는 별도이며, 명중 수가 일정하지 않아 표에 합산하지 않습니다.' },
   ] },

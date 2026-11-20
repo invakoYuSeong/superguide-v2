@@ -607,7 +607,7 @@ export default {
   "탄체 직격 300, AP 7. 연막 자체는 피해가 없고 약 30초 지속합니다.": "Shell impact 300, AP 7. The smoke itself deals no damage and lasts about 30 s.",
   "일반 장갑 적과 약점을 연속 타격하는 범용 기관포.": "All-round autocannon that keeps hammering medium-armored enemies and weak spots.",
   "철갑고폭예광탄(APHET) 모드로 장갑이 얇은 부위를 연속 사격하고, 적이 몰리면 대공포탄 모드로 바꾸세요. 탄을 모두 비우기 전에 재장전하면 운용이 편합니다.": "Use APHET mode for sustained fire on thinly armored parts, and switch to Flak mode when enemies bunch up. Reloading before the magazine runs dry makes it easier to run.",
-  "탄약 배낭이 필요합니다. 근접 폭발과 뒤쪽 아군의 사선을 확인하세요.": "Needs its ammo backpack. Watch out for close-range blasts and teammates in your line of fire behind you.",
+  "탄약 배낭이 필요합니다. APHET 탄을 아주 가까운 적에게 쏘면 폭발에 사용자가 죽습니다. 대공탄은 사용자 가까이에서 터지지 않아 가까운 아군 옆으로 쏠 수 있지만, 가까이에서 쏘면 파편이 되튀어 크게 다치거나 죽을 수 있습니다.": "Needs the ammo backpack. An APHET round fired at a point-blank enemy kills you with its explosion. Flak rounds do not detonate close to you, so they can be fired past nearby allies, but at close range the shrapnel can fly back and badly hurt or kill you.",
   "적 근처에서 터지는 추가 파편 피해는 별도이며, 명중 수가 일정하지 않아 표에 합산하지 않습니다.": "The extra shrapnel damage from bursting near enemies is separate and not added to the table, since the number of hits varies.",
   "대형 적을 겨냥하는 강력한 단발 대전차포.": "Powerful single-shot anti-tank launcher aimed at large enemies.",
   "대형 적에는 대전차 고폭탄(HEAT), 보병 무리에는 고폭탄(HE) 모드를 선택하세요. 사격 후 엄폐하거나 동료의 보조 재장전으로 빈틈을 줄입니다.": "Pick HEAT mode for large enemies and HE mode for infantry swarms. Get to cover after firing, or have a teammate team-reload to cut the downtime.",
