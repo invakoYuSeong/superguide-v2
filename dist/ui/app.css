@@ -535,7 +535,10 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .block p { color: var(--text-2); font-size: 14.5px; }
 .blast { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
 .blast svg { flex: none; overflow: hidden; }
-.blast-ref { opacity: .42; pointer-events: none; }
+.blast-ref { opacity: .6; pointer-events: none; }
+/* The gray enemy fades on the dark theme, so it is stronger there; the light theme keeps it lighter. */
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .blast-ref { opacity: .42; } }
+:root[data-theme="light"] .blast-ref { opacity: .42; }
 .blast-label text { font-size: 11px; font-weight: 750; fill: var(--text); stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; paint-order: stroke; }
 .blast p { flex: 1 1 220px; font-size: 13.5px; color: var(--text-2); }
 .links { display: flex; gap: 8px; flex-wrap: wrap; }

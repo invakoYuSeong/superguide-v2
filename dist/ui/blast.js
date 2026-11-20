@@ -15,7 +15,9 @@ const SCALE_ENEMIES = [
 
 export function blastFigure(item) {
   if (item.radius == null || item.innerRadius == null) return '';
-  const outer = 56, inner = Math.max(8, outer * item.innerRadius / item.radius);
+  // The inner circle is to scale, like the enemy behind it; the floor only keeps a tiny one visible (none is
+  // that small today: the smallest is 1 m of 10 m).
+  const outer = 56, inner = Math.max(3, outer * item.innerRadius / item.radius);
   const ref = SCALE_ENEMIES.find(enemy => item.radius <= enemy.upTo);
   const refW = ref.span * outer / item.radius, refH = refW * ref.ratio;
   return html`<div class="blast">
