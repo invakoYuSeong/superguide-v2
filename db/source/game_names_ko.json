@@ -506,6 +506,37 @@
    "Sentries take <i=1>#VALUE%</i> less damage from explosions.": "센트리가 입는 폭발 대미지가 <i=1>#VALUE%</i> 감소합니다.",
    "Cross-Platform Compatibility": "크로스 플랫폼 호환성",
    "<i=1>Mortar</i> Sentries prioritize fire at marked targets.": "<i=1>박격포</i> 센트리가 마크된 표적을 우선적으로 포격합니다."
+  },
+  "attachments": {
+   "1.5x Tube Red Dot": "1.5x 튜브 레드 도트",
+   "10x Sniper Scope": "10x 저격 스코프",
+   "2x Tube Red Dot": "2x 튜브 레드 도트",
+   "4x Combat Scope": "4x 전투 스코프",
+   "Angled Foregrip": "앵글 전방 손잡이",
+   "Compensator": "보정기",
+   "Drum Magazine": "드럼 탄창",
+   "Duckbill": "덕빌",
+   "Extended Magazine": "확장 탄창",
+   "Flash Hider": "소염기",
+   "Flashlight": "조명",
+   "Flashlight Vertical Foregrip": "조명 수직 전방 손잡이",
+   "Focus Lens": "초점 렌즈",
+   "Full Choke": "풀 초크",
+   "Half Choke": "하프 초크",
+   "High Capacity Heatsink": "고용량 방열판",
+   "High Dissipation Heatsink": "고효율 방열판",
+   "Holographic Sight": "홀로그램 조준경",
+   "Iron Sight": "기계식 조준경",
+   "Laser Sight": "레이저 조준경",
+   "Laser Sight Angled Foregrip": "레이저 조준기 앵글 전방 손잡이",
+   "Laser Sight W/ Flashlight": "레이저 조준경 + 조명",
+   "Muzzle Brake": "총구제동기",
+   "Reflex Sight": "반사식 조준경",
+   "Reflex Sight Mk2": "반사식 조준경 MK2",
+   "Short Magazine": "짧은 탄창",
+   "Standard Heatsink": "표준 방열판",
+   "Triple Lens": "삼중 렌즈",
+   "Vertical Foregrip": "수직 전방 손잡이"
   }
  }
 }

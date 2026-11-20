@@ -77,6 +77,13 @@ for (const section of upgrades.sections) for (const [key, what] of [[section.en,
   if (korean) out.strings.shipModuleUpgrades[key] = korean; else moduleWarnings.push(key ? `${what}: ${key}` : `no game text reads like the ${what}`);
 }
 if (moduleWarnings.length) console.log(`To check (ship modules, shown in English):\n  ${moduleWarnings.join('\n  ')}`);
+// Weapon attachments: every non-empty attachment name present in the game string table.
+out.strings.attachments = {};
+const wikiAttachments = await source('wiki_attachments.json');
+for (const key of [...new Set(wikiAttachments.cargo.rows.map(row => row._pageName).filter(name => !/^No /.test(name)))].sort()) {
+  const korean = exact.get(key) ?? folded.get(key.toLowerCase());
+  if (korean) out.strings.attachments[key] = korean;
+}
 if (missing.length) throw new Error(`No Korean in db/source/game_strings_ko.tsv for:\n  ${missing.join('\n  ')}\nCheck the English against the table (it is the game's exact text).`);
 await writeFile(new URL('../db/source/game_names_ko.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
 console.log(`game build ${build}: ${Object.values(out.strings).reduce((sum, group) => sum + Object.keys(group).length, 0)} strings`);

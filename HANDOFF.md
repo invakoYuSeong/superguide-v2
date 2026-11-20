@@ -3,12 +3,12 @@
 > 작업을 마친 AI가 **덮어써서** 최신으로 유지합니다. 쌓아 두는 일지가 아닙니다. 규칙은 [AGENTS.md](AGENTS.md)를 보세요.
 
 - 마지막 갱신: 2026-11-20, Claude Code 담당
-- 기준: master `51eb532`(2026-11-19 배포됨). 그 뒤 `work/wiki-features`에 로컬 커밋이 쌓여 있음(아직 배포 안 함, 아래 '로컬 작업').
+- 기준: `master` (2026-11-20 기능 묶음 게시, [PR #10](https://github.com/modocracy/superguide-v2/pull/10) 병합 뒤)
 - 진행 중인 작업: 없음.
 
 ## 지금 상태
 
-- **로컬 작업(2026-11-20, 배포 전)**
+- **기능 묶음(2026-11-20, master 배포됨)**
   - **장비 칩**: 슈퍼 스토어 무기 8종(사이·스위퍼·연막·더블 프리덤·마체테·워런트·전투 손도끼·스턴 배턴)에 '슈퍼 스토어' 칩(누르면 `#/superstore`), 나이트에 '슈퍼 시민 에디션' 칩(위키 MP-98 Knight 입수 절). `dist/ui/warbond-chip.js`.
   - **함선 모듈 탭**(장비 → 부스터 오른쪽, `#/gear?tab=modules&u=<모듈>`, 전체 검색에도 30개): 6개 부서 × 5단계 30개, 비용(일반·희귀·슈퍼 샘플, 요청 신청서)과 합계(3,830 / 2,920 / 305 / 335,000 = 위키 Total 행). 이름·효과는 게임 문장(위키 효과 문장과 #VALUE를 맞춰 자동 대응, `scripts/ship-module-parse.mjs`), 비용은 기존 원본 `wiki_stratagem_stats.json`의 Ship Modules rev 134806. 스트라타젬 도감이 쓰는 12개 모듈은 '재사용 시간에 반영' 링크. 부서 아이콘 6개는 위키 SVG(`fetch-ship-module-icons` → `wiki_ship_module_icons.json`). 일반·희귀·슈퍼 샘플과 요청 신청서 아이콘은 위키 Currency 틀의 그림(`fetch-currency-icons`에 추가, `dist/assets/icons/`). `build-game-names` → `build-ship-module-upgrades` → `test-ship-module-upgrades`. 게임 문장을 못 찾은 이름·효과(위키 문장이 바뀐 경우)는 위키 영어로 표시, 아이콘이 없는 부서는 아이콘 없이, 비용 합이 위키 Total 행과 다르면 합을 표시하고 모두 '확인할 것'으로만 알림(빌드·검사·`build-game-names` 모두 멈추지 않음, 2026-11-19 결정과 같은 방식).
   - **적 공격표 '공격 패턴'**(적 대응 화면, 등장·행동 아래, 기본 접힘이고 한 번 펼치면 다른 적으로 가도 펼친 채 유지): 각 적 위키 문서의 Weapons Loadout 상자(86종, 247개)를 새 원본 `db/source/wiki_enemy_weapons.json`(`fetch-enemy-weapons`, 기존 `wiki_enemy_pages.json`은 그대로)으로 받고, 공격 이름 151종은 사이트 번역(`db/source/enemy_weapon_korean.json`, 기존 행동 요약과 같은 용어). '쓰러질 때까지 맞는 횟수(몸통 기준)'의 경량·일반·중량(장갑 50·100·150) 칸은 **어림값**(체력 125 ÷ (피해 × 방어구 배율), 위키 Template:Armor Ratings rev 136845)이고 폭발이 없는 단일 직격(탄도·근접·베기 등)만 계산. 폭발·화염·산성·여러 줄 피해는 숫자만, 관통은 위키에 공식이 없어 계산에서 뺌(사용자에게 보고, 2026-11-20). `build-enemy-weapons` → `test-enemy-weapons`. 번역이 없는 새 공격 이름은 영어로 표시하고 빌드·검사는 멈추지 않음('확인할 것'으로만 알림, 2026-11-19 결정과 같은 방식). 좁은 화면 넘침 때문에 `.enemy-layout` 모바일 열을 `minmax(0, 1fr)`로. 600px 이하에서는 표를 화면 폭에 맞춤('장갑 N' 보조 글씨 숨김).
@@ -24,7 +24,14 @@
   - **검사 원칙(2026-11-20)**: 이번에 넣은 검사들은 위키 수치를 고정값으로 확인하지 않음(밸런스 패치로 값이 바뀌어도 배포를 막지 않게). 읽는 코드는 정해진 예시 문장으로 확인하고, 생성 파일이 원본과 맞는지(다시 만든 결과와 같은지)만 실패로 침.
   - 검사: `npm run check` 23종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 화면 확인(콘솔 오류 없음).
 
-- **위키·게임 자료 기능 묶음(2026-11-19, 배포됨)**
+- **보수 점검 수정([PR #10](https://github.com/modocracy/superguide-v2/pull/10), 2026-11-19, 배포됨)**
+  - **모바일 영어 화면(360~375px) 가로 넘침·하단 탭바 수정**(`dist/ui/app.css`): 영어 화면에서 채권 필터 칩 줄(`.wb-filters .chips`)이 `flex-wrap: nowrap`으로 378px까지 밀려나 모바일 뷰포트 전체가 축소되고, 하단 7칸 탭바(`.tabbar`)도 `Stratagems`·`Demolition` 폭으로 넘치던 문제를 `flex-wrap: wrap`·`repeat(7, minmax(0, 1fr))`·영어 전용 유동 글자 크기(`:root[lang="en"] .tabbar a`, 한국어는 원래 11px 유지)로 해결. `.biome-thumb` 중복 `width` 정리.
+  - **테마 색·오래된 문구·문서 동기화**: `dist/ui/main.js`의 `THEME_COLORS`를 게임 스타일 색(`#0c0e0d` / `#f1f1ea`)으로 `index.html`과 맞춤. `dist/index.html` 하단 확인 날짜(`11-08 재대조`)와 검색창 안내 문구(방어구·부스터 포함), `README.md`(7탭 기준) 최신화.
+  - **부착물 3종 게임 공식 이름 반영**: `build-game-names.mjs`가 `attachments` 항목을 추출하고 `build-attachments.mjs`가 게임 문장표를 나무위키보다 우선 적용하도록 보강 → `Flashlight`(조명)·`Focus Lens`(초점 렌즈)·`Triple Lens`(삼중 렌즈)까지 주무기 부착물 29종 모두 한국어 표시(`left in English: 0`). `test-attachments.mjs` 검증 추가.
+  - **중기관총(MG-206) 인체공학성 확인**: 위키 인포박스(`rev 142132`)에는 인체공학성 항목이 없고, datamine(`weapons_data.json` `MG-206 HEAVY MACHINE GUN`) 값이 `0`임을 확인해 그대로 유지.
+  - 검사: `npm run check` 18종 통과, `node scripts/check-weapons.mjs` 통과, 헤드리스 크롬 360·375·1280·1440px 한/영 점검(JS 오류·콘솔 오류·404·영어 화면 한글 누출·가로 넘침 0건).
+
+- **위키·게임 자료 기능 묶음(2026-11-19, master 배포됨)**
   - **한국어 이름 규칙 변경**(AGENTS.md): 게임 안 자료로 확인한 최신 표기가 우선, 나무위키는 보조, 게임에도 없으면 알맞게 번역. 게임 공식 문장표(음성 대사·300자 넘는 글 제외, 10,306줄, 게임 빌드 26568081)가 `db/source/game_strings_ko.tsv`에 있고, `node scripts/build-game-names.mjs`가 사이트가 쓰는 문장만 `db/source/game_names_ko.json`에 뽑습니다. 게임 업데이트 뒤 문장표 갱신은 원본 표가 있는 PC에서 `scripts/tools/import-game-strings.mjs <tsv> --planets <행성.json>`(행성 이름·생물군계 설명은 `db/source/game_planets_ko.json`).
   - **게임 이름으로 바꾼 36개**(`db/source/game_name_targets.json`, `test-game-names.mjs`): 포격 FRV·화물 컨테이너·휴대용 통신 릴레이·증원 포드·지진 탐지기·전술용 비디오 카메라·로버·핫도그·K-9·독 브레스, 퍼니셔 플라스마·핫샷 마크맨 라이플, O-3 자유로운 영혼·O-44 조종사와의 유대감·운동 에너지 변위 완화·충격 방지 패드, 강화 버전·산소공급기, 차저 베히모스·어설트 레이더·머로더·MG 레이더·데버스테이터(로켓·거대·제트 여단)·바라저 탱크·벙커 포탑·옵트루더·버레이시터, 건십 시설·워프 게이트웨이·탐지 탑·궤도 캐넌·테러리스트 기념물·인지 분열기 전원 장치. 무기·방어구 빌드(`build-weapons`·`build-armor`)는 이 표의 게임 이름을 나무위키보다 먼저 씁니다. 스트라타젬 옛 이름은 검색 별칭으로 남김.
   - **함선 모듈**: 스트라타젬 도감에 '함선 모듈 적용/미적용'(기본 적용, `?mod=off`), 카드마다 재사용 시간. 기본값은 각 위키 문서 Stratagem Stats Table(`fetch-stratagem-stats` → `build-stratagem-stats`, `dist/data/stratagem-stats.js`), 모듈 비율은 Ship Modules rev 134806(`dist/data/ship-modules.js`, 계산 `dist/core/modules.js`). 비율은 곱하고 '사기 증강' 5%도 넣음(위키 문서 대부분은 5%를 빼고 적음). 불릿 스톰 위키값 66.5초는 확인한 차이로 `test-stratagem-stats.mjs`에 기록.
@@ -48,18 +55,16 @@
 - **새 적 2종·M-104(2026-11-08, 배포됨)**: 녹셔스 스캐빈저·녹셔스 스퓨어(부위 수치는 스캐빈저·커스틱 스퓨어 것을 옮김), M-104 소각형 고속 정찰 차량.
 - **위키 재대조(2026-11-08, 배포됨)**: 모든 원본 재대조. LAS-16 Sickle 열 용량 8.4초(106발), 커스틱 4종 페이지 이름 변경 반영, `fetch-enemy-anatomy`가 넘겨주기를 따라감. datamine 판 142136.
 - **방어구 페이지·채권 ↔ 방어구 연결(2026-11-03, 배포됨)**: 장비 화면의 방어구 탭(113종, 패시브 32종). 파이프라인 `fetch-armor` → `build-armor` → `python scripts/tools/fetch-armor-images.py` → `npm run check`. BFM-77 Reformer는 인포박스대로 일반 표시(`armorDiscrepancies`).
-- **게임 스타일 적용(배포됨)**: 올리브 블랙·노란색·경고 줄무늬·잘린 모서리, Barlow Condensed + Pretendard. 거절된 개편 브랜치 `auto/2026-11-03-hallmark-redesign`은 병합하지 않음(삭제 여부 사용자 결정 대기).
+- **게임 스타일 적용(배포됨)**: 올리브 블랙·노란색·경고 줄무늬·잘린 모서리, Barlow Condensed + Pretendard. 거절된 개편 브랜치 `auto/2026-11-03-hallmark-redesign`(6526613)은 사용자 지시로 삭제(2026-11-19). 옛 `auto/*` 브랜치는 GitHub·PC 모두 정리했고 남은 브랜치는 `master`뿐.
 - **채권 화면**: 5×3 보드(26개 채권·603개 항목), 이미지는 위키 원본에서 표시 크기 2배 이상(용량 한도: 항목 폴더 12,500,000B, 파일당 140,000B, 배너 350,000B, SVG 50,000B). 1340px 이상에서는 항목 상세가 채권 패널 왼쪽에 별도 패널(360~560px)로 열림.
 - **PR 검사 워크플로 없음**: `check.yml`은 지움(2026-11-03). `deploy-pages.yml`이 `npm run check` 후 배포합니다. `check-weapons.mjs`는 PC에서 직접 돌립니다.
 
 ## 남은 일 (각각 사용자 승인 후 진행)
 
-- **실제 기기 확인**: 스토어·슈퍼 스토어(휴대폰에서 3×2 보드 글자 크기), 휴대폰 하단 탭 7칸(360px에서 글자 넘침 없음은 헤드리스로 확인), 행성·부스터 탭, 게임 스타일·방어구 탭, 5×3 보드.
+- **실제 기기 확인**: 스토어·슈퍼 스토어(휴대폰에서 3×2 보드 글자 크기), 휴대폰 하단 탭 7칸(360·375px 한/영 넘침 없음은 헤드리스로 확인), 행성·부스터 탭, 게임 스타일·방어구 탭, 5×3 보드.
 - **전술 재장전 미확인 32종**: 리버레이터·브레이커·세네터 등 주·보조무기 32종은 위키 인포박스에 `tac_reload_time`이 없음(2026-11-19 현재 판 확인, datamine에도 재장전 시간 없음). 출처 없이 채우지 않고 '탄창을 비웠을 때' 값만 표시. 위키에 올라오면 `fetch-weapons-source` → `build-weapons`로 자동 반영.
-- **중기관총 인체공학성 0**: datamine 값 그대로 표시 중. 위키 MG-206 문서 값과 대조해 다르면 사용자에게 물어보기.
 - **녹셔스 적 재확인**: 위키 문서가 작성 중(WIP). 고유 수치가 올라오면 `fetch-enemy-anatomy` → `npm run check`가 판번호 차이로 알려 줍니다.
 - **전송 네트워크 철거력 10**: 위키에 값 없음, 사용자가 받아들인 값(`thresholdSource: 'user'`).
-- 부착물 Flashlight·Focus Lens·Triple Lens는 영어 표시 중. 게임 이름(조명·초점 렌즈·삼중 렌즈)이 문장표에 있으니 바꿀지 사용자 결정 전.
 - StA-52 예비 탄창: datamine 7, 위키 6(rev 140347). 위키가 7로 바뀌면 다시 받고 `scripts/weapon-infobox.mjs`의 기록된 불일치를 지웁니다.
 - 전쟁 채권 '미확인' 12건은 모두 페이지 해금 메달 수입니다(2쪽 'Unknown' 9건, 마지막 쪽 해금이 인포박스와 다른 3건: 철갑의 민주주의·공성 파괴자·존재하지 않는 부대). 위키·나무위키·게임 문장표 어디에도 값이 없어 그대로 둠. 항목 비용 불일치는 2026-11-19에 항목 개별 문서로 판정(`node scripts/fetch-warbond-item-pages.mjs` → `build-warbonds`, `scripts/warbond-resolve.mjs`): TG-8 헬멧 30, SS-33 방어구 45·헬멧 30, CPG-48 헬멧 35, 무결의 문장 카드 6, 초과 EAT 할당 2쪽 55, 통합 화재 진압기 3쪽 65. CPG-48 헬멧·무결의 문장 카드는 나무위키 총 메달 수(888)가 보드 틀 값(30·7) 합과 맞아, 개별 문서 값(35·6)과 다름에 유의.
 - **[사용자가 정한 차후 작업] 채권 페이지를 게임 안 전쟁 채권 화면과 똑같이 맞추기**: 사용자가 시작하라고 할 때 진행.
