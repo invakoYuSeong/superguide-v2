@@ -343,19 +343,25 @@ function specialBlock(item, profile) {
   </section>`;
 }
 
-// The detail grid adds a support weapon's ergonomics (weapon handling, datamine) to the card stats,
-// and the ship unlock (level and Requisition Slips, wiki infobox) where the stratagem is bought on the ship.
-const detailStats = item => {
+// The detail grid: the card stats plus durable damage, ammo and fire rate (data-support.js), a support
+// weapon's ergonomics and sway (datamine) and the ship unlock (level and Requisition Slips, wiki infobox).
+// Same order as the gear sheet: damage (direct, blast, durable, penetration), reach, ammo and fire rate,
+// handling, unlock. A stat the item does not have at all (no blast, '—' on utility gear) is left out;
+// an unverified one stays as 미확인.
+const statCell = stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`;
+const statGrid = item => {
+  const [direct, blast, ap, reach] = stats(item);
+  const [durable, ...ammo] = ammoCells(item);
   const { ergonomics, sway, unlock } = stratagemStats[item.id] ?? {};
-  return [...stats(item),
-    ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
+  const absent = stat => stat.dim && (stat.text === '—' || stat.text === L('없음', 'None'));
+  const handling = [
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
     // Sway only where it differs from the standard 100% (user decision 2026-11-19).
-    ...(sway == null || sway === 1 ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }])];
+    ...(sway == null || sway === 1 ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }]),
+    ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
+  ];
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${statCell(reach)}${ammo}${rateCell(item)}${handling.map(statCell)}</dl>`;
 };
-const statGrid = item => html`<dl class="detail-grid">${detailStats(item).map(stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}</div>`)}
-  ${ammoCells(item)}
-  ${rateCell(item)}</dl>`;
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
   const cat = categoryOf(item.category);

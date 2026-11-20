@@ -144,22 +144,25 @@ function renderBrowse() {
 }
 
 // --- Detail sheet ------------------------------------------------------------------
+// Same order as the stratagem sheet: damage (direct, blast, durable, penetration, fragments, over time),
+// reach, ammo, fire rate and reload, handling, throwable facts, quick melee.
 function detailRows(w) {
   const rows = [];
   // Numbers show at full strength; words (a fuse type, raw wiki text) are dimmed.
   const add = (label, text, unit = '', caption = '') => text != null && rows.push({ label, text, unit, caption, dim: !/\d/.test(String(text)) });
   const s = L('초', 's'), perSecond = L('/초', '/s');
   if (w.direct != null && w.damageKind === 'dps') add(L('광선 피해', 'Beam damage'), num(w.direct), perSecond, L('비추고 있는 동안', 'While the beam is on target'));
-  else if (w.direct != null) add(w.pellets > 1 ? L('펠릿당 피해', 'Damage per pellet') : L('직격 피해', 'Direct damage'), num(w.direct), '', w.pellets > 1 ? L(`${w.pellets}발 모두 맞으면 ${num(w.direct * w.pellets)}`, `${num(w.direct * w.pellets)} if all ${w.pellets} hit`) : L('장갑에 막히지 않을 때', 'When armor does not stop it'));
+  else if (w.direct != null) add(w.pellets > 1 ? L('펠릿당 피해', 'Damage per pellet') : L('직격', 'Direct'), num(w.direct), '', w.pellets > 1 ? L(`${w.pellets}발 모두 맞으면 ${num(w.direct * w.pellets)}`, `${num(w.direct * w.pellets)} if all ${w.pellets} hit`) : L('장갑에 막히지 않을 때', 'When armor does not stop it'));
   // Only firing modes carry ammoPerShot (all barrels at once, a volley).
   if (w.ammoPerShot > 1 && w.direct != null) add(L('한 번에 발사', 'Fired at once'), num(w.ammoPerShot), L('발', ''), L(`모두 맞으면 ${num(w.direct * (w.pellets || 1) * w.ammoPerShot)}`, `${num(w.direct * (w.pellets || 1) * w.ammoPerShot)} if all hit`));
   // Fires whatever is left in the magazine (Variable "Total"), so the full magazine is the most.
   if (w.ammoAll && w.direct != null && w.magazine != null) add(L('한 번에 발사', 'Fired at once'), num(w.magazine), L('발', ''), L(`남은 탄 전부 · 가득 차 있으면 모두 맞을 때 ${num(w.direct * w.magazine)}`, `Every round left · ${num(w.direct * w.magazine)} if a full magazine all hits`));
+  if (w.splash != null) add(L('폭발', 'Blast'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
-  if (apOf(w) != null) add(L('관통력', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
-  if (w.splash != null) add(L('폭발 피해', 'Blast damage'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
+  if (apOf(w) != null) add(L('관통', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
   if (w.shrapnelCount) add(L('파편', 'Fragments'), num(w.shrapnelCount), L('개', ''), L('폭발 1회당 · 다 맞지는 않음', 'Per explosion · not all of them hit'));
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
+  if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
   if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
   if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
   if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
@@ -167,15 +170,14 @@ function detailRows(w) {
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
   else if (w.rpm != null) add(L('연사', 'Fire rate'), num(w.rpm), '', L('분당 발수', 'Rounds per minute'));
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
+  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', L('기본 상태 · 높을수록 조준이 빨리 따라옴', 'Base · higher = the aim follows faster'));
   // Sway only where it differs from the standard 100% (user decision 2026-11-19).
   if (w.sway != null && w.sway !== 1) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
-  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
   if (w.fuse != null) add(L('신관', 'Fuse'), num(w.fuse), s, L('던진 뒤 폭발까지', 'From throw to detonation'));
   else if (fuseText(w)) add(L('신관', 'Fuse'), fuseText(w), '', { impact: L('닿는 순간 폭발', 'Explodes on contact'), proximity: L('적이 가까이 오면 폭발', 'Explodes when an enemy comes close'), selectable: L('던지기 전에 시간 선택', 'Pick the timer before throwing') }[w.fuseType] || '');
   if (w.spreadModes?.length) add(L('퍼뜨리기', 'Spread'), w.spreadModes.map(id => ({ narrow: L('좁게', 'Narrow'), wide: L('넓게', 'Wide') })[id] ?? id).join(' / '), '', L('던지기 전에 선택', 'Pick before throwing'));
-  if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
   // Quick melee (melee.js): every Helldiver's strike, or the bayonet on the weapons that carry one.
   if ((w.category === 'primary' || w.category === 'secondary') && w.type !== 'melee') {
     const bayonet = bayonetWeapons.includes(w.id), hit = bayonet ? quickMelee.bayonet : quickMelee.helldiver;
