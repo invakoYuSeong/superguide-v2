@@ -3,12 +3,11 @@ import { num } from '../core/explain.js';
 import { html } from './dom.js';
 import { L } from '../core/i18n.js';
 
-// An enemy behind the circles at the same scale, so the radius reads against something known: an Alpha
-// Commander for small blasts, a Charger for middling ones, a Bile Titan for the rest (user decision 2026-11-20).
+// An enemy behind the circles at the same scale, so the radius reads against something known: a Charger for
+// small blasts, a Bile Titan for the rest (user decision 2026-11-20).
 // Spans are side to side across the legs, from the leg-tip bones of the game models (Helldivers 2 01.007.202,
 // via hd2armorinspector.com, measured 2026-11-20); pictures are the wiki's Enemy Icons cropped to the body (480 px wide).
 const SCALE_ENEMIES = [
-  { upTo: 3, name: L('알파 커맨더', 'Alpha Commander'), span: 4.5, src: './assets/blast/alpha-commander.webp', ratio: 395 / 480 },
   { upTo: 6, name: L('차저', 'Charger'), span: 4.7, src: './assets/blast/charger.webp', ratio: 372 / 480 },
   { upTo: Infinity, name: L('바일 타이탄', 'Bile Titan'), span: 12, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
 ];
