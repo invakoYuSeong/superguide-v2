@@ -2,7 +2,7 @@
 // item detail alongside it (or in its place on narrow screens).
 //   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal|armor>/<id>&m=<mode>
 import { currencyIcons } from '../../data/currency-icons.js';
-import { storeTabs } from '../store-tabs.js';
+import { storeTabs, markTile } from '../store-tabs.js';
 import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
 import { armors } from '../../data/armor.js';
 import { warbondImages } from '../../data/warbond-images.js';
@@ -166,7 +166,8 @@ const MEDAL = raw(`<img class="wb-medal" src="${currencyIcons.medal.src}" alt=""
 
 // One reward tile at its in-game board position (Acquisitions Page template: col/row/span).
 // Weapons, stratagems and armor with a site entry open in the item pane; other items link to the wiki.
-export function tile(item, warbondId, { placed = true } = {}) {
+// cell: '<page>-<n>' (n-th tile of that page), the key the search's f= parameter marks.
+export function tile(item, warbondId, { placed = true, cell = '' } = {}) {
   const ref = siteEntry(item, warbondId), target = ref?.target;
   const ko = target ? null : koreanTileName(item, warbondId);
   // Official English directly (not via the dictionary: a Korean name can be shared, e.g. 스토커).
@@ -192,7 +193,7 @@ export function tile(item, warbondId, { placed = true } = {}) {
     : wiki ? html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`
       : html`<div class="wb-tile-body" title="${title}">${body}</div>`;
   const area = placed ? `grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}` : '';
-  return html`<li class="wb-tile" data-kind="${item.kind}" data-span="${item.colspan}x${item.rowspan}" ${area ? html`style="${area}"` : ''} ${notes.length ? 'data-unsure' : ''} ${image ? '' : 'data-no-image'}>${inner}</li>`;
+  return html`<li class="wb-tile" ${cell ? html`data-cell="${cell}"` : ''} data-kind="${item.kind}" data-span="${item.colspan}x${item.rowspan}" ${area ? html`style="${area}"` : ''} ${notes.length ? 'data-unsure' : ''} ${image ? '' : 'data-no-image'}>${inner}</li>`;
 }
 
 // One page as the in-game 5×3 board. A page whose template layout does not fill the board
@@ -206,7 +207,7 @@ export function pageBlock(page, warbond) {
       <h3 id="wb-page-${page.number}"><span aria-hidden="true">PAGE_${page.number}</span><span class="sr-only">${L(`${page.number}페이지`, `Page ${page.number}`)}</span></h3>
       <span class="faint">${unlock}</span>
       <span class="wb-page-total">${page.cost != null ? html`${L('합계', 'Total')} ${medals(page.cost)}` : html`${L('합계', 'Total')} ${unconfirmed()}`}</span></div>
-    <ul class="wb-board ${placed ? '' : 'is-unplaced'}" data-tier="${warbond.tier}" style="--wb-cols: ${warbondBoard.cols}; --wb-rows: ${warbondBoard.rows}">${page.items.map(item => tile(item, warbond.id, { placed }))}</ul>
+    <ul class="wb-board ${placed ? '' : 'is-unplaced'}" data-tier="${warbond.tier}" style="--wb-cols: ${warbondBoard.cols}; --wb-rows: ${warbondBoard.rows}">${page.items.map((item, i) => tile(item, warbond.id, { placed, cell: `${page.number}-${i + 1}` }))}</ul>
     ${placed ? '' : html`<p class="faint">${L('위키의 타일 배치가 5×3 칸과 맞지 않아 순서대로 놓았습니다(배치 미확인).', 'The wiki tile layout does not fit the 5×3 board, so the tiles are listed in order (layout unconfirmed).')}</p>`}</section>`;
 }
 
@@ -419,4 +420,6 @@ export function update(route) {
   const mode = ref?.view === 'arsenal' ? (ref.target.variants?.some(v => v.id === route.query.m) ? route.query.m : '')
     : ref?.view === 'gear' && /^[a-z0-9-]+$/.test(route.query.m || '') ? route.query.m : '';
   if (value !== state.item || mode !== state.mode) showItem(value, mode);
+  // f=<page>-<n>: mark that tile (from the search) once the sheet has rendered.
+  if (route.query.f) requestAnimationFrame(() => markTile($('.wb-bond-pane') || document, route.query.f));
 }

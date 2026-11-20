@@ -9,7 +9,7 @@ import { personalWeapons } from '../../data/personal-weapons.js';
 import { html, render } from '../dom.js';
 import { L, lang, locale } from '../../core/i18n.js';
 import { formatRoute } from '../../core/route.js';
-import { storeTabs } from '../store-tabs.js';
+import { storeTabs, markTile } from '../store-tabs.js';
 
 const count = value => value.toLocaleString(locale());
 const warbondById = new Map(warbonds.map(warbond => [warbond.id, warbond]));
@@ -23,7 +23,8 @@ const WEAPON_KIND = { primary: ['주무기', 'Primary'], secondary: ['보조무�
 const SC = html`<img class="wb-medal" src="${currencyIcons['super-credit'].src}" alt="" aria-hidden="true">`;
 
 // Weapons and armor open the site's own entry; capes, cards and emotes link to the wiki.
-function tile(item) {
+// cell: '<page>-<n>' (n-th tile of that page), the key the search's f= parameter marks.
+function tile(item, cell) {
   const weapon = item.ref?.view === 'gear' ? weaponById.get(item.ref.id) : null;
   const kind = weapon ? L(...(WEAPON_KIND[weapon.category] ?? KIND.weapon)) : L(...KIND[item.kind]);
   const ko = weapon ? weapon.name : item.ko;
@@ -40,7 +41,7 @@ function tile(item) {
   const title = [name, sub, kind].filter(Boolean).join('\n');
   const inner = href ? html`<a class="wb-tile-body" href="${href}" title="${title}">${body}</a>`
     : html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`;
-  return html`<li class="wb-tile" data-kind="${item.kind}" data-span="${item.colspan}x${item.rowspan}" style="grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}" ${image ? '' : 'data-no-image'}>${inner}</li>`;
+  return html`<li class="wb-tile" data-cell="${cell}" data-kind="${item.kind}" data-span="${item.colspan}x${item.rowspan}" style="grid-column: ${item.col} / span ${item.colspan}; grid-row: ${item.row} / span ${item.rowspan}" ${image ? '' : 'data-no-image'}>${inner}</li>`;
 }
 
 function pageBlock(page) {
@@ -50,7 +51,7 @@ function pageBlock(page) {
       <h3 id="ss-page-${page.number}"><span aria-hidden="true">PAGE_${page.number}</span><span class="sr-only">${L(`${page.number}페이지`, `Page ${page.number}`)}</span></h3>
       <span class="faint">${theme}</span>
       <span class="wb-page-total">${L('합계', 'Total')} ${count(page.total)}<small> SC</small></span></div>
-    <ul class="wb-board" data-tier="premium" style="--wb-cols: ${superstoreBoard.cols}; --wb-rows: ${superstoreBoard.rows}">${page.items.map(tile)}</ul></section>`;
+    <ul class="wb-board" data-tier="premium" style="--wb-cols: ${superstoreBoard.cols}; --wb-rows: ${superstoreBoard.rows}">${page.items.map((item, i) => tile(item, `${page.number}-${i + 1}`))}</ul></section>`;
 }
 
 export function mount(container) {
@@ -66,4 +67,6 @@ export function mount(container) {
     <div class="ss-pages">${superstorePages.map(pageBlock)}</div>`);
 }
 
-export function update() {}
+export function update(route) {
+  if (route.query.f) requestAnimationFrame(() => markTile(document.querySelector('.ss-pages') || document, route.query.f));
+}

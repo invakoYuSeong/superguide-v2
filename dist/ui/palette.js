@@ -47,16 +47,17 @@ export async function createPalette(ctx) {
     { id: 'structures', name: L('시설', 'Structures'), items: structures.map(item => ({ fields: { names: [item.name, T(item.name)], text: [item.faction, T(item.faction), item.tip, T(item.tip)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('철거 방법', 'how to demolish')}`, image: pickerStructureImages[item.id]?.src, route: { view: 'demolition', query: { s: item.id } } })) },
     { id: 'factions', name: L('팩션', 'Factions'), items: factionGuides.map(item => ({ fields: { names: [item.name, item.en], text: [item.intro, T(item.intro)] }, label: T(item.name), sub: `${T(factionSides.find(side => side.id === item.side).name)} · ${L('추천 장비', 'recommended loadout')}`, image: factionSides.find(side => side.id === item.side).icon, route: { view: 'factions', id: item.id } })) },
     { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en], text: [tierName(item.tier)] }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
-    // Warbond tiles that have no page of their own elsewhere (cosmetics, helmets, boosters...): open their warbond.
+    // Warbond tiles that have no page of their own elsewhere (cosmetics, helmets, boosters...): open their
+    // warbond and mark the tile (f=<page>-<n>, the n-th tile of that page).
     { id: 'warbond-items', name: L('전쟁 채권 항목', 'Warbond items'), items: warbonds.flatMap(bond => bond.pages.flatMap(page => page.items
-      .filter(item => !item.ref && item.kind !== 'super-credits')
-      .map(item => ({ fields: { names: [item.ko, item.name].filter(Boolean), text: [kindName(item.kind), bond.name, bond.en] }, label: item.ko ? L(item.ko, item.name) : item.name,
-        sub: `${kindName(item.kind)} · ${T(bond.name)}`, image: warbondItemImages[item.image]?.src, route: { view: 'warbonds', id: bond.id } })))) },
-    // Superstore cosmetics (its weapons and armor are found under Gear and Armor).
+      .map((item, i) => [item, `${page.number}-${i + 1}`]).filter(([item]) => !item.ref && item.kind !== 'super-credits')
+      .map(([item, cell]) => ({ fields: { names: [item.ko, item.name].filter(Boolean), text: [kindName(item.kind), bond.name, bond.en] }, label: item.ko ? L(item.ko, item.name) : item.name,
+        sub: `${kindName(item.kind)} · ${T(bond.name)}`, image: warbondItemImages[item.image]?.src, route: { view: 'warbonds', id: bond.id, query: { f: cell } } })))) },
+    // Superstore cosmetics (its weapons and armor are found under Gear and Armor), tile marked the same way.
     { id: 'superstore', name: L('슈퍼 스토어', 'Superstore'), items: superstorePages.flatMap(page => page.items
-      .filter(item => !item.ref && item.kind !== 'weapon')
-      .map(item => ({ fields: { names: [item.ko, item.base, item.name].filter(Boolean), text: [kindName(item.kind)] }, label: item.ko ? L(item.ko, item.base) : item.base,
-        sub: `${kindName(item.kind)} · ${item.cost} SC`, image: warbondItemImages[item.image]?.src, route: { view: 'superstore' } }))) },
+      .map((item, i) => [item, `${page.number}-${i + 1}`]).filter(([item]) => !item.ref && item.kind !== 'weapon')
+      .map(([item, cell]) => ({ fields: { names: [item.ko, item.base, item.name].filter(Boolean), text: [kindName(item.kind)] }, label: item.ko ? L(item.ko, item.base) : item.base,
+        sub: `${kindName(item.kind)} · ${item.cost} SC`, image: warbondItemImages[item.image]?.src, route: { view: 'superstore', query: { f: cell } } }))) },
     // Planet tab cards: open the tab and mark the card (b=).
     { id: 'planet-info', name: L('행성 정보', 'Planet info'), items: PLANET_TABS.flatMap(([tab, tabName, lists]) => lists.flat().map(item => ({
       fields: { names: [item.name, item.en].filter(Boolean), text: [tabName, item.description, item.descriptionEn, ...(item.detail ?? [])].filter(Boolean) },
