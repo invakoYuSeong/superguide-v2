@@ -381,7 +381,7 @@ export function stratagemDetail(item, { demolition = false, force = null, header
   <div class="sheet-content">
     <div class="detail-id"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
       <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
-      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}</div></div></div>
+      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}${holeTag(item)}</div>${holeNote(item)}</div></div>
     ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
     <p style="font-size:16px">${item.summary}</p>
     ${firingModesBlock(item)}
@@ -411,7 +411,52 @@ export function stratagemDetail(item, { demolition = false, force = null, header
   </div>`;
 }
 
+// Demolition data and its solver are large: loaded once, the first time a detail needs them.
 let demolitionProfiles = null;
+let bugHoleTier = () => null;
+// Stratagems that pass the bug hole's inner route on paper but cannot be aimed into a hole: barrages that only
+// land in one by chance (the community guide counts them as practically unable), sentries that pick their own
+// targets, and mines that go off when an enemy steps on them (user decision 2026-11-20).
+const HOLE_CONDITIONS = {
+  'orbital-gatling': L('폭발탄이 우연히 굴 안에 떨어질 때만 닫혀, 굴을 닫는 데는 사실상 쓰기 어렵습니다.', 'Closes a bug hole only when a shell happens to land inside, so it is practically unusable for closing holes.'),
+  'orbital-napalm': L('폭발탄이 우연히 굴 안에 떨어질 때만 닫혀, 굴을 닫는 데는 사실상 쓰기 어렵습니다.', 'Closes a bug hole only when a shell happens to land inside, so it is practically unusable for closing holes.'),
+  'eagle-strafing': L('폭발탄이 우연히 굴 안에 떨어질 때만 닫혀, 굴을 닫는 데는 사실상 쓰기 어렵습니다.', 'Closes a bug hole only when a shell happens to land inside, so it is practically unusable for closing holes.'),
+  'autocannon-sentry': L('센트리가 굴 근처의 적을 쏘다가 탄이 굴 안에서 터질 때만 닫힙니다. 굴을 직접 겨누게 할 수 없습니다.', 'Closes a bug hole only when the sentry fires at an enemy by the hole and a round explodes inside; you cannot make it aim at the hole.'),
+  'rocket-sentry': L('센트리가 굴 근처의 적을 쏘다가 탄이 굴 안에서 터질 때만 닫힙니다. 굴을 직접 겨누게 할 수 없습니다.', 'Closes a bug hole only when the sentry fires at an enemy by the hole and a round explodes inside; you cannot make it aim at the hole.'),
+  'mortar-sentry': L('센트리가 굴 근처의 적을 쏘다가 탄이 굴 안에서 터질 때만 닫힙니다. 굴을 직접 겨누게 할 수 없습니다.', 'Closes a bug hole only when the sentry fires at an enemy by the hole and a round explodes inside; you cannot make it aim at the hole.'),
+  'ems-mortar': L('센트리가 굴 근처의 적을 쏘다가 탄이 굴 안에서 터질 때만 닫힙니다. 굴을 직접 겨누게 할 수 없습니다.', 'Closes a bug hole only when the sentry fires at an enemy by the hole and a round explodes inside; you cannot make it aim at the hole.'),
+  'personnel-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
+  'incendiary-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
+  'gas-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
+};
+const HOLE_TAGS = {
+  outer: [L('굴 파괴', 'Closes bug holes'), L('철거력이 충분해 굴 밖에 맞혀도 벌레굴이 닫힙니다.', 'Enough demolition force to close a bug hole even hitting outside it.')],
+  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L('폭발을 굴 안쪽에 넣어야 벌레굴이 닫힙니다.', 'Closes a bug hole when the explosion goes inside it.')],
+  conditional: [L('굴 안쪽 파괴 · 조건부', 'Bug holes from inside · conditional'), ''],
+};
+export async function loadDemolition() {
+  if (demolitionProfiles) return demolitionProfiles;
+  const [data, solver] = await Promise.all([import('../../data/demolition-data.js'), import('../../core/demolition.js')]);
+  // The bug hole's two routes, as on the Demolition tab: outer (any hit of enough force) or inner (an explosion).
+  const hole = data.structures.find(item => item.id === 'bug-hole');
+  bugHoleTier = id => {
+    const profile = data.demolitionProfiles[id];
+    if (!profile) return null;
+    let outer = false, inner = false;
+    for (const mode of profile.modes) for (const result of solver.solveDemolition(hole, profile, mode).routes) {
+      if (!result.parts.some(part => part.verdict === 'pass')) continue;
+      if (result.route.explosiveOnly) inner = true; else outer = true;
+    }
+    return outer ? 'outer' : inner ? (HOLE_CONDITIONS[id] ? 'conditional' : 'inner') : null;
+  };
+  return demolitionProfiles = data.demolitionProfiles;
+}
+const holeTag = item => {
+  const tier = bugHoleTier(item.id);
+  return tier ? html`<span class="badge outline hole-tag" title="${tier === 'conditional' ? HOLE_CONDITIONS[item.id] : HOLE_TAGS[tier][1]}">${HOLE_TAGS[tier][0]}</span>` : '';
+};
+const holeNote = item => bugHoleTier(item.id) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[item.id]}</p>` : '';
+
 function openDetail(id) {
   const item = stratagemById.get(id);
   if (!item) return;
@@ -425,9 +470,8 @@ function openDetail(id) {
   });
   show();
   // Demolition data is large; learn which stratagems have it only when needed.
-  if (!demolitionProfiles) import('../../data/demolition-data.js').then(module => {
-    demolitionProfiles = module.demolitionProfiles;
-    if (state.detail === id && demolitionProfiles[id]) show();
+  if (!demolitionProfiles) loadDemolition().then(profiles => {
+    if (state.detail === id && profiles[id]) show();
   });
 }
 
