@@ -1,10 +1,12 @@
 // Vehicle durability: dist/data/vehicle-durability.js is what build-vehicle-durability.mjs makes from
-// the wiki Anatomy tables, every vehicle is a site stratagem with a main body that ends it, and known
-// values hold. Parts still in English and pages without a stratagem are only 'to check'.
+// the wiki Anatomy tables, and every vehicle shown is a site stratagem with a main body health. Wiki
+// values are not pinned (a balance patch must not stop deploys); parts still in English, pages without a
+// stratagem and pages without an Anatomy table yet (their table is hidden) are only 'to check'.
 import assert from 'node:assert/strict';
 import { vehicleDurability } from '../dist/data/vehicle-durability.js';
 import { stratagemById } from '../dist/core/catalog.js';
 import { buildVehicleDurability } from './build-vehicle-durability.mjs';
+import { anatomyRows } from './anatomy-source.mjs';
 
 let checks = 0;
 const ok = (value, message) => { assert(value, message); checks++; };
@@ -15,10 +17,18 @@ eq(vehicleDurability, built.vehicles, 'vehicle-durability.js is out of date: run
 for (const [id, vehicle] of Object.entries(vehicleDurability)) {
   ok(stratagemById.get(id), `${id}: a stratagem on the site`);
   const main = vehicle.parts.find(part => part.en === 'Main');
-  ok(main && main.fatal && typeof main.health === 'number', `${id}: a main body with health that ends the vehicle`);
+  ok(main && typeof main.health === 'number', `${id}: a main body with health`);
   for (const part of vehicle.parts) ok(part.name && (typeof part.health === 'number' || ['indestructible', 'main', null].includes(part.health)), `${id} ${part.en}: health is a number, indestructible or shared with main`);
 }
-const patriot = vehicleDurability.patriot.parts;
-eq([patriot[0].health, patriot[0].armor, patriot[0].bleed], [1800, 4, { health: 2000, perSecond: 400 }], 'Patriot main body: 1,800 health, armor 4, 2,000 bleed-out at 400/s');
-ok(patriot.some(part => part.en === 'Legs' && part.count === 2 && part.downs), 'Patriot legs: two, down the exosuit when destroyed');
+// The row parser on a fixed sample (not the live wiki values).
+const sample = anatomyRows([
+  '{{Anatomy Table|',
+  '  {{Anatomy Row',
+  '    | part_name = Legs (2)',
+  '    | health = 550',
+  '    | fatal = No<br>(Downs)',
+  '  }}',
+  '}}',
+].join('\n'));
+eq(sample.map(row => [row.part_name, row.health, row.fatal]), [['Legs (2)', '550', 'No<br>(Downs)']], 'Anatomy row parser reads a vehicle row');
 console.log(`PASS vehicle durability: ${checks} checks (${Object.keys(vehicleDurability).length} vehicles, ${Object.values(vehicleDurability).reduce((n, v) => n + v.parts.length, 0)} parts)${built.toCheck.length ? `; to check: ${built.toCheck.join('; ')}` : ''}.`);

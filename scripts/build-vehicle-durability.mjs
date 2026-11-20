@@ -1,8 +1,9 @@
 // Builds dist/data/vehicle-durability.js: the part health, armor, durability and damage passed to the
 // main body of each vehicle stratagem (Exosuits, FRVs, tanks) from the wiki Anatomy tables
 // (db/source/wiki_vehicles.json, scripts/fetch-vehicle-pages.mjs) with the site's Korean part names
-// (db/source/vehicle_part_korean.json). A part without a Korean name keeps its English one and a page
-// without a site stratagem is skipped; both are listed as 'to check' (do not block deploys). Do not edit the output.
+// (db/source/vehicle_part_korean.json). A part without a Korean name keeps its English one; a page without a
+// site stratagem or without an Anatomy table (main body health) is skipped, so its table stays hidden. All are
+// listed as 'to check' and never stop the build (do not block deploys). Do not edit the output.
 // Usage: node scripts/build-vehicle-durability.mjs
 import { readFile, writeFile } from 'node:fs/promises';
 import { stratagems } from '../dist/core/catalog.js';
@@ -19,9 +20,7 @@ export async function buildVehicleDurability() {
   for (const [title, page] of Object.entries(source.pages)) {
     const id = idByTitle.get(title);
     if (!id) { toCheck.push(`${title}: no stratagem with this English name`); continue; }
-    vehicles[id] = {
-      page: title, revision: page.revision,
-      parts: page.rows.map(row => {
+    const parts = page.rows.map(row => {
         const raw = String(row.part_name ?? '').replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
         const count = Number(/\((\d+)\)$/.exec(raw)?.[1]) || 1;
         const en = raw.replace(/\s*\(\d+\)$/, '');
@@ -36,8 +35,11 @@ export async function buildVehicleDurability() {
           fatal: /^yes/i.test(row.fatal ?? ''), downs: /downs/i.test(row.fatal ?? ''),
           ...(bleed && { bleed: { health: Number(bleed[1].replace(/,/g, '')), perSecond: Number(bleed[2].replace(/,/g, '')) } }),
         };
-      }),
-    };
+      });
+    // A page without an Anatomy table yet (new vehicles often come first without one) or without a main
+    // body health gets no table: the details hide it until the wiki fills it in.
+    if (!parts.some(part => part.en === 'Main' && typeof part.health === 'number')) { toCheck.push(`${title}: no Anatomy table with a main body health yet (durability table hidden)`); continue; }
+    vehicles[id] = { page: title, revision: page.revision, parts };
   }
   return { vehicles, toCheck, checkedAt: source.retrievedAt };
 }

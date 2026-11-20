@@ -7,7 +7,7 @@ import { stratagems } from '../dist/core/catalog.js';
 import { stratagemStats } from '../dist/data/stratagem-stats.js';
 import { shipModules, shipModulesSource } from '../dist/data/ship-modules.js';
 import { timingOf, setModulesOn, modulesOn } from '../dist/core/modules.js';
-import { statsOf, field, value, datamineEntry, forcesOf, ergonomicsOf, swayOf, PERMIT_OVERRIDES } from './stratagem-stats-parse.mjs';
+import { statsOf, field, value, datamineEntry, forcesOf, ergonomicsOf, swayOf, PERMIT_OVERRIDES, unlockOf } from './stratagem-stats-parse.mjs';
 
 const source = JSON.parse(await readFile(new URL('../db/source/wiki_stratagem_stats.json', import.meta.url), 'utf8'));
 const strat = JSON.parse(await readFile(new URL('../db/source/stratagems_data.json', import.meta.url), 'utf8')).data;
@@ -78,8 +78,15 @@ ok(t('orbital-airburst').cooldown === 76.95 && Math.round(t('apex').cooldown) ==
 ok(t('eagle-500kg').rearm === 120 && t('eagle-500kg').uses === 2 && t('eagle-500kg').cooldown === 7.125, 'Eagle rearm 150 -> 120, uses 1 -> 2, cooldown 15 -> 7.125');
 setModulesOn(false); ok(timingOf(stratagems[0]).cooldown === 480, 'the toggle switches to base values'); setModulesOn(true);
 
-// Ship unlock from the infobox: level and Requisition Slips; warbond (medal) and mission stratagems have none.
-ok(JSON.stringify(stratagemStats.autocannon.unlock) === JSON.stringify({ level: 10, requisition: 7000 }), 'Autocannon unlocks at level 10 for 7,000 Requisition Slips');
-ok(JSON.stringify(stratagemStats['machine-gun'].unlock) === JSON.stringify({ level: 1, requisition: 0 }), 'Machine Gun is free from level 1');
-ok(!stratagemStats.apex.unlock && !stratagemStats.reinforce.unlock, 'warbond and mission stratagems have no ship unlock');
+// Ship unlock parser on fixed samples (not the live wiki values): level and Requisition Slips, "Free" = 0,
+// and nothing for medal (warbond) costs or a missing level.
+ok(JSON.stringify(unlockOf(`| unlock_level = 10
+| unlock_cost = {{Currency|Requisition|7,000}}
+`)) === JSON.stringify({ level: 10, requisition: 7000 }), 'unlock: level and Requisition Slips');
+ok(JSON.stringify(unlockOf(`| unlock_level = 1
+| unlock_cost = Free
+`)) === JSON.stringify({ level: 1, requisition: 0 }), 'unlock: free from the start');
+ok(unlockOf(`| unlock_cost = {{Currency|Medals|110}}
+`) === null && unlockOf(`| unlock_level = | unlock_cost = | source = N/A
+`) === null, 'unlock: none for medal costs or an empty level');
 console.log(`PASS stratagem stats: ${checks} checks (${stratagems.length} stratagems, ${shipModules.length} ship modules, Ship Modules revision ${shipModulesSource.revision}, ${REVIEWED.size} reviewed difference).`);

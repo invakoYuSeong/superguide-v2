@@ -16,7 +16,12 @@
   - **계산 방식 5~10번 추가**: 출혈, 과관통, 거리 감쇠, 폭발 세 구간(엎드리면 바깥 반경 90% 감소), 지속 피해·화염 배율, 헬다이버가 받는 피해(배율은 `enemy-weapons.js`의 `helldiverArmor`에서 읽음). 위키 Damage rev 142577, Combat rev 142474.
   - **정찰 패시브 예시**: 방어구 탭·상세에 '트루퍼가 낮 50m·밤 40m → 정찰 35m·28m'(위키 Stealth rev 142153, 30%는 패시브 효과 문장에서 읽음). 나무위키 시야 표(40/30m)는 영문 위키와 달라 쓰지 않음.
   - **행성 > 환경 조건에 '민주주의 우주 정거장'**(SEAF 아래): 정거장(4시간마다 투표, 24시간당 기부 한도 일반 샘플 75·요청 신청서 50,000·희귀 샘플 50, 전술 행동은 한 번에 하나), 기본 효과 2개(작전 지원, 엑소슈트 비축분 -35%), 전술 행동 3개(이글 폭풍·궤도 봉쇄·대형 포탄 보급, 목표량·24시간·재사용 대기). 이름·설명은 게임 문장, 요약 줄은 위키 Democracy Space Station rev 142559와 Template:DSS Action rev 139090(숫자는 `test-planets`가 둘에서 확인). 이글 봉쇄(슈퍼 지구 전투 한정, 종료)는 뺌. **행성 폭격은 보류**: 위키 틀은 '2025년 1월 대형 포탄 보급으로 대체'라 하지만 같은 문서 변경 이력에 1.006.003 패치에서 'DSS 궤도 폭격'으로 재등장, 나무위키는 2026년 재등장과 바뀐 수치를 적음. 지금 기부형 전술 행동인지·비용·재사용 대기를 확인하지 못해 카드와 '안 쓰임' 문구 모두 넣지 않음(사용자 결정 2026-11-20: 일단 빼 둠). 다른 행성 자료는 다시 받지 않고 `wiki_planets.json`에 이 문서·틀·아이콘 4개만 추가(`fetch-planet-pages`에도 넣어 둠). `planet_korean.json`의 `special`에 `dss-*` 6개.
-  - 검사: `npm run check` 21종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 화면 확인(콘솔 오류 없음).
+  - **스트라타젬 해금**: 상세 스펙에 '해금 레벨 N, 요청 신청서 X'(위키 인포박스 unlock_level·unlock_cost, 기존 원본에서 읽음, `stratagem-stats.js`의 `unlock`, 61종. 'Free'는 '처음부터 사용 가능'). 메달로 사는 채권 스트라타젬과 임무 스트라타젬은 표시 없음(채권 칩이 대신함).
+  - **차량 내구도**: 엑소슈트·FRV·탱크 9종 상세에 부위별 체력·장갑·내구도·본체로 넘어가는 비율과 본체 출혈 여유(`fetch-vehicle-pages` → `db/source/wiki_vehicles.json` → `build-vehicle-durability` → `dist/data/vehicle-durability.js`, 부위 이름 번역 `db/source/vehicle_part_korean.json`). 해부표가 아직 없는 새 차량은 표를 숨기고 '확인할 것'으로만 알림.
+  - **행성 > 환경 위험 요소**(환경 조건 바로 아래): 13종(접촉 지뢰·철조망·폭발성 통은 게임 이름, 나머지는 사이트 번역), 위키 문서 요약과 생물군계 링크. `wiki_planets.json`에 `hazardPages`만 추가(`fetch-planet-pages`에도 넣어 둠), `planet_korean.json`의 `hazards`.
+  - **무기 숙련도**: 커스터마이징 표의 해금 레벨 아래 '누적 경험치'(위키 Attachments의 Weapon Experience 표, 모든 주무기 공통, `fetch-weapon-experience` → `build-weapon-experience` → `dist/data/weapon-experience.js`).
+  - **검사 원칙(2026-11-20)**: 이번에 넣은 검사들은 위키 수치를 고정값으로 확인하지 않음(밸런스 패치로 값이 바뀌어도 배포를 막지 않게). 읽는 코드는 정해진 예시 문장으로 확인하고, 생성 파일이 원본과 맞는지(다시 만든 결과와 같은지)만 실패로 침.
+  - 검사: `npm run check` 23종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 화면 확인(콘솔 오류 없음).
 
 - **위키·게임 자료 기능 묶음(2026-11-19, 배포됨)**
   - **한국어 이름 규칙 변경**(AGENTS.md): 게임 안 자료로 확인한 최신 표기가 우선, 나무위키는 보조, 게임에도 없으면 알맞게 번역. 게임 공식 문장표(음성 대사·300자 넘는 글 제외, 10,306줄, 게임 빌드 26568081)가 `db/source/game_strings_ko.tsv`에 있고, `node scripts/build-game-names.mjs`가 사이트가 쓰는 문장만 `db/source/game_names_ko.json`에 뽑습니다. 게임 업데이트 뒤 문장표 갱신은 원본 표가 있는 PC에서 `scripts/tools/import-game-strings.mjs <tsv> --planets <행성.json>`(행성 이름·생물군계 설명은 `db/source/game_planets_ko.json`).
