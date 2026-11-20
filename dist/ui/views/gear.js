@@ -129,10 +129,13 @@ function renderBrowse() {
   for (const button of $$('[data-cat]', root)) button.setAttribute('aria-pressed', String(!state.q && button.dataset.cat === state.cat));
   const types = typesOf(state.cat);
   // The one-handed filter only where it narrows the list (every secondary is one-handed, no throwable is).
+  // Type and one-handed chips count within each other's choice, like the stratagem filters; a chip
+  // with nothing to show is dimmed, and picking it lets the other choice go.
   const inCat = personalWeapons.filter(w => w.category === state.cat);
-  const hands = inCat.filter(oneHanded).length;
-  const handCount = hands < inCat.length ? hands : 0;
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${personalWeapons.filter(w => w.category === state.cat && w.type === type).length}</span></button>`)}${handCount ? html`<button class="chip chip-hand" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}` : '');
+  const showHand = inCat.some(oneHanded) && !inCat.every(oneHanded);
+  const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w))).length;
+  const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type)).length;
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
@@ -378,7 +381,8 @@ async function renderArmor() {
   }
   const module = await armorUi;
   if (state.tab !== 'armor') return;
-  module.renderArmor(panel, { state: armor, onChange: () => { syncUrl(); renderArmor(); }, onOpen: id => { armor.detail = id; syncUrl(); openArmor(); } });
+  // The address is saved after the render, which lets go of passives the new weight lacks.
+  module.renderArmor(panel, { state: armor, onChange: () => renderArmor().then(syncUrl), onOpen: id => { armor.detail = id; syncUrl(); openArmor(); } });
   if (armor.detail) openArmor();
 }
 // An armor set's details in the side sheet, like a weapon or stratagem (#/gear?tab=armor&d=<armor>).
@@ -479,8 +483,8 @@ export function mount(container, context) {
     if (!target) return;
     if (target.dataset.tabPick) { state.tab = target.dataset.tabPick; showTab(); syncUrl(); }
     else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.hand = false; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
-    else if (target.dataset.hand != null) { state.hand = !state.hand; renderBrowse(); syncUrl(); }
-    else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; renderBrowse(); syncUrl(); }
+    else if (target.dataset.hand != null) { state.hand = !state.hand; if (target.classList.contains('is-empty')) state.type = ''; renderBrowse(); syncUrl(); }
+    else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; if (target.classList.contains('is-empty')) state.hand = false; renderBrowse(); syncUrl(); }
     else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
   });
   // Mode buttons inside the sheet live outside `root`; register that listener once.

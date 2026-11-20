@@ -111,11 +111,14 @@ export function renderArmor(panel, { state, onChange, onOpen = null }) {
   const picked = (state.passive || '').split(',').filter(id => groups.some(([passive]) => passive.id === id));
   state.passive = picked.join(',');
   const visible = picked.length ? groups.filter(([passive]) => picked.includes(passive.id)) : groups;
-  const countOf = id => armors.filter(armor => armor.weight === id).length;
+  // Weight buttons count within the picked passives (as the passive chips count within the weight);
+  // one with nothing to show is dimmed, and picking it lets the passives it lacks go (above).
+  const withPassive = armor => !picked.length || picked.includes(armor.passive);
+  const countOf = id => armors.filter(armor => (!id || armor.weight === id) && withPassive(armor)).length;
   render(panel, html`<div class="arsenal-tools armor-tools">
       <div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
-        <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${armors.length}</span></button>
-        ${armorWeights.map(weight => html`<button type="button" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
+        <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${countOf('')}</span></button>
+        ${armorWeights.map(weight => html`<button type="button" class="${countOf(weight.id) ? '' : 'is-empty'}" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
       </div>
       <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!picked.length}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${picked.includes(passive.id)}">${passive.name} <span class="count">${list.length}</span></button>`)}</div>
     </div>
