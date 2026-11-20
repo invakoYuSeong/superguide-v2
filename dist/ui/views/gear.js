@@ -40,8 +40,9 @@ const oneHanded = w => (w.traitTags || []).includes('one-handed');
 const bugHole = structures.find(item => item.id === 'bug-hole');
 const HOLE_OUTER = bugHole.routes.find(route => !route.explosiveOnly).threshold, HOLE_INNER = bugHole.routes.find(route => route.explosiveOnly).threshold;
 // The seeker drones fly at enemies instead of into a hole: the community guide marks both as not closing bug
-// holes (only Fabricators), though their demolition force would (user decision 2026-11-20).
-const HOLE_EXCLUDED = new Set(['seeker', 'anti-tank-seeker']);
+// holes (only Fabricators), though their demolition force would; the Lure Mine is left out too, as nothing
+// confirms it can be put inside one (user decisions 2026-11-20).
+const HOLE_EXCLUDED = new Set(['seeker', 'anti-tank-seeker', 'lure-mine']);
 export const holeTier = w => {
   if (HOLE_EXCLUDED.has(w.id)) return null;
   const records = [w, ...(w.variants || [])];
