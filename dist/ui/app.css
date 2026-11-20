@@ -581,8 +581,10 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-lore .notes { margin: 0; }
 .enemy-lore .wide { grid-column: 1 / -1; }
 .difficulty { white-space: nowrap; }
-/* The wiki icons are white on dark red: keep a dark backing so the skull shows in the light theme too. */
-.difficulty img { display: inline-block; height: 1.4em; width: auto; padding: 1px 4px; margin-right: 5px; background: #16110f; border-radius: 2px; vertical-align: -0.38em; }
+.difficulty img { display: inline-block; height: 1.4em; width: auto; margin-right: 4px; vertical-align: -0.38em; }
+/* The icons' white wings fade on the light background: a thin shadow outlines them there. */
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .difficulty img { filter: drop-shadow(0 0 1px rgba(0, 0, 0, .55)); } }
+:root[data-theme="light"] .difficulty img { filter: drop-shadow(0 0 1px rgba(0, 0, 0, .55)); }
 .vitals { display: flex; gap: 6px 18px; flex-wrap: wrap; margin: 10px 0; font-size: 13px; color: var(--text-3); }
 .vitals b { color: var(--text); font-size: 15px; margin-left: 4px; }
 
