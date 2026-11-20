@@ -161,7 +161,10 @@
    "PILOT SHORTAGE": "파일럿 부족",
    "Extraction takes #V_TWO additional seconds.": "탈출 시간이 추가로 #V_TWO초 증가합니다.",
    "SLOWER EAGLE REARM": "이글 재무장 속도 감소",
-   "<i=1>Eagle Rearm</i> time is <i=1>#V_ONE%</i> slower.": "<i=1>이글 재무장</i> 시간이 <i=1>#V_ONE%</i>초 느려집니다."
+   "<i=1>Eagle Rearm</i> time is <i=1>#V_ONE%</i> slower.": "<i=1>이글 재무장</i> 시간이 <i=1>#V_ONE%</i>초 느려집니다.",
+   "Contact Mine": "접촉 지뢰",
+   "Barbed Wire": "철조망",
+   "Explosive Barrel": "폭발성 통"
   },
   "status": {
    "Acid": "산성",

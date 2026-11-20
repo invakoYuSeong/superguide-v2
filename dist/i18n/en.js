@@ -12,7 +12,7 @@ import { attachmentParts } from '../data/weapon-attachments.js';
 import { shipModules } from '../data/ship-modules.js';
 import { boosters } from '../data/boosters.js';
 import { structureObjectives } from '../data/structure-objectives.js';
-import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects } from '../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects, hazards } from '../data/planets.js';
 import { enemyPages } from '../data/enemy-pages.js';
 import { superstorePages } from '../data/superstore.js';
 import { shipModuleSections } from '../data/ship-module-upgrades.js';
@@ -42,7 +42,8 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
   .concat(specialEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
   .concat(planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })), planetBiomes)
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
-  .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
+  .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
+  .concat(hazards, hazards.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
 // Enemy view: the summarized wiki Spawning and Behavior lines, each with its English.
 const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] }))]);
 // Superstore tiles: the game's Korean cosmetic names and the armor set names, with the wiki's English.

@@ -57,6 +57,17 @@ for (const item of [...planets.conditions, ...planets.specialEffects.filter(effe
 // Operation modifiers: one from difficulty 5, two from 8 (the planet tab says so).
 ok(/single Modifier will appear on \{\{Difficulty\|5\}\}, increasing to two at \{\{Difficulty\|8\}\}/.test(wiki.effects.text), 'the wiki no longer says one modifier from difficulty 5, two from 8');
 
+// Environmental hazards: built from the text file, the game's name where it has one, every number in the
+// lines on the hazard's wiki page, and every biome or archetype named on that page too.
+ok(planets.hazards.length === (text.hazards ?? []).length, 'hazards is stale (run build-planets)');
+(text.hazards ?? []).forEach((source, index) => {
+  const item = planets.hazards[index], page = wiki.hazardPages?.[source.page];
+  ok(page, `${source.id}: wiki page ${source.page} not downloaded (run fetch-planet-pages)`);
+  ok(item.id === source.id && item.name === (source.name ? game.strings.planets[source.name] : source.ko), `${source.id}: name is not the game's Korean or the site's (run build-game-names and build-planets)`);
+  ok(item.detail.length === item.detailEn.length, `${source.id}: detail needs Korean and English line by line`);
+  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(page.text.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page}`);
+  for (const name of [...(source.biomes ?? []), ...(source.archetypes ?? [])]) ok(page.text.includes(name), `${source.id}: ${name} is not named on the wiki page ${source.page}`);
+});
 // Biomes: every wiki biome page, with the game's planets for its internal name.
 ok(planets.biomes.length === Object.keys(wiki.biomes).length, 'every wiki biome is listed');
 for (const biome of planets.biomes) {

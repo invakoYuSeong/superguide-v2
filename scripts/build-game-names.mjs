@@ -36,7 +36,7 @@ const wanted = {
   shipModules: shipModules.map(module => module.en),
   boosters: boosters.flatMap(booster => [booster.name, booster.description]).filter(Boolean),
   objectives: [...new Set(objectives.map(entry => entry.game))],
-  planets: [...new Set(planetEntries.flatMap(entry => [entry.name, entry.description]))],
+  planets: [...new Set([...planetEntries.flatMap(entry => [entry.name, entry.description]), ...(planet.hazards ?? []).map(entry => entry.name).filter(Boolean)])],
   status: planet.status.map(entry => entry.name).filter(Boolean),
   names: [...new Set(Object.entries(targets).filter(([key]) => key !== 'note').flatMap(([, group]) => Object.values(group).map(entry => entry.game)))],
 };

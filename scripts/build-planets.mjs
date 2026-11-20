@@ -40,6 +40,17 @@ const gloom = text.gloom.map(item => entry(item));
 // Exostorm classes, Heavy SEAF Presence and the Democracy Space Station: game name and description, plus the wiki page's facts.
 const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en, ...(iconOf(item.id) && { icon: iconOf(item.id) }) }));
 const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null }));
+// Environmental hazards (mines, barbed wire, lava, plants): the game's name where it has one, else the site's,
+// with lines summarizing each wiki page and the biomes it names (by title or by archetype).
+const biomeIds = new Set(Object.keys(wiki.biomes).map(slug));
+const hazards = (text.hazards ?? []).map(item => {
+  const named = [...(item.biomes ?? []), ...Object.entries(wiki.biomes).filter(([, biome]) => (item.archetypes ?? []).includes(biome.archetype)).map(([title]) => title)];
+  for (const title of named) if (!biomeIds.has(slug(title))) throw new Error(`${item.id}: biome ${title} is not a wiki biome`);
+  return {
+    id: item.id, name: item.name ? ko(item.name) : item.ko, en: item.en, detail: item.detail.ko, detailEn: item.detail.en,
+    biomes: [...new Set(named.map(slug))], wiki: wikiUrl(item.page), revision: wiki.hazardPages?.[item.page]?.revision ?? null,
+  };
+});
 const events = text.events.map(item => entry(item));
 
 const biomes = Object.entries(wiki.biomes).map(([title, biome]) => {
@@ -75,6 +86,7 @@ export const gloomLevels = ${JSON.stringify(gloom, null, 1)};
 export const specialEffects = ${JSON.stringify(special, null, 1)};
 export const operationModifiers = ${JSON.stringify(modifiers, null, 1)};
 export const eventEffects = ${JSON.stringify(events, null, 1)};
+export const hazards = ${JSON.stringify(hazards, null, 1)};
 export const biomes = ${JSON.stringify(biomes)};
 export const statusEffects = ${JSON.stringify(status, null, 1)};
 `;

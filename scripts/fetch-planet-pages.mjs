@@ -38,6 +38,10 @@ const out = {
   },
   biomesRevision: main.Biomes.revision, biomes: {}, icons: {},
 };
+// Environmental hazards (Category:Environmental Hazards without its two overview pages), 2026-11-20.
+const HAZARD_PAGES = ['Automaton Mine', 'Barbed Wire', 'Bug Mine', 'Cars', 'Exploding Barrels', 'Ice Plant', 'Lava', 'Lava Geyser', 'Lava Pits', 'Moor Mushroom', 'Shrub', 'Spike Plant', 'Volcano Plant'];
+await sleep(2000);
+out.hazardPages = await pages(HAZARD_PAGES);
 // Biome pages named in the Biomes page's {{BiomeBox|...}} lists (the city megastructures are regions, not biomes).
 const titles = [...main.Biomes.text.matchAll(/\{\{BiomeBox\|([^}]+)\}\}/g)].flatMap(match => match[1].split('|').map(title => title.trim()))
   .filter(title => !['Metropolis', 'Automaton Megafactory', 'Colonies'].includes(title));

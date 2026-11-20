@@ -1,6 +1,6 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>   (b: scroll to and mark one biome)
-import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, planetsCheckedAt } from '../../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
 import { biomeImages } from '../../data/biome-images.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
@@ -41,7 +41,7 @@ function effectCard(item) {
     ${effectIcon(item)}
     <div class="info-body">
       <h3>${title(item)}</h3>${enLine(item)}
-      <p class="info-desc">${text(item.description, item.descriptionEn)}</p>
+      ${item.description ? html`<p class="info-desc">${text(item.description, item.descriptionEn)}</p>` : ''}
       ${item.where === 'metropolis' ? html`<p class="info-detail">${L('도시(메트로폴리스) 지역에서만 나옵니다.', 'Only in Metropolis areas.')}</p>` : ''}
       ${(lang === 'en' ? item.detailEn : item.detail)?.map(line => html`<p class="info-detail">${line}</p>`) ?? ''}
       ${item.biomes?.length ? html`<p class="armor-source">${L('나오는 생물군계', 'Biomes')}: ${item.biomes.map((id, i) => html`${i ? ' · ' : ''}<a href="#/planets?tab=biomes&b=${id}">${biomeById.get(id) ? title(biomeById.get(id)) : id}</a>`)}</p>` : ''}
@@ -53,6 +53,9 @@ function effectCard(item) {
 function conditionsTab() {
   return html`<p class="lede-note">${L('행성마다 붙는 날씨·지형 효과입니다. 같은 생물군계라도 행성에 따라 다를 수 있습니다.', 'Weather and terrain effects attached to each planet. Planets of the same biome can differ.')}</p>
     <ul class="info-list">${conditions.map(effectCard)}</ul>
+    <h2 class="planet-sub">${L('환경 위험 요소', 'Environmental hazards')}</h2>
+    <p class="lede-note">${L('지형에 놓인 지뢰, 식물, 용암 같은 위험 요소입니다. 생물군계나 그 지역을 차지한 적에 따라 나옵니다.', 'Mines, plants, lava and other hazards in the terrain. Which ones appear depends on the biome or the enemy holding the area.')}</p>
+    <ul class="info-list">${hazards.map(effectCard)}</ul>
     <h2 class="planet-sub">${L('글룸', 'The Gloom')}</h2>
     <p class="lede-note">${L('글룸에 덮인 행성의 물류 효과입니다. 단계가 높을수록 탈출이 늦어지고 이글 재무장이 느려집니다.', 'Logistics effects on planets covered by the Gloom. Higher levels slow extraction and Eagle rearm more.')}</p>
     <ul class="info-list">${gloomLevels.map(effectCard)}</ul>
