@@ -271,11 +271,11 @@ function durabilityBlock(item) {
   const pctText = value => value == null ? '-' : `${num(value)}%`;
   return html`<section class="block"><h3>${L('내구도', 'Durability')}</h3>
     <div class="compare-scroll" role="region" aria-label="${L('부위별 내구도', 'Durability by part')}" tabindex="0"><table class="compare-table vehicle-table">
-      <thead><tr><th scope="col">${L('부위', 'Part')}</th><th scope="col">${L('체력', 'Health')}</th><th scope="col">${L('장갑', 'Armor')}</th><th scope="col">${L('내구도', 'Durability')}</th><th scope="col">${L('본체로', 'To main')}</th></tr></thead>
+      <thead><tr><th scope="col">${L('부위', 'Part')}</th><th scope="col">${L('체력', 'Health')}</th><th scope="col">${L('장갑', 'Armor')}</th><th scope="col">${L('내구도', 'Durability')}</th><th scope="col">${L('본체전이', 'To main')}</th></tr></thead>
       <tbody>${vehicle.parts.map(part => html`<tr><th scope="row">${L(part.name, part.en)}${part.count > 1 ? L(` ${part.count}개`, ` x${part.count}`) : ''}${part.downs ? html`<small>${L('부서지면 쓰러짐', 'Downs when destroyed')}</small>` : ''}</th>
         <td>${health(part)}</td><td>${part.armor == null ? '-' : part.armor}</td><td>${pctText(part.durability)}</td><td>${part === main ? '-' : pctText(part.toMain)}</td></tr>`)}</tbody>
     </table></div>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${main?.bleed ? L(`본체 체력이 0이 되면 출혈 여유 ${num(main.bleed.health)}이 초당 ${num(main.bleed.perSecond)}씩 줄어들다가 파괴됩니다. `, `When main health runs out, ${num(main.bleed.health)} bleed-out health drains at ${num(main.bleed.perSecond)} per second before it is destroyed. `) : ''}${L("'본체로'는 그 부위에 들어간 피해 중 본체 체력으로도 넘어가는 비율입니다.", "'To main' is the share of a part's damage that also hits main health.")} ${external(`https://helldivers.wiki.gg/wiki/${encodeURIComponent(vehicle.page.replaceAll(' ', '_'))}#Anatomy`, L('위키 해부표', 'Wiki anatomy table'))}</p>
+    <p class="faint" style="font-size:12.5px;margin-top:8px">${main?.bleed ? L(`본체 체력이 0이 되면 출혈 여유 ${num(main.bleed.health)}이 초당 ${num(main.bleed.perSecond)}씩 줄어들다가 파괴됩니다. `, `When main health runs out, ${num(main.bleed.health)} bleed-out health drains at ${num(main.bleed.perSecond)} per second before it is destroyed. `) : ''}${L("'본체전이'는 그 부위에 들어간 피해 중 본체 체력으로도 넘어가는 비율입니다.", "'To main' is the share of a part's damage that also hits main health.")} ${external(`https://helldivers.wiki.gg/wiki/${encodeURIComponent(vehicle.page.replaceAll(' ', '_'))}#Anatomy`, L('위키 해부표', 'Wiki anatomy table'))}</p>
   </section>`;
 }
 
