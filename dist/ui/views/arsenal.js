@@ -313,6 +313,9 @@ export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
 // Explosions (the blast, an overcharge, a backblast) carry the blast icon in front of their name.
 const BLAST_KINDS = ['blast', 'overcharge', 'backblast'];
+// Arc attacks carry the arc icon, and a spray of gas (Sterilizer, Dog Breath: items with a gas damage cell) the gas icon.
+const kindIcon = (kind, item) => BLAST_KINDS.includes(kind) ? 'ico-blast' : kind === 'arc' ? 'ico-arc'
+  : kind === 'spray' && item.extraStats?.some(cell => cell.icon === 'gas') ? 'ico-gas' : '';
 function fallbackRows(profile, value) {
   const top = key => profile.modes.map(mode => mode[key]).filter(force => force != null)
     .reduce((best, force) => best == null || (typeof force === 'number' ? force : force.max) > (typeof best === 'number' ? best : best.max) ? force : best, null);
@@ -335,7 +338,7 @@ function specialBlock(item, profile) {
   const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast'))].filter(Boolean);
   const rows = forces.length
     ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
-      label: BLAST_KINDS.includes(part.kind) ? html`<span class="ico-blast" aria-hidden="true"></span>${FORCE_KIND[part.kind]}` : FORCE_KIND[part.kind],
+      label: kindIcon(part.kind, item) ? html`<span class="${kindIcon(part.kind, item)}" aria-hidden="true"></span>${FORCE_KIND[part.kind]}` : FORCE_KIND[part.kind],
       text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}${DIRECT_KINDS.includes(part.kind) && item.directCaution ? html`<span class="force-note">${item.directCaution}</span>` : ''}`,
     }))
     // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.
@@ -351,7 +354,7 @@ function specialBlock(item, profile) {
 // Same order as the gear sheet: damage (direct, blast, durable, penetration), reach, ammo and fire rate,
 // handling, unlock. A stat the item does not have at all (no blast, '—' on utility gear) is left out;
 // an unverified one stays as 미확인.
-const statCell = stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}${stat.warn ? html`<div class="caption force-note">${stat.warn}</div>` : ''}</div>`;
+const statCell = stat => html`<div><dt>${stat.icon ? html`<span class="ico-${stat.icon}" aria-hidden="true"></span>` : ''}${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}${stat.warn ? html`<div class="caption force-note">${stat.warn}</div>` : ''}</div>`;
 const statGrid = item => {
   const [direct, blast, ap, reach] = stats(item);
   const [durable, ...ammo] = ammoCells(item);
@@ -380,7 +383,7 @@ const statGrid = item => {
   // Extra cells from the data (numbers the stats above have no slot for), placed with their group.
   const UNIT_EN = { '발': '', '회': '', '개': '', '초': 's' };
   const extra = after => (item.extraStats ?? []).filter(cell => (cell.after ?? 'damage') === after)
-    .map(cell => statCell({ label: cell.label, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
+    .map(cell => statCell({ label: cell.label, icon: cell.icon, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
   // A direct hit that practically never happens (a carrier shell bursting in the air) is flagged in orange.
   if (item.directWarn) direct.warn = item.directWarn;
   return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;

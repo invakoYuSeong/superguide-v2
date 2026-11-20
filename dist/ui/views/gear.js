@@ -21,6 +21,7 @@ import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 
+const DOT_ICON = { gas: 'gas', arc: 'arc', electric: 'arc' };
 const ELEMENTS = { fire: L('화상', 'Fire'), gas: L('가스', 'Gas'), arc: L('전격', 'Arc'), electric: L('전격', 'Arc') };
 const TRAIT_BADGES = { fire: L('화상', 'Fire'), guided: L('유도', 'Guided'), arc: L('전격', 'Arc'), stun: L('기절', 'Stun'), 'one-handed': L('한손', 'One-handed') };
 const SORTS = [
@@ -199,6 +200,8 @@ function detailRows(w) {
   if (w.shrapnelCount) add(L('파편', 'Fragments'), num(w.shrapnelCount), L('개', ''), L('폭발 1회당 · 다 맞지는 않음', 'Per explosion · not all of them hit'));
   extra('damage');
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
+  // Gas and arc damage rows carry the wiki damage icon.
+  if (w.dot?.perSecond != null && DOT_ICON[w.dot.element]) rows.at(-1).icon = DOT_ICON[w.dot.element];
   if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
   extra('reach');
   // The deployed shield of the Shield grenade (wiki datamine table).
@@ -248,7 +251,7 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
+const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.icon ? html`<span class="ico-${row.icon}" aria-hidden="true"></span>` : ''}${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
 
 // An underbarrel attachment has its own ammo, fire rate and reload; a mode the
 // shot calculator skips starts with no damage numbers of its own.

@@ -376,6 +376,10 @@ main[aria-busy] { opacity: .5; transition: opacity .2s .15s; }
 .badge.outline { background: transparent; border: 1px solid var(--line-strong); }
 /* Explosion marker: the Helldivers Wiki 'Damage Explosion Icon' (Dogo314, CC BY-NC-SA 4.0), one 830-byte file, cached once. */
 .ico-blast { display: inline-block; width: 1.1em; height: .95em; margin-right: 3px; vertical-align: -.12em; background: url('../assets/icons/damage-explosion.svg') center / contain no-repeat; }
+/* Arc and gas markers: the wiki's 'Damage Arc Icon' and 'Damage Gas Icon' (Dogo314, CC BY-NC-SA 4.0), same size as the blast marker. */
+.ico-arc, .ico-gas { display: inline-block; width: 1.1em; height: 1.1em; margin-right: 3px; vertical-align: -.18em; background: center / contain no-repeat; }
+.ico-arc { background-image: url('../assets/icons/damage-arc.svg'); }
+.ico-gas { background-image: url('../assets/icons/damage-gas.svg'); }
 .badge.warbond { background: transparent; border: 1px solid var(--accent); color: var(--accent-text); text-decoration: none; }
 .badge.warbond:hover { background: var(--accent-soft); }
 .keys { display: inline-flex; gap: 3px; }
