@@ -1175,3 +1175,5 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .vehicle-table { min-width: 420px; }
 .vehicle-table tbody th { width: auto; white-space: normal; color: var(--text); font-weight: 700; font-size: 14px; }
 .vehicle-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
+/* Customization table: the weapon XP total under each unlock level (weapon-experience.js). */
+.gear-attach td small.attach-xp { display: block; margin: 2px 0 0; font-size: 11.5px; line-height: 1.3; white-space: normal; }

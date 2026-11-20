@@ -10,6 +10,7 @@ import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
 import { attachmentParts, weaponAttachments } from '../../data/weapon-attachments.js';
 import { quickMelee, bayonetWeapons } from '../../data/melee.js';
+import { weaponExperience } from '../../data/weapon-experience.js';
 import { apBandOf } from '../../core/catalog.js';
 import { search, personalNames } from '../../core/search.js';
 import { num, strongest } from '../../core/explain.js';
@@ -273,7 +274,7 @@ export function attachmentTable(w) {
     const part = attachmentParts[item.part];
     const effects = part.effects ? attachmentEffects(part.effects) : null;
     return html`<tr><th scope="row">${part.none ? L('장착 안 함', part.name) : part.ko ? L(part.ko, part.name) : part.name}</th>
-      <td>${item.level != null ? L(`레벨 ${item.level}`, `Level ${item.level}`) : unconfirmed}</td>
+      <td>${item.level != null ? html`${L(`레벨 ${item.level}`, `Level ${item.level}`)}${weaponExperience[item.level] ? html`<small class="attach-xp">${L(`누적 경험치 ${num(weaponExperience[item.level])}`, `${num(weaponExperience[item.level])} XP total`)}</small>` : ''}` : unconfirmed}</td>
       <td>${item.builtIn ? L('기본 장착', 'Built in') : item.cost != null ? num(item.cost) : unconfirmed}</td>
       <td>${effects == null ? unconfirmed : effects.length ? html`<ul class="attach-effects">${effects.map(e => html`<li>${e.label} <b>${e.text}</b></li>`)}</ul>` : html`<span class="faint">${L('변화 없음', 'No change')}</span>`}</td></tr>`;
   };
@@ -283,7 +284,7 @@ export function attachmentTable(w) {
       <thead><tr><th scope="col">${L('부착물', 'Attachment')}</th><th scope="col">${L('해금', 'Unlock')}</th><th scope="col">${L('비용', 'Cost')}</th><th scope="col">${L('변동 수치', 'Stat changes')}</th></tr></thead>
       ${slots.map(slot => html`<tbody><tr class="attach-slot"><th scope="rowgroup" colspan="4">${slotName(slot)}</th></tr>${list.filter(item => attachmentParts[item.part].slot === slot).map(row)}</tbody>`)}
     </table></div>
-    <p class="faint attach-note">${L('+/-와 %는 기본 상태 대비 변화, 탄창 용량과 탄창 수, 재장전 시간은 장착했을 때의 값입니다. 해금은 무기 레벨, 비용은 요청 신청서 기준입니다. 한국어 이름을 확인하지 못한 부착물은 영어 이름으로 표시합니다.', 'Signed numbers and percentages are changes from the base weapon; capacity, magazine counts and reload times are the values with the attachment fitted. Unlock is the weapon level; cost is in Requisition Slips.')} ${external(`${w.source}#Attachments`, L('위키 부착물 표', 'Wiki attachments table'))}</p>
+    <p class="faint attach-note">${L('+/-와 %는 기본 상태 대비 변화, 탄창 용량과 탄창 수, 재장전 시간은 장착했을 때의 값입니다. 해금은 무기 레벨(누적 경험치는 그 레벨까지 필요한 무기 경험치로 모든 주무기가 같음), 비용은 요청 신청서 기준입니다. 한국어 이름을 확인하지 못한 부착물은 영어 이름으로 표시합니다.', 'Signed numbers and percentages are changes from the base weapon; capacity, magazine counts and reload times are the values with the attachment fitted. Unlock is the weapon level (the XP total to reach it is the same for every primary); cost is in Requisition Slips.')} ${external(`${w.source}#Attachments`, L('위키 부착물 표', 'Wiki attachments table'))}</p>
   </details>`;
 }
 
