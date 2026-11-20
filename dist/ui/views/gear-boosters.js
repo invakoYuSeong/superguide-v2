@@ -29,8 +29,7 @@ function boosterCard(booster, focus) {
 export function renderBoosters(panel, { state }) {
   const focus = boosters.some(item => item.id === state.focus) ? state.focus : '';
   render(panel, html`<div class="arsenal-meta"><span role="status">${L(html`부스터 <b>${boosters.length}</b>종 · 분대 전원에게 적용`, html`<b>${boosters.length}</b> boosters · each applies to the whole squad`)}</span><span>${L(`자료 확인 ${boostersCheckedAt}`, `Checked ${boostersCheckedAt}`)}</span></div>
-    <ul class="info-list">${boosters.map(booster => boosterCard(booster, focus))}</ul>
-    <p class="faint" style="font-size:12.5px;margin-top:12px">${L('아이콘은 Helldivers Wiki 기여자들의 원본(CC BY-NC-SA 4.0)입니다.', 'Icons are the originals by Helldivers Wiki contributors (CC BY-NC-SA 4.0).')}</p>`);
+    <ul class="info-list">${boosters.map(booster => boosterCard(booster, focus))}</ul>`);
   const marked = focus && $(`#booster-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
 }

@@ -138,8 +138,7 @@ export function mount(container, context) {
     <p>${L('출격할 행성의 환경 조건, 작전 제한 조건, 생물군계, 상태 이상을 정리했습니다.', 'Environmental conditions, operation modifiers, biomes and status effects of the planets you drop on.')}</p></div></div>
     <div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${tab.name}</button>`)}</div>
     <div class="arsenal-meta"><span></span><span>${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
-    <div id="planet-body"></div>
-    <p class="faint" style="font-size:12.5px;margin-top:12px">${L('환경 조건 아이콘과 생물군계 사진은 Helldivers Wiki 기여자들의 작업(CC BY-NC-SA 4.0, 사진은 축소)입니다.', 'Condition icons and biome pictures are the work of Helldivers Wiki contributors (CC BY-NC-SA 4.0; pictures resized).')}</p>`);
+    <div id="planet-body"></div>`);
   root.addEventListener('click', event => {
     const button = event.target.closest('[data-planet-tab]');
     if (!button) return;

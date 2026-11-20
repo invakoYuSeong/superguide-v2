@@ -43,8 +43,7 @@ export function renderModules(panel, { state }) {
   const focus = modules.some(module => module.id === state.focus) ? state.focus : '';
   render(panel, html`<div class="arsenal-meta"><span role="status">${L(html`부서 <b>${shipModuleSections.length}</b>곳, 모듈 <b>${modules.length}</b>개`, html`<b>${shipModuleSections.length}</b> sections, <b>${modules.length}</b> upgrades`)}</span><span>${external(shipModuleUpgradesSource.page, L(`위키 Ship Modules 문서 (판 ${shipModuleUpgradesSource.revision})`, `Wiki Ship Modules page (revision ${shipModuleUpgradesSource.revision})`))}</span></div>
     <p class="lede-note module-total">${L('모든 모듈을 올리는 비용', 'Cost of every upgrade')}: ${costLine(shipModuleTotal)}</p>
-    <div class="armor-passives">${shipModuleSections.map(section => sectionBlock(section, focus))}</div>
-    <p class="faint" style="font-size:12.5px;margin-top:12px">${L('모듈 이름과 효과 문장은 게임 안 한국어, 비용은 Helldivers Wiki 표입니다. 아이콘은 Helldivers Wiki 기여자들의 원본(CC BY-NC-SA 4.0)입니다.', 'Names and effect text are the game\'s own; costs come from the Helldivers Wiki table. Icons are the originals by Helldivers Wiki contributors (CC BY-NC-SA 4.0).')}</p>`);
+    <div class="armor-passives">${shipModuleSections.map(section => sectionBlock(section, focus))}</div>`);
   const marked = focus && $(`#module-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
 }
