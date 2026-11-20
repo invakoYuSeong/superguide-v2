@@ -116,7 +116,8 @@ export function traits(w) {
   // Wiki infobox traits (traitTags); not repeated when the over-time damage badge already shows that effect.
   const dotTag = { fire: 'fire', arc: 'arc', electric: 'arc' }[w.dot?.element];
   for (const tag of w.traitTags || []) if (tag !== dotTag) list.push(badge(TRAIT_BADGES[tag], tag === 'fire' ? 'bleed' : ''));
-  if (w.category !== 'throwable' && w.splash > 0) list.push(badge(L('폭발', 'Explosive')));
+  // Weapons of the explosive type already say so with their type badge, so only the others get this one.
+  if (w.category !== 'throwable' && w.type !== 'explosives' && w.splash > 0) list.push(badge(L('폭발', 'Explosive')));
   if (w.heatCapacity?.raw) list.push(badge(L('과열식', 'Heat-based')));
   if (w.pellets > 1) list.push(badge(L('산탄', 'Pellets')));
   // Selectable firing modes only: variants are damage components (an impact
