@@ -1,0 +1,41 @@
+{
+ "retrievedAt": "2026-11-20",
+ "icons": {
+  "Patriotic Administration Center": {
+   "file": "patriotic-administration-center.svg",
+   "title": "Patriotic Administration Center Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Patriotic_Administration_Center_Ship_Module_Icon.svg",
+   "sha256": "aa80a9a240292e96ce8ff739426ac5abc283a81c73a880bcfb4887cbed724954"
+  },
+  "Orbital Cannons": {
+   "file": "orbital-cannons.svg",
+   "title": "Orbital Cannons Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Orbital_Cannons_Ship_Module_Icon.svg",
+   "sha256": "ef6ba48cac95de1479156e441457f5028999affe52342de2a406b9e3b82acfb0"
+  },
+  "Hangar": {
+   "file": "hangar.svg",
+   "title": "Hangar Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Hangar_Ship_Module_Icon.svg",
+   "sha256": "6c551d604c22262bb61906ac2a088debc22263984d229ac4f397b7f7ef28a203"
+  },
+  "Bridge": {
+   "file": "bridge.svg",
+   "title": "Bridge Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Bridge_Ship_Module_Icon.svg",
+   "sha256": "d794b121ae6592a91729d86ee875fb5d2afe9e9cc4e7db7ac3d2ff1ab888e086"
+  },
+  "Engineering Bay": {
+   "file": "engineering-bay.svg",
+   "title": "Engineering Bay Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Engineering_Bay_Ship_Module_Icon.svg",
+   "sha256": "ed22ae8d59d400b74e2329b0831e963a06f4d4180ed6929a088ee20326e5020e"
+  },
+  "Robotics Workshop": {
+   "file": "robotics-workshop.svg",
+   "title": "Robotics Workshop Ship Module Icon.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Robotics_Workshop_Ship_Module_Icon.svg",
+   "sha256": "0e2b58958fde908d05421ddad701041e2063b16c829dc30587fe9618a60aa591"
+  }
+ }
+}

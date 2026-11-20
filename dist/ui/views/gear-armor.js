@@ -14,6 +14,19 @@ const weightName = id => armorWeights.find(weight => weight.id === id)?.name ?? 
 const warbondById = new Map(warbonds.map(warbond => [warbond.id, warbond]));
 const unconfirmed = () => html`<span class="dim">${L('미확인', 'Unconfirmed')}</span>`;
 
+// What the Scout passive's shorter detection range means in metres: the wiki Stealth page
+// (revision 142153) gives a Trooper spotting a standing Helldiver at 50 m by day and 40 m at night.
+const STEALTH_PAGE = 'https://helldivers.wiki.gg/wiki/Stealth';
+const DETECTION = { day: 50, night: 40 };
+function passiveNote(passive) {
+  if (passive.id !== 'scout') return '';
+  const cut = Number(/by (\d+)%/.exec(passive.effects.map(effect => effect.en).join(' '))?.[1]);
+  if (!cut) return '';
+  const day = num(Math.round(DETECTION.day * (100 - cut)) / 100), night = num(Math.round(DETECTION.night * (100 - cut)) / 100);
+  return html`<p class="passive-note">${L(`예: 트루퍼는 서 있는 헬다이버를 낮에 약 ${DETECTION.day}m, 밤에 약 ${DETECTION.night}m에서 알아챕니다. 정찰 패시브를 입으면 이 거리가 약 ${day}m, ${night}m로 줄어듭니다. 웅크리거나 엎드리면 더 가까이 가도 들키지 않습니다.`,
+    `Example: a Trooper spots a standing Helldiver at about ${DETECTION.day} m by day and ${DETECTION.night} m at night. With the Scout passive that drops to about ${day} m and ${night} m. Crouching or lying prone lets you get closer still.`)} ${external(STEALTH_PAGE, L('위키 Stealth', 'Wiki Stealth'))}</p>`;
+}
+
 function picture(file, cls, alt = '') {
   const image = armorImages[file];
   return image ? html`<img class="${cls}" src="${image.src}" alt="${alt}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : '';
@@ -59,7 +72,7 @@ function passiveSection(passive, list) {
       <div><h3 id="armor-${passive.id}-title" tabindex="-1">${passive.name}</h3>${lang === 'en' || passive.name === passive.en ? '' : html`<p class="en">${passive.en}</p>`}</div>
       <span class="armor-passive-count">${L(`${list.length}종`, `${list.length} ${list.length === 1 ? 'set' : 'sets'}`)}</span>
     </header>
-    <ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul>
+    <ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul>${passiveNote(passive)}
     <ul class="armor-list">${list.map(armorCard)}</ul>
   </section>`;
 }
@@ -79,7 +92,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
       ${row(L('스태미나 회복', 'Stamina regen'), armor.staminaRegen)}
       <div><dt>${L('얻는 곳', 'Where to get it')}</dt><dd class="dim">${source(armor)}</dd></div>
     </dl>
-    ${passive ? html`<section class="block"><h3>${L('패시브', 'Passive')} · ${passive.name}</h3><ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul></section>` : ''}
+    ${passive ? html`<section class="block"><h3>${L('패시브', 'Passive')} · ${passive.name}</h3><ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul>${passiveNote(passive)}</section>` : ''}
     ${inGear ? '' : html`<div class="links"><a class="button primary" href="#/gear?tab=armor&a=${armor.id}">${L('같은 패시브 방어구 보기', 'Armor with the same passive')}</a></div>`}
     <div class="sources">
       <span>${L('자료 확인', 'Checked')} ${armorCheckedAt}</span>

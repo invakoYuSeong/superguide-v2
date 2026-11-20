@@ -1,0 +1,34 @@
+{
+ "source": "https://helldivers.wiki.gg/wiki/Module:Decodedata-Attacks/new_gear.json",
+ "revision": 134811,
+ "revisionTimestamp": "2026-09-08T20:25:16Z",
+ "retrievedAt": "2026-11-20",
+ "attacks": {
+  "Melee_Helldiver": {
+   "dmg": 75,
+   "dmg2": 8,
+   "ap1": 2,
+   "ap2": 0,
+   "ap3": 0,
+   "ap4": 0,
+   "demo": 10,
+   "stun": 25,
+   "push": 30,
+   "name": "Helldiver Default Melee",
+   "element_name": "Melee"
+  },
+  "Melee_Bayonet": {
+   "dmg": 165,
+   "dmg2": 83,
+   "ap1": 3,
+   "ap2": 0,
+   "ap3": 0,
+   "ap4": 0,
+   "demo": 10,
+   "stun": 25,
+   "push": 30,
+   "name": "Bayonet Melee",
+   "element_name": "Melee"
+  }
+ }
+}

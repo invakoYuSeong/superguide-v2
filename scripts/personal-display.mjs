@@ -113,7 +113,7 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
 }
 
 // Wiki infobox traits shown as badges on the gear page, in this order.
-const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'stun' };
+const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'stun', 'one handed': 'one-handed' };
 
 export function playerDetails(weapon, box) {
   const fuse = fuseDetails(box.fuse, weapon.category);

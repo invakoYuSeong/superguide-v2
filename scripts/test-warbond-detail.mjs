@@ -169,7 +169,7 @@ ok(embeddedWeapon.includes('data-variant="underbarrel" aria-pressed="true"'), 'e
 ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page link preserves weapon mode');
 // Effect badges from the wiki infobox trait list: each traitTags entry shows once, burn never twice.
 {
-  const LABELS = { fire: '화상', guided: '유도', arc: '전격', stun: '기절' };
+  const LABELS = { fire: '화상', guided: '유도', arc: '전격', stun: '기절', 'one-handed': '한손' };
   for (const w of weaponById.values()) {
     const chips = String(weaponDetail(w)).match(/<div class="chips"[\s\S]*?<\/div>/)?.[0] ?? '';
     for (const tag of w.traitTags ?? []) ok(chips.includes(`>${LABELS[tag]}</span>`), `${w.id}: ${LABELS[tag]} badge shown`);
@@ -177,7 +177,8 @@ ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page
   }
   const base = (await import('../db/weapons.js')).weapons.find(w => w.id === 'liberator');
   eq(playerDetails(base, { throwable_traits: 'Sticky {{*}} Stun' }).traitTags, ['stun'], 'trait list read from the infobox');
-  eq(playerDetails(base, { weapon_traits: 'Heavy Armor Penetrating {{*}} Explosive {{*}} Guided' }).traitTags, ['guided'], 'only the four badge traits are kept');
+  eq(playerDetails(base, { weapon_traits: 'Heavy Armor Penetrating {{*}} Explosive {{*}} Guided' }).traitTags, ['guided'], 'only the badge traits are kept');
+  eq(playerDetails(base, { weapon_traits: 'Light Armor Penetrating {{*}} One Handed' }).traitTags, ['one-handed'], 'one-handed trait read from the infobox');
   eq(playerDetails(base, {}).traitTags, [], 'no trait list, no badges');
 }
 // Warbond chip on weapon and stratagem details: exactly the items a warbond page links, pointing at that item.

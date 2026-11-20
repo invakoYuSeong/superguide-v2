@@ -4,10 +4,12 @@
 //   #/gear?tab=loadout&p=<primary>&s=<secondary>&g=<throwable>&st=<a,b,c,d>&f=<faction>
 //   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>&d=<armor>   (body armor grouped by passive, gear-armor.js; d: open its details)
 //   #/gear?tab=boosters&b=<booster>   (boosters, gear-boosters.js)
+//   #/gear?tab=modules&u=<module>   (ship module upgrades, gear-modules.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
 import { attachmentParts, weaponAttachments } from '../../data/weapon-attachments.js';
+import { quickMelee, bayonetWeapons } from '../../data/melee.js';
 import { apBandOf } from '../../core/catalog.js';
 import { search, personalNames } from '../../core/search.js';
 import { num, strongest } from '../../core/explain.js';
@@ -18,7 +20,7 @@ import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '
 import { L, T, lang } from '../../core/i18n.js';
 
 const ELEMENTS = { fire: L('화상', 'Fire'), gas: L('가스', 'Gas'), arc: L('전격', 'Arc'), electric: L('전격', 'Arc') };
-const TRAIT_BADGES = { fire: L('화상', 'Fire'), guided: L('유도', 'Guided'), arc: L('전격', 'Arc'), stun: L('기절', 'Stun') };
+const TRAIT_BADGES = { fire: L('화상', 'Fire'), guided: L('유도', 'Guided'), arc: L('전격', 'Arc'), stun: L('기절', 'Stun'), 'one-handed': L('한손', 'One-handed') };
 const SORTS = [
   { id: '', name: L('기본 순서', 'Default order') },
   { id: 'damage', name: L('피해 순', 'Damage'), value: w => w.direct != null ? w.direct * (w.pellets || 1) : w.splash },
@@ -28,7 +30,9 @@ const SORTS = [
 ];
 
 let root, ctx;
-const state = { tab: 'browse', cat: 'primary', type: '', q: '', sort: '', detail: null, variant: '', pushedDetail: false };
+const state = { tab: 'browse', cat: 'primary', type: '', hand: false, q: '', sort: '', detail: null, variant: '', pushedDetail: false };
+// One-handed weapons (wiki infobox trait): fire while jogging or holding a shield or mission item.
+const oneHanded = w => (w.traitTags || []).includes('one-handed');
 
 // --- Pieces ------------------------------------------------------------------------
 export function weaponArt(w, cls = 'gear-art') {
@@ -108,7 +112,7 @@ const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf
 
 function visibleItems() {
   // A search looks across every group, so "세열" finds the grenade from the rifle list.
-  let items = state.q ? personalWeapons : personalWeapons.filter(w => w.category === state.cat && (!state.type || w.type === state.type));
+  let items = state.q ? personalWeapons : personalWeapons.filter(w => w.category === state.cat && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w)));
   items = search(items, state.q, fields);
   const sort = SORTS.find(item => item.id === state.sort);
   if (sort?.value) items = [...items].sort((a, b) => (sort.value(b) ?? -1) - (sort.value(a) ?? -1));
@@ -116,7 +120,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -124,7 +128,8 @@ function renderBrowse() {
   const items = visibleItems();
   for (const button of $$('[data-cat]', root)) button.setAttribute('aria-pressed', String(!state.q && button.dataset.cat === state.cat));
   const types = typesOf(state.cat);
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${personalWeapons.filter(w => w.category === state.cat && w.type === type).length}</span></button>`)}` : '');
+  const handCount = personalWeapons.filter(w => w.category === state.cat && oneHanded(w)).length;
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${personalWeapons.filter(w => w.category === state.cat && w.type === type).length}</span></button>`)}${handCount ? html`<button class="chip chip-hand" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
@@ -164,6 +169,11 @@ function detailRows(w) {
   else if (fuseText(w)) add(L('신관', 'Fuse'), fuseText(w), '', { impact: L('닿는 순간 폭발', 'Explodes on contact'), proximity: L('적이 가까이 오면 폭발', 'Explodes when an enemy comes close'), selectable: L('던지기 전에 시간 선택', 'Pick the timer before throwing') }[w.fuseType] || '');
   if (w.spreadModes?.length) add(L('퍼뜨리기', 'Spread'), w.spreadModes.map(id => ({ narrow: L('좁게', 'Narrow'), wide: L('넓게', 'Wide') })[id] ?? id).join(' / '), '', L('던지기 전에 선택', 'Pick before throwing'));
   if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
+  // Quick melee (melee.js): every Helldiver's strike, or the bayonet on the weapons that carry one.
+  if ((w.category === 'primary' || w.category === 'secondary') && w.type !== 'melee') {
+    const bayonet = bayonetWeapons.includes(w.id), hit = bayonet ? quickMelee.bayonet : quickMelee.helldiver;
+    add(bayonet ? L('총검 공격', 'Bayonet') : L('근접 공격', 'Quick melee'), num(hit.damage), '', L(`${bayonet ? '총검' : '기본 근접'}, 관통 ${hit.ap}, 내구 피해 ${num(hit.durable)}`, `${bayonet ? 'Bayonet' : 'Default strike'}, AP ${hit.ap}, durable ${num(hit.durable)}`));
+  }
   return rows;
 }
 
@@ -394,12 +404,27 @@ async function renderBoosters() {
   module.renderBoosters(panel, { state: booster });
 }
 
+// --- Ship modules -------------------------------------------------------------------
+const shipModule = { focus: '' };
+let modulesUi = null;
+async function renderModules() {
+  const panel = $('#gear-modules', root);
+  if (!modulesUi) {
+    render(panel, html`<p class="faint" style="padding:24px 0">${L('함선 모듈 목록을 불러오는 중...', 'Loading the ship modules...')}</p>`);
+    modulesUi = import('./gear-modules.js');
+  }
+  const module = await modulesUi;
+  if (state.tab !== 'modules') return;
+  module.renderModules(panel, { state: shipModule });
+}
+
 // --- View lifecycle -------------------------------------------------------------------
 const LEDES = {
   browse: '',
   loadout: L('무기와 스트라타젬을 담고 팩션을 고르면, 주요 적마다 무엇으로 몇 번 만에 처치하는지와 대응 공백을 보여 줍니다.', 'Fill in your weapons and stratagems and pick a faction to see what kills each key enemy in how many shots — and where your loadout has gaps.'),
   armor: L('몸통 방어구를 패시브별로 묶었습니다. 장갑 등급이 높을수록 덜 다치는 대신 속도와 스태미나 회복이 낮아집니다.', 'Body armor grouped by passive. A higher armor rating means less damage taken, at the cost of speed and stamina regen.'),
   boosters: L('출격 전에 한 명당 하나씩 고르는 부스터입니다. 효과는 분대 전원에게 적용되고, 같은 부스터는 겹쳐 쓸 수 없습니다.', 'Each Helldiver picks one booster before the drop. Its effect applies to the whole squad, and the same booster does not stack.'),
+  modules: L('슈퍼 구축함의 여섯 부서에 샘플과 요청 신청서를 들여 올리는 영구 강화입니다. 한 번 올리면 모든 임무에 적용됩니다.', 'Permanent Super Destroyer upgrades in six sections, paid for with samples and Requisition Slips. Once bought they apply to every mission.'),
 };
 function showTab() {
   for (const button of $$('[data-tab-pick]', root)) button.setAttribute('aria-pressed', String(button.dataset.tabPick === state.tab));
@@ -408,9 +433,11 @@ function showTab() {
   $('#gear-loadout', root).hidden = state.tab !== 'loadout';
   $('#gear-armor', root).hidden = state.tab !== 'armor';
   $('#gear-boosters', root).hidden = state.tab !== 'boosters';
+  $('#gear-modules', root).hidden = state.tab !== 'modules';
   if (state.tab === 'browse') renderBrowse();
   else if (state.tab === 'armor') renderArmor().catch(error => { console.error(error); ctx.toast(L('방어구 목록을 불러오지 못했습니다.', 'The armor list could not be loaded.')); });
   else if (state.tab === 'boosters') renderBoosters().catch(error => { console.error(error); ctx.toast(L('부스터 목록을 불러오지 못했습니다.', 'The booster list could not be loaded.')); });
+  else if (state.tab === 'modules') renderModules().catch(error => { console.error(error); ctx.toast(L('함선 모듈 목록을 불러오지 못했습니다.', 'The ship modules could not be loaded.')); });
   else renderLoadout().catch(error => { console.error(error); ctx.toast(L('로드아웃 점검 도구를 불러오지 못했습니다.', 'The loadout check could not be loaded.')); });
 }
 
@@ -422,7 +449,7 @@ export function mount(container, context) {
   LEDES.browse = L(`주무기 ${count('primary')}종 · 보조무기 ${count('secondary')}종 · 투척 ${count('throwable')}종의 수치. 카드를 누르면 자세한 기준이 열립니다.`, `Stats for ${count('primary')} primaries, ${count('secondary')} secondaries and ${count('throwable')} throwables. Open a card for the details behind the numbers.`);
   render(root, html`<div class="page-head gear-head"><div><div class="eyebrow">Armory</div>
     <h1 class="sr-only">${L('장비', 'Gear')}</h1>
-    <div class="gear-tabs" role="group" aria-label="${L('장비 보기', 'Gear views')}"><button type="button" data-tab-pick="browse">${L('장비 둘러보기', 'Browse gear')}</button><button type="button" data-tab-pick="loadout">${L('로드아웃 점검', 'Loadout check')}</button><button type="button" data-tab-pick="armor">${L('방어구', 'Armor')}</button><button type="button" data-tab-pick="boosters">${L('부스터', 'Boosters')}</button></div>
+    <div class="gear-tabs" role="group" aria-label="${L('장비 보기', 'Gear views')}"><button type="button" data-tab-pick="browse">${L('장비 둘러보기', 'Browse gear')}</button><button type="button" data-tab-pick="loadout">${L('로드아웃 점검', 'Loadout check')}</button><button type="button" data-tab-pick="armor">${L('방어구', 'Armor')}</button><button type="button" data-tab-pick="boosters">${L('부스터', 'Boosters')}</button><button type="button" data-tab-pick="modules">${L('함선 모듈', 'Ship modules')}</button></div>
     <p id="gear-lede"></p></div></div>
   <div id="gear-browse">
     <div class="arsenal-tools">
@@ -438,7 +465,8 @@ export function mount(container, context) {
   </div>
   <div id="gear-loadout" hidden></div>
   <div id="gear-armor" hidden></div>
-  <div id="gear-boosters" hidden></div>`);
+  <div id="gear-boosters" hidden></div>
+  <div id="gear-modules" hidden></div>`);
 
   const input = $('#gear-q', root);
   input.addEventListener('input', () => { state.q = input.value; renderBrowse(); syncUrl(); });
@@ -447,7 +475,8 @@ export function mount(container, context) {
     const target = event.target.closest('button, a');
     if (!target) return;
     if (target.dataset.tabPick) { state.tab = target.dataset.tabPick; showTab(); syncUrl(); }
-    else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
+    else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.hand = false; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
+    else if (target.dataset.hand != null) { state.hand = !state.hand; renderBrowse(); syncUrl(); }
     else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; renderBrowse(); syncUrl(); }
     else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
   });
@@ -473,13 +502,14 @@ function selectVariant(id) {
 
 export function update(route) {
   const q = route.query;
-  state.tab = q.tab === 'loadout' || q.tab === 'armor' || q.tab === 'boosters' ? q.tab : 'browse';
+  state.tab = ['loadout', 'armor', 'boosters', 'modules'].includes(q.tab) ? q.tab : 'browse';
   if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+(,[a-z0-9-]+)*$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '' });
   else if (state.tab === 'boosters') booster.focus = q.b || '';
+  else if (state.tab === 'modules') shipModule.focus = q.u || '';
   else if (state.tab === 'browse') {
     Object.assign(state, {
       cat: GROUPS.some(group => group.id === q.cat) ? q.cat : 'primary',
-      q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '',
+      q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '', hand: q.h === '1',
     });
     state.type = typesOf(state.cat).includes(q.type) ? q.type : '';
     $('#gear-q', root).value = state.q;

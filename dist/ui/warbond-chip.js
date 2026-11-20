@@ -16,7 +16,7 @@ const EDITION = { 'gear/knight': { name: '슈퍼 시민 에디션', en: 'Super C
 export function warbondChip(view, id) {
   const key = `${view}/${id}`;
   const store = superstoreItems.get(key);
-  if (store) return html`<a class="badge warbond" href="${formatRoute({ view: 'superstore' })}" title="${L(`슈퍼 스토어 ${store.page}페이지 · ${store.cost} 슈퍼 크레딧`, `Superstore page ${store.page} · ${store.cost} Super Credits`)}">${icon('warbonds', 14)}${L('슈퍼 스토어', 'Superstore')}</a>`;
+  if (store) return html`<a class="badge warbond" href="${formatRoute({ view: 'superstore' })}" title="${L(`슈퍼 스토어 ${store.page}페이지, ${store.cost} 슈퍼 크레딧`, `Superstore page ${store.page}, ${store.cost} Super Credits`)}">${icon('warbonds', 14)}${L('슈퍼 스토어', 'Superstore')}</a>`;
   const edition = EDITION[key];
   if (edition) return html`<span class="badge warbond" title="${L('슈퍼 시민 에디션 구매 시 지급', 'Included with the Super Citizen Edition')}">${icon('warbonds', 14)}${L(edition.name, edition.en)}</span>`;
   const source = warbondSources[key];

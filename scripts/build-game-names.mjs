@@ -10,6 +10,7 @@ import { shipModules } from '../dist/data/ship-modules.js';
 import { warbonds } from '../dist/data/warbonds.js';
 import { gameTileKeys } from './warbond-parse.mjs';
 import { parseSuperstore, superstoreGameKeys } from './superstore-parse.mjs';
+import { parseShipModules, gameEffect } from './ship-module-parse.mjs';
 
 // Warbond cosmetic and booster tiles (the kinds build-warbonds.mjs names in Korean).
 const TILE_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
@@ -62,6 +63,15 @@ const superstore = parseSuperstore((await source('wiki_superstore.json')).text);
 for (const key of [...new Set(superstore.pages.flatMap(page => page.items).filter(item => ['cape', 'player-card', 'emote'].includes(item.kind)).flatMap(superstoreGameKeys))].sort()) {
   const korean = exact.get(key) ?? folded.get(key.toLowerCase());
   if (korean) out.strings.superstoreItems[key] = korean;
+}
+// Ship module upgrades tab: section and module names and each effect's game text (the game's
+// English that reads the same as the wiki effect once #VALUE takes the wiki's number).
+out.strings.shipModuleUpgrades = {};
+const upgrades = parseShipModules((await source('wiki_stratagem_stats.json')).shipModules.text);
+const gameEnglish = [...exact.keys()];
+for (const section of upgrades.sections) for (const key of [section.en, ...section.modules.flatMap(module => [module.en, gameEffect(module.effect, gameEnglish)?.key ?? `(effect of ${module.en}) ${module.effect}`])]) {
+  const korean = exact.get(key) ?? folded.get(key.toLowerCase());
+  if (korean) out.strings.shipModuleUpgrades[key] = korean; else missing.push(`shipModuleUpgrades: ${key}`);
 }
 if (missing.length) throw new Error(`No Korean in db/source/game_strings_ko.tsv for:\n  ${missing.join('\n  ')}\nCheck the English against the table (it is the game's exact text).`);
 await writeFile(new URL('../db/source/game_names_ko.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');

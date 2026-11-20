@@ -9,6 +9,7 @@ import { pickerEnemyImages } from '../../data/selector-images.js';
 import { combatImages } from '../../data/combat-images.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { enemyPages } from '../../data/enemy-pages.js';
+import { enemyWeapons, helldiverArmor } from '../../data/enemy-weapons.js';
 import { factionGuides } from '../../data/faction-data.js';
 import { stratagems, stratagemById } from '../../core/catalog.js';
 import { solveMatchup, withHitAssumption, spearCannotLock, partPool, isFatal, FATAL } from '../../core/combat.js';
@@ -167,6 +168,35 @@ function lore(enemy) {
   const block = (title, lines, linesEn) => lines.length ? html`<div><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${line}</li>`)}</ul></div>` : '';
   if (!info || !(info.spawning.length || info.behavior.length)) return '';
   return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</section>`;
+}
+
+// The enemy's own attacks (wiki "Weapons Loadout" boxes, enemy-weapons.js) and a rough count of
+// torso hits a Helldiver takes before dying in light, medium and heavy armor.
+const DAMAGE_TYPES = {
+  ballistic: L('탄도', 'ballistic'), melee: L('근접', 'melee'), slash: L('베기', 'slash'), strike: L('타격', 'strike'), eviscerate: L('절단', 'eviscerate'), eviserate: L('절단', 'eviscerate'),
+  fire: L('화염', 'fire'), corrosive: L('부식', 'corrosive'), web: L('거미줄', 'web'), splash: L('튀김', 'splash'),
+};
+const RATINGS = [[50, L('경량 50 몇 방', 'Light 50 hits')], [100, L('일반 100 몇 방', 'Medium 100 hits')], [150, L('중량 150 몇 방', 'Heavy 150 hits')]];
+function attacks(enemy) {
+  const info = enemyWeapons[enemy.id];
+  if (!info?.attacks.length) return '';
+  const damageCell = attack => {
+    const parts = [];
+    if (attack.damage != null) parts.push(html`${num(attack.damage)}<small>${DAMAGE_TYPES[attack.damageType] ?? ''}${attack.ap != null ? L(`, 관통 ${attack.ap}`, `, AP ${attack.ap}`) : ''}</small>`);
+    if (attack.explosion != null) parts.push(html`${L('폭발', 'Blast')} ${num(attack.explosion)}<small>${attack.explosionAp != null ? L(`폭발 관통 ${attack.explosionAp}`, `blast AP ${attack.explosionAp}`) : ''}</small>`);
+    return parts.length ? parts : html`<span class="faint">${L('위키 참조', 'See the wiki')}</span>`;
+  };
+  const wiki = `https://helldivers.wiki.gg/wiki/${encodeURIComponent(info.page.replaceAll(' ', '_'))}#Weapons_Loadout`;
+  return html`<section class="panel enemy-attacks"><h2>${L('이 적의 공격', 'Its attacks')}</h2>
+    <div class="compare-scroll" role="region" aria-label="${L('적 공격표', 'Enemy attacks')}" tabindex="0"><table class="compare-table enemy-attack-table">
+      <thead><tr><th scope="col">${L('공격', 'Attack')}</th><th scope="col">${L('피해', 'Damage')}</th>${RATINGS.map(([, label]) => html`<th scope="col">${label}</th>`)}</tr></thead>
+      <tbody>${info.attacks.map(attack => html`<tr><th scope="row">${L(attack.name, attack.en)}${lang === 'en' || attack.name === attack.en ? '' : html`<small>${attack.en}</small>`}</th><td>${damageCell(attack)}</td>
+        ${RATINGS.map(([rating]) => html`<td>${attack.hits ? L(`${attack.hits[rating]}방`, `${attack.hits[rating]} ${attack.hits[rating] === 1 ? 'hit' : 'hits'}`) : '-'}</td>`)}</tr>`)}</tbody>
+    </table></div>
+    <p class="note">${L(html`방어구 칸은 <b>몸통 기준 어림값</b>입니다. 헬다이버 체력 ${helldiverArmor.health}을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다. 관통이 헬다이버 방어구에 미치는 영향은 위키에 공식이 없어 넣지 않았고, 폭발(거리에 따라 줄고 여러 부위에 맞음), 화염, 산성 공격과 피해가 여러 줄인 공격은 횟수를 계산하지 않습니다.`,
+      html`The armor columns are a <b>rough torso-hit count</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}. The wiki has no rule for how enemy AP meets Helldiver armor, so it is left out; explosions (they fall off with distance and hit several body parts), fire, acid and attacks with several damage lines get no count.`)}</p>
+    <p class="sources">${external(wiki, L('위키 Weapons Loadout', 'Wiki Weapons Loadout'))}${external(helldiverArmor.source.page, L('위키 방어구 배율표', 'Wiki armor rating table'))}</p>
+  </section>`;
 }
 
 function hero(enemy) {
@@ -507,7 +537,7 @@ function renderMain({ scrollToMatchup = false } = {}) {
   const enemy = enemyById.get(state.enemy);
   const entries = rankWeapons(enemy, state.shield);
   const selected = weaponsOf[state.group].some(weapon => weapon.id === state.weapon) ? state.weapon : null;
-  render($('#enemy-main', root), html`${hero(enemy)}${lore(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
+  render($('#enemy-main', root), html`${hero(enemy)}${lore(enemy)}${attacks(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
   renderTray();
   renderPicker();
   if (scrollToMatchup) $('.rank-row[aria-expanded="true"]', root)?.scrollIntoView({ block: 'start' });
