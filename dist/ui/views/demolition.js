@@ -171,7 +171,7 @@ function resultCard(row, profile, mode) {
   const s = row.structure;
   const o = OUTCOME[row.outcome];
   const verdictWord = { pass: L('충족', 'enough'), short: L('미달', 'short'), unknown: L('판정 보류', 'no verdict') };
-  return html`<article class="panel result-item" data-faction="${s.faction}">
+  return html`<article class="panel result-item" data-faction="${s.faction}" data-outcome="${o.tone}">
     <header>${structureImage(s, 36)}<div><b>${s.name}</b><small class="faction-tag">${s.faction}</small></div>${badge(o.label, o.tone)}</header>
     <p class="how">${howText(row)}</p>
     ${row.conditions.map(condition => html`<p style="color:var(--bleed)">· ${conditionText(condition, profile)}</p>`)}
