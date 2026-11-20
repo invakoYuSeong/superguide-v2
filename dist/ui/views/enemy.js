@@ -58,7 +58,7 @@ const compare = { picks: [], part: '' }; // [{ weaponId, modeId }] kept across e
 // Only the hit count starts blank; primary-hit options fall back to each mode's
 // own defaults (e.g. W.A.S.P. counts sub-missile hits, not the parent blast).
 const DEFAULT_ASSUME = { hitCount: '' };
-const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false };
+const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true };
 // Until the player picks a count, modes with a conservative default use it.
 // Every multi-hit attack shows a hit-rate slider. Aimed hits (pellets, arcs)
 // start at 100 %, scattering bomblets and fragments at 20 %; the data's own
@@ -172,7 +172,7 @@ function withDifficulty(text) {
     const level = i % 2 ? Number(part.match(/\d+/)[0]) : 0;
     const name = difficultyNames[level - 1];
     if (!name || !difficultyIcons[level]) return part;
-    return html`<span class="difficulty"><img src="${difficultyIcons[level].src}" alt="">${part} (${lang === 'en' ? name.en : name.name})</span>`;
+    return html`<span class="difficulty"><img src="${difficultyIcons[level].src}" alt="">${lang === 'en' ? `${name.en} (${part})` : `${name.name}(${part})`}</span>`;
   });
 }
 
@@ -180,8 +180,12 @@ function withDifficulty(text) {
 function lore(enemy) {
   const info = enemyPages[enemy.id];
   const block = (title, lines, linesEn, wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
-  if (!info || !(info.spawning.length || info.behavior.length || info.tactics || info.tips)) return '';
-  return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}${info.tactics ? block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true) : ''}${info.tips ? block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true) : ''}</section>`;
+  if (!info) return '';
+  // Spawning and Behavior fold like Attacks but start open; the choice stays across enemies (state.loreOpen).
+  const story = info.spawning.length || info.behavior.length ? html`<details class="panel fold enemy-story" data-lore ${state.loreOpen ? raw('open') : ''}><summary><h2>${L('등장 · 행동', 'Spawning · Behavior')}</h2></summary>
+    <div class="enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</div></details>` : '';
+  const advice = info.tactics || info.tips ? html`<section class="panel enemy-lore enemy-advice">${info.tactics ? block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true) : ''}${info.tips ? block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true) : ''}</section>` : '';
+  return html`${story}${advice}`;
 }
 
 // The enemy's own attacks (wiki "Weapons Loadout" boxes, enemy-weapons.js) and a rough count of
@@ -603,7 +607,10 @@ export function mount(container, context) {
     if (event.key === 'Enter') { const first = $('[data-enemy]', root); if (first) first.click(); }
   });
   // <details> toggle does not bubble: listen in the capture phase.
-  root.addEventListener('toggle', event => { if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open; }, true);
+  root.addEventListener('toggle', event => {
+    if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open;
+    if (event.target.matches?.('[data-lore]')) state.loreOpen = event.target.open;
+  }, true);
   root.addEventListener('change', event => {
     const target = event.target;
     if (target.matches('[data-shield]')) { state.shield = target.checked; renderMain(); syncUrl(); }

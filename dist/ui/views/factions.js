@@ -15,11 +15,11 @@ const iconUrl = id => globalThis.location ? new URL(subfactionIcons[id].src, glo
 import { stratagemById } from '../../core/catalog.js';
 import { recommend, findEnemy } from '../../core/factions.js';
 import { num, unitOf, outcomeOf, countText, aimText, routeNotes, josa, stageName } from '../../core/explain.js';
-import { html, render, $, $$, badge, external } from '../dom.js';
+import { html, raw, render, $, $$, badge, external } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 let root, ctx;
-const state = { guide: factionGuides[0].id };
+const state = { guide: factionGuides[0].id, recsOpen: true };
 
 const weaponIcon = id => html`<img class="strat-icon" style="width:34px;height:34px" src="${wikiIcons[id]?.src}" alt="" loading="lazy">`;
 
@@ -83,13 +83,14 @@ function stratagemPicks(side) {
     const stratagem = stratagemById.get(entry);
     return html`<a href="#/arsenal/${stratagem.id}">${weaponIcon(stratagem.id)}${stratagem.name}</a>`;
   };
-  return html`<section class="panel strat-recs" data-side="${side.id}"><h2>${L(`${side.name} 추천 스트라타젬`, `Recommended stratagems vs ${T(side.name)}`)}</h2>
+  // Folds like the enemy view's panels but starts open; the choice stays while switching factions (state.recsOpen).
+  return html`<details class="panel fold strat-recs" data-side="${side.id}" data-recs ${state.recsOpen ? raw('open') : ''}><summary><h2>${L(`${side.name} 추천 스트라타젬`, `Recommended stratagems vs ${T(side.name)}`)}</h2></summary>
     <div class="rec-grid">${recs.picks.map(pick => html`<article class="rec${pick.best ? ' best' : ''}">
       <div class="rec-items">${pick.items.map((entry, i) => html`${i ? html`<span class="faint">${L('또는', 'or')}</span>` : ''}${item(entry)}`)}</div>
       <div class="rec-tags">${pick.best ? badge(L('가장 추천', 'Top pick'), 'accent') : ''}${pick.tags.map(tag => badge(tag, 'outline'))}</div>
       <p>${pick.note}</p></article>`)}</div>
     ${recs.note ? html`<p class="note">${recs.note}</p>` : ''}
-    <p class="faint" style="font-size:12.5px">${L(`플레이어 경험에 따른 추천입니다(${factionStratagemsCheckedAt} 기준).`, `Recommendations from player experience (as of ${factionStratagemsCheckedAt}).`)}</p></section>`;
+    <p class="faint" style="font-size:12.5px">${L(`플레이어 경험에 따른 추천입니다(${factionStratagemsCheckedAt} 기준).`, `Recommendations from player experience (as of ${factionStratagemsCheckedAt}).`)}</p></details>`;
 }
 
 function unitCard(unit) {
@@ -123,6 +124,8 @@ export function mount(container, context) {
   render(root, html`<div class="page-head"><div><div class="eyebrow">Loadout Brief</div><h1>${L('팩션 추천', 'Faction picks')}</h1><p>${L('세력별 주요 유닛과, 조준이 쉽고 다루기 편한 순서로 고른 지원 무기입니다. 가장 적은 탄수 순위가 아닙니다.', 'Key units of each enemy force, with support weapons picked in order of how easy they are to aim and handle — not a fewest-shots ranking.')}</p></div></div>
     <div id="faction-body"></div>
     <p class="faint" style="font-size:12.5px;margin-top:20px">${L('조준 난도·폭발 활용·충전과 재장전 부담을 고려한 입문자용 추천입니다. 고난이도 기준이며 실시간 패치와 연동되지 않습니다.', 'Beginner-friendly picks that weigh aiming difficulty, use of explosions, and charge and reload burden. Based on high difficulties and not linked to live patches.')}</p>`);
+  // <details> toggle does not bubble: listen in the capture phase.
+  root.addEventListener('toggle', event => { if (event.target.matches?.('[data-recs]')) state.recsOpen = event.target.open; }, true);
   root.addEventListener('click', event => {
     const target = event.target.closest('button');
     if (!target) return;

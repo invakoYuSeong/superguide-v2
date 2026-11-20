@@ -12,7 +12,10 @@
   - **공략 요령**(위키 확인): 적 대응 화면 18종(`enemy_behavior_korean.json`의 `tactics`, 기존 요약과 같은 위키 판의 Tactical Information), 철거 화면 9곳(`demolition-data.js`의 `tactics`·`tacticsRef` = 위키 문서·판 번호), 이글 500kg '주의'에 비스듬히 떨어진다는 문장(rev 142627).
   - **실전 팁**(위키에 없는 플레이어 경험, 아래 '사용자가 이미 정한 것'의 예외): 적 20종(`tips`), 시설 11곳(`demolition-data.js`의 `tips`), 철거 화면 머리말의 '임무에 붙은 전초기지는 안 부숴도 됨'. '공략 요령'과 칸을 나눠 구분.
   - **진영별 추천 스트라타젬**: 팩션 추천 화면의 진영 버튼 아래 패널(`dist/data/faction-stratagems.js`, '가장 추천'·역할 칩, 칩 이름은 '굴 따개' 대신 '굴 파괴'). 가이드 추천에 사용자 요청으로 화염 센트리·에이펙스(테르미니드), 퀘이사 캐넌·노바·로켓 센트리(오토마톤)를 더함. 브리처·테르밋은 장비 그림을 아이콘으로.
-  - **난이도 아이콘**: 적 대응 요약의 '난이도 N' 옆에 위키 난이도 아이콘(`fetch-difficulty-icons` → `dist/assets/difficulty/`, `difficulty-icons.js`)과 게임 공식 난이도 이름(`build-game-names`의 `difficulties` → `build-enemy-pages`의 `difficultyNames`).
+  - **접기**: 적 대응의 '등장 · 행동'과 팩션 추천의 '추천 스트라타젬'은 '공격 패턴'처럼 접히는 패널(기본은 펼침, 접은 상태는 다른 적·진영으로 가도 유지). '공략 요령'·'실전 팁'은 따로 패널.
+  - **거리 150m 통일(사용자 결정)**: 슈리커 둥지(위키 Shrieker Nest rev 135292는 130m)와 교란기 실전 팁(가이드의 160~170m 여유)을 150m로 맞춤. 스토커 둥지 공략 요령(150m, 사이트 스토커 요약과 같은 값) 추가.
+  - **세력 칩 순서**: 진영 안에서 출시 순서(위키 변경 이력·첫 등장, 같은 패치는 문서 생성일). 일루미닛만 바뀜: 적임자 → 무분별한 대중 → 보트 스내처 → 침공 함대. `test-parity`의 팩션 대조는 기록 순서 대신 세력·적·무기 짝으로 찾음.
+  - **난이도 아이콘**: 적 대응 요약의 '도전적(난이도 4)' 형식으로 위키 난이도 아이콘(`fetch-difficulty-icons` → `dist/assets/difficulty/`, `difficulty-icons.js`)과 게임 공식 난이도 이름(`build-game-names`의 `difficulties` → `build-enemy-pages`의 `difficultyNames`).
   - 위키와 정면으로 어긋나 뺀 것: 탐지 탑 '엎드려도 발견'(위키는 엎드리면 안 보임), 슈리커 둥지 150m(위키 130m 사용), 벙커 포탑 '레이저 캐넌 비추'. 무기별 몇 발 표는 적 대응 계산과 겹쳐 넣지 않음.
   - 검사: `npm run check` 23종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 한/영 화면 확인(콘솔 오류 없음).
 

@@ -175,9 +175,10 @@ for (const expected of golden.selections) {
 }
 
 // --- Factions ------------------------------------------------------------------
-// Picks the legacy engine recorded must still match, in the same order. Guides added after
-// the recording (Caustic and Noxious Strains) are not in it; their picks must still resolve.
-const recorded = new Set(golden.factions.map(item => `${item.guide}/${item.enemy}/${item.choice}`));
+// Picks the legacy engine recorded must still match, looked up by guide/enemy/choice (guides are
+// listed in release order since 2026-11-20, not in the recorded order). Guides added after the
+// recording (Caustic and Noxious Strains) are not in it; their picks must still resolve.
+const recorded = new Map(golden.factions.map(item => [`${item.guide}/${item.enemy}/${item.choice}`, item]));
 let picks = 0, addedPicks = 0;
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
   if (!recorded.has(`${guide.id}/${unit.enemy}/${choice}`)) {
@@ -186,8 +187,8 @@ for (const guide of factionGuides) for (const unit of guide.units) for (const ch
     addedPicks++;
     continue;
   }
-  const expected = golden.factions[picks++];
-  assert.deepEqual([expected.guide, expected.enemy, expected.choice], [guide.id, unit.enemy, choice]);
+  const expected = recorded.get(`${guide.id}/${unit.enemy}/${choice}`);
+  picks++;
   const pick = recommend(unit, choice, legacyEnemy(findEnemy(unit.enemy)));
   assert.deepEqual({
     adviceOnly: Boolean(pick.adviceOnly), mode: pick.mode?.id ?? null, row: pick.route ? view(pick.route) : null,
