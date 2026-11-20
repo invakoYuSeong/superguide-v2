@@ -39,12 +39,16 @@ const oneHanded = w => (w.traitTags || []).includes('one-handed');
 // an explosion of the inner force (20) only from inside the hole. Weapon modes (an underbarrel launcher) count.
 const bugHole = structures.find(item => item.id === 'bug-hole');
 const HOLE_OUTER = bugHole.routes.find(route => !route.explosiveOnly).threshold, HOLE_INNER = bugHole.routes.find(route => route.explosiveOnly).threshold;
-// The seeker drones fly at enemies instead of into a hole: the community guide marks both as not closing bug
-// holes (only Fabricators), though their demolition force would; the Lure Mine is left out too, as nothing
-// confirms it can be put inside one (user decisions 2026-11-20).
-const HOLE_EXCLUDED = new Set(['seeker', 'anti-tank-seeker', 'lure-mine']);
+// The seeker drones and the Lure Mine cannot be put into a hole on purpose: they close one from inside only
+// when a drone homes in on an enemy by the hole or an enemy steps on a mine set at its mouth (user decision
+// 2026-11-20). They get the conditional tier, with how it happens.
+const HOLE_CONDITIONS = {
+  seeker: L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
+};
 export const holeTier = w => {
-  if (HOLE_EXCLUDED.has(w.id)) return null;
+  if (HOLE_CONDITIONS[w.id]) return 'conditional';
   const records = [w, ...(w.variants || [])];
   if (records.some(r => Math.max(r.demolition ?? 0, r.splashDemolition ?? 0) >= HOLE_OUTER)) return 'outer';
   return records.some(r => (r.splashDemolition ?? 0) >= HOLE_INNER) ? 'inner' : null;
@@ -52,7 +56,9 @@ export const holeTier = w => {
 const HOLE = {
   outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 벌레굴이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
   inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 벌레굴이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
+  conditional: [L('굴 안쪽 파괴 · 조건부', 'Bug holes from inside · conditional'), ''],
 };
+const holeText = (w, tier) => tier === 'conditional' ? HOLE_CONDITIONS[w.id] : HOLE[tier][1];
 
 // --- Pieces ------------------------------------------------------------------------
 export function weaponArt(w, cls = 'gear-art') {
@@ -102,7 +108,7 @@ const statRow = w => html`<dl class="stat-row">${gearStats(w).map(stat => html`<
 export function traits(w) {
   const list = [];
   const hole = holeTier(w);
-  if (hole) list.push(html`<span class="badge outline hole-tag" title="${HOLE[hole][1]}">${HOLE[hole][0]}</span>`);
+  if (hole) list.push(html`<span class="badge outline hole-tag" title="${holeText(w, hole)}">${HOLE[hole][0]}</span>`);
   if (w.dot?.element) list.push(badge(ELEMENTS[w.dot.element] || w.dot.element, 'bleed'));
   // Wiki infobox traits (traitTags); not repeated when the over-time damage badge already shows that effect.
   const dotTag = { fire: 'fire', arc: 'arc', electric: 'arc' }[w.dot?.element];
@@ -342,7 +348,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
   <div class="sheet-content">
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
-      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div></div></div>
+      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${specialBlock(w)}
     ${attachmentTable(w)}
