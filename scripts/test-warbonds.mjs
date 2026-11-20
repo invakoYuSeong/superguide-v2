@@ -102,12 +102,12 @@ const koreanKeys = Object.keys(korean);
 ok(Object.values(korean).every(name => typeof name === 'string' && name.trim()), 'the Korean name file holds only names (no notes or metadata)');
 eq(Object.keys(snapshot.pages).length, 26, 'snapshot holds the 26 warbond pages');
 eq(koreanKeys.length, 26, 'all 26 Korean warbond names are in the repo');
-// User-specified: keeps the game's official mistranslation as-is, including the "(오역)" marker.
-eq(korean['Exo Experts'], '외계 전문가(오역)', 'Exo Experts Korean name in db/source is exact');
-eq(warbonds.find(w => w.id === 'exo-experts').name, '외계 전문가(오역)', 'Exo Experts Korean name in the generated data is exact');
+// User decision 2026-11-20: the game's official translation as it is, with no "(오역)" marker.
+eq(korean['Exo Experts'], '외계 전문가', 'Exo Experts Korean name in db/source is exact');
+eq(warbonds.find(w => w.id === 'exo-experts').name, '외계 전문가', 'Exo Experts Korean name in the generated data is exact');
 const { english } = await import('../dist/i18n/en.js');
-eq(english['외계 전문가(오역)'], 'Exo Experts', 'Exo Experts has English in the dictionary');
-ok(!Object.hasOwn(english, '외계 전문가'), 'the old Exo Experts name is gone from the dictionary');
+eq(english['외계 전문가'], 'Exo Experts', 'Exo Experts has English in the dictionary');
+ok(!Object.hasOwn(english, '외계 전문가(오역)'), 'the old "(오역)" name is gone from the dictionary');
 eq(warbonds.length, 26, '26 warbonds generated');
 for (const warbond of warbonds) {
   const title = Object.keys(snapshot.pages).find(t => warbondId(t) === warbond.id);

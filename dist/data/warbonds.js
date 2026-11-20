@@ -377,7 +377,7 @@ export const warbonds = [
   },
   {
     "id": "exo-experts",
-    "name": "외계 전문가(오역)",
+    "name": "외계 전문가",
     "en": "Exo Experts",
     "tier": "premium",
     "date": "2026-04-28",

@@ -28,6 +28,8 @@ export function statsOf(entry) {
     uses: value(field(table, 'uses')),
     rearm: value(field(table, 'rearm_time')),
     revision: entry.revision,
+    // Wiki infobox trait "One Handed" (only kept when set, like the weapons' one-handed badge).
+    ...(/\bone handed\b/i.test(/\|\s*traits\s*=([^\n]*)/.exec(box || '')?.[1] ?? '') && { oneHanded: true }),
   };
 }
 
