@@ -311,10 +311,12 @@ const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), a
 export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
   'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
+// Explosions (the blast, an overcharge, a backblast) carry the blast icon in front of their name.
+const BLAST_KINDS = ['blast', 'overcharge', 'backblast'];
 function fallbackRows(profile, value) {
   const top = key => profile.modes.map(mode => mode[key]).filter(force => force != null)
     .reduce((best, force) => best == null || (typeof force === 'number' ? force : force.max) > (typeof best === 'number' ? best : best.max) ? force : best, null);
-  const rows = [['direct', L('직격', 'Direct')], ['explosion', L('폭발', 'Blast')]].map(([key, label]) => [label, top(key)]).filter(([, force]) => force != null)
+  const rows = [['direct', L('직격', 'Direct')], ['explosion', html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발', 'Blast')}`]].map(([key, label]) => [label, top(key)]).filter(([, force]) => force != null)
     .map(([label, force]) => ({ label, text: html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${value(force)}</span>` }));
   return rows.length ? rows : [{ label: L('철거력', 'Demolition'), text: html`<span class="force-line dim">${L('확인 중', 'Unverified')}</span>` }];
 }
@@ -333,7 +335,7 @@ function specialBlock(item, profile) {
   const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast'))].filter(Boolean);
   const rows = forces.length
     ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
-      label: FORCE_KIND[part.kind],
+      label: BLAST_KINDS.includes(part.kind) ? html`<span class="ico-blast" aria-hidden="true"></span>${FORCE_KIND[part.kind]}` : FORCE_KIND[part.kind],
       text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}`,
     }))
     // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.

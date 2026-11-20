@@ -6,6 +6,7 @@
 //   #/gear?tab=boosters&b=<booster>   (boosters, gear-boosters.js)
 //   #/gear?tab=modules&u=<module>   (ship module upgrades, gear-modules.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
+import { structures } from '../../data/demolition-data.js';
 import { personalProfiles } from '../../data/personal-profiles.js';
 import { weaponImages } from '../../data/weapon-images.js';
 import { attachmentParts, weaponAttachments } from '../../data/weapon-attachments.js';
@@ -31,9 +32,26 @@ const SORTS = [
 ];
 
 let root, ctx;
-const state = { tab: 'browse', cat: 'primary', type: '', hand: false, q: '', sort: '', detail: null, variant: '', pushedDetail: false };
+const state = { tab: 'browse', cat: 'primary', type: '', hand: false, hole: false, q: '', sort: '', detail: null, variant: '', pushedDetail: false };
 // One-handed weapons (wiki infobox trait): fire while jogging or holding a shield or mission item.
 const oneHanded = w => (w.traitTags || []).includes('one-handed');
+// Bug holes, by the demolition data's thresholds: a hit of the outer force (40) closes one from outside,
+// an explosion of the inner force (20) only from inside the hole. Weapon modes (an underbarrel launcher) count.
+const bugHole = structures.find(item => item.id === 'bug-hole');
+const HOLE_OUTER = bugHole.routes.find(route => !route.explosiveOnly).threshold, HOLE_INNER = bugHole.routes.find(route => route.explosiveOnly).threshold;
+// The seeker drones fly at enemies instead of into a hole: the community guide marks both as not closing bug
+// holes (only Fabricators), though their demolition force would (user decision 2026-11-20).
+const HOLE_EXCLUDED = new Set(['seeker', 'anti-tank-seeker']);
+export const holeTier = w => {
+  if (HOLE_EXCLUDED.has(w.id)) return null;
+  const records = [w, ...(w.variants || [])];
+  if (records.some(r => Math.max(r.demolition ?? 0, r.splashDemolition ?? 0) >= HOLE_OUTER)) return 'outer';
+  return records.some(r => (r.splashDemolition ?? 0) >= HOLE_INNER) ? 'inner' : null;
+};
+const HOLE = {
+  outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 벌레굴이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
+  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 벌레굴이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
+};
 
 // --- Pieces ------------------------------------------------------------------------
 export function weaponArt(w, cls = 'gear-art') {
@@ -82,6 +100,8 @@ const statRow = w => html`<dl class="stat-row">${gearStats(w).map(stat => html`<
 
 export function traits(w) {
   const list = [];
+  const hole = holeTier(w);
+  if (hole) list.push(html`<span class="badge outline hole-tag" title="${HOLE[hole][1]}">${HOLE[hole][0]}</span>`);
   if (w.dot?.element) list.push(badge(ELEMENTS[w.dot.element] || w.dot.element, 'bleed'));
   // Wiki infobox traits (traitTags); not repeated when the over-time damage badge already shows that effect.
   const dotTag = { fire: 'fire', arc: 'arc', electric: 'arc' }[w.dot?.element];
@@ -113,7 +133,7 @@ const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf
 
 function visibleItems() {
   // A search looks across every group, so "세열" finds the grenade from the rifle list.
-  let items = state.q ? personalWeapons : personalWeapons.filter(w => w.category === state.cat && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w)));
+  let items = state.q ? personalWeapons : personalWeapons.filter(w => w.category === state.cat && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w)) && (!state.hole || holeTier(w)));
   items = search(items, state.q, fields);
   const sort = SORTS.find(item => item.id === state.sort);
   if (sort?.value) items = [...items].sort((a, b) => (sort.value(b) ?? -1) - (sort.value(a) ?? -1));
@@ -121,7 +141,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', bh: state.hole ? '1' : '', q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -134,9 +154,12 @@ function renderBrowse() {
   // with nothing to show is dimmed, and picking it lets the other choice go.
   const inCat = personalWeapons.filter(w => w.category === state.cat);
   const showHand = inCat.some(oneHanded) && !inCat.every(oneHanded);
-  const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w))).length;
-  const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type)).length;
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}` : '');
+  // The bug hole filter likewise only where some but not all of the group close holes.
+  const showHole = inCat.some(holeTier) && !inCat.every(holeTier);
+  const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w)) && (!state.hole || holeTier(w))).length;
+  const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type) && (!state.hole || holeTier(w))).length;
+  const holeCount = inCat.filter(w => holeTier(w) && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w))).length;
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
@@ -300,7 +323,7 @@ function specialBlock(w) {
   const top = list => strongest(list.map(row => ({ ...row, demo: row.demolition })));
   const rows = [top(all.filter(row => !row.blast)), top(all.filter(row => row.blast))].filter(Boolean);
   if (!rows.length) return '';
-  const cell = row => html`<div><dt>${row.blast ? L('폭발', 'Blast') : L('직격', 'Direct')}</dt><dd class="force-lines">
+  const cell = row => html`<div><dt>${row.blast ? html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발', 'Blast')}` : L('직격', 'Direct')}</dt><dd class="force-lines">
     <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
     <dl class="detail-grid">${rows.map(cell)}</dl>
@@ -485,9 +508,10 @@ export function mount(container, context) {
     const target = event.target.closest('button, a');
     if (!target) return;
     if (target.dataset.tabPick) { state.tab = target.dataset.tabPick; showTab(); syncUrl(); }
-    else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.hand = false; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
-    else if (target.dataset.hand != null) { state.hand = !state.hand; if (target.classList.contains('is-empty')) state.type = ''; renderBrowse(); syncUrl(); }
-    else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; if (target.classList.contains('is-empty')) state.hand = false; renderBrowse(); syncUrl(); }
+    else if (target.dataset.cat) { state.cat = target.dataset.cat; state.type = ''; state.hand = false; state.hole = false; state.q = ''; input.value = ''; renderBrowse(); syncUrl(); }
+    else if (target.dataset.hand != null) { state.hand = !state.hand; if (target.classList.contains('is-empty')) { state.type = ''; state.hole = false; } renderBrowse(); syncUrl(); }
+    else if (target.dataset.hole != null) { state.hole = !state.hole; if (target.classList.contains('is-empty')) { state.type = ''; state.hand = false; } renderBrowse(); syncUrl(); }
+    else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; if (target.classList.contains('is-empty')) { state.hand = false; state.hole = false; } renderBrowse(); syncUrl(); }
     else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
   });
   // Mode buttons inside the sheet live outside `root`; register that listener once.
@@ -519,7 +543,7 @@ export function update(route) {
   else if (state.tab === 'browse') {
     Object.assign(state, {
       cat: GROUPS.some(group => group.id === q.cat) ? q.cat : 'primary',
-      q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '', hand: q.h === '1',
+      q: q.q || '', sort: SORTS.some(sort => sort.id === q.sort) ? q.sort : '', hand: q.h === '1', hole: q.bh === '1',
     });
     state.type = typesOf(state.cat).includes(q.type) ? q.type : '';
     $('#gear-q', root).value = state.q;
