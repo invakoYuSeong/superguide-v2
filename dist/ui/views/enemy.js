@@ -196,8 +196,8 @@ function attacks(enemy) {
       <tbody>${info.attacks.map(attack => html`<tr><th scope="row">${L(attack.name, attack.en)}${lang === 'en' || attack.name === attack.en ? '' : html`<small>${attack.en}</small>`}</th><td>${damageCell(attack)}</td>
         ${RATINGS.map(([rating]) => attack.hits ? html`<td class="hits"><b>${attack.hits[rating]}</b>${L('회', '')}</td>` : html`<td class="hits none">-</td>`)}</tr>`)}</tbody>
     </table></div>
-    <p class="note">${L(html`횟수 칸은 <b>몸통 기준 어림값</b>입니다. 헬다이버 체력(${helldiverArmor.health})을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다.`,
-      html`The hit counts are <b>rough, for torso hits</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}.`)}</p>
+    <p class="note">${L(html`횟수 칸은 <b>몸통 기준</b>입니다. 헬다이버 체력(${helldiverArmor.health})을 공격 한 번의 피해와 방어구 배율(50은 ${helldiverArmor.factors[50]}배, 100은 ${helldiverArmor.factors[100]}배, 150은 ${helldiverArmor.factors[150]}배)을 곱한 값으로 나눠 올렸습니다. 머리는 ${helldiverArmor.head}배, 팔다리는 ${num(Math.round(helldiverArmor.arm * 100) / 100)}배로 맞습니다.`,
+      html`The hit counts are <b>for torso hits</b>: Helldiver health ${helldiverArmor.health} divided by one hit's damage times the armor factor (50: x${helldiverArmor.factors[50]}, 100: x${helldiverArmor.factors[100]}, 150: x${helldiverArmor.factors[150]}), rounded up. Head hits take x${helldiverArmor.head}, limbs x${num(Math.round(helldiverArmor.arm * 100) / 100)}.`)}</p>
     <p class="sources">${external(wiki, L('위키 Weapons Loadout', 'Wiki Weapons Loadout'))}${external(helldiverArmor.source.page, L('위키 방어구 배율표', 'Wiki armor rating table'))}</p>
   </details>`;
 }
