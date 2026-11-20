@@ -32,7 +32,7 @@ function sectionBlock(section, focus) {
       <span class="armor-passive-icon">${section.icon ? html`<img src="${section.icon.src}" alt="" width="36" height="36" loading="lazy" decoding="async">` : ''}</span>
       <div><h3 id="ship-${section.id}-title">${L(section.name, section.en)}</h3>${lang === 'en' || section.name === section.en ? '' : html`<p class="en">${section.en}</p>`}</div>
     </header>
-    <p class="module-cost module-section-cost">${L('부서 전체', 'Whole section')}: ${costLine(sectionCost(section))}</p>
+    <p class="module-cost module-section-cost">${L('비용 합계', 'Total cost')}: ${costLine(sectionCost(section))}</p>
     <ol class="module-list">${section.modules.map(module => moduleItem(module, focus))}</ol>
   </section>`;
 }
@@ -42,7 +42,7 @@ export function renderModules(panel, { state }) {
   const modules = shipModuleSections.flatMap(section => section.modules);
   const focus = modules.some(module => module.id === state.focus) ? state.focus : '';
   render(panel, html`<div class="arsenal-meta"><span role="status">${L(html`부서 <b>${shipModuleSections.length}</b>곳, 모듈 <b>${modules.length}</b>개`, html`<b>${shipModuleSections.length}</b> sections, <b>${modules.length}</b> upgrades`)}</span><span>${external(shipModuleUpgradesSource.page, L(`위키 Ship Modules 문서 (판 ${shipModuleUpgradesSource.revision})`, `Wiki Ship Modules page (revision ${shipModuleUpgradesSource.revision})`))}</span></div>
-    <p class="lede-note module-total">${L('모든 모듈을 올리는 비용', 'Cost of every upgrade')}: ${costLine(shipModuleTotal)}</p>
+    <p class="lede-note module-total">${L('모든 모듈 비용 합계', 'Total cost of every module')}: ${costLine(shipModuleTotal)}</p>
     <div class="armor-passives">${shipModuleSections.map(section => sectionBlock(section, focus))}</div>`);
   const marked = focus && $(`#module-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));

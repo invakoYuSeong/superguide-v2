@@ -434,7 +434,7 @@ const LEDES = {
   loadout: L('무기와 스트라타젬을 담고 팩션을 고르면, 주요 적마다 무엇으로 몇 번 만에 처치하는지와 대응 공백을 보여 줍니다.', 'Fill in your weapons and stratagems and pick a faction to see what kills each key enemy in how many shots — and where your loadout has gaps.'),
   armor: L('몸통 방어구를 패시브별로 묶었습니다. 장갑 등급이 높을수록 덜 다치는 대신 속도와 스태미나 회복이 낮아집니다.', 'Body armor grouped by passive. A higher armor rating means less damage taken, at the cost of speed and stamina regen.'),
   boosters: L('출격 전에 한 명당 하나씩 고르는 부스터입니다. 효과는 분대 전원에게 적용되고, 같은 부스터는 겹쳐 쓸 수 없습니다.', 'Each Helldiver picks one booster before the drop. Its effect applies to the whole squad, and the same booster does not stack.'),
-  modules: L('슈퍼 구축함의 여섯 부서에 샘플과 요청 신청서를 들여 올리는 영구 강화입니다. 한 번 올리면 모든 임무에 적용됩니다.', 'Permanent Super Destroyer upgrades in six sections, paid for with samples and Requisition Slips. Once bought they apply to every mission.'),
+  modules: L('슈퍼 구축함의 여섯 부서에 샘플과 요청 신청서를 사용해서 업그레이드하는 영구 강화입니다.', 'Permanent Super Destroyer upgrades in six sections, paid for with samples and Requisition Slips.'),
 };
 function showTab() {
   for (const button of $$('[data-tab-pick]', root)) button.setAttribute('aria-pressed', String(button.dataset.tabPick === state.tab));
