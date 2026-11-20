@@ -26,7 +26,8 @@ for (const [i, file] of FILES.entries()) {
   const query = new URLSearchParams({ action: 'query', prop: 'imageinfo', iiprop: 'url', titles: `File:${file}`, format: 'json', formatversion: '2' });
   const info = (await (await patient(`${API}?${query}`)).json()).query.pages[0].imageinfo[0];
   // A standard SVG 1.1 DOCTYPE line (no entities) is dropped: the safety check allows no DTD.
-  const raw = Buffer.from(await (await patient(info.url)).arrayBuffer()).toString('utf8');
+  // Line endings become LF (git stores LF, so a CRLF file would no longer match its sha256).
+  const raw = Buffer.from(await (await patient(info.url)).arrayBuffer()).toString('utf8').replace(/\r\n?/g, '\n');
   const bytes = Buffer.from(raw.replace(/<!DOCTYPE svg PUBLIC "-\/\/W3C\/\/DTD SVG 1\.1\/\/EN" "http:\/\/www\.w3\.org\/Graphics\/SVG\/1\.1\/DTD\/svg11\.dtd">\s*/, ''), 'utf8');
   validateSvg(bytes, { name: file });
   await writeFile(new URL(`../dist/assets/difficulty/${level}.svg`, import.meta.url), bytes);

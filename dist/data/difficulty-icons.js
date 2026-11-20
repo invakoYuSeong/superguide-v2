@@ -4,7 +4,7 @@ export const difficultyIcons = {
  "1": {
   "src": "./assets/difficulty/1.svg",
   "source": "https://helldivers.wiki.gg/wiki/File:Trivial_Difficulty_Icon.svg",
-  "sha256": "26c670cbbe6ec433c66dc61ef2e7171aecd7307a39c525f808af818eb0684038"
+  "sha256": "5b276124f216968107c291797be11d54141dd1fcd72fe40b35e3007c027c742e"
  },
  "2": {
   "src": "./assets/difficulty/2.svg",
