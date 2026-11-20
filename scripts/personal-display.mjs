@@ -114,8 +114,13 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
 
 // Close-range dangers and quirks each weapon's wiki page describes (user decision 2026-11-20; pages checked
 // 2026-11-20: R-36 Eruptor rev 141923, CB-9 Exploding Crossbow rev 141909, PLAS-1 Scorcher rev 141920,
-// PLAS-101 Purifier rev 141921, GP-31 Grenade Pistol rev 141567, GL-15 Evictor rev 142236, AR/GL-21 One-Two rev 142533).
+// PLAS-101 Purifier rev 141921, GP-31 Grenade Pistol rev 141567, GL-15 Evictor rev 142236, AR/GL-21 One-Two rev 142533,
+// LAS-17 Double-Edge Sickle rev 141915). A weapon may carry several lines.
 const CAUTIONS = {
+  'double-edge-sickle': [
+    '열이 오를수록 사용자도 화상 피해를 입습니다. 열 25%까지는 피해가 없고, 26~50%는 초당 10, 51~90%는 초당 20, 91% 이상에서는 사용자에게 불이 붙어 초당 50과 불붙은 피해를 함께 받아 매우 위험합니다.',
+    '91% 이상에서는 엎드리면 불이 붙지 않습니다. 인화성 물질 패시브는 화상 피해를 4분의 1로 줄이고, 적응력은 50%, 사막 돌격대는 40% 줄입니다. 방열판을 갈면 열이 초기화되지만 높은 열의 추가 피해도 사라집니다.',
+  ],
   evictor: '너무 가까운 적을 쏘면 폭발에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.',
   'one-two': '하부 유탄 발사기는 안전 신관이 있어 아주 가까운 적에게 맞으면 터지지 않고 튕겨 나가 먼 곳에서 터집니다.',
   eruptor: '너무 가까운 적을 쏘면 폭발과 파편에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.',
@@ -158,7 +163,7 @@ export function playerDetails(weapon, box) {
   if (weapon.id === 'breacher') playerNotes.push('사격 모드는 하나입니다. 처치 탄수는 직격과 붙은 뒤의 지연 폭발을 함께 반영하며, 지속 피해는 포함하지 않습니다.');
   if (['pyrotech', 'melta-mine'].includes(weapon.id)) playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
   if (weapon.variants.some(v => v.delivery === 'projectile' && !v.id.startsWith('shrapnel')) && ['missile-pistol', 'warrant'].includes(weapon.id)) playerNotes.push('유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.');
-  if (CAUTIONS[weapon.id]) playerNotes.push(CAUTIONS[weapon.id]);
+  if (CAUTIONS[weapon.id]) playerNotes.push(...[CAUTIONS[weapon.id]].flat());
   // Effect badges straight from the wiki infobox trait list ("Incendiary {{*}} Guided ...").
   const traits = String(box.weapon_traits ?? box.throwable_traits ?? '').split('{{*}}').map(trait => trait.trim().toLowerCase());
   const traitTags = Object.entries(TRAIT_TAGS).filter(([wiki]) => traits.includes(wiki)).map(([, tag]) => tag);

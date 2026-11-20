@@ -161,4 +161,6 @@ export default {
   "사용자 근처에서는 터지지 않는 안전 신관이 있어, 아주 가까운 적에게 맞으면 튕겨 나가 먼 곳에서 터집니다.": "A safety fuse stops it detonating close to you: a grenade that hits an enemy at point-blank range bounces off and explodes far away.",
   "너무 가까운 적을 쏘면 폭발에 사용자가 죽을 수 있습니다. 가까이 있는 아군도 조심하세요.": "Shooting a target that is too close can kill you with the blast. Mind nearby teammates too.",
   "하부 유탄 발사기는 안전 신관이 있어 아주 가까운 적에게 맞으면 터지지 않고 튕겨 나가 먼 곳에서 터집니다.": "The underbarrel grenade launcher has a safety fuse: a grenade that hits an enemy at point-blank range bounces off and explodes far away.",
+  "열이 오를수록 사용자도 화상 피해를 입습니다. 열 25%까지는 피해가 없고, 26~50%는 초당 10, 51~90%는 초당 20, 91% 이상에서는 사용자에게 불이 붙어 초당 50과 불붙은 피해를 함께 받아 매우 위험합니다.": "The hotter it gets, the more it burns you. Up to 25% heat there is no damage; 26~50% deals 10 per second, 51~90% 20 per second, and from 91% you catch fire and take 50 per second plus the burning, which is very likely to kill you.",
+  "91% 이상에서는 엎드리면 불이 붙지 않습니다. 인화성 물질 패시브는 화상 피해를 4분의 1로 줄이고, 적응력은 50%, 사막 돌격대는 40% 줄입니다. 방열판을 갈면 열이 초기화되지만 높은 열의 추가 피해도 사라집니다.": "From 91% heat, going prone keeps you from catching fire. The Inflammable passive cuts the burn damage to a quarter, Acclimated by 50% and Desert Stormer by 40%. Swapping in a new heatsink resets the heat, but also the bonus damage that comes with it.",
 };
