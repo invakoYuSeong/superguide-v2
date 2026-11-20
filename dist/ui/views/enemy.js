@@ -8,7 +8,8 @@ import { weaponImages } from '../../data/weapon-images.js';
 import { pickerEnemyImages } from '../../data/selector-images.js';
 import { combatImages } from '../../data/combat-images.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
-import { enemyPages } from '../../data/enemy-pages.js';
+import { enemyPages, difficultyNames } from '../../data/enemy-pages.js';
+import { difficultyIcons } from '../../data/difficulty-icons.js';
 import { enemyWeapons, helldiverArmor } from '../../data/enemy-weapons.js';
 import { factionGuides } from '../../data/faction-data.js';
 import { stratagems, stratagemById } from '../../core/catalog.js';
@@ -165,10 +166,20 @@ const REINFORCEMENTS = { breach: L('페로몬으로 버그 침공', 'Bug Breach 
 // Wiki fire damage multiplier shown like the explosive resistance: x0.8 = 20%, x1.5 = -50% (takes more).
 const fireText = mult => mult == null ? L('미확인', 'Unverified') : pct(Math.round((1 - mult) * 100));
 
+// "난이도 N" / "Difficulty N" in a summary line: the wiki difficulty icon and the game's name for that level.
+function withDifficulty(text) {
+  return text.split(/((?:난이도|Difficulty) \d+)/).map((part, i) => {
+    const level = i % 2 ? Number(part.match(/\d+/)[0]) : 0;
+    const name = difficultyNames[level - 1];
+    if (!name || !difficultyIcons[level]) return part;
+    return html`<span class="difficulty"><img src="${difficultyIcons[level].src}" alt="">${part} (${lang === 'en' ? name.en : name.name})</span>`;
+  });
+}
+
 // Spawning, Behavior and Tactics from the enemy's wiki page, summarized, and field tips players found (enemy-pages.js).
 function lore(enemy) {
   const info = enemyPages[enemy.id];
-  const block = (title, lines, linesEn, wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${line}</li>`)}</ul></div>` : '';
+  const block = (title, lines, linesEn, wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
   if (!info || !(info.spawning.length || info.behavior.length || info.tactics || info.tips)) return '';
   return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}${info.tactics ? block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true) : ''}${info.tips ? block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true) : ''}</section>`;
 }

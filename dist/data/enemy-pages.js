@@ -2,6 +2,8 @@
 // stagger_req, faction; Spawning, Behavior and Tactical Information summarized in db/source/enemy_behavior_korean.json).
 // Do not edit.
 export const enemyPagesCheckedAt = "2026-11-19";
+// Difficulty 1 to 10 (index + 1): the game's Korean name and English, shown beside the wiki difficulty icon.
+export const difficultyNames = [{"name":"매우 쉬움","en":"Trivial"},{"name":"쉬움","en":"Easy"},{"name":"일반","en":"Medium"},{"name":"도전적","en":"Challenging"},{"name":"어려움","en":"Hard"},{"name":"매우 어려움","en":"Extreme"},{"name":"자살 임무","en":"Suicide Mission"},{"name":"불가능","en":"Impossible"},{"name":"헬다이브","en":"Helldive"},{"name":"슈퍼 헬다이브","en":"Super Helldive"}];
 export const enemyPages = {
  "scavenger": {
   "page": "Scavenger",

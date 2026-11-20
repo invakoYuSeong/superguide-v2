@@ -9,6 +9,7 @@ import { wikiIcons } from '../../data/wiki-icons.js';
 import { subfactionIcons } from '../../data/subfaction-icons.js';
 import { factionStratagems, factionStratagemsCheckedAt } from '../../data/faction-stratagems.js';
 import { personalWeapons } from '../../data/personal-weapons.js';
+import { weaponImages } from '../../data/weapon-images.js';
 // A url() inside a custom property resolves against the stylesheet, so pass an absolute URL.
 const iconUrl = id => globalThis.location ? new URL(subfactionIcons[id].src, globalThis.location.href).href : subfactionIcons[id].src;
 import { stratagemById } from '../../core/catalog.js';
@@ -77,7 +78,7 @@ function stratagemPicks(side) {
   const item = entry => {
     if (entry.gear) {
       const weapon = personalWeapons.find(w => w.id === entry.gear);
-      return html`<a href="#/gear/${weapon.id}">${weapon.name}</a>`;
+      return html`<a href="#/gear/${weapon.id}">${weaponImages[weapon.id] ? html`<img class="strat-icon gear-icon" src="${weaponImages[weapon.id].src}" alt="" loading="lazy">` : ''}${weapon.name}</a>`;
     }
     const stratagem = stratagemById.get(entry);
     return html`<a href="#/arsenal/${stratagem.id}">${weaponIcon(stratagem.id)}${stratagem.name}</a>`;

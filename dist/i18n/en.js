@@ -13,7 +13,7 @@ import { shipModules } from '../data/ship-modules.js';
 import { boosters } from '../data/boosters.js';
 import { structureObjectives } from '../data/structure-objectives.js';
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects, hazards } from '../data/planets.js';
-import { enemyPages } from '../data/enemy-pages.js';
+import { enemyPages, difficultyNames } from '../data/enemy-pages.js';
 import { superstorePages } from '../data/superstore.js';
 import { shipModuleSections } from '../data/ship-module-upgrades.js';
 import { enemyWeapons } from '../data/enemy-weapons.js';
@@ -44,8 +44,9 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
   .concat(hazards, hazards.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
-// Enemy view: the summarized wiki Spawning, Behavior and Tactics lines and the field tips, each with its English.
-const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] })), ...(item.tactics ?? []).map((line, i) => ({ name: line, en: item.tacticsEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]);
+// Enemy view: the summarized wiki Spawning, Behavior and Tactics lines and the field tips, each with its English,
+// and the game's difficulty names.
+const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] })), ...(item.tactics ?? []).map((line, i) => ({ name: line, en: item.tacticsEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]).concat(difficultyNames);
 // Superstore tiles: the game's Korean cosmetic names and the armor set names, with the wiki's English.
 const superstoreNames = superstorePages.flatMap(page => page.items).filter(item => item.ko).map(item => ({ name: item.ko, en: item.base }));
 // Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.

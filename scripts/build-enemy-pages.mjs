@@ -1,8 +1,9 @@
 // Builds dist/data/enemy-pages.js: per enemy on the enemy view, the wiki infobox fire damage
 // multiplier and stagger threshold, its subfaction (faction picks guide id) and the Korean/English
 // summaries of the wiki Spawning, Behavior and Tactical Information sections, plus player field tips.
-// Inputs: db/source/wiki_enemy_pages.json (scripts/fetch-enemy-pages.mjs) and
-// db/source/enemy_behavior_korean.json (summaries, each tied to the wiki revision it was written from).
+// Inputs: db/source/wiki_enemy_pages.json (scripts/fetch-enemy-pages.mjs),
+// db/source/enemy_behavior_korean.json (summaries, each tied to the wiki revision it was written from)
+// and the difficulty names in db/source/game_names_ko.json (scripts/build-game-names.mjs).
 // Usage: node scripts/build-enemy-pages.mjs
 import { readFile, writeFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
@@ -12,6 +13,9 @@ import { pageTitle, infoboxNumber, reinforcementOf } from './enemy-page-title.mj
 const read = async path => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
 const wiki = await read('../db/source/wiki_enemy_pages.json');
 const summaries = await read('../db/source/enemy_behavior_korean.json');
+// Difficulty names 1 to 10: the game's Korean (build-game-names.mjs) and its English in title case.
+const difficultyNames = Object.entries((await read('../db/source/game_names_ko.json')).strings.difficulties)
+  .map(([en, ko]) => ({ name: ko, en: en.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()) }));
 // Wiki infobox `faction` -> faction picks guide id (the three main factions have none).
 const SUBFACTIONS = {
   'Predator Strain': 'predator', 'Spore Burst Strain': 'spore-burst', 'Rupture Strain': 'rupture', 'Caustic Strain': 'caustic', 'Noxious Strain': 'noxious',
@@ -54,6 +58,8 @@ await writeFile(new URL('../dist/data/enemy-pages.js', import.meta.url), `// Gen
 // stagger_req, faction; Spawning, Behavior and Tactical Information summarized in db/source/enemy_behavior_korean.json).
 // Do not edit.
 export const enemyPagesCheckedAt = ${JSON.stringify(wiki.retrievedAt)};
+// Difficulty 1 to 10 (index + 1): the game's Korean name and English, shown beside the wiki difficulty icon.
+export const difficultyNames = ${JSON.stringify(difficultyNames)};
 export const enemyPages = ${JSON.stringify(out, null, 1)};
 `);
 console.log(`${Object.keys(out).length} enemies${notes.length ? `; to look at:\n  ${notes.join('\n  ')}` : ''}`);

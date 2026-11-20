@@ -14,6 +14,8 @@ import { parseShipModules, gameEffect } from './ship-module-parse.mjs';
 
 // Warbond cosmetic and booster tiles (the kinds build-warbonds.mjs names in Korean).
 const TILE_KINDS = ['booster', 'emote', 'victory-pose', 'player-card', 'cape', 'title', 'pattern'];
+// Difficulty names 1 to 10, as the game writes them (the enemy view shows them next to the wiki's difficulty icons).
+const DIFFICULTIES = ['TRIVIAL', 'EASY', 'MEDIUM', 'CHALLENGING', 'HARD', 'EXTREME', 'SUICIDE MISSION', 'IMPOSSIBLE', 'HELLDIVE', 'SUPER HELLDIVE'];
 
 const source = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
 const lines = (await readFile(new URL('../db/source/game_strings_ko.tsv', import.meta.url), 'utf8')).split('\n');
@@ -38,6 +40,7 @@ const wanted = {
   objectives: [...new Set(objectives.map(entry => entry.game))],
   planets: [...new Set([...planetEntries.flatMap(entry => [entry.name, entry.description]), ...(planet.hazards ?? []).map(entry => entry.name).filter(Boolean)])],
   status: planet.status.map(entry => entry.name).filter(Boolean),
+  difficulties: DIFFICULTIES,
   names: [...new Set(Object.entries(targets).filter(([key]) => key !== 'note').flatMap(([, group]) => Object.values(group).map(entry => entry.game)))],
 };
 
