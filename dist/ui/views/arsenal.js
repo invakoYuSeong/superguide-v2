@@ -363,7 +363,11 @@ const statGrid = item => {
     ...(sway == null || sway === 1 ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }]),
     ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
   ];
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${statCell(reach)}${ammo}${rateCell(item)}${handling.map(statCell)}</dl>`;
+  // Extra cells from the data (numbers the stats above have no slot for), placed with their group.
+  const UNIT_EN = { '발': '', '회': '', '개': '' };
+  const extra = after => (item.extraStats ?? []).filter(cell => (cell.after ?? 'damage') === after)
+    .map(cell => statCell({ label: cell.label, text: num(cell.value), unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${handling.map(statCell)}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
