@@ -1177,3 +1177,6 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .vehicle-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
 /* Customization table: the weapon XP total under each unlock level (weapon-experience.js). */
 .gear-attach td small.attach-xp { display: block; margin: 2px 0 0; font-size: 11.5px; line-height: 1.3; white-space: normal; }
+/* Environmental hazard cards: a square wiki photo fills the icon slot. */
+.info-icon.photo { padding: 0; overflow: hidden; }
+.info-icon.photo img { object-fit: cover; }

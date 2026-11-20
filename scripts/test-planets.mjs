@@ -8,6 +8,7 @@ import * as planets from '../dist/data/planets.js';
 import { stratagemEffects } from '../dist/data/planet-stratagem-effects.js';
 import { validateSvg } from './svg-safety.mjs';
 import { biomeImages } from '../dist/data/biome-images.js';
+import { hazardImages } from '../dist/data/hazard-images.js';
 import { cleanGameText, slug } from './planet-parse.mjs';
 
 const read = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
@@ -85,6 +86,13 @@ for (const [id, image] of Object.entries(biomeImages)) {
   ok(bytes.length <= 24_000 && createHash('sha256').update(bytes).digest('hex') === image.sha256, `${id}: thumbnail changed or over 24 KB (run scripts/tools/fetch-biome-images.py)`);
 }
 ok(planets.biomes.every(biome => biomeImages[biome.id]), 'every biome has a thumbnail');
+// Hazard thumbnails: small WebP files, unchanged since fetch-hazard-images.py. A hazard without one yet
+// just shows none (a new hazard must not block a deploy).
+for (const [id, image] of Object.entries(hazardImages)) {
+  ok(planets.hazards.some(hazard => hazard.id === id), `hazard-images.js: unknown hazard ${id}`);
+  const bytes = await readFile(new URL(`../dist/${image.src.slice(2)}`, import.meta.url));
+  ok(bytes.length <= 12_000 && createHash('sha256').update(bytes).digest('hex') === image.sha256, `${id}: thumbnail changed or over 12 KB (run scripts/tools/fetch-hazard-images.py)`);
+}
 const listed = new Set(planets.biomes.map(biome => biome.internal));
 const unlisted = [...new Set(gamePlanets.planets.map(planet => planet.biome))].filter(biome => biome !== '?' && !listed.has(biome));
 ok(!unlisted.length, `game biomes with planets but no wiki biome page: ${unlisted.join(', ')}`);

@@ -2,6 +2,7 @@
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>   (b: scroll to and mark one biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
 import { biomeImages } from '../../data/biome-images.js';
+import { hazardImages } from '../../data/hazard-images.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
@@ -33,7 +34,9 @@ const ICON_OF = {
   'orbital-fluctuations-event': 'mod-cooldown', 'medical-supply-strain': 'ev-stims', 'pilot-shortage': 'ev-extraction', 'slower-eagle-rearm': 'ev-eagle',
   'light-gloom-cover': 'gloom', 'moderate-gloom-blanket': 'gloom', 'heavy-gloom-shroud': 'gloom', 'gloom-source': 'gloom',
 };
-const effectIcon = item => item.icon ? html`<span class="info-icon"><img src="${item.icon.src}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+// Environmental hazards show a square photo from their wiki page (hazard-images.js) in the icon slot.
+const effectIcon = item => hazardImages[item.id] ? html`<span class="info-icon photo"><img src="${hazardImages[item.id].src}" alt="" width="64" height="64" loading="lazy" decoding="async"></span>`
+  : item.icon ? html`<span class="info-icon"><img src="${item.icon.src}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
   : ICON_OF[item.id] ? html`<span class="info-icon drawn" aria-hidden="true">${icon(ICON_OF[item.id], 30)}</span>` : html`<span class="info-icon" aria-hidden="true"></span>`;
 
 function effectCard(item) {
