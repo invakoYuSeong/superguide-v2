@@ -41,8 +41,9 @@ export const factionTactics = {
     source: wiki('Fleshmob#Tactical_Information'),
   },
 };
-// Within each side, guides are in release order (wiki change history and first appearances, checked 2026-11-20);
-// the faction picks screen shows them left to right.
+// Order within each side is what the faction picks screen shows left to right: Terminid and Automaton guides
+// follow release order (wiki change history and first appearances, checked 2026-11-20); the Illuminate order
+// is the user's (2026-11-20).
 export const factionGuides = [
   { id: 'predator', side: 'terminid', name: '프레데터 변종', en: 'Predator Strain', source: wiki('Predator_Strain'),
     intro: '기습과 추격에 대비하세요. 접근하는 변종의 몸통에 연사하거나 큰 표적에 직접 화력을 넣는 대응을 고릅니다.',
@@ -80,19 +81,19 @@ export const factionGuides = [
   { id: 'cyborgs', side: 'automaton', name: '사이보그', en: 'Cyborg Legion', source: wiki('Cyborg_Legion'),
     intro: '래디컬·애지테이터가 스트라이더 계열을 대체하고, 고난이도에는 복스 엔진이 등장합니다. 보병 정밀 대응과 대형 표적용 화력을 함께 준비하세요.',
     units: [unit('radical', '빠르게 접근하는 전용 보병입니다. 넓은 가슴에 연사하거나 몸통 주변에 폭발을 넣으세요.'), unit('agitator', '주변 병력을 지휘하는 전용 보병입니다. 골반·왼다리에 화력을 넣거나 가슴 외피를 벗겨 공격할 수 있습니다. 투구 제거 후 머리 공격은 별도 경로입니다.', ['helmet', 'torso-armor']), unit('vox-engine', '팩토리 스트라이더를 대체하는 대형 병기입니다. 넓은 폭발의 위키 처치 안내와 단일 부위 계산을 구분합니다.', ['sarcophagus'])] },
-  { id: 'appropriators', side: 'illuminate', name: '적임자', en: 'Appropriators', source: wiki('Appropriators'),
-    intro: '무권자·플레시몹이 없는 편성입니다. 조종형 병기의 연결부와 보호막 밖 약점을 노릴 무기를 준비하세요.',
-    coverage: '옵트루더·버레이시터·게이트키퍼 세 전용 유닛을 모두 안내합니다.',
-    units: [unit('obtruder', '무리지어 플라스마를 발사하는 와처 변종입니다. 증원을 부르지 않으며 본체 체력은 400으로 일반 와처 600보다 낮고, 몸체 장갑도 1로 일반 와처의 2보다 낮습니다. 작은 눈 대신 몸체 연사나 대공포탄으로 대응하세요.', ['body'], 'watcher'), unit('veracitor', '조종사 보호막과 기체를 구분하세요. 기체 연결부는 조종사 보호막 밖의 처치 경로입니다.', ['chassis', 'hip']), unit('gatekeeper', '버레이시터보다 기체 중앙 장갑이 두껍습니다. 대전차 화력 또는 후방 약점을 비교하세요.', ['chassis', 'rear-weakspot'], 'veracitor')] },
   { id: 'mindless', side: 'illuminate', name: '무분별한 대중', en: 'Mindless Masses', source: wiki('Mindless_Masses'),
     intro: '무권자·플레시몹의 비중이 커지는 편성입니다. 다수 대응용 무기와 고난이도 하베스터 대응 수단을 나눠 준비하세요.',
     coverage: '무권자는 중량형을 대표로 표시합니다. 팩션 버프가 아니라 체형별 수치이며, 전체 계산기에서 다른 체형도 선택할 수 있습니다.',
     units: [{ ...unit('voteless-heavy', '몰려오는 무권자는 기관총으로 머리를 노리거나 유탄으로 무리를 처리하세요. 아래 탄수는 중량형 한 마리 기준이며 범위 내 처치 수는 아닙니다.'), name: '무권자' }, unit('fleshmob', '치명 부위가 없어 큰 피해를 본체에 누적해야 합니다. 머리 덩어리는 피해의 150%를 본체로 전달하며, 폭발·파편 무기로 여러 부위를 타격하는 대응이 효과적입니다. 덩어리 하나의 파괴는 처치가 아닙니다.', []), unit('harvester', '고난이도에서는 여전히 등장합니다. 보호막을 걷어낸 뒤 몸통 아래의 가로 다리 연결부를 노리세요. 눈 파괴만으로는 죽지 않습니다.', ['joint'])] },
-  { id: 'vote-snatchers', side: 'illuminate', name: '보트 스내처', en: 'Vote Snatchers', source: wiki('Vote_Snatchers'),
-    intro: '렛치와 크러셔가 주요 일루미닛 병력을 대체합니다. 무권자·플레시몹도 함께 등장하므로 근접 압박에 대비하세요.',
-    units: [unit('wretch', '머리 파괴만으로 즉사하지 않습니다. 본체로 피해가 전달되는 다리 경로를 비교합니다.', ['leg']), unit('crusher', '장갑 4 헬멧을 제거한 뒤 머리를 공격합니다. 몸통·다리의 재생을 제외한 수치는 별도 조건입니다.', ['helmet'])] },
+  { id: 'appropriators', side: 'illuminate', name: '적임자', en: 'Appropriators', source: wiki('Appropriators'),
+    intro: '무권자·플레시몹이 없는 편성입니다. 조종형 병기의 연결부와 보호막 밖 약점을 노릴 무기를 준비하세요.',
+    coverage: '옵트루더·버레이시터·게이트키퍼 세 전용 유닛을 모두 안내합니다.',
+    units: [unit('obtruder', '무리지어 플라스마를 발사하는 와처 변종입니다. 증원을 부르지 않으며 본체 체력은 400으로 일반 와처 600보다 낮고, 몸체 장갑도 1로 일반 와처의 2보다 낮습니다. 작은 눈 대신 몸체 연사나 대공포탄으로 대응하세요.', ['body'], 'watcher'), unit('veracitor', '조종사 보호막과 기체를 구분하세요. 기체 연결부는 조종사 보호막 밖의 처치 경로입니다.', ['chassis', 'hip']), unit('gatekeeper', '버레이시터보다 기체 중앙 장갑이 두껍습니다. 대전차 화력 또는 후방 약점을 비교하세요.', ['chassis', 'rear-weakspot'], 'veracitor')] },
   { id: 'invasion', side: 'illuminate', name: '침공 함대', en: 'Invasion Fleet', source: 'https://helldiverscompanion.com/',
     intro: '일반 일루미닛 혼성 편성의 주요 위협입니다. 보병과 보호막을 가진 대형 병기의 대응 무기를 함께 확인하세요.',
     coverage: '주요 대표 유닛이며 전체 출현 목록은 아닙니다. 이 편성에만 적용되는 체력 보정은 가정하지 않습니다.',
     units: [unit('overseer', '방패를 우회해 넓은 흉부를 공격하세요. 가슴 외피 제거와 후속 공격을 포함한 대응을 표시합니다.'), unit('elevated-overseer', '움직이는 몸통에 연사하거나, 옆·뒤에서 보이는 제트팩을 직접 노리세요.'), unit('harvester', '보호막 제거 후 다리가 시작되는 가로 연결부를 노리세요.', ['joint'])] },
+  { id: 'vote-snatchers', side: 'illuminate', name: '보트 스내처', en: 'Vote Snatchers', source: wiki('Vote_Snatchers'),
+    intro: '렛치와 크러셔가 주요 일루미닛 병력을 대체합니다. 무권자·플레시몹도 함께 등장하므로 근접 압박에 대비하세요.',
+    units: [unit('wretch', '머리 파괴만으로 즉사하지 않습니다. 본체로 피해가 전달되는 다리 경로를 비교합니다.', ['leg']), unit('crusher', '장갑 4 헬멧을 제거한 뒤 머리를 공격합니다. 몸통·다리의 재생을 제외한 수치는 별도 조건입니다.', ['helmet'])] },
 ];
