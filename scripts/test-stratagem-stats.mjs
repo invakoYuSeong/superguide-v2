@@ -78,4 +78,8 @@ ok(t('orbital-airburst').cooldown === 76.95 && Math.round(t('apex').cooldown) ==
 ok(t('eagle-500kg').rearm === 120 && t('eagle-500kg').uses === 2 && t('eagle-500kg').cooldown === 7.125, 'Eagle rearm 150 -> 120, uses 1 -> 2, cooldown 15 -> 7.125');
 setModulesOn(false); ok(timingOf(stratagems[0]).cooldown === 480, 'the toggle switches to base values'); setModulesOn(true);
 
+// Ship unlock from the infobox: level and Requisition Slips; warbond (medal) and mission stratagems have none.
+ok(JSON.stringify(stratagemStats.autocannon.unlock) === JSON.stringify({ level: 10, requisition: 7000 }), 'Autocannon unlocks at level 10 for 7,000 Requisition Slips');
+ok(JSON.stringify(stratagemStats['machine-gun'].unlock) === JSON.stringify({ level: 1, requisition: 0 }), 'Machine Gun is free from level 1');
+ok(!stratagemStats.apex.unlock && !stratagemStats.reinforce.unlock, 'warbond and mission stratagems have no ship unlock');
 console.log(`PASS stratagem stats: ${checks} checks (${stratagems.length} stratagems, ${shipModules.length} ship modules, Ship Modules revision ${shipModulesSource.revision}, ${REVIEWED.size} reviewed difference).`);

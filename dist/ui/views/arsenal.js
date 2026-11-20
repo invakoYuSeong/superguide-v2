@@ -325,10 +325,12 @@ function specialBlock(item, profile) {
   </section>`;
 }
 
-// The detail grid adds a support weapon's ergonomics (weapon handling, datamine) to the card stats.
+// The detail grid adds a support weapon's ergonomics (weapon handling, datamine) to the card stats,
+// and the ship unlock (level and Requisition Slips, wiki infobox) where the stratagem is bought on the ship.
 const detailStats = item => {
-  const { ergonomics, sway } = stratagemStats[item.id] ?? {};
+  const { ergonomics, sway, unlock } = stratagemStats[item.id] ?? {};
   return [...stats(item),
+    ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
     // Sway only where it differs from the standard 100% (user decision 2026-11-19).
     ...(sway == null || sway === 1 ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }])];

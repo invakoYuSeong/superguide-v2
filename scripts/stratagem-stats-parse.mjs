@@ -14,6 +14,15 @@ export const value = text => {
 const PERMITS = { supply: 'supply', offensive: 'offensive', offense: 'offensive', defensive: 'defensive' };
 // Type (permit) the user set over the wiki's Supply: these are mission tools (user decision 2026-11-19).
 export const PERMIT_OVERRIDES = { sos: 'mission', 'tactical-camera': 'mission' };
+// Unlock on the ship (Patriotic Administration Center): the infobox unlock_level and a Requisition
+// unlock_cost ("Free" = given at the start). Warbond stratagems cost medals and get their warbond chip
+// instead, and mission stratagems have neither, so both stay null.
+export function unlockOf(box) {
+  const level = /\|\s*unlock_level\s*=\s*(\d+)\s*(?:\n|\|)/.exec(box || '')?.[1];
+  const cost = /\|\s*unlock_cost\s*=\s*(?:\{\{Currency\|Requisition(?: Slips)?\|([\d,]+)\}\}|(Free))/.exec(box || '');
+  if (!level || !cost) return null;
+  return { level: Number(level), requisition: cost[2] ? 0 : Number(cost[1].replace(/,/g, '')) };
+}
 export function statsOf(entry) {
   if (!entry || entry.missing) return null;
   const table = entry.statsTable, box = entry.infobox;
@@ -29,6 +38,7 @@ export function statsOf(entry) {
     rearm: value(field(table, 'rearm_time')),
     revision: entry.revision,
     // Wiki infobox trait "One Handed" (only kept when set, like the weapons' one-handed badge).
+    ...(unlockOf(box) && { unlock: unlockOf(box) }),
     ...(/\bone handed\b/i.test(/\|\s*traits\s*=([^\n]*)/.exec(box || '')?.[1] ?? '') && { oneHanded: true }),
   };
 }
