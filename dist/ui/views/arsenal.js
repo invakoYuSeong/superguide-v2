@@ -381,13 +381,13 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
       ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
       : html`${statGrid(item)}${blastFigure(item)}`}
-    ${specialBlock(item, force)}
     ${spreadBlock(item)}
     ${timingBlock(item)}
     ${durabilityBlock(item)}
+    ${defenseBlock(item)}
+    ${specialBlock(item, force)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
-    ${defenseBlock(item)}
     ${notes.length ? html`<section class="block"><h3>${L('수치 기준', 'About the numbers')}</h3><ul class="notes">${notes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">
       ${combat ? html`<a class="button primary" href="#/enemy?w=${item.id}">${icon('enemy', 18)} ${L('적 대응 계산', 'Shots to kill')}</a>` : ''}

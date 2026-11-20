@@ -142,7 +142,8 @@ function weaponResults(weapon) {
   const profile = demolitionProfiles[weapon.id];
   const mode = profile.modes.find(item => item.id === state.mode) || profile.modes[0];
   const rows = structures.map(structure => solveDemolition(structure, profile, mode, state));
-  const order = { demolish: 0, health: 0, conditional: 1, unknown: 2, blocked: 3 };
+  // Grouped by verdict, in the order the badges read: demolishes, via health, conditional, unverified, cannot.
+  const order = { demolish: 0, health: 1, conditional: 2, unknown: 3, blocked: 4 };
   const sorted = rows.map((row, index) => ({ row, index })).sort((a, b) => order[a.row.outcome] - order[b.row.outcome] || a.index - b.index).map(item => item.row);
   const shown = sorted.filter(row => row.outcome !== 'blocked');
   const blocked = sorted.filter(row => row.outcome === 'blocked');
