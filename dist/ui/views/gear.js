@@ -323,10 +323,15 @@ export function attachmentTable(w) {
 // Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
 function specialBlock(w) {
   // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
-  // demolition, then stagger, then push. A record delivered as an explosion counts as a blast.
-  const all = (w.variants?.length ? w.variants : [w])
-    .filter(row => row.demolition != null || row.stun != null || row.push != null)
-    .map(row => ({ ...row, blast: row.delivery === 'explosion' }));
+  // demolition, then stagger, then push. A record delivered as an explosion counts as a blast; a shot that
+  // explodes on impact (Evictor, Eruptor, Exploding Crossbow...) adds its explosion as a blast of its own.
+  const has = row => row.demolition != null || row.stun != null || row.push != null;
+  // Fragments are left out, as on the stratagem sheet (user decision 2026-11-19).
+  const all = (w.variants?.length ? w.variants : [w]).filter(row => !String(row.id ?? '').startsWith('shrapnel')).flatMap(row => [
+    ...(has(row) ? [{ ...row, blast: row.delivery === 'explosion' }] : []),
+    ...(row.delivery !== 'explosion' && (row.splashDemolition != null || row.splashStun != null || row.splashPush != null)
+      ? [{ demolition: row.splashDemolition, stun: row.splashStun, push: row.splashPush, blast: true }] : []),
+  ]);
   const top = list => strongest(list.map(row => ({ ...row, demo: row.demolition })));
   const rows = [top(all.filter(row => !row.blast)), top(all.filter(row => row.blast))].filter(Boolean);
   if (!rows.length) return '';
