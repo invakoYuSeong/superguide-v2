@@ -695,7 +695,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .result-item header .badge { margin-left: auto; }
 .result-item p { font-size: 13px; color: var(--text-2); }
 .result-item .how { color: var(--text); font-weight: 650; }
-/* Stratagem lookup: each structure card is outlined in its verdict badge's colour. */
+/* Both lookups: each result card is outlined in its verdict badge's colour. */
 .result-item[data-outcome="kill"] { border-color: var(--kill); }
 .result-item[data-outcome="health"] { border-color: var(--break); }
 .result-item[data-outcome="conditional"] { border-color: var(--bleed); }
