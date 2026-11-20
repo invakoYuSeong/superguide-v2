@@ -5,11 +5,12 @@ import { L } from '../core/i18n.js';
 
 // An enemy behind the circles at the same scale, so the radius reads against something known: a Charger for
 // small blasts, a Bile Titan for the rest (user decision 2026-11-20).
-// Spans are side to side across the legs, from the leg-tip bones of the game models (Helldivers 2 01.007.202,
-// via hd2armorinspector.com, measured 2026-11-20); pictures are the wiki's Enemy Icons cropped to the body (480 px wide).
+// Spans are side to side across the legs, from the surface of the game models in their rest pose (Helldivers 2
+// 01.007.202, via hd2armorinspector.com, measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m), rounded; the
+// wiki and the developer give no sizes. Pictures are the wiki's Enemy Icons cropped to the body (480 px wide).
 const SCALE_ENEMIES = [
-  { upTo: 6, name: L('차저', 'Charger'), span: 4.7, src: './assets/blast/charger.webp', ratio: 372 / 480 },
-  { upTo: Infinity, name: L('바일 타이탄', 'Bile Titan'), span: 12, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
+  { upTo: 6, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
+  { upTo: Infinity, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
 ];
 
 export function blastFigure(item) {
