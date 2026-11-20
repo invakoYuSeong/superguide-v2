@@ -243,7 +243,7 @@
     "en": "Outside Bug Breaches it usually stands still or follows a fixed patrol path, turning to face Helldivers it notices. A roar and front-leg slam signal its attack, and the music changes."
    },
    {
-    "ko": "버그 침공이나 바일 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+    "ko": "버그 침공이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
     "en": "Those spawned from a Bug Breach or Bile Titan Bug Hole are aggressive at once and seek nearby Helldivers."
    },
    {
@@ -457,7 +457,7 @@
     "en": "Starting at Difficulty 7 it guards heavy Bug Nests and Difficulty 10 Mega Nests, and gains a chance to be replaced by the Charger Behemoth or Caustic Charger, higher on higher difficulties."
    },
    {
-    "ko": "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(바일 타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다.",
+    "ko": "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다.",
     "en": "On Difficulty 10 it is otherwise fully replaced by its tougher variants, but on missions with Dragonroaches a regular Charger spawns in place of a Bile Titan, including from Bile Titan Bug Holes."
    }
   ],
@@ -650,7 +650,7 @@
     "en": "Spawns only as a lone patrol visible from long range. It has no fixed spawns at Objectives or POIs and does not come from Bug Breaches."
    },
    {
-    "ko": "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 바일 타이탄 벌레굴·먼 순찰대·버그 침공처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+    "ko": "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 침공처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
     "en": "It never spawns alongside Bile Titans (except on Spore Burst Strain, with Spore Burst Bile Titans). Where a Bile Titan would spawn, such as Bile Titan Bug Holes, distant patrols and Bug Breaches, a Charger spawns instead."
    },
    {

@@ -28,7 +28,7 @@ export default {
   "벌레굴": "Bug Hole",
   "굴 외곽": "Hole Exterior",
   "굴 안쪽": "Inside the Hole",
-  "바일 타이탄 벌레굴": "Bile Titan Bug Hole",
+  "타이탄 벌레굴": "Bile Titan Bug Hole",
   "대형 굴 본체": "Large Hole Body",
   "포자 스퓨어": "Spore Spewer",
   "스퓨어 본체": "Spewer Body",

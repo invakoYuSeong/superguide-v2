@@ -20,7 +20,7 @@ export const structures = [
   building('broadcast', '불법 방송탑', '공용 시설', [route('tower', '방송탑', 30)], '안테나가 달린 방송탑 본체를 노리세요.'),
   building('research', '불법 연구소', '공용 시설', [route('building', '목표 연구 시설', 50)], '임무에서 지정한 연구 시설 가까이에 폭발 중심을 맞추세요.'),
   building('bug-hole', '벌레굴', '테르미니드', [route('outer', '굴 외곽', 40), route('inner', '굴 안쪽', 20, true, { opening: true })], '철거력이 낮은 폭발물은 굴 안쪽으로 넣어야 합니다. 굴 앞 지면에서 터지는 것과 구분하세요.'),
-  building('titan-hole', '바일 타이탄 벌레굴', '테르미니드', [route('outer', '대형 굴 본체', 40)], '일반 벌레굴보다 큰 특수 굴입니다. 일반 굴의 내부 철거력 20 조건을 적용하지 않습니다.'),
+  building('titan-hole', '타이탄 벌레굴', '테르미니드', [route('outer', '대형 굴 본체', 40)], '일반 벌레굴보다 큰 특수 굴입니다. 일반 굴의 내부 철거력 20 조건을 적용하지 않습니다.'),
   building('stalker-lair', '스토커 둥지', '테르미니드', [route('outer', '굴 외곽', 40), route('inner', '굴 안쪽', 20, true, { opening: true })], '둥지 주변의 굴 1~2개를 일반 벌레굴처럼 하나씩 부숴야 합니다. 철거력 20 폭발물은 굴 안쪽으로 넣고, 철거력 40 이상이면 굴 외곽에 맞혀도 됩니다.', { source: wiki('Stalker_Lair'), page: 'Stalker Lair', revision: 141235 }),
   building('spore-spewer', '포자 스퓨어', '테르미니드', [route('growth', '스퓨어 본체', 50)], '줄기 위의 포자 스퓨어 본체를 맞히세요. 철거력 외에 체력 소진으로도 파괴할 수 있습니다.', { health: health(2500, 2), healthSource: structureDamageSource }),
   building('shrieker-nest', '슈리커 둥지', '테르미니드', [route('tower', '둥지 기둥 한 개', 60)], '기둥 한 개 기준입니다. 낮은 철거력의 무기도 체력에 피해를 주면 파괴할 수 있습니다.', { health: health(2500, 2), healthSource: structureDamageSource }),
