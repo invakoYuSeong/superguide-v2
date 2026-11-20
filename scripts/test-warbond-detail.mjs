@@ -188,9 +188,14 @@ ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page
   for (const bond of warbonds) for (const page of bond.pages) for (const item of page.items) if (item.ref) linked.set(`${item.ref.view}/${item.ref.id}`, { bond, page: page.number });
   eq(Object.keys(warbondSources).sort(), [...linked.keys()].sort(), 'warbond index lists every linked item');
   for (const [key, { bond, page }] of linked) eq(warbondSources[key], { id: bond.id, name: bond.name, en: bond.en, tier: bond.tier, price: bond.price, page }, `${key}: index matches the warbond board`);
+  const { superstorePages } = await import('../dist/data/superstore.js');
+  const sold = new Set(superstorePages.flatMap(page => page.items).filter(item => item.ref && item.ref.view !== 'armor').map(item => `${item.ref.view}/${item.ref.id}`));
+  ok(sold.has('gear/sai') && sold.has('gear/warrant'), 'Superstore weapons are found');
   const details = [...[...weaponById.values()].map(w => ['gear', w.id, weaponDetail(w)]), ...stratagems.map(s => ['arsenal', s.id, stratagemDetail(s)])];
   for (const [view, id, html] of details) {
     const chip = String(html).match(/<a class="badge warbond" href="([^"]+)"[^>]*>[\s\S]*?<\/a>/);
+    if (sold.has(`${view}/${id}`)) { ok(chip && chip[1] === formatRoute({ view: 'superstore' }) && chip[0].includes('슈퍼 스토어'), `${view}/${id}: Superstore chip`); continue; }
+    if (`${view}/${id}` === 'gear/knight') { ok(!chip && String(html).includes('슈퍼 시민 에디션'), 'gear/knight: Super Citizen Edition chip'); continue; }
     const source = warbondSources[`${view}/${id}`];
     if (!source) { ok(!chip, `${view}/${id}: no warbond chip for an item no warbond links`); continue; }
     ok(chip && chip[1] === formatRoute(itemRoute({ id: source.id, query: {} }, `${view}/${id}`)), `${view}/${id}: chip links the item on its warbond board`);
