@@ -6950,7 +6950,7 @@ export const personalWeapons = [
     splashStatuses: [],
     fuseType: 'proximity',
     fuseOptions: [],
-    playerNotes: ['가까운 대상을 감지하면 작동합니다.', '처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.', '일반 신관이 없어 던진 자리에 붙어 있다가 중형·대형 적이 밟으면 터집니다. 대부분의 표면에 붙고, 안전한 거리에서 쏘면 직접 터뜨릴 수 있습니다. 엑소슈트 같은 차량을 탄 아군이 밟아도 터지니 조심하세요.'],
+    playerNotes: ['일반 신관이 없어 던진 자리에 붙어 있다가 중형·대형 적이 밟으면 터집니다. 대부분의 표면에 붙고, 안전한 거리에서 쏘면 직접 터뜨릴 수 있습니다. 엑소슈트 같은 차량을 탄 아군이 밟아도 터지니 조심하세요.'],
     traitTags: [],
     image: 'G-40-K Melta Mine Throwable Render.png',
     sourceRevision: 141875,

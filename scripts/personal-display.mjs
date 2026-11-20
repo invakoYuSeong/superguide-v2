@@ -159,7 +159,8 @@ export function playerDetails(weapon, box) {
     if (conflict.field === 'radius' && Array.isArray(conflict.db)) playerNotes.push(`안내 페이지의 폭발 반경 ${conflict.infobox}m와 달리, 최대 피해 반경 ${conflict.db[0]}m와 바깥 경계 ${conflict.db[1]}m를 표시합니다.`);
   }
   if (fuse.fuseType === 'impact') playerNotes.push('충돌 시 작동합니다.');
-  if (fuse.fuseType === 'proximity') playerNotes.push('가까운 대상을 감지하면 작동합니다.');
+  // The Melta Mine's own caution says how it goes off (user decision 2026-11-20).
+  if (fuse.fuseType === 'proximity' && weapon.id !== 'melta-mine') playerNotes.push('가까운 대상을 감지하면 작동합니다.');
   if (fuse.fuseType === 'selectable') playerNotes.push(`작동 시간을 ${fuse.fuseOptions.map(value => `${value}초`).join('·')} 중에서 고를 수 있습니다.`);
   if (weapon.category === 'throwable' && fuse.fuseType === null) playerNotes.push('신관 작동 방식은 아직 확인하지 못했습니다.');
   if (weapon.shrapnelCount > 0) playerNotes.push('기본은 파편의 20%를 반올림한 개수가 같은 부위에 맞는다고 가정합니다. 명중률을 바꿔 다시 계산할 수 있으며, 파편 0개를 고르면 파편 피해는 제외합니다.');
@@ -179,7 +180,7 @@ export function playerDetails(weapon, box) {
   })[weapon.id] || '하부 부착 무기로 전환할 수 있습니다. 두 공격의 피해는 합산하지 않습니다.');
   if (weapon.id === 'halt') playerNotes.push('플레셰트탄과 기절탄은 각각 8발씩 별도 탄창에 담습니다.');
   if (weapon.id === 'breacher') playerNotes.push('사격 모드는 하나입니다. 처치 탄수는 직격과 붙은 뒤의 지연 폭발을 함께 반영하며, 지속 피해는 포함하지 않습니다.');
-  if (['pyrotech', 'melta-mine'].includes(weapon.id)) playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
+  if (weapon.id === 'pyrotech') playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
   if (weapon.variants.some(v => v.delivery === 'projectile' && !v.id.startsWith('shrapnel')) && ['missile-pistol', 'warrant'].includes(weapon.id)) playerNotes.push('유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.');
   if (CAUTIONS[weapon.id]) playerNotes.push(...[CAUTIONS[weapon.id]].flat());
   // Effect badges straight from the wiki infobox trait list ("Incendiary {{*}} Guided ...").
