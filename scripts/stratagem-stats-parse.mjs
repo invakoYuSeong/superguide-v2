@@ -55,6 +55,17 @@ const KIND = { projectile: 'direct', beam: 'beam', arc: 'arc', spray: 'spray', e
 // or the stratagem datamine; null when neither has attack records for it.
 /** Weapon handling (datamine `ergonomics`) of a stratagem whose datamine entry is a weapon; else null. */
 export const ergonomicsOf = found => Number.isFinite(found?.entry?.ergonomics) ? found.entry.ergonomics : null;
+// Times the wiki's datamine table shows for a stratagem (Template:Attack_Data_Stratagem): Lifetime of a
+// sentry or tower, Duration of a strike, recharge of a pack. Found by name, attacks or not; null when absent.
+export function timesOf(id, title, strat) {
+  const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');
+  const [table, key] = DATAMINE_KEYS[id] ?? [];
+  const entry = [table !== 'weapons' && key, upper, bare].filter(Boolean).map(name => strat.stratagems[name]).find(Boolean);
+  if (!entry) return null;
+  const times = { lifetime: entry.lifetime, duration: entry.duration, recharge: entry.recharge_time };
+  const kept = Object.fromEntries(Object.entries(times).filter(([, value]) => Number.isFinite(value)));
+  return Object.keys(kept).length ? kept : null;
+}
 /** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
 

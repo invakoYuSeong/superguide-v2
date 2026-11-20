@@ -355,7 +355,15 @@ const statCell = stat => html`<div><dt>${stat.label}</dt><dd class="${stat.dim ?
 const statGrid = item => {
   const [direct, blast, ap, reach] = stats(item);
   const [durable, ...ammo] = ammoCells(item);
-  const { ergonomics, sway, unlock } = stratagemStats[item.id] ?? {};
+  const { ergonomics, sway, unlock, times } = stratagemStats[item.id] ?? {};
+  // Lifetime, strike duration and pack recharge from the wiki datamine (stratagem-stats.js `times`); a shield
+  // relay's lifetime is already in its defense table.
+  const s = L('초', 's');
+  const timeCells = [
+    times?.lifetime != null && !item.defense?.lifetime ? { label: L('유지 시간', 'Lifetime'), text: num(times.lifetime), unit: s, caption: L('설치 후 사라질 때까지', 'From deployment until it goes away') } : null,
+    times?.duration != null ? { label: L('지속 시간', 'Duration'), text: num(times.duration), unit: s, caption: L('한 번 호출했을 때', 'Per call-in') } : null,
+    times?.recharge != null ? { label: L('재충전', 'Recharge'), text: num(times.recharge), unit: s, caption: L('다시 쓸 수 있을 때까지', 'Until it can be used again') } : null,
+  ].filter(Boolean);
   const absent = stat => stat.dim && (stat.text === '—' || stat.text === L('없음', 'None'));
   const handling = [
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
@@ -367,7 +375,7 @@ const statGrid = item => {
   const UNIT_EN = { '발': '', '회': '', '개': '' };
   const extra = after => (item.extraStats ?? []).filter(cell => (cell.after ?? 'damage') === after)
     .map(cell => statCell({ label: cell.label, text: num(cell.value), unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${handling.map(statCell)}</dl>`;
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${handling.map(statCell)}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
