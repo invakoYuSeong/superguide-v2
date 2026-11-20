@@ -706,6 +706,8 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .strat-recs { padding: 16px 18px; display: grid; gap: 10px; margin: 0 0 14px; border-left: 3px solid var(--fc); }
 .panel.strat-recs > summary h2 { font-size: 18px; }
 .panel.strat-recs[open] > summary { margin-bottom: 0; }
+/* Folded: no grid gap below the summary (the hidden content still takes a row) and a slimmer bar. */
+.panel.strat-recs:not([open]) { gap: 0; padding-block: 12px; }
 .rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
 .rec { border: 1px solid var(--line); padding: 12px; display: grid; gap: 8px; align-content: start; }
 .rec.best { border-color: var(--fc); }
