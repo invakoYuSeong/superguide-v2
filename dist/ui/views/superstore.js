@@ -56,8 +56,8 @@ function pageBlock(page) {
 export function mount(container) {
   const items = superstorePages.reduce((sum, page) => sum + page.items.length, 0);
   render(container, html`<div class="page-head"><div><div class="eyebrow">Store</div><h1 class="sr-only">${L('슈퍼 스토어', 'Superstore')}</h1>${storeTabs('superstore')}
-      <p>${L(`슈퍼 크레딧으로 사는 아머·무기·꾸미기 항목 ${items}개를 위키의 상점 페이지 ${superstorePages.length}쪽 그대로 정리했습니다. 전쟁 채권에서는 얻을 수 없으며, 모든 항목을 상시 판매합니다.`,
-        `The ${items} armor, weapon and cosmetic items bought with Super Credits, laid out as the wiki's ${superstorePages.length} store pages. They cannot be earned from warbonds, and every item is always on sale.`)}</p></div>
+      <p>${L('슈퍼 크레딧으로 사는 방어구·무기·꾸미기 항목으로, 전쟁 채권에서는 얻을 수 없으며 모든 항목을 상시 판매합니다.',
+        'Armor, weapons and cosmetics bought with Super Credits. They cannot be earned from warbonds, and every item is always on sale.')}</p></div>
       <dl class="tally">
         <div><dt>Pages</dt><dd>${superstorePages.length}</dd></div>
         <div><dt>Items</dt><dd>${items}</dd></div>

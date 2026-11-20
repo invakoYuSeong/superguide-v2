@@ -370,7 +370,7 @@ export function mount(container, context) {
   const superCredits = warbonds.reduce((sum, item) => sum + (item.price ?? 0), 0);
   const medalTotal = warbonds.reduce((sum, item) => sum + (item.totalCost ?? 0), 0);
   render(root, html`<div class="page-head"><div><div class="eyebrow">Store</div><h1 class="sr-only">${L('전쟁 채권', 'Warbonds')}</h1>${storeTabs('warbonds')}
-      <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일·가격과 페이지별 메달 비용, 들어 있는 무기와 스트라타젬(${items}개 항목). 카드를 누르면 페이지별 목록이 열립니다.`, `Release date, price and per-page medal costs of all ${warbonds.length} warbonds, with the weapons and stratagems inside (${items} items). Open a card for the page-by-page list.`)}</p></div>
+      <p>${L(`전쟁 채권 ${warbonds.length}종의 출시일, 가격, 페이지별 메달 비용과 항목입니다. 카드를 누르면 목록이 열립니다.`, `Release date, price, medal costs and items of all ${warbonds.length} warbonds. Open a card for its pages.`)}</p></div>
       <dl class="tally">
         <div><dt>Warbonds</dt><dd>${warbonds.length}</dd></div>
         <div><dt>Items</dt><dd>${count(items)}</dd></div>
