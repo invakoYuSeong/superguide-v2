@@ -254,7 +254,7 @@ export default {
   "적 증원": "Reinforcements",
   "어그로 분산": "Draws aggro",
   "중형 적": "Medium enemies",
-  "기지·오브젝트": "Bases and objectives",
+  "오브젝트": "Objectives",
   "워프 함선 철거": "Warp Ship demolition",
   "다재다능해 가장 많이 추천됩니다. 함선 모듈을 열기 전에는 재무장 전에 한 번뿐이라 이글 공중타격도 좋습니다.": "Versatile and the most recommended. Before the ship module upgrade it has only one use per rearm, so the Eagle Airstrike is also a good choice.",
   "대규모 무리와 적 증원을 정리합니다. 굴은 닫지 못하며, 굴이나 아군이 지나갈 길에는 깔지 마세요.": "Clears large swarms and reinforcements. It does not close holes, and do not drop it on holes or on paths your team will use.",

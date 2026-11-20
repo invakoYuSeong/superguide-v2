@@ -378,9 +378,9 @@ const statGrid = item => {
     ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
   ];
   // Extra cells from the data (numbers the stats above have no slot for), placed with their group.
-  const UNIT_EN = { '발': '', '회': '', '개': '' };
+  const UNIT_EN = { '발': '', '회': '', '개': '', '초': 's' };
   const extra = after => (item.extraStats ?? []).filter(cell => (cell.after ?? 'damage') === after)
-    .map(cell => statCell({ label: cell.label, text: num(cell.value), unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
+    .map(cell => statCell({ label: cell.label, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
   // A direct hit that practically never happens (a carrier shell bursting in the air) is flagged in orange.
   if (item.directWarn) direct.warn = item.directWarn;
   return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
