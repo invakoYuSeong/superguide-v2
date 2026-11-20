@@ -1,5 +1,5 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
-//   #/planets?tab=<conditions|modifiers|biomes|status>&b=<biome>   (b: scroll to and mark one biome)
+//   #/planets?tab=<conditions|modifiers|biomes|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
 import { biomeImages } from '../../data/biome-images.js';
 import { hazardImages } from '../../data/hazard-images.js';
@@ -23,6 +23,8 @@ let root, ctx;
 
 const conditionById = new Map(conditions.map(item => [item.id, item]));
 const biomeById = new Map(biomes.map(item => [item.id, item]));
+// Every card id the b= parameter can mark (ids are unique across the planet data).
+const focusIds = new Set([conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes].flat().map(item => item.id));
 const text = (ko, en) => lang === 'en' ? en : ko;
 const enLine = item => lang === 'en' || !item.name || item.name === item.en ? '' : html`<p class="en">${item.en}</p>`;
 const title = item => item.name ? (lang === 'en' ? item.en : item.name) : item.en;
@@ -40,7 +42,7 @@ const effectIcon = item => hazardImages[item.id] ? html`<span class="info-icon p
   : ICON_OF[item.id] ? html`<span class="info-icon drawn" aria-hidden="true">${icon(ICON_OF[item.id], 30)}</span>` : html`<span class="info-icon" aria-hidden="true"></span>`;
 
 function effectCard(item) {
-  return html`<li class="info-item">
+  return html`<li class="info-item" id="planet-${item.id}" ${item.id === state.biome ? 'data-focus' : ''}>
     ${effectIcon(item)}
     <div class="info-body">
       <h3>${title(item)}</h3>${enLine(item)}
@@ -111,7 +113,7 @@ const planetLink = planet => {
 
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
-    <ul class="info-list">${statusEffects.map(item => html`<li class="info-item">
+    <ul class="info-list">${statusEffects.map(item => html`<li class="info-item" id="planet-${item.id}" ${item.id === state.biome ? 'data-focus' : ''}>
       <span class="info-icon drawn" aria-hidden="true">${icon(`status-${item.id}`, 30)}</span>
       <div class="info-body">
         <h3>${title(item)}</h3>${enLine(item)}
@@ -126,11 +128,11 @@ const BODIES = { conditions: conditionsTab, modifiers: modifiersTab, biomes: bio
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
   render($('#planet-body', root), BODIES[state.tab]());
-  const marked = state.tab === 'biomes' && state.biome && $(`#biome-${state.biome}`, root);
+  const marked = state.biome && ($(`#biome-${state.biome}`, root) || $(`#planet-${state.biome}`, root));
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
 }
 
-const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab === 'conditions' ? '' : state.tab, b: state.tab === 'biomes' ? state.biome : '' } });
+const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab === 'conditions' ? '' : state.tab, b: state.biome } });
 
 export function mount(container, context) {
   root = container; ctx = context;
@@ -150,6 +152,6 @@ export function mount(container, context) {
 export function update(route) {
   const q = route.query;
   state.tab = TABS.some(tab => tab.id === q.tab) ? q.tab : 'conditions';
-  state.biome = biomeById.has(q.b) ? q.b : '';
+  state.biome = focusIds.has(q.b) ? q.b : '';
   renderTab();
 }

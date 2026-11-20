@@ -1,4 +1,5 @@
-// Global search across stratagems, gear, armor, boosters, ship modules, enemies, structures, faction guides and warbonds.
+// Global search across stratagems, gear, armor, boosters, ship modules, enemies, structures, faction guides,
+// warbonds and their items, the superstore, planet conditions, modifiers, biomes, planets and status effects.
 import { stratagems, categoryOf } from '../core/catalog.js';
 import { search, stratagemFields, personalNames } from '../core/search.js';
 import { html, render, $ } from './dom.js';
@@ -14,10 +15,24 @@ export async function createPalette(ctx) {
     import('../data/warbonds.js'), import('../data/warbond-images.js'),
     import('../data/armor.js'), import('../data/armor-images.js'), import('../data/boosters.js'), import('../data/ship-module-upgrades.js'),
   ]);
+  const [planetData, { biomeImages }, { hazardImages }, { superstorePages }, { warbondItemImages }] = await Promise.all([
+    import('../data/planets.js'), import('../data/biome-images.js'), import('../data/hazard-images.js'), import('../data/superstore.js'), import('../data/warbond-item-images.js'),
+  ]);
   const tierName = id => T(warbondTiers.find(tier => tier.id === id)?.name || id);
   const GEAR_GROUP = L({ primary: '주무기', secondary: '보조무기', throwable: '투척' }, { primary: 'Primary', secondary: 'Secondary', throwable: 'Throwable' });
   // In English the subtitle skips the English name, which is already the title.
   const withEn = (text, en) => lang === 'en' ? text : `${text} · ${en}`;
+  // Tile kinds as the warbond and superstore boards name them.
+  const KIND = { booster: ['부스터', 'Booster'], helmet: ['헬멧', 'Helmet'], armor: ['아머', 'Armor'], cape: ['망토', 'Cape'], 'player-card': ['플레이어 카드', 'Player card'], pattern: ['패턴', 'Pattern'],
+    emote: ['감정 표현', 'Emote'], 'victory-pose': ['승리 포즈', 'Victory pose'], title: ['칭호', 'Title'], stratagem: ['스트라타젬', 'Stratagem'], weapon: ['무기', 'Weapon'] };
+  const kindName = kind => L(...(KIND[kind] ?? ['기타', 'Other']));
+  const { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes } = planetData;
+  const PLANET_TABS = [
+    ['conditions', L('환경 조건', 'Environment'), [conditions, hazards, gloomLevels, specialEffects]],
+    ['modifiers', L('작전 제한 조건', 'Operation modifiers'), [operationModifiers, eventEffects]],
+    ['biomes', L('생물군계', 'Biomes'), [biomes]],
+    ['status', L('상태 이상', 'Status effects'), [statusEffects]],
+  ];
   const groups = [
     { id: 'stratagems', name: L('스트라타젬', 'Stratagems'), items: stratagems.map(item => ({ fields: stratagemFields(item), label: T(item.name), sub: withEn(categoryOf(item.category).name, item.en), image: wikiIcons[item.id]?.src, route: { view: 'arsenal', id: item.id } })) },
     { id: 'gear', name: L('장비', 'Gear'), items: personalWeapons.map(item => ({ fields: { names: personalNames(item), text: [GEAR_GROUP[item.category]] }, label: displayName(item), sub: withEn(GEAR_GROUP[item.category], item.en), image: weaponImages[item.id]?.src, route: { view: 'gear', id: item.id } })) },
@@ -32,6 +47,24 @@ export async function createPalette(ctx) {
     { id: 'structures', name: L('시설', 'Structures'), items: structures.map(item => ({ fields: { names: [item.name, T(item.name)], text: [item.faction, T(item.faction), item.tip, T(item.tip)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('철거 방법', 'how to demolish')}`, image: pickerStructureImages[item.id]?.src, route: { view: 'demolition', query: { s: item.id } } })) },
     { id: 'factions', name: L('팩션', 'Factions'), items: factionGuides.map(item => ({ fields: { names: [item.name, item.en], text: [item.intro, T(item.intro)] }, label: T(item.name), sub: `${T(factionSides.find(side => side.id === item.side).name)} · ${L('추천 장비', 'recommended loadout')}`, image: factionSides.find(side => side.id === item.side).icon, route: { view: 'factions', id: item.id } })) },
     { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en], text: [tierName(item.tier)] }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
+    // Warbond tiles that have no page of their own elsewhere (cosmetics, helmets, boosters...): open their warbond.
+    { id: 'warbond-items', name: L('전쟁 채권 항목', 'Warbond items'), items: warbonds.flatMap(bond => bond.pages.flatMap(page => page.items
+      .filter(item => !item.ref && item.kind !== 'super-credits')
+      .map(item => ({ fields: { names: [item.ko, item.name].filter(Boolean), text: [kindName(item.kind), bond.name, bond.en] }, label: item.ko ? L(item.ko, item.name) : item.name,
+        sub: `${kindName(item.kind)} · ${T(bond.name)}`, image: warbondItemImages[item.image]?.src, route: { view: 'warbonds', id: bond.id } })))) },
+    // Superstore cosmetics (its weapons and armor are found under Gear and Armor).
+    { id: 'superstore', name: L('슈퍼 스토어', 'Superstore'), items: superstorePages.flatMap(page => page.items
+      .filter(item => !item.ref && item.kind !== 'weapon')
+      .map(item => ({ fields: { names: [item.ko, item.base, item.name].filter(Boolean), text: [kindName(item.kind)] }, label: item.ko ? L(item.ko, item.base) : item.base,
+        sub: `${kindName(item.kind)} · ${item.cost} SC`, image: warbondItemImages[item.image]?.src, route: { view: 'superstore' } }))) },
+    // Planet tab cards: open the tab and mark the card (b=).
+    { id: 'planet-info', name: L('행성 정보', 'Planet info'), items: PLANET_TABS.flatMap(([tab, tabName, lists]) => lists.flat().map(item => ({
+      fields: { names: [item.name, item.en].filter(Boolean), text: [tabName, item.description, item.descriptionEn, ...(item.detail ?? [])].filter(Boolean) },
+      label: T(item.name), sub: withEn(tabName, item.en), image: item.icon?.src ?? hazardImages[item.id]?.src ?? biomeImages[item.id]?.src, route: { view: 'planets', query: { tab, b: item.id } } }))) },
+    // Planets by name: open their biome.
+    { id: 'planet-names', name: L('행성', 'Planets'), items: planetData.biomes.flatMap(biome => biome.planets.map(planet => ({
+      fields: { names: [planet.name, planet.en], text: [biome.name, biome.en] }, label: L(planet.name, planet.en), sub: L(`생물군계 · ${biome.name}`, `Biome · ${biome.en}`),
+      image: biomeImages[biome.id]?.src, route: { view: 'planets', query: { tab: 'biomes', b: biome.id } } }))) },
   ];
 
   const dialog = $('#palette');
