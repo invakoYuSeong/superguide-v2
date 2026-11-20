@@ -528,7 +528,7 @@ export default {
   "카메라 투하 지점과 같은 곳에 내려올 수 있습니다. 그 자리에 장비를 놓지 마세요.": "It can land in the same spot as the camera drop. Don't leave gear there.",
   "중장갑 표적과 밀집한 적을 함께 노리는 대형 폭탄.": "Large bomb that handles both heavy armor targets and packed enemies.",
   "큰 적이 멈추는 순간을 노려 가까이 투하하세요. 폭탄의 실제 착탄 위치를 보며 지형에 가려지지 않게 합니다.": "Drop it close when a big enemy stops moving. Watch where the bomb actually lands so terrain doesn't block it.",
-  "폭발 효과가 보이는 모든 곳에 같은 피해가 들어가지는 않습니다.": "Not everywhere the blast effect reaches takes the same damage.",
+  "폭발 효과가 보이는 모든 곳에 같은 피해가 들어가지는 않습니다. 폭탄은 위에서 수직으로 떨어지지 않고 이글이 날아오는 쪽에서 비스듬히 날아오므로, 높은 곳에서 신호기를 던지면 그 지형에 먼저 맞아 자신이 다칠 수 있습니다.": "Not everywhere the blast effect reaches takes the same damage. The bomb does not drop straight down but comes in at an angle from the Eagle's approach, so throwing the beacon from high ground can make it hit that ground first and endanger you instead.",
   "주폭발 1,500 외에 착탄 순간 폭발 100(AP 3, 반경 1–3 m)이 별도로 있습니다. 기본 재무장당 1회 사용입니다.": "Besides the 1,500 main explosion, there is a separate 100 blast on impact (AP 3, radius 1–3 m). 1 use per rearm by default.",
   "밀집한 적과 시설을 한 줄로 쓸어내는 범용 공중 지원.": "All-round air support that sweeps a line through packed enemies and structures.",
   "투척 방향에 수직으로 폭탄이 떨어지는 점을 이용해 적 무리나 전초기지가 폭격선에 들어오도록 던지세요.": "Bombs fall perpendicular to your throw direction; throw it so enemy groups or outposts sit on the bombing line.",

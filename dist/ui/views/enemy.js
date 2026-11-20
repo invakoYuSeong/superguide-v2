@@ -165,12 +165,12 @@ const REINFORCEMENTS = { breach: L('페로몬으로 버그 침공', 'Bug Breach 
 // Wiki fire damage multiplier shown like the explosive resistance: x0.8 = 20%, x1.5 = -50% (takes more).
 const fireText = mult => mult == null ? L('미확인', 'Unverified') : pct(Math.round((1 - mult) * 100));
 
-// Spawning and Behavior from the enemy's wiki page, summarized (enemy-pages.js).
+// Spawning, Behavior and Tactics from the enemy's wiki page, summarized (enemy-pages.js).
 function lore(enemy) {
   const info = enemyPages[enemy.id];
-  const block = (title, lines, linesEn) => lines.length ? html`<div><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${line}</li>`)}</ul></div>` : '';
-  if (!info || !(info.spawning.length || info.behavior.length)) return '';
-  return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</section>`;
+  const block = (title, lines, linesEn, wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${line}</li>`)}</ul></div>` : '';
+  if (!info || !(info.spawning.length || info.behavior.length || info.tactics?.length)) return '';
+  return html`<section class="panel enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}${info.tactics ? block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true) : ''}</section>`;
 }
 
 // The enemy's own attacks (wiki "Weapons Loadout" boxes, enemy-weapons.js) and a rough count of

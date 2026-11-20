@@ -37,10 +37,12 @@ for (const enemy of enemies) {
   const summary = summaries[item.page];
   if (!summary) { later.noSummary.push(enemy.id); continue; }
   if (summary.revision !== page.revision) later.olderSummary.push(enemy.id);
-  for (const key of ['spawning', 'behavior']) {
-    ok(item[key].length === item[`${key}En`].length && item[key].length === summary[key].length, `${enemy.id}: ${key} lines and English lines differ (run build-enemy-pages)`);
-    item[key].forEach((line, i) => {
-      const en = item[`${key}En`][i];
+  for (const key of ['spawning', 'behavior', 'tactics']) {
+    // tactics is left out of the generated entry when the summary has none.
+    const lines = item[key] ?? [], linesEn = item[`${key}En`] ?? [];
+    ok(lines.length === linesEn.length && lines.length === (summary[key] ?? []).length, `${enemy.id}: ${key} lines and English lines differ (run build-enemy-pages)`);
+    lines.forEach((line, i) => {
+      const en = linesEn[i];
       ok(/[가-힣]/.test(line) && en.trim() && !/[가-힣]/.test(en), `${enemy.id}: ${key} line ${i + 1} is not Korean with English`);
       ok(PLAIN.test(line) && PLAIN.test(en), `${enemy.id}: ${key} line ${i + 1} has special characters`);
       ok(sameNumbers(line, en),`${enemy.id}: ${key} line ${i + 1} numbers differ between Korean and English: ${line} / ${en}`);

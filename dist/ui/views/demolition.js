@@ -99,11 +99,12 @@ function structurePanel(structure) {
   return html`<section class="panel" style="padding:18px;display:grid;gap:14px" data-faction="${structure.faction}">
     <div style="display:flex;gap:14px;align-items:center">${structureImage(structure, 56)}<div><span class="faction-tag">${structure.faction}</span><h2 style="font-size:22px;font-weight:800">${structure.name}</h2></div></div>
     <p class="muted">${structure.tip}</p>
+    ${structure.tactics ? html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('공략 요령', 'Tactics')}</div><ul class="notes">${structure.tactics.map(line => html`<li>${line}</li>`)}</ul></div>` : ''}
     <div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('필요한 철거력', 'Demolition force needed')} <span class="faint" style="font-weight:500">· ${L('한 번의 명중·폭발 기준, 합산 안 됨', 'per single hit or explosion; does not add up')}</span></div>${forceScale(structure)}</div>
     ${h ? html`<p class="note">${L(html`체력으로도 부술 수 있습니다: <b style="color:var(--text)">체력 ${num(h.hp)}</b> · 장갑 ${h.armor} · 내구도 ${h.durability}%${h.exdr < 0 ? ` · 폭발 피해 ×${num(1 - h.exdr / 100)}` : ''}`, html`It can also be destroyed through health: <b style="color:var(--text)">health ${num(h.hp)}</b> · armor ${h.armor} · durability ${h.durability}%${h.exdr < 0 ? ` · explosion damage ×${num(1 - h.exdr / 100)}` : ''}`)}</p>` : ''}
     ${structure.note ? html`<p class="note">${structure.note}</p>` : ''}
     ${missionsBlock(structure)}
-    <p class="sources">${external(structure.source, L('시설 철거 조건', 'Demolition requirements'))}${structure.healthSource ? external(structure.healthSource, L('시설 체력', 'Structure health')) : ''}</p>
+    <p class="sources">${external(structure.source, L('시설 철거 조건', 'Demolition requirements'))}${structure.healthSource ? external(structure.healthSource, L('시설 체력', 'Structure health')) : ''}${structure.tacticsRef ? external(`https://helldivers.wiki.gg/wiki/${structure.tacticsRef.page.replaceAll(' ', '_')}#Tactical_Information`, L('공략 요령', 'Tactics')) : ''}</p>
   </section>`;
 }
 

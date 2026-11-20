@@ -579,6 +579,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-lore { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 8px 28px; padding: 16px 18px; }
 .enemy-lore h2 { font-size: 15px; font-weight: 800; margin: 0 0 6px; }
 .enemy-lore .notes { margin: 0; }
+.enemy-lore .wide { grid-column: 1 / -1; }
 .vitals { display: flex; gap: 6px 18px; flex-wrap: wrap; margin: 10px 0; font-size: 13px; color: var(--text-3); }
 .vitals b { color: var(--text); font-size: 15px; margin-left: 4px; }
 

@@ -44,8 +44,8 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
   .concat(hazards, hazards.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
-// Enemy view: the summarized wiki Spawning and Behavior lines, each with its English.
-const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] }))]);
+// Enemy view: the summarized wiki Spawning, Behavior and Tactics lines, each with its English.
+const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] })), ...(item.tactics ?? []).map((line, i) => ({ name: line, en: item.tacticsEn[i] }))]);
 // Superstore tiles: the game's Korean cosmetic names and the armor set names, with the wiki's English.
 const superstoreNames = superstorePages.flatMap(page => page.items).filter(item => item.ko).map(item => ({ name: item.ko, en: item.base }));
 // Weapon attachments: Korean names (`ko`) with the wiki's English name; the customization table shows them with L() too.
