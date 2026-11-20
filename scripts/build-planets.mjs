@@ -25,7 +25,7 @@ const ko = key => {
 // Which biomes list each condition (the wiki biome pages; conditions belong to planets, so this is typical, not fixed).
 const biomesWith = page => Object.entries(wiki.biomes).filter(([, biome]) => biome.conditions.includes(page)).map(([title]) => slug(title));
 const entry = (item, extra = {}) => ({
-  id: item.id, name: ko(item.name), en: ['Effects', 'The Gloom', 'Hive World', 'Exostorm'].includes(item.page) ? cleanGameText(item.name, {}, true) : item.page,
+  id: item.id, name: ko(item.name), en: ['Effects', 'The Gloom', 'Hive World', 'Exostorm', 'Democracy Space Station'].includes(item.page) ? cleanGameText(item.name, {}, true) : item.page,
   description: cleanGameText(ko(item.description), item.values), descriptionEn: cleanGameText(item.description, item.values),
   wiki: wikiUrl(item.page), ...extra,
 });
@@ -37,7 +37,7 @@ const conditions = text.conditions.map(item => entry(item, {
   biomes: biomesWith(item.page),
 }));
 const gloom = text.gloom.map(item => entry(item));
-// Exostorm classes and Heavy SEAF Presence: game name and description, plus the wiki page's facts.
+// Exostorm classes, Heavy SEAF Presence and the Democracy Space Station: game name and description, plus the wiki page's facts.
 const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en, ...(iconOf(item.id) && { icon: iconOf(item.id) }) }));
 const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null }));
 const events = text.events.map(item => entry(item));

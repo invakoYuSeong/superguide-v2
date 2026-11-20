@@ -26,12 +26,16 @@ const pages = async titles => {
 const field = (text, key) => new RegExp(`\\|\\s*${key}\\s*=\\s*([^\\n|]*)`).exec(text)?.[1].trim() ?? '';
 const slug = text => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-const main = await pages(['Effects', 'Status Effects', 'Module:Environmental Conditions', 'Biomes', 'Exostorm', 'Heavy SEAF Presence']);
+const main = await pages(['Effects', 'Status Effects', 'Module:Environmental Conditions', 'Biomes', 'Exostorm', 'Heavy SEAF Presence', 'Democracy Space Station', 'Template:DSS Action']);
 const out = {
   source: API, retrievedAt: new Date().toISOString().slice(0, 10),
   effects: main.Effects, statusEffects: main['Status Effects'], environmentModule: main['Module:Environmental Conditions'],
-  // Planet effects outside the Environmental Conditions list (exostorm classes, Heavy SEAF Presence).
-  specialPages: { Exostorm: main.Exostorm, 'Heavy SEAF Presence': main['Heavy SEAF Presence'] },
+  // Planet effects outside the Environmental Conditions list (exostorm classes, Heavy SEAF Presence, the
+  // Democracy Space Station with the template that holds its Tactical Action costs and timers).
+  specialPages: {
+    Exostorm: main.Exostorm, 'Heavy SEAF Presence': main['Heavy SEAF Presence'],
+    'Democracy Space Station': { ...main['Democracy Space Station'], templates: { 'Template:DSS Action': main['Template:DSS Action'] } },
+  },
   biomesRevision: main.Biomes.revision, biomes: {}, icons: {},
 };
 // Biome pages named in the Biomes page's {{BiomeBox|...}} lists (the city megastructures are regions, not biomes).
@@ -65,6 +69,11 @@ for (const [, key, file] of out.environmentModule.text.matchAll(/\["([a-z ]+)"\]
 const EXTRA_ICONS = {
   'heavy-seaf-presence': { file: 'Heavy SEAF Presence Icon.svg', ids: ['heavy-seaf-presence'] },
   exostorm: { file: 'Destroy Exospire Mission Icon.svg', ids: ['exostorm-1', 'exostorm-2', 'exostorm-3'] },
+  // The DSS Action template's icons (2026-11-20).
+  dss: { file: 'DSS Icon.svg', ids: ['dss', 'dss-operational-support', 'dss-exosuit-reserves'] },
+  'dss-eagle-storm': { file: 'DSS Eagle Icon.svg', ids: ['dss-eagle-storm'] },
+  'dss-orbital-blockade': { file: 'DSS Orbital Blockade Icon.svg', ids: ['dss-orbital-blockade'] },
+  'dss-heavy-ordnance': { file: 'DSS Heavy Ordnance Distribution Icon.svg', ids: ['dss-heavy-ordnance'] },
 };
 for (const [name, { file, ids }] of Object.entries(EXTRA_ICONS)) {
   await sleep(1500);

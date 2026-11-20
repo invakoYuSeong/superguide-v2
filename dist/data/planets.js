@@ -321,6 +321,136 @@ export const specialEffects = [
    "source": "https://helldivers.wiki.gg/wiki/File:Heavy_SEAF_Presence_Icon.svg",
    "sha256": "3c583d3d6eb377496e09f09a65d0e16927735e7f7e8fb2d70e18c671cccf7e96"
   }
+ },
+ {
+  "id": "dss",
+  "name": "민주주의 우주 정거장",
+  "en": "Democracy Space Station",
+  "description": "기부 목표를 충족하면 민주주의 우주 정거장 전술 행동이 활성화됩니다.",
+  "descriptionEn": "DSS Tactical Actions become activated when they have met their donation goals.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "헬다이버들의 투표로 머물 행성을 정합니다. 4시간마다 후보 행성 투표가 열리고, 시간이 끝나면 가장 많은 표를 받은 행성 궤도로 바로 이동합니다.",
+   "요청 신청서, 일반 샘플, 희귀 샘플을 기부해 전술 행동을 충전합니다. 한 사람이 24시간 동안 기부할 수 있는 양은 일반 샘플 75, 요청 신청서 50,000, 희귀 샘플 50입니다.",
+   "전술 행동은 한 번에 하나만 켜집니다. 목표량이 다 차면 바로 켜져 24시간 동안 정거장이 머무는 행성의 모든 임무에 적용되고, 끝나면 재사용 대기에 들어가 그동안은 기부를 받지 않습니다."
+  ],
+  "detailEn": [
+   "Helldivers vote on where it goes. A vote on candidate planets opens every 4 hours, and when it closes the station warps straight to the orbit of the planet with the most votes.",
+   "Donating Requisition Slips, Common Samples and Rare Samples charges its Tactical Actions. Each Helldiver can donate up to 75 Common Samples, 50,000 Requisition Slips and 50 Rare Samples per 24 hours.",
+   "Only one Tactical Action runs at a time. Once its goal is met it switches on at once and applies to every mission on the station's planet for 24 hours, then goes on cooldown and takes no donations meanwhile."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Icon.svg",
+   "sha256": "f8b445b9318d4844cba06caed73cc50f14ee9bff747db832b9fa4db20b7df291"
+  }
+ },
+ {
+  "id": "dss-operational-support",
+  "name": "작전 지원",
+  "en": "Operational Support",
+  "description": "이 행성 주변에 머무는 민주주의 우주 정거장이 해방 캠페인 진행을 다소 촉진합니다.",
+  "descriptionEn": "The presence of the DSS near this planet provides a slight boost to Liberation Campaign progress.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "정거장이 머무는 동안 늘 적용되는 기본 효과입니다. 설명과 달리 방어 캠페인과 침공 캠페인 진행도 빨라집니다."
+  ],
+  "detailEn": [
+   "A base effect that applies while the station is there. Despite the description it also speeds up Defense and Invasion Campaigns."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Icon.svg",
+   "sha256": "f8b445b9318d4844cba06caed73cc50f14ee9bff747db832b9fa4db20b7df291"
+  }
+ },
+ {
+  "id": "dss-exosuit-reserves",
+  "name": "엑소슈트 비축분",
+  "en": "Exosuit Reserves",
+  "description": "해당 행성 근처에 있는 민주주의 우주 정거장의 존재 덕분에 모든 엑소슈트 스트라타젬의 쿨다운이 35% 감소합니다.",
+  "descriptionEn": "The presence of the DSS near this planet provides a -35% cooldown reduction to all Exosuit stratagems.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "정거장이 머무는 동안 늘 적용되는 기본 효과입니다."
+  ],
+  "detailEn": [
+   "A base effect that applies while the station is there."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Icon.svg",
+   "sha256": "f8b445b9318d4844cba06caed73cc50f14ee9bff747db832b9fa4db20b7df291"
+  }
+ },
+ {
+  "id": "dss-eagle-storm",
+  "name": "이글 폭풍",
+  "en": "Eagle Storm",
+  "description": "민주주의 우주 정거장의 승무원들은 3단계로 구성된 대규모 집결 베이에서 24시간 교대로 배치된 이글 파이터 함대의 유지 관리와 근접 항공을 지원하고, 적의 공세를 둔화시키는 등 행성의 모든 헬다이버 작전을 지원합니다.",
+  "descriptionEn": "DSS crews maintain deployment of a 24-hour rotating fleet of Eagle Fighters from the massive three-tiered Convocation Bay, supporting all Helldiver operations on the planet with close air support and halting enemy offensives for a short time.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "전술 행동: 일반 샘플 6,480,000을 모으면 24시간 동안 켜지고, 재사용 대기는 4일입니다.",
+   "임무 중 이글 가스 공습이 주기적으로 떨어집니다. 헬다이버 주변 200m 안의 적을 노리며, 헬다이버가 주 목표나 보조 목표 구역 안에 있는 동안에는 새로 시작하지 않습니다.",
+   "방어 캠페인 행성에서는 이글 폭풍이 머무는 동안 방어 제한 시간이 멈춥니다."
+  ],
+  "detailEn": [
+   "Tactical Action: on for 24 hours once 6,480,000 Common Samples are gathered, with a 4-day cooldown.",
+   "Eagle Gas Airstrikes fall on a regular cycle during missions. They target enemies within 200 m of a Helldiver and do not start while a Helldiver is inside a main or optional objective zone.",
+   "On a Defense Campaign planet the defense timer stops while the Eagle Storm lasts."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss-eagle-storm.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Eagle_Icon.svg",
+   "sha256": "350580f1cc0096d82453db85122fe97e94024effc1739b4b07c4d775a29a04ba"
+  }
+ },
+ {
+  "id": "dss-orbital-blockade",
+  "name": "궤도 봉쇄",
+  "en": "Orbital Blockade",
+  "description": "민주주의 우주 정거장은 무중력 대함선 미사일 시스템을 작동하여 행성의 대기권에서 탈출하려는 모든 적 대형 우주선을 표적으로 삼습니다. 또한, 초과 인력을 슈퍼 구축함 물류 지원으로 전환합니다.",
+  "descriptionEn": "The DSS activates its Zero G Anti-Ship Missile System, targeting all large enemy spacecraft attempting to exit the planet's atmosphere. In addition, diverts excess manpower to Super Destroyer logistical support.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "전술 행동: 요청 신청서 4,320,000,000을 모으면 24시간 동안 켜지고, 재사용 대기는 2일입니다.",
+   "이 행성에서 출발하는 방어 캠페인이 생기지 않습니다. 이미 진행 중인 방어 캠페인을 끝내지는 못합니다.",
+   "모든 임무에 헬포드 공간 최적화 부스터가 자동으로 적용됩니다."
+  ],
+  "detailEn": [
+   "Tactical Action: on for 24 hours once 4,320,000,000 Requisition Slips are gathered, with a 2-day cooldown.",
+   "No Defense Campaign can start from this planet. It cannot end a Defense Campaign already under way.",
+   "The Hellpod Space Optimization booster is active in every mission."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss-orbital-blockade.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Orbital_Blockade_Icon.svg",
+   "sha256": "0d9f91f2c324e729814249e4345b29c0727d1f0a2954f122c02118b3c1091e75"
+  }
+ },
+ {
+  "id": "dss-heavy-ordnance",
+  "name": "대형 포탄 보급",
+  "en": "Heavy Ordnance Distribution",
+  "description": "DSS 물류 함대가 행성 궤도에 있는 모든 슈퍼 구축함에 잉여 380mm 탄을 공급합니다. 또한, SEAF 작전에 포탄을 제공해 해방 속도를 가속합니다.",
+  "descriptionEn": "The DSS Logistics Armada supplies all Super Destroyers orbiting the planet with surplus 380mm shells. Ordnance support is also provided to SEAF operations, accelerating liberation efforts.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Democracy_Space_Station",
+  "detail": [
+   "전술 행동: 희귀 샘플 4,320,000을 모으면 24시간 동안 켜지고, 재사용 대기는 5일입니다.",
+   "임무 중 궤도 380mm 고폭 폭격을 한 번 더 쓸 수 있습니다. 직접 챙긴 380mm가 있으면 그것부터 쓰입니다.",
+   "해방 캠페인 진행이 빨라지며, 설명과 달리 방어 캠페인과 침공 캠페인에도 적용됩니다."
+  ],
+  "detailEn": [
+   "Tactical Action: on for 24 hours once 4,320,000 Rare Samples are gathered, with a 5-day cooldown.",
+   "One extra Orbital 380mm HE Barrage is available during missions. A 380mm you brought yourself is used first.",
+   "Liberation Campaigns move faster, and despite the description so do Defense and Invasion Campaigns."
+  ],
+  "icon": {
+   "src": "./assets/conditions/dss-heavy-ordnance.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:DSS_Heavy_Ordnance_Distribution_Icon.svg",
+   "sha256": "34b2faa02c86eb98e3c69345ca92bfb1dec86f1610c7d12f0ba01b1baef5ce0b"
+  }
  }
 ];
 export const operationModifiers = [

@@ -61,7 +61,10 @@ function conditionsTab() {
     <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('exostorm')).map(effectCard)}</ul>
     <h2 class="planet-sub">SEAF</h2>
     <p class="lede-note">${L('슈퍼 지구 세력의 지원 효과로, 어느 세력의 행성에서든 붙을 수 있습니다.', 'A Super Earth support effect that can appear on a planet of any faction.')}</p>
-    <ul class="info-list">${specialEffects.filter(item => !item.id.startsWith('exostorm')).map(effectCard)}</ul>`;
+    <ul class="info-list">${specialEffects.filter(item => item.id === 'heavy-seaf-presence').map(effectCard)}</ul>
+    <h2 class="planet-sub">${L('민주주의 우주 정거장', 'Democracy Space Station')}</h2>
+    <p class="lede-note">${L('헬다이버들이 투표로 옮기는 슈퍼 지구의 우주 정거장입니다. 정거장이 머무는 행성에는 기본 효과 2개가 늘 붙고, 기부로 충전한 전술 행동이 24시간 동안 켜집니다. 지금은 쓰이지 않는 행성 폭격과 이글 봉쇄는 넣지 않았습니다.', 'A Super Earth space station the Helldivers move by vote. The planet it orbits always gets its two base effects, plus a Tactical Action charged by donations for 24 hours. Planetary Bombardment and Eagle Blockade, no longer in use, are left out.')}</p>
+    <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('dss')).map(effectCard)}</ul>`;
 }
 
 function modifiersTab() {
