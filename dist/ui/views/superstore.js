@@ -36,7 +36,7 @@ function tile(item) {
   const body = html`<span class="wb-tile-cost">${SC}<span>${count(item.cost)}</span><span class="sr-only"> SC</span></span>
     <span class="wb-tile-kind">${kind}</span>
     ${image ? html`<img class="wb-tile-img" src="${image.src}" alt="" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : ''}
-    <span class="wb-tile-name"><b>${name}</b>${sub ? html`<small>${sub}</small>` : ''}</span>`;
+    <span class="wb-tile-name"><b>${name}${href ? '' : html`<span aria-hidden="true"> ↗</span>`}</b>${sub ? html`<small>${sub}</small>` : ''}</span>`;
   const title = [name, sub, kind].filter(Boolean).join('\n');
   const inner = href ? html`<a class="wb-tile-body" href="${href}" title="${title}">${body}</a>`
     : html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`;

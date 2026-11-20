@@ -7,10 +7,10 @@ import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const TABS = [
-  { id: 'conditions', name: L('환경 조건', 'Environment') },
-  { id: 'modifiers', name: L('작전 제한 조건', 'Operation modifiers') },
-  { id: 'biomes', name: L('생물군계', 'Biomes') },
-  { id: 'status', name: L('상태 이상', 'Status effects') },
+  { id: 'conditions', name: L('환경 조건', 'Environment'), icon: 'tab-conditions' },
+  { id: 'modifiers', name: L('작전 제한 조건', 'Operation modifiers'), icon: 'tab-modifiers' },
+  { id: 'biomes', name: L('생물군계', 'Biomes'), icon: 'tab-biomes' },
+  { id: 'status', name: L('상태 이상', 'Status effects'), icon: 'tab-status' },
 ];
 const FACTIONS = [
   { id: null, name: L('공통', 'Any faction') },
@@ -106,7 +106,7 @@ function biomesTab() {
 // A planet with a wiki page links to it (many game planets have none).
 const planetLink = planet => {
   const name = lang === 'en' ? planet.en : planet.name;
-  return planet.wiki ? html`<a href="https://helldivers.wiki.gg/wiki/${encodeURIComponent(planet.wiki.replaceAll(' ', '_'))}" target="_blank" rel="noopener noreferrer">${name}</a>` : name;
+  return planet.wiki ? html`<a href="https://helldivers.wiki.gg/wiki/${encodeURIComponent(planet.wiki.replaceAll(' ', '_'))}" target="_blank" rel="noopener noreferrer">${name}<span aria-hidden="true"> ↗</span></a>` : name;
 };
 
 function statusTab() {
@@ -136,7 +136,7 @@ export function mount(container, context) {
   root = container; ctx = context;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Planets</div><h1>${L('행성', 'Planets')}</h1>
     <p>${L('출격할 행성의 환경 조건, 작전 제한 조건, 생물군계, 상태 이상을 정리했습니다.', 'Environmental conditions, operation modifiers, biomes and status effects of the planets you drop on.')}</p></div></div>
-    <div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${tab.name}</button>`)}</div>
+    <div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${icon(tab.icon, 16)} ${tab.name}</button>`)}</div>
     <div class="arsenal-meta"><span></span><span>${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
     <div id="planet-body"></div>`);
   root.addEventListener('click', event => {

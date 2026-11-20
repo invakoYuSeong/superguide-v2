@@ -91,7 +91,7 @@ function missionsBlock(structure) {
   const range = item => item.min == null ? '' : item.min === item.max ? L(`난이도 ${item.min}`, `difficulty ${item.min}`) : L(`난이도 ${item.min}~${item.max}`, `difficulty ${item.min}-${item.max}`);
   return html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('나오는 임무', 'Missions that target it')}</div>
     <ul class="mission-list">${list.map(item => html`<li class="${item.max != null && item.max < 10 ? 'faint' : ''}">${badge(item.kind === 'main' ? L('주요 목표', 'Main objective') : L('전술 목표', 'Tactical objective'), item.kind === 'main' ? 'accent' : 'outline')}
-      <a href="${item.wiki}" target="_blank" rel="noopener noreferrer">${lang === 'en' ? titleCase(item.en) : item.name}</a>${range(item) ? html` <span class="faint">· ${range(item)}${item.max != null && item.max < 10 ? L(' (난이도 10에는 없음)', ' (not at difficulty 10)') : ''}</span>` : ''}</li>`)}</ul></div>`;
+      <a href="${item.wiki}" target="_blank" rel="noopener noreferrer">${lang === 'en' ? titleCase(item.en) : item.name}<span aria-hidden="true"> ↗</span></a>${range(item) ? html` <span class="faint">· ${range(item)}${item.max != null && item.max < 10 ? L(' (난이도 10에는 없음)', ' (not at difficulty 10)') : ''}</span>` : ''}</li>`)}</ul></div>`;
 }
 
 function structurePanel(structure) {

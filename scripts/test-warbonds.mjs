@@ -456,7 +456,9 @@ for (const kind of KOREAN_ITEM_KINDS) ok(tiles.some(t => t.item.kind === kind &&
 ok(tiles.filter(t => t.item.kind === 'booster').every(t => t.item.ko), 'every booster has a Korean name');
 // Each tile without a site entry: the Korean name with the English under it in Korean, only English in English.
 const { koreanTileName } = await import('../dist/ui/views/warbonds.js');
-const nameSpan = (shown, sub) => `<span class="wb-tile-name"><b>${escape(shown)}</b>${sub ? `<small>${escape(sub)}</small>` : ''}</span>`;
+// A tile that links to the wiki carries the external-link arrow after its name (titles do not link).
+const ARROW = '<span aria-hidden="true"> ↗</span>';
+const nameSpan = (shown, sub, wiki) => `<span class="wb-tile-name"><b>${escape(shown)}${wiki ? ARROW : ''}</b>${sub ? `<small>${escape(sub)}</small>` : ''}</span>`;
 for (const { warbond, page, item } of tiles.filter(t => !t.item.ref && t.item.kind !== 'armor' && t.item.kind !== 'super-credits')) {
   const ko = koreanTileName(item, warbond.id);
   if (item.kind === 'helmet') {
@@ -464,10 +466,11 @@ for (const { warbond, page, item } of tiles.filter(t => !t.item.ref && t.item.ki
     eq(ko, armor?.nameStatus === 'confirmed' ? armor.name : null, `${warbond.id} p${page.number} ${item.name}: helmet uses its armor set's Korean name`);
   } else eq(ko, item.ko ?? null, `${warbond.id} p${page.number} ${item.name}: Korean name from the data`);
   setLang('ko');
-  ok(String(tile(item, warbond.id)).includes(ko ? nameSpan(ko, item.name) : nameSpan(item.name)), `${warbond.id} p${page.number} ${item.name}: Korean tile shows ${ko ? 'the Korean name over the English' : 'the English name'}`);
+  const wiki = item.kind !== 'title';
+  ok(String(tile(item, warbond.id)).includes(ko ? nameSpan(ko, item.name, wiki) : nameSpan(item.name, '', wiki)), `${warbond.id} p${page.number} ${item.name}: Korean tile shows ${ko ? 'the Korean name over the English' : 'the English name'}`);
   setLang('en');
   const enTile = String(tile(item, warbond.id));
-  ok(enTile.includes(nameSpan(item.name)) && (!ko || !enTile.includes(escape(ko))), `${warbond.id} p${page.number} ${item.name}: English tile shows only the English name`);
+  ok(enTile.includes(nameSpan(item.name, '', wiki)) && (!ko || !enTile.includes(escape(ko))), `${warbond.id} p${page.number} ${item.name}: English tile shows only the English name`);
 }
 ok(tiles.some(t => t.item.kind === 'helmet' && koreanTileName(t.item, t.warbond.id)), 'helmets show Korean set names');
 setLang('ko');

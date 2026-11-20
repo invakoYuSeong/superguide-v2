@@ -181,12 +181,12 @@ export function tile(item, warbondId, { placed = true } = {}) {
   const cost = item.cost != null
     ? html`<span class="wb-tile-cost">${MEDAL}<span>${count(item.cost)}</span><span class="sr-only">${L(' 메달', ' medals')}</span></span>`
     : html`<span class="wb-tile-cost">${unconfirmed()}</span>`;
+  const wiki = !target && item.kind !== 'super-credits' && item.kind !== 'title';
   const body = html`${cost}
     <span class="wb-tile-kind">${kindLabel(item)}</span>
     ${image ? html`<img class="wb-tile-img" src="${image.src}" alt="" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : ''}
-    <span class="wb-tile-name"><b>${shownName}</b>${sub ? html`<small>${sub}</small>` : ''}</span>
+    <span class="wb-tile-name"><b>${shownName}${wiki ? html`<span aria-hidden="true"> ↗</span>` : ''}</b>${sub ? html`<small>${sub}</small>` : ''}</span>
     ${item.costStatus === 'confirmed' && notes.length ? html`<span class="wb-tile-flag">${unconfirmed()}</span>` : ''}`;
-  const wiki = !target && item.kind !== 'super-credits' && item.kind !== 'title';
   const inner = target
     ? html`<a class="wb-tile-body" data-wb-item="${ref.view}/${ref.id}" href="${formatRoute({ view: 'warbonds', id: warbondId, query: { t: state.tier, item: `${ref.view}/${ref.id}` } })}" title="${title}">${body}</a>`
     : wiki ? html`<a class="wb-tile-body" href="${wikiUrl(item.link || item.name)}" target="_blank" rel="noopener noreferrer" title="${title}\n${L('위키에서 보기 ↗', 'View on the wiki ↗')}">${body}</a>`
