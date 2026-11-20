@@ -1,12 +1,12 @@
 // Superstore: the Store tab's second page. The wiki's store pages as 3x2 boards with Super Credit
 // prices, each page themed on a warbond (or the War Horses set).
 //   #/superstore
-import { superstorePages, superstoreBoard, superstoreTotal, superstoreSource } from '../../data/superstore.js';
+import { superstorePages, superstoreBoard, superstoreTotal } from '../../data/superstore.js';
 import { warbonds } from '../../data/warbonds.js';
 import { warbondItemImages } from '../../data/warbond-item-images.js';
 import { currencyIcons } from '../../data/currency-icons.js';
 import { personalWeapons } from '../../data/personal-weapons.js';
-import { html, render, external } from '../dom.js';
+import { html, render } from '../dom.js';
 import { L, lang, locale } from '../../core/i18n.js';
 import { formatRoute } from '../../core/route.js';
 import { storeTabs } from '../store-tabs.js';
@@ -63,8 +63,7 @@ export function mount(container) {
         <div><dt>Items</dt><dd>${items}</dd></div>
         <div title="${L('모든 항목 가격의 합', 'Every item price added up')}"><dt>Super Credits</dt><dd><img class="tally-icon" src="${currencyIcons['super-credit'].src}" alt="">${count(superstoreTotal.sum)}</dd></div>
       </dl></div>
-    <div class="ss-pages">${superstorePages.map(pageBlock)}</div>
-    <p class="sources wb-credit">${L('자료', 'Data')}: ${external(superstoreSource.page, 'Helldivers Wiki · Superstore')} <span>${L(`위키 확인 ${superstoreSource.checkedAt}. 실시간 패치와 연동되지 않습니다.`, `Checked on the wiki ${superstoreSource.checkedAt}. Not linked to live patches.`)}</span></p>`);
+    <div class="ss-pages">${superstorePages.map(pageBlock)}</div>`);
 }
 
 export function update() {}

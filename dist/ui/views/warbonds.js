@@ -3,7 +3,7 @@
 //   #/warbonds[/<warbond>]?t=<tier>&item=<gear|arsenal|armor>/<id>&m=<mode>
 import { currencyIcons } from '../../data/currency-icons.js';
 import { storeTabs } from '../store-tabs.js';
-import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondsSource, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
+import { warbonds, warbondTiers, warbondBoard, warbondsCheckedAt, warbondDiscrepancies, latestWarbondId } from '../../data/warbonds.js';
 import { armors } from '../../data/armor.js';
 import { warbondImages } from '../../data/warbond-images.js';
 import { warbondItemImages } from '../../data/warbond-item-images.js';
@@ -386,9 +386,7 @@ export function mount(container, context) {
       </div>
       <p class="wb-sort">${L('출시일 순 · 오래된 채권부터', 'By release date · oldest first')}</p>
     </div>
-    <div id="wb-list"></div>
-    <p class="sources wb-credit">${L('자료', 'Data')}: ${external(warbondsSource.site, 'Helldivers Wiki')} <span>(helldivers.wiki.gg) ${L('기여자들', 'contributors')}, ${external(lang === 'en' ? warbondsSource.licenseUrl : `${warbondsSource.licenseUrl}deed.ko`, warbondsSource.license)}</span>
-      <span>${L(`위키 확인 ${warbondsCheckedAt} · 표지는 webp 변환·축소, 비트맵 항목 이미지는 여백 제거·webp 변환·축소, SVG는 원본 사용`, `Checked on the wiki ${warbondsCheckedAt} · covers converted to WebP and resized; raster item images trimmed, converted to WebP and resized; original SVGs used`)}</span></p>`);
+    <div id="wb-list"></div>`);
   root.addEventListener('click', event => {
     const target = event.target.closest('button');
     if (!target) return;

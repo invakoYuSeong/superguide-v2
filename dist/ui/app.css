@@ -280,7 +280,6 @@ a.wb-tile-body:hover .wb-tile-name b, .wb-tile-body[aria-current] .wb-tile-name 
   .wb-tile[data-kind="super-credits"] .wb-tile-img { height: calc(100% - 32px); }
   .wb-tile-flag { top: auto; bottom: 2px; left: auto; right: 2px; }
 }
-.wb-credit { margin-top: 24px; }
 /* Both panes live inside the same modal, so the left detail remains interactive. */
 .wb-workspace { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; overflow: hidden; }
 .wb-bond-pane, .wb-item-pane { min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
