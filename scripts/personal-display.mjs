@@ -120,11 +120,11 @@ export function throwChoices(weapon, wikitext, warn = message => console.warn(`w
 // A weapon may carry several lines.
 const CAUTIONS = {
   'ultimatum': [
-    '사거리가 매우 짧습니다. 서서 수평으로 쏘면 약 17m, 45도로 쏘면 약 40m까지 날아갑니다. 쏠 때 사용자의 움직임이 탄에 더해져, 다이빙하거나 점프 팩·고속 정찰 차량을 타고 쏘면 더 멀리 갑니다.',
+    '쏠 때 사용자의 움직임이 탄에 더해져, 다이빙하거나 점프 팩·고속 정찰 차량을 타고 쏘면 더 멀리 갑니다.',
     '예비 탄은 어떤 방어구 패시브로도 늘지 않지만, 탄약 상자 하나로 예비 탄이 가득 찹니다.',
   ],
   'bolt-pistol': [
-    '반동이 325로 모든 무기 중 가장 커서 연사가 어렵습니다. 웅크리거나 조준하면 줄어들고, 강화·공병 키트·충격 방지 패드, 위험물·총잡이 패시브도 반동을 줄여 줍니다.',
+    '반동이 커서 연사가 어렵습니다. 웅크리거나 조준하면 줄어들고, 강화·공병 키트·충격 방지 패드, 위험물·총잡이 패시브도 반동을 줄여 줍니다.',
   ],
   'giga-grenade': [
     '쿠킹(손에 들고 시간을 보내기)이 되지 않고, 다른 수류탄보다 낮은 궤적으로 날아갑니다. 서보 보조·사막 돌격대 패시브가 투척 거리를 크게 늘려 줍니다.',
@@ -152,8 +152,10 @@ const CAUTIONS = {
 // rev 141990, G-13 Incendiary Impact rev 141989, G-8 Immolation rev 141986, G-142 Pyrotech rev 141988, G-3 Smoke
 // rev 140501, G-89 Smokescreen rev 140510, G-109 Urchin rev 141179, G-50 Seeker rev 140505, G-60 Anti-Tank Seeker
 // rev 140507, P-11 Stim Pistol rev 140476, FLAM-66 Torcher rev 141873, P-72 Crisper rev 140485, SMG/FLAM-34 Stoker
-// rev 141944). `after` places the cell with the damage, reach or ammo rows of the detail sheet.
+// rev 141944, P/40-K Bolt Pistol rev 141876, GP-20 Ultimatum rev 140471). `after` places the cell with the damage, reach or ammo rows of the detail sheet.
 const EXTRA_STATS = {
+  'bolt-pistol': [{ label: '반동', value: 325, unit: '', caption: '모든 무기 중 가장 큼', after: 'ammo' }],
+  ultimatum: [{ label: '사거리', value: 17, unit: 'm', caption: '약 · 서서 수평으로 · 45도면 약 40 m', after: 'reach' }],
   incendiary: [{ label: '불 지속 시간', value: 20, unit: '초', caption: '남는 불길 · 소이 충격보다 5초 길다', after: 'reach' }],
   'incendiary-impact': [{ label: '불 지속 시간', value: 15, unit: '초', caption: '남는 불길', after: 'reach' }],
   immolation: [{ label: '불 지속 시간', value: 27, unit: '초', caption: '넓은 불 웅덩이', after: 'reach' }],
@@ -175,14 +177,8 @@ const TRAIT_TAGS = { incendiary: 'fire', guided: 'guided', arc: 'arc', stun: 'st
 export function playerDetails(weapon, box) {
   const fuse = fuseDetails(box.fuse, weapon.category);
   const playerNotes = [];
-  for (const conflict of weapon.infoboxConflicts) {
-    if (conflict.field === 'spareMags') playerNotes.push(`안내 페이지에는 예비 탄창이 ${conflict.infobox}개로 적혀 있으나, 최신 게임 수치인 ${conflict.db}개를 표시합니다.`);
-    if (conflict.field === 'radius' && Array.isArray(conflict.db)) playerNotes.push(`안내 페이지의 폭발 반경 ${conflict.infobox}m와 달리, 최대 피해 반경 ${conflict.db[0]}m와 바깥 경계 ${conflict.db[1]}m를 표시합니다.`);
-  }
-  if (fuse.fuseType === 'impact') playerNotes.push('충돌 시 작동합니다.');
-  // The Melta Mine's own caution says how it goes off (user decision 2026-11-20).
-  if (fuse.fuseType === 'proximity' && weapon.id !== 'melta-mine') playerNotes.push('가까운 대상을 감지하면 작동합니다.');
-  if (fuse.fuseType === 'selectable') playerNotes.push(`작동 시간을 ${fuse.fuseOptions.map(value => `${value}초`).join('·')} 중에서 고를 수 있습니다.`);
+  // How the fuse works and where the wiki page differs from the data are shown by the fuse row and the
+  // wiki-difference callout of the gear sheet, so they are not repeated here (user decision 2026-11-20).
   if (weapon.category === 'throwable' && fuse.fuseType === null) playerNotes.push('신관 작동 방식은 아직 확인하지 못했습니다.');
   if (weapon.shrapnelCount > 0) playerNotes.push('기본은 파편의 20%를 반올림한 개수가 같은 부위에 맞는다고 가정합니다. 명중률을 바꿔 다시 계산할 수 있으며, 파편 0개를 고르면 파편 피해는 제외합니다.');
   if (weapon.pellets > 1) playerNotes.push('표시 피해는 펠릿 한 개 기준입니다. 기본 계산은 펠릿이 모두 맞는다고 가정하며, 명중률을 낮춰 다시 계산할 수 있습니다.');
@@ -199,7 +195,7 @@ export function playerDetails(weapon, box) {
     'one-two': '주 총열과 하부 유탄 발사기를 전환해 사용합니다. 탄약과 처치 탄수는 따로 계산합니다.',
     stoker: '주 총열과 하부 화염방사기를 전환해 사용합니다. 화염방사 모드의 처치 탄수는 계산하지 않습니다.',
   })[weapon.id] || '하부 부착 무기로 전환할 수 있습니다. 두 공격의 피해는 합산하지 않습니다.');
-  if (weapon.id === 'halt') playerNotes.push('플레셰트탄과 기절탄은 각각 8발씩 별도 탄창에 담습니다.');
+  if (weapon.id === 'halt') playerNotes.push('플레셰트탄과 기절탄은 각각 별도 탄창에 담습니다.');
   if (weapon.id === 'breacher') playerNotes.push('사격 모드는 하나입니다. 처치 탄수는 직격과 붙은 뒤의 지연 폭발을 함께 반영하며, 지속 피해는 포함하지 않습니다.');
   if (weapon.id === 'pyrotech') playerNotes.push('처치 탄수는 첫 폭발만 반영합니다. 남은 불길의 지속 피해는 포함하지 않습니다.');
   if (weapon.variants.some(v => v.delivery === 'projectile' && !v.id.startsWith('shrapnel')) && ['missile-pistol', 'warrant'].includes(weapon.id)) playerNotes.push('유도와 비유도를 전환할 수 있습니다. 처치 탄수는 비유도 사격 기준입니다.');

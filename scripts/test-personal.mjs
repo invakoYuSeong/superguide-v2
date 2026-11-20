@@ -182,8 +182,9 @@ eq(weaponOf('one-two').variants[1].displayName, '하부 유탄 발사기');
 eq(weaponOf('arbitrator').variants[1].displayName, '하부 산탄총');
 eq(weaponOf('stoker').variants[1].displayName, '하부 화염방사기');
 eq(weaponOf('liberator').playerNotes, [], 'ordinary weapon has no noisy developer commentary');
-ok(weaponOf('accelerator-rifle').playerNotes.some(note => note.includes('8개') && note.includes('12개')), 'conflict communicated to player');
-ok(weaponOf('thermite').playerNotes.some(note => note.includes('2m') && note.includes('1.5m') && note.includes('2.5m')), 'radius conflict preserves both boundaries');
+// The wiki-difference callout of the gear sheet shows infobox conflicts (data 12 / page 8), not the notes.
+ok(weaponOf('accelerator-rifle').infoboxConflicts.some(c => c.field === 'spareMags' && String(c.infobox) === '8') && !weaponOf('accelerator-rifle').playerNotes.some(note => note.includes('12개')), 'conflict shown by the callout, not repeated in the notes');
+ok(weaponOf('thermite').infoboxConflicts.some(c => c.field === 'radius' && Array.isArray(c.db) && c.db.join('~') === '1.5~2.5' && String(c.infobox) === '2'), 'radius conflict preserves both boundaries for the callout');
 for (const id of ['frag', 'torcher', 'scythe', 'purifier', 'one-two']) ok(weaponOf(id).playerNotes.length > 0, `${id}: relevant caveat`);
 for (const weapon of personalWeapons) {
   const source = weapons.find(w => w.id === weapon.id);

@@ -75,6 +75,8 @@ const apText = w => {
   return w.ap != null && w.splashAp != null && w.splashAp !== w.ap ? `AP ${w.ap}/${w.splashAp}` : `AP ${ap}`;
 };
 // How a throwable goes off: timer, impact, proximity or a choice of timers.
+// Names of the fields a wiki-difference callout can mention (infoboxConflicts), instead of the raw field name.
+const CONFLICT_FIELDS = { spareMags: ['예비 탄창', 'Spare magazines'], radius: ['폭발 반경', 'Blast radius'] };
 export const fuseText = w => w.fuseType === 'impact' ? L('충격식', 'Impact') : w.fuseType === 'proximity' ? L('근접 감지', 'Proximity') : w.fuseType === 'selectable' && w.fuseOptions?.length ? L(`${w.fuseOptions.map(num).join('/')}초 선택`, `${w.fuseOptions.map(num).join('/')}s selectable`) : w.fuse != null ? `${num(w.fuse)}${L('초', 's')}` : null;
 const isUtility = w => w.direct == null && w.splash == null && w.dot?.perSecond == null;
 
@@ -370,7 +372,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`${detailGrid(w)}${blastFigure(w)}${variantTable(w)}`}
     ${specialBlock(w)}
     ${attachmentTable(w)}
-    ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
+    ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || CONFLICT_FIELDS[c.field]?.[0] || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || CONFLICT_FIELDS[c.field]?.[1] || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">
       ${w.category !== 'throwable' || w.splash != null ? html`<a class="button primary" href="#/enemy?w=${w.id}">${icon('enemy', 18)} ${L('적 대응 계산', 'Shots to kill')}</a>` : ''}
