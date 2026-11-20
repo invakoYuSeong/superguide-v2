@@ -159,6 +159,9 @@ function renderPicker() {
   $('#picker-current', root).textContent = T(enemyById.get(state.enemy).name);
 }
 
+// How an enemy calls reinforcements (enemy-pages.js `reinforcements`).
+const REINFORCEMENTS = { breach: L('페로몬으로 버그 침공', 'Bug Breach by pheromones'), dropship: L('조명탄으로 드롭십', 'Bot Drop by flare'), warp: L('조명탄으로 워프 함선', 'Warp Ships by flare') };
+
 // Wiki fire damage multiplier shown like the explosive resistance: x0.8 = 20%, x1.5 = -50% (takes more).
 const fireText = mult => mult == null ? L('미확인', 'Unverified') : pct(Math.round((1 - mult) * 100));
 
@@ -210,6 +213,8 @@ function hero(enemy) {
     [L('본체 체력', 'Main health'), num(m.hp)], [L('본체 장갑', 'Main armor'), m.armor], [L('내구도', 'Durability'), pct(m.durability)], [L('폭발 저항', 'Explosive resistance'), pct(m.exdr)],
     ...(m.constitution ? [[L('출혈 여유', 'Bleed-out health'), num(m.constitution)]] : []),
     [L('화염 저항', 'Fire resistance'), fireText(info?.fireMult)], [L('경직치', 'Stagger threshold'), info?.staggerReq == null ? L('미확인', 'Unverified') : num(info.staggerReq)],
+    // Enemies that can call reinforcements (wiki Behavior): worth killing first.
+    ...(info?.reinforcements ? [[L('증원 호출', 'Calls reinforcements'), REINFORCEMENTS[info.reinforcements]]] : []),
   ];
   return html`<section class="panel enemy-hero" data-faction="${enemy.faction}">
     ${portrait(enemy, '', true)}

@@ -20,6 +20,7 @@
   - **차량 내구도**: 엑소슈트·FRV·탱크 9종 상세에 부위별 체력·장갑·내구도·본체로 넘어가는 비율과 본체 출혈 여유(`fetch-vehicle-pages` → `db/source/wiki_vehicles.json` → `build-vehicle-durability` → `dist/data/vehicle-durability.js`, 부위 이름 번역 `db/source/vehicle_part_korean.json`). 해부표가 아직 없는 새 차량은 표를 숨기고 '확인할 것'으로만 알림.
   - **행성 > 환경 위험 요소**(환경 조건 바로 아래): 13종(접촉 지뢰·철조망·폭발성 통은 게임 이름, 나머지는 사이트 번역), 위키 문서 요약과 생물군계 링크. `wiki_planets.json`에 `hazardPages`만 추가(`fetch-planet-pages`에도 넣어 둠), `planet_korean.json`의 `hazards`.
   - **무기 숙련도**: 커스터마이징 표의 해금 레벨 아래 '누적 경험치'(위키 Attachments의 Weapon Experience 표, 모든 주무기 공통, `fetch-weapon-experience` → `build-weapon-experience` → `dist/data/weapon-experience.js`).
+  - **증원 호출 표시**: 적 화면 수치 줄에 '증원 호출'(페로몬으로 버그 침공 / 조명탄으로 드롭십 / 조명탄으로 워프 함선), 22종. 기존 원본 `wiki_enemy_pages.json`의 Behavior·Spawning 문장에서 읽음(`enemy-page-title.mjs`의 `reinforcementOf`, `enemy-pages.js`의 `reinforcements`). 문서를 같이 쓰는 변종은 같은 값, 자기 문서에 그런 문장이 없는 변종(제트 여단 트루퍼, 스포어 버스트 헌터 등)은 표시 없음.
   - **검사 원칙(2026-11-20)**: 이번에 넣은 검사들은 위키 수치를 고정값으로 확인하지 않음(밸런스 패치로 값이 바뀌어도 배포를 막지 않게). 읽는 코드는 정해진 예시 문장으로 확인하고, 생성 파일이 원본과 맞는지(다시 만든 결과와 같은지)만 실패로 침.
   - 검사: `npm run check` 23종 통과, `node scripts/check-weapons.mjs` 통과, 1440·360px 화면 확인(콘솔 오류 없음).
 

@@ -10,6 +10,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 1,
+  "reinforcements": "breach",
   "spawning": [
    "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
@@ -56,6 +57,7 @@ export const enemyPages = {
   "subfaction": "noxious",
   "fireMult": null,
   "staggerReq": null,
+  "reinforcements": "breach",
   "spawning": [
    "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
   ],
@@ -82,6 +84,7 @@ export const enemyPages = {
   "subfaction": "caustic",
   "fireMult": 0.5,
   "staggerReq": 1,
+  "reinforcements": "breach",
   "spawning": [
    "커스틱 변종 행성에서 난이도 1부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
   ],
@@ -108,6 +111,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 1,
+  "reinforcements": "breach",
   "spawning": [
    "난이도 2부터 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
@@ -136,6 +140,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.7,
   "staggerReq": 15,
+  "reinforcements": "breach",
   "spawning": [
    "난이도 2부터 나옵니다. 버그 침공, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
@@ -164,6 +169,7 @@ export const enemyPages = {
   "subfaction": "predator",
   "fireMult": 0.7,
   "staggerReq": 15,
+  "reinforcements": "breach",
   "spawning": [
    "프레데터 변종이 있는 행성에서만 나오며, 일반 헌터를 대신합니다."
   ],
@@ -208,6 +214,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
+  "reinforcements": "breach",
   "spawning": [
    "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
@@ -236,6 +243,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
+  "reinforcements": "breach",
   "spawning": [
    "알파 커맨더가 나오는 난이도 8 이상에서만 나오며, 알파 커맨더가 3마리씩 불러냅니다."
   ],
@@ -260,6 +268,7 @@ export const enemyPages = {
   "subfaction": "caustic",
   "fireMult": 0.8,
   "staggerReq": 20,
+  "reinforcements": "breach",
   "spawning": [
    "커스틱 변종 행성에서 난이도 2부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
   ],
@@ -326,6 +335,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.8,
   "staggerReq": 20,
+  "reinforcements": "breach",
   "spawning": [
    "난이도 2부터 나옵니다. 버그 침공, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
@@ -354,6 +364,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 25,
+  "reinforcements": "breach",
   "spawning": [
    "난이도 1부터 '브루드 커맨더 제거하기' 임무의 목표로 나옵니다.",
    "난이도 3부터 버그 침공, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
@@ -384,6 +395,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 1,
   "staggerReq": 25,
+  "reinforcements": "breach",
   "spawning": [
    "난이도 8부터 나오며, 브루드 커맨더를 완전히 대신합니다.",
    "버그 침공, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다."
@@ -840,6 +852,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "모든 난이도에서 봇 투하나 오토마톤 제조소에서 나오며, 오토마톤 전초기지·임무 목표 경비와 순찰대에 자주 섞여 있습니다. 난이도 4부터 소규모 관심 지점도 지킵니다.",
    "높은 난이도에서는 로켓 레이더·MG 레이더 같은 더 위험한 경량 오토마톤으로 바뀌는 경우가 많습니다.",
@@ -900,6 +913,7 @@ export const enemyPages = {
   "subfaction": "incineration",
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "소각대가 침공한 행성에서 모든 난이도에 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
@@ -928,6 +942,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "모든 난이도에서 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
    "높은 난이도일수록 자주 나오며, 주로 트루퍼를 대신합니다."
@@ -954,6 +969,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "모든 난이도에서 봇 투하, 순찰대 지휘, 오토마톤 전초기지·임무 목표 경비로 나옵니다. 다른 경량 오토마톤과 달리 오토마톤 제조소에서는 나오지 않습니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다. 높은 난이도에서는 로켓 레이더·MG 레이더 같은 더 위험한 경량 오토마톤으로 바뀌기도 합니다.",
@@ -1012,6 +1028,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "난이도 2부터 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
@@ -1042,6 +1059,7 @@ export const enemyPages = {
   "subfaction": "incineration",
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "소각대가 침공한 행성의 모든 난이도에서 나옵니다. 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소에서 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
@@ -1070,6 +1088,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "난이도 1부터 일반 행성에서 봇 투하, 순찰대, 오토마톤 전초기지·임무 목표 경비, 오토마톤 제조소로 나옵니다.",
    "소각대 행성에서는 소각대 도색으로 나오지만 성능은 같습니다.",
@@ -1100,6 +1119,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "난이도 5부터 나옵니다. 봇 투하·오토마톤 제조소·순찰대에서 나오고, 오토마톤 전초기지·임무 목표·소규모 관심 지점을 지킵니다."
   ],
@@ -1126,6 +1146,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": 0.5,
   "staggerReq": 10,
+  "reinforcements": "dropship",
   "spawning": [
    "난이도 2부터 나옵니다. 봇 투하·순찰대·오토마톤 제조소에서 나오고, 오토마톤 전초기지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
@@ -2074,6 +2095,7 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
+  "reinforcements": "warp",
   "spawning": [
    "모든 난이도에서 맵 곳곳에 나옵니다. 보트 스내처 행성에는 나오지 않습니다."
   ],

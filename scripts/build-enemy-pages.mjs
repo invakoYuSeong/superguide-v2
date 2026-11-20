@@ -7,7 +7,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
 import { factionGuides } from '../dist/data/faction-data.js';
-import { pageTitle, infoboxNumber } from './enemy-page-title.mjs';
+import { pageTitle, infoboxNumber, reinforcementOf } from './enemy-page-title.mjs';
 
 const read = async path => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
 const wiki = await read('../db/source/wiki_enemy_pages.json');
@@ -40,6 +40,8 @@ for (const enemy of enemies) {
   out[enemy.id] = {
     page: title, revision: page.revision, ...(summary && { summaryRevision: summary.revision }), subfaction,
     fireMult: infoboxNumber(page.fireMult), staggerReq: infoboxNumber(page.staggerReq),
+    // Calls reinforcements (wiki Behavior text): 'breach' | 'dropship' | 'warp'; left out when it does not.
+    ...(reinforcementOf(page) && { reinforcements: reinforcementOf(page) }),
     spawning: lines('spawning').map(line => line.ko), spawningEn: lines('spawning').map(line => line.en),
     behavior: lines('behavior').map(line => line.ko), behaviorEn: lines('behavior').map(line => line.en),
   };

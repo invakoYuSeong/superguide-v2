@@ -6,7 +6,7 @@ import { readFile } from 'node:fs/promises';
 import { enemies } from '../dist/data/combat-data.js';
 import { enemyPages } from '../dist/data/enemy-pages.js';
 import { factionGuides } from '../dist/data/faction-data.js';
-import { pageTitle, infoboxNumber } from './enemy-page-title.mjs';
+import { pageTitle, infoboxNumber, reinforcementOf } from './enemy-page-title.mjs';
 
 const read = async name => JSON.parse(await readFile(new URL(`../db/source/${name}`, import.meta.url), 'utf8'));
 const wiki = (await read('wiki_enemy_pages.json')).pages;
@@ -33,6 +33,7 @@ for (const enemy of enemies) {
   if (!item || !page || item.revision !== page.revision) { later.noEntry.push(enemy.id); continue; }
   ok(item.fireMult === numberOf(page.fireMult) && item.staggerReq === numberOf(page.staggerReq), `${enemy.id}: fire multiplier or stagger threshold is not the wiki infobox value`);
   ok(item.subfaction === null || factionGuides.some(guide => guide.id === item.subfaction), `${enemy.id}: unknown subfaction ${item.subfaction}`);
+  ok((item.reinforcements ?? null) === reinforcementOf(page), `${enemy.id}: reinforcement call is not what the wiki Behavior says (run build-enemy-pages)`);
   const summary = summaries[item.page];
   if (!summary) { later.noSummary.push(enemy.id); continue; }
   if (summary.revision !== page.revision) later.olderSummary.push(enemy.id);
