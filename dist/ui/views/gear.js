@@ -128,7 +128,10 @@ function renderBrowse() {
   const items = visibleItems();
   for (const button of $$('[data-cat]', root)) button.setAttribute('aria-pressed', String(!state.q && button.dataset.cat === state.cat));
   const types = typesOf(state.cat);
-  const handCount = personalWeapons.filter(w => w.category === state.cat && oneHanded(w)).length;
+  // The one-handed filter only where it narrows the list (every secondary is one-handed, no throwable is).
+  const inCat = personalWeapons.filter(w => w.category === state.cat);
+  const hands = inCat.filter(oneHanded).length;
+  const handCount = hands < inCat.length ? hands : 0;
   render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${personalWeapons.filter(w => w.category === state.cat && w.type === type).length}</span></button>`)}${handCount ? html`<button class="chip chip-hand" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
