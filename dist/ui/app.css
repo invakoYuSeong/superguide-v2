@@ -540,6 +540,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .blast-ref { opacity: .42; } }
 :root[data-theme="light"] .blast-ref { opacity: .42; }
 .blast-label text { font-size: 11px; font-weight: 750; fill: var(--text); stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; paint-order: stroke; }
+/* The full-damage radius leads (solid, accent) and the falloff edge follows (dashed, muted), like the circles they measure. */
+.blast-label .blast-inner { fill: var(--accent-text); }
+.blast-label .blast-outer { fill: var(--text-3); font-weight: 600; }
 .blast p { flex: 1 1 220px; font-size: 13.5px; color: var(--text-2); }
 .links { display: flex; gap: 8px; flex-wrap: wrap; }
 .sources { font-size: 12.5px; color: var(--text-3); display: flex; gap: 6px 14px; flex-wrap: wrap; }
