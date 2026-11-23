@@ -32,8 +32,10 @@
   --terminid: #ffae3d;
   --automaton: #ff5d55;
   --illuminate: #ab8cff;
-  --c-support: #ffd400; --c-orbital: #ff7a59; --c-eagle: #5cc8ff; --c-defense: #8fd16a;
-  --c-backpack: #c89bff; --c-vehicle: #ffb44d; --c-mission: #9aa7b3;
+  /* Stratagem categories in the hues of their in-game permit (offensive vermilion, defensive green, supply sky
+     blue, mission yellow), shades apart within a family (user decision 2026-11-23). */
+  --c-support: #5ab4ff; --c-orbital: #f0604a; --c-eagle: #ff9a7a; --c-defense: #8fd16a;
+  --c-backpack: #93dcff; --c-vehicle: #6f8fff; --c-mission: #f2c230;
   --w-light: #5cc8ff; --w-medium: #8fd16a; --w-heavy: #ff7a59;
   --g-primary: #ffd400; --g-secondary: #6fb6ff; --g-throwable: #ff8a5c;
   --radius: 3px;
@@ -62,8 +64,8 @@
     --blocked: #c93434; --blocked-soft: rgba(201, 52, 52, .09);
     --unknown: #66717b; --unknown-soft: rgba(102, 113, 123, .1);
     --terminid: #c07000; --automaton: #cf2e28; --illuminate: #6b47d6;
-    --c-support: #b89800; --c-orbital: #d4492a; --c-eagle: #1a86c2; --c-defense: #4b8f2a;
-    --c-backpack: #8250d0; --c-vehicle: #c77a00; --c-mission: #5f6b76;
+    --c-support: #1f7fcf; --c-orbital: #c8402a; --c-eagle: #e0734f; --c-defense: #4b8f2a;
+    --c-backpack: #2fa0c8; --c-vehicle: #3a5cc0; --c-mission: #b88a00;
     --w-light: #1a86c2; --w-medium: #4b8f2a; --w-heavy: #d4492a;
     --g-primary: #b89800; --g-secondary: #1f6fc2; --g-throwable: #d4582a;
     --shadow: 0 18px 50px rgba(30, 34, 20, .18);
@@ -82,8 +84,8 @@
   --blocked: #c93434; --blocked-soft: rgba(201, 52, 52, .09);
   --unknown: #66717b; --unknown-soft: rgba(102, 113, 123, .1);
   --terminid: #c07000; --automaton: #cf2e28; --illuminate: #6b47d6;
-  --c-support: #b89800; --c-orbital: #d4492a; --c-eagle: #1a86c2; --c-defense: #4b8f2a;
-  --c-backpack: #8250d0; --c-vehicle: #c77a00; --c-mission: #5f6b76;
+  --c-support: #1f7fcf; --c-orbital: #c8402a; --c-eagle: #e0734f; --c-defense: #4b8f2a;
+  --c-backpack: #2fa0c8; --c-vehicle: #3a5cc0; --c-mission: #b88a00;
   --w-light: #1a86c2; --w-medium: #4b8f2a; --w-heavy: #d4492a;
   --g-primary: #b89800; --g-secondary: #1f6fc2; --g-throwable: #d4582a;
   --shadow: 0 18px 50px rgba(30, 34, 20, .18);
