@@ -1,4 +1,4 @@
-// Demolition: look up by structure (what destroys it?) or by stratagem (what can it destroy?).
+// Demolition: look up by structure (what destroys it?), by stratagem or by gear (what can it destroy?).
 import { structures, demolitionProfiles, demolitionCheckedAt, demolitionSource, structureDamageSource } from '../../data/demolition-data.js';
 import { pickerStructureImages } from '../../data/selector-images.js';
 import { structureObjectives } from '../../data/structure-objectives.js';
@@ -7,6 +7,11 @@ import { stratagems, stratagemById, categories, categoryOf } from '../../core/ca
 import { solveDemolition, structureOverview, forceRange } from '../../core/demolition.js';
 import { search, stratagemFields, collabKeywords } from '../../core/search.js';
 import { warbondSources } from '../../data/warbond-sources.js';
+import { personalWeapons } from '../../data/personal-weapons.js';
+import { personalProfiles } from '../../data/personal-profiles.js';
+import { weaponImages } from '../../data/weapon-images.js';
+import { GROUPS, groupOf, typeName, displayName } from '../gear-shared.js';
+import { personalNames } from '../../core/search.js';
 import { num, unitText } from '../../core/explain.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
@@ -18,9 +23,33 @@ const armed = stratagems.filter(item => demolitionProfiles[item.id]);
 const armedFields = item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; };
 const confirmedCount = Object.values(demolitionProfiles).filter(profile => profile.modes.some(mode => !mode.forceUnknown)).length;
 
+// Gear (primaries, secondaries, throwables) as demolition profiles: each combat mode of personal-profiles.js with the
+// demolition force of its datamine record (personal-weapons.js `demolition` direct, `splashDemolition` blast). A mode
+// without a matching record takes the highest force among the weapon's records, as the gear browser's bug hole tag
+// does; a weapon without combat modes keeps its force with no structure damage. Both forces unknown = unverified.
+const records = w => w.variants?.length ? w.variants : [w];
+const maxOf = (list, key) => list.some(r => r[key] != null) ? Math.max(...list.map(r => r[key] ?? 0)) : null;
+const gearMode = (w, mode) => {
+  const list = records(w);
+  const record = list.find(r => r.name === mode?.record) ?? (list.length === 1 ? list[0] : null);
+  const direct = record ? record.demolition ?? null : maxOf(list, 'demolition');
+  const explosion = record ? record.splashDemolition ?? null : maxOf(list, 'splashDemolition');
+  return {
+    id: mode?.id || 'standard', name: mode?.name || L('기본 공격', 'Basic attack'), direct, explosion, forceUnknown: direct == null && explosion == null,
+    damage: mode ? { standard: mode.standard ?? 0, durable: mode.durable ?? 0, ap: mode.ap ?? 0, explosion: mode.explosion ?? 0, explosionAp: mode.explosionAp ?? 0, explosionDurable: mode.explosionDurable ?? mode.explosion ?? 0 } : null,
+    unit: mode?.unit || '발',
+  };
+};
+const gearProfiles = Object.fromEntries(personalWeapons.map(w => [w.id, {
+  source: w.source, modes: personalProfiles[w.id]?.modes?.length ? personalProfiles[w.id].modes.map(mode => gearMode(w, mode)) : [gearMode(w, null)],
+}]));
+const gearById = new Map(personalWeapons.map(w => [w.id, w]));
+const gearFields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name, ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
+const gearIcon = (w, size = 40) => weaponImages[w.id]?.src ? html`<img src="${weaponImages[w.id].src}" alt="" width="${size}" height="${size}" loading="lazy" style="width:${size}px;height:${size}px;object-fit:contain">` : '';
+
 let root, ctx;
 // tacticsOpen: the Tactics fold starts open and keeps the player's choice across structures.
-const state = { by: 'structure', structure: null, weapon: null, mode: null, shieldCleared: false, jammerDisabled: false, q: '', tacticsOpen: true };
+const state = { by: 'structure', structure: null, weapon: null, gear: null, mode: null, shieldCleared: false, jammerDisabled: false, q: '', gearQ: '', tacticsOpen: true };
 
 // --- Text -----------------------------------------------------------------------------
 const OUTCOME = {
@@ -143,8 +172,11 @@ function weaponPicker() {
   </div>`;
 }
 
-function weaponResults(weapon) {
-  const profile = demolitionProfiles[weapon.id];
+// What the result header shows for a stratagem or a piece of gear.
+const stratagemHead = weapon => ({ name: weapon.name, icon: weaponIcon(weapon.id, 44), href: `#/arsenal/${weapon.id}`, link: L('도감에서 보기', 'Open in Stratagems'), source: weapon.source });
+const gearHead = w => ({ name: displayName(w), icon: gearIcon(w, 44), href: `#/gear/${w.id}`, link: L('장비에서 보기', 'Open in Gear'), source: w.source });
+
+function weaponResults(head, profile) {
   const mode = profile.modes.find(item => item.id === state.mode) || profile.modes[0];
   const rows = structures.map(structure => solveDemolition(structure, profile, mode, state));
   // Grouped by verdict, in the order the badges read: demolishes, via health, conditional, unverified, cannot.
@@ -156,7 +188,7 @@ function weaponResults(weapon) {
   const conditional = rows.filter(row => row.outcome === 'conditional').length;
   const notes = [profile.note, mode.note].filter(Boolean);
   return html`<section class="panel" style="padding:16px;display:grid;gap:12px">
-      <div class="matchup-head">${weaponIcon(weapon.id, 44)}<div><h2>${weapon.name}</h2><a class="ext" href="#/arsenal/${weapon.id}">${L('도감에서 보기', 'Open in Stratagems')}</a></div>
+      <div class="matchup-head">${head.icon}<div><h2>${head.name}</h2><a class="ext" href="${head.href}">${head.link}</a></div>
         ${profile.modes.length > 1 ? html`<div class="segmented" role="group" aria-label="${L('탄종·공격', 'Shell / attack')}">${profile.modes.map(item => html`<button type="button" data-mode-pick="${item.id}" aria-pressed="${item.id === mode.id}">${item.name}</button>`)}</div>` : ''}</div>
       <div class="stat-chips">
         <div class="stat-chip"><span>${L(`${mode.directLabel || '직격'} 철거력`, `${T(mode.directLabel) || 'Direct'} demolition force`)}</span><b>${forceText(mode.direct, mode.forceUnknown)}</b></div>
@@ -166,11 +198,11 @@ function weaponResults(weapon) {
       ${notes.length || mode.shieldBypass || mode.damage?.falloff ? html`<ul class="notes">${notes.map(note => html`<li>${note}</li>`)}${mode.shieldBypass ? html`<li>${L('워프 함선: 본체에 닿으면 보호막을 벗기기 전에도 부술 수 있는 공격입니다.', 'Warp Ship: if it reaches the hull, this attack can destroy it even before the shield is down.')}</li>` : ''}${mode.damage?.falloff ? html`<li>${L('체력 계산은 거리 감쇠 전 최대 피해 기준입니다.', 'Health math uses full damage before falloff.')}</li>` : ''}</ul>` : ''}
     </section>
     ${conditionToggles(shown.some(row => row.structure.condition === 'shield'), profile.requiresCallIn && shown.some(row => row.structure.condition === 'jammer'))}
-    <div class="verdict" data-tone="${possible ? 'kill' : ''}"><span class="label">${weapon.name} · ${mode.name} × ${L(`시설 ${structures.length}종`, `${structures.length} structures`)}</span>
+    <div class="verdict" data-tone="${possible ? 'kill' : ''}"><span class="label">${head.name} · ${mode.name} × ${L(`시설 ${structures.length}종`, `${structures.length} structures`)}</span>
       <h3>${L(html`<span class="big">${possible}</span>곳 바로 가능 · 조건부 ${conditional}곳`, html`<span class="big">${possible}</span> right away · ${conditional} conditional`)}</h3><p>${L(`자료 미확인 ${rows.filter(row => row.outcome === 'unknown').length}곳, 불가 ${blocked.length}곳.`, `${rows.filter(row => row.outcome === 'unknown').length} unverified, ${blocked.length} not possible.`)}</p></div>
     <div class="result-list">${shown.map(row => resultCard(row, profile, mode))}</div>
     ${blocked.length ? html`<details class="disclosure"><summary>${L(`이 공격으로 부술 수 없는 시설 ${blocked.length}곳`, `${blocked.length} structures it cannot destroy`)}</summary><div class="result-list">${blocked.map(row => resultCard(row, profile, mode))}</div></details>` : ''}
-    <p class="sources">${external(demolitionSource, L('철거력·시설 기준', 'Demolition force and structures'))}${external(profile.source || weapon.source, L('공격 수치', 'Attack stats'))}${external(structureDamageSource, L('시설 피해 규칙', 'Structure damage rules'))}${profile.damageSource ? external(profile.damageSource, L('탄종 피해', 'Shell damage')) : ''}${profile.conflictingSource ? external(profile.conflictingSource, L('엇갈리는 종합표', 'Conflicting summary table')) : ''}<span>${L('자료 확인', 'Checked')} ${demolitionCheckedAt}</span></p>`;
+    <p class="sources">${external(demolitionSource, L('철거력·시설 기준', 'Demolition force and structures'))}${external(profile.source || head.source, L('공격 수치', 'Attack stats'))}${external(structureDamageSource, L('시설 피해 규칙', 'Structure damage rules'))}${profile.damageSource ? external(profile.damageSource, L('탄종 피해', 'Shell damage')) : ''}${profile.conflictingSource ? external(profile.conflictingSource, L('엇갈리는 종합표', 'Conflicting summary table')) : ''}<span>${L('자료 확인', 'Checked')} ${demolitionCheckedAt}</span></p>`;
 }
 
 function resultCard(row, profile, mode) {
@@ -189,6 +221,20 @@ function resultCard(row, profile, mode) {
   </article>`;
 }
 
+function gearTiles(list) {
+  return GROUPS.map(group => {
+    const items = list.filter(w => w.category === group.id);
+    return items.length ? html`<div><div class="picker-group" style="padding:0 0 6px">${group.name}</div><div class="tile-grid">${items.map(w => html`<button class="tile" type="button" data-gear="${w.id}" aria-current="${w.id === state.gear}">${gearIcon(w)}<span><b>${displayName(w)}</b><small class="faint">${typeName(w.type)}</small></span></button>`)}</div></div>` : '';
+  });
+}
+
+function gearPicker() {
+  return html`<div style="display:grid;gap:10px">
+    <label class="field">${icon('search', 16)}<span class="sr-only">${L('장비 검색', 'Search gear')}</span><input class="input" id="demo-gear-q" type="search" placeholder="${L('장비 검색 (예: 테르밋, 이럽터)', 'Search gear (e.g. Thermite, Eruptor)')}" value="${state.gearQ}" autocomplete="off"></label>
+    <div id="demo-gear" style="display:grid;gap:12px">${gearTiles(search(personalWeapons, state.gearQ, gearFields))}</div>
+  </div>`;
+}
+
 // --- Render -----------------------------------------------------------------------------------
 function renderView() {
   for (const button of $$('[data-by]', root)) button.setAttribute('aria-pressed', String(button.dataset.by === state.by));
@@ -200,9 +246,14 @@ function renderView() {
       ${factions.map(faction => html`<div><div class="picker-group" data-faction="${faction}" style="padding:0 0 6px">${faction}</div><div class="tile-grid">${structures.filter(item => item.faction === faction).map(item => html`<button class="tile" type="button" data-structure="${item.id}" aria-current="${item.id === state.structure}">${structureImage(item)}<span><b>${item.name}</b><small class="faint">${L('철거력', 'Force')} ${item.routes.map((route, i) => html`${i ? ' / ' : ''}${route.explosiveOnly ? blastIcon(L('폭발로만', 'Explosions only')) : ''}${thresholdText(route.threshold)}`)}${item.health ? L(' · 체력', ' · health') : ''}</small></span></button>`)}</div></div>`)}
       <div id="demo-result" style="display:grid;gap:14px;margin-top:10px">${structure ? html`${structurePanel(structure)}${structureResults(structure)}` : html`<div class="empty"><h3>${L('시설을 골라 주세요', 'Pick a structure')}</h3><p>${L('무엇으로 부술 수 있는지, 어디를 맞혀야 하는지 알려 드립니다.', 'See what destroys it and where to hit it.')}</p></div>`}</div>
     </div>`);
+  } else if (state.by === 'gear') {
+    const w = gearById.get(state.gear);
+    render(body, html`<div style="display:grid;gap:14px">${gearPicker()}<div id="demo-result" style="display:grid;gap:14px;margin-top:10px">${w ? weaponResults(gearHead(w), gearProfiles[w.id]) : html`<div class="empty"><h3>${L('장비를 골라 주세요', 'Pick a weapon')}</h3><p>${L(`주무기·보조무기·투척 무기로 시설 ${structures.length}곳 각각을 부술 수 있는지와 방법을 보여 드립니다.`, `See whether and how a primary, secondary or throwable destroys each of the ${structures.length} structures.`)}</p></div>`}</div></div>`);
+    const input = $('#demo-gear-q', root);
+    input.addEventListener('input', () => { state.gearQ = input.value; render($('#demo-gear', root), gearTiles(search(personalWeapons, state.gearQ, gearFields))); });
   } else {
     const weapon = stratagemById.get(state.weapon);
-    render(body, html`<div style="display:grid;gap:14px">${weaponPicker()}<div id="demo-result" style="display:grid;gap:14px;margin-top:10px">${weapon ? weaponResults(weapon) : html`<div class="empty"><h3>${L('스트라타젬을 골라 주세요', 'Pick a stratagem')}</h3><p>${L(`시설 ${structures.length}곳 각각에 대해 철거 가능 여부와 방법을 보여 드립니다.`, `See whether and how it destroys each of the ${structures.length} structures.`)}</p></div>`}</div></div>`);
+    render(body, html`<div style="display:grid;gap:14px">${weaponPicker()}<div id="demo-result" style="display:grid;gap:14px;margin-top:10px">${weapon ? weaponResults(stratagemHead(weapon), demolitionProfiles[weapon.id]) : html`<div class="empty"><h3>${L('스트라타젬을 골라 주세요', 'Pick a stratagem')}</h3><p>${L(`시설 ${structures.length}곳 각각에 대해 철거 가능 여부와 방법을 보여 드립니다.`, `See whether and how it destroys each of the ${structures.length} structures.`)}</p></div>`}</div></div>`);
     const input = $('#demo-q', root);
     input.addEventListener('input', () => {
       state.q = input.value;
@@ -212,7 +263,9 @@ function renderView() {
 }
 
 function syncUrl(push = false) {
-  const query = state.by === 'structure' ? { s: state.structure, by: state.structure ? null : 'structure' } : { w: state.weapon, m: state.weapon ? state.mode : null, by: state.weapon ? null : 'weapon' };
+  const query = state.by === 'structure' ? { s: state.structure, by: state.structure ? null : 'structure' }
+    : state.by === 'gear' ? { g: state.gear, m: state.gear ? state.mode : null, by: state.gear ? null : 'gear' }
+    : { w: state.weapon, m: state.weapon ? state.mode : null, by: state.weapon ? null : 'weapon' };
   if (state.shieldCleared) query.shield = '1';
   if (state.jammerDisabled) query.jammer = '0';
   (push ? ctx.go : ctx.replace)({ view: 'demolition', query });
@@ -224,7 +277,7 @@ export function mount(container, context) {
   render(root, html`<div class="page-head"><div><div class="eyebrow">Demolition</div><h1>${L('철거', 'Demolition')}</h1><p>${L('시설마다 필요한 ‘철거력’이 있고, 한 번의 명중·폭발이 그 값을 넘어야 무너집니다. 일부 시설은 체력을 깎아서도 부술 수 있습니다.', 'Every structure needs a certain demolition force, and a single hit or explosion has to reach it. Some structures can also be destroyed by wearing down their health.')}</p>
       <p>${L('주요·보조 임무 자리에 붙은 둥지와 기지는 다 부수지 않아도 임무가 완료됩니다. 다만 굴과 제조소에서 적이 계속 나오고 순찰대까지 오면 앞뒤로 끼이니, 여유가 있으면 부수는 것이 좋습니다. 따로 떨어진 둥지와 기지는 부수면 임무 평가에 들어갑니다.', 'Nests and bases attached to a main or side objective do not have to be destroyed to complete it. Their holes and Fabricators keep spawning enemies, though, and once patrols arrive you get caught from both sides, so destroy them if you have time. Separate nests and bases count toward the mission rating when destroyed.')}</p></div>
     <span class="badge outline">${L(`시설 ${structures.length}곳 · 철거력 확인 ${confirmedCount}종`, `${structures.length} structures · ${confirmedCount} stratagems with verified force`)}</span></div>
-  <div class="segmented" role="group" aria-label="${L('찾는 방법', 'Look up by')}" style="margin-bottom:16px"><button type="button" data-by="structure">${icon('demolition', 16)} ${L('시설로 찾기', 'By structure')}</button><button type="button" data-by="weapon">${icon('arsenal', 16)} ${L('스트라타젬으로 찾기', 'By stratagem')}</button></div>
+  <div class="segmented" role="group" aria-label="${L('찾는 방법', 'Look up by')}" style="margin-bottom:16px"><button type="button" data-by="structure">${icon('demolition', 16)} ${L('시설로 찾기', 'By structure')}</button><button type="button" data-by="weapon">${icon('arsenal', 16)} ${L('스트라타젬으로 찾기', 'By stratagem')}</button><button type="button" data-by="gear">${icon('gear', 16)} ${L('장비로 찾기', 'By gear')}</button></div>
   <div id="demo-body"></div>`);
   // <details> toggle does not bubble: listen in the capture phase.
   root.addEventListener('toggle', event => {
@@ -236,6 +289,7 @@ export function mount(container, context) {
     if (target.dataset.by) { state.by = target.dataset.by; renderView(); syncUrl(); }
     else if (target.dataset.structure) { state.structure = target.dataset.structure; renderView(); syncUrl(); scrollToResult(); }
     else if (target.dataset.weapon) { state.weapon = target.dataset.weapon; state.mode = null; renderView(); syncUrl(); scrollToResult(); }
+    else if (target.dataset.gear) { state.gear = target.dataset.gear; state.mode = null; renderView(); syncUrl(); scrollToResult(); }
     else if (target.dataset.modePick) { state.mode = target.dataset.modePick; renderView(); syncUrl(); }
   });
   root.addEventListener('change', event => {
@@ -247,12 +301,15 @@ export function mount(container, context) {
 export function update(route) {
   const q = route.query;
   const weapon = demolitionProfiles[q.w] && stratagemById.has(q.w) ? q.w : null;
+  const gear = gearById.has(q.g) ? q.g : null;
   const structure = structureById.has(q.s) ? q.s : null;
+  const picked = weapon ? demolitionProfiles[weapon] : gear ? gearProfiles[gear] : null;
   Object.assign(state, {
-    by: weapon ? 'weapon' : structure ? 'structure' : q.by === 'weapon' ? 'weapon' : 'structure',
+    by: weapon ? 'weapon' : gear ? 'gear' : structure ? 'structure' : ['weapon', 'gear'].includes(q.by) ? q.by : 'structure',
     structure: structure || state.structure,
     weapon: weapon || state.weapon,
-    mode: weapon && demolitionProfiles[weapon].modes.some(mode => mode.id === q.m) ? q.m : weapon === state.weapon ? state.mode : null,
+    gear: gear || state.gear,
+    mode: picked?.modes.some(mode => mode.id === q.m) ? q.m : (weapon && weapon === state.weapon) || (gear && gear === state.gear) ? state.mode : null,
     shieldCleared: q.shield === '1', jammerDisabled: q.jammer === '0',
   });
   // A stratagem link from the catalogue without demolition data explains itself.
