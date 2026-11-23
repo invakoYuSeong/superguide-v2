@@ -56,8 +56,6 @@ export function blastFigure(item) {
       <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35"/>
       <image class="blast-ref" href="${ref.src}" x="${66 - refW / 2}" y="${66 - refH / 2}" width="${refW}" height="${refH}" preserveAspectRatio="none"/>
       <circle cx="66" cy="66" r="${inner}" fill="none" stroke="var(--accent)"/>
-      <path class="blast-halo" d="M66 66H${66 + outer}" stroke-width="3.6" stroke-dasharray="3 3"/>
-      <path class="blast-halo" d="M66 66H${66 - inner}" stroke-width="4.4"/>
       <path d="M66 66H${66 + outer}" stroke="var(--text-3)" stroke-width="1.2" stroke-dasharray="3 3"/>
       <path d="M66 66H${66 - inner}" stroke="var(--accent-text)" stroke-width="1.6"/>
       <circle cx="66" cy="66" r="2.5" fill="var(--text)"/>
