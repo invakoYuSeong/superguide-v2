@@ -13,7 +13,6 @@ export default {
   "탄체·집속 폭발": "Projectile·cluster blast",
   "지옥폭탄 폭발": "Hellbomb explosion",
   "네이팜탄": "Napalm",
-  "정전기장탄": "Static Field",
   "연막탄 · 탄체 직격": "Smoke · Shell impact",
   "화물 컨테이너": "Cargo Container",
   "공용 시설": "Neutral",
