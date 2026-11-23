@@ -12,7 +12,7 @@ export const factionStratagems = {
       { items: ['recoilless', 'apex'], tags: ['대형 적'], note: '차저 같은 대형 버그를 맡습니다. 난이도 8 이상부터 자주 씁니다. 무반동포는 타이탄, 차저를 머리 1발에 처치하고, 에이펙스는 2발에 처치합니다.' },
       { items: ['eagle-airstrike'], tags: ['굴 파괴', '물량 처리'], note: '폭탄을 일렬로 떨어뜨려 벌레굴을 닫고 무리를 정리합니다. 굴 밖에 맞혀도 닫힐 만큼 철거력이 충분합니다.' },
       { items: ['gas-mines'], tags: ['물량 처리'], note: '몰려오는 무리가 지나는 길에 깔아 둡니다.' },
-      { items: [{ gear: 'eruptor' }, { gear: 'exploding-crossbow' }, { gear: 'evictor' }], tags: ['굴 파괴', '물량 처리'], note: '주무기로 벌레굴을 닫을 수 있는 폭발형 무기입니다. 굴 안에 쏴 넣어 터뜨리면 닫히고, 이럽터는 관통 4라 장갑이 두꺼운 적에게도 통합니다.' },
+      { items: [{ gear: 'eruptor' }, { gear: 'exploding-crossbow' }, { gear: 'evictor' }], tags: ['굴 파괴', '물량 처리'], note: '주무기로 벌레굴을 닫을 수 있는 폭발형 무기입니다. 굴 안에 쏴 넣어 터뜨리면 닫히고, 장거리에서 포자 스퓨어, 슈리커 둥지, 불법 방송탑 등 오브젝트를 철거할 수 있습니다. 이럽터는 알파 커맨더도 한방에 잡을 수 있습니다.' },
       { items: ['autocannon', 'grenade-launcher', 'speargun'], tags: ['굴 파괴', '물량 처리'], note: '셋 다 굴을 잘 닫습니다. 오토캐넌은 대전차 역할도 조금 되고, 작살총은 가스 효과가 있어서 소규모 길목 차단도 가능합니다.' },
     ],
   },
