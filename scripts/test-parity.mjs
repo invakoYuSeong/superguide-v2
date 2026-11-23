@@ -78,7 +78,10 @@ for (const expected of golden.combat) {
   if (legacyUnsupported[key]) assert(expected.rows.every(row => row.h === null && row.o === 'unknown' && row.r === legacyUnsupported[key]), 'historical unsupported adapter must not bypass any numeric golden result');
   const mode = legacyUnsupported[key] ? { ...currentMode, unsupported: legacyUnsupported[key] } : currentMode;
   const options = addedHitConditions.has(key) ? { ...expected.options, hitCount: 0 } : expected.options;
-  const { rows, best } = solveMatchup(enemy, withHitAssumption(mode, options), options);
+  // Deliberate change: a partly explosion-resistant part now passes the share it blocks to Main
+  // (combat.js hitDamage, exdrRedirect). The legacy engine had no such share, so it is switched off
+  // here; scripts/test-units.mjs checks the share itself.
+  const { rows, best } = solveMatchup(enemy, withHitAssumption(mode, options), { ...options, exdrRedirect: false });
   const label = `${expected.enemy} × ${expected.weapon}/${expected.mode} ${JSON.stringify(expected.options)}`;
   const pairIds = { 'hive-guard': 'claw-both', 'brood-commander': 'claw-both', 'alpha-commander': 'claw-both', 'vox-engine': 'cannon-both' };
   const pairRows = rows.filter(row => row.target.id === pairIds[enemy.id]);
@@ -200,7 +203,7 @@ for (const guide of factionGuides) for (const unit of guide.units) for (const ch
   }
   const expected = recorded.get(`${guide.id}/${unit.enemy}/${choice}`);
   picks++;
-  const pick = recommend(unit, choice, legacyEnemy(findEnemy(unit.enemy)));
+  const pick = recommend(unit, choice, legacyEnemy(findEnemy(unit.enemy)), { exdrRedirect: false });
   assert.deepEqual({
     adviceOnly: Boolean(pick.adviceOnly), mode: pick.mode?.id ?? null, row: pick.route ? view(pick.route) : null,
     alternatives: (pick.alternatives || []).map(view), reference: pick.reference ? [pick.reference.weapon, pick.reference.mode, pick.reference.hits] : null,

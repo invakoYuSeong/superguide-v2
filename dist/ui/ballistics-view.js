@@ -74,10 +74,11 @@ export function ballisticsBlock(entries) {
   const list = entries.filter(e => e.record && projectileBallistics[e.record]?.velocity > 0 && !seen.has(e.record) && seen.add(e.record));
   if (!list.length) return '';
   wireBallisticCharts();
-  return html`<section class="block"><h3>${L('세부 수치', 'Detailed stats')}</h3>
+  // Folded by default (user decision 2026-11-23), like the customization table.
+  return html`<details class="block disclosure ballistic-block"><summary><h3>${L('세부 수치', 'Detailed stats')}</h3></summary>
     ${list.map(e => recordBlock(list.length > 1 ? e.label : '', projectileBallistics[e.record]))}
     <p class="faint" style="font-size:12.5px">${L('탄속·질량·구경·항력계수·중력 배율·관통은 위키 datamine 값입니다. 탄 피해는 위키 Damage 문서의 거리 감쇠 공식으로 계산한 어림값으로, 중력과 궤적은 반영하지 않습니다. 낙차는 게임의 중력 값이 공개되지 않아 지구 중력(9.81m/s²)에 중력 배율을 곱하고 수평으로 쐈다고 가정한 어림값입니다. 폭발 피해는 거리로 줄지 않습니다.', 'Velocity, mass, caliber, drag coefficient, gravity multiplier and penetration are wiki datamine values. Shot damage is an estimate from the wiki Damage page falloff formula, which leaves out gravity and the flight path. Drop is an estimate assuming Earth gravity (9.81 m/s²) times the gravity multiplier and a level shot, since the game\'s gravity is not published. Explosion damage does not fall off with range.')} <span>${L(`datamine 판 ${ballisticsSource.revision}`, `datamine revision ${ballisticsSource.revision}`)}</span></p>
-  </section>`;
+  </details>`;
 }
 
 // Crosshair readout: the nearest sampled point to the pointer.

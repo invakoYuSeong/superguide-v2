@@ -14,7 +14,7 @@ import { factionLoadouts } from '../dist/data/faction-loadouts.js';
 import { wikiIcons } from '../dist/data/wiki-icons.js';
 import { combatImages } from '../dist/data/combat-images.js';
 import { pickerEnemyImages, pickerStructureImages } from '../dist/data/selector-images.js';
-import { solveMatchup } from '../dist/core/combat.js';
+import { solveMatchup, hitDamage } from '../dist/core/combat.js';
 import { recommend } from '../dist/core/factions.js';
 import { versionFiles, readSources, localReferences } from './version-assets.mjs';
 
@@ -89,6 +89,19 @@ const beamPair = routeFor({ ...testPart, copies: 2 }, beam);
 ok(beamPair.hits === 4 && beamPair.stages.length === 2 && beamPair.stages.every(stage => stage.hits === 2), 'beam starts a new whole shot for each copy');
 const implicit = routeFor(testPart), explicit = routeFor({ ...testPart, copies: 1 });
 ok(JSON.stringify([implicit.hits, implicit.outcome, implicit.via, implicit.stages.map(s => [s.hits, s.damage])]) === JSON.stringify([explicit.hits, explicit.outcome, explicit.via, explicit.stages.map(s => [s.hits, s.damage])]), 'default copy count preserves results');
+
+// ExDR share (hd2armorinspector model): a part with 0 < ExDR < 100 keeps its reduced blast and
+// passes the blocked share to Main through Main's armor (not its ExDR); ExDR 100 still redirects
+// the whole blast; switching the rule off restores the old engine.
+const blastShot = { standard: 0, durable: 0, ap: 0, explosion: 400, explosionDurable: 400, explosionAp: 4, innerRadius: 1, radius: 2 };
+const resist = { ...testPart, exdr: 25 };
+const shareTo = (main, options) => hitDamage(blastShot, resist, main, options);
+const open = shareTo({ hp: 1000, armor: 2, exdr: 50 });
+ok(open.explosion === 300 && open.mainExplosion === 100, 'blocked 25% reaches main, ignoring its ExDR');
+ok(shareTo({ hp: 1000, armor: 4, exdr: 0 }).mainExplosion === 65, 'equal AP passes 65% of the share');
+ok(shareTo({ hp: 1000, armor: 5, exdr: 0 }).mainExplosion === 0, 'main armor above the blast AP stops the share');
+ok(shareTo({ hp: 1000, armor: 0, exdr: 0 }, { exdrRedirect: false }).mainExplosion === 0, 'rule off: no share');
+ok(hitDamage(blastShot, { ...testPart, exdr: 100 }, { hp: 1000, armor: 0, exdr: 0 }).mainExplosion === 400, 'ExDR 100 still redirects the whole blast');
 
 // --- Search ------------------------------------------------------------------------
 const names = query => search(stratagems, query, stratagemFields).map(item => item.name);

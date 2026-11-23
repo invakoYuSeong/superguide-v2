@@ -548,6 +548,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .blast-label .blast-outer { fill: var(--text-3); font-weight: 600; }
 .blast p { flex: 1 1 220px; font-size: 13.5px; color: var(--text-2); }
 /* Detailed stats: projectile flight values, damage left with range and drop (ballistics-view.js). */
+.ballistic-block > summary { padding: 4px 0; }
+.ballistic-block > summary h3 { margin: 0; }
+.ballistic-block[open] > summary { margin-bottom: 8px; }
 .ballistic { display: grid; gap: 12px; margin-bottom: 14px; }
 .ballistic h4 { font-size: 13.5px; font-weight: 750; color: var(--text); }
 .ballistic-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }

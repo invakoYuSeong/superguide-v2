@@ -64,7 +64,7 @@ function directDamage(attack, part, directHit, distance = 0) {
 
 // One impact against one part. A part immune to explosions (ExDR 100) routes
 // the blast to the main body's armor and resistance instead.
-export function hitDamage(attack, part, main, { directHit = true, excludeMainExplosion = false, blastDistance = 0, distance = 0 } = {}) {
+export function hitDamage(attack, part, main, { directHit = true, excludeMainExplosion = false, blastDistance = 0, distance = 0, exdrRedirect = true } = {}) {
   const direct = directDamage(attack, part, directHit, distance);
   const blasts = explosionsOf(attack).map(blast => {
     const { factor, ap } = blastAt(blast, blastDistance);
@@ -77,8 +77,15 @@ export function hitDamage(attack, part, main, { directHit = true, excludeMainExp
     else if ([factor, ap, blast.durable, receiver.armor].every(known) && Number.isFinite(receiver.exdr) && receiver.exdr <= 100) {
       amount = floor(blast.durable * factor * armorFactor(ap, receiver.armor) * (1 - receiver.exdr / 100));
     }
+    // A part that resists part of an explosion (0 < ExDR < 100) passes the share it blocks to the
+    // main body through Main's armor but not its ExDR, as hd2armorinspector.com models it. The wiki
+    // Damage page only says the share is negated; this follows the inspector (user decision 2026-11-23).
+    const share = exdrRedirect && !redirected && !excludeMainExplosion && part !== main && !part.mainOnly
+      && Number.isFinite(part.exdr) && part.exdr > 0 && part.exdr < 100 && factor > 0
+      && [ap, blast.durable, main?.armor].every(known)
+      ? floor(blast.durable * factor * (part.exdr / 100) * armorFactor(ap, main.armor)) : 0;
     return { ...blast, effectiveAp: ap, factor, armor: receiver.armor, exdr: receiver.exdr, redirected, excluded,
-      toPart: redirected ? 0 : amount, toMain: redirected ? amount : 0 };
+      toPart: redirected ? 0 : amount, toMain: redirected ? amount : share, exdrShare: share };
   });
   return {
     direct, blasts,

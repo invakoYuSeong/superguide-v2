@@ -54,7 +54,7 @@ const korean = () => html`
     <section><h3>1. 관통(AP)과 장갑</h3><p>공격의 관통이 맞은 부위의 장갑보다 낮으면 피해가 없고, 같으면 65%, 높으면 100%가 들어갑니다. 폭발은 폭발 자체의 관통으로 따로 판정합니다.</p></section>
     <section><h3>2. 내구도</h3><p>부위마다 ‘내구도’ 비율이 있습니다. 내구도가 높을수록 무기의 일반 피해 대신 ‘내구 피해’가 적용됩니다. 기관총처럼 내구 피해가 낮은 무기가 큰 적에게 약한 이유입니다.</p></section>
     <section><h3>3. 본체로 넘어가는 피해</h3><p>부위를 맞히면 그 피해의 일정 비율이 본체 체력으로도 넘어갑니다. 머리처럼 부서지면 즉사하는 부위도 있고, 다리처럼 부서져도 살아 있는 부위도 있어서, 부위를 부수거나 본체 체력을 모두 깎은 순간을 각각 계산합니다.</p></section>
-    <section><h3>4. 폭발</h3><p>폭발은 중심 반경 안에서 최대 피해이고, 바깥으로 갈수록 줄어듭니다. 부위의 ‘폭발 저항’만큼 깎이며, 폭발에 면역인 부위는 그 폭발을 본체 기준으로 판정합니다.</p></section>
+    <section><h3>4. 폭발</h3><p>폭발은 중심 반경 안에서 최대 피해이고, 바깥으로 갈수록 줄어듭니다. 부위의 ‘폭발 저항’만큼 깎이고, 깎인 몫은 본체의 장갑을 통과하면 본체 체력으로 들어갑니다(위키에는 없는 hd2armorinspector.com의 방식을 따름). 폭발에 면역인 부위는 그 폭발을 본체 기준으로 판정합니다.</p></section>
     ${workedExample()}
     <section><h3>표시 횟수가 뜻하는 것</h3><ul>
       <li>최대 피해로 <b>같은 부위</b>를 계속 맞혔을 때의 <b>최소 횟수(이론값)</b>입니다. 거리 감쇠·빗맞음·각도 때문에 실전에서는 더 필요할 수 있습니다.</li>
@@ -86,7 +86,7 @@ const english = () => html`
     <section><h3>1. Armor penetration (AP) and armor</h3><p>If an attack's AP is below the armor of the part it hits, it does no damage; equal AP deals 65%, higher AP deals 100%. Explosions are checked separately against their own AP.</p></section>
     <section><h3>2. Durability</h3><p>Every part has a durability percentage. The higher it is, the more the weapon's durable damage applies instead of its standard damage. That is why weapons with low durable damage, like the Machine Gun, struggle against big enemies.</p></section>
     <section><h3>3. Damage passed to main health</h3><p>Hitting a part also passes a share of the damage to the enemy's main health. Some parts, like the head, kill when destroyed; others, like legs, do not. So the calculator tracks both the moment a part breaks and the moment main health runs out.</p></section>
-    <section><h3>4. Explosions</h3><p>Explosions deal full damage inside the inner radius and less further out. Each part's explosive resistance reduces them, and for parts immune to explosions the blast is checked against the main body instead.</p></section>
+    <section><h3>4. Explosions</h3><p>Explosions deal full damage inside the inner radius and less further out. Each part's explosive resistance reduces them, and the share it blocks goes to the main body's health if it gets through the main body's armor (following hd2armorinspector.com; the wiki does not cover this). For parts immune to explosions the blast is checked against the main body instead.</p></section>
     ${workedExample()}
     <section><h3>What the counts mean</h3><ul>
       <li>The <b>minimum (theoretical) count</b> when every shot hits <b>the same part</b> at full damage. Falloff, misses and angles mean you may need more in a real fight.</li>

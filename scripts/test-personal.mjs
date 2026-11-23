@@ -41,7 +41,7 @@ eq(noFatalPart(null), false);
 const beforeAccumulation = JSON.stringify(fleshmob);
 for (const [weaponId, expectedHits, expectedSteps] of [
   ['autocannon', 9, [
-    ['head-chunk', 6, 1, 6, 3780], ['stomach-chunk', 2, 1, 2, 822], ['leg', 1, 1, 1, 411],
+    ['head-chunk', 6, 1, 6, 4002], ['stomach-chunk', 2, 1, 2, 896], ['leg', 1, 1, 1, 448],
   ]],
   ['machine-gun', 54, [
     ['head-chunk', 6, 6, 36, 3924], ['stomach-chunk', 2, 7, 14, 882], ['leg', 1, 4, 4, 252],
@@ -51,7 +51,8 @@ for (const [weaponId, expectedHits, expectedSteps] of [
   // MG head = floor(90*.75+23*.25)=73, transfer=floor(73*1.5)=109;
   // six 400-HP heads: 36 hits/3924 main; stomach+legs: 63 main per hit.
   // AC head = floor(325*.75+260*.25)=308 direct + floor(150*.75)=112 blast;
-  // (308+112)*1.5=630 main. Stomach/leg: 299+112=411 main.
+  // (308+112)*1.5=630 main, plus the 25% the part's ExDR blocks, floor(150*.25)=37, passed to the
+  // AV 0 main: 667. Stomach/leg: 299+112+37=448 main.
   eq(solveMatchup(fleshmob, attack).best, null, 'legacy still has no fatal part route');
   const route = solveAccumulation(fleshmob, attack);
   eq(route.hits, expectedHits);
@@ -64,8 +65,12 @@ for (const [weaponId, expectedHits, expectedSteps] of [
   ok(answer.reason.includes('누적 경로'));
   eq(compareAttacks(fleshmob, [{ weaponId }], { partId: 'head-chunk' }).entries[0].accumulated, false, 'part selection cannot silently become a sequence');
   const row = loadoutCoverage({ stratagems: [weaponId] }, 'illuminate').rows.find(r => r.enemyId === 'fleshmob');
-  eq([row.status, row.best.accumulated, row.best.hits, row.oneShot], ['route', true, expectedHits, false]);
-  eq(loadoutView({ stratagems: [weaponId] }, 'illuminate', { limit: 0 }).rows.find(r => r.enemyId === 'fleshmob').best.steps, route.steps);
+  // The loadout takes the weapon's fewest-hit mode: with the ExDR share the autocannon's flak mode
+  // (8, default fragment assumption) now beats APHET (9).
+  eq([row.status, row.best.accumulated, row.oneShot], ['route', true, false]);
+  ok(row.best.hits <= expectedHits, 'loadout takes the fewest-hit mode');
+  if (row.best.modeId === attack.id) eq([row.best.hits, row.best.steps], [expectedHits, route.steps]);
+  eq(loadoutView({ stratagems: [weaponId] }, 'illuminate', { limit: 0 }).rows.find(r => r.enemyId === 'fleshmob').best.steps, row.best.steps);
 }
 eq(JSON.stringify(fleshmob), beforeAccumulation, 'accumulation never mutates source anatomy');
 const ordinaryEnemy = enemy('hunter-hardened');
@@ -244,10 +249,11 @@ eq([frag.hits, frag.outcome, frag.via], [1, 'kill', 'main']);
 eq(frag.stages[0].damage, { direct: 0, explosion: 0, mainExplosion: 500 });
 // Breacher: one firing mode whose stuck round detonates the 2000/AP7 delayed
 // explosion on the part it hit. Charger head (1200 HP, AV4, dur 75, ExDR 25):
-// direct floor(floor(60*0.25)*0.65)=9 + blast floor(2000*0.75)=1500 → 1 shot.
+// direct floor(floor(60*0.25)*0.65)=9 + blast floor(2000*0.75)=1500 → 1 shot; the 25% the head's
+// ExDR blocks, floor(2000*0.25)=500, goes to main (AP7 beats its armor).
 eq(personalProfiles.breacher.modes.length, 1, 'Breacher has one firing mode');
 eq(mode('breacher').explosions.map(b => [b.id, b.durable, b.ap, b.innerRadius, b.radius]), [['delayed', 2000, 7, 1.5, 2.5]]);
-eq(head('charger', mode('breacher')).stages[0].damage, { direct: 9, explosion: 1500, mainExplosion: 0 });
+eq(head('charger', mode('breacher')).stages[0].damage, { direct: 9, explosion: 1500, mainExplosion: 500 });
 eq([head('charger', mode('breacher')).hits, head('charger', mode('breacher')).outcome], [1, 'kill']);
 // A held beam burns through armor and carries on into the exposed layer.
 // Meltagun near = 3640 per 1.4s shot. Impaler leg armor 1000 takes 0.2747 of
