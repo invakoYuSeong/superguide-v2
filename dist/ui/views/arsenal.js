@@ -9,7 +9,6 @@ import { blastFigure, blastCaption } from '../blast.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
-import { shipModulesSource } from '../../data/ship-modules.js';
 import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
 import { stratagemStats } from '../../data/stratagem-stats.js';
 import { vehicleDurability } from '../../data/vehicle-durability.js';
@@ -258,10 +257,25 @@ function planetLines(t) {
     if (effect.rearm && t.rearm != null) rows.push(L(`${label}: 재무장 +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`, `${label}: rearm +${pct(effect.rearm)}% → ${num(Math.round(t.rearm * effect.rearm * 100) / 100)}${s}`));
     return rows;
   });
-  if (!lines.length) return '';
-  // Folded by default (user decision 2026-11-19).
-  return html`<details class="planet-effects"><summary>${L('행성 조건에 따른 변화', 'Changes under planet conditions')}</summary><ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
-    <p class="faint" style="font-size:12.5px">${L('위에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the value shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p></details>`;
+  return lines;
+}
+
+// Planet and ship module changes to the cooldown block, folded by default (user decision 2026-11-19) and placed
+// below the special effects (user decision 2026-11-23).
+function changesBlock(item) {
+  const t = timingOf(item);
+  if (!t || (t.cooldown == null && t.rearm == null && t.callIn == null)) return '';
+  const lines = planetLines(t);
+  const pct = factor => Math.round((1 - factor) * 100);
+  const effect = module => module.cooldown ? L(`재사용 -${pct(module.cooldown)}%`, `cooldown -${pct(module.cooldown)}%`)
+    : module.rearm ? L(`재무장 -${pct(module.rearm)}%`, `rearm -${pct(module.rearm)}%`)
+    : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`) : L('호출 시간 단축', 'faster call-in');
+  const modules = modulesOn() && t.modules.length ? t.modules : [];
+  if (!lines.length && !modules.length) return '';
+  return html`<details class="planet-effects"><summary>${L('행성 조건과 함선 모듈에 따른 변화', 'Changes under planet conditions and ship modules')}</summary>
+    ${lines.length ? html`<ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
+    <p class="faint" style="font-size:12.5px">${L('재사용 대기와 호출에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the cooldown and call-in values shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p>` : ''}
+    ${modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}</details>`;
 }
 
 // Cooldown, call-in time, uses and Eagle rearm, with the ship modules that change them.
@@ -291,10 +305,6 @@ function timingBlock(item) {
     : value !== base ? (unit ? L(`기본 ${num(base)}초`, `Base ${num(base)}s`) : L(`기본 ${num(base)}회`, `Base ${num(base)}`))
     : L('함선 모듈 영향 없음', 'No ship module changes it');
   const cell = (label, value, unit, text) => html`<div><dt>${label}</dt><dd>${value}${unit ? html`<small>${unit}</small>` : ''}</dd>${text ? html`<div class="caption">${text}</div>` : ''}</div>`;
-  const pct = factor => Math.round((1 - factor) * 100);
-  const effect = module => module.cooldown ? L(`재사용 -${pct(module.cooldown)}%`, `cooldown -${pct(module.cooldown)}%`)
-    : module.rearm ? L(`재무장 -${pct(module.rearm)}%`, `rearm -${pct(module.rearm)}%`)
-    : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`) : L('호출 시간 단축', 'faster call-in');
   return html`<section class="block"><h3>${L('재사용 대기와 호출', 'Cooldown and call-in')}</h3>
     <dl class="detail-grid">
       ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(Math.round(t.cooldown)), s, caption(t.cooldown, t.cooldownBase)) : ''}
@@ -302,9 +312,6 @@ function timingBlock(item) {
       ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption(t.uses, t.usesBase, false)) : ''}
       ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
     </dl>
-    ${planetLines(t)}
-    <div class="sources">${external(item.source, L('위키 수치', 'Wiki stats'))}${external(shipModulesSource.page, L('함선 모듈', 'Ship Modules'))}</div>
-    ${on && t.modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${t.modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}
   </section>`;
 }
 
@@ -413,12 +420,13 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     ${firingModesBlock(item)}
     ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
       ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
-      : html`${statGrid(item)}${blastFigure(item)}`}
+      : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${statGrid(item)}</section>${blastFigure(item)}`}
     ${spreadBlock(item)}
     ${timingBlock(item)}
     ${durabilityBlock(item)}
     ${defenseBlock(item)}
     ${specialBlock(item, force)}
+    ${changesBlock(item)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
     ${notes.length ? html`<section class="block"><h3>${L('수치 기준', 'About the numbers')}</h3><ul class="notes">${notes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}

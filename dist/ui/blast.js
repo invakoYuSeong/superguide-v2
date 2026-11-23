@@ -43,7 +43,7 @@ export function blastFigure(item) {
   const ref = SCALE_ENEMIES.find(enemy => item.radius <= enemy.upTo);
   const refW = ref.span ? ref.span * outer / item.radius : ref.height * outer / item.radius / ref.ratio, refH = refW * ref.ratio;
   const refSize = ref.span ? L(`다리 폭 약 ${num(ref.span)}m`, `legs about ${num(ref.span)} m across`) : L(`키 약 ${num(ref.height)}m`, `about ${num(ref.height)} m tall`);
-  return html`<div class="blast">
+  return html`<section class="block"><h3>${L('폭발 반경', 'Blast radius')}</h3><div class="blast">
     <svg width="220" height="220" viewBox="0 0 132 132" role="img" aria-label="${L(`폭발 반경: 중심 ${item.innerRadius}m, 외곽 ${item.radius}m`, `Blast radius: inner ${item.innerRadius}m, outer ${item.radius}m`)}">
       <defs><radialGradient id="${fade}" gradientUnits="userSpaceOnUse" cx="66" cy="66" r="${outer}">
         <stop offset="${inner / outer}" style="stop-color:var(--accent);stop-opacity:.3"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/>
@@ -66,5 +66,5 @@ export function blastFigure(item) {
       html`${flat
         ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond.`
         : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}), ${fallEn}.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
-  </div>`;
+  </div></section>`;
 }
