@@ -934,6 +934,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .info-desc { margin-top: 8px; font-size: 14px; color: var(--text-2); }
 .info-detail { position: relative; margin-top: 6px; padding-left: 16px; font-size: 14px; color: var(--text); }
 .info-detail::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
+.info-item.plain { grid-template-columns: minmax(0, 1fr); }
 .info-tips-label { margin-top: 12px; font: 700 13px/1.2 var(--cond); letter-spacing: .06em; color: var(--text-2); }
 @media (max-width: 420px) { .info-list { grid-template-columns: 1fr; } .info-item { grid-template-columns: 48px minmax(0, 1fr); } .info-icon { width: 48px; height: 48px; } }
 .armor-item[data-focus] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }

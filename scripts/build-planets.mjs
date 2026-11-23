@@ -59,6 +59,13 @@ const hazards = (text.hazards ?? []).map(item => {
   };
 });
 const events = text.events.map(item => entry(item));
+// Other event effect kinds: game effect sentences without a name of their own (the site names the kind);
+// the amount changes per event, so placeholders read N (or the kind's own words, e.g. "a given" stratagem).
+const eventLine = (line, values) => cleanGameText(line.replaceAll('#AMOUNT', 'N'), { V_ONE: 'N', V_TWO: 'N', ...values });
+const eventKinds = (text.eventKinds ?? []).map(kind => ({
+  id: kind.id, name: kind.ko, en: kind.en,
+  lines: kind.lines.map(line => eventLine(ko(line), kind.values?.ko)), linesEn: kind.lines.map(line => eventLine(line, kind.values?.en)),
+}));
 
 const biomes = Object.entries(wiki.biomes).map(([title, biome]) => {
   const internal = text.biomeInternal[title] ?? biome.internal;
@@ -93,6 +100,7 @@ export const gloomLevels = ${JSON.stringify(gloom, null, 1)};
 export const specialEffects = ${JSON.stringify(special, null, 1)};
 export const operationModifiers = ${JSON.stringify(modifiers, null, 1)};
 export const eventEffects = ${JSON.stringify(events, null, 1)};
+export const eventKinds = ${JSON.stringify(eventKinds, null, 1)};
 export const hazards = ${JSON.stringify(hazards, null, 1)};
 export const biomes = ${JSON.stringify(biomes)};
 export const statusEffects = ${JSON.stringify(status, null, 1)};

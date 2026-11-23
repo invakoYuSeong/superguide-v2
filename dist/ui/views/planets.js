@@ -1,6 +1,6 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
 //   #/planets?tab=<conditions|modifiers|biomes|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
-import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
 import { biomeImages } from '../../data/biome-images.js';
 import { hazardImages } from '../../data/hazard-images.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
@@ -24,7 +24,7 @@ let root, ctx;
 const conditionById = new Map(conditions.map(item => [item.id, item]));
 const biomeById = new Map(biomes.map(item => [item.id, item]));
 // Every card id the b= parameter can mark (ids are unique across the planet data).
-const focusIds = new Set([conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes].flat().map(item => item.id));
+const focusIds = new Set([conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, hazards, statusEffects, biomes].flat().map(item => item.id));
 const text = (ko, en) => lang === 'en' ? en : ko;
 const enLine = item => lang === 'en' || !item.name || item.name === item.en ? '' : html`<p class="en">${item.en}</p>`;
 const title = item => item.name ? (lang === 'en' ? item.en : item.name) : item.en;
@@ -84,7 +84,15 @@ function modifiersTab() {
     })}
     <h2 class="planet-sub">${L('이벤트 효과', 'Event effects')}</h2>
     <p class="lede-note">${L('행사나 주요 명령 기간에 행성 전체에 붙는 효과입니다. 모든 난이도에 적용됩니다.', 'Effects added to planets during events or Major Orders, on every difficulty.')}</p>
-    <ul class="info-list">${eventEffects.map(effectCard)}</ul>`;
+    <ul class="info-list">${eventEffects.map(effectCard)}</ul>
+    <h2 class="planet-sub">${L('그 밖의 이벤트 효과', 'Other event effects')}</h2>
+    <p class="lede-note">${L('게임 파일에 들어 있는 이벤트 효과 문장입니다. 행사나 주요 명령에 따라 붙고, 이름과 수치(N)는 그때마다 다릅니다.', 'Event effect sentences found in the game files. They come with events or Major Orders, and the name and amount (N) change each time.')}</p>
+    <ul class="info-list">${eventKinds.map(kind => html`<li class="info-item plain" id="planet-${kind.id}" ${kind.id === state.biome ? 'data-focus' : ''}>
+      <div class="info-body">
+        <h3>${lang === 'en' ? kind.en : kind.name}</h3>
+        ${(lang === 'en' ? kind.linesEn : kind.lines).map(line => html`<p class="info-detail">${line}</p>`)}
+      </div>
+    </li>`)}</ul>`;
 }
 
 function biomeCard(biome) {

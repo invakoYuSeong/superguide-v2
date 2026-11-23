@@ -39,6 +39,17 @@ for (const [group, list] of groups) {
 // Environmental conditions: every number in the detail lines is on the condition's wiki page or in the
 // datamine attack record stored with it (meteors, volcano rocks). Tips are player
 // experience the wiki lacks, so only their Korean and English pairing is checked.
+// Other event effect kinds: every line is a game sentence (Korean from the game strings), with its
+// placeholders turned into N or the kind's own words.
+ok(planets.eventKinds.length === (text.eventKinds ?? []).length, 'eventKinds is stale (run build-planets)');
+(text.eventKinds ?? []).forEach((source, index) => {
+  const item = planets.eventKinds[index];
+  ok(item.id === source.id && item.name === source.ko && item.lines.length === source.lines.length && item.linesEn.length === source.lines.length, `${source.id}: stale (run build-planets)`);
+  source.lines.forEach((line, i) => {
+    ok(game.strings.planets[line], `${source.id}: "${line}" is not a game string (run build-game-names)`);
+    ok(!/#|<i/.test(item.lines[i] + item.linesEn[i]), `${source.id}: placeholder or markup left in "${item.linesEn[i]}"`);
+  });
+});
 // Operation modifiers with detail lines are checked the same way against their own pages.
 [...text.conditions.map((source, index) => [source, planets.conditions[index]]), ...text.modifiers.map((source, index) => [source, planets.operationModifiers[index]])].forEach(([source, item]) => {
   if (source.tips) ok(item.tips?.length === source.tips.ko.length && item.tips.length === item.tipsEn.length, `${source.id}: tips need Korean and English line by line (run build-planets)`);

@@ -12,7 +12,7 @@ import { attachmentParts } from '../data/weapon-attachments.js';
 import { shipModules } from '../data/ship-modules.js';
 import { boosters } from '../data/boosters.js';
 import { structureObjectives } from '../data/structure-objectives.js';
-import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, biomes as planetBiomes, statusEffects, hazards } from '../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes as planetBiomes, statusEffects, hazards } from '../data/planets.js';
 import { enemyPages, difficultyNames } from '../data/enemy-pages.js';
 import { superstorePages } from '../data/superstore.js';
 import { shipModuleSections } from '../data/ship-module-upgrades.js';
@@ -40,6 +40,7 @@ const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ 
 // Planet tab: the game's Korean names and descriptions, biome descriptions and status effect lines, each with its English.
 const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operationModifiers, ...eventEffects].flatMap(item => [item, { name: item.description, en: item.descriptionEn }])
   .concat(specialEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
+  .concat(eventKinds, eventKinds.flatMap(kind => kind.lines.map((line, i) => ({ name: line, en: kind.linesEn[i] }))))
   .concat([...conditions, ...operationModifiers].flatMap(item => [...(item.detail ?? []).map((line, i) => ({ name: line, en: item.detailEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]))
   .concat(planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })), planetBiomes)
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))

@@ -721,6 +721,147 @@ export const eventEffects = [
   "wiki": "https://helldivers.wiki.gg/wiki/Effects"
  }
 ];
+export const eventKinds = [
+ {
+  "id": "event-reinforcements",
+  "name": "증원 수",
+  "en": "Reinforcements",
+  "lines": [
+   "임무 당 사용 가능한 증원이 N명 증가합니다.",
+   "임무 당 사용 가능한 증원이 N명 감소합니다."
+  ],
+  "linesEn": [
+   "Number of reinforcements available per mission increased by N.",
+   "Number of reinforcements available per mission decreased by N."
+  ]
+ },
+ {
+  "id": "event-stims",
+  "name": "각성제 수",
+  "en": "Stims",
+  "lines": [
+   "각 헬다이버가 투입할 때 소지하는 각성제가 N개 증가합니다.",
+   "각 헬다이버가 투입할 때 소지하는 각성제가 N개 감소합니다."
+  ],
+  "linesEn": [
+   "Number of stims each Helldiver deploys with increased by N.",
+   "Number of stims each Helldiver deploys with decreased by N."
+  ]
+ },
+ {
+  "id": "event-grenades",
+  "name": "수류탄 소지량",
+  "en": "Grenade capacity",
+  "lines": [
+   "모든 헬다이버의 수류탄 소지량이 N개 증가합니다.",
+   "모든 헬다이버의 수류탄 소지량이 N개 감소합니다."
+  ],
+  "linesEn": [
+   "Grenade capacity for all Helldivers increased by N.",
+   "Grenade capacity for all Helldivers decreased by N."
+  ]
+ },
+ {
+  "id": "event-magazines",
+  "name": "탄창 수",
+  "en": "Magazines",
+  "lines": [
+   "헬다이버가 투입할 때 소지하는 모든 무기의 탄창이 N개 증가합니다.",
+   "헬다이버가 투입할 때 소지하는 탄창이 N% 감소합니다."
+  ],
+  "linesEn": [
+   "Number of magazines Helldivers deploy with for all weapons increased by N.",
+   "Helldivers deploy with N% less magazines."
+  ]
+ },
+ {
+  "id": "event-ammo-pickups",
+  "name": "전장 탄약 습득량",
+  "en": "Ammo from pickups",
+  "lines": [
+   "이 행성의 전장에서 습득하는 아이템에 포함된 탄약이 N% 증가합니다.",
+   "전장에서 습득하는 아이템에 포함된 탄약이 N% 감소합니다."
+  ],
+  "linesEn": [
+   "Battlefield pickups on this planet contain N% more ammo.",
+   "Battlefield pickups contain N% less ammo."
+  ]
+ },
+ {
+  "id": "event-extraction",
+  "name": "탈출 시간",
+  "en": "Extraction time",
+  "lines": [
+   "탈출 시간이 N초 감소합니다.",
+   "탈출 시간이 추가로 N초 증가합니다."
+  ],
+  "linesEn": [
+   "Extraction takes N seconds less.",
+   "Extraction takes N additional seconds."
+  ]
+ },
+ {
+  "id": "event-eagle-rearm",
+  "name": "이글 재무장 시간",
+  "en": "Eagle rearm time",
+  "lines": [
+   "이 행성에서 이글 재무장 시간이 N초 빨라집니다.",
+   "이 행성에서 이글 재무장 시간이 N초 느려집니다."
+  ],
+  "linesEn": [
+   "Eagle Rearm time is N seconds faster on this planet.",
+   "Eagle Rearm time is N seconds slower on this planet."
+  ]
+ },
+ {
+  "id": "event-stratagem-cooldown",
+  "name": "특정 스트라타젬 재사용 대기",
+  "en": "One stratagem's cooldown",
+  "lines": [
+   "특정 스트라타젬의 쿨다운 시간이 N 감소합니다.",
+   "특정 스트라타젬의 쿨다운 시간이 N 증가합니다."
+  ],
+  "linesEn": [
+   "Cooldown period for a given stratagem reduced by N.",
+   "Cooldown period for a given stratagem increased by N."
+  ]
+ },
+ {
+  "id": "event-stratagem-effect",
+  "name": "특정 스트라타젬 효율",
+  "en": "One stratagem's effectiveness",
+  "lines": [
+   "특정 스트라타젬 효율이 N% 증가합니다."
+  ],
+  "linesEn": [
+   "Effectiveness of a given stratagem increased by N%."
+  ]
+ },
+ {
+  "id": "event-experience",
+  "name": "경험치 획득량",
+  "en": "Experience gain",
+  "lines": [
+   "모든 헬다이버의 경험치 획득량이 N% 증가합니다.",
+   "모든 헬다이버의 경험치 획득량이 N% 감소합니다."
+  ],
+  "linesEn": [
+   "Experience gain for all Helldivers increased by N%.",
+   "Experience gain for all Helldivers reduced by N%."
+  ]
+ },
+ {
+  "id": "event-liberation",
+  "name": "해방 영향력",
+  "en": "Liberation impact",
+  "lines": [
+   "완료된 임무에 대한 해방 영향력이 이 행성에서 N% 증가합니다."
+  ],
+  "linesEn": [
+   "Liberation Impact from completed missions on this planet is N% greater on this planet."
+  ]
+ }
+];
 export const hazards = [
  {
   "id": "contact-mine",
