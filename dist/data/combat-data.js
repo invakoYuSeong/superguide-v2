@@ -523,6 +523,24 @@ export const enemies = countedEnemies.sort((a, b) =>
 
 export const enemyTypeCount = new Set(enemies.map(enemy => enemy.family || enemy.id)).size;
 
+// Enemies whose wiki page was found at the same revision as the reviewed snapshot (db/source/wiki_anatomy.json,
+// wiki_structures.json) on 2026-11-23, so their data still matches the wiki: the shown check date moves to
+// that day (user request). Enemies whose page has changed since keep their date.
+const recheckedUnchanged = [
+  'pouncer', 'hunter-hardened', 'predator-hunter', 'spore-burst-hunter', 'warrior-hardened', 'alpha-warrior',
+  'rupture-warrior', 'spore-burst-warrior', 'hive-guard', 'brood-commander', 'nursing-spewer', 'rupture-spewer',
+  'stalker', 'predator-stalker', 'charger', 'behemoth', 'rupture-charger', 'impaler', 'shrieker', 'bile-titan',
+  'spore-burst-bile-titan', 'hive-lord', 'trooper', 'jet-brigade-trooper', 'brawler', 'commissar',
+  'jet-brigade-commissar', 'rocket-raider', 'incendiary-rocket-raider', 'assault-raider', 'marauder', 'mg-raider',
+  'jet-brigade-mg-raider', 'berserker', 'radical', 'devastator', 'rocket-devastator', 'conflagration-devastator',
+  'incendiary-mg-devastator', 'jet-brigade-devastator', 'scout-strider', 'reinforced-strider', 'hulk',
+  'hulk-bruiser', 'hulk-obliterator', 'hulk-firebomber', 'jet-brigade-hulk-scorcher', 'jet-brigade-hulk-bruiser',
+  'shredder-tank', 'barrager-tank', 'bunker-turret', 'aa-emplacement', 'mortar-emplacement', 'dropship',
+  'war-strider', 'factory-strider', 'vox-engine', 'voteless-light', 'voteless-medium', 'voteless-heavy', 'wretch',
+  'watcher', 'obtruder', 'fleshmob', 'crusher', 'veracitor', 'gatekeeper', 'warp-ship', 'leviathan',
+];
+for (const enemy of enemies) if (recheckedUnchanged.includes(enemy.id)) enemy.checkedAt = '2026-11-23';
+
 const shot = (id, name, standard, durable, ap, explosion = 0, explosionAp = 0, extra = {}) => ({ id, name, standard, durable, ap, explosion, explosionAp, ...extra });
 const profile = (page, modes, note = '') => ({ source: wiki(page), modes, note });
 const reviewedExplosive = (page, modes, note) => ({ ...profile(page, modes.map(mode => ({ ...mode, reviewedExplosive: true })), note), checkedAt: '2026-09-16', combatOnly: true });
