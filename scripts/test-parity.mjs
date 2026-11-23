@@ -215,6 +215,10 @@ for (const expected of golden.selections) {
 // listed in release order since 2026-11-20, not in the recorded order). Guides added after the
 // recording (Caustic and Noxious Strains) are not in it; their picks must still resolve.
 const recorded = new Map(golden.factions.map(item => [`${item.guide}/${item.enemy}/${item.choice}`, item]));
+// Recorded picks the user took out of a guide on purpose (2026-11-23: the Recoilless Rifle against the Vox Engine,
+// replaced by the Orbital Railcannon Strike).
+const removedPicks = new Set(['cyborgs/vox-engine/recoilless']);
+for (const key of removedPicks) assert(recorded.has(key), `${key}: not a recorded pick`);
 let picks = 0, addedPicks = 0;
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
   if (!recorded.has(`${guide.id}/${unit.enemy}/${choice}`)) {
@@ -236,7 +240,7 @@ for (const guide of factionGuides) for (const unit of guide.units) for (const ch
     reference: expected.reference, approach: expected.approach, tactic: expected.tactic,
   }, `${unit.enemy}/${choice}`);
 }
-assert.equal(picks, golden.factions.length);
+assert.equal(picks + removedPicks.size, golden.factions.length);
 
 // --- Defense -------------------------------------------------------------------
 for (const expected of golden.defense) {
@@ -245,4 +249,4 @@ for (const expected of golden.defense) {
   assert.deepEqual([0, cap / 2, cap, -1, undefined].map(value => shieldRecovery(item.defense, value)), expected.recovery, expected.id);
 }
 
-console.log(`PASS parity: ${golden.combat.length} matchups (${beamCarried} beam routes now carry past armor, ${addedRows} rows for re-checked anatomy, ${legacyReplayed.size} enemies replayed on legacy values), ${golden.demolition.length} demolition cases, ${golden.selections.length} overviews, ${picks} faction picks match ${golden.generatedFrom} (+${addedPicks} added since).`);
+console.log(`PASS parity: ${golden.combat.length} matchups (${beamCarried} beam routes now carry past armor, ${addedRows} rows for re-checked anatomy, ${legacyReplayed.size} enemies replayed on legacy values), ${golden.demolition.length} demolition cases, ${golden.selections.length} overviews, ${picks} faction picks match ${golden.generatedFrom} (+${addedPicks} added since, ${removedPicks.size} removed by the user).`);

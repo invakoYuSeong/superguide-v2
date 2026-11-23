@@ -140,7 +140,11 @@ export const factionLoadouts = {
   'vox-engine': [
     pick('leveller', 'sarcophagus', '중앙부 넓은 폭발 · 일회성', '몸통 중앙에 꽂아 여러 부위를 폭발 범위에 넣는 전술입니다. 한 발 처치 조건과 단일 부위 계산을 구분하세요.'),
     pick('solo-silo', 'sarcophagus', '중앙부 복합 폭발 · 거리 확보', '중앙부에서 두 폭발이 주변 부위에 닿도록 노립니다. 작은 충돌 폭발까지 닿아야 하며 근접 사용을 피하세요.'),
-    pick('recoilless', 'sarcophagus', '반복 대전차 사격 · 엄폐 필요', '일회성 장비가 없을 때 정면 석관에 대전차탄을 반복 명중시킵니다. 탄약·정지 재장전 부담이 있습니다.'),
+    // User's play experience (2026-11-23): one Railcannon Strike kills it. Stratagems are not combat-calculated, so the
+    // count is shown from the numbers instead: a 10,000 AP 7 direct hit (data-offense.js) beats the sarcophagus's
+    // 7,000 health at armor 5 (combat-data.js), and destroying the sarcophagus kills it.
+    { ...pick('orbital-railcannon', null, '자동 조준 · 석관 한 발', '신호기 주변에서 가장 큰 적을 자동으로 골라 쏩니다. 복스 엔진 가까이 던지면 한 발로 처치합니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있습니다.'), adviceOnly: true, shownHits: 1,
+      source: 'https://helldivers.wiki.gg/wiki/Vox_Engine', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아닙니다. 직격 피해 10,000(관통 7)이 석관 체력 7,000(장갑 5)보다 커서 한 발로 처치되며, 실전 경험과도 같습니다.' },
   ],
   // Caustic Strain (wiki Caustic_Strain rev 142183, Tactical Information): they burst in bile when they die, so the
   // picks keep distance; the wiki suggests long-range options for the Caustic Spewer and guided ones in the Charger's fog.

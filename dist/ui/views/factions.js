@@ -51,7 +51,7 @@ function pickRow(unit, choice, index) {
   if (pick.adviceOnly) {
     return html`<details class="pick"><summary><span class="rank-num">${index + 1}</span>${weaponIcon(weapon.id)}
       <span><b>${weapon.name}</b><small>${pick.pick.label}</small></span>
-      <span class="pick-result">${badge(L('전술 안내', 'Tactic'), 'accent')}<small class="faint">${L('횟수 미표시', 'No count shown')}</small></span></summary>
+      <span class="pick-result">${pick.pick.shownHits ? html`<b>${num(pick.pick.shownHits)}<small style="display:inline;font-size:12px;color:var(--text-3)">${L('발', pick.pick.shownHits === 1 ? ' shot' : ' shots')}</small></b><small>${badge(outcomeOf({ outcome: 'kill', target: {} }).label, outcomeOf({ outcome: 'kill', target: {} }).tone)}</small>` : html`${badge(L('전술 안내', 'Tactic'), 'accent')}<small class="faint">${L('횟수 미표시', 'No count shown')}</small>`}</span></summary>
       <div class="pick-body"><p class="how">${pick.pick.note}</p><p class="note">${pick.pick.limitation}</p>
         <p class="sources">${external(pick.pick.source, L('적 특성·전술', 'Enemy traits and tactics'))}${external(weapon.source, L('장비', 'Weapon'))}<span>${L('확인', 'Checked')} ${guideCheckedAt(state.guide)}</span></p></div></details>`;
   }
