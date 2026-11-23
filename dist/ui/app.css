@@ -535,10 +535,11 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .block p { color: var(--text-2); font-size: 14.5px; }
 .blast { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
 .blast svg { flex: none; overflow: hidden; }
-.blast-ref { opacity: .6; pointer-events: none; }
-/* The gray enemy fades on the dark theme, so it is stronger there; the light theme keeps it lighter. */
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .blast-ref { opacity: .42; } }
-:root[data-theme="light"] .blast-ref { opacity: .42; }
+.blast-ref { opacity: .7; pointer-events: none; }
+/* The enemy sits above the yellow inner fill (only its edge is drawn over it). The gray enemy fades on the dark
+   theme, so it is stronger there; the light theme keeps it lighter. */
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .blast-ref { opacity: .55; } }
+:root[data-theme="light"] .blast-ref { opacity: .55; }
 .blast-label text { font-size: 11px; font-weight: 750; fill: var(--text); stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; paint-order: stroke; }
 /* The full-damage radius leads (solid, accent) and the falloff edge follows (dashed, muted), like the circles they measure. */
 .blast-label .blast-inner { fill: var(--accent-text); }

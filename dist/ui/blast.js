@@ -49,8 +49,9 @@ export function blastFigure(item) {
         <stop offset="${inner / outer}" style="stop-color:var(--accent);stop-opacity:.3"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/>
       </radialGradient></defs>
       <circle cx="66" cy="66" r="${outer}" fill="url(#${fade})" stroke="var(--accent)" stroke-opacity=".45" stroke-dasharray="3 4"/>
+      <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35"/>
       <image class="blast-ref" href="${ref.src}" x="${66 - refW / 2}" y="${66 - refH / 2}" width="${refW}" height="${refH}" preserveAspectRatio="none"/>
-      <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35" stroke="var(--accent)"/>
+      <circle cx="66" cy="66" r="${inner}" fill="none" stroke="var(--accent)"/>
       <path d="M66 66H${66 + outer}" stroke="var(--text-3)" stroke-width="1.2" stroke-dasharray="3 3"/>
       <path d="M66 66H${66 - inner}" stroke="var(--accent-text)" stroke-width="1.6"/>
       <circle cx="66" cy="66" r="2.5" fill="var(--text)"/>
@@ -60,10 +61,10 @@ export function blastFigure(item) {
       </g>
     </svg>
     <p>${L(html`${flat
-        ? html`${b(`${num(item.radius)}m`)} 안 어디서나 최대 피해, 바깥은 피해 없음.<br>나와 아군도 이 안에서 다칠 수 있음.`
-        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지 최대 피해(실제 효과 범위).<br>바깥은 ${b(`${num(item.radius)}m`)}까지 줄어들고(${b(`${num(half)}m`)}에서 절반) ${fallKo}.<br>나와 아군은 ${num(item.radius)}m 안에서 다칠 수 있음.`}<br><span class="faint">충격파·함선 강화 제외. 뒤 그림은 같은 축척의 ${ref.name}(${refSize}).</span>`,
+        ? html`${b(`${num(item.radius)}m`)} 안 어디서나 최대 피해, 바깥은 피해 없음.`
+        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지 최대 피해(실제 효과 범위).<br>바깥은 ${b(`${num(item.radius)}m`)}까지 줄어들고(${b(`${num(half)}m`)}에서 절반) ${fallKo}.`}<br><span class="faint">충격파·함선 강화 제외. 뒤 그림은 같은 축척의 ${ref.name}(${refSize}).</span>`,
       html`${flat
-        ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond.<br>You and teammates can get hurt inside it.`
-        : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}), ${fallEn}.<br>You and teammates can get hurt within ${num(item.radius)}m.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
+        ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond.`
+        : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}), ${fallEn}.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
   </div>`;
 }
