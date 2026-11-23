@@ -104,7 +104,8 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
 }
 
 const passiveById = new Map(armorPassives.map(passive => [passive.id, passive]));
-const searchFields = armor => ({ names: personalNames(armor), text: [passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en, warbondById.get(armor.source.warbondId)?.name, ...collabKeywords(armor.source.warbondId)].filter(Boolean) });
+// The passive counts as a name, so its initials find it too ('ㄷㄱ' for 둔기 충격 완화), as they do the set's own name.
+const searchFields = armor => ({ names: [...personalNames(armor), passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en].filter(Boolean), text: [warbondById.get(armor.source.warbondId)?.name, ...collabKeywords(armor.source.warbondId)].filter(Boolean) });
 
 /** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set.
  *  state.q searches every set (as the gear browser searches every group), still grouped by passive. */
@@ -128,7 +129,8 @@ export function renderArmor(panel, { state, onChange, onOpen = null }) {
   const picked = (state.passive || '').split(',').filter(id => groups.some(([passive]) => passive.id === id));
   state.passive = picked.join(',');
   const found = q ? search(armors, q, searchFields) : null;
-  const visible = found ? armorPassives.map(passive => [passive, found.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length)
+  // Search results keep their passive groups, ordered by each group's best match.
+  const visible = found ? armorPassives.map(passive => [passive, found.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length).sort(([, a], [, b]) => found.indexOf(a[0]) - found.indexOf(b[0]))
     : picked.length ? groups.filter(([passive]) => picked.includes(passive.id)) : groups;
   // Weight buttons count within the picked passives (as the passive chips count within the weight);
   // one with nothing to show is dimmed, and picking it lets the passives it lacks go (above).

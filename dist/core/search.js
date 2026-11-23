@@ -32,7 +32,8 @@ export function scorer(query) {
       const n = normalize(name);
       if (n.startsWith(q)) return 6;
       if (n.includes(q)) best = Math.max(best, 5);
-      else if (jamo && initials(name).includes(q)) best = Math.max(best, 4);
+      // Initials from the start of a name ('ㄷㄱ' for 둔기 충격 완화) rank above initials found mid-name.
+      else if (jamo && initials(name).includes(q)) best = Math.max(best, initials(name).startsWith(q) ? 4.5 : 4);
       else if (anyOrder && chars.every(char => n.includes(char))) best = Math.max(best, 3);
     }
     if (best) return best;
