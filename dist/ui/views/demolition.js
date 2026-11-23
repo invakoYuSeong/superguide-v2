@@ -29,15 +29,23 @@ const confirmedCount = Object.values(demolitionProfiles).filter(profile => profi
 // does; a weapon without combat modes keeps its force with no structure damage. Both forces unknown = unverified.
 const records = w => w.variants?.length ? w.variants : [w];
 const maxOf = (list, key) => list.some(r => r[key] != null) ? Math.max(...list.map(r => r[key] ?? 0)) : null;
+// Gear that destroys the Grounded Warp Ship even with its shield up: the wiki page names the Thermite and the
+// Ultimatum (they reach the hull through the shield); the Breacher fires the same sticky thermite charge (user, 2026-11-23).
+const SHIELD_BYPASS = new Set(['thermite', 'ultimatum', 'breacher']);
 const gearMode = (w, mode) => {
   const list = records(w);
   const record = list.find(r => r.name === mode?.record) ?? (list.length === 1 ? list[0] : null);
+  // A charge that sticks and explodes later (the Breacher) is its own explosion record and mode.explosions entry.
+  const delayed = mode?.explosions ?? [];
+  const blastRecords = delayed.length ? list.filter(r => r.delivery === 'explosion') : [];
   const direct = record ? record.demolition ?? null : maxOf(list, 'demolition');
-  const explosion = record ? record.splashDemolition ?? null : maxOf(list, 'splashDemolition');
+  const explosion = record ? maxOf([record, ...blastRecords], 'splashDemolition') : maxOf(list, 'splashDemolition');
+  const blast = [{ standard: mode?.explosion ?? 0, ap: mode?.explosionAp ?? 0, durable: mode?.explosionDurable ?? mode?.explosion ?? 0 }, ...delayed.map(e => ({ standard: e.standard, ap: e.ap, durable: e.durable ?? e.standard }))]
+    .reduce((best, e) => e.standard > best.standard ? e : best);
   return {
     id: mode?.id || 'standard', name: mode?.name || L('기본 공격', 'Basic attack'), direct, explosion, forceUnknown: direct == null && explosion == null,
-    damage: mode ? { standard: mode.standard ?? 0, durable: mode.durable ?? 0, ap: mode.ap ?? 0, explosion: mode.explosion ?? 0, explosionAp: mode.explosionAp ?? 0, explosionDurable: mode.explosionDurable ?? mode.explosion ?? 0 } : null,
-    unit: mode?.unit || '발',
+    damage: mode ? { standard: mode.standard ?? 0, durable: mode.durable ?? 0, ap: mode.ap ?? 0, explosion: blast.standard, explosionAp: blast.ap, explosionDurable: blast.durable } : null,
+    unit: mode?.unit || '발', ...(SHIELD_BYPASS.has(w.id) && { shieldBypass: true }),
   };
 };
 const gearProfiles = Object.fromEntries(personalWeapons.map(w => [w.id, {
