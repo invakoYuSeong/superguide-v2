@@ -71,7 +71,8 @@ function pickRow(unit, choice, index) {
     </div></details>`;
 }
 
-// Recommended stratagems for the whole faction (faction-stratagems.js): one card per pick, alternatives joined by "or".
+// Recommended loadout for the whole faction (faction-stratagems.js; stratagems and some gear): one card per
+// pick, alternatives joined by "or" (named 'loadout' at the user's request, 2026-11-23).
 function stratagemPicks(side) {
   const recs = factionStratagems[side.id];
   if (!recs) return '';
@@ -85,7 +86,7 @@ function stratagemPicks(side) {
   };
   // Folds like the enemy view's panels and starts closed (user decision 2026-11-23); the choice stays while
   // switching factions (state.recsOpen).
-  return html`<details class="panel fold strat-recs" data-side="${side.id}" data-recs ${state.recsOpen ? raw('open') : ''}><summary><h2>${L(`${side.name} 추천 스트라타젬`, `Recommended stratagems vs ${T(side.name)}`)}</h2></summary>
+  return html`<details class="panel fold strat-recs" data-side="${side.id}" data-recs ${state.recsOpen ? raw('open') : ''}><summary><h2>${L(`${side.name} 추천 로드아웃`, `Recommended loadout vs ${T(side.name)}`)}</h2></summary>
     <div class="rec-grid">${recs.picks.map(pick => html`<article class="rec${pick.best ? ' best' : ''}">
       <div class="rec-items">${pick.items.map((entry, i) => html`${i ? html`<span class="faint">${L('또는', 'or')}</span>` : ''}${item(entry)}`)}</div>
       <div class="rec-tags">${pick.best ? badge(L('가장 추천', 'Top pick'), 'accent') : ''}${pick.tags.map(tag => badge(tag, 'outline'))}</div>
