@@ -7,7 +7,8 @@ import { wikiIcons } from '../../data/wiki-icons.js';
 import { pickerEnemyImages } from '../../data/selector-images.js';
 import { SIZE_NAMES } from '../../core/enemy-size.js';
 import { stratagems, stratagemById, categories, categoryOf } from '../../core/catalog.js';
-import { search, stratagemFields, personalNames } from '../../core/search.js';
+import { search, stratagemFields, personalNames, collabKeywords } from '../../core/search.js';
+import { warbondSources } from '../../data/warbond-sources.js';
 import { num, outcomeOf, unitText } from '../../core/explain.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { html, raw, render, $, $$, icon, badge } from '../dom.js';
@@ -51,13 +52,13 @@ function slotTile(slot) {
 
 // --- Slot picker sheet -------------------------------------------------------------
 // Candidates grouped by kind: weapon subtypes (data order) or stratagem categories.
-const weaponFields = w => ({ names: personalNames(w), text: [typeName(w.type)] });
+const weaponFields = w => ({ names: personalNames(w), text: [typeName(w.type), ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
 function pickerGroups(slot) {
   if (slot.stratagem != null) {
     const taken = new Set(env.loadout.st.filter((id, index) => id && index !== slot.stratagem));
     // Mission and shared stratagems (reinforce, resupply, objectives) are not loadout picks.
     const list = stratagems.filter(item => item.category !== 'mission' && !taken.has(item.id));
-    return categories.map(cat => ({ id: cat.id, name: cat.name, color: cat.color, fields: stratagemFields, items: list.filter(item => item.category === cat.id) }))
+    return categories.map(cat => ({ id: cat.id, name: cat.name, color: cat.color, fields: item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; }, items: list.filter(item => item.category === cat.id) }))
       .filter(group => group.items.length);
   }
   const list = personalWeapons.filter(w => w.category === slot.group);

@@ -49,6 +49,15 @@ export function search(items, query, fields) {
     .map(entry => entry.item);
 }
 
+// Legendary warbonds made with another game: that game's name also finds the warbond (in the search
+// palette) and its weapons, stratagems and armor (in their own lists), keyed by warbond id (user decision 2026-11-23).
+export const COLLAB_KEYWORDS = {
+  'castellans-creed': ['워해머', '워해머 40K', 'Warhammer', 'Warhammer 40,000'],
+  'righteous-revenants': ['킬존', 'Killzone'],
+  'obedient-democracy-support-troopers': ['헤일로', 'Halo', 'ODST'],
+};
+export const collabKeywords = warbondId => COLLAB_KEYWORDS[warbondId] ?? [];
+
 /** Searchable names of a primary, secondary or throwable: Korean, English with and without its code, the code, and aliases. */
 export const personalNames = item => [item.name, item.en, item.en?.replace(/^\S+\s/, ''), item.code, ...(item.aliases || [])].filter(Boolean);
 

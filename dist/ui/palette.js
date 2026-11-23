@@ -1,7 +1,7 @@
 // Global search across stratagems, gear, armor, boosters, ship modules, enemies, structures, faction guides,
 // warbonds and their items, the superstore, planet conditions, modifiers, biomes, planets and status effects.
 import { stratagems, categoryOf } from '../core/catalog.js';
-import { search, stratagemFields, personalNames } from '../core/search.js';
+import { search, stratagemFields, personalNames, collabKeywords } from '../core/search.js';
 import { html, render, $ } from './dom.js';
 import { L, T, lang } from '../core/i18n.js';
 
@@ -26,12 +26,6 @@ export async function createPalette(ctx) {
   const KIND = { booster: ['부스터', 'Booster'], helmet: ['헬멧', 'Helmet'], armor: ['아머', 'Armor'], cape: ['망토', 'Cape'], 'player-card': ['플레이어 카드', 'Player card'], pattern: ['패턴', 'Pattern'],
     emote: ['감정 표현', 'Emote'], 'victory-pose': ['승리 포즈', 'Victory pose'], title: ['칭호', 'Title'], stratagem: ['스트라타젬', 'Stratagem'], weapon: ['무기', 'Weapon'] };
   const kindName = kind => L(...(KIND[kind] ?? ['기타', 'Other']));
-  // Legendary warbonds made with another game: its name finds the warbond (user decision 2026-11-23).
-  const COLLAB_KEYWORDS = {
-    'castellans-creed': ['워해머', '워해머 40K', 'Warhammer', 'Warhammer 40,000'],
-    'righteous-revenants': ['킬존', 'Killzone'],
-    'obedient-democracy-support-troopers': ['헤일로', 'Halo', 'ODST'],
-  };
   const { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes } = planetData;
   const PLANET_TABS = [
     ['conditions', L('환경 조건', 'Environment'), [conditions, hazards, gloomLevels, specialEffects]],
@@ -52,7 +46,7 @@ export async function createPalette(ctx) {
     { id: 'enemies', name: L('적', 'Enemies'), items: enemies.map(item => ({ fields: { names: [item.name, T(item.name), item.id.replaceAll('-', ' ')], text: [item.faction, T(item.faction)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('무기별 탄수 비교', 'shots to kill by weapon')}`, image: pickerEnemyImages[item.id]?.src, route: { view: 'enemy', id: item.id } })) },
     { id: 'structures', name: L('시설', 'Structures'), items: structures.map(item => ({ fields: { names: [item.name, T(item.name)], text: [item.faction, T(item.faction), item.tip, T(item.tip)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('철거 방법', 'how to demolish')}`, image: pickerStructureImages[item.id]?.src, route: { view: 'demolition', query: { s: item.id } } })) },
     { id: 'factions', name: L('팩션', 'Factions'), items: factionGuides.map(item => ({ fields: { names: [item.name, item.en], text: [item.intro, T(item.intro)] }, label: T(item.name), sub: `${T(factionSides.find(side => side.id === item.side).name)} · ${L('추천 장비', 'recommended loadout')}`, image: factionSides.find(side => side.id === item.side).icon, route: { view: 'factions', id: item.id } })) },
-    { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en, ...(COLLAB_KEYWORDS[item.id] ?? [])], text: [tierName(item.tier)] }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
+    { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en, ...collabKeywords(item.id)], text: [tierName(item.tier)] }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
     // Warbond tiles that have no page of their own elsewhere (cosmetics, helmets, boosters...): open their
     // warbond and mark the tile (f=<page>-<n>, the n-th tile of that page).
     { id: 'warbond-items', name: L('전쟁 채권 항목', 'Warbond items'), items: warbonds.flatMap(bond => bond.pages.flatMap(page => page.items

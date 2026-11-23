@@ -1,6 +1,7 @@
 // Stratagem catalogue: filter, sort, detail sheet and side-by-side comparison.
 import { stratagems, stratagemById, categories, categoryOf, apBands, apBandOf, withVariant, variantOf, CHECKED_AT } from '../../core/catalog.js';
-import { search, stratagemFields } from '../../core/search.js';
+import { search, stratagemFields, collabKeywords } from '../../core/search.js';
+import { warbondSources } from '../../data/warbond-sources.js';
 import { num, strongest } from '../../core/explain.js';
 import { shieldRecovery } from '../../core/defense.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
@@ -110,7 +111,7 @@ function card(item) {
 function visibleItems() {
   const band = AP_FILTERS.find(item => item.id === state.ap);
   let items = stratagems.filter(item => (!state.c || item.category === state.c) && (!band || band.test(item)) && (!state.p || permitOf(item) === state.p));
-  items = search(items, state.q, stratagemFields);
+  items = search(items, state.q, item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; });
   const sort = SORTS.find(item => item.id === state.sort);
   if (sort?.value) items = [...items].sort((a, b) => (sort.value(b) ?? -1) - (sort.value(a) ?? -1));
   return items;

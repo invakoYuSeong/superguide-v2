@@ -5,7 +5,7 @@ import { armors, armorPassives, armorWeights, armorCheckedAt } from '../../data/
 import { armorImages } from '../../data/armor-images.js';
 import { warbonds } from '../../data/warbonds.js';
 import { num } from '../../core/explain.js';
-import { search, personalNames } from '../../core/search.js';
+import { search, personalNames, collabKeywords } from '../../core/search.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, lang } from '../../core/i18n.js';
 
@@ -104,7 +104,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
 }
 
 const passiveById = new Map(armorPassives.map(passive => [passive.id, passive]));
-const searchFields = armor => ({ names: personalNames(armor), text: [passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en, warbondById.get(armor.source.warbondId)?.name].filter(Boolean) });
+const searchFields = armor => ({ names: personalNames(armor), text: [passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en, warbondById.get(armor.source.warbondId)?.name, ...collabKeywords(armor.source.warbondId)].filter(Boolean) });
 
 /** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set.
  *  state.q searches every set (as the gear browser searches every group), still grouped by passive. */

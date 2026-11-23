@@ -13,7 +13,8 @@ import { attachmentParts, weaponAttachments } from '../../data/weapon-attachment
 import { quickMelee, bayonetWeapons } from '../../data/melee.js';
 import { weaponExperience } from '../../data/weapon-experience.js';
 import { apBandOf } from '../../core/catalog.js';
-import { search, personalNames } from '../../core/search.js';
+import { search, personalNames, collabKeywords } from '../../core/search.js';
+import { warbondSources } from '../../data/warbond-sources.js';
 import { num, strongest } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
@@ -142,7 +143,7 @@ function card(w) {
 
 // --- Browse ------------------------------------------------------------------------
 const typesOf = cat => orderTypes(new Set(personalWeapons.filter(w => w.category === cat).map(w => w.type)));
-const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name] });
+const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name, ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
 
 function visibleItems() {
   // A search looks across every group, so "세열" finds the grenade from the rifle list.
