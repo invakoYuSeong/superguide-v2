@@ -88,7 +88,7 @@
   ],
   "tactics": [
    {
-    "ko": "머리가 장갑 2이고 체력이 많아 관통 3 무기와 폭발 무기가 더 잘 통합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
+    "ko": "머리가 장갑 2이고 내구도가 높아 관통 3 무기와 폭발 무기가 더 잘 통합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
     "en": "Its head is armor 2 and it is very durable, so armor penetration 3 weapons and explosives work better. The head, claws and body have slightly thicker armor that cuts damage from armor penetration 2 weapons."
    },
    {
@@ -96,8 +96,8 @@
     "en": "Destroying both claws kills it."
    },
    {
-    "ko": "다리는 장갑이 없어 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리가 없어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
-    "en": "Its legs are unarmored and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even without a leg its charge still deals damage and its effects."
+    "ko": "다리는 장갑 1로 얇아 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리 하나를 잃어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
+    "en": "Its legs have only armor 1 and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even missing a leg its charge still deals damage and its effects."
    },
    {
     "ko": "머리를 잃어도 버그 침공을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요.",
@@ -290,12 +290,12 @@
   ],
   "tactics": [
    {
-    "ko": "점프 팩이 폭발하므로 안전한 거리에서 처치하세요. 뒤로 몸을 날리며 쏘면 폭발 피해를 피하기 좋습니다.",
-    "en": "Its jump pack explodes, so kill it from a safe distance. Diving backwards while shooting helps you avoid the blast."
+    "ko": "제트팩이 폭발하므로 안전한 거리에서 처치하세요. 뒤로 몸을 날리며 쏘면 폭발 피해를 피하기 좋습니다.",
+    "en": "Its jetpack explodes, so kill it from a safe distance. Diving backwards while shooting helps you avoid the blast."
    },
    {
-    "ko": "점프 팩은 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
-    "en": "The jump pack can still explode on its remains, so shoot it to set it off early."
+    "ko": "제트팩은 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
+    "en": "The jetpack can still explode on its remains, so shoot it to set it off early."
    },
    {
     "ko": "모여 있으면 연쇄 폭발로 한꺼번에 없앨 수 있습니다. 이들이 탄 드롭십을 쏘면 한 번에 모두 사라지기도 합니다.",
@@ -390,12 +390,12 @@
     "en": "It is faster than a Devastator but still slow enough to predict. Stay out of reach by sprinting, diving or putting high ground between you, and shoot its legs to slow it down."
    },
    {
-    "ko": "흉부 위쪽은 장갑 2이고 유일하게 내구도가 있어 관통 2 무기로는 피하세요. 가장 약한 곳은 장갑 1인 머리와 크고 맞히기 쉬운 빛나는 복부입니다.",
-    "en": "The upper chest is armor 2 and the only durable part, so avoid it with armor penetration 2 weapons. The weakest spots are the armor 1 head and the large, easy-to-hit glowing stomach."
+    "ko": "흉부 위쪽은 장갑 2에 내구도도 있어 가장 단단한 부위이니 관통 2 무기로는 피하세요. 가장 약한 곳은 장갑 1인 머리와, 크고 맞히기 쉬운 빛나는 복부입니다.",
+    "en": "The upper chest is armor 2 and durable, making it the toughest part, so avoid it with armor penetration 2 weapons. The weakest spots are the armor 1 head and the large, easy-to-hit glowing stomach."
    },
    {
-    "ko": "퍼멜러·도미네이터·익스플로딩 크로스보우처럼 크게 비틀거리게 하는 무기나 기절 수류탄으로 멈춰 세운 뒤 약점을 쏘세요. 기관총·스털워트·리디머처럼 연사가 높은 무기도 빠르게 처치합니다.",
-    "en": "Heavy stagger weapons like the Pummeler, Dominator and Exploding Crossbow, or the Stun grenade, stop it in its tracks for shots at its weak spots. High fire rate weapons like the Machine Gun, Stalwart and Redeemer also kill it quickly."
+    "ko": "퍼멜러·도미네이터·익스플로딩 크로스보우처럼 크게 비틀거리게 하는 무기나 기절 수류탄으로 멈춰 세운 뒤 약점을 쏘세요. 기관총·스털워트처럼 연사가 높은 무기도 빠르게 처치하고, 보조무기인 리디머로도 어느 정도 막아 낼 수 있습니다.",
+    "en": "Heavy stagger weapons like the Pummeler, Dominator and Exploding Crossbow, or the Stun grenade, stop it in its tracks for shots at its weak spots. High fire rate weapons like the Machine Gun and Stalwart also kill it quickly, and even the Redeemer sidearm can hold it off to some degree."
    },
    {
     "ko": "모든 부위가 폭발에 면역이라 폭발은 본체 체력에만 들어가 효과가 들쭉날쭉합니다. 다만 뭉쳐서 오므로 폭발 한 번에 여러 마리를 잡을 수도 있습니다.",
@@ -575,8 +575,8 @@
     "en": "Destroying its head leaves it rampaging for a long time while it chases you. Melee it the moment it reaches you, and the stagger lasts until it bleeds out without hurting you."
    },
    {
-    "ko": "다리는 장갑이 없어 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리가 없어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
-    "en": "Its legs are unarmored and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even without a leg its charge still deals damage and its effects."
+    "ko": "다리는 장갑이 얇아(장갑 1) 관통 2 무기로 쉽게 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리를 잃어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
+    "en": "Its legs are only lightly armored (armor 1) and break easily to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even after losing a leg its charge still deals damage and its effects."
    },
    {
     "ko": "머리를 잃어도 버그 침공을 부를 수 있습니다.",
@@ -853,8 +853,8 @@
     "en": "An anti-tank weapon such as the Expendable Anti-Tank, Recoilless Rifle or Quasar Cannon to the head kills it instantly. A torso hit from the Spear or Recoilless Rifle cracks its armor and either kills it (butt) or makes it slowly bleed out."
    },
    {
-    "ko": "다리 장갑을 벗기면 드러난 살점에는 어떤 무기로도 피해가 들어가 꽤 빨리 처치할 수 있습니다. 중기관총은 머리보다 다리 장갑을 노리는 편이 총 탄수가 적습니다.",
-    "en": "Stripping a leg's armor exposes flesh that any weapon can damage, killing it fairly quickly. With the Heavy Machine Gun, aiming at the leg armor takes fewer total shots than the head."
+    "ko": "다리 장갑을 벗기면 장갑 2인 살점이 드러나 관통 2 이상 무기로 꽤 빨리 처치할 수 있습니다. 중기관총은 머리보다 다리 장갑을 노리는 편이 총 탄수가 적습니다.",
+    "en": "Stripping a leg's armor exposes armor 2 flesh that weapons with armor penetration 2 or higher can damage, killing it fairly quickly. With the Heavy Machine Gun, aiming at the leg armor takes fewer total shots than the head."
    },
    {
     "ko": "장갑 0인 후방 복부를 부수면 몇 초 안에 출혈로 죽습니다. 내구도가 80%로 높아 폭발 무기가 가장 좋고, 돌진 뒤 회복 동작 중에 쏘세요.",
@@ -1022,8 +1022,8 @@
     "en": "Armor with the Inflammable or Acclimated passive reduces fire damage, but not the ballistic damage of its shotgun, so stay careful."
    },
    {
-    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
-    "en": "The Conflagration Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
+    "ko": "머리가 방패에 가려질 때가 많으니, 드러난 팔이나 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Conflagration Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm or its large gun. Once disarmed it can only walk toward you, making follow-up shots easy."
    }
   ]
  },
@@ -1656,7 +1656,7 @@
     "en": "When walking toward you at certain angles it can fire through its shield, so staying on its left side does not guarantee safety."
    },
    {
-    "ko": "옆이나 뒤로 돌아가 배낭을 노리세요. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
+    "ko": "동료와 함께 옆이나 뒤로 돌아가 배낭을 노리면 좋습니다. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
     "en": "Flank it, ideally with a teammate, and hit the backpack. Any weapon can damage it, and destroying it kills it outright."
    },
    {
@@ -1664,8 +1664,8 @@
     "en": "Shooting the shield with ballistic weapons does no damage. Hitting it or its shield with explosives staggers it, making it lower the shield and leave itself open."
    },
    {
-    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
-    "en": "The Heavy Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
+    "ko": "머리가 방패에 가려질 때가 많으니, 드러난 팔이나 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Heavy Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm or its large gun. Once disarmed it can only walk toward you, making follow-up shots easy."
    }
   ]
  },
@@ -1776,8 +1776,8 @@
     "en": "Its 150,000 main health is the largest in the game and its attacks sweep wide, so the whole squad should either avoid it or take it on together, spread out so one strike cannot kill several of you."
    },
    {
-    "ko": "몸은 장갑 5(머리 장갑 6, 벌린 입 장갑 2)입니다. 대전차 화력을 계속 퍼부으면 장갑판이 깨져 장갑 2인 속살이 드러나며, 장갑판 한 칸은 실제로 50,000 정도를 버팁니다. 깨지기 직전에는 금이 보입니다.",
-    "en": "Its body is armor 5 (armor 6 on the head, armor 2 in the open mouth). Sustained anti-tank fire breaks a plate to reveal armor 2 flesh, and each section effectively holds about 50,000. Cracks show when a plate is about to break."
+    "ko": "몸은 장갑 5(턱 장갑 6, 머리 왕관 장갑 10, 벌린 입 장갑 2)입니다. 대전차 화력을 계속 퍼부으면 장갑판이 깨져 장갑 2인 속살이 드러나며, 장갑판 한 칸은 출혈 체력까지 합쳐 실제로 50,000 정도를 버팁니다. 깨지기 직전에는 금이 보입니다.",
+    "en": "Its body is armor 5 (armor 6 on the jaws, armor 10 on the head crown, armor 2 in the open mouth). Sustained anti-tank fire breaks a plate to reveal armor 2 flesh, and each section, counting its bleed pool, effectively holds about 50,000. Cracks show when a plate is about to break."
    },
    {
     "ko": "이글 기총소사와 궤도 개틀링 폭격은 큰 몸의 장갑판 여러 개를 한꺼번에 때려 잘 통합니다. 그 사이에는 무반동포, 스피어, 일회성 대전차로 장갑판 하나를 깨는 데 집중하세요.",
@@ -2211,7 +2211,7 @@
     "en": "It fires fewer and slower shots than the Heavy Devastator, but its incendiary rounds make even a single hit deadlier. Go prone as soon as you take damage to limit the burn."
    },
    {
-    "ko": "옆이나 뒤로 돌아가 배낭을 노리세요. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
+    "ko": "동료와 함께 옆이나 뒤로 돌아가 배낭을 노리면 좋습니다. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
     "en": "Flank it, ideally with a teammate, and hit the backpack. Any weapon can damage it, and destroying it kills it outright."
    },
    {
@@ -2223,8 +2223,8 @@
     "en": "Armor with the Inflammable or Acclimated passive reduces fire damage, but not the ballistic damage of its machine gun, so stay careful."
    },
    {
-    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
-    "en": "The Incendiary MG Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
+    "ko": "머리가 방패에 가려질 때가 많으니, 드러난 팔이나 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Incendiary MG Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm or its large gun. Once disarmed it can only walk toward you, making follow-up shots easy."
    }
   ]
  },
@@ -2676,7 +2676,7 @@
     "en": "One burst can badly hurt you. Firing near it, even inaccurately, suppresses it and lowers its accuracy."
    },
    {
-    "ko": "등 뒤 동력 장치에 방열판 2개가 솟아 있어 바로 알아볼 수 있습니다. 동력 장치는 쓰러진 뒤에도 터질 수 있으니 미리 쏴서 터뜨리세요.",
+    "ko": "등 뒤 전원 팩에 방열판 2개가 솟아 있어 바로 알아볼 수 있습니다. 전원 팩은 쓰러진 뒤에도 터질 수 있으니 미리 쏴서 터뜨리세요.",
     "en": "You can spot it right away by the 2 heat sink fins on its back-mounted powerpack. The powerpack can still explode on its remains, so shoot it to set it off early."
    },
    {
@@ -2822,8 +2822,8 @@
     "en": "It leaps to poison you and spits webs that nearly immobilize you, so keep your distance. The Jump Pack, Warp Pack, Hover Pack, Shield Generator Pack and Ballistic Shield Backpack help, and the Muscle Enhancement booster reduces the slow."
    },
    {
-    "ko": "약점인 머리를 쏘세요. 장갑이 가벼워 모든 무기가 통하고 지원 무기로 특히 빨리 잡힙니다.",
-    "en": "Shoot its head, the weak spot. Its armor is light, so every weapon works, and support weapons kill it especially fast."
+    "ko": "약점인 머리를 쏘세요. 머리 장갑이 2로 가벼워 관통 2 이상 무기면 통하고, 지원 무기로 특히 빨리 잡힙니다.",
+    "en": "Shoot its head, the weak spot. Its head armor is a light 2, so weapons with armor penetration 2 or higher work, and support weapons kill it especially fast."
    },
    {
     "ko": "바로 옆이나 밑에 떨어진 수류탄 하나면 대개 처치하거나 빈사로 만듭니다. 충격 수류탄이 특히 좋고, 잘 던지면 붙어 있는 2마리도 잡습니다.",
@@ -3157,11 +3157,11 @@
   ],
   "tactics": [
    {
-    "ko": "연료 탱크가 몸보다 높이 솟아 있어 쏘기 쉽고, 맞으면 터집니다. 안전한 거리에서 쏘고, 뒤로 몸을 날리며 쏘면 화염방사기 피해를 피하기 좋습니다.",
+    "ko": "연료통이 몸보다 높이 솟아 있어 쏘기 쉽고, 맞으면 터집니다. 안전한 거리에서 쏘고, 뒤로 몸을 날리며 쏘면 화염방사기 피해를 피하기 좋습니다.",
     "en": "Its fuel tanks stick up above it, so they are easy to hit and explode when shot. Shoot from a safe distance, and dive backwards while firing to avoid its flamer."
    },
    {
-    "ko": "연료 탱크는 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
+    "ko": "연료통은 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
     "en": "The tanks can still explode on its remains, so shoot them to set them off early."
    },
    {
@@ -3398,8 +3398,8 @@
   ],
   "tactics": [
    {
-    "ko": "차저와 같은 방법으로 처치하지만, 머리와 앞다리는 다른 차저 변종의 장갑 4보다 높은 장갑 5입니다.",
-    "en": "Use the same tactics as against Chargers, but its head and front legs are armor 5 instead of the armor 4 on other Charger variants."
+    "ko": "차저와 같은 방법으로 처치하지만, 머리와 앞다리 정면 족판은 다른 차저 변종의 장갑 4보다 높은 장갑 5입니다. 앞다리 옆면 장갑은 4 그대로입니다.",
+    "en": "Use the same tactics as against Chargers, but its head and the front plates of its front legs are armor 5 instead of the armor 4 on other Charger variants. The sides of the front legs stay at armor 4."
    },
    {
     "ko": "땅속으로 파고들어 다가와 보통 목표의 3m 안에서 솟아올라 공격합니다. 땅이 들썩이는 흔적이 다른 럽처 변종보다 커서 알아보기 쉽습니다.",
@@ -3488,7 +3488,7 @@
   ],
   "tactics": [
    {
-    "ko": "땅속에서 약 3m 안으로 다가오면 곧 발밑에서 튀어나와 앞에 있는 헬다이버에게 바로 피해를 줍니다. 앞발이 나올 때와 뒷다리가 빠질 때 2번 피해를 주고, 두 번째는 눈에 보이지 않아 근접 공격하려다 맞기 쉽습니다.",
+    "ko": "땅속에서 약 3m 안으로 다가오면 곧 튀어나오는데 흔히 바로 발밑이며, 앞에 있는 헬다이버에게 바로 피해를 줍니다. 앞발이 나올 때와 뒷다리가 빠질 때 2번 피해를 주고, 두 번째는 공격 동작이 보이지 않아 근접 공격하려다 맞기 쉽습니다.",
     "en": "Once it tunnels within about 3m of you it soon bursts out, often right under your feet, and hits you at once if you are in front. It deals 2 separate hits, one as its front claws come out and one as its hind legs pull free, and the second has no visible cue, so trying to melee it can catch you off guard."
    },
    {
@@ -3766,8 +3766,8 @@
   ],
   "tactics": [
    {
-    "ko": "담즙 분사는 바닥에 포자를 남겨 시야를 가리고 근처 스포어 버스트 적을 빠르게 만듭니다. 분사 피해는 일반 바일 타이탄보다 훨씬 낮아 바스티온 같은 차량에게는 큰 위협이 아닙니다.",
-    "en": "Its bile spew leaves spores on the ground that block vision and speed up nearby Spore Burst Terminids. The spew deals far less damage than a regular Bile Titan's, so vehicles like the Bastion handle it well."
+    "ko": "담즙 분사는 바닥에 포자를 남겨 시야를 가리고 근처 스포어 버스트 적을 빠르게 만듭니다. 분사 피해는 일반 바일 타이탄보다 훨씬 낮아 바스티온 Mk XVI 같은 차량에게는 큰 위협이 아닙니다.",
+    "en": "Its bile spew leaves spores on the ground that block vision and speed up nearby Spore Burst Terminids. The spew deals far less damage than a regular Bile Titan's, so vehicles like the Bastion MK XVI handle it well."
    },
    {
     "ko": "분사의 밀쳐내는 힘이 커서 쉽게 넘어지고, 넘어진 사이 다른 벌레에게 공격당하기 쉽습니다. 굳건한 바위 패시브로 막을 수 있고, 포자낭을 부수면 분사를 못 해 강화와 넘어뜨림을 모두 막습니다.",
@@ -3938,8 +3938,8 @@
     "en": "One of the most dangerous Terminids, so make it a priority once spotted. Its tongue knocks Helldivers over, and its claw swipes are quick and hit hard."
    },
    {
-    "ko": "장갑은 없지만 헌터 같은 중형 테르미니드보다 훨씬 튼튼해 체력이 브루드 커맨더와 비슷합니다. 머리 체력은 매우 낮으니 정확히 머리를 노리세요.",
-    "en": "It has no armor but is far tougher than Hunters and other medium Terminids, with health close to a Brood Commander. Its head has very little health, so aim precisely."
+    "ko": "장갑은 얇지만(몸통 외피 장갑 2, 나머지 장갑 1) 헌터 같은 중형 테르미니드보다 훨씬 튼튼해 체력이 브루드 커맨더와 비슷합니다. 머리 체력은 매우 낮으니 정확히 머리를 노리세요.",
+    "en": "Its armor is thin (armor 2 on the body plating, armor 1 elsewhere), but it is far tougher than Hunters and other medium Terminids, with health close to a Brood Commander. Its head has very little health, so aim precisely."
    },
    {
     "ko": "불이 붙거나 가스에 맞거나 테르미니드 체액이 묻으면 위장 중에도 일부 보입니다.",
@@ -4095,8 +4095,8 @@
     "en": "The cockpit is covered by a recharging shield, and destroying the mech's head turns it off for good. The exposed pilot is armor 2 all over, so shoot anywhere; killing the pilot destroys the mech."
    },
    {
-    "ko": "팔다리가 폭발 피해를 받지 않아 순수 폭발 무기는 잘 통하지 않습니다. 팔은 장갑 3이라 맥시건, 기관총처럼 중간 장갑을 뚫는 무기로 부술 수 있습니다.",
-    "en": "Its limbs are immune to explosive damage, so pure explosive weapons do little. The arms are armor 3, so the Maxigun, Machine Gun and other weapons that pierce medium armor can break them."
+    "ko": "팔다리가 폭발 피해를 받지 않아 순수 폭발 무기는 잘 통하지 않습니다. 팔은 장갑 3 이하라 맥시건, 기관총처럼 중간 장갑을 뚫는 무기로 부술 수 있습니다.",
+    "en": "Its limbs are immune to explosive damage, so pure explosive weapons do little. The arms are armor 3 or lower, so the Maxigun, Machine Gun and other weapons that pierce medium armor can break them."
    },
    {
     "ko": "공중폭발 로켓 발사기는 관통 3 파편이라 조종석을 노리면 모든 팔다리에 닿아 매우 효과적입니다.",
@@ -4209,11 +4209,11 @@
     "en": "From the front, 2 C4 Packs, 2 Thermites or 2 Ultimatum shots on the undercarriage kill it, as does one Solo Silo or Leveller hit to the body. The Recoilless Rifle needs 3 shots to the front within 150m."
    },
    {
-    "ko": "궤도 레일캐넌 타격은 한 번에 처치하지만, 스피커에 맞으면 한 번에 처치되지 않을 수 있습니다. 이런 스트라타젬이 없으면 중기관총 거치포로 궤도 고정부, 궤도, 몸통 덮개를 쏴서 본체 체력을 깎으세요.",
-    "en": "One Orbital Railcannon Strike destroys it, but a hit on a speaker may not. Without such stratagems, use the HMG Emplacement on the trackpod latches, tracks and torso flaps to drain its main health."
+    "ko": "궤도 레일캐넌 타격은 한 번에 처치하지만, 스피커에 맞으면 한 번에 처치되지 않을 수 있습니다. 이글 기총소사는 2번이면 처치합니다. 이런 스트라타젬이 없으면 중기관총 거치포로 궤도 고정부, 궤도, 몸통 덮개를 쏴서 본체 체력을 깎으세요.",
+    "en": "One Orbital Railcannon Strike destroys it, but a hit on a speaker may not. Two Eagle Strafing Runs also destroy it. Without such stratagems, use the HMG Emplacement on the trackpod latches, tracks and torso flaps to drain its main health."
    },
    {
-    "ko": "먼 거리에서는 미사일을 쏘며 떨어질 곳이 노랗게 빛납니다. 피할 수 없으면 엎드려 폭발 피해를 줄이세요. 대포는 바로 아래로도 쏘고, 철거력 50 시설을 부술 만큼 강해 교란기나 탐지 탑을 쏘게 유도할 수 있습니다.",
+    "ko": "먼 거리에서는 미사일을 쏘며 떨어질 곳이 노랗게 빛납니다. 피할 수 없으면 엎드려 폭발 피해를 줄이세요. 대포는 바로 아래로도 쏘고, 철거력 50 시설을 부술 만큼 강해 스트라타젬 교란기나 탐지 탑을 쏘게 유도할 수 있습니다.",
     "en": "At long range it fires missiles whose impact spots glow yellow; if you cannot dodge, go prone to cut the blast damage. Its cannons can fire straight down and are strong enough to destroy demolition force 50 structures, so you can bait them into hitting Stratagem Jammers and Detector Towers."
    },
    {
