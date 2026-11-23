@@ -1657,13 +1657,13 @@ export const enemyPages = {
   ],
   "tips": [
    "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
-   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "대물소총은 거리가 멀어지면 눈에 한 발로는 모자라 2발이 필요해집니다.",
    "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
    "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
   ],
   "tipsEn": [
    "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
-   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "At longer range the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
    "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
    "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
@@ -1709,13 +1709,13 @@ export const enemyPages = {
   ],
   "tips": [
    "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
-   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "대물소총은 거리가 멀어지면 눈에 한 발로는 모자라 2발이 필요해집니다.",
    "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
    "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
   ],
   "tipsEn": [
    "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
-   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "At longer range the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
    "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
    "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
@@ -1757,13 +1757,13 @@ export const enemyPages = {
   ],
   "tips": [
    "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
-   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "대물소총은 거리가 멀어지면 눈에 한 발로는 모자라 2발이 필요해집니다.",
    "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
    "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
   ],
   "tipsEn": [
    "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
-   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "At longer range the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
    "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
    "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
@@ -1809,13 +1809,13 @@ export const enemyPages = {
   ],
   "tips": [
    "오토캐넌은 경직이 세서 맞을 때마다 눈이 흔들립니다. 다리 하나를 먼저 부순 뒤 눈이나 남은 다리를 쏘는 편이 생각보다 훨씬 효율적이고, 위협적인 팔 하나를 먼저 자르는 것도 방법입니다.",
-   "대물소총은 약 30m를 넘어가면 눈에 한 발로는 모자라 2발이 필요해집니다.",
+   "대물소총은 거리가 멀어지면 눈에 한 발로는 모자라 2발이 필요해집니다.",
    "등 방열판은 헐크가 나를 보기 시작하면 노리기 어렵고, 부숴도 꽤 오래 살아 있어 효율이 낮습니다.",
    "오토캐넌으로 몸통을 쏘면 한 탄창 가까이 들어 효율이 낮지만, 경직으로 공격을 끊어 한 턴을 벌 수 있습니다."
   ],
   "tipsEn": [
    "The Autocannon staggers it hard, so the eye jerks around with every hit. Breaking one leg first and then shooting the eye or the other leg is far more efficient than it sounds, and cutting off the more dangerous arm first also works.",
-   "Past about 30m the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
+   "At longer range the Anti-Materiel Rifle needs 2 shots on the eye instead of one.",
    "The back heat sink is hard to reach once the Hulk is facing you, and it stays alive for quite a while after it breaks, so it is not efficient.",
    "Autocannon fire to the torso takes about a magazine and is inefficient, but its stagger interrupts attacks and buys you a moment."
   ]
