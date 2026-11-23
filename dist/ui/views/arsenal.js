@@ -322,12 +322,12 @@ function timingBlock(item) {
 
 // Special effects: demolition, stagger and push force of each attack from the wiki attack
 // datamine (stratagem-stats.js `forces`); demolition-data.js where the datamine has no record.
-const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment'), overcharge: L('과충전 폭발', 'Overcharge blast'), backblast: L('후폭풍', 'Backblast') };
+const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment'), overcharge: L('과충전 폭발', 'Overcharge blast'), backblast: L('후폭풍', 'Backblast'), wreck: L('차량 폭발', 'Vehicle explosion') };
 export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
   'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
 // Explosions (the blast, an overcharge, a backblast) carry the blast icon in front of their name.
-const BLAST_KINDS = ['blast', 'overcharge', 'backblast'];
+const BLAST_KINDS = ['blast', 'overcharge', 'backblast', 'wreck'];
 // What a continuous attack is made of: gas (items with a gas damage cell), fire (the 화염 tag) or a laser
 // (a beam in the datamine attacks, the 레이저 tag, or the Orbital Laser, whose datamine attack is a spray).
 const streamOf = item => item.extraStats?.some(cell => cell.icon === 'gas') ? 'gas' : item.tags?.includes('화염') ? 'fire'
@@ -357,11 +357,11 @@ function specialBlock(item, profile) {
   const parts = forces.flatMap(group => group.parts);
   // The overcharge blast (Railgun, Epoch) is the weapon blowing up, and the backblast comes out of the back of a
   // launcher when it fires: neither is a shot, so each gets its own row with a warning.
-  const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast'))].filter(Boolean);
+  const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast')), strongest(parts.filter(part => part.kind === 'wreck'))].filter(Boolean);
   const rows = forces.length
     ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
       label: kindIcon(part.kind, item) ? html`<span class="${kindIcon(part.kind, item)}" aria-hidden="true"></span>${FORCE_KIND[part.kind]}` : FORCE_KIND[part.kind],
-      text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}${DIRECT_KINDS.includes(part.kind) && item.directCaution ? html`<span class="force-note">${item.directCaution}</span>` : ''}`,
+      text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}${part.kind === 'wreck' ? html`<span class="force-note">${L(`차량이 파괴될 때 연료 탱크가 터지는 폭발입니다. 피해 ${num(part.damage)}, 중심 ${num(part.inner)}m에서 ${num(part.outer)}m까지 줄어들고 충격파는 ${num(part.shockwave)}m까지로 이글 500kg 폭탄과 같은 크기이며, 타고 있던 헬다이버는 죽습니다. 화염방사기 연료가 다 떨어진 뒤에는 일반 차량 폭발로 바뀝니다.`, `Not a shot: the fuel tank blows up when the vehicle is destroyed. ${num(part.damage)} damage out to ${num(part.inner)} m, falling off to ${num(part.outer)} m, with a shockwave out to ${num(part.shockwave)} m, the same size as an Eagle 500kg Bomb, and it kills anyone inside. Once the flamethrower's fuel runs out, it becomes an ordinary vehicle explosion.`)}</span>` : ''}${DIRECT_KINDS.includes(part.kind) && item.directCaution ? html`<span class="force-note">${item.directCaution}</span>` : ''}`,
     }))
     // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.
     : fallbackRows(profile, value);

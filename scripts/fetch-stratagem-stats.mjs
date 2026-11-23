@@ -2,7 +2,8 @@
 // `stratagem_type` / `base_cooldown` and the "Stratagem Stats Table"), plus the
 // Ship Modules page whose upgrade rates dist/data/ship-modules.js follows,
 // into db/source/wiki_stratagem_stats.json with each page's revision, and the
-// stratagem datamine (stagger and push force per attack) into db/source/stratagems_data.json.
+// stratagem datamine (stagger and push force per attack) into db/source/stratagems_data.json, and vehicle
+// death explosions from the general attack datamine into db/source/vehicle_explosions.json.
 // Usage: node scripts/fetch-stratagem-stats.mjs  ->  node scripts/build-stratagem-stats.mjs
 import { writeFile } from 'node:fs/promises';
 import { stratagems } from '../dist/core/catalog.js';
@@ -66,5 +67,22 @@ const datamine = (await pages([datamineTitle])).get(datamineTitle);
 await writeFile(new URL('../db/source/stratagems_data.json', import.meta.url), JSON.stringify({
   source: `https://helldivers.wiki.gg/wiki/${datamineTitle.replaceAll(' ', '_')}`, revision: datamine.revisions[0].revid,
   revisionTimestamp: datamine.revisions[0].timestamp, retrievedAt: out.retrievedAt, data: JSON.parse(datamine.revisions[0].slots.main.content),
+}, null, 1) + '\n');
+// Vehicle death explosions that act like an attack (the Incinerator FRV's fuel tank, as big as an Eagle 500kg Bomb):
+// only these records of the general attack datamine, keyed by stratagem id (2026-11-23).
+const WRECKS = { 'incinerator-frv': 'Vehicle_Explosion_IncineratorFRV' };
+await sleep(2000);
+const attacksTitle = 'Module:Decodedata-Attacks/data.json';
+const attacks = (await pages([attacksTitle])).get(attacksTitle);
+const attackData = JSON.parse(attacks.revisions[0].slots.main.content);
+const wrecks = Object.fromEntries(Object.entries(WRECKS).map(([id, name]) => {
+  const explosion = attackData.explosion[name];
+  const damage = explosion && attackData.damage[explosion.damageid];
+  if (!damage) throw new Error(`${attacksTitle}: ${name} not found`);
+  return [id, { name, explosion, damage }];
+}));
+await writeFile(new URL('../db/source/vehicle_explosions.json', import.meta.url), JSON.stringify({
+  source: `https://helldivers.wiki.gg/wiki/${attacksTitle.replaceAll(' ', '_')}`, revision: attacks.revisions[0].revid,
+  revisionTimestamp: attacks.revisions[0].timestamp, retrievedAt: out.retrievedAt, records: wrecks,
 }, null, 1) + '\n');
 console.log(`${Object.keys(out.stratagems).length} stratagems, Ship Modules revision ${out.shipModules.revision}`);

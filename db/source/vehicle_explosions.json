@@ -1,0 +1,31 @@
+{
+ "source": "https://helldivers.wiki.gg/wiki/Module:Decodedata-Attacks/data.json",
+ "revision": 142140,
+ "revisionTimestamp": "2026-11-07T22:24:38Z",
+ "retrievedAt": "2026-11-23",
+ "records": {
+  "incinerator-frv": {
+   "name": "Vehicle_Explosion_IncineratorFRV",
+   "explosion": {
+    "r1": 10,
+    "r2": 25,
+    "r3": 35,
+    "is_huge": 1,
+    "name": "Incinerator FRV Fuel Explosion",
+    "damageid": "Explosion_Vehicle_SeIncineratorDeath"
+   },
+   "damage": {
+    "dmg": 1500,
+    "dmg2": 1500,
+    "ap1": 6,
+    "ap2": 0,
+    "ap3": 0,
+    "ap4": 0,
+    "demo": 50,
+    "stun": 100,
+    "push": 40,
+    "name": "Explosion Vehicle Se Incinerator FRV"
+   }
+  }
+ }
+}
