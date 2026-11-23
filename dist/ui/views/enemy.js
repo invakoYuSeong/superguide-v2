@@ -113,7 +113,7 @@ const PRIMARY_HITS = [['blast', L('주탄 폭발만', 'Main projectile explosion
 // --- Ranking ----------------------------------------------------------------------
 const rankCache = new Map();
 function rankWeapons(enemy, shieldCleared, group = state.group) {
-  const key = `${enemy.id}|${shieldCleared}|${group}`;
+  const key = `${enemy.id}|${shieldCleared}|${group}|${state.distance}`;
   if (rankCache.has(key)) return rankCache.get(key);
   const entries = weaponsOf[group].map((weapon, order) => {
     const profile = profileOf(weapon.id);
@@ -124,9 +124,9 @@ function rankWeapons(enemy, shieldCleared, group = state.group) {
       const fallback = defaultCount(mode);
       if (mode.hitCondition && fallback == null) return { mode, status: 'assume' };
       const solved = fallback == null ? mode : withHitAssumption(mode, { ...DEFAULT_ASSUME, hitCount: String(fallback) });
-      const { best, rows } = solveMatchup(enemy, solved, { shieldCleared });
+      const { best, rows } = solveMatchup(enemy, solved, { shieldCleared, distance: state.distance });
       if (!best && noFatalPart(enemy)) {
-        const acc = solveAccumulation(enemy, solved, { shieldCleared });
+        const acc = solveAccumulation(enemy, solved, { shieldCleared, distance: state.distance });
         if (acc) return { mode, status: 'route', best: accumulatedBest(acc), rows, defaulted: fallback != null };
       }
       return { mode, status: best ? 'route' : 'none', best, rows, defaulted: fallback != null };
@@ -308,6 +308,8 @@ function ranking(enemy, entries, selectedId, detail) {
   ${large ? html`<div class="one-shot-note ${singles ? '' : 'none'}">${L(singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 <b>${singles}종</b>이 한 발에 처치합니다. 강조된 줄을 먼저 보세요.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 한 발에 처치하는 무기가 없습니다. 여러 발이 필요하니 주의하세요.`,
     singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · <b>${singles}</b> ${groupOf(state.group).name.toLowerCase()} ${singles === 1 ? 'weapon kills' : 'weapons kill'} it in one shot. Check the highlighted rows first.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · no ${groupOf(state.group).name.toLowerCase()} weapon kills it in one shot. Expect to need several.`)}</div>` : ''}
   <div class="segmented group-tabs" role="group" aria-label="${L('무기 분류', 'Weapon group')}">${GROUPS.map(group => html`<button type="button" data-group-pick="${group.id}" aria-pressed="${group.id === state.group}">${group.name} <span class="count">${weaponsOf[group.id].length}</span></button>`)}</div>
+  <div class="range-pick"><span>${L('사격 거리', 'Shooting distance')}</span><div class="segmented" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m</button>`)}</div>
+    <small class="faint">${L('탄의 직격 피해만 위키 공식으로 줄어듭니다. 폭발·광선·분사는 그대로입니다.', 'Only direct shot damage falls off, by the wiki formula. Explosions, beams and sprays are unchanged.')}</small></div>
   <div class="panel ranking">
     <div class="rank-head" aria-hidden="true"><span></span><span>${L('무기', 'Weapon')}</span><span>${L('노릴 부위', 'Aim for')}</span><span>${L('횟수', 'Shots')}</span><span>${L('결과', 'Result')}</span></div>
     ${main.map(row)}
@@ -468,9 +470,9 @@ function matchupSection(enemy, entries) {
   const reference = wikiReference(enemy, weapon.id, mode);
   const stats = attackStats(mode);
   const falls = dragOf(ballisticsOf(mode)) > 0;
-  const rangeNote = !falls ? (mode?.falloff ? L('거리 감쇠가 있어 표시 횟수는 근거리 최대 피해 기준입니다.', 'Damage falls off with range; counts use full close-range damage.') : '')
+  const rangeNote = !falls ? (state.distance && mode && !mode.unsupported ? L('이 모드는 사격 거리로 피해가 줄지 않습니다(항력이 없는 탄, 폭발, 광선 등).', 'This mode does not lose damage with shooting distance (no-drag rounds, explosions, beams and the like).') : '')
     : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다(위키 공식, 중력은 무시한 어림값). 폭발 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m (wiki formula, an estimate that ignores gravity). Explosion damage does not fall off with range.`)
-    : L('거리 0m(감쇠 없음) 기준입니다. 사격 거리를 고르면 위키의 거리 감쇠 공식으로 다시 계산합니다.', 'Counted at 0 m (no falloff). Pick a shooting distance to recount with the wiki falloff formula.');
+    : L(`거리 0m(감쇠 없음) 기준입니다. 위의 사격 거리를 고르면 위키의 거리 감쇠 공식으로 다시 계산합니다(100m에서 탄 피해 ${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}%).`, `Counted at 0 m (no falloff). Pick a shooting distance above to recount with the wiki falloff formula (${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}% shot damage at 100 m).`);
   const notes = [rangeNote, mode?.note, profile?.note].filter(Boolean);
   return html`<section class="matchup" id="matchup">
     <div class="section-title" style="margin-bottom:0"><h2>${L('부위별 계산', 'Part by part')}</h2><p>${assumptionText(mode)}</p></div>
@@ -479,7 +481,6 @@ function matchupSection(enemy, entries) {
         ${compareToggle(weapon, rawMode)}
         ${profile?.modes.length > 1 ? html`<div class="segmented" role="group" aria-label="${profile.modes.some(item => item.beam) ? L('거리', 'Range') : L('발사 모드', 'Firing mode')}">${profile.modes.map(item => html`<button type="button" data-mode-pick="${item.id}" aria-pressed="${item.id === rawMode?.id}">${item.name}</button>`)}</div>` : ''}</div>
       ${stats.length ? html`<div class="stat-chips">${stats.map(stat => html`<div class="stat-chip"><span>${stat.label}</span><b>${stat.value}</b>${stat.note ? html`<small>${stat.note}</small>` : ''}</div>`)}</div>` : ''}
-      ${falls ? html`<div class="range-pick"><span>${L('사격 거리', 'Shooting distance')}</span><div class="segmented" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m${d ? html`<small> ${Math.round(falloffAt(ballisticsOf(mode), d) * 100)}%</small>` : ''}</button>`)}</div></div>` : ''}
       ${notes.length ? html`<ul class="notes">${notes.map(note => html`<li>${note}</li>`)}</ul>` : ''}
     </div>
     ${mode ? assumptionControls(mode) : ''}

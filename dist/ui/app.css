@@ -652,7 +652,8 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .matchup-head h2 { font-size: 20px; font-weight: 800; }
 .matchup-head .segmented { margin-left: auto; }
 .stat-chips { display: flex; gap: 8px; flex-wrap: wrap; }
-.range-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.range-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 12px; }
+.range-pick > small { flex: 1 1 220px; font-size: 12.5px; }
 .range-pick > span { font-size: 12.5px; font-weight: 700; color: var(--text-2); }
 .range-pick .segmented { flex-wrap: wrap; }
 .range-pick small { font-weight: 500; opacity: .75; }
