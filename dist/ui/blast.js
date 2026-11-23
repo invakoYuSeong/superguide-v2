@@ -4,24 +4,25 @@ import { html } from './dom.js';
 import { L } from '../core/i18n.js';
 import { apBandOf } from '../core/catalog.js';
 
-// An enemy behind the circles at the same scale, so the radius reads against something known: a Rocket
-// Devastator up to 2 m and a Hulk Scorcher up to 3 m, where a Charger would outgrow the circle (user decision
-// 2026-11-23; a Trooper was there first, a Hulk is taller than a 2 m circle), a Charger for small
-// blasts, a Bile Titan for the rest (user decision 2026-11-20) and a grounded Illuminate Warp Ship for the biggest
-// (user decision 2026-11-23), centred like the others. Tried and dropped there: a Dragonroach (wings 41.5 m, too
-// thin to make out), and a Vox Engine or a Harvester (about a Bile Titan's size, too small).
+// An enemy behind the circles at the same scale, so the radius reads against something known, each kept to
+// roughly half to nine tenths of the circle: a Rocket Devastator up to 2 m and a Hulk Obliterator up to 3 m, where
+// a Charger would outgrow the circle (a Trooper was there first), a Charger up to 5 m, an Annihilator Tank up to
+// 7 m, filling the gap between a Charger and a Bile Titan, a Bile Titan up to 13 m and a grounded Illuminate Warp
+// Ship beyond (user decisions 2026-11-20 and 2026-11-23). Tried and dropped for the biggest: a Dragonroach (wings
+// 41.5 m, too thin to make out), and a Vox Engine or a Harvester (about a Bile Titan's size, too small).
 // Sizes are from the surface of the game models in their rest pose (Helldivers 2 01.007.202, via
 // hd2armorinspector.com), rounded; the wiki and the developer give no sizes. Spans are side to side across the
-// legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Rocket Devastator and the Hulk Scorcher by
-// their height (2.83 m and 4.33 m, measured 2026-11-23), since their rest poses spread the arms; the Warp Ship by
-// its length (34.2 m, measured 2026-11-23; 24.2 m wide), which its near-side view shows across. Pictures are the
-// wiki's Enemy Icons (the Warp Ship's is its 'Grounded Warp Ship Icon Render') cropped to the body (480 px on the
-// long side).
+// legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Rocket Devastator and the Hulk Obliterator by
+// their height (2.83 m and 3.87 m, measured 2026-11-23), since their rest poses spread the arms; the Annihilator
+// Tank (10.2 m long, 7.2 m wide) and the Warp Ship (34.2 m long, 24.2 m wide), measured 2026-11-23, by their
+// length, which their near-side views show across. Pictures are the wiki's Enemy Icons (the Warp Ship's is its
+// 'Grounded Warp Ship Icon Render') cropped to the body (480 px on the long side).
 const SCALE_ENEMIES = [
   { upTo: 2, name: L('로켓 데버스테이터', 'Rocket Devastator'), height: 2.8, src: './assets/blast/rocket-devastator.webp', ratio: 480 / 413 },
-  { upTo: 3, name: L('헐크 스코처', 'Hulk Scorcher'), height: 4.3, src: './assets/blast/hulk-scorcher.webp', ratio: 480 / 356 },
-  { upTo: 6, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
-  { upTo: 20, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
+  { upTo: 3, name: L('헐크 오블리터레이터', 'Hulk Obliterator'), height: 3.9, src: './assets/blast/hulk-obliterator.webp', ratio: 480 / 404 },
+  { upTo: 5, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
+  { upTo: 7, name: L('어나이얼레이터 탱크', 'Annihilator Tank'), span: 10, lengthwise: true, src: './assets/blast/annihilator-tank.webp', ratio: 204 / 480 },
+  { upTo: 13, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
   { upTo: Infinity, name: L('착륙한 워프 함선', 'grounded Warp Ship'), span: 34, lengthwise: true, src: './assets/blast/warp-ship.webp', ratio: 201 / 480 },
 ];
 
