@@ -53,10 +53,10 @@ export function blastFigure(item) {
       </g>
     </svg>
     <p>${L(html`${flat
-        ? html`반경 ${b(`${num(item.radius)}m`)} 안은 어디서나 최대 피해이고, 바깥은 피해가 없습니다.<br>나와 아군도 이 안에서는 다칠 수 있습니다.`
-        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지가 최대 피해가 들어가는 실제 효과 범위입니다.<br>바깥은 피해가 줄어 ${b(`${num(half)}m`)}에서 절반, ${b(`${num(item.radius)}m`)}에서 사라지고, 관통력도 1 낮아집니다(최소 2). 그래서 바깥 구간은 주로 장갑이 없거나 약한 적에게만 의미가 있습니다.<br>다만 나와 아군은 ${num(item.radius)}m 안에서 다칠 수 있습니다.`}<br><span class="faint">충격파·함선 강화 효과는 제외한 반경입니다.</span><br><span class="faint">비교 대상은 '${ref.name}'(${refSize})이며, 원과 같은 축척으로 뒤에 그렸습니다.</span>`,
+        ? html`${b(`${num(item.radius)}m`)} 안 어디서나 최대 피해, 바깥은 피해 없음.<br>나와 아군도 이 안에서 다칠 수 있음.`
+        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지 최대 피해(실제 효과 범위).<br>바깥은 ${b(`${num(item.radius)}m`)}까지 줄어들고(${b(`${num(half)}m`)}에서 절반) 관통력도 1 낮아 장갑 적에게는 거의 무효.<br>나와 아군은 ${num(item.radius)}m 안에서 다칠 수 있음.`}<br><span class="faint">충격파·함선 강화 제외. 뒤 그림은 같은 축척의 ${ref.name}(${refSize}).</span>`,
       html`${flat
-        ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond it.<br>You and your teammates can get hurt inside it too.`
-        : html`Full damage reaches ${b(`${num(item.innerRadius)}m`)} from the center: this is the range that really counts.<br>Further out the damage falls off, half at ${b(`${num(half)}m`)} and gone at ${b(`${num(item.radius)}m`)}, and penetration drops by 1 (to a minimum of 2), so that ring mostly matters against unarmored or lightly armored enemies.<br>You and your teammates can still get hurt within ${num(item.radius)}m.`}<br><span class="faint">Radii without shockwaves or ship modules.</span><br><span class="faint">For comparison, a ${ref.name} (${refSize}) is drawn behind to the same scale.</span>`)}</p>
+        ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond.<br>You and teammates can get hurt inside it.`
+        : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}) with 1 less penetration, so it does little to armored enemies.<br>You and teammates can get hurt within ${num(item.radius)}m.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
   </div>`;
 }
