@@ -621,6 +621,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 /* Enemy "Details" fold: spawning, behavior, tactics and tips, with the attack table folding inside. */
 .enemy-details { padding: 16px 18px; }
 .enemy-details .enemy-lore { padding: 0; }
+.enemy-lore .divided { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 6px; }
 .difficulty { white-space: nowrap; }
 .difficulty img { display: inline-block; height: 1.4em; width: auto; margin-right: 4px; vertical-align: -0.38em; }
 /* The icons' white wings fade on the light background: a thin shadow outlines them there. */

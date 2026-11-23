@@ -186,9 +186,10 @@ function withDifficulty(text) {
 // player's choice across enemies (state.detailsOpen, user decision 2026-11-23).
 function enemyDetails(enemy) {
   const info = enemyPages[enemy.id];
-  const block = (title, lines = [], linesEn = [], wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
+  const block = (title, lines = [], linesEn = [], wide = false, divided = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}${divided ? ' divided' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
   const blocks = info ? [block(L('등장', 'Spawning'), info.spawning, info.spawningEn), block(L('행동', 'Behavior'), info.behavior, info.behaviorEn),
-    block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true), block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true)].filter(Boolean) : [];
+    // A divider above Tactics, where Spawning and Behavior used to end their own panel.
+    block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true, Boolean(info.spawning?.length || info.behavior?.length)), block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true)].filter(Boolean) : [];
   const table = attacks(enemy);
   if (!blocks.length && !table) return '';
   return html`<details class="panel fold enemy-details" data-details ${state.detailsOpen ? raw('open') : ''}><summary><h2>${L('상세 정보', 'Details')}</h2></summary>
