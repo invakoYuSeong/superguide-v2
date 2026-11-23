@@ -140,8 +140,19 @@ const legacyVerdict = { pass: 'pass', short: 'insufficient', unknown: 'unknown',
 const healthAdded = { ...Object.fromEntries(Object.entries(stratagemAttackDamage).map(([id, modes]) => [id, Object.keys(modes)])),
   'arc-thrower': ['standard'], meltagun: ['standard'], 'grenade-launcher': ['standard'], 'belt-fed-gl': ['standard'],
   'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'], 'solo-silo': ['standard'] };
-const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).map(([id, profile]) => [id, !healthAdded[id] ? profile
-  : { ...profile, modes: profile.modes.map(mode => healthAdded[id].includes(mode.id) ? { ...mode, damage: undefined } : mode) }]));
+// Attacks the user confirmed to destroy the Grounded Warp Ship through its shield (2026-11-23): replayed without it.
+const shieldBypassAdded = { 'portable-hellbomb': ['standard'], hellbomb: ['standard'], leveller: ['standard'], 'solo-silo': ['standard'] };
+const legacyMode = (id, mode) => {
+  let out = healthAdded[id]?.includes(mode.id) ? { ...mode, damage: undefined } : mode;
+  if (shieldBypassAdded[id]?.includes(mode.id)) { const { shieldBypass, ...rest } = out; out = rest; }
+  return out;
+};
+const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).map(([id, profile]) => [id, !healthAdded[id] && !shieldBypassAdded[id] ? profile
+  : { ...profile, modes: profile.modes.map(mode => legacyMode(id, mode)) }]));
+for (const [id, modeIds] of Object.entries(shieldBypassAdded)) for (const modeId of modeIds) {
+  const result = solveDemolition(structures.find(item => item.id === 'warp-ship'), demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId));
+  assert(['demolish', 'health'].includes(result.outcome) && !result.conditions.length && (result.method !== 'health' || result.hits === 1), `${id}/${modeId}: destroys the Warp Ship through its shield`);
+}
 const builtAttacks = await buildStratagemAttacks();
 assert.deepEqual({ stratagemAttackDamage, stratagemAttackSource }, { stratagemAttackDamage: builtAttacks.damage, stratagemAttackSource: builtAttacks.source }, 'stratagem-attacks.js is out of date: run node scripts/build-stratagem-attacks.mjs');
 for (const [id, modes] of Object.entries(stratagemAttackDamage)) for (const modeId of Object.keys(modes)) assert(demolitionProfiles[id]?.modes.some(mode => mode.id === modeId && mode.damage === modes[modeId]), `${id}/${modeId}: damage reaches the demolition mode`);

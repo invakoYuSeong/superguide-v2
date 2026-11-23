@@ -95,9 +95,11 @@ export const demolitionProfiles = {
     mode('charge', '폭발 장약 사용', 30, 30, { directLabel: '타격', damage: combatDamage('breaching-hammer', 'explosive') }),
   // Known in play not to close bug holes, even from inside (user decision 2026-11-20).
   ], { notOn: ['bug-hole'] }),
-  'leveller': profile(shot(40, 40, { damage: combatDamage('leveller', 'standard') })),
+  // The Leveller and the Solo Silo destroy a Grounded Warp Ship in one hit whatever its shield (user's play experience
+  // 2026-11-23; the wiki is silent).
+  'leveller': profile(shot(40, 40, { damage: combatDamage('leveller', 'standard'), shieldBypass: true })),
   'wasp': profile(shot(30, 30), { conditionalAim: true, note: indirect }),
-  'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.', damage: largestBlast('solo-silo', 'standard') })),
+  'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.', damage: largestBlast('solo-silo', 'standard'), shieldBypass: true })),
   // Wiki Demolition summary (revision 138005), Other Stratagems: TD-110 Maelstrom,
   // Missile Explosion, force 40, explosive. The table has no row for its Gatling guns.
   'maelstrom': profile(shot(null, 40, { name: '미사일 폭발' })),
@@ -137,8 +139,9 @@ export const demolitionProfiles = {
   'personnel-mines': profile(shot(null, 30), { conditionalAim: true, note: '시설 가까이에서 지뢰가 실제로 기폭해야 합니다.' }),
   'incendiary-mines': profile(shot(null, 30), { conditionalAim: true, note: '시설 가까이에서 지뢰가 실제로 기폭해야 합니다. 잔불은 제외합니다.' }),
   'gas-mines': profile(shot(null, 30), { conditionalAim: true, note: '시설 가까이에서 지뢰가 실제로 기폭해야 합니다. 가스 지속 피해는 제외합니다.' }),
-  'portable-hellbomb': profile(shot(null, 60, { name: '지옥폭탄 폭발', note: '시설이 중심 17 m 안에 들어오는 조건입니다. 이미 휴대한 폭탄의 기폭은 스트라타젬 호출과 다릅니다.' }), { source: wiki('Portable_Hellbomb') }),
-  'hellbomb': callIn(shot(null, 60, { name: '지옥폭탄 폭발', note: '시설이 중심 17 m 안에 들어오는 조건입니다. 호출이 허용되는 임무 구역에서 장전해야 합니다.' }), { source: wiki('Portable_Hellbomb') }),
+  // The Hellbombs destroy a Grounded Warp Ship whatever its shield (user's play experience 2026-11-23; the wiki is silent).
+  'portable-hellbomb': profile(shot(null, 60, { name: '지옥폭탄 폭발', shieldBypass: true, note: '시설이 중심 17 m 안에 들어오는 조건입니다. 이미 휴대한 폭탄의 기폭은 스트라타젬 호출과 다릅니다.' }), { source: wiki('Portable_Hellbomb') }),
+  'hellbomb': callIn(shot(null, 60, { name: '지옥폭탄 폭발', shieldBypass: true, note: '시설이 중심 17 m 안에 들어오는 조건입니다. 호출이 허용되는 임무 구역에서 장전해야 합니다.' }), { source: wiki('Portable_Hellbomb') }),
   'seaf-artillery': callIn([
     mode('he', '고폭탄', 50, 50, { shieldBypass: true }),
     mode('high-yield', '고위력탄', 50, 50, { shieldBypass: true }),
