@@ -37,13 +37,13 @@ for (const [group, list] of groups) {
   });
 }
 // Environmental conditions: every number in the detail lines is on the condition's wiki page or in the
-// datamine attack record stored with it (meteors, volcano rocks, the tremor's reach). Tips are player
+// datamine attack record stored with it (meteors, volcano rocks). Tips are player
 // experience the wiki lacks, so only their Korean and English pairing is checked.
-text.conditions.forEach((source, index) => {
-  const item = planets.conditions[index];
+// Operation modifiers with detail lines are checked the same way against their own pages.
+[...text.conditions.map((source, index) => [source, planets.conditions[index]]), ...text.modifiers.map((source, index) => [source, planets.operationModifiers[index]])].forEach(([source, item]) => {
   if (source.tips) ok(item.tips?.length === source.tips.ko.length && item.tips.length === item.tipsEn.length, `${source.id}: tips need Korean and English line by line (run build-planets)`);
   if (!source.detail) return;
-  const page = wiki.conditionPages?.[source.page];
+  const page = wiki.conditionPages?.[source.page] ?? wiki.modifierPages?.[source.page];
   ok(page, `${source.id}: wiki page ${source.page} not downloaded (run fetch-planet-pages)`);
   ok(item.revision === page.revision && item.detail.length === item.detailEn.length, `${source.id}: detail is stale or not paired line by line (run build-planets)`);
   const pageText = page.text + JSON.stringify(wiki.conditionAttacks?.records[source.page] ?? {});

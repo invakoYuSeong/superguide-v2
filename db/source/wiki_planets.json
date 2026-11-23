@@ -860,6 +860,18 @@
    "text": "{{Stub|Get Images!}}\n{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n\n{{Environmental Conditions|{{PAGENAME}}}}\n\n== Details ==\n===Attack Data===\n<div class=\"flextablediv\">\n{{Attack_Data/attack|projectile|World_VolcanoStrike}}\n{{Attack_Data/attack|explosion|World_VolcanoStrike}}\n</div>\n\n== Tactical Information ==\n* Impact zones on the ground can be seen with a red-hue during daytime and during night the impact zones are white-hued until a moment before the impact.\n* On impact, the burning rocks leave behind patches of fire.\n* The haphazard nature of Volcanic Activity while deadly to Helldivers has the possible perk of significantly hastening the progress of the mission by destroying objectives hundreds of meters away from the current location of the Helldivers due to being a map-wide event rather than being a radius tied to a Helldiver.\n\n== Affected Biomes ==\n* [[Volcanic Jungle]]\n\n== Gallery ==\n<gallery>\nFile:Volcanic Activity Falling Burning Rock.png|A burning rock seem falling in the distance\nFile:Volcanic Activity Falling Burning Rock Closer Towards.png|A burning rock falling trhough a cloud of smoke towards the observer\n</gallery>\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n* Reduced rock explosion radius\n* Reduced rock velocity slightly\n}}\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
   }
  },
+ "modifierPages": {
+  "Orbital Fluctuations": {
+   "revision": 95418,
+   "timestamp": "2025-12-27T05:53:49Z",
+   "text": "{{Breadcrumb Auto|parent=Operation Modifiers}}\n{{Stub|Add Screenshots and Additional Tactical Details}}\n{{PAGENAME}} is an [[Operation_Modifiers|Operation Modifier]] in [[Helldivers 2]].\n\n== Details ==\n* [[:Category:Stratagems|Stratagem]] cooldown increased by 25%\n** The cooldown increase is calculated and added on top of the upgraded value. E.G. fully upgraded [[A/MG-43 Machine Gun Sentry]] cooldown increases from 77 seconds to 96 seconds with final roundinge.\n\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.200|changes=\nChange\n* Halved the cooldown increase from 50% to 25%.\n}}\n[[Category:Operation Modifiers]]\n[[Category:General Operation Modifiers]]\n\n{{Nav Mechanic}}"
+  },
+  "Poor Intel": {
+   "revision": 125246,
+   "timestamp": "2026-07-03T21:16:26Z",
+   "text": "{{Breadcrumb Auto|parent=Operation Modifiers}}\n{{Quote|'''Objective locations''' are hidden.|Operation Modifiers Description}}\n\n'''{{PAGENAME}}''' is an [[Operation_Modifiers|Operation Modifier]] in ''[[Helldivers 2]]'' exclusive to the [[Automatons|Automaton]] front.\n\n== Details ==\n*Hides the exact location of Missions Objectives on the map, requiring Helldivers to search within a radius for a Mission Objective.\n**Practically all objective-markers are turned into \"Elimination\"-markers such as seen in [[Eliminate Automaton Hulks]]-mission.\n**Topographics on the minimap remain unchanged, enabling sharp-eyed Helldivers to scout and easily spot larger objectives such [[Launch ICBM|ICBM Launch areas]]\n** Pinging the objective will display its precise location on the minimap. Such as pinging the tower of the Air Base Control Tower.\n\n== Gallery ==\n<gallery>\nFile:Poor Intel Operation Modifier Map Preview Example.png|Poor Intel example when previewing a map in the mission selection screen.\n</gallery>\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.002|changes=\nAdded to the game\n}}\n\n[[Category:Operation Modifiers]]\n[[Category:General Operation Modifiers]]\n\n{{Nav Mechanic}}"
+  }
+ },
  "conditionAttacks": {
   "source": "Module:Decodedata-Attacks/enemydata.json",
   "revision": 73882,
@@ -965,29 +977,6 @@
      "stun": 30,
      "push": 20,
      "name": "World Volcano Strike"
-    }
-   },
-   "Tremors": {
-    "explosion": {
-     "r1": 75,
-     "r2": 85,
-     "r3": 90,
-     "name": "World Earthquake",
-     "damageid": "Explosion_Earthquake"
-    },
-    "explosionDamage": {
-     "dmg": 0,
-     "dmg2": 0,
-     "ap1": 6,
-     "ap2": 0,
-     "ap3": 0,
-     "ap4": 0,
-     "demo": 0,
-     "stun": 10,
-     "push": 40,
-     "param1": 50,
-     "name": "Explosion Earthquake",
-     "status_name": "Tremor"
     }
    }
   }

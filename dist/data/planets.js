@@ -310,12 +310,12 @@ export const conditions = [
   "detail": [
    "지진이 시작되면 기력이 모두 사라집니다.",
    "지진 동안 적은 계속 기절하고, 헬다이버는 느려지기만 합니다.",
-   "맵 전체가 아니라 무작위로 고른 헬다이버 한 명 주변에서 일어납니다. datamine 지진 기록 기준 범위는 75m이고, 가장자리까지 90m입니다."
+   "맵 전체가 아니라 무작위로 고른 헬다이버 한 명 주변의 넓은 범위에서 일어납니다."
   ],
   "detailEn": [
    "It drains all your stamina when it starts.",
    "Enemies stay stunned while it lasts, and Helldivers are only slowed.",
-   "It strikes around one random Helldiver, not the whole map. The datamine earthquake record reaches 75 m, with its edge at 90 m."
+   "It strikes a wide area around one random Helldiver, not the whole map."
   ],
   "revision": 90350
  },
@@ -610,7 +610,14 @@ export const operationModifiers = [
   "descriptionEn": "Stratagem cooldown increased by 25%.",
   "wiki": "https://helldivers.wiki.gg/wiki/Orbital_Fluctuations",
   "faction": null,
-  "where": null
+  "where": null,
+  "detail": [
+   "함선 모듈로 줄인 재사용 대기에 25%가 더해집니다. 예를 들어 함선 모듈을 모두 올린 기관총 센트리는 77초에서 96초가 됩니다."
+  ],
+  "detailEn": [
+   "The 25% is added on top of the cooldown already cut by ship modules. A fully upgraded Machine Gun Sentry, for example, goes from 77 to 96 seconds."
+  ],
+  "revision": 95418
  },
  {
   "id": "poor-intel",
@@ -620,7 +627,14 @@ export const operationModifiers = [
   "descriptionEn": "Objective locations are hidden.",
   "wiki": "https://helldivers.wiki.gg/wiki/Poor_Intel",
   "faction": null,
-  "where": null
+  "where": null,
+  "detail": [
+   "목표 위치가 정확한 장소가 아닌 범위로 표시됩니다. 범위 안에서 목표를 찾아 핑을 찍으면 정확한 위치가 표시됩니다."
+  ],
+  "detailEn": [
+   "Objectives show as an area rather than an exact spot. Find the objective inside it and ping it to mark its exact location."
+  ],
+  "revision": 125246
  },
  {
   "id": "civilians-and-seaf",

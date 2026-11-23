@@ -46,8 +46,10 @@ out.hazardPages = await pages(HAZARD_PAGES);
 const CONDITION_PAGES = ['Acid Storms', 'Blizzards', 'Extreme Cold', 'Fire Tornados', 'Intense Heat', 'Ion Storms', 'Meteor Storms', 'Rainstorms', 'Sandstorms', 'Thick Fog', 'Tremors', 'Volcanic Activity'];
 await sleep(2000);
 out.conditionPages = await pages(CONDITION_PAGES);
-// The datamine records the Meteor Storms and Volcanic Activity pages show in their Attack Data boxes,
-// and the World Earthquake explosion (the tremor's reach).
+// Operation modifier pages whose Details the planet tab summarizes, 2026-11-23.
+await sleep(2000);
+out.modifierPages = await pages(['Orbital Fluctuations', 'Poor Intel']);
+// The datamine records the Meteor Storms and Volcanic Activity pages show in their Attack Data boxes.
 await sleep(2000);
 const ENEMY_DATA = 'Module:Decodedata-Attacks/enemydata.json';
 const enemyData = (await pages([ENEMY_DATA]))[ENEMY_DATA];
@@ -61,7 +63,7 @@ const attackOf = (projectile, explosion) => {
 };
 out.conditionAttacks = {
   source: ENEMY_DATA, revision: enemyData.revision, timestamp: enemyData.timestamp,
-  records: { 'Meteor Storms': attackOf('World_Meteor', 'World_Meteor'), 'Volcanic Activity': attackOf('World_VolcanoStrike', 'World_VolcanoStrike'), Tremors: attackOf(null, 'World_Earthquake') },
+  records: { 'Meteor Storms': attackOf('World_Meteor', 'World_Meteor'), 'Volcanic Activity': attackOf('World_VolcanoStrike', 'World_VolcanoStrike') },
 };
 // Biome pages named in the Biomes page's {{BiomeBox|...}} lists (the city megastructures are regions, not biomes).
 const titles = [...main.Biomes.text.matchAll(/\{\{BiomeBox\|([^}]+)\}\}/g)].flatMap(match => match[1].split('|').map(title => title.trim()))

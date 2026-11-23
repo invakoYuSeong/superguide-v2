@@ -32,18 +32,21 @@ const entry = (item, extra = {}) => ({
 
 // The wiki's original icon of an entry, when fetch-planet-pages stored one for its id.
 const iconOf = id => wiki.icons[id] ? { src: `./assets/conditions/${wiki.icons[id].file}`, source: wiki.icons[id].source, sha256: wiki.icons[id].sha256 } : null;
-// Detail lines summarize the condition's own wiki page (and its datamine attack record); tips are
-// player experience the wiki lacks, shown apart as field tips.
+// Detail lines summarize the condition's or modifier's own wiki page (and its datamine attack record);
+// tips are player experience the wiki lacks, shown apart as field tips.
+const detailOf = item => ({
+  ...(item.detail && { detail: item.detail.ko, detailEn: item.detail.en, revision: (wiki.conditionPages?.[item.page] ?? wiki.modifierPages?.[item.page])?.revision ?? null }),
+  ...(item.tips && { tips: item.tips.ko, tipsEn: item.tips.en }),
+});
 const conditions = text.conditions.map(item => entry(item, {
   icon: iconOf(item.id),
   biomes: biomesWith(item.page),
-  ...(item.detail && { detail: item.detail.ko, detailEn: item.detail.en, revision: wiki.conditionPages?.[item.page]?.revision ?? null }),
-  ...(item.tips && { tips: item.tips.ko, tipsEn: item.tips.en }),
+  ...detailOf(item),
 }));
 const gloom = text.gloom.map(item => entry(item));
 // Exostorm classes, Heavy SEAF Presence and the Democracy Space Station: game name and description, plus the wiki page's facts.
 const special = text.special.map(item => entry(item, { detail: item.detail.ko, detailEn: item.detail.en, ...(iconOf(item.id) && { icon: iconOf(item.id) }) }));
-const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null }));
+const modifiers = text.modifiers.map(item => entry(item, { faction: item.faction || null, where: item.where || null, ...detailOf(item) }));
 // Environmental hazards (mines, barbed wire, lava, plants): the game's name where it has one, else the site's,
 // with lines summarizing each wiki page and the biomes it names (by title or by archetype).
 const biomeIds = new Set(Object.keys(wiki.biomes).map(slug));
