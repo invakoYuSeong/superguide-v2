@@ -90,4 +90,8 @@ ok(JSON.stringify(unlockOf(`| unlock_level = 1
 ok(unlockOf(`| unlock_cost = {{Currency|Medals|110}}
 `) === null && unlockOf(`| unlock_level = | unlock_cost = | source = N/A
 `) === null, 'unlock: none for medal costs or an empty level');
+// Mode tabs that name their datamine record (special effects per tab) point at a record the forces really have.
+for (const item of stratagems) for (const variant of item.variants ?? []) for (const record of [variant.record ?? []].flat()) {
+  ok(stratagemStats[item.id]?.forces.some(group => group.attack === record), `${item.id}/${variant.id}: record ${record} is not among its datamine attacks`);
+}
 console.log(`PASS stratagem stats: ${checks} checks (${stratagems.length} stratagems, ${shipModules.length} ship modules, Ship Modules revision ${shipModulesSource.revision}, ${REVIEWED.size} reviewed difference).`);

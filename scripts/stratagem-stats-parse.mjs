@@ -140,7 +140,8 @@ export function forcesOf(found, strat, weapons) {
       // "..._Overcharge_E" is the weapon blowing up when overcharged (Railgun, Epoch), not a shot;
       // "..._BACKBLAST_E" is the blast out of the back of a launcher when it fires (Recoilless, EATs, Commando...).
       const kind = /Overcharge/i.test(attack.name) ? 'overcharge' : /BACKBLAST/i.test(attack.name) ? 'backblast' : attack.type === 'projectile' && attack.level > 1 ? 'fragment' : KIND[attack.type];
-      const group = local.get(top(attack)) ?? { weapon, parts: [] };
+      // attack: the top-level record the group belongs to (e.g. SEAF Artillery shell S_P8), so a mode can pick its own.
+      const group = local.get(top(attack)) ?? { weapon, attack: top(attack), parts: [] };
       local.set(top(attack), group);
       if (!group.parts.some(part => part.kind === kind && part.demo === damage.demo && part.stun === damage.stun && part.push === damage.push)) group.parts.push({ kind, demo: damage.demo ?? null, stun: damage.stun, push: damage.push });
     }

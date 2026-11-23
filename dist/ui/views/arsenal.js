@@ -345,8 +345,12 @@ function fallbackRows(profile, value) {
 // Combat modes of the detailed stats block with no matching table variant.
 const MODE_LABELS = { flak: L('대공포탄 모드', 'Flak mode'), cluster: L('집속탄 모드', 'Cluster mode') };
 
-function specialBlock(item, profile) {
-  const forces = stratagemStats[item.id]?.forces ?? [];
+// variant: a mode tab whose datamine record(s) it names (variant.record: one SEAF Artillery shell, a vehicle's weapon); it
+// shows its own records plus any record no tab claims (e.g. a launcher's backblast). Without one, every attack.
+const recordsOf = variant => [variant?.record ?? []].flat();
+function specialBlock(item, profile, variant = null) {
+  const claimed = (item.variants ?? []).flatMap(recordsOf);
+  const forces = (stratagemStats[item.id]?.forces ?? []).filter(group => !variant || recordsOf(variant).includes(group.attack) || !claimed.includes(group.attack));
   if (!profile?.modes?.length && !forces.length) return '';
   const value = force => force == null ? '?' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
   // Where the demolition data keeps a range (sources disagree), show that range instead of the datamine number.
@@ -457,7 +461,7 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     ${timingBlock(item)}
     ${durabilityBlock(item)}
     ${defenseBlock(item)}
-    ${specialBlock(item, force)}
+    ${variants?.some(v => v.record) ? variants.map(v => html`<div data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${specialBlock(item, force, v)}</div>`) : specialBlock(item, force)}
     ${ballisticsBlock(Object.entries(supportProjectileRecords[item.id] || {}).map(([modeId, record]) => ({ label: T(item.variants?.find(v => v.id === modeId)?.name) ?? MODE_LABELS[modeId] ?? item.name, record, propelled: propelledModes[item.id]?.includes(modeId) })))}
     ${changesBlock(item)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
