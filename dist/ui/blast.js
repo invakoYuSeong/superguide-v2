@@ -32,7 +32,7 @@ export function blastFigure(item) {
   const b = text => html`<b style="color:var(--text)">${text}</b>`;
   // The inner circle is to scale, like the enemy behind it; the floor only keeps a tiny one visible (none is
   // that small today: the smallest is 1 m of 10 m).
-  const outer = 56, inner = Math.max(3, outer * item.innerRadius / item.radius);
+  const outer = 63, inner = Math.max(3, outer * item.innerRadius / item.radius);
   const ref = SCALE_ENEMIES.find(enemy => item.radius <= enemy.upTo);
   const refW = ref.span ? ref.span * outer / item.radius : ref.height * outer / item.radius / ref.ratio, refH = refW * ref.ratio;
   const refSize = ref.span ? L(`다리 폭 약 ${num(ref.span)}m`, `legs about ${num(ref.span)} m across`) : L(`키 약 ${num(ref.height)}m`, `about ${num(ref.height)} m tall`);
