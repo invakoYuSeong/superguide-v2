@@ -139,7 +139,7 @@ const legacyVerdict = { pass: 'pass', short: 'insufficient', unknown: 'unknown',
 // where the legacy left it unknown while every force verdict stays the same.
 const healthAdded = { ...Object.fromEntries(Object.entries(stratagemAttackDamage).map(([id, modes]) => [id, Object.keys(modes)])),
   'arc-thrower': ['standard'], meltagun: ['standard'], 'grenade-launcher': ['standard'], 'belt-fed-gl': ['standard'],
-  'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'] };
+  'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'], 'solo-silo': ['standard'] };
 const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).map(([id, profile]) => [id, !healthAdded[id] ? profile
   : { ...profile, modes: profile.modes.map(mode => healthAdded[id].includes(mode.id) ? { ...mode, damage: undefined } : mode) }]));
 const builtAttacks = await buildStratagemAttacks();

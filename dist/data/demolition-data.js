@@ -52,6 +52,13 @@ export const structures = [
 
 const damage = (standard, durable, ap, explosion = 0, explosionAp = 0) => ({ standard, durable, ap, explosion, explosionAp });
 const combatDamage = (id, modeId) => weaponProfiles[id]?.modes.find(mode => mode.id === modeId && !mode.unsupported);
+// A combat mode made of several explosions (the Solo Silo's impact and main blast) as one structure hit with its
+// largest explosion; the blasts' demolition force still never adds up.
+const largestBlast = (id, modeId) => {
+  const found = combatDamage(id, modeId);
+  const blast = (found?.explosions ?? []).reduce((best, item) => !best || item.standard > best.standard ? item : best, null);
+  return blast ? { ...found, explosion: blast.standard, explosionAp: blast.ap, explosionDurable: blast.durable ?? blast.standard } : found;
+};
 const mode = (id, name, direct, explosion, extra = {}) => ({ id, name, direct, explosion, ...extra });
 const profile = (modes, extra = {}) => ({ source: demolitionSource, modes, ...extra });
 const shot = (direct, explosion, extra = {}) => [mode('standard', '기본 공격', direct, explosion, extra)];
@@ -90,7 +97,7 @@ export const demolitionProfiles = {
   ], { notOn: ['bug-hole'] }),
   'leveller': profile(shot(40, 40, { damage: combatDamage('leveller', 'standard') })),
   'wasp': profile(shot(30, 30), { conditionalAim: true, note: indirect }),
-  'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.' })),
+  'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.', damage: largestBlast('solo-silo', 'standard') })),
   // Wiki Demolition summary (revision 138005), Other Stratagems: TD-110 Maelstrom,
   // Missile Explosion, force 40, explosive. The table has no row for its Gatling guns.
   'maelstrom': profile(shot(null, 40, { name: '미사일 폭발' })),
