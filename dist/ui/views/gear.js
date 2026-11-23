@@ -16,7 +16,7 @@ import { apBandOf } from '../../core/catalog.js';
 import { search, personalNames } from '../../core/search.js';
 import { num, strongest } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
-import { blastFigure } from '../blast.js';
+import { blastFigure, blastCaption } from '../blast.js';
 import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
@@ -94,7 +94,8 @@ export function gearStats(w) {
   const pen = { label: L('관통', 'Penetration'), ...(ap ? { text: ap } : dim(isUtility(w) ? '—' : L('미확인', 'Unverified'))), caption: ap ? apBandOf({ ap: apOf(w) })?.name : '' };
   if (w.category === 'throwable') {
     return [damage, pen,
-      w.radius != null ? { label: L('반경', 'Radius'), text: num(w.radius), unit: 'm', caption: w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m`, `Inner ${num(w.innerRadius)}m`) : '' } : { label: L('반경', 'Radius'), ...dim('—') },
+      w.radius != null && w.innerRadius != null ? { label: L('반경', 'Radius'), text: num(w.innerRadius), unit: 'm', caption: blastCaption(w) }
+        : w.radius != null ? { label: L('반경', 'Radius'), text: num(w.radius), unit: 'm', caption: '' } : { label: L('반경', 'Radius'), ...dim('—') },
       { label: L('소지', 'Carried'), ...value(w.throwableCapacity, L('개', '')), caption: fuseText(w) ? L(`신관 ${fuseText(w)}`, `Fuse: ${fuseText(w)}`) : '' }];
   }
   const ammo = w.heatCapacity?.seconds != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.seconds), unit: L('초', 's'), caption: w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발`, `About ${w.heatCapacity.shots} shots`) : L('무한 탄약', 'Unlimited ammo') }
@@ -204,7 +205,8 @@ function detailRows(w) {
   if (w.dot?.perSecond != null) add(L(`${ELEMENTS[w.dot.element] || '지속'} 피해`, `${ELEMENTS[w.dot.element] || 'Over-time'} damage`), num(w.dot.perSecond), perSecond, w.dot.duration != null ? L(`${num(w.dot.duration)}초 동안`, `For ${num(w.dot.duration)}s`) : L('불이 붙어 있는 동안', 'While it burns'));
   // Gas and arc damage rows carry the wiki damage icon.
   if (w.dot?.perSecond != null && DOT_ICON[w.dot.element]) rows.at(-1).icon = DOT_ICON[w.dot.element];
-  if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', w.innerRadius != null ? L(`중심 ${num(w.innerRadius)}m까지 최대 피해`, `Full damage within ${num(w.innerRadius)}m`) : L('외곽', 'Outer'));
+  if (w.radius != null && w.innerRadius != null) add(L('폭발 반경', 'Blast radius'), num(w.innerRadius), 'm', blastCaption(w));
+  else if (w.radius != null) add(L('폭발 반경', 'Blast radius'), num(w.radius), 'm', L('외곽', 'Outer'));
   extra('reach');
   // The deployed shield of the Shield grenade (wiki datamine table).
   if (w.shield) {
@@ -249,7 +251,7 @@ function variantTable(w) {
         <td>${v.direct != null ? html`${num(v.direct)}${v.pellets > 1 ? html`<small>×${v.pellets}</small>` : ''}` : html`<span class="faint">—</span>`}</td>
         <td>${v.ap != null ? `AP ${v.ap}` : v.splashAp != null ? `AP ${v.splashAp}` : html`<span class="faint">—</span>`}</td>
         <td>${v.splash != null ? num(v.splash) : html`<span class="faint">—</span>`}</td>
-        <td>${v.radius != null ? `${num(v.radius)}m` : html`<span class="faint">—</span>`}</td></tr>`)}</tbody>
+        <td>${v.radius != null && v.innerRadius != null ? html`${num(v.innerRadius)}m <small class="faint">${L(`외곽 ${num(v.radius)}m`, `outer ${num(v.radius)}m`)}</small>` : v.radius != null ? `${num(v.radius)}m` : html`<span class="faint">—</span>`}</td></tr>`)}</tbody>
     </table></div></section>`;
 }
 

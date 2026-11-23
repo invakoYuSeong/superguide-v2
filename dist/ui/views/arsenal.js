@@ -5,7 +5,7 @@ import { num, strongest } from '../../core/explain.js';
 import { shieldRecovery } from '../../core/defense.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom.js';
-import { blastFigure } from '../blast.js';
+import { blastFigure, blastCaption } from '../blast.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
@@ -19,7 +19,7 @@ const SORTS = [
   { id: 'direct', name: L('직격 피해 순', 'Direct damage'), value: item => item.direct },
   { id: 'splash', name: L('폭발 피해 순', 'Blast damage'), value: item => item.splash },
   { id: 'ap', name: L('관통력 순', 'Penetration'), value: item => item.ap },
-  { id: 'reach', name: L('사거리·반경 순', 'Range / radius'), value: item => item.range ?? item.radius },
+  { id: 'reach', name: L('사거리·반경 순', 'Range / radius'), value: item => item.range ?? item.innerRadius ?? item.radius },
 ];
 const MAX_COMPARE = 3;
 
@@ -43,7 +43,9 @@ function stats(item) {
   const none = item.utility;
   const value = (number, text, zero) => text ? { text } : none ? { text: '—', dim: true } : number == null ? { text: L('미확인', 'Unverified'), dim: true } : number === 0 && zero ? { text: zero, dim: true } : { text: num(number), unit: dps && zero == null ? '/s' : '' };
   const reach = item.range != null ? { text: num(item.range), unit: 'm', label: L('사거리', 'Range'), caption: item.rangeType }
-    : item.radius != null ? { text: num(item.radius), unit: 'm', label: L('반경', 'Radius'), caption: item.innerRadius != null ? L(`중심 ${num(item.innerRadius)}m · 외곽 ${num(item.radius)}m`, `Inner ${num(item.innerRadius)}m · outer ${num(item.radius)}m`) : L('폭발 외곽 반경', 'Outer blast radius') }
+    // With both radii known, the full-damage core is the headline and the falloff edge the caption (user decision 2026-11-23).
+    : item.radius != null && item.innerRadius != null ? { text: num(item.innerRadius), unit: 'm', label: L('반경', 'Radius'), caption: blastCaption(item) }
+    : item.radius != null ? { text: num(item.radius), unit: 'm', label: L('반경', 'Radius'), caption: L('폭발 외곽 반경', 'Outer blast radius') }
     : { text: item.rangeLabel || L('미확인', 'Unverified'), dim: !item.rangeLabel || item.rangeLabel === '미확인', label: L('범위', 'Area'), caption: item.rangeNoteShort };
   return [
     { label: dps ? L('지속 피해', 'Damage/s') : L('직격', 'Direct'), icon: dps ? streamOf(item) : '', caption: item.directNoteShort || (none ? L('지원 장비', 'Utility gear') : dps ? L('초당', 'Per second') : item.unit), ...value(item.direct, item.directText) },
@@ -65,7 +67,8 @@ function variantBrief(item, variant) {
   if (v.splashText) parts.push(T(v.splashText));
   else if (v.splash > 0) parts.push(`${L('폭발', 'Blast')} ${num(v.splash)}`);
   parts.push(`AP ${v.ap}${v.splashAp != null && v.splashAp !== v.ap ? `/${v.splashAp}` : ''}`);
-  if (v.radius != null) parts.push(`${L('외곽', 'outer')} ${num(v.radius)}m`);
+  if (v.radius != null && v.innerRadius != null) parts.push(`${L('반경', 'radius')} ${num(v.innerRadius)}m`);
+  else if (v.radius != null) parts.push(`${L('외곽', 'outer')} ${num(v.radius)}m`);
   return parts.join(' · ');
 }
 
@@ -519,7 +522,7 @@ function openCompare() {
         ${numericRow(items[0].damageKind === 'dps' ? L('직격 / 지속', 'Direct / per second') : L('직격', 'Direct'), 0, item => item.direct)}
         ${numericRow(L('폭발', 'Blast'), 1, item => item.splash)}
         ${numericRow(L('관통', 'Penetration'), 2, item => item.ap)}
-        ${numericRow(L('사거리·반경', 'Range / radius'), 3, item => item.range ?? item.radius)}
+        ${numericRow(L('사거리·반경', 'Range / radius'), 3, item => item.range ?? item.innerRadius ?? item.radius)}
         ${items.some(item => item.variants) ? textRow(L('모드별', 'Modes'), item => item.variants ? html`<ul class="compare-modes">${item.variants.map(v => html`<li><b>${v.name}</b> ${variantBrief(item, v)}</li>`)}</ul>` : '') : ''}
         ${textRow(L('호출 코드', 'Stratagem code'), item => item.input ? keycaps(item.input) : '')}
         ${items.some(item => item.defense) ? textRow(L('방어', 'Defense'), item => item.defense?.type === 'energy' ? L(`보호막 ${num(item.defense.shield?.capacity)} · 재생 ${num(item.defense.shield?.regeneration)}/초`, `Shield ${num(item.defense.shield?.capacity)} · regen ${num(item.defense.shield?.regeneration)}/s`) : item.defense ? L(`본체 체력 ${num(item.defense.body?.hp)} · 장갑 ${item.defense.body?.armor}`, `Body health ${num(item.defense.body?.hp)} · armor ${item.defense.body?.armor}`) : '') : ''}
