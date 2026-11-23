@@ -8,11 +8,12 @@ import { L } from './i18n.js';
 
 export const CHECKED_AT = '2026-09-16';
 
+// Filter order follows the permit families: offensive, defensive, supply, mission (user decision 2026-11-23).
 export const categories = [
-  { id: 'support', name: L('지원 무기', 'Support Weapons'), hint: L('직접 들고 싸우는 세 번째 무기', 'The third weapon you carry into the fight'), color: 'var(--c-support)' },
   { id: 'orbital', name: L('궤도 지원', 'Orbitals'), hint: L('구축함이 내려보내는 포격', 'Strikes from your Super Destroyer'), color: 'var(--c-orbital)' },
   { id: 'eagle', name: L('이글', 'Eagles'), hint: L('짧은 간격의 근접 항공 지원', 'Close air support on short cooldowns'), color: 'var(--c-eagle)' },
   { id: 'defense', name: L('방어 설비', 'Defensive'), hint: L('센트리·설치 무기·보호막', 'Sentries, emplacements, shields'), color: 'var(--c-defense)' },
+  { id: 'support', name: L('지원 무기', 'Support Weapons'), hint: L('직접 들고 싸우는 세 번째 무기', 'The third weapon you carry into the fight'), color: 'var(--c-support)' },
   { id: 'backpack', name: L('배낭', 'Backpacks'), hint: L('생존·기동·보급', 'Survival, mobility, supply'), color: 'var(--c-backpack)' },
   { id: 'vehicle', name: L('차량·엑소슈트', 'Vehicles & Exosuits'), hint: L('타고 싸우는 장비', 'Gear you ride into battle'), color: 'var(--c-vehicle)' },
   { id: 'mission', name: L('임무·공용', 'Mission & Common'), hint: L('보급과 임무 목표', 'Resupply and objectives'), color: 'var(--c-mission)' },
