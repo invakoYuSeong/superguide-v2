@@ -58,7 +58,8 @@ for (const id of Object.keys(demolitionProfiles)) ok(byId.has(id), `${id}: demol
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
   const pick = factionLoadouts[unit.enemy].find(item => item.weapon === choice);
   ok(pick?.label && pick.note, `${unit.enemy}/${choice}: editorial label and note`);
-  ok(byId.get(choice.split(':')[0])?.category === 'support', `${choice}: faction picks are support weapons`);
+  // Calculated picks are support weapons; other stratagems come only as advice (Dragonroach and Hive Lord guide).
+  ok(byId.get(choice.split(':')[0])?.category === 'support' || pick?.adviceOnly && byId.has(choice), `${choice}: faction picks are support weapons, or stratagems as advice`);
   const result = recommend(unit, choice);
   if (result.route) ok(pick.targets.includes(result.route.target.id), `${unit.enemy}/${choice}: never swaps the editor's aim point`);
 }

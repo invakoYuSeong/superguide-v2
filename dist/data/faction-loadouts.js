@@ -309,15 +309,20 @@ export const factionLoadouts = {
     pick('autocannon', 'gun-ports', '포문 집중 · 내려올 때', '한 발씩 정확히 맞힙니다. 탄약 배낭이 필요하고 재장전할 때 멈춰야 합니다.'),
   ],
 
-  // Dragonroach and Hive Lord guide, 2026-11-23.
+  // Dragonroach and Hive Lord guide, 2026-11-23. Stratagem picks (user's play experience) are advice only:
+  // stratagems are not combat-calculated, so they show no count.
   'dragonroach': [
     pick('recoilless', 'head', '머리 한 발 · 정지 재장전', '한 발 화력이 큽니다. 탄약 배낭이 필요하고 재장전할 때 멈춰야 하니 빗맞히지 않게 조준하세요.'),
     pick('quasar', 'head', '머리 한 발 · 충전 대기', '탄약 보급이 필요 없습니다. 충전하는 동안 표적을 따라가야 하고 다음 발까지 냉각을 기다려야 합니다.'),
-    pick('expendable-at', 'head', '머리 한 발 · 일회용', '호출하면 두 개가 떨어져 바로 쓸 수 있습니다. 한 번 쏘면 버리니 쓸 곳을 미리 정해 호출하세요.'),
+    { ...pick('orbital-railcannon', null, '자동 조준 · 큰 한 방', '신호기 주변에서 가장 큰 적을 자동으로 골라 한 번에 큰 피해를 줍니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있으니 드래곤로치가 가까이 왔을 때 던지세요.'), adviceOnly: true,
+      source: 'https://helldivers.wiki.gg/wiki/Dragonroach', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
   ],
   'hive-lord': [
-    pick('recoilless', 'dorsal-armor', '등판 집중 · 정지 재장전', '한 발 화력이 큽니다. 탄약 배낭이 필요하고 재장전할 때 멈춰야 하니 빗맞히지 않게 조준하세요.'),
-    pick('quasar', 'dorsal-armor', '등판 집중 · 충전 대기', '탄약 보급이 필요 없습니다. 충전하는 동안 표적을 따라가야 하고 다음 발까지 냉각을 기다려야 합니다.'),
-    pick('expendable-at', 'dorsal-armor', '등판 집중 · 일회용', '호출하면 두 개가 떨어져 바로 쓸 수 있습니다. 한 번 쏘면 버리니 쓸 곳을 미리 정해 호출하세요.'),
+    { ...pick('eagle-strafing', null, '장갑판 깎기 · 짧은 재사용', '기총탄이 일렬로 쏟아져 같은 장갑판을 여러 번 때립니다. 재사용 대기가 짧아 장갑판을 떼어 낼 때까지 반복해서 부르기 좋습니다.'), adviceOnly: true,
+      source: 'https://helldivers.wiki.gg/wiki/Hive_Lord', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
+    { ...pick('orbital-gatling', null, '연속 포격 · 누적 피해', '포탄이 잇달아 떨어져 큰 몸통에 피해를 쌓습니다. 하이브 로드가 땅 위로 올라와 있을 때 몸통 가까이 던지세요.'), adviceOnly: true,
+      source: 'https://helldivers.wiki.gg/wiki/Hive_Lord', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
+    { ...pick('portable-hellbomb', null, '초대형 폭발 · 대피 필요', '하이브 로드 가까이에서 터뜨리는 강력한 폭탄입니다. 폭발 범위가 매우 넓으니 타이머를 켠 뒤 멀리 피하세요.'), adviceOnly: true,
+      source: 'https://helldivers.wiki.gg/wiki/Hive_Lord', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
   ],
 };
