@@ -10,6 +10,10 @@ export const EARTH_GRAVITY = 9.81;
 
 export const ballisticsOf = attack => (attack?.record ? projectileBallistics[attack.record] ?? null : null);
 
+// Whether range reduces this attack's own hit: a record with drag, unless the shot is
+// rocket-propelled and keeps its speed (`propelled`, support-records.js).
+export const fallsWithRange = attack => !attack?.propelled && dragOf(ballisticsOf(attack)) > 0;
+
 // Drag deceleration D, per metre.
 export const dragOf = b => (b && b.caliber > 0 && b.mass > 0 && b.drag > 0 ? (0.0004712389 * b.caliber ** 2 * b.drag) / b.mass : 0);
 

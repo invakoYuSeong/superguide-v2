@@ -1,4 +1,4 @@
-import { supportProjectileRecords } from './support-records.js';
+import { supportProjectileRecords, propelledModes } from './support-records.js';
 import { expandedEnemies } from './combat-enemies-expanded.js';
 import { additionalEnemies } from './combat-enemies-additional.js';
 // Reviewed Wiki Anatomy and Detailed Weapon Statistics tables, 2026-09-16.
@@ -577,7 +577,7 @@ export const weaponProfiles = {
     shot('explosive', '폭약 사용 · 타격과 기폭', 300, 150, 3, 2200, 6, { explosionDurable: 2200, innerRadius: 0.5, radius: 3, unit: '회', delivery: 'melee', note: '폭약 한 개를 장착한 타격 1회 기준입니다. 직접 타격과 폭발이 같은 부위에 들어오는 조건이며, 매번 폭약을 다시 장착해야 합니다.' }),
   ], '망치가 실제로 닿는 위치에서 정면 타격하는 조건입니다. 휘두를 때 처음 접촉한 부위만 타격하며, 높은 부위나 비행 중인 적에게 접근할 수 있는지는 계산하지 않습니다.'),
   'leveller': reviewedExplosive('EAT-411_Leveller', [
-    shot('standard', '기본 사격', 1000, 1000, 6, 2500, 6, { explosionDurable: 2500, innerRadius: 10, radius: 25, falloff: true }),
+    shot('standard', '기본 사격', 1000, 1000, 6, 2500, 6, { explosionDurable: 2500, innerRadius: 10, radius: 25 }),
   ], '선택한 부위에 탄체가 직접 명중하고 같은 부위에 최대 폭발 피해가 닿는 조건입니다.'),
   'epoch': reviewedExplosive('PLAS-45_Epoch', [
     shot('standard', '일반 발사', 400, 200, 4, 500, 4, { explosionDurable: 500, innerRadius: 2.3, radius: 3, falloff: true }),
@@ -649,6 +649,9 @@ export const weaponProfiles = {
 // Each support mode's own projectile record (support-records.js), for range falloff.
 for (const [id, modes] of Object.entries(supportProjectileRecords)) {
   for (const [modeId, record] of Object.entries(modes)) weaponProfiles[id].modes.find(mode => mode.id === modeId).record = record;
+}
+for (const [id, modeIds] of Object.entries(propelledModes)) {
+  for (const modeId of modeIds) weaponProfiles[id].modes.find(mode => mode.id === modeId).propelled = true;
 }
 
 export const unsupportedWeapons = {

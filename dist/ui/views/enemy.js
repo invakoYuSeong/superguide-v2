@@ -17,7 +17,7 @@ import { solveMatchup, withHitAssumption, spearCannotLock, partPool, isFatal, FA
 import { compareAttacks } from '../../core/compare.js';
 import { enemySize, isLargeEnemy, SIZE_NAMES } from '../../core/enemy-size.js';
 import { solveAccumulation, noFatalPart } from '../../core/accumulate.js';
-import { ballisticsOf, dragOf, falloffAt } from '../../core/ballistics.js';
+import { ballisticsOf, falloffAt, fallsWithRange } from '../../core/ballistics.js';
 import { wikiReference } from '../../core/factions.js';
 import { search } from '../../core/search.js';
 import { num, pct, unitOf, outcomeOf, countText, attackStats, assumptionText, aimText, routeNotes, assumptionSummary, assumptionTag, deliveryOf, josa, stageName } from '../../core/explain.js';
@@ -62,7 +62,7 @@ const DEFAULT_ASSUME = { hitCount: '' };
 const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, detailsOpen: true, distance: 0 };
 // Shooting distances for range falloff (wiki Damage formula); 0 = full close-range damage.
 const DISTANCES = [0, 25, 50, 100, 150, 200];
-const rangeFor = mode => (dragOf(ballisticsOf(mode)) > 0 ? state.distance : 0);
+const rangeFor = mode => (fallsWithRange(mode) ? state.distance : 0);
 // Until the player picks a count, modes with a conservative default use it.
 // Every multi-hit attack shows a hit-rate slider. Aimed hits (pellets, arcs)
 // start at 100 %, scattering bomblets and fragments at 20 %; the data's own
@@ -474,8 +474,8 @@ function matchupSection(enemy, entries) {
   const matchup = solveMatchup(enemy, mode, { shieldCleared: state.shield, distance: rangeFor(mode) });
   const reference = wikiReference(enemy, weapon.id, mode);
   const stats = attackStats(mode);
-  const falls = dragOf(ballisticsOf(mode)) > 0;
-  const rangeNote = !falls ? (state.distance && mode && !mode.unsupported ? L('이 모드는 사격 거리로 피해가 줄지 않습니다(항력이 없는 탄, 폭발, 광선 등).', 'This mode does not lose damage with shooting distance (no-drag rounds, explosions, beams and the like).') : '')
+  const falls = fallsWithRange(mode);
+  const rangeNote = !falls ? (state.distance && mode && !mode.unsupported ? L('이 모드는 사격 거리로 피해가 줄지 않습니다(항력이 없는 탄, 로켓 추진탄, 폭발, 광선 등).', 'This mode does not lose damage with shooting distance (no-drag or rocket-propelled rounds, explosions, beams and the like).') : '')
     : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다(위키 공식, 중력은 무시한 어림값). 폭발 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m (wiki formula, an estimate that ignores gravity). Explosion damage does not fall off with range.`)
     : L(`거리 0m(감쇠 없음) 기준입니다. 위의 사격 거리를 고르면 위키의 거리 감쇠 공식으로 다시 계산합니다(100m에서 탄 피해 ${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}%).`, `Counted at 0 m (no falloff). Pick a shooting distance above to recount with the wiki falloff formula (${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}% shot damage at 100 m).`);
   const notes = [rangeNote, mode?.note, profile?.note].filter(Boolean);

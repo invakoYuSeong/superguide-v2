@@ -48,6 +48,11 @@ check(far.direct === Math.floor(90 * falloffAt(projectileBallistics['AR-23_P'], 
 check(far.explosion === 100, 'explosions do not fall off with range');
 check(hitDamage({ ...shot, record: undefined }, part, part, { distance: 100 }).direct === 90, 'no record, no falloff');
 
+// A rocket-propelled shot (the Leveller) keeps its damage over range although its record has drag.
+const leveller = weaponProfiles.leveller.modes[0];
+check(leveller.propelled && dragOf(ballisticsOf(leveller)) > 0, 'the Leveller record has drag but is marked propelled');
+check(hitDamage(leveller, part, part, { distance: 150 }).direct === leveller.standard, 'the Leveller does not fall off with range');
+
 // Every record a combat mode names is in the table; fragments never carry one.
 const modes = [...Object.values(personalProfiles), ...Object.values(weaponProfiles)].flatMap(profile => profile.modes);
 for (const mode of modes) {
@@ -70,4 +75,4 @@ check(compareAttacks(hulk, [{ weaponId: 'anti-materiel' }]).entries[0].hits === 
 
 const linked = modes.filter(mode => mode.record).length;
 
-console.log(`PASS ballistics: ${checks} checks (${Object.keys(projectileBallistics).length} projectile records, ${linked} combat modes with range falloff).`);
+console.log(`PASS ballistics: ${checks} checks (${Object.keys(projectileBallistics).length} projectile records, ${linked} combat modes with a projectile record).`);

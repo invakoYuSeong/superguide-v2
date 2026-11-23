@@ -7,7 +7,7 @@
 // read as zero: anything unverified yields `hits: null` with a reason code.
 // Rules follow https://helldivers.wiki.gg/wiki/Damage.
 import { L } from './i18n.js';
-import { ballisticsOf, falloffAt } from './ballistics.js';
+import { ballisticsOf, falloffAt, fallsWithRange } from './ballistics.js';
 
 const EPSILON = 1e-9;
 const MAX_HITS = 20000;
@@ -53,7 +53,7 @@ function directDamage(attack, part, directHit, distance = 0) {
   // Above 100% (Megafactory Gates, 800%) the blend can fall below zero: no damage.
   const d = part.durability;
   // A projectile loses damage with the speed drag takes off over `distance` metres (ballistics.js).
-  const range = distance > 0 ? falloffAt(ballisticsOf(attack), distance) : 1;
+  const range = distance > 0 && fallsWithRange(attack) ? falloffAt(ballisticsOf(attack), distance) : 1;
   const scale = value => range === 1 || !known(value) ? value : floor(value * range);
   let blended = null;
   if (d === 0) blended = scale(attack.standard);

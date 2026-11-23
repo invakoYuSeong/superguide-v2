@@ -12,3 +12,7 @@ export const supportProjectileRecords = {
   'grenade-launcher': { standard: 'GL-21_P' }, 'belt-fed-gl': { standard: 'GL-28_P' },
   'airburst-launcher': { flak: 'RL-77_P', cluster: 'RL-77_P2' }, wasp: { submunitions: 'StA-X3_P1' }, speargun: { direct: 'S-11_P' },
 };
+
+// Modes whose shot keeps its speed in flight (rocket-propelled), so range does not reduce its
+// damage even though its record has drag (user decision 2026-11-23: the Leveller).
+export const propelledModes = { leveller: ['standard'] };

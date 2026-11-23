@@ -28,7 +28,10 @@ function chart(title, points, { top, bottom, ticks, label }) {
     </svg></figure>`;
 }
 
-function recordBlock(label, b) {
+// A rocket-propelled shot keeps its speed: no drag in the damage and drop math (its datamine drag
+// is still listed).
+function recordBlock(label, record, propelled) {
+  const b = propelled ? { ...record, drag: 0 } : record;
   const drag = dragOf(b);
   const { points, endX } = trajectory(b, MAX);
   const at = x => points.find(p => p.x === x);
@@ -47,11 +50,11 @@ function recordBlock(label, b) {
       ${cell(L('탄속', 'Muzzle velocity'), num(b.velocity), 'm/s')}
       ${cell(L('질량', 'Mass'), num(b.mass), 'g')}
       ${cell(L('구경', 'Caliber'), num(b.caliber), 'mm')}
-      ${cell(L('항력계수', 'Drag coefficient'), num(b.drag), '', L('클수록 빨리 느려짐', 'Higher slows it sooner'))}
+      ${cell(L('항력계수', 'Drag coefficient'), num(record.drag), '', propelled ? L('로켓 추진으로 속도가 유지되어 계산에서 뺌', 'Left out: rocket propulsion keeps its speed') : L('클수록 빨리 느려짐', 'Higher slows it sooner'))}
       ${cell(L('중력 배율', 'Gravity multiplier'), num(b.gravity), '×', b.gravity ? L('클수록 많이 떨어짐', 'Higher drops more') : L('떨어지지 않고 곧게 날아감', 'Flies straight, no drop'))}
       ${cell(L('탄 수명', 'Lifetime'), b.lifetime ? num(b.lifetime) : L('제한 없음', 'No limit'), b.lifetime ? L('초', 's') : '', endX != null ? L(`약 ${num(Math.round(endX))}m에서 사라짐`, `Gone at about ${num(Math.round(endX))} m`) : '')}
       ${cell(L('각도별 관통', 'Penetration by angle'), ap, '', L('25° 미만 · 26~60° · 61~80° · 81~90°', 'Under 25° · 26-60° · 61-80° · 81-90°'))}
-      ${cell(L('피해 75% · 50% 거리', 'Damage at 75% · 50%'), drag ? `${fmtDistance(d75)} · ${fmtDistance(d50)}` : L('줄지 않음', 'No falloff'), '', drag ? L('위키 공식(중력 무시)', 'Wiki formula (no gravity)') : L('항력이 없어 거리로 줄지 않음', 'No drag, so no falloff'))}
+      ${cell(L('피해 75% · 50% 거리', 'Damage at 75% · 50%'), drag ? `${fmtDistance(d75)} · ${fmtDistance(d50)}` : L('줄지 않음', 'No falloff'), '', drag ? L('위키 공식(중력 무시)', 'Wiki formula (no gravity)') : propelled ? L('로켓 추진이라 거리로 줄지 않음', 'Rocket-propelled, so no falloff') : L('항력이 없어 거리로 줄지 않음', 'No drag, so no falloff'))}
     </dl>
     <div class="ballistic-charts">
       ${chart(L('거리별 탄 피해', 'Shot damage by distance'), damage, { top: 100, bottom: 25, label: '%', ticks: [100, 75, 50, 25].map(v => ({ value: v, text: `${v}%` })) })}
@@ -76,7 +79,7 @@ export function ballisticsBlock(entries) {
   wireBallisticCharts();
   // Folded by default (user decision 2026-11-23), like the customization table.
   return html`<details class="block disclosure ballistic-block"><summary><h3>${L('세부 수치', 'Detailed stats')}</h3></summary>
-    ${list.map(e => recordBlock(list.length > 1 ? e.label : '', projectileBallistics[e.record]))}
+    ${list.map(e => recordBlock(list.length > 1 ? e.label : '', projectileBallistics[e.record], e.propelled))}
     <p class="faint" style="font-size:12.5px">${L('탄속·질량·구경·항력계수·중력 배율·관통은 위키 datamine 값입니다. 탄 피해는 위키 Damage 문서의 거리 감쇠 공식으로 계산한 어림값으로, 중력과 궤적은 반영하지 않습니다. 낙차는 게임의 중력 값이 공개되지 않아 지구 중력(9.81m/s²)에 중력 배율을 곱하고 수평으로 쐈다고 가정한 어림값입니다. 폭발 피해는 거리로 줄지 않습니다.', 'Velocity, mass, caliber, drag coefficient, gravity multiplier and penetration are wiki datamine values. Shot damage is an estimate from the wiki Damage page falloff formula, which leaves out gravity and the flight path. Drop is an estimate assuming Earth gravity (9.81 m/s²) times the gravity multiplier and a level shot, since the game\'s gravity is not published. Explosion damage does not fall off with range.')} <span>${L(`datamine 판 ${ballisticsSource.revision}`, `datamine revision ${ballisticsSource.revision}`)}</span></p>
   </details>`;
 }
