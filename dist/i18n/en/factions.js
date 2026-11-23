@@ -260,7 +260,7 @@ export default {
   "대규모 무리와 적 증원을 정리합니다. 굴은 닫지 못하며, 굴이나 아군이 지나갈 길에는 깔지 마세요.": "Clears large swarms and reinforcements. It does not close holes, and do not drop it on holes or on paths your team will use.",
   "적의 주의를 끌어 주고 순찰대를 정리합니다.": "Draws enemy attention and clears patrols.",
   "차저 같은 대형 버그를 맡습니다. 난이도 8 이상부터 자주 씁니다. 무반동포는 타이탄, 차저를 머리 1발에 처치하고, 에이펙스는 2발에 처치합니다.": "Handles large bugs such as Chargers. Used a lot from Difficulty 8 up. The Recoilless Rifle kills Bile Titans and Chargers with 1 shot to the head, and the Apex with 2.",
-  "둘 다 굴을 잘 닫습니다. 오토캐넌은 대전차 역할도 조금 됩니다.": "Both close holes well. The Autocannon can also do a little anti-tank work.",
+  "셋 다 굴을 잘 닫습니다. 오토캐넌은 대전차 역할도 조금 되고, 작살총은 관통 5라 대형 적도 상대합니다.": "All three close bug holes well. The Autocannon also doubles a little as anti-tank, and the Speargun, with AP 5, takes on big enemies too.",
   "중형 적, 무리, 제조소를 이것 하나로 처리합니다.": "Handles medium enemies, crowds and Fabricators all by itself.",
   "데버스테이터 같은 중형 봇을 처리합니다.": "Handles medium bots such as Devastators.",
   "워 스트라이더 같은 대형 봇을 처리합니다. 퀘이사 캐넌은 탄약 보급 없이 쓸 수 있고, 제조소도 보이는 곳 어디서나 한 발에 부숩니다.": "Handles large bots such as War Striders. The Quasar Cannon needs no ammo resupply and also destroys a Fabricator in one shot from any angle in line of sight.",

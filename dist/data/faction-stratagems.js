@@ -12,7 +12,7 @@ export const factionStratagems = {
       { items: ['recoilless', 'apex'], tags: ['대형 적'], note: '차저 같은 대형 버그를 맡습니다. 난이도 8 이상부터 자주 씁니다. 무반동포는 타이탄, 차저를 머리 1발에 처치하고, 에이펙스는 2발에 처치합니다.' },
       { items: ['eagle-airstrike'], tags: ['굴 파괴', '물량 처리'], note: '폭탄을 일렬로 떨어뜨려 벌레굴을 닫고 무리를 정리합니다. 굴 밖에 맞혀도 닫힐 만큼 철거력이 충분합니다.' },
       { items: ['gas-mines'], tags: ['물량 처리'], note: '몰려오는 무리가 지나는 길에 깔아 둡니다. 굴 입구에 깔면 적이 밟아 굴 안쪽에서 터질 때 굴도 닫힙니다.' },
-      { items: ['autocannon', 'grenade-launcher'], tags: ['굴 파괴', '물량 처리'], note: '둘 다 굴을 잘 닫습니다. 오토캐넌은 대전차 역할도 조금 됩니다.' },
+      { items: ['autocannon', 'grenade-launcher', 'speargun'], tags: ['굴 파괴', '물량 처리'], note: '셋 다 굴을 잘 닫습니다. 오토캐넌은 대전차 역할도 조금 되고, 작살총은 관통 5라 대형 적도 상대합니다.' },
     ],
   },
   automaton: {
