@@ -6,6 +6,8 @@ import { shieldRecovery } from '../../core/defense.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
+import { ballisticsBlock } from '../ballistics-view.js';
+import { supportProjectileRecords } from '../../data/support-records.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
@@ -337,6 +339,9 @@ function fallbackRows(profile, value) {
     .map(([label, force]) => ({ label, text: html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${value(force)}</span>` }));
   return rows.length ? rows : [{ label: L('철거력', 'Demolition'), text: html`<span class="force-line dim">${L('확인 중', 'Unverified')}</span>` }];
 }
+// Combat modes of the detailed stats block with no matching table variant.
+const MODE_LABELS = { flak: L('대공포탄 모드', 'Flak mode'), cluster: L('집속탄 모드', 'Cluster mode') };
+
 function specialBlock(item, profile) {
   const forces = stratagemStats[item.id]?.forces ?? [];
   if (!profile?.modes?.length && !forces.length) return '';
@@ -426,6 +431,7 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     ${durabilityBlock(item)}
     ${defenseBlock(item)}
     ${specialBlock(item, force)}
+    ${ballisticsBlock(Object.entries(supportProjectileRecords[item.id] || {}).map(([modeId, record]) => ({ label: T(item.variants?.find(v => v.id === modeId)?.name) ?? MODE_LABELS[modeId] ?? item.name, record })))}
     ${changesBlock(item)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}

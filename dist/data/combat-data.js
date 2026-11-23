@@ -1,3 +1,4 @@
+import { supportProjectileRecords } from './support-records.js';
 import { expandedEnemies } from './combat-enemies-expanded.js';
 import { additionalEnemies } from './combat-enemies-additional.js';
 // Reviewed Wiki Anatomy and Detailed Weapon Statistics tables, 2026-09-16.
@@ -644,6 +645,11 @@ export const weaponProfiles = {
     shot('unsafe-max', '불안전 모드 · 최대 피해 충전', 1500, 562, 5, 0, 0, { falloff: true }),
   ], '최대 충전의 내구 피해는 위키 세부 표의 562를 사용합니다. 충전이 덜 되면 피해가 줄며, 과충전 자폭은 탄의 폭발 피해에 포함하지 않습니다.'),
 };
+
+// Each support mode's own projectile record (support-records.js), for range falloff.
+for (const [id, modes] of Object.entries(supportProjectileRecords)) {
+  for (const [modeId, record] of Object.entries(modes)) weaponProfiles[id].modes.find(mode => mode.id === modeId).record = record;
+}
 
 export const unsupportedWeapons = {
   'flamethrower': '불길의 접촉 시간과 화상 지속 피해가 필요해 탄수로 환산하지 않습니다.',

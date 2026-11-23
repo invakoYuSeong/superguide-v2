@@ -39,7 +39,7 @@ const COMBAT_PAGE = 'https://helldivers.wiki.gg/wiki/Combat';
 const moreKorean = () => html`
     <section><h3>5. 출혈</h3><p>본체 체력이 바닥나면 적은 '쓰러진' 상태가 되고, 남은 '출혈 여유' 체력이 초마다 줄어 죽습니다. 예를 들어 차저는 출혈 여유 750이 초당 100씩 줄어듭니다. 팩토리 스트라이더 다리처럼 줄지 않는 부위는 그만큼 체력이 더 있는 셈입니다(다리 1,500 + 2,000).</p></section>
     <section><h3>6. 과관통</h3><p>관통이 장갑보다 충분히 높으면 탄이 부위나 적을 뚫고 다음 대상까지 맞힙니다. 뚫을 때마다 장갑과 내구도에 따라 관통이 1~4 줄어듭니다. 예: 스톨워트(관통 2)는 무권자 몸통(장갑 0, 내구도 0%)을 뚫고 관통 1로 다음 적을 맞힙니다.</p></section>
-    <section><h3>7. 거리에 따른 감쇠</h3><p>탄은 날아가며 느려지고, 느려진 만큼 피해가 줄어듭니다(피해 배율 = 0.25 + 0.75 x (맞을 때 속도 / 처음 속도)<sup>2</sup>). 도미네이터처럼 로켓 추진탄이나 스피어, 워런트 같은 유도탄은 줄지 않습니다. 이 사이트의 횟수는 감쇠가 없는 최대 피해 기준입니다.</p></section>
+    <section><h3>7. 거리에 따른 감쇠</h3><p>탄은 날아가며 느려지고, 느려진 만큼 피해가 줄어듭니다(피해 배율 = 0.25 + 0.75 x (맞을 때 속도 / 처음 속도)<sup>2</sup>). 도미네이터처럼 로켓 추진탄이나 스피어, 워런트 같은 유도탄은 줄지 않습니다. 위키는 이를 거리로 바꾼 어림 공식(피해 배율 = 1 - 0.75 x (1 - e<sup>-2Dx</sup>), D = 0.0004712389 x 구경<sup>2</sup> x 항력계수 / 질량)을 싣고 있고, 중력과 궤적은 무시합니다. 적 대응 화면에서 사격 거리를 고르면 이 공식으로 탄의 직격 피해를 줄여 다시 계산합니다(기본 0m는 감쇠 없음). 폭발 피해는 거리로 줄지 않습니다.</p></section>
     <section><h3>8. 폭발의 세 구간</h3><ul>
       <li><b>안쪽 반경</b>: 피해 100%, 관통 그대로. 장애물 너머까지 닿습니다.</li>
       <li><b>바깥 반경</b>: 멀어질수록 피해가 99%에서 0%까지 줄고, 관통은 1 낮아집니다(최소 2).</li>
@@ -71,7 +71,7 @@ const korean = () => html`
 const moreEnglish = () => html`
     <section><h3>5. Bleeding out</h3><p>When main health runs out the enemy is downed, and its remaining bleed-out health drains every second until it dies. A Charger, for example, has 750 bleed-out health draining at 100 per second. Parts that never drain, like a Factory Strider's legs, simply have that much more health (1,500 leg + 2,000).</p></section>
     <section><h3>6. Overpenetration</h3><p>With enough AP over the armor, a projectile passes through a part or an enemy and hits the next one. Each pass costs 1 to 4 AP depending on the armor and durability. Example: the Stalwart (AP 2) goes through a Voteless torso (armor 0, 0% durable) and hits the next enemy at AP 1.</p></section>
-    <section><h3>7. Damage falloff</h3><p>Projectiles slow down in flight and deal less damage as they do (damage factor = 0.25 + 0.75 x (impact speed / initial speed)<sup>2</sup>). Rocket-propelled rounds like the Dominator's and guided ones like the Spear and Warrant do not fall off. Counts on this site use full damage with no falloff.</p></section>
+    <section><h3>7. Damage falloff</h3><p>Projectiles slow down in flight and deal less damage as they do (damage factor = 0.25 + 0.75 x (impact speed / initial speed)<sup>2</sup>). Rocket-propelled rounds like the Dominator's and guided ones like the Spear and Warrant do not fall off. The wiki turns this into an approximate formula by distance (damage factor = 1 - 0.75 x (1 - e<sup>-2Dx</sup>), D = 0.0004712389 x caliber<sup>2</sup> x drag coefficient / mass) that ignores gravity and the flight path. Pick a shooting distance on the enemy page to recount a shot's direct damage with it (the default 0 m has no falloff). Explosion damage does not fall off with range.</p></section>
     <section><h3>8. The three blast zones</h3><ul>
       <li><b>Inner radius</b>: 100% damage at full AP. It reaches past obstacles.</li>
       <li><b>Outer radius</b>: damage drops from 99% to 0% with distance, and AP is 1 lower (minimum 2).</li>

@@ -31,6 +31,8 @@ export function buildPersonalProfiles(weapons, data, pages, checkedAt) {
       ...(weapon.category === 'throwable' ? { unitLabel: ['melta-mine', 'lure-mine'].includes(weapon.id) ? '지뢰' : weapon.id === 'dynamite' ? '다이너마이트' : '수류탄' } : {}),
       magazine: weapon.category === 'throwable' ? null : magazine,
       ammoPerShot: 1,
+      // Range falloff applies to the projectile's own hit (dist/core/ballistics.js).
+      ...(stats.record && !pureBlast ? { record: stats.record } : {}),
     };
     if (stats.delivery === 'spray') return { id, name, unsupported: sprayReason };
     if (stats.pellets > 1) mode.hitCondition = { kind: 'pellets', min: 1, max: stats.pellets };
@@ -71,7 +73,8 @@ export function buildPersonalProfiles(weapons, data, pages, checkedAt) {
     if (weapon.shrapnelCount > 0) {
       const fragment = weapon.variants.find(v => v.id === 'shrapnel');
       if (!fragment) throw new Error(`Missing shrapnel: ${weapon.id}`);
-      const fragmentMode = makeMode(weapon, fragment);
+      // Fragments fly from the explosion, not the muzzle: no range falloff from the shooter.
+      const { record: _fragmentRecord, ...fragmentMode } = makeMode(weapon, fragment);
       modes[0].hitCondition = { kind: 'shrapnel', min: 0, max: weapon.shrapnelCount };
       modes[0].bomblet = fragmentMode;
       modes[0].note = `기본은 파편의 20%를 반올림한 개수가 같은 부위에 맞는다고 가정하며, ${weapon.delivery === 'explosion' ? '폭발 피해도' : '직접 맞혔을 때의 피해와 폭발 피해도'} 반영합니다. 명중률을 바꿔 다시 계산할 수 있으며, 파편 0개를 고르면 파편 피해는 제외합니다.`;

@@ -17,6 +17,7 @@ import { search, personalNames } from '../../core/search.js';
 import { num, strongest } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
+import { ballisticsBlock } from '../ballistics-view.js';
 import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
@@ -378,6 +379,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>${blastFigure(w)}${variantTable(w)}`}
     ${specialBlock(w)}
+    ${ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))])}
     ${attachmentTable(w)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || CONFLICT_FIELDS[c.field]?.[0] || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || CONFLICT_FIELDS[c.field]?.[1] || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}

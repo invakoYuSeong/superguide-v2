@@ -156,6 +156,9 @@ for (const [weaponId, profile] of Object.entries(weaponProfiles)) {
     const hit = mode.beam ? { standard: mode.beam.standardPerSecond, durable: mode.beam.durablePerSecond, ap: mode.ap } : { standard: mode.standard, durable: mode.durable, ap: mode.ap };
     compareHit(key, spec, { hit }, key);
     if (!spec.hit) ok(!mode.standard, `${key}: direct damage ${mode.standard} with no datamine hit record`);
+    // The projectile record used for range falloff must be the one this mode's hit is checked against.
+    const projectileKey = spec.hit?.[0] === 'projectile' ? spec.hit[1] : undefined;
+    ok(mode.record === projectileKey, `${key}: range falloff record ${mode.record} should be ${projectileKey}`);
     compareBlast(key, spec, { blast: { damage: mode.explosion, durable: mode.explosionDurable, ap: mode.explosion ? mode.explosionAp : undefined, innerRadius: mode.innerRadius, radius: mode.radius } }, key);
     if (spec.bomblet) {
       const bombletSpec = shot(spec.bomblet);

@@ -28,13 +28,15 @@ function matchup(enemy, rawMode, options) {
   if (!values) modes.set(rawMode, values = new Map());
   const assume = options.assume || {};
   // Keep mode-specific delivery defaults distinct from explicit user overrides.
-  const key = JSON.stringify([options.shieldCleared === true, assume.hitCount ?? '',
+  // distance: shooting range in metres for projectile falloff (0 = full damage).
+  const distance = options.distance > 0 ? options.distance : 0;
+  const key = JSON.stringify([options.shieldCleared === true, distance, assume.hitCount ?? '',
     assume.primaryHit === undefined ? rawMode.hitCondition?.defaultPrimaryHit ?? 'blast' : assume.primaryHit,
     assume.bombletDirect === undefined ? rawMode.hitCondition?.defaultBombletDirect ?? false : assume.bombletDirect]);
   if (!values.has(key)) {
     if (values.size >= 64) values.delete(values.keys().next().value);
     const mode = withHitAssumption(rawMode, assume);
-    const combatOptions = { shieldCleared: options.shieldCleared === true };
+    const combatOptions = { shieldCleared: options.shieldCleared === true, distance };
     const single = solveMatchup(enemy, mode, combatOptions);
     const accumulated = single.best ? null : solveAccumulation(enemy, mode, combatOptions);
     // A synthetic target distinguishes a sequence from any single hitbox.

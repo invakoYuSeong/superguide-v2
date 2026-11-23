@@ -7,6 +7,7 @@
 // read as zero: anything unverified yields `hits: null` with a reason code.
 // Rules follow https://helldivers.wiki.gg/wiki/Damage.
 import { L } from './i18n.js';
+import { ballisticsOf, falloffAt } from './ballistics.js';
 
 const EPSILON = 1e-9;
 const MAX_HITS = 20000;
@@ -44,24 +45,27 @@ function blastAt(blast, distance) {
   return { factor: (blast.radius - distance) / (blast.radius - blast.innerRadius), ap: known(blast.ap) ? Math.max(2, blast.ap - 1) : null };
 }
 
-function directDamage(attack, part, directHit) {
+function directDamage(attack, part, directHit, distance = 0) {
   if (!directHit || attack.standard === 0 && attack.durable === 0) return 0;
   if (known(attack.ap) && attack.ap < part.armor) return 0;
   if (![attack.ap, part.durability, part.armor].every(known)) return null;
   // Durability blends normal and durable damage by the part's durable share.
   // Above 100% (Megafactory Gates, 800%) the blend can fall below zero: no damage.
   const d = part.durability;
+  // A projectile loses damage with the speed drag takes off over `distance` metres (ballistics.js).
+  const range = distance > 0 ? falloffAt(ballisticsOf(attack), distance) : 1;
+  const scale = value => range === 1 || !known(value) ? value : floor(value * range);
   let blended = null;
-  if (d === 0) blended = attack.standard;
-  else if (d === 100) blended = attack.durable;
-  else if (known(attack.standard) && known(attack.durable)) blended = Math.max(0, floor(attack.standard * (1 - d / 100) + attack.durable * d / 100));
+  if (d === 0) blended = scale(attack.standard);
+  else if (d === 100) blended = scale(attack.durable);
+  else if (known(attack.standard) && known(attack.durable)) blended = Math.max(0, floor((attack.standard * (1 - d / 100) + attack.durable * d / 100) * range));
   return known(blended) ? floor(blended * armorFactor(attack.ap, part.armor)) : null;
 }
 
 // One impact against one part. A part immune to explosions (ExDR 100) routes
 // the blast to the main body's armor and resistance instead.
-export function hitDamage(attack, part, main, { directHit = true, excludeMainExplosion = false, blastDistance = 0 } = {}) {
-  const direct = directDamage(attack, part, directHit);
+export function hitDamage(attack, part, main, { directHit = true, excludeMainExplosion = false, blastDistance = 0, distance = 0 } = {}) {
+  const direct = directDamage(attack, part, directHit, distance);
   const blasts = explosionsOf(attack).map(blast => {
     const { factor, ap } = blastAt(blast, blastDistance);
     const redirected = part.exdr === 100;

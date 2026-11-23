@@ -17,6 +17,7 @@ import { solveMatchup, withHitAssumption, spearCannotLock, partPool, isFatal, FA
 import { compareAttacks } from '../../core/compare.js';
 import { enemySize, isLargeEnemy, SIZE_NAMES } from '../../core/enemy-size.js';
 import { solveAccumulation, noFatalPart } from '../../core/accumulate.js';
+import { ballisticsOf, dragOf, falloffAt } from '../../core/ballistics.js';
 import { wikiReference } from '../../core/factions.js';
 import { search } from '../../core/search.js';
 import { num, pct, unitOf, outcomeOf, countText, attackStats, assumptionText, aimText, routeNotes, assumptionSummary, assumptionTag, deliveryOf, josa, stageName } from '../../core/explain.js';
@@ -58,7 +59,10 @@ const compare = { picks: [], part: '' }; // [{ weaponId, modeId }] kept across e
 // Only the hit count starts blank; primary-hit options fall back to each mode's
 // own defaults (e.g. W.A.S.P. counts sub-missile hits, not the parent blast).
 const DEFAULT_ASSUME = { hitCount: '' };
-const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true };
+const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true, distance: 0 };
+// Shooting distances for range falloff (wiki Damage formula); 0 = full close-range damage.
+const DISTANCES = [0, 25, 50, 100, 150, 200];
+const rangeFor = mode => (dragOf(ballisticsOf(mode)) > 0 ? state.distance : 0);
 // Until the player picks a count, modes with a conservative default use it.
 // Every multi-hit attack shows a hit-rate slider. Aimed hits (pellets, arcs)
 // start at 100 %, scattering bomblets and fragments at 20 %; the data's own
@@ -437,7 +441,7 @@ function verdict(enemy, weapon, mode, matchup, reference) {
   const allShield = matchup.rows.every(row => row.outcome === 'shield');
   if (allShield) return html`<div class="verdict">${label}<h3>${L('보호막(방패)을 먼저 처리해야 합니다', 'Deal with the shield first')}</h3><p>${enemy.shield.note} ${L('위의 체크를 켜면 제거한 뒤의 횟수를 보여 줍니다.', 'Tick the box above to see the count once it is out of the way.')}</p></div>`;
   const pending = matchup.rows.some(row => row.outcome === 'unknown');
-  const acc = !pending && noFatalPart(enemy) ? solveAccumulation(enemy, mode, { shieldCleared: state.shield }) : null;
+  const acc = !pending && noFatalPart(enemy) ? solveAccumulation(enemy, mode, { shieldCleared: state.shield, distance: rangeFor(mode) }) : null;
   if (acc) {
     return html`<div class="verdict" data-tone="kill">${label}
       <h3><span class="big">${num(acc.hits)}${unitFor(acc.hits)}</span> · ${L('누적 처치', 'Cumulative kill')}</h3>
@@ -460,10 +464,14 @@ function matchupSection(enemy, entries) {
   // An explicit mode wins; otherwise show the weapon's best-ranked mode.
   const rawMode = profile?.modes.find(mode => mode.id === state.mode) || entries.find(entry => entry.weapon.id === weapon.id)?.mode || profile?.modes[0];
   const mode = withHitAssumption(rawMode, effectiveAssume(rawMode));
-  const matchup = solveMatchup(enemy, mode, { shieldCleared: state.shield });
+  const matchup = solveMatchup(enemy, mode, { shieldCleared: state.shield, distance: rangeFor(mode) });
   const reference = wikiReference(enemy, weapon.id, mode);
   const stats = attackStats(mode);
-  const notes = [mode?.falloff && L('거리 감쇠가 있어 표시 횟수는 근거리 최대 피해 기준입니다.', 'Damage falls off with range; counts use full close-range damage.'), mode?.note, profile?.note].filter(Boolean);
+  const falls = dragOf(ballisticsOf(mode)) > 0;
+  const rangeNote = !falls ? (mode?.falloff ? L('거리 감쇠가 있어 표시 횟수는 근거리 최대 피해 기준입니다.', 'Damage falls off with range; counts use full close-range damage.') : '')
+    : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다(위키 공식, 중력은 무시한 어림값). 폭발 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m (wiki formula, an estimate that ignores gravity). Explosion damage does not fall off with range.`)
+    : L('거리 0m(감쇠 없음) 기준입니다. 사격 거리를 고르면 위키의 거리 감쇠 공식으로 다시 계산합니다.', 'Counted at 0 m (no falloff). Pick a shooting distance to recount with the wiki falloff formula.');
+  const notes = [rangeNote, mode?.note, profile?.note].filter(Boolean);
   return html`<section class="matchup" id="matchup">
     <div class="section-title" style="margin-bottom:0"><h2>${L('부위별 계산', 'Part by part')}</h2><p>${assumptionText(mode)}</p></div>
     <div class="panel" style="padding:16px;display:grid;gap:12px">
@@ -471,6 +479,7 @@ function matchupSection(enemy, entries) {
         ${compareToggle(weapon, rawMode)}
         ${profile?.modes.length > 1 ? html`<div class="segmented" role="group" aria-label="${profile.modes.some(item => item.beam) ? L('거리', 'Range') : L('발사 모드', 'Firing mode')}">${profile.modes.map(item => html`<button type="button" data-mode-pick="${item.id}" aria-pressed="${item.id === rawMode?.id}">${item.name}</button>`)}</div>` : ''}</div>
       ${stats.length ? html`<div class="stat-chips">${stats.map(stat => html`<div class="stat-chip"><span>${stat.label}</span><b>${stat.value}</b>${stat.note ? html`<small>${stat.note}</small>` : ''}</div>`)}</div>` : ''}
+      ${falls ? html`<div class="range-pick"><span>${L('사격 거리', 'Shooting distance')}</span><div class="segmented" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m${d ? html`<small> ${Math.round(falloffAt(ballisticsOf(mode), d) * 100)}%</small>` : ''}</button>`)}</div></div>` : ''}
       ${notes.length ? html`<ul class="notes">${notes.map(note => html`<li>${note}</li>`)}</ul>` : ''}
     </div>
     ${mode ? assumptionControls(mode) : ''}
@@ -522,7 +531,7 @@ function compareAssumptions() {
 
 function compareContent() {
   const enemy = enemyById.get(state.enemy);
-  const result = compareAttacks(enemy, compare.picks, { partId: compare.part || undefined, shieldCleared: state.shield, assume: compareAssumptions() });
+  const result = compareAttacks(enemy, compare.picks, { partId: compare.part || undefined, shieldCleared: state.shield, distance: state.distance, assume: compareAssumptions() });
   const routes = result.entries.filter(entry => entry.status === 'route' && entry.hits != null);
   const fewest = routes.length > 1 ? Math.min(...routes.map(entry => entry.hits)) : null;
   const partName = entry => entry.part?.name || entry.route?.target?.name || entry.best?.target?.name || '';
@@ -546,6 +555,7 @@ function compareContent() {
         <tr><th scope="row">${L('필요 탄창', 'Magazines needed')}</th>${result.entries.map(entry => html`<td>${entry.magazinesNeeded != null ? html`${L(`${num(entry.magazinesNeeded)}개`, num(entry.magazinesNeeded))}${profileOf(entry.weaponId)?.modes.find(item => item.id === entry.modeId)?.magazine ? html`<small>${L(`탄창 ${num(profileOf(entry.weaponId).modes.find(item => item.id === entry.modeId).magazine)}발 기준`, `${num(profileOf(entry.weaponId).modes.find(item => item.id === entry.modeId).magazine)}-round magazine`)}</small>` : ''}` : html`<span class="faint">—</span>`}</td>`)}</tr>
       </tbody>
     </table></div>
+    ${state.distance ? html`<p class="faint" style="font-size:12.5px">${L(`사격 거리 ${state.distance}m 기준입니다. 탄의 직격 피해는 위키 공식으로 줄였고, 폭발 피해는 그대로입니다.`, `At a shooting distance of ${state.distance} m: direct shot damage is reduced with the wiki formula; explosion damage is unchanged.`)}</p>` : ''}
     <p class="faint" style="font-size:12.5px">${L('노란 값이 가장 적은 횟수입니다. 연사력·재장전·조준 난도는 반영하지 않으므로 처치 속도 순위가 아닙니다.', 'Yellow marks the fewest shots. Fire rate, reloads and aiming difficulty are not included, so this is not a time-to-kill ranking.')} ${state.shield && enemy.shield ? L('방패·보호막을 피한 상태 기준입니다.', 'Assumes the shield is out of the way.') : ''} ${L('명중 수를 골라야 하는 무기는 부위별 계산에서 가정을 고른 뒤 다시 비교하세요.', 'For weapons that need a hit assumption, pick one in the part-by-part calculation and compare again.')}</p>
   </div>`;
 }
@@ -567,7 +577,7 @@ function renderMain({ scrollToMatchup = false } = {}) {
 }
 
 function syncUrl() {
-  ctx.replace({ view: 'enemy', id: state.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0' } });
+  ctx.replace({ view: 'enemy', id: state.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0', r: state.distance || null } });
 }
 
 function openPhotos(targetId) {
@@ -639,7 +649,7 @@ export function mount(container, context) {
     if (!target) return;
     if (target.dataset.enemy) {
       state.pickerOpen = false;
-      ctx.go({ view: 'enemy', id: target.dataset.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0' } });
+      ctx.go({ view: 'enemy', id: target.dataset.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0', r: state.distance || null } });
     } else if (target.dataset.groupPick) {
       state.group = target.dataset.groupPick;
       if (weaponById.get(state.weapon)?.group !== state.group) { state.weapon = null; state.mode = null; resetAssumption(); }
@@ -654,6 +664,8 @@ export function mount(container, context) {
       if (state.weapon !== target.dataset.weapon) resetAssumption();
       state.weapon = target.dataset.weapon; state.mode = target.dataset.mode || null;
       renderMain({ scrollToMatchup: true }); syncUrl();
+    } else if (target.dataset.distance) {
+      state.distance = Number(target.dataset.distance); renderMain(); syncUrl();
     } else if (target.dataset.modePick) {
       state.weapon ||= selectedWeaponId(); state.mode = target.dataset.modePick; resetAssumption(); renderMain(); syncUrl();
     } else if (target.dataset.photo) openPhotos(target.dataset.photo);
@@ -691,6 +703,7 @@ export function update(route) {
     enemy, weapon, shown: true,
     mode: modes.some(mode => mode.id === route.query.m) ? route.query.m : weapon ? state.weapon === weapon ? state.mode : null : null,
     shield: route.query.shield !== '0',
+    distance: DISTANCES.includes(Number(route.query.r)) ? Number(route.query.r) : 0,
   });
   renderMain();
   if (route.id !== enemy) syncUrl();
