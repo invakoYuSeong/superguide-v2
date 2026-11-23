@@ -51,12 +51,12 @@ export function blastFigure(item) {
       <circle cx="66" cy="66" r="${outer}" fill="url(#${fade})" stroke="var(--accent)" stroke-opacity=".45" stroke-dasharray="3 4"/>
       <image class="blast-ref" href="${ref.src}" x="${66 - refW / 2}" y="${66 - refH / 2}" width="${refW}" height="${refH}" preserveAspectRatio="none"/>
       <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35" stroke="var(--accent)"/>
-      <path d="M66 66H${66 - outer}" stroke="var(--text-3)" stroke-width="1.2" stroke-dasharray="3 3"/>
-      <path d="M66 66H${66 + inner}" stroke="var(--accent-text)" stroke-width="1.6"/>
+      <path d="M66 66H${66 + outer}" stroke="var(--text-3)" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <path d="M66 66H${66 - inner}" stroke="var(--accent-text)" stroke-width="1.6"/>
       <circle cx="66" cy="66" r="2.5" fill="var(--text)"/>
       <g class="blast-label" aria-hidden="true">
-        <text class="blast-outer" x="62" y="59" text-anchor="end">${L('외곽', 'Outer')} ${num(item.radius)}m</text>
-        <text class="blast-inner" x="70" y="80">${L('중심', 'Inner')} ${num(item.innerRadius)}m</text>
+        <text class="blast-inner" x="62" y="59" text-anchor="end">${L('중심', 'Inner')} ${num(item.innerRadius)}m</text>
+        <text class="blast-outer" x="70" y="80">${L('외곽', 'Outer')} ${num(item.radius)}m</text>
       </g>
     </svg>
     <p>${L(html`${flat
