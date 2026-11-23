@@ -59,7 +59,7 @@ const compare = { picks: [], part: '' }; // [{ weaponId, modeId }] kept across e
 // Only the hit count starts blank; primary-hit options fall back to each mode's
 // own defaults (e.g. W.A.S.P. counts sub-missile hits, not the parent blast).
 const DEFAULT_ASSUME = { hitCount: '' };
-const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true, distance: 0 };
+const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true, tacticsOpen: true, distance: 0 };
 // Shooting distances for range falloff (wiki Damage formula); 0 = full close-range damage.
 const DISTANCES = [0, 25, 50, 100, 150, 200];
 const rangeFor = mode => (dragOf(ballisticsOf(mode)) > 0 ? state.distance : 0);
@@ -188,8 +188,12 @@ function lore(enemy) {
   // Spawning and Behavior fold like Attacks but start open; the choice stays across enemies (state.loreOpen).
   const story = info.spawning.length || info.behavior.length ? html`<details class="panel fold enemy-story" data-lore ${state.loreOpen ? raw('open') : ''}><summary><h2>${L('등장 · 행동', 'Spawning · Behavior')}</h2></summary>
     <div class="enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</div></details>` : '';
-  const advice = info.tactics || info.tips ? html`<section class="panel enemy-lore enemy-advice">${info.tactics ? block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true) : ''}${info.tips ? block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true) : ''}</section>` : '';
-  return html`${story}${advice}`;
+  // Tactics fold too but start open, and the choice stays across enemies (state.tacticsOpen);
+  // field tips stay a separate panel.
+  const tactics = info.tactics?.length ? html`<details class="panel fold enemy-story" data-tactics ${state.tacticsOpen ? raw('open') : ''}><summary><h2>${L('공략 요령', 'Tactics')}</h2></summary>
+    <div class="enemy-lore"><div class="wide"><ul class="notes">${(lang === 'en' ? info.tacticsEn : info.tactics).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div></div></details>` : '';
+  const tips = info.tips?.length ? html`<section class="panel enemy-lore enemy-advice">${block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true)}</section>` : '';
+  return html`${story}${tactics}${tips}`;
 }
 
 // The enemy's own attacks (wiki "Weapons Loadout" boxes, enemy-weapons.js) and a rough count of
@@ -296,8 +300,10 @@ function rankRow(entry, selected, large = false, noFatal = false) {
 
 // The selected weapon's part-by-part calculation opens right under its row.
 function ranking(enemy, entries, selectedId, detail) {
-  const main = entries.filter(entry => entry.status === 'route' || entry.status === 'assume');
-  const rest = entries.filter(entry => !main.includes(entry));
+  // The picked weapon moves to the top of the table, with its calculation open under it.
+  const picked = entries.find(entry => entry.weapon.id === selectedId);
+  const main = entries.filter(entry => entry !== picked && (entry.status === 'route' || entry.status === 'assume'));
+  const rest = entries.filter(entry => entry !== picked && !main.includes(entry));
   const large = isLargeEnemy(enemy);
   const noFatal = noFatalPart(enemy);
   const singles = large ? entries.filter(oneShot).length : 0;
@@ -311,8 +317,8 @@ function ranking(enemy, entries, selectedId, detail) {
     <div class="segmented range-tabs" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m</button>`)}</div></div>
   <div class="panel ranking">
     <div class="rank-head" aria-hidden="true"><span></span><span>${L('무기', 'Weapon')}</span><span>${L('노릴 부위', 'Aim for')}</span><span>${L('횟수', 'Shots')}</span><span>${L('결과', 'Result')}</span></div>
-    ${main.map(row)}
-    ${rest.length ? html`<details class="rank-more" ${rest.some(entry => entry.weapon.id === selectedId) ? raw('open') : ''}><summary>${L(`처치 경로가 없거나 계산하지 않은 무기 ${rest.length}종`, `${rest.length} weapons with no kill route or not calculated`)}</summary>${rest.map(row)}</details>` : ''}
+    ${picked ? row(picked) : ''}${main.map(row)}
+    ${rest.length ? html`<details class="rank-more"><summary>${L(`처치 경로가 없거나 계산하지 않은 무기 ${rest.length}종`, `${rest.length} weapons with no kill route or not calculated`)}</summary>${rest.map(row)}</details>` : ''}
   </div>`;
 }
 
@@ -620,6 +626,7 @@ export function mount(container, context) {
   root.addEventListener('toggle', event => {
     if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open;
     if (event.target.matches?.('[data-lore]')) state.loreOpen = event.target.open;
+    if (event.target.matches?.('[data-tactics]')) state.tacticsOpen = event.target.open;
   }, true);
   root.addEventListener('change', event => {
     const target = event.target;
