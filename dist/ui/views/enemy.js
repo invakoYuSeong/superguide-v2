@@ -59,7 +59,7 @@ const compare = { picks: [], part: '' }; // [{ weaponId, modeId }] kept across e
 // Only the hit count starts blank; primary-hit options fall back to each mode's
 // own defaults (e.g. W.A.S.P. counts sub-missile hits, not the parent blast).
 const DEFAULT_ASSUME = { hitCount: '' };
-const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, loreOpen: true, tacticsOpen: true, distance: 0 };
+const state = { enemy: DEFAULT_ENEMY, group: 'support', weapon: null, mode: null, shield: true, faction: '', q: '', assume: { ...DEFAULT_ASSUME }, pickerOpen: false, attacksOpen: false, detailsOpen: true, distance: 0 };
 // Shooting distances for range falloff (wiki Damage formula); 0 = full close-range damage.
 const DISTANCES = [0, 25, 50, 100, 150, 200];
 const rangeFor = mode => (dragOf(ballisticsOf(mode)) > 0 ? state.distance : 0);
@@ -181,19 +181,18 @@ function withDifficulty(text) {
 }
 
 // Spawning, Behavior and Tactics from the enemy's wiki page, summarized, and field tips players found (enemy-pages.js).
-function lore(enemy) {
+// "Details": Spawning, Behavior, Tactics and Field tips as plain blocks, with the Attacks table
+// folding inside (closed by default). The whole panel folds, open by default, and keeps the
+// player's choice across enemies (state.detailsOpen, user decision 2026-11-23).
+function enemyDetails(enemy) {
   const info = enemyPages[enemy.id];
-  const block = (title, lines, linesEn, wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
-  if (!info) return '';
-  // Spawning and Behavior fold like Attacks but start open; the choice stays across enemies (state.loreOpen).
-  const story = info.spawning.length || info.behavior.length ? html`<details class="panel fold enemy-story" data-lore ${state.loreOpen ? raw('open') : ''}><summary><h2>${L('등장 · 행동', 'Spawning · Behavior')}</h2></summary>
-    <div class="enemy-lore">${block(L('등장', 'Spawning'), info.spawning, info.spawningEn)}${block(L('행동', 'Behavior'), info.behavior, info.behaviorEn)}</div></details>` : '';
-  // Tactics fold too but start open, and the choice stays across enemies (state.tacticsOpen);
-  // field tips stay a separate panel.
-  const tactics = info.tactics?.length ? html`<details class="panel fold enemy-story" data-tactics ${state.tacticsOpen ? raw('open') : ''}><summary><h2>${L('공략 요령', 'Tactics')}</h2></summary>
-    <div class="enemy-lore"><div class="wide"><ul class="notes">${(lang === 'en' ? info.tacticsEn : info.tactics).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div></div></details>` : '';
-  const tips = info.tips?.length ? html`<section class="panel enemy-lore enemy-advice">${block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true)}</section>` : '';
-  return html`${story}${tactics}${tips}`;
+  const block = (title, lines = [], linesEn = [], wide = false) => lines.length ? html`<div class="${wide ? 'wide' : ''}"><h2>${title}</h2><ul class="notes">${(lang === 'en' ? linesEn : lines).map(line => html`<li>${withDifficulty(line)}</li>`)}</ul></div>` : '';
+  const blocks = info ? [block(L('등장', 'Spawning'), info.spawning, info.spawningEn), block(L('행동', 'Behavior'), info.behavior, info.behaviorEn),
+    block(L('공략 요령', 'Tactics'), info.tactics, info.tacticsEn, true), block(L('실전 팁', 'Field tips'), info.tips, info.tipsEn, true)].filter(Boolean) : [];
+  const table = attacks(enemy);
+  if (!blocks.length && !table) return '';
+  return html`<details class="panel fold enemy-details" data-details ${state.detailsOpen ? raw('open') : ''}><summary><h2>${L('상세 정보', 'Details')}</h2></summary>
+    ${blocks.length ? html`<div class="enemy-lore">${blocks}</div>` : ''}${table}</details>`;
 }
 
 // The enemy's own attacks (wiki "Weapons Loadout" boxes, enemy-weapons.js) and a rough count of
@@ -214,7 +213,7 @@ function attacks(enemy) {
   };
   const wiki = `https://helldivers.wiki.gg/wiki/${encodeURIComponent(info.page.replaceAll(' ', '_'))}#Weapons_Loadout`;
   // Folded by default; stays open across re-renders once the player opens it (state.attacksOpen).
-  return html`<details class="panel enemy-attacks" data-attacks ${state.attacksOpen ? raw('open') : ''}><summary><h2>${L('공격 패턴', 'Attacks')}</h2><span class="count">${info.attacks.length}</span></summary>
+  return html`<details class="enemy-attacks" data-attacks ${state.attacksOpen ? raw('open') : ''}><summary><h2>${L('공격 패턴', 'Attacks')}</h2><span class="count">${info.attacks.length}</span></summary>
     <div class="compare-scroll" role="region" aria-label="${L('적 공격표', 'Enemy attacks')}" tabindex="0"><table class="compare-table enemy-attack-table">
       <colgroup><col class="col-attack"><col class="col-damage">${RATINGS.map(() => html`<col class="col-hits">`)}</colgroup>
       <thead><tr><th scope="col" rowspan="2">${L('공격', 'Attack')}</th><th scope="col" rowspan="2">${L('피해', 'Damage')}</th><th scope="colgroup" colspan="${RATINGS.length}" class="hits-head">${L('쓰러질 때까지 맞는 횟수 (몸통 기준)', 'Hits until downed (torso)')}</th></tr>
@@ -576,7 +575,7 @@ function renderMain({ scrollToMatchup = false } = {}) {
   const enemy = enemyById.get(state.enemy);
   const entries = rankWeapons(enemy, state.shield);
   const selected = weaponsOf[state.group].some(weapon => weapon.id === state.weapon) ? state.weapon : null;
-  render($('#enemy-main', root), html`${hero(enemy)}${lore(enemy)}${attacks(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
+  render($('#enemy-main', root), html`${hero(enemy)}${enemyDetails(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
   renderTray();
   renderPicker();
   // The picked weapon now heads the table, so bringing the table's title into view is enough.
@@ -626,8 +625,7 @@ export function mount(container, context) {
   // <details> toggle does not bubble: listen in the capture phase.
   root.addEventListener('toggle', event => {
     if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open;
-    if (event.target.matches?.('[data-lore]')) state.loreOpen = event.target.open;
-    if (event.target.matches?.('[data-tactics]')) state.tacticsOpen = event.target.open;
+    if (event.target.matches?.('[data-details]')) state.detailsOpen = event.target.open;
   }, true);
   root.addEventListener('change', event => {
     const target = event.target;

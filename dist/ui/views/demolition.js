@@ -16,7 +16,8 @@ const armed = stratagems.filter(item => demolitionProfiles[item.id]);
 const confirmedCount = Object.values(demolitionProfiles).filter(profile => profile.modes.some(mode => !mode.forceUnknown)).length;
 
 let root, ctx;
-const state = { by: 'structure', structure: null, weapon: null, mode: null, shieldCleared: false, jammerDisabled: false, q: '' };
+// tacticsOpen: the Tactics fold starts open and keeps the player's choice across structures.
+const state = { by: 'structure', structure: null, weapon: null, mode: null, shieldCleared: false, jammerDisabled: false, q: '', tacticsOpen: true };
 
 // --- Text -----------------------------------------------------------------------------
 const OUTCOME = {
@@ -100,7 +101,7 @@ function structurePanel(structure) {
   return html`<section class="panel" style="padding:18px;display:grid;gap:14px" data-faction="${structure.faction}">
     <div style="display:flex;gap:14px;align-items:center">${structureImage(structure, 56)}<div><span class="faction-tag">${structure.faction}</span><h2 style="font-size:22px;font-weight:800">${structure.name}</h2></div></div>
     <p class="muted">${structure.tip}</p>
-    ${structure.tactics ? html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('공략 요령', 'Tactics')}</div><ul class="notes">${structure.tactics.map(line => html`<li>${line}</li>`)}</ul></div>` : ''}
+    ${structure.tactics ? html`<details class="fold demo-tactics" data-demo-tactics ${state.tacticsOpen ? raw('open') : ''}><summary><span class="note" style="font-weight:650;color:var(--text)">${L('공략 요령', 'Tactics')}</span></summary><ul class="notes">${structure.tactics.map(line => html`<li>${line}</li>`)}</ul></details>` : ''}
     ${structure.tips ? html`<div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('실전 팁', 'Field tips')}</div><ul class="notes">${structure.tips.map(line => html`<li>${line}</li>`)}</ul></div>` : ''}
     <div><div class="note" style="margin-bottom:6px;font-weight:650;color:var(--text)">${L('필요한 철거력', 'Demolition force needed')} <span class="faint" style="font-weight:500">· ${L('한 번의 명중·폭발 기준, 합산 안 됨', 'per single hit or explosion; does not add up')}</span></div>${forceScale(structure)}</div>
     ${h ? html`<p class="note">${L(html`체력으로도 부술 수 있습니다: <b style="color:var(--text)">체력 ${num(h.hp)}</b> · 장갑 ${h.armor} · 내구도 ${h.durability}%${h.exdr < 0 ? ` · 폭발 피해 ×${num(1 - h.exdr / 100)}` : ''}`, html`It can also be destroyed through health: <b style="color:var(--text)">health ${num(h.hp)}</b> · armor ${h.armor} · durability ${h.durability}%${h.exdr < 0 ? ` · explosion damage ×${num(1 - h.exdr / 100)}` : ''}`)}</p>` : ''}
@@ -222,6 +223,10 @@ export function mount(container, context) {
     <span class="badge outline">${L(`시설 ${structures.length}곳 · 철거력 확인 ${confirmedCount}종`, `${structures.length} structures · ${confirmedCount} stratagems with verified force`)}</span></div>
   <div class="segmented" role="group" aria-label="${L('찾는 방법', 'Look up by')}" style="margin-bottom:16px"><button type="button" data-by="structure">${icon('demolition', 16)} ${L('시설로 찾기', 'By structure')}</button><button type="button" data-by="weapon">${icon('arsenal', 16)} ${L('스트라타젬으로 찾기', 'By stratagem')}</button></div>
   <div id="demo-body"></div>`);
+  // <details> toggle does not bubble: listen in the capture phase.
+  root.addEventListener('toggle', event => {
+    if (event.target.matches?.('[data-demo-tactics]')) state.tacticsOpen = event.target.open;
+  }, true);
   root.addEventListener('click', event => {
     const target = event.target.closest('button');
     if (!target) return;

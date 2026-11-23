@@ -618,8 +618,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-lore h2 { font-size: 15px; font-weight: 800; margin: 0 0 6px; }
 .enemy-lore .notes { margin: 0; }
 .enemy-lore .wide { grid-column: 1 / -1; }
-.enemy-story { padding: 16px 18px; }
-.enemy-story .enemy-lore { padding: 0; }
+/* Enemy "Details" fold: spawning, behavior, tactics and tips, with the attack table folding inside. */
+.enemy-details { padding: 16px 18px; }
+.enemy-details .enemy-lore { padding: 0; }
 .difficulty { white-space: nowrap; }
 .difficulty img { display: inline-block; height: 1.4em; width: auto; margin-right: 4px; vertical-align: -0.38em; }
 /* The icons' white wings fade on the light background: a thin shadow outlines them there. */
@@ -1202,7 +1203,8 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .module-applied { margin-top: 6px; font-size: 13px; }
 .module-applied a { color: var(--accent-text); }
 /* Enemy view: the enemy's own attacks and rough torso-hit counts (enemy-weapons.js). */
-.enemy-attacks { padding: 16px 18px; }
+.enemy-attacks { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.enemy-details > summary + .enemy-attacks { margin-top: 0; padding-top: 0; border-top: 0; }
 :is(.enemy-attacks, .fold) summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
 :is(.enemy-attacks, .fold) summary::-webkit-details-marker { display: none; }
 :is(.enemy-attacks, .fold) summary::before { content: ''; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 7px; border-color: transparent transparent transparent var(--accent-text); transition: transform .15s; }
@@ -1228,7 +1230,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .enemy-attacks .note { margin-top: 10px; }
 /* Phones: the table fits the screen instead of scrolling, so the hit counts stay in view. */
 @media (max-width: 600px) {
-  .enemy-attacks { padding: 14px 12px; }
+  .enemy-details { padding: 14px 12px; }
   .enemy-attack-table { min-width: 0; font-size: 13px; }
   .enemy-attack-table .col-attack { width: 34%; }
   .enemy-attack-table .col-damage { width: 21%; }
