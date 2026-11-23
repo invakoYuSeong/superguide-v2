@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { enemies, weaponProfiles } from '../dist/data/combat-data.js';
-import { structures, demolitionProfiles } from '../dist/data/demolition-data.js';
+import { structures, demolitionProfiles, datamineProfileIds } from '../dist/data/demolition-data.js';
 import { stratagemAttackDamage, stratagemAttackSource } from '../dist/data/stratagem-attacks.js';
 import { buildStratagemAttacks } from './build-stratagem-attacks.mjs';
 import { factionGuides } from '../dist/data/faction-data.js';
@@ -147,7 +147,8 @@ const legacyMode = (id, mode) => {
   if (shieldBypassAdded[id]?.includes(mode.id)) { const { shieldBypass, ...rest } = out; out = rest; }
   return out;
 };
-const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).map(([id, profile]) => [id, !healthAdded[id] && !shieldBypassAdded[id] ? profile
+// Stratagems given a profile from the attack datamine after the recording (2026-11-23) had none then.
+const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).filter(([id]) => !datamineProfileIds.includes(id)).map(([id, profile]) => [id, !healthAdded[id] && !shieldBypassAdded[id] ? profile
   : { ...profile, modes: profile.modes.map(mode => legacyMode(id, mode)) }]));
 for (const [id, modeIds] of Object.entries(shieldBypassAdded)) for (const modeId of modeIds) {
   const result = solveDemolition(structures.find(item => item.id === 'warp-ship'), demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId));

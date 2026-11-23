@@ -211,4 +211,10 @@ export default {
   "기총탄": "Cannon round",
   "장약 폭발": "Charge detonation",
   "폭탄 · 주 폭발": "Bomb \u00b7 Main explosion",
+  "분사": "Spray",
+  "집속 모드의 로켓은 공중에서 갈라져 직격하지 않습니다.": "In cluster mode the rockets split in the air and never hit directly.",
+  "공중에서 터지는 포탄이라 직격은 사실상 일어나지 않습니다. 폭발이 시설에 닿아야 합니다.": "The shells burst in the air, so a direct hit practically never happens; the blast has to reach the structure.",
+  "여러 무기 중 철거력이 가장 큰 공격 기준입니다.": "Uses the attack with the most demolition force among its weapons.",
+  "연료 탱크 폭발": "Fuel tank explosion",
+  "차량이 파괴될 때의 폭발입니다(이글 500kg 폭탄과 같은 크기). 화염방사기 연료가 다 떨어진 뒤에는 일반 차량 폭발로 바뀌고, 타고 있던 헬다이버는 죽습니다.": "The explosion when the vehicle is destroyed (the same size as an Eagle 500kg Bomb). Once the flamethrower's fuel runs out it becomes an ordinary vehicle explosion, and anyone inside dies.",
 };

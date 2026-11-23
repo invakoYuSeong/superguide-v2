@@ -1,5 +1,6 @@
 import { weaponProfiles } from './combat-data.js';
 import { stratagemAttackDamage } from './stratagem-attacks.js';
+import { stratagemStats } from './stratagem-stats.js';
 
 export const demolitionCheckedAt = '2026-09-16';
 export const demolitionSource = 'https://helldivers.wiki.gg/wiki/Demolition';
@@ -65,6 +66,33 @@ const shot = (direct, explosion, extra = {}) => [mode('standard', '기본 공격
 const callIn = (modes, extra = {}) => profile(modes, { requiresCallIn: true, ...extra });
 const indirect = '공격이 시설에 실제로 닿는 조건입니다. 자동 조준·유도·살포 위치로 인해 원하는 부위를 직접 선택하지 못할 수 있습니다.';
 const automatic = '자동 포탑은 시설을 표적으로 직접 지정할 수 없습니다. 아래 결과는 탄이나 폭발이 시설에 실제로 닿는 경우입니다.';
+
+
+// Profiles read from the attack datamine (stratagem-stats.js `forces`): one mode with the strongest hit (direct, beam,
+// arc or spray) and the strongest blast, plus a vehicle's death explosion as its own mode. Options: label (what the
+// hit is called), damage (combat-data.js mode id for the health path), callIn (Eagles and orbitals need a call-in),
+// automatic (sentries and drones pick their own targets), many (several weapons: the strongest of them), noDirect (an
+// airburst shell never hits directly), note.
+const HIT_KINDS = ['direct', 'beam', 'arc', 'spray'];
+const strongestDemo = (parts, kinds) => parts.filter(part => kinds.includes(part.kind) && part.demo != null).reduce((best, part) => Math.max(best ?? 0, part.demo), null);
+// Ids given a profile this way, so checks can tell them from the wiki summary's stratagems.
+export const datamineProfileIds = [];
+function datamineProfiles(options) {
+  datamineProfileIds.push(...Object.keys(options));
+  return Object.fromEntries(Object.entries(options).map(([id, opt]) => {
+    const parts = (stratagemStats[id]?.forces ?? []).flatMap(group => group.parts);
+    const direct = opt.noDirect ? null : strongestDemo(parts, HIT_KINDS);
+    const blast = strongestDemo(parts, ['blast']);
+    const wreck = parts.find(part => part.kind === 'wreck');
+    const notes = [opt.note, opt.many && '여러 무기 중 철거력이 가장 큰 공격 기준입니다.'].filter(Boolean).join(' ');
+    const modes = [mode('standard', '기본 공격', direct || null, blast || null, {
+      ...(opt.label && { directLabel: opt.label }), ...(opt.damage && { damage: combatDamage(id, opt.damage) }), ...(notes && { note: notes }) })];
+    if (wreck) modes.push(mode('wreck', '연료 탱크 폭발', null, wreck.demo, { selfDestruct: true, damage: damage(0, 0, 0, wreck.damage, wreck.ap),
+      note: '차량이 파괴될 때의 폭발입니다(이글 500kg 폭탄과 같은 크기). 화염방사기 연료가 다 떨어진 뒤에는 일반 차량 폭발로 바뀌고, 타고 있던 헬다이버는 죽습니다.' }));
+    const extra = { source: wiki('Module:Decodedata-Attacks/stratagems_data.json'), ...(opt.automatic && { conditionalAim: true, note: automatic }) };
+    return [id, opt.callIn ? callIn(modes, extra) : profile(modes, extra)];
+  }));
+}
 
 export const demolitionProfiles = {
   'autocannon': profile([
@@ -150,6 +178,18 @@ export const demolitionProfiles = {
     mode('ems', '정전기장탄', 50, 30, { warpHullDirect: true }),
     mode('smoke', '연막탄 · 탄체 직격', 50, null, { warpHullDirect: true }),
   ], { note: '실제로 장전되어 다음에 발사될 탄종을 고르세요. 여기서 고른다고 게임의 발사 순서가 바뀌지는 않습니다.' }),
+  // Not in the wiki Demolition summary: the force is the attack datamine's demo value (stratagem-stats.js `forces`,
+  // the strongest hit and the strongest blast; fragments left out), 2026-11-23.
+  ...datamineProfiles({
+    flamethrower: { label: '분사' }, sterilizer: { label: '분사' }, cremator: { label: '분사' }, 'defoliation-tool': {}, 'one-true-flag': { damage: 'melee' },
+    'airburst-launcher': { damage: 'flak', note: '집속 모드의 로켓은 공중에서 갈라져 직격하지 않습니다.' }, 'expendable-napalm': { damage: 'standard' },
+    'orbital-airburst': { callIn: true, noDirect: true, note: '공중에서 터지는 포탄이라 직격은 사실상 일어나지 않습니다. 폭발이 시설에 닿아야 합니다.' },
+    'eagle-gas': { callIn: true },
+    'machine-gun-sentry': { automatic: true }, 'gatling-sentry': { automatic: true }, 'gas-mortar': { automatic: true }, 'flame-sentry': { automatic: true, label: '분사' }, 'laser-sentry': { automatic: true, label: '광선' },
+    'guard-dog': { automatic: true }, rover: { automatic: true, label: '광선' }, k9: { automatic: true }, 'hot-dog': { automatic: true }, 'dog-breath': { automatic: true, label: '분사' },
+    patriot: { many: true }, emancipator: { many: true }, lumberer: { many: true }, breakthrough: { many: true }, 'gunner-frv': { many: true }, 'supply-frv': { many: true }, bastion: { many: true },
+    'incinerator-frv': { many: true, label: '분사' },
+  }),
 };
 
 // Health path for stratagems: damage per shot from the wiki attack datamine (dist/data/stratagem-attacks.js,

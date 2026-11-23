@@ -153,4 +153,4 @@ export function forcesOf(found, strat, weapons) {
 // A vehicle's death explosion (db/source/vehicle_explosions.json) as its own 'wreck' force group with the
 // blast damage and radii, or nothing for a vehicle without one.
 export const wreckForces = (id, wrecks) => wrecks[id] ? [{ weapon: null, parts: [{ kind: 'wreck', demo: wrecks[id].damage.demo, stun: wrecks[id].damage.stun, push: wrecks[id].damage.push,
-  damage: wrecks[id].damage.dmg, inner: wrecks[id].explosion.r1, outer: wrecks[id].explosion.r2, shockwave: wrecks[id].explosion.r3 }] }] : [];
+  damage: wrecks[id].damage.dmg, ap: wrecks[id].damage.ap1, inner: wrecks[id].explosion.r1, outer: wrecks[id].explosion.r2, shockwave: wrecks[id].explosion.r3 }] }] : [];
