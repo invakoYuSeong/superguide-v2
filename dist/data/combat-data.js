@@ -537,55 +537,55 @@ export const weaponProfiles = {
         delivery: 'beam', range: 15,
         beam: { duration: 1.4, standardPerSecond: dps, durablePerSecond: dps },
       })),
-    ], '한 발은 약 1.4초 동안 이어지는 광선입니다. 사거리 끝 15m에서는 피해가 40% 감소합니다. 중간 거리의 감쇠 곡선은 자료 미확인으로 계산하지 않습니다. 폭발·화상 피해는 없으며, 충전·재장전 시간은 탄수 계산과 별개입니다.'),
+    ], '한 발은 약 1.4초 동안 이어지는 광선입니다. 사거리 끝(15m)에서는 피해가 40% 줄며, 그 사이 거리의 감소 폭은 알려지지 않아 계산하지 않습니다. 폭발·화상 피해는 없고, 충전·재장전 시간은 횟수에 넣지 않습니다.'),
     sourceRevision: 134789, damageRevision: 134890,
     extraSource: wiki('Module:Decodedata-Attacks/weapons_data.json'),
   },
   'arc-thrower': reviewedImpact('ARC-3_Arc_Thrower', [
     shot('first-target', '첫 표적 · 전격 명중', 250, 100, 7, 0, 0, { delivery: 'arc', range: 55 }),
-  ], '첫 표적의 표시 부위에 전격이 계속 명중하는 조건입니다. 특정 부위를 자유롭게 조준할 수 있는 무기는 아닙니다. 연쇄 대상의 피해 감소와 다른 적의 피해는 제외합니다.'),
+  ], '처음 맞은 적의 이 부위에 전격이 계속 맞는다고 보고 계산합니다. 원하는 부위를 골라 맞힐 수 있는 무기는 아니며, 옆 적으로 튄 전격의 피해는 빼고 계산합니다.'),
   'spear': reviewedImpact('FAF-14_Spear', [
     shot('impact', '유도 미사일 · 착탄 부위 기준', 4000, 4000, 7, 200, 3, { delivery: 'guided', explosionDurable: 200, innerRadius: 1.5, radius: 3 }),
-  ], '락온한 표적을 향한 미사일이 표시 부위에 직접 착탄하는 조건입니다. 유도 궤적과 실제 착탄 부위는 보장하지 않으며, 여러 부위 동시 폭발 피해는 제외합니다.'),
+  ], '락온한 미사일이 이 부위에 바로 맞는다고 보고 계산합니다. 실제로 어디에 맞을지는 장담할 수 없고, 폭발이 여러 부위에 함께 들어가는 피해는 합치지 않습니다.'),
   'one-true-flag': reviewedImpact('CQC-1_One_True_Flag', [
     shot('melee', '일반 찌르기', 200, 100, 3, 0, 0, { unit: '회', delivery: 'flag' }),
-  ], '깃발 날이 해당 부위에 먼저 닿는 일반 찌르기 기준입니다. 깃발 설치 동작과 방어구의 근접 피해 증가 효과는 제외합니다.'),
+  ], '깃발 끝으로 이 부위를 찌르는 일반 공격 기준입니다. 깃발을 꽂는 동작과 방어구의 근접 피해 증가 효과는 빼고 계산합니다.'),
   'speargun': reviewedImpact('S-11_Speargun', [
     shot('direct', '직격 기준 · 가스 피해 제외', 650, 275, 5, 0, 0, { delivery: 'harpoon', falloff: true }),
-  ], '작살의 직격 피해만 계산합니다. 가스 영역 피해와 가스 지속 피해는 모두 제외하며, 포함하지 않은 피해까지 반영한 실제 최소 탄수는 아닙니다.'),
+  ], '작살이 직접 맞는 피해만 계산합니다. 가스 구름과 중독 피해는 빼므로, 실제로는 더 적은 발로 처치될 수 있습니다.'),
   'de-escalator': reviewedImpact('GL-52_De-Escalator', [
     shot('arc', '전격 · 명중 수 조건', 100, 70, 4, 0, 0, { delivery: 'arc', range: 10, hitCondition: { kind: 'arcs', min: 1, max: 10, default: 10, defaultPct: 100 } }),
-  ], '전격 1회는 일반 피해 100 / 내구 피해 70 / AP 4입니다. 한 유탄에서 전격 10개가 발생하지만, 특정 부위에 들어가는 개수는 자료 미확인입니다. 유탄 자체 직격은 위키 세부 표 20/2와 변경 기록 0/0이 충돌하여 제외합니다. 전격에 폭발 저항을 적용하지 않습니다.'),
+  ], '전격 1회는 피해 100(내구 70), 관통 4입니다. 유탄 하나에서 전격 10개가 나가지만 이 부위에 몇 개가 맞는지는 알려지지 않아 맞는 개수를 직접 고르게 했습니다. 유탄이 직접 맞는 피해는 자료마다 값이 달라 빼고, 전격에는 폭발 저항을 적용하지 않습니다.'),
   'airburst-launcher': reviewedImpact('RL-77_Airburst_Rocket_Launcher', [
     ...[
-      ['flak', '대공포탄 모드', '근접 신관으로 공중에서 터질 수 있습니다. 직접 맞히지 않은 주탄의 직격 피해는 포함하지 마세요.'],
+      ['flak', '대공포탄 모드', '근접 신관으로 공중에서 터질 수 있어, 주탄이 직접 맞지 않으면 직격 피해는 들어가지 않습니다.'],
       ['cluster', '집속탄 모드', '주탄은 충돌 또는 짧은 시간 경과 후 터지며, 자탄은 분산 후 충돌 시 폭발합니다.'],
     ].map(([id, name, note]) => shot(id, name, 350, 350, 3, 150, 3, {
       delivery: 'cluster', explosionDurable: 150, innerRadius: 3, radius: 5, note,
       hitCondition: { kind: 'bomblets', min: 0, max: 25, default: 5, defaultPct: 20 },
       bomblet: { standard: 150, durable: 150, ap: 3, explosion: 500, explosionDurable: 500, explosionAp: 3, innerRadius: 4, radius: 6 },
     })),
-  ], '주탄과 자탄의 직격·폭발을 따로 계산합니다. 자탄은 25개 발생하지만 같은 부위에 모두 맞는다고 자동 합산하지 않습니다. 선택한 폭발이 모두 해당 부위에 최대 피해를 주는 가정이며, 여러 부위 동시 피해는 제외합니다.'),
+  ], '주탄과 자탄의 직격·폭발을 따로 계산합니다. 자탄 25개가 모두 같은 부위에 맞는다고 보지 않고 고른 개수만 더합니다. 고른 폭발은 모두 이 부위에 최대 피해로 들어간다고 보며, 여러 부위에 함께 들어가는 피해는 합치지 않습니다.'),
   'grenade-launcher': reviewedExplosive('GL-21_Grenade_Launcher', [
     shot('standard', '기본 사격', 0, 0, 4, 400, 3, { explosionDurable: 400, innerRadius: 3.5, radius: 7.5 }),
-  ], '직격 피해 0은 위키의 정상값입니다. 안전 신관이 작동할 만큼 거리를 확보하고, 유탄이 튕긴 위치가 아닌 실제 폭발 위치를 기준으로 조준하세요.'),
+  ], '유탄은 직접 맞아도 피해가 없고 폭발로만 피해를 줍니다. 가까우면 안전 신관 때문에 터지지 않으니 거리를 두고, 튕긴 자리가 아닌 실제로 터지는 자리를 보고 겨누세요.'),
   'belt-fed-gl': reviewedExplosive('GL-28_Belt-Fed_Grenade_Launcher', [
     shot('standard', '기본 사격', 0, 0, 4, 150, 4, { explosionDurable: 150, innerRadius: 2, radius: 4 }),
-  ], '직격 피해 0은 위키의 정상값입니다. 유탄이 정상적으로 기폭해 선택한 부위에 최대 폭발 피해가 닿는 조건입니다.'),
+  ], '유탄은 직접 맞아도 피해가 없고 폭발로만 피해를 줍니다. 제대로 터진 폭발이 이 부위에 최대 피해로 들어간다고 보고 계산합니다.'),
   'breaching-hammer': reviewedExplosive('CQC-20_Breaching_Hammer', [
     shot('melee', '일반 타격 · 폭약 없음', 300, 150, 3, 0, 0, { unit: '회', delivery: 'melee', note: '폭약 없이 망치로 직접 타격합니다. 방어구의 근접 피해 증가 효과는 적용하지 않습니다.' }),
     shot('explosive', '폭약 사용 · 타격과 기폭', 300, 150, 3, 2200, 6, { explosionDurable: 2200, innerRadius: 0.5, radius: 3, unit: '회', delivery: 'melee', note: '폭약 한 개를 장착한 타격 1회 기준입니다. 직접 타격과 폭발이 같은 부위에 들어오는 조건이며, 매번 폭약을 다시 장착해야 합니다.' }),
-  ], '망치가 실제로 닿는 위치에서 정면 타격하는 조건입니다. 휘두를 때 처음 접촉한 부위만 타격하며, 높은 부위나 비행 중인 적에게 접근할 수 있는지는 계산하지 않습니다.'),
+  ], '망치가 실제로 닿는 곳을 정면으로 치는 기준입니다. 휘두를 때 처음 닿은 부위만 맞고, 높은 부위나 날아다니는 적에게 닿을 수 있는지는 따지지 않습니다.'),
   'leveller': reviewedExplosive('EAT-411_Leveller', [
     shot('standard', '기본 사격', 1000, 1000, 6, 2500, 6, { explosionDurable: 2500, innerRadius: 10, radius: 25 }),
-  ], '선택한 부위에 탄체가 직접 명중하고 같은 부위에 최대 폭발 피해가 닿는 조건입니다.'),
+  ], '탄이 이 부위에 바로 맞고, 폭발도 같은 부위에 최대 피해로 들어간다고 보고 계산합니다.'),
   'epoch': reviewedExplosive('PLAS-45_Epoch', [
     shot('standard', '일반 발사', 400, 200, 4, 500, 4, { explosionDurable: 500, innerRadius: 2.3, radius: 3, falloff: true }),
     shot('charged', '완전 충전 발사', 800, 400, 5, 800, 5, { explosionDurable: 800, innerRadius: 3, radius: 4, falloff: true }),
-  ], '일반 발사와 완전 충전의 직격·내구 피해, 관통, 폭발 반경을 각각 적용합니다. 과충전 자폭은 정상 발사 모드에서 제외합니다.'),
+  ], '일반 발사와 완전 충전은 피해·관통·폭발 반경이 다르므로 모드를 골라 확인하세요. 과충전으로 터지는 자폭은 빼고 계산합니다.'),
   'expendable-napalm': reviewedExplosive('EAT-700_Expendable_Napalm', [
     shot('standard', '주탄 기준·자탄과 화염 제외', 500, 500, 3, 250, 6, { explosionDurable: 250, innerRadius: 1.6, radius: 8, explosionName: '주폭발' }),
-  ], '주탄 기준·자탄과 화염 제외. 주탄 직격과 주폭발만 계산합니다. 자탄 한 개의 폭발은 일반·내구 피해 각각 50 / AP 3이지만, 명중 수와 화염의 실제 피해 지속시간은 자료 미확인입니다. 제외한 피해까지 포함한 실제 최소 탄수는 아닙니다.'),
+  ], '주탄의 직격과 주폭발만 계산합니다. 자탄 폭발(피해 50, 관통 3)과 불길은 몇 번 맞는지 알 수 없어 빼므로, 실제로는 더 적게 들 수 있습니다.'),
   'solo-silo': reviewedExplosive('MS-11_Solo_Silo', [
     shot('standard', '미사일 1발 · 충돌 폭발과 주폭발', 0, 0, 0, 0, 0, {
       directKind: 'none',
@@ -594,9 +594,9 @@ export const weaponProfiles = {
         { id: 'main', name: '주폭발', standard: 2500, durable: 2500, ap: 7, innerRadius: 10, radius: 25 },
       ],
     }),
-  ], '충돌 피해도 폭발입니다. 두 폭발의 관통·반경·폭발 저항을 각각 적용한 뒤 같은 부위에 들어오는 피해만 더합니다. 두 폭발 모두 최대 피해 반경 안에 들어오는 조건이며, 같은 탄의 후속 폭발이 제거된 장갑 안쪽에 추가로 닿는 효과는 자료 미확인으로 제외합니다.'),
+  ], '충돌할 때의 피해도 폭발입니다. 두 폭발에 관통·반경·폭발 저항을 각각 적용해 이 부위에 들어오는 피해만 더하며, 두 폭발 모두 최대 피해 반경 안에 든다고 봅니다. 장갑이 깨진 뒤 남은 폭발이 안쪽까지 닿는지는 알려지지 않아 빼고 계산합니다.'),
   'c4-pack': {
-    ...profile('B/MD_C4_Pack', [shot('charge', '장약 한 개 기폭', 0, 0, 0, 2000, 7, { explosionDurable: 2000, innerRadius: 3, radius: 7, unit: '개', delivery: 'adhesive' })], '장약 한 개씩 같은 부위에 최대 폭발 피해가 들어가는 조건입니다. 부착 위치에 따른 여러 부위의 동시 피해, 가림과 실제 부착 성공 여부는 검증하지 않았으므로 실제 최소 처치 개수와 다를 수 있습니다.'),
+    ...profile('B/MD_C4_Pack', [shot('charge', '장약 한 개 기폭', 0, 0, 0, 2000, 7, { explosionDurable: 2000, innerRadius: 3, radius: 7, unit: '개', delivery: 'adhesive' })], '장약 하나하나가 같은 부위에 최대 폭발 피해를 준다고 보고 계산합니다. 붙인 위치에 따라 여러 부위에 함께 들어가는 피해나 가려짐, 실제로 붙는지는 따지지 않아 실제 개수와 다를 수 있습니다.'),
     sourceRevision: 133871, checkedAt: '2026-09-16',
   },
   'autocannon': profile('AC-8_Autocannon', [
@@ -607,26 +607,26 @@ export const weaponProfiles = {
       delivery: 'explosive', directKind: 'none', explosionDurable: 190, innerRadius: 2, radius: 7,
       hitCondition: { kind: 'shrapnel', min: 0, max: 30, default: 6, defaultPct: 20 },
       bomblet: { standard: 110, durable: 35, ap: 3, explosion: 0, explosionAp: 0 },
-      note: '근접 기폭한 주폭발과 파편 피해를 계산하며, 주탄 직격은 제외합니다. 기본은 파편 30개 중 6개가 같은 부위에 맞는 가정입니다. 명중률을 바꿀 수 있으며, 0개를 고르면 파편 피해를 제외합니다. 폭발 중심부가 해당 부위에 닿는 조건이며, 여러 부위 동시 피해는 합치지 않습니다.',
+      note: '공중에서 터진 주폭발과 파편 피해를 계산하며, 주탄의 직격은 빼습니다. 기본은 파편 30개 중 6개가 이 부위에 맞는다고 보며, 명중 수를 바꾸거나 0개로 해서 파편을 뺄 수 있습니다. 폭발 중심이 이 부위에 닿는다고 보며, 여러 부위에 함께 들어가는 피해는 합치지 않습니다.',
     }),
   ]),
   'wasp': {
     source: wiki('Module:Decodedata-Attacks/weapons_data.json'), sourceRevision: 142136, checkedAt: '2026-11-08',
     sourceRecords: { weapon: 'STA-X3 W.A.S.P. LAUNCHER', projectile: 'StA-X3_P1', explosion: 'StA-X3_P1_IE', bomblet: 'StA-X3_P', bombletExplosion: 'StA-X3_P_IE' },
-    note: '분산탄 한 발에서 나온 작은 미사일이 같은 부위에 맞는다고 가정한 피해 계산입니다. 실제 유도 가능 대상이나 명중 부위를 보장하지 않습니다. 탄창 소모량과 여러 부위 동시 피해는 계산하지 않습니다.',
+    note: '작은 미사일들이 같은 부위에 맞는다고 보고 계산합니다. 실제로 유도되는 대상과 맞는 부위는 장담할 수 없고, 탄창 소모와 여러 부위에 함께 들어가는 피해는 계산하지 않습니다.',
     modes: [
       shot('submunitions', '분산탄 · 명중 가정', 20, 2, 0, 600, 3, {
         delivery: 'cluster', unit: '발', magazine: null, explosionDurable: 600, innerRadius: 3, radius: 5, coneAngle: 25,
         hitCondition: { kind: 'bomblets', min: 0, max: 7, default: 1, defaultPct: 20,
           defaultPrimaryHit: 'none', defaultBombletDirect: true },
         bomblet: { standard: 200, durable: 200, ap: 6, explosion: 600, explosionDurable: 600, explosionAp: 3, innerRadius: 2.5, radius: 5 },
-        note: '기본은 작은 미사일 7개 중 1개의 직격과 폭발이 같은 부위에 맞는 가정입니다. 20%를 반올림한 개수이며, 실제 명중 비율은 약 14%에 해당합니다. 주탄은 12m 근접 기폭이고 피해 반경은 5m이므로 주탄 피해는 기본에서 제외합니다. 주탄 폭발이 실제로 닿는 경우에만 포함하세요. 분산 각도 25도만으로 명중률이나 명중 부위를 알 수는 없습니다.',
+        note: '기본은 작은 미사일 7개 중 1개(약 14%)의 직격과 폭발이 이 부위에 맞는다고 봅니다. 주탄은 대상 12m 앞에서 터지고 폭발 반경이 5m라 기본에서는 빼며, 주탄 폭발이 실제로 닿을 때만 넣으세요.',
       }),
       { id: 'guided', name: '유도 사격 조건', unsupported: '어떤 적을 유도할 수 있고 어느 부위에 맞는지 확인되지 않아 실제 유도 사격의 처치 횟수는 계산하지 않습니다.' },
     ],
   },
-  'anti-materiel': profile('Anti-Material_Rifle', [shot('standard', '기본 사격', 450, 225, 4, 0, 0, { falloff: true })], '헐크 눈은 근거리 이론값으로 1발이어도, 거리 감쇠가 생기면 2발 이상 필요할 수 있습니다.'),
-  'apex': profile('AMW-20_Apex', [shot('standard', '기본 사격', 1550, 930, 5, 0, 0, { falloff: true })], '엎드리거나 앉아서 쏘는 한 발 기준입니다. 근거리 최대 피해로 계산하며, 거리 감쇠가 생기면 더 필요할 수 있습니다.'),
+  'anti-materiel': profile('Anti-Material_Rifle', [shot('standard', '기본 사격', 450, 225, 4, 0, 0, { falloff: true })], ''),
+  'apex': profile('AMW-20_Apex', [shot('standard', '기본 사격', 1550, 930, 5, 0, 0, { falloff: true })], '엎드리거나 앉아서 쏘는 한 발 기준입니다.'),
   'machine-gun': profile('MG-43_Machine_Gun', [shot('standard', '기본 사격', 90, 23, 3, 0, 0, { falloff: true })]),
   'stalwart': profile('M-105_Stalwart', [shot('standard', '기본 사격', 90, 22, 2, 0, 0, { falloff: true })]),
   'heavy-machine-gun': profile('MG-206_Heavy_Machine_Gun', [shot('standard', '기본 사격', 150, 35, 4, 0, 0, { falloff: true })]),
@@ -634,8 +634,8 @@ export const weaponProfiles = {
   'bullet-storm': profile('MGX-42', [shot('standard', '기본 사격', 100, 25, 2, 0, 0, { falloff: true })]),
   'expendable-at': profile('EAT-17_Expendable_Anti-Tank', [shot('standard', '대전차탄', 2000, 2000, 6, 150, 3)]),
   'quasar': profile('LAS-99_Quasar_Cannon', [shot('standard', '충전 사격', 2000, 2000, 6, 150, 3)]),
-  'nova': profile('LAS-44_Nova', [shot('standard', '충전 사격', 880, 880, 5, 0, 0)], '약 1.6초 충전한 뒤 나가는 한 발 기준입니다. 위키에 따르면 거리에 따른 피해 감소가 없습니다.'),
-  'commando': profile('MLS-4X_Commando', [shot('standard', '미사일 1발', 1100, 1100, 6, 150, 3)], '유도한 미사일이 선택한 부위에 직접 명중하는 조건입니다.'),
+  'nova': profile('LAS-44_Nova', [shot('standard', '충전 사격', 880, 880, 5, 0, 0)], '약 1.6초 충전한 뒤 나가는 한 발 기준이며, 거리로 피해가 줄지 않습니다.'),
+  'commando': profile('MLS-4X_Commando', [shot('standard', '미사일 1발', 1100, 1100, 6, 150, 3)], '유도한 미사일이 이 부위에 바로 맞는다고 보고 계산합니다.'),
   'recoilless': profile('Recoilless', [
     shot('heat', '대전차 고폭탄(HEAT)', 3200, 3200, 6, 150, 3),
     shot('he', '고폭탄(HE)', 750, 750, 5, 800, 4),
@@ -643,7 +643,7 @@ export const weaponProfiles = {
   'railgun': profile('Railgun', [
     shot('safe', '안전 모드 · 기본 충전', 600, 225, 5, 0, 0, { falloff: true }),
     shot('unsafe-max', '불안전 모드 · 최대 피해 충전', 1500, 562, 5, 0, 0, { falloff: true }),
-  ], '최대 충전의 내구 피해는 위키 세부 표의 562를 사용합니다. 충전이 덜 되면 피해가 줄며, 과충전 자폭은 탄의 폭발 피해에 포함하지 않습니다.'),
+  ], '모드마다 충전 정도가 다릅니다. 덜 충전하면 피해가 줄고, 과충전으로 터지는 자폭은 빼고 계산합니다.'),
 };
 
 // Each support mode's own projectile record (support-records.js), for range falloff.

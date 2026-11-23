@@ -112,7 +112,7 @@ export function buildPersonalProfiles(weapons, data, pages, checkedAt) {
     if (modes.every(mode => mode.unsupported)) personalUnsupported[weapon.id] = modes[0].unsupported;
     else personalProfiles[weapon.id] = {
       source: weapon.source, checkedAt, sourceRevision: pages[weapon.en].revision,
-      note: '같은 부위를 최대 피해로 계속 맞혔을 때의 횟수입니다. 거리와 맞는 각도에 따른 피해 변화, 도탄, 화상 같은 지속 피해와 기절 같은 효과는 빼고 계산합니다. 여러 부위에 동시에 들어가는 피해는 합치지 않습니다. 연사와 점사는 한 발씩 계산합니다. 산탄과 전격은 기본적으로 모두 맞는다고 가정하며, 파편은 20%를 반올림한 개수가 맞는다고 가정합니다. 명중률을 바꿔 다시 계산할 수 있습니다.',
+      note: '맞는 각도와 도탄, 화상 같은 지속 피해, 기절 같은 효과는 빼고 계산하며, 여러 부위에 함께 들어가는 피해는 합치지 않습니다. 연사·점사도 한 발씩 셉니다.',
       modes,
     };
   }
