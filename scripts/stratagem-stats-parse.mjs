@@ -82,6 +82,26 @@ export function bodyOf(id, title, type, strat, weapons) {
   const entry = [table !== 'weapons' && key, upper, bare].filter(Boolean).map(name => strat.stratagems[name]).find(Boolean);
   return Number.isFinite(entry?.health) ? { health: entry.health, armor: entry.armor } : null;
 }
+// Gun of a sentry: fire rate and ammo from the wiki Stratagem Stats Table (sentry_rpm, sentry_ammo and the
+// ship-module values sentry_ammo_upgraded and sentry_health_upgraded; '~32' is kept as approximate, '40*'
+// keeps its number) and from the attack datamine weapon entry (rpm and cap, the rounds fired before it
+// reloads). Null for anything but a sentry or when neither has a gun value.
+export function sentryOf(id, title, type, table, strat) {
+  if (type !== 'Sentry') return null;
+  const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');
+  const gun = [upper, bare].map(name => strat.weapons[name]).find(Boolean);
+  const wiki = key => { const m = /^(~)?\s*(\d+(?:\.\d+)?)\*?$/.exec(field(table, key)); return m ? { value: Number(m[2]), approx: Boolean(m[1]) } : null; };
+  const rpm = wiki('sentry_rpm'), ammo = wiki('sentry_ammo');
+  const out = {
+    ...(rpm && { rpm: rpm.value, ...(rpm.approx && { rpmApprox: true }) }),
+    ...(Number.isFinite(gun?.rpm) && { rpmData: gun.rpm }),
+    ...(ammo && { ammo: ammo.value }),
+    ...(wiki('sentry_ammo_upgraded') && { ammoModules: wiki('sentry_ammo_upgraded').value }),
+    ...(Number.isFinite(gun?.cap) && !gun.heatdata && { magazine: gun.cap }),
+    ...(wiki('sentry_health_upgraded') && { healthModules: wiki('sentry_health_upgraded').value }),
+  };
+  return Object.keys(out).length ? out : null;
+}
 /** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
 

@@ -15,6 +15,10 @@ export const shipModules = [
   { id: 'morale-augmentation', name: '사기 증강', en: 'Morale Augmentation', all: true, cooldown: 0.95, text: "Reduces cooldown time for '''all Stratagems''' by '''5%'''." },
   { id: 'pit-crew', name: '피트 대원 위험수당', en: 'Pit Crew Hazard Pay', types: ['Eagle'], ids: ['eagle-rearm'], rearm: 0.8, text: "Reduces '''Eagle''' Rearm time by '''20%'''." },
   { id: 'expanded-weapons-bay', name: '무기 베이 확장', en: 'Expanded Weapons Bay', types: ['Eagle'], uses: 1, text: "Increases number of '''Eagle''' stratagem uses per '''Rearm''' by 1." },
+  // Sentry ammo and health: the module values come from each page's sentry_ammo_upgraded and
+  // sentry_health_upgraded (stratagem-stats.js `sentry`); the rate is used only where a page has none.
+  { id: 'shock-absorption-gel', name: '충격 흡수 젤', en: 'Shock Absorption Gel', types: ['Sentry'], ammo: 1.5, text: "Increases ammo for all '''Sentry''' stratagems by '''50%'''." },
+  { id: 'advanced-construction', name: '고도화된 구조', en: 'Advanced Construction', types: ['Sentry'], health: 1.5, text: "Increases health of '''Sentry''' stratagems by '''50%'''." },
   // Call-in times with these modules come from each page's `call_time_upgraded`.
   { id: 'targeting-software', name: '표적화 소프트웨어 업그레이드', en: 'Targeting Software Upgrade', types: ['Orbital'], callIn: true, text: "'''1-second''' reduction in call-in time for all '''Orbital''' Stratagems." },
   { id: 'streamlined-launch', name: '발사 과정 간소화', en: 'Streamlined Launch Process', types: ['Support Weapon'], callIn: true, text: "All '''Support Weapon''' stratagems launch immediately once called in, reducing overall deployment time." },

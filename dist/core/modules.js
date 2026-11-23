@@ -32,7 +32,26 @@ export function timingOf(item, on = enabled) {
     uses: on && typeof base.uses === 'number' ? base.uses + extraUses : base.uses,
     // Modules that change something shown for this stratagem.
     modules: modules.filter(module => (module.cooldown && cooldown != null) || (module.rearm && rearm != null)
-      || (module.uses && typeof base.uses === 'number') || (module.callIn && base.callInModules != null)),
+      || (module.uses && typeof base.uses === 'number') || (module.callIn && base.callInModules != null)
+      || (module.ammo && base.sentry?.ammo != null) || (module.health && base.body?.health != null && !base.body.drone)),
     revision: base.revision,
+  };
+}
+
+// A sentry's ammo and main health with or without the ship modules (Shock Absorption Gel, Advanced
+// Construction). The module values are the wiki page's own (sentry_ammo_upgraded, sentry_health_upgraded):
+// the Rocket Sentry's 32 -> 40 shows the ammo module filling only its first pod. Without a page value the
+// module rate is applied and rounded up, as the wiki rounds 22.5 to 23.
+export function sentryLoadOf(item, on = enabled) {
+  const base = stratagemStats[item.id];
+  if (!base || base.type !== 'Sentry') return null;
+  const rate = key => shipModules.find(module => module[key] && applies(module, item.id, base.type))?.[key] ?? 1;
+  const gun = base.sentry ?? {};
+  const ammoModules = gun.ammo == null ? null : gun.ammoModules ?? Math.ceil(gun.ammo * rate('ammo'));
+  const health = base.body?.health ?? null;
+  const healthModules = health == null ? null : gun.healthModules ?? Math.ceil(health * rate('health'));
+  return {
+    ammoBase: gun.ammo ?? null, ammo: on ? ammoModules : gun.ammo ?? null, ammoModules, ammoFromPage: gun.ammoModules != null,
+    healthBase: health, health: on ? healthModules : health, healthModules,
   };
 }

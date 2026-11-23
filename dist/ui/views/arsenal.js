@@ -10,7 +10,7 @@ import { ballisticsBlock } from '../ballistics-view.js';
 import { supportProjectileRecords, propelledModes } from '../../data/support-records.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
-import { timingOf, modulesOn, setModulesOn } from '../../core/modules.js';
+import { timingOf, modulesOn, setModulesOn, sentryLoadOf } from '../../core/modules.js';
 import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
 import { stratagemStats } from '../../data/stratagem-stats.js';
 import { vehicleDurability } from '../../data/vehicle-durability.js';
@@ -271,7 +271,9 @@ function changesBlock(item) {
   const pct = factor => Math.round((1 - factor) * 100);
   const effect = module => module.cooldown ? L(`재사용 -${pct(module.cooldown)}%`, `cooldown -${pct(module.cooldown)}%`)
     : module.rearm ? L(`재무장 -${pct(module.rearm)}%`, `rearm -${pct(module.rearm)}%`)
-    : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`) : L('호출 시간 단축', 'faster call-in');
+    : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`)
+    : module.ammo ? L(`탄약 +${Math.round((module.ammo - 1) * 100)}%`, `ammo +${Math.round((module.ammo - 1) * 100)}%`)
+    : module.health ? L(`체력 +${Math.round((module.health - 1) * 100)}%`, `health +${Math.round((module.health - 1) * 100)}%`) : L('호출 시간 단축', 'faster call-in');
   const modules = modulesOn() && t.modules.length ? t.modules : [];
   if (!lines.length && !modules.length) return '';
   return html`<details class="planet-effects"><summary>${L('행성 조건과 함선 모듈에 따른 변화', 'Changes under planet conditions and ship modules')}</summary>
@@ -388,11 +390,35 @@ const statGrid = item => {
   ].filter(Boolean);
   // Main health and armor of a sentry or emplacement, a drone's health and ammo (wiki datamine table); a shield
   // relay's or backpack's body is already in its defense table.
+  // A sentry's ammo and health follow the ship module toggle (Shock Absorption Gel, Advanced Construction).
+  const load = sentryLoadOf(item);
+  const on = modulesOn();
+  const moduleNote = (value, base) => !on ? L('함선 모듈 미적용', 'Without ship modules') : value !== base ? L(`기본 ${num(base)}`, `Base ${num(base)}`) : '';
+  const bodyHealth = load?.health ?? body?.health;
   const bodyCells = body && !item.defense?.body ? [
-    { label: body.drone ? L('드론 체력', 'Drone health') : L('본체 체력', 'Main health'), text: num(body.health), caption: L(`장갑 ${body.armor}`, `Armor ${body.armor}`) },
+    { label: body.drone ? L('드론 체력', 'Drone health') : L('본체 체력', 'Main health'), text: num(bodyHealth),
+      caption: [L(`장갑 ${body.armor}`, `Armor ${body.armor}`), load?.healthBase != null ? moduleNote(load.health, load.healthBase) : ''].filter(Boolean).join(' · ') },
     ...(body.magazine != null ? [{ label: L('드론 탄창', 'Drone magazine'), text: num(body.magazine), caption: ['hot-dog', 'dog-breath'].includes(item.id) ? L(`연료 · 최대 ${body.mags}개 보유`, `Fuel · up to ${body.mags} carried`) : L(`최대 ${body.mags}개 보유`, `Up to ${body.mags} carried`) }] : []),
   ] : [];
+  // Sentry gun (stratagem-stats.js `sentry`): fire rate from the wiki stats table, else the datamine; ammo with
+  // the ship module; and, when it fires fewer rounds than it carries before reloading, the reload point. The
+  // reload time itself is on neither the wiki nor the datamine.
+  const gun = stratagemStats[item.id]?.sentry;
+  const rpm = gun?.rpm ?? gun?.rpmData;
+  const firstPod = load?.ammo != null && gun?.magazine < load.ammoBase ? load.ammo - (load.ammoBase - gun.magazine) : null;
+  const sentryCells = !gun ? [] : [
+    rpm != null ? { label: L('연사', 'Fire rate'), text: gun.rpmApprox ? L(`약 ${num(rpm)}`, `~${num(rpm)}`) : num(rpm),
+      caption: [L('분당 발수', 'Rounds per minute'), gun.rpm != null && gun.rpmData != null && gun.rpmData !== gun.rpm ? L(`게임 데이터 ${num(gun.rpmData)}`, `Game data ${num(gun.rpmData)}`) : ''].filter(Boolean).join(' · ') } : null,
+    load?.ammo != null ? { label: L('탄약', 'Ammo'), text: num(load.ammo), unit: L('발', ''),
+      caption: [moduleNote(load.ammo, load.ammoBase) || L('설치 1회에 쏘는 양', 'Fired per deployment'),
+        on && firstPod != null && firstPod !== gun.magazine ? L(`모듈은 첫 탄창에만 적용`, 'The module fills only the first load') : '',
+        on && !load.ammoFromPage && load.ammo !== load.ammoBase ? L('모듈 50%로 계산', 'Module 50% applied') : ''].filter(Boolean).join(' · ') } : null,
+    firstPod != null ? { label: L('재장전', 'Reload'), text: L(`${num(gun.magazine)}발마다`, `Every ${num(gun.magazine)}`),
+      caption: [firstPod !== gun.magazine ? L(`첫 탄창 ${num(firstPod)}발`, `First load ${num(firstPod)}`) : '', L('짧은 재장전 · 시간 미확인', 'Short reload · time unverified')].filter(Boolean).join(' · ') } : null,
+  ].filter(Boolean);
   const absent = stat => stat.dim && (stat.text === '—' || stat.text === L('없음', 'None'));
+  // A support weapon with no known reach leaves the area cell out instead of showing 미확인 (user request 2026-11-23).
+  const unverifiedArea = item.category === 'support' && reach.dim && reach.text === L('미확인', 'Unverified');
   const handling = [
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
     // Sway only where it differs from the standard 100% (user decision 2026-11-19).
@@ -405,7 +431,7 @@ const statGrid = item => {
     .map(cell => statCell({ label: cell.label, icon: cell.icon, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
   // A direct hit that practically never happens (a carrier shell bursting in the air) is flagged in orange.
   if (item.directWarn) direct.warn = item.directWarn;
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {

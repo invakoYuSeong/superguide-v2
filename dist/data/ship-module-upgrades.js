@@ -378,7 +378,8 @@ export const shipModuleSections = [
      "requisition": 0
     },
     "effect": "센트리 스트라타젬의 체력이 50% 증가합니다.",
-    "effectEn": "Increases health of Sentry stratagems by 50%."
+    "effectEn": "Increases health of Sentry stratagems by 50%.",
+    "stratagemModule": "advanced-construction"
    },
    {
     "id": "rapid-launch-system",
@@ -463,7 +464,8 @@ export const shipModuleSections = [
      "requisition": 0
     },
     "effect": "모든 센트리 스트라타젬의 탄약이 50% 증가합니다.",
-    "effectEn": "Increases ammo for all Sentry stratagems by 50%."
+    "effectEn": "Increases ammo for all Sentry stratagems by 50%.",
+    "stratagemModule": "shock-absorption-gel"
    },
    {
     "id": "high-quality-lubricant",
