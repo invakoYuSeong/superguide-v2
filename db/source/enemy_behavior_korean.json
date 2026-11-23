@@ -32,6 +32,28 @@
     "ko": "가까이 가면 발차기와 팔 휘두르기로 중간 정도 피해를 주고 넘어뜨리며, 쓰러진 헬다이버는 짓밟습니다.",
     "en": "Up close it kicks and swings its arms for moderate damage that knocks you down, and stomps on downed Helldivers."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "명령을 받은 거대 데버스테이터는 느린 이동 속도가 보완되고, 버서커는 더 빨라집니다. 애지테이터를 처치하면 지휘받던 오토마톤이 모두 몇 초 동안 기절해, 마무리하거나 물러날 틈이 생깁니다.",
+    "en": "Under its command, Heavy Devastators lose their slow movement and Berserkers get even faster. Killing it stuns every Automaton it commands for a few seconds, giving you a chance to finish them or retreat."
+   },
+   {
+    "ko": "폭발 피해를 받는 부위가 여러 곳이라 퍼니셔 플라스마와 퓨리파이어가 특히 잘 듣습니다.",
+    "en": "Several of its limbs take explosion damage, so the Punisher Plasma and Purifier are exceptional against it."
+   },
+   {
+    "ko": "체력은 래디컬과 같지만, 장갑 2 갑옷을 먼저 부숴야 속살에 피해가 들어갑니다. 딜리전스는 2~3발로 헬멧을 벗기고 드러난 머리를 한 발에 처치합니다.",
+    "en": "It has the same health as a Radical, but its armor 2 suit must be broken before the flesh inside takes damage. The Diligence takes off the helmet in 2 to 3 shots, then kills with one shot to the bare head."
+   },
+   {
+    "ko": "레일건 과충전 한 발을 다리에 맞히거나, 유탄 권총 한 발을 직격하거나, 투척 나이프를 머리에 정확히 맞히면 처치합니다. 딜리전스 카운터 저격소총, 데드아이, 사이트라이너는 한 발로 헬멧을 부숴 머리를 노릴 수 있게 합니다.",
+    "en": "One overcharged Railgun shot to the leg, one direct hit from the Grenade Pistol, or a precise Throwing Knife to the head kills it. One shot from the Diligence Counter Sniper, Deadeye or Sightliner breaks its helmet, opening the head for a killing blow."
+   },
+   {
+    "ko": "아크 발사기와 K-9은 경직을 주고 갑옷을 무시하며 여러 적을 한꺼번에 맞혀, 달려드는 애지테이터를 상대하기에 아주 좋습니다.",
+    "en": "The Arc Thrower and K-9 stagger, bypass its armor and hit several enemies at once, making them excellent against charging Agitators."
+   }
   ]
  },
  "Alpha Commander": {
@@ -63,6 +85,24 @@
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "머리가 장갑 2이고 체력이 많아 관통 3 무기와 폭발 무기가 더 잘 통합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
+    "en": "Its head is armor 2 and it is very durable, so armor penetration 3 weapons and explosives work better. The head, claws and body have slightly thicker armor that cuts damage from armor penetration 2 weapons."
+   },
+   {
+    "ko": "앞발 양쪽을 모두 부수면 처치됩니다.",
+    "en": "Destroying both claws kills it."
+   },
+   {
+    "ko": "다리는 장갑이 없어 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리가 없어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
+    "en": "Its legs are unarmored and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even without a leg its charge still deals damage and its effects."
+   },
+   {
+    "ko": "머리를 잃어도 버그 침공을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요.",
+    "en": "Even without its head it can call a Bug Breach and summon Alpha Warriors and Hive Guards, so finish it off quickly."
+   }
   ]
  },
  "Alpha Warrior": {
@@ -85,6 +125,24 @@
    {
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "머리를 부수면 오히려 더 위험해집니다. 빠른 속도로 달려와 피를 흘리다 죽기 전에 공격할 수 있으니, 출혈로 죽기를 기다리지 말고 확실히 처치하세요.",
+    "en": "Destroying its head makes it much more dangerous, since its speed lets it reach and hurt you before it bleeds out. Finish it off instead of leaving it to bleed."
+   },
+   {
+    "ko": "워리어처럼 다리를 부수면 느려집니다.",
+    "en": "Like Warriors, destroying its legs slows it down."
+   },
+   {
+    "ko": "어떤 무기로도 처치할 수 있지만, 연사가 빠르거나 폭발하는 무기가 무리를 빨리 정리합니다.",
+    "en": "Any weapon can kill it, but high fire rate or explosive weapons clear groups quickly."
+   },
+   {
+    "ko": "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
+    "en": "It can call a Bug Breach even without its head, though it usually bleeds out before it finishes."
    }
   ]
  },
@@ -229,6 +287,28 @@
     "ko": "엄폐한 적에게 수류탄을 던지며, 헬다이버를 발견하면 신호탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "Throws grenades at targets in cover, and can fire a flare to call a Bot Drop when it spots a Helldiver."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "점프 팩이 폭발하므로 안전한 거리에서 처치하세요. 뒤로 몸을 날리며 쏘면 폭발 피해를 피하기 좋습니다.",
+    "en": "Its jump pack explodes, so kill it from a safe distance. Diving backwards while shooting helps you avoid the blast."
+   },
+   {
+    "ko": "점프 팩은 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
+    "en": "The jump pack can still explode on its remains, so shoot it to set it off early."
+   },
+   {
+    "ko": "모여 있으면 연쇄 폭발로 한꺼번에 없앨 수 있습니다. 이들이 탄 드롭십을 쏘면 한 번에 모두 사라지기도 합니다.",
+    "en": "A group can be wiped out with a chain detonation. Shooting a Dropship full of them may empty it at once."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Barrager Tank": {
@@ -298,6 +378,28 @@
    {
     "ko": "쓰러진 헬다이버를 짓밟으며, 두 팔을 모두 잃으면 짓밟기로 공격합니다.",
     "en": "Stomps on downed Helldivers, and stomps instead once it has lost both arms."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "근접 공격만 하지만 보통 3마리 이상 몰려와 엄폐물 밖으로 몰아내고, 톱날 한 번에 큰 피해를 줍니다. 탄도 많이 버팁니다.",
+    "en": "It only attacks in melee, but usually comes in groups of 3 or more, forces you out of cover, and its saws can maim you in one hit. It also soaks up a lot of ammo."
+   },
+   {
+    "ko": "데버스테이터보다 빠르지만 움직임을 예상할 수 있을 만큼 느립니다. 달리기·몸 날리기·높은 지형으로 거리를 두고, 다리를 노려 늦추세요.",
+    "en": "It is faster than a Devastator but still slow enough to predict. Stay out of reach by sprinting, diving or putting high ground between you, and shoot its legs to slow it down."
+   },
+   {
+    "ko": "흉부 위쪽은 장갑 2이고 유일하게 내구도가 있어 관통 2 무기로는 피하세요. 가장 약한 곳은 장갑 1인 머리와 크고 맞히기 쉬운 빛나는 복부입니다.",
+    "en": "The upper chest is armor 2 and the only durable part, so avoid it with armor penetration 2 weapons. The weakest spots are the armor 1 head and the large, easy-to-hit glowing stomach."
+   },
+   {
+    "ko": "퍼멜러·도미네이터·익스플로딩 크로스보우처럼 크게 비틀거리게 하는 무기나 기절 수류탄으로 멈춰 세운 뒤 약점을 쏘세요. 기관총·스털워트·리디머처럼 연사가 높은 무기도 빠르게 처치합니다.",
+    "en": "Heavy stagger weapons like the Pummeler, Dominator and Exploding Crossbow, or the Stun grenade, stop it in its tracks for shots at its weak spots. High fire rate weapons like the Machine Gun, Stalwart and Redeemer also kill it quickly."
+   },
+   {
+    "ko": "모든 부위가 폭발에 면역이라 폭발은 본체 체력에만 들어가 효과가 들쭉날쭉합니다. 다만 뭉쳐서 오므로 폭발 한 번에 여러 마리를 잡을 수도 있습니다.",
+    "en": "Every body part is immune to explosions, so blasts only hit its main health and are hit-and-miss. But since they bunch up, a single explosion can take out several at once."
    }
   ]
  },
@@ -409,6 +511,24 @@
     "ko": "헬다이버를 발견하면 신호탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "Can fire a flare to call a Bot Drop when it spots a Helldiver."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "칼 공격이 강해 방심하면 팔다리를 쉽게 다칩니다.",
+    "en": "Its sword hits hard and can easily injure your limbs if you are not paying attention."
+   },
+   {
+    "ko": "여러 명이 계속 때리면 부상이 이어져 각성제를 쓸 틈이 없을 수 있습니다.",
+    "en": "Several of them hitting you in a row can keep injuring you and leave no chance to stim."
+   },
+   {
+    "ko": "머리가 본체 체력을 쓰기 때문에 헤드샷으로 잡기가 더 어렵고, 멀리서는 특히 그렇습니다.",
+    "en": "Its head uses its main health pool, so it is harder to kill with headshots, especially from a distance."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   }
   ]
  },
  "Brood Commander": {
@@ -443,6 +563,24 @@
    {
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "장갑은 낮지만 탄을 많이 받아 내므로 피해가 큰 무기, 관통 3 무기, 폭발 무기를 추천합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
+    "en": "Its armor is low but it soaks up a lot of ammo, so high-damage weapons, armor penetration 3 weapons and explosives are recommended. The head, claws and body have slightly thicker armor that cuts damage from armor penetration 2 weapons."
+   },
+   {
+    "ko": "머리를 부수면 날뛰는 상태로 오래 버티며 쫓아옵니다. 다가오는 순간 근접 공격으로 경직시키면 피해 없이 출혈로 쓰러집니다.",
+    "en": "Destroying its head leaves it rampaging for a long time while it chases you. Melee it the moment it reaches you, and the stagger lasts until it bleeds out without hurting you."
+   },
+   {
+    "ko": "다리는 장갑이 없어 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리가 없어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
+    "en": "Its legs are unarmored and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even without a leg its charge still deals damage and its effects."
+   },
+   {
+    "ko": "머리를 잃어도 버그 침공을 부를 수 있습니다.",
+    "en": "It can still call a Bug Breach without its head."
    }
   ]
  },
@@ -522,6 +660,24 @@
     "ko": "포자 살덩이는 어떤 무기로도 피해를 줄 수 있고 장갑도 차저·차저 베히모스보다 적지만, 여기에 준 피해는 20%만 본체 체력에 들어갑니다.",
     "en": "Its spore flesh can be damaged by any weapon and it has less armor than Chargers and Charger Behemoths, but only 20% of damage there carries over to its main health."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "차저와 같은 방법으로 처치합니다. 죽을 때 자주 폭발하니 최대한 멀리 떨어지세요. 출혈로 죽으면 폭발하지 않습니다.",
+    "en": "Use the same tactics as against Chargers. It often explodes on death, so stay as far away as you can. It does not explode if it bleeds out."
+   },
+   {
+    "ko": "테르밋을 잘 붙이면 꽤 빨리 처치되지만, 다리나 몸통의 일부 부위에 붙으면 살아남기도 합니다.",
+    "en": "A well-placed Thermite kills it fairly quickly, but it can survive if the grenade lands on certain parts of the legs or body."
+   },
+   {
+    "ko": "초록 포자 때문에 가까이 있다는 건 알기 쉽지만 멀리서는 정확한 위치를 찾기 어렵습니다. 위치 표시(핑)를 하면 안개 속에서도 따라갈 수 있습니다.",
+    "en": "Its green spores make it easy to tell it is nearby, but hard to pinpoint from afar. Ping it to keep track of it through the fog."
+   },
+   {
+    "ko": "궤도 레일캐넌 타격과 이글 110mm 로켓 포드는 근처에 더 큰 적이 없으면 커스틱 차저를 자동으로 노립니다.",
+    "en": "The Orbital Railcannon Strike and Eagle 110mm Rocket Pods automatically target it as long as nothing larger is nearby."
+   }
   ]
  },
  "Caustic Spewer": {
@@ -548,6 +704,24 @@
    {
     "ko": "다리를 부술 때마다 점점 더 느려집니다.",
     "en": "Each leg destroyed slows it down further."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "약점은 머리입니다. 폭발 무기로 등 척추판이나 후방 복부를 노려도 효율적으로 처치할 수 있습니다.",
+    "en": "Its head is the weak spot. Explosives aimed at its spinal plates or butt also kill it efficiently."
+   },
+   {
+    "ko": "입은 장갑이 없어 어떤 무기로도 피해가 들어갑니다. 관통력이 낮은 무기라면 입을 노리는 것이 가장 좋습니다.",
+    "en": "The mouth is unarmored and takes damage from any weapon. With light penetration weapons, aiming for the mouth is the best way to kill it."
+   },
+   {
+    "ko": "후방 복부는 내구도가 높아 일반 탄으로는 많이 쏴야 하지만, 폭발 저항이 없어 폭발 무기나 플라스마 무기가 매우 효과적입니다.",
+    "en": "The butt is very durable, so ballistic weapons need many shots, but it has no explosive resistance, which makes explosive and plasma weapons very effective."
+   },
+   {
+    "ko": "퍼니셔나 아크 발사기처럼 경직을 주는 무기로 분사 공격을 끊을 수 있습니다.",
+    "en": "Weapons that stagger, such as the Punisher and Arc Thrower, can interrupt its spewing attacks."
    }
   ],
   "tips": [
@@ -586,6 +760,16 @@
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "체력이 낮아 어떤 무기로도 쉽게 처치됩니다. 떼로 몰려오면 로버나 폭발 무기가 효과적입니다.",
+    "en": "Its health is low, so any weapon kills it easily. Against swarms, the Rover and explosive weapons work well."
+   },
+   {
+    "ko": "한 마리가 터지면 연쇄 폭발이 일어나 모여 있는 무리를 쉽게 정리할 수 있습니다.",
+    "en": "When one explodes it can set off a chain reaction that easily kills the rest of a group."
+   }
   ]
  },
  "Caustic Warrior": {
@@ -604,6 +788,24 @@
    {
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "죽을 때 담즙이 터지므로 조금 떨어진 거리에서 처치하세요. 머리를 부수고 출혈로 죽게 두면 담즙 폭발이 일어나지 않습니다.",
+    "en": "It bursts in bile when it dies, so kill it from a little distance. Destroying its head and letting it bleed out prevents the bile explosion."
+   },
+   {
+    "ko": "머리를 부수는 것이 가장 빠르지만, 광폭 상태가 되어 잠시 더 빨라집니다. 더 쏴서 처치하거나 출혈로 죽을 때까지 피하세요.",
+    "en": "Destroying the head is the fastest kill, but it then goes berserk and moves faster for a while. Shoot it more to finish it, or avoid it until it bleeds out."
+   },
+   {
+    "ko": "다리를 하나라도 부수면 광폭 상태에서도 빨라지지 않습니다.",
+    "en": "Destroying any of its legs stops the speed boost."
+   },
+   {
+    "ko": "대체로 느려서 테르미니드 무리 속에서는 나중에 처리해도 되는 대상입니다.",
+    "en": "It is generally slow, so it should be one of your lowest priority targets in a Terminid swarm."
    }
   ]
  },
@@ -643,6 +845,28 @@
    {
     "ko": "엉덩이를 부수거나 몸통 장갑을 떼어 내면 느려지고 피를 흘리다 죽습니다.",
     "en": "Destroying its rear or blowing off its torso armor cripples it, slowing it and making it bleed out."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "일회성 대전차·무반동포·퀘이사 캐넌 같은 대전차 무기를 머리에 맞히면 즉사합니다. 스피어나 무반동포를 몸통에 맞히면 장갑이 깨져, 후방 복부라면 처치되고 다른 곳이면 서서히 출혈로 죽습니다.",
+    "en": "An anti-tank weapon such as the Expendable Anti-Tank, Recoilless Rifle or Quasar Cannon to the head kills it instantly. A torso hit from the Spear or Recoilless Rifle cracks its armor and either kills it (butt) or makes it slowly bleed out."
+   },
+   {
+    "ko": "다리 장갑을 벗기면 드러난 살점에는 어떤 무기로도 피해가 들어가 꽤 빨리 처치할 수 있습니다. 중기관총은 머리보다 다리 장갑을 노리는 편이 총 탄수가 적습니다.",
+    "en": "Stripping a leg's armor exposes flesh that any weapon can damage, killing it fairly quickly. With the Heavy Machine Gun, aiming at the leg armor takes fewer total shots than the head."
+   },
+   {
+    "ko": "장갑 0인 후방 복부를 부수면 몇 초 안에 출혈로 죽습니다. 내구도가 80%로 높아 폭발 무기가 가장 좋고, 돌진 뒤 회복 동작 중에 쏘세요.",
+    "en": "Destroying its armor 0 rear makes it bleed out within a few seconds. The butt is 80% durable, so explosives work best; unload into it during its recovery after a charge."
+   },
+   {
+    "ko": "테르밋을 머리나 몸통에 붙이면 터질 때 즉사합니다. 이글 공중타격·궤도 정밀 타격·이글 500kg 폭탄은 중심 가까이 맞으면 즉사시키고, 기절 수류탄이나 어친으로 멈춰 세우면 맞히기 쉬워집니다.",
+    "en": "A Thermite stuck to its head or torso kills it instantly. The Eagle Airstrike, Orbital Precision Strike and Eagle 500kg Bomb kill it outright near the center, and Stun grenades or the Urchin stop it in place for an easy hit."
+   },
+   {
+    "ko": "돌진은 진행 방향의 옆이나 비스듬히 앞쪽으로 움직이거나 다이브해 피하세요. 너무 일찍 움직이면 급회전해 따라옵니다. 벽이나 큰 바위에 부딪히게 하면 잠시 기절합니다.",
+    "en": "Dodge its charge by moving or diving sideways or diagonally toward it. Move too early and it turns sharply after you. Leading it into a wall or large rock stuns it briefly."
    }
   ]
  },
@@ -738,6 +962,24 @@
     "ko": "제트 여단 커미서는 제트팩으로 계속 거리를 좁혀 옵니다.",
     "en": "The Jet Brigade variant uses a jump pack to keep closing the distance."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "커미서라고 봇 투하를 더 잘 부르는 것은 아닙니다. 헬다이버를 알아챈 경량 오토마톤은 저마다 봇 투하를 부를 확률이 있습니다.",
+    "en": "Commissars are not more likely to call in Bot Drops. Every light Automaton that notices a Helldiver has its own chance to do so."
+   },
+   {
+    "ko": "주로 멀리서 권총을 쏘고, 칼을 쓰려고 다가오는 일은 드뭅니다.",
+    "en": "It usually fires its pistol from a distance and rarely closes in to use its blade."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Conflagration Devastator": {
@@ -760,6 +1002,28 @@
    {
     "ko": "너무 가까우면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버를 짓밟습니다.",
     "en": "Bashes you down with its shield if you are too close, and stomps on prone Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "산탄총의 소이탄은 탄 피해가 매우 크고 연사도 빨라, 가까이서는 중량 방어구도 한 번에 쓰러질 수 있습니다. 장갑 4인 탄도 방패 배낭은 이 피해를 모두 막습니다.",
+    "en": "Its incendiary scattergun shots deal huge ballistic damage at a fast rate and can kill even a Helldiver in heavy armor in one hit up close. The Ballistic Shield Backpack, with armor 4, blocks it completely."
+   },
+   {
+    "ko": "맞으면 바로 엎드려 화상을 줄이되, 가까이 붙잡히지 않게 빨리 자리를 옮기세요.",
+    "en": "Go prone right after taking damage to limit the burn, but reposition quickly so it can't catch you up close."
+   },
+   {
+    "ko": "거대 데버스테이터와 달리 배낭이 없습니다. 폭발물로 본체나 방패를 맞히면 비틀거리며 방패를 내려 빈틈이 생깁니다.",
+    "en": "Unlike the Heavy Devastator it has no backpack. Hitting it or its shield with explosives staggers it, making it lower the shield and leave itself open."
+   },
+   {
+    "ko": "인화성 물질·적응력 패시브 방어구는 화염 피해를 줄여 주지만, 산탄총의 탄 피해는 줄지 않으니 조심하세요.",
+    "en": "Armor with the Inflammable or Acclimated passive reduces fire damage, but not the ballistic damage of its shotgun, so stay careful."
+   },
+   {
+    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Conflagration Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
    }
   ]
  },
@@ -788,6 +1052,28 @@
     "ko": "바로 앞까지 붙으면 한 손으로 주먹을 날립니다.",
     "en": "At point-blank range it punches with one hand."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "먼 거리에서 곡사로 플라스마를 빠르게 쏘고, 움직임을 예측해 앞쪽을 노립니다. 증원된 자리에서 움직이지 않고 여럿이 계속 포격하는 경우가 많습니다.",
+    "en": "It fires plasma in fast arcs from long range and leads its shots to predict your movement. Groups often stay where they were dropped off and keep up a constant barrage."
+   },
+   {
+    "ko": "찾아내면 폭발 무기, 스트라타젬, 연속 사격으로 한꺼번에 처리하기 좋습니다.",
+    "en": "Once you find them, explosive weapons, stratagems or sustained fire can take them all out at once."
+   },
+   {
+    "ko": "가까이서는 다른 자세로 쏴서 발사 간격이 길고 덜 정확하며, 앞으로 쏘는 탄은 엎드려 피할 수 있습니다. 정면으로 맞붙으면 가장 약한 오버시어입니다.",
+    "en": "Up close it switches stance, fires less often and less accurately, and you can dodge its forward shots by going prone. Face to face it is the weakest Overseer."
+   },
+   {
+    "ko": "등의 배낭이 약점이라 부수면 바로 처치됩니다.",
+    "en": "Its backpack is a weak spot; destroying it kills it instantly."
+   },
+   {
+    "ko": "장갑의 경직 저항은 35지만 그 아래 몸은 20뿐이라, 센서, 홀트, 스위퍼, 콘스티튜션으로 맞히면 비틀거리며 공격이 끊깁니다.",
+    "en": "Its armor has stagger resistance 35 but the flesh underneath only 20, so hitting the flesh with the Censor, Halt, Sweeper or Constitution staggers it and interrupts its attacks."
+   }
   ]
  },
  "Crusher": {
@@ -810,6 +1096,28 @@
    {
     "ko": "휘두를 때 앞으로 뛰어들어서 보기보다 공격 거리가 깁니다.",
     "en": "It lunges forward when swinging, giving it deceptively long reach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "체력이 매우 높고 피해를 받고 0.5초 뒤부터 헬멧과 머리를 뺀 모든 부위와 본체가 초당 30씩 회복하니 빨리 처리하세요. 무반동포나 멜타건 직격도 버티므로 한 발짜리 대전차 무기는 권하지 않습니다.",
+    "en": "It has very high health, and 0.5s after taking damage every limb and its main health except the helmet and head regenerate 30 per second, so kill it quickly. It survives a direct hit from the Recoilless Rifle or Meltagun, so single-shot anti-tank weapons are a poor choice."
+   },
+   {
+    "ko": "체력이 낮은 장갑 4 헬멧은 오토캐넌, 볼트 피스톨, 레일건 같은 관통 4 이상 탄도 무기로 1~2발에 부서지고, 깨지면 드러난 머리를 맞혀 빠르게 처치합니다. 레일건은 안전 모드 1발로 헬멧을 깹니다.",
+    "en": "Its low health armor 4 helmet breaks in 1 to 2 shots from armor penetration 4 or higher ballistic weapons like the Autocannon, Bolt Pistol and Railgun, then headshots kill it fast. The Railgun breaks the helmet with 1 Safe Mode shot."
+   },
+   {
+    "ko": "팔다리의 폭발 저항에도 폭발 무기에 약해서 테르밋 한 개나 C4 팩 한 개로 처치할 수 있습니다. 유탄 발사기, 공중폭발 로켓 발사기, W.A.S.P. 발사기도 매우 효과적입니다.",
+    "en": "Despite the explosive resistance on its limbs, it is weak to explosives; a single Thermite grenade or C4 Pack brick can kill it. The Grenade Launcher, Airburst Rocket Launcher and W.A.S.P. Launcher are also very effective."
+   },
+   {
+    "ko": "오토캐넌은 내려치기 동작을 끊어 피할 틈을 주고, 대공포탄 5~6발로 처치합니다. 기절, 가스, 직접 화염 분사에도 약해 거리를 벌릴 수 있습니다.",
+    "en": "The Autocannon can stagger it out of its slam, and its Flak rounds kill it in 5 to 6 shots. Stun, gas and direct fire streams also stop it so you can back off."
+   },
+   {
+    "ko": "곤봉 내려치기는 직접 맞으면 즉사하고 주변을 날려 보내지만, 동작이 길고 방향을 따라오지 않아 달려서 빠져나갈 수 있습니다. 탄도 방패 배낭은 5번까지 막지만 막아도 넘어지니 적이 많을 때는 피하세요.",
+    "en": "A direct hit from its club slam kills instantly and knocks down anyone nearby, but the slow, non-tracking wind-up lets you run out of the way. The Ballistic Shield Backpack blocks up to 5 strikes, but blocking still knocks you down, so avoid it when swarmed."
    }
   ]
  },
@@ -837,6 +1145,28 @@
    {
     "ko": "가까이 붙으면 주먹으로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
     "en": "If you get too close it punches you down, and it stomps on prone Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "흉부는 장갑 3이지만 머리·복부·팔은 장갑 1입니다. 버딕트나 딜리전스처럼 머리 한 발로 처치하는 무기가 많지만, 빗나가면 흉부 장갑에 튕깁니다.",
+    "en": "The chest is armor 3, but the head, stomach and arms are armor 1. Many weapons like the Verdict and Diligence kill it with one headshot, but misses bounce off the chest armor."
+   },
+   {
+    "ko": "복부는 피해를 더 버티지만 맞히기 쉬워 안정적이고, 충분히 쏘면 부서지면서 바로 죽습니다.",
+    "en": "The stomach takes more damage but is a more consistent target, and putting enough fire into it kills the Devastator instantly."
+   },
+   {
+    "ko": "빨리 처치하기 어렵다면 퍼니셔 계열로 계속 쏴서 비틀거리게 하세요. 제대로 조준하지 못합니다. 오른팔의 포를 쏴서 떼어 내면 사실상 무력해집니다.",
+    "en": "If you can't kill it quickly, keep it staggered with Punisher variants so it can't aim properly. Shooting off its right arm cannon leaves it nearly helpless."
+   },
+   {
+    "ko": "익스플로딩 크로스보우는 흉부에 2발이면 대개 처치하고, 폭발로 주변 데버스테이터도 비틀거리게 합니다.",
+    "en": "The Exploding Crossbow usually kills it with 2 shots to the chest, and the blast staggers nearby Devastators."
+   },
+   {
+    "ko": "대물소총·딜리전스·딜리전스 카운터 저격소총은 머리나 복부 한 발로 빠르게 처치합니다. 시클·더블 엣지 시클은 머리와 다리를 쏘면 효율적이지만 명중률이 낮습니다.",
+    "en": "The Anti-Materiel Rifle, Diligence and Diligence Counter Sniper quickly kill it with one shot to the head or stomach. The Sickle and Double-Edge Sickle work well on the head and legs but are less accurate in a hectic fight."
    }
   ]
  },
@@ -873,12 +1203,70 @@
     "ko": "바일 타이탄처럼 등껍질 장갑이 두껍고, 주된 약점은 머리입니다.",
     "en": "Like the Bile Titan it has a heavily armored carapace; its main weak spot is the head."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "거의 온몸이 장갑 4이고 대부분 부위가 폭발 피해를 50% 덜 받습니다. 체력과 기동성이 높고 화염 공격이 넓어 보이면 가장 먼저 처리해야 합니다.",
+    "en": "Almost all of it is armor 4, and most parts take 50% less explosive damage. With high health, mobility and a wide flame attack, it should be your top priority."
+   },
+   {
+    "ko": "머리는 장갑 4, 체력 1,500입니다. 일회성 대전차, 퀘이사 캐넌, 무반동포는 머리에 한 발, 에포크와 코만도는 두 발, 레일건은 85% 넘게 충전한 3발이 필요합니다.",
+    "en": "The head is armor 4 with 1,500 health. The Expendable Anti-Tank, Quasar Cannon and Recoilless Rifle kill it with one headshot, the Epoch and Commando need two, and the Railgun needs 3 shots charged past 85%."
+   },
+   {
+    "ko": "몸통(본체 체력 6,500)은 스피어 두 발이면 처치되지만, 일회성 대전차도 4발이 필요할 만큼 더 가벼운 무기로는 오래 걸립니다. 날개 쪽에서 쏘면 날개에 맞아 피해가 크게 줄어듭니다.",
+    "en": "Its body (6,500 main health) falls to two Spear hits, but lighter weapons take long: even the Expendable Anti-Tank needs 4 body hits. Shooting from the wing side tends to hit the wings for much less damage."
+   },
+   {
+    "ko": "얼티메이텀, 평탄화기, 솔로 사일로는 몸통에 맞히면 한 발에 처치하고, 궤도 레일캐넌 타격도 한 번에 처치합니다. 스피어와 W.A.S.P. 발사기는 유도 미사일이라 정밀하게 겨누지 않아도 큰 피해를 줍니다.",
+    "en": "The Ultimatum, Leveller and Solo Silo kill it with one body hit, and so does a single Orbital Railcannon Strike. The Spear and W.A.S.P. Launcher home in, dealing heavy damage without precise aim."
+   },
+   {
+    "ko": "날개는 장갑이 없지만 내구도가 높은 치명 부위라 대전차 무기나 오토캐넌 대공 모드 같은 폭발 무기가 좋습니다. 경직에 약해 해방자 엑소슈트의 오토캐넌처럼 경직이 큰 폭발 무기로 계속 맞히면 공중에 묶어 둘 수 있습니다.",
+    "en": "The wings are unarmored but highly durable fatal parts, so use anti-tank or explosive weapons such as the Autocannon in flak mode. It staggers easily; sustained fire from high-stagger explosives such as the Emancipator Exosuit's autocannons can pin it in midair."
+   },
+   {
+    "ko": "화염은 보이는 것보다 범위가 넓습니다. 급강하하며 뿜은 뒤 떠서 한 번 더 뿜는데, 이때가 맞히기 가장 쉽지만 가장 위험하니 마지막 순간에 다이브하고 엎드려 있으세요.",
+    "en": "Its flames reach wider than they look. After the diving breath it hovers for a second one; that is the easiest moment to hit it but also the deadliest, so dive away at the last moment and stay prone."
+   },
+   {
+    "ko": "모든 공격이 화염이라 인화성 물질, 적응력, 사막 돌격대 패시브 방어구가 크게 도움이 되고, 탄도 방패 배낭은 화염을 완전히 막아 줍니다.",
+    "en": "All its attacks are fire, so armor with the Inflammable, Acclimated or Desert Stormer passive helps a lot, and the Ballistic Shield Backpack blocks the flames completely."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "궤도 레일캐넌 타격은 신호기 주변에서 가장 큰 적을 노리므로, 다른 대형 적이 없을 때 드래곤로치가 가까이 오면 던지세요.",
+    "en": "The Orbital Railcannon Strike targets the largest enemy near its beacon, so throw it when the Dragonroach is close and no other large enemy is around."
+   }
   ]
  },
  "Dropship": {
   "revision": 139884,
   "spawning": [],
-  "behavior": []
+  "behavior": [],
+  "tactics": [
+   {
+    "ko": "임무 중 드롭십은 항상 같은 방향에서 오므로, 그쪽을 지켜보다가 요격하세요.",
+    "en": "Dropships always come from the same direction during a mission, so watch that way to intercept them."
+   },
+   {
+    "ko": "평탄화기·스피어·솔로 사일로와 바스티온 Mk XVI의 주포는 동체를 부숴 실린 오토마톤까지 확실히 없앱니다. 단, 내려놓기 시작하기 전에 부숴야 합니다.",
+    "en": "The Leveller, Spear, Solo Silo and the Bastion MK XVI main gun can break the fuselage and wipe out every Automaton on board. You must destroy it before it starts dropping its load."
+   },
+   {
+    "ko": "추진기 4개가 약점이며, 하나만 부숴도 떨어지면서 실린 적 위로 추락해 터지는 경우가 많습니다.",
+    "en": "Its 4 thrusters are the weak points. Destroying any one brings it down, often onto its own cargo, where it explodes."
+   },
+   {
+    "ko": "아래에 매달린 오토마톤은 내리기 전과 내리는 동안에도 공격할 수 있습니다. 유탄 발사기처럼 폭발 피해가 큰 무기가, 떠나기 전에 한 추진기에 여러 발을 맞히는 것보다 나을 수 있습니다.",
+    "en": "The Automatons hanging under it can be damaged before and while they are dropped. High splash weapons like the Grenade Launcher can work better than trying to land several shots on one thruster before it leaves."
+   },
+   {
+    "ko": "SEAF 샘 사이트 목표를 끝내면 드롭십 격추를 돕지만, 위치와 비행 경로에 따라 내려놓기 전에 못 부술 수도 있습니다. 도시 지역에서는 워프 함선처럼 위에서 내려와 요격이 더 어렵습니다.",
+    "en": "Completing the SEAF SAM Site objective makes it help shoot down Dropships, but depending on the location and flight path it may not stop them before they drop. In Metropolis areas they descend from the sky like Warp Ships, which makes them harder to intercept."
+   }
+  ]
  },
  "Elevated Overseer": {
   "revision": 142611,
@@ -900,6 +1288,28 @@
    {
     "ko": "공격 사이사이 플라스마 기폭 수류탄을 던집니다.",
     "en": "Throws Plasma Detonator grenades between attacks."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "가장 가까운 헬다이버와 10m 거리를 유지하려 하고 자주 피해서 맞히기 어렵습니다. 몸을 날려 다가가며 제압 사격을 하면 물러나고 플라스마 탄의 명중률도 떨어집니다.",
+    "en": "It tries to keep 10m from the nearest Helldiver and dodges often, so it is hard to hit. Diving toward it while laying down suppressive fire forces it back and makes its plasma shots less accurate."
+   },
+   {
+    "ko": "블리처, 아크 발사기, 홀트(기절탄)로 계속 기절시키면 움직임이 멈추고 던지려던 수류탄도 떨어뜨립니다. 이때 세너터나 대물소총으로 머리를 맞히면 바로 처치합니다.",
+    "en": "The Blitzer, Arc Thrower and Halt (stun rounds) can stun it again and again, stopping its strafing and making it drop the grenade it was about to throw. Then a headshot with the Senator or Anti-Materiel Rifle kills it instantly."
+   },
+   {
+    "ko": "'가드 독'과 로버는 빗나가지 않아 장갑판을 벗겨 줍니다. 워런트는 자동 추적으로 회피 비행을 무력화해 탄창 하나로 처치할 수 있습니다.",
+    "en": "The Guard Dog and Rover never miss, so they strip its armor plates for you. The Warrant's target tracking defeats its evasive flying and can kill it within one magazine."
+   },
+   {
+    "ko": "제트팩을 부수면 폭발해 바로 죽습니다. 불로 죽으면 제트팩이 저절로 터지기도 하는데, 이 폭발에 휘말린 헬다이버도 죽습니다.",
+    "en": "Destroying its jetpack makes it explode and die on the spot. When it dies to fire, the jetpack often blows up on its own, and any Helldiver caught in that blast dies too."
+   },
+   {
+    "ko": "제트팩이 남은 시체도 터질 수 있으니 사라지거나 부서질 때까지 가까이 가지 마세요.",
+    "en": "Corpses with an intact jetpack can still explode, so stay away from them until they despawn or are destroyed."
    }
   ]
  },
@@ -1015,6 +1425,28 @@
     "ko": "30m 이상: 팔을 벌리고 포효하는 짧은 준비 동작 뒤 차저처럼 빠르게 돌진합니다. 맞으면 넘어지고 큰 피해를 입습니다.",
     "en": "30m or more: roars with arms spread in a short windup, then charges at high speed like a Charger, ragdolling and heavily damaging Helldivers."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "체력이 매우 크고 치명 부위가 없어 꾸준한 화력으로 쓰러뜨려야 합니다. 위쪽 머리 덩어리는 본체에 150% 피해를 넘기고 남는 피해도 넘어가서, 한 번에 큰 피해를 주는 무기가 유리합니다(배리어블 TOTAL 모드는 잘 맞힌 일제 사격 한 번에 처치하기도 함).",
+    "en": "It has a huge health pool and no fatal parts, so wear it down with raw damage. The upper head chunks pass 150% damage to the main body, including overkill, so big single hits pay off (the Variable in TOTAL mode can kill it with one well-aimed salvo)."
+   },
+   {
+    "ko": "폭발·파편 무기가 가장 좋습니다. 공중폭발 로켓 발사기, 오토캐넌 대공포탄, 궤도 공중폭발 타격이 효과적이고, 유탄 발사기는 4발, W.A.S.P. 발사기는 3발에 처치합니다. 주무기로는 이럽터, 익스플로딩 크로스보우가 좋습니다.",
+    "en": "Explosive and shrapnel weapons work best: the Airburst Rocket Launcher, Autocannon Flak rounds and Orbital Airburst Strike. The Grenade Launcher kills it in 4 shots and the W.A.S.P. Launcher in 3. For primaries, use the Eruptor or Exploding Crossbow."
+   },
+   {
+    "ko": "장갑이 없고 커서 중기관총, 나이트, 스코처, 리버레이터 카빈 같은 연사 무기도 잘 통합니다. 화염 피해를 1.8배로 받아 화염 무기도 매우 효과적입니다.",
+    "en": "With no armor and a big body, fast-firing weapons like the Heavy Machine Gun, Knight, Scorcher and Liberator Carbine also do great. It takes 1.8 times fire damage, so fire weapons are very effective."
+   },
+   {
+    "ko": "기절 저항이 매우 높아 돌진 중에는 궤도 EMS 타격과 어친만 기절시킵니다. 돌진하지 않고 15m 안에 SEAF가 없을 때는 홀트(기절탄)와 아크 발사기로도 기절시킬 수 있습니다.",
+    "en": "Its stun resistance is very high; while charging only the Orbital EMS Strike and Urchin can stun it. When it is not charging and no SEAF asset is within 15m, the Halt (stun rounds) and Arc Thrower can stun it too."
+   },
+   {
+    "ko": "가스는 돌진 중에도 주의를 헬다이버에게서 돌립니다. 팔을 부수면 휘두르기를 못 하고 돌진만 하지만, 다리를 부숴도 느려지지 않습니다.",
+    "en": "Gas can pull its attention away from Helldivers even mid-charge. Breaking its arms stops its swing so it can only charge, but breaking its legs does not slow it down."
+   }
   ]
  },
  "Gatekeeper": {
@@ -1041,6 +1473,28 @@
    {
     "ko": "훨씬 긴 플라스마 연사는 피하지 않으면 헬다이버를 쉽게 갈아 버립니다. 스타캐넌이 '펌프질'하고 포신이 빠르게 회전하는 것이 예고 동작입니다.",
     "en": "A much longer plasma volley that easily shreds a Helldiver who does not evade. It is telegraphed by the Starcannons \"pumping\" and the barrels rapidly winding up."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "멀리 머물며 넓은 범위에 큰 피해를 주고 사람을 날려 보내는 충전 플라스마 포격과, 예고 뒤 천천히 따라오는 연속 사격을 씁니다.",
+    "en": "It prefers to stay far away and uses a charged plasma blast with a large area and huge damage that can send you flying, plus a telegraphed rapid volley that slowly tracks you."
+   },
+   {
+    "ko": "조종석은 장갑 4이고 재충전되는 보호막이 있습니다. 이마의 뿔이 보호막 생성기(장갑 4)라 부수면 보호막이 영구히 꺼집니다.",
+    "en": "The cockpit is armor 4 and has a recharging energy shield. The horn on its forehead is the shield generator (armor 4); destroy it and the shield is gone for good."
+   },
+   {
+    "ko": "조종사는 내구 50%라 버레이시터 조종사보다 여러 발 더 맞혀야 합니다. 조종사를 죽이면 기체도 함께 파괴됩니다.",
+    "en": "The pilot is 50% durable, so it takes several more rounds than a Veracitor's pilot. Killing the pilot destroys the whole mech."
+   },
+   {
+    "ko": "팔다리가 모두 폭발 피해를 받지 않아 순수 폭발 무기는 잘 통하지 않습니다.",
+    "en": "All its limbs are immune to explosive damage, so pure explosive weapons do little."
+   },
+   {
+    "ko": "일회성 대전차나 무반동포를 조종석을 받치는 연결부에 맞히면 조종석이 한 발에 부서지고 기체도 함께 파괴됩니다.",
+    "en": "A single Expendable Anti-Tank or Recoilless Rifle shot to the stump holding the cockpit can destroy the cockpit outright, taking the mech with it."
    }
   ]
  },
@@ -1191,6 +1645,28 @@
     "ko": "가까이 붙으면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
     "en": "If you get too close it bashes you down with its shield, and it stomps on prone Helldivers."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "멀리서도 연발 사격으로 여러 번 움찔하게 만들어 각성제를 못 쓰게 할 수 있어, 둘러싸였을 때 특히 위험합니다. 여러 마리가 번갈아 쏘면 탄이 거의 끊이지 않습니다.",
+    "en": "Even at long range its repeater volleys can make you flinch again and again and keep you from using stims, which is very dangerous when surrounded. Several of them cover each other's cooldowns for a nearly endless stream of shots."
+   },
+   {
+    "ko": "특정 각도로 다가올 때는 방패 너머로도 쏘므로, 왼쪽에 서 있다고 안전한 것은 아닙니다.",
+    "en": "When walking toward you at certain angles it can fire through its shield, so staying on its left side does not guarantee safety."
+   },
+   {
+    "ko": "옆이나 뒤로 돌아가 배낭을 노리세요. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
+    "en": "Flank it, ideally with a teammate, and hit the backpack. Any weapon can damage it, and destroying it kills it outright."
+   },
+   {
+    "ko": "탄도 무기로 방패를 쏘면 피해가 없습니다. 폭발물로 본체나 방패를 맞히면 비틀거리며 방패를 내려 빈틈이 생깁니다.",
+    "en": "Shooting the shield with ballistic weapons does no damage. Hitting it or its shield with explosives staggers it, making it lower the shield and leave itself open."
+   },
+   {
+    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Heavy Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
+   }
   ]
  },
  "Hive Guard": {
@@ -1292,6 +1768,42 @@
    {
     "ko": "담즙 비: 몸을 떨며 담즙을 3번 넓게 뿌려 헬다이버를 느리게 하며, 줄기 사이에 틈이 있어 조심하면 피할 수 있습니다. 한 줄기로 길게 뿜는 변형은 피하기 쉽지만 사거리가 더 길고 엑소슈트·거치포에도 큰 피해를 줍니다.",
     "en": "Bile Rain: it sprays bile over a wide area in three sweeps that slow Helldivers, with gaps between sweeps to survive in. A variant fires one long straight stream: easier to dodge, longer range, and heavy damage to the careless, mechs and emplacements."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "본체 체력이 150,000으로 게임에서 가장 많고 공격 범위도 넓습니다. 분대 전체가 피하거나 함께 상대해야 하며, 한 번에 여럿이 당하지 않게 서로 떨어져 움직이세요.",
+    "en": "Its 150,000 main health is the largest in the game and its attacks sweep wide, so the whole squad should either avoid it or take it on together, spread out so one strike cannot kill several of you."
+   },
+   {
+    "ko": "몸은 장갑 5(머리 장갑 6, 벌린 입 장갑 2)입니다. 대전차 화력을 계속 퍼부으면 장갑판이 깨져 장갑 2인 속살이 드러나며, 장갑판 한 칸은 실제로 50,000 정도를 버팁니다. 깨지기 직전에는 금이 보입니다.",
+    "en": "Its body is armor 5 (armor 6 on the head, armor 2 in the open mouth). Sustained anti-tank fire breaks a plate to reveal armor 2 flesh, and each section effectively holds about 50,000. Cracks show when a plate is about to break."
+   },
+   {
+    "ko": "이글 기총소사와 궤도 개틀링 폭격은 큰 몸의 장갑판 여러 개를 한꺼번에 때려 잘 통합니다. 그 사이에는 무반동포, 스피어, 일회성 대전차로 장갑판 하나를 깨는 데 집중하세요.",
+    "en": "The Eagle Strafing Run and Orbital Gatling Barrage hit several plates of its huge body at once. Between cooldowns, focus on breaking one plate with the Recoilless Rifle, Spear or Expendable Anti-Tank."
+   },
+   {
+    "ko": "속살은 폭발 피해를 받지 않으니 솔로 사일로 같은 폭발 무기는 피하고, 장갑이 깨진 곳에 텐더라이저, 스털워트, 맥시건처럼 연사력이 높은 무기를 쏘세요.",
+    "en": "The flesh is immune to explosive damage, so avoid explosives such as the Solo Silo and pour high-rate fire such as the Tenderizer, Stalwart or Maxigun into the broken spot."
+   },
+   {
+    "ko": "애국자 엑소슈트(로켓으로 장갑판을 깨고 개틀링으로 속살 공격), 바스티온 Mk XVI, 마엘스트롬이 특히 효과적입니다. 다만 엑소슈트는 느려 큰 공격에 약하고, 바스티온은 파고드는 하이브 로드에 뒤집히지 않게 거리를 두세요.",
+    "en": "The Patriot Exosuit (rockets to break a plate, gatling for the flesh), Bastion MK XVI and Maelstrom are especially effective. Exosuits are slow and exposed to its big attacks, and keep the Bastion away from a burrowing Hive Lord so it is not flipped."
+   },
+   {
+    "ko": "휴대용 지옥폭탄은 담즙을 뿜으려 멈춘 순간에 두면, 카운트다운이 끝날 때까지 자리에 머물러 큰 피해를 줍니다.",
+    "en": "Place a Portable Hellbomb when it stops to spew bile; it stays put long enough for the countdown to finish."
+   },
+   {
+    "ko": "기절과 가스 혼란에는 면역이지만 가스 피해와 불은 통합니다. 담즙 피해는 대부분 폭발이라 강화 패시브 방어구가 도움이 되고, 점프 팩, 워프 팩, 경량 방어구, 실험용 주입 부스터로 공격을 피하기 쉬워집니다.",
+    "en": "It is immune to stun and gas confusion but still takes gas damage and burns. Its bile is mostly explosive damage, so the Fortified passive helps, and the Jump Pack, Warp Pack, light armor and Experimental Infusion booster make dodging easier."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "가장 빠른 방법은 이글 기총소사, 휴대용 지옥폭탄, 궤도 개틀링 폭격, 얼티메이텀 등으로 흉부 장갑 하나를 떼어 낸 뒤, 드러난 속살을 엑소슈트, 바스티온 Mk XVI, 마엘스트롬 같은 차량으로 공격하는 것입니다.",
+    "en": "The fastest kill is to strip one chest plate with the Eagle Strafing Run, Portable Hellbomb, Orbital Gatling Barrage, Ultimatum or similar, then hit the exposed flesh with a vehicle such as an Exosuit, the Bastion MK XVI or the Maelstrom."
    }
   ]
  },
@@ -1580,6 +2092,28 @@
     "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "It can release pheromones that call a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "워리어 같은 다른 중형 테르미니드보다 약해 머리를 쏘면 빨리 처치됩니다.",
+    "en": "It is weak compared to Warriors and other medium Terminids, and headshots kill it quickly."
+   },
+   {
+    "ko": "체력이 매우 낮아 불이 한 번 붙으면 몇 초 안에 죽습니다. 사이스·대거·레이저 캐넌은 멀리서도 불을 붙여, 순찰대 전체를 한 번 훑어 정리할 수 있습니다.",
+    "en": "Its health is so low that a single ignition kills it within seconds. The Scythe, Dagger and Laser Cannon ignite it at long range, so one quick sweep can wipe out a whole patrol."
+   },
+   {
+    "ko": "다리나 날개를 쏘면 크게 느려지고 덮치기를 하지 못합니다.",
+    "en": "Shooting its legs or wings greatly slows it and stops it from pouncing."
+   },
+   {
+    "ko": "혼자면 약하지만 빠르게 다가와 덮치므로, 무리 속에서는 다른 중형 테르미니드보다 먼저 처치하세요.",
+    "en": "Alone it is weak, but in a swarm prioritize it over other medium Terminids because it closes in and pounces quickly."
+   },
+   {
+    "ko": "근접 공격은 잠시 기절시키고 밀어냅니다. 어렵지만 덮치는 도중에 근접 공격으로 막을 수도 있습니다.",
+    "en": "A melee attack briefly stuns it and knocks it back. It is hard, but you can melee it mid-pounce to stop the attack."
+   }
   ]
  },
  "Impaler": {
@@ -1670,6 +2204,28 @@
     "ko": "가까이 붙으면 방패로 쳐서 넘어뜨리고, 엎드린 헬다이버는 발로 밟습니다.",
     "en": "If you get too close it bashes you down with its shield, and it stomps on prone Helldivers."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "거대 데버스테이터보다 탄 수와 연사는 적지만, 한 발만 맞아도 불이 붙어 더 위험합니다. 맞으면 바로 엎드려 화상을 줄이세요.",
+    "en": "It fires fewer and slower shots than the Heavy Devastator, but its incendiary rounds make even a single hit deadlier. Go prone as soon as you take damage to limit the burn."
+   },
+   {
+    "ko": "옆이나 뒤로 돌아가 배낭을 노리세요. 배낭은 어떤 무기로도 피해를 줄 수 있고, 부수면 바로 죽습니다.",
+    "en": "Flank it, ideally with a teammate, and hit the backpack. Any weapon can damage it, and destroying it kills it outright."
+   },
+   {
+    "ko": "탄도 무기로 방패를 쏘면 피해가 없습니다. 폭발물로 본체나 방패를 맞히면 비틀거리며 방패가 흔들려 빈틈이 생깁니다.",
+    "en": "Shooting the shield with ballistic weapons does no damage. Hitting it or its shield with explosives staggers it, making it flail its shield and leave itself open."
+   },
+   {
+    "ko": "인화성 물질·적응력 패시브 방어구는 화염 피해를 줄여 주지만, 기관총의 탄 피해는 줄지 않으니 조심하세요.",
+    "en": "Armor with the Inflammable or Acclimated passive reduces fire damage, but not the ballistic damage of its machine gun, so stay careful."
+   },
+   {
+    "ko": "머리가 방패에 가려질 때가 많으니, 장갑 2인 드러난 팔이나 장갑 1인 큰 총을 여러 번 쏴서 무장을 해제하는 방법이 좋습니다. 무기를 잃으면 다가오기만 해서 맞히기 쉬워집니다.",
+    "en": "The Incendiary MG Devastator's head is often covered by its shield, so disarming it is a good alternative: several shots to the exposed arm (armor 2) or its large gun (armor 1). Once disarmed it can only walk toward you, making follow-up shots easy."
+   }
   ]
  },
  "Incendiary Rocket Raider": {
@@ -1700,6 +2256,28 @@
    {
     "ko": "헬다이버를 발견하면 조명탄을 쏴 봇 투하를 부를 수 있습니다.",
     "en": "When alerted it can fire a flare to call in a Bot Drop."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "주변에 사격해 제압하면 명중률이 떨어집니다. 재장전과 사격이 느려 여럿이 싸울 때 위험이 크게 줄어듭니다.",
+    "en": "Suppressing it with fire lowers its accuracy. Because it reloads and fires slowly, this greatly cuts its threat in group firefights."
+   },
+   {
+    "ko": "작고 멀리서 쏘는 데다, 맞으면 날아가 넘어져 다른 오토마톤에게 당하기 쉽습니다.",
+    "en": "It is small and fires from range, and its shots can send you flying, leaving you open to other Automatons."
+   },
+   {
+    "ko": "일반 로켓 레이더와 달리 벙커 포탑의 탄처럼 강한 한 발을 쏩니다.",
+    "en": "Unlike a normal Rocket Raider, it fires a single strong shot, much like a Bunker Turret's bolt."
+   },
+   {
+    "ko": "소각대가 던지는 수류탄은 훨씬 빨리 터지고 불을 붙입니다.",
+    "en": "Incineration Corps grenades detonate much sooner and set things on fire."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있으니 다 쏘기 전에 처치하세요. 수류탄이나 헤드샷이면 한 번에 확실히 처치합니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop, so kill it before the flare launches. Grenades and headshots reliably kill it in one hit."
    }
   ]
  },
@@ -1732,6 +2310,28 @@
     "ko": "헬다이버가 사거리를 벗어나면 다시 제트팩으로 따라붙습니다.",
     "en": "If a Helldiver moves out of range, it jumps in again."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩으로 먼 거리를 빠르게 건너와 어떻게든 가까이 붙으려 하므로, 멀리서 잡기 어렵습니다.",
+    "en": "It crosses large areas quickly with its jetpack and tries hard to get up close, so it is hard to kill at long range."
+   },
+   {
+    "ko": "제트팩은 본체보다 약하고, 부서지면 터지며 불을 붙여 주변 적과 자신, 그리고 나까지 다칠 수 있습니다. 가슴이나 배에 들어간 피해로도 죽은 뒤 터질 수 있습니다.",
+    "en": "The jetpack is weaker than the body and explodes in flames when destroyed, hurting nearby enemies, itself and possibly you. Enough damage through its chest or stomach can also make it blow up after death."
+   },
+   {
+    "ko": "퓨리파이어, 퍼니셔 플라스마, 이럽터로 멀리서 제트팩을 터뜨리면 주변에 범위 피해를 주고 날지 못하게 하며, 대개 그 적도 처치합니다.",
+    "en": "The Purifier, Punisher Plasma and Eruptor can detonate the jetpack from afar, dealing area damage, grounding it and often killing it too."
+   },
+   {
+    "ko": "커미서라고 봇 투하를 더 잘 부르는 것은 아닙니다. 헬다이버를 알아챈 경량 오토마톤은 저마다 봇 투하를 부를 확률이 있습니다.",
+    "en": "Commissars are not more likely to call in Bot Drops. Every light Automaton that notices a Helldiver has its own chance to do so."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있으니 다 쏘기 전에 처치하세요. 수류탄이나 헤드샷이면 한 번에 확실히 처치합니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop, so kill it before the flare launches. Grenades and headshots reliably kill it in one hit."
+   }
   ]
  },
  "Jet Brigade Devastator": {
@@ -1758,6 +2358,20 @@
    {
     "ko": "목표와 거리가 멀면 제트팩으로 빠르게 다가옵니다. 제트팩이 손상되면 폭발해 자신과 주변 오토마톤·헬다이버에게 큰 피해와 화상을 줍니다.",
     "en": "If far from its target it closes in with its jump pack. A damaged jump pack can explode, heavily damaging and burning itself and nearby Automatons or Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩으로 넓은 거리를 빠르게 건너 어떻게든 가까이 붙으려 하므로, 먼 거리에서 처치할 기회가 적습니다.",
+    "en": "It uses its jetpack to cross large distances quickly and will close in at all costs, so you get few chances to kill it at long range."
+   },
+   {
+    "ko": "제트팩은 본체보다 약하고, 부서지면 터지면서 주변 적과 자신, 때로는 헬다이버에게도 불을 붙입니다. 흉부나 복부를 통해 제트팩에 피해가 충분히 들어가면 죽은 뒤에 터지기도 합니다.",
+    "en": "The jetpack is weaker than the Devastator itself and explodes when destroyed, setting fire to nearby enemies, itself and possibly you. Enough damage reaching it through the chest or stomach can also make it blow up after death."
+   },
+   {
+    "ko": "퓨리파이어·퍼니셔 플라스마·이럽터로 멀리서 제트팩을 터뜨리면 주변에 범위 피해를 주고 뛰어오르기도 막을 수 있습니다.",
+    "en": "The Purifier, Punisher Plasma or Eruptor can set off the jetpack from afar, dealing area damage around it and disabling its jumps."
    }
   ]
  },
@@ -1786,6 +2400,28 @@
     "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
     "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩을 부수면 출혈 없이 바로 죽고, 터지면서 주변 적에게도 피해를 줍니다. 제트팩은 폭발 피해를 막지 않아 폭발 반경이 큰 공격이면 정면에서도 부술 수 있습니다.",
+    "en": "Destroying the jetpack kills it instantly instead of letting it bleed out, and the blast damages nearby enemies. The jetpack is not immune to explosions, so attacks with a large blast radius can destroy it even from the front."
+   },
+   {
+    "ko": "제트팩이 일반 헐크의 장갑 없는 방열판을 덮습니다. 정면 위로 튀어나온 제트팩 위쪽 방열구는 관통 3 이상으로 쏠 수 있으니, 제트 여단 임무에는 관통 3 이상 무기를 하나는 챙기세요.",
+    "en": "The jetpack covers the unarmored heat sinks a normal Hulk has. Its upper vents stick out above the Hulk's front and can be hit with armor penetration 3 or more, so bring at least one armor penetration 3+ weapon on Jet Brigade missions."
+   },
+   {
+    "ko": "몸 대부분이 장갑 4지만 머리(정면의 붉은 눈)는 체력 250뿐이라 부수면 죽습니다. 레일건·대물소총·작살총은 머리를 한 발에 부수고, 일회성 대전차·퀘이사 캐넌·무반동포는 한 발에 처치합니다.",
+    "en": "Most of it is armor 4, but the head (the red eye on the front) has only 250 health and kills it when destroyed. The Railgun, Anti-Materiel Rifle and Speargun break the head in one shot, and the Expendable Anti-Tank, Quasar Cannon and Recoilless Rifle kill it in one shot."
+   },
+   {
+    "ko": "느려서 이글 500kg 폭탄·이글 기총소사·이글 110mm 로켓 포드 같은 공격 스트라타젬에 쉽게 당합니다. 테르밋 1개면 어디에 붙여도 처치합니다.",
+    "en": "It is slow, so offensive stratagems like the Eagle 500kg Bomb, Eagle Strafing Run and Eagle 110mm Rocket Pods destroy it easily. 1 Thermite kills it wherever it sticks."
+   },
+   {
+    "ko": "다리를 하나 부수면 몇 초간 비틀거리고 크게 느려지며, 양쪽을 다 부수면 죽습니다. 팔 관절을 부수면 그쪽 무기를 떨어뜨립니다.",
+    "en": "Destroying a leg staggers it for several seconds and slows it greatly, and destroying both legs kills it. Breaking an arm joint makes it drop that weapon."
+   }
   ]
  },
  "Jet Brigade Hulk Scorcher": {
@@ -1812,6 +2448,28 @@
    {
     "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
     "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩을 부수면 출혈 없이 바로 죽고, 터지면서 주변 적에게도 피해를 줍니다. 제트팩은 폭발 피해를 막지 않아 폭발 반경이 큰 공격이면 정면에서도 부술 수 있습니다.",
+    "en": "Destroying the jetpack kills it instantly instead of letting it bleed out, and the blast damages nearby enemies. The jetpack is not immune to explosions, so attacks with a large blast radius can destroy it even from the front."
+   },
+   {
+    "ko": "제트팩이 일반 헐크의 장갑 없는 방열판을 덮습니다. 정면 위로 튀어나온 제트팩 위쪽 방열구는 관통 3 이상으로 쏠 수 있으니, 제트 여단 임무에는 관통 3 이상 무기를 하나는 챙기세요.",
+    "en": "The jetpack covers the unarmored heat sinks a normal Hulk has. Its upper vents stick out above the Hulk's front and can be hit with armor penetration 3 or more, so bring at least one armor penetration 3+ weapon on Jet Brigade missions."
+   },
+   {
+    "ko": "인화성 물질·적응력 패시브가 없다면 화염방사기는 멀리까지 닿고 빠르게 죽이니, 불이 붙으면 몸을 날려 끄세요.",
+    "en": "Unless you have the Inflammable or Acclimated passive, its flamethrower reaches far and kills quickly. If you catch fire, dive to put yourself out."
+   },
+   {
+    "ko": "빨라서 도망치기 어려우니 다리 하나를 부숴 크게 늦춘 뒤 머리를 노리세요. 톱날은 예고 동작이 없으니 가까워지면 미리 몸을 날려 피하세요.",
+    "en": "It is hard to outrun, so destroy one of its legs to slow it greatly, then go for the head. Its sawblade swing has no warning animation, so dive away in anticipation once it gets close."
+   },
+   {
+    "ko": "몸 대부분이 장갑 4지만 머리(정면의 붉은 눈)는 체력 250뿐이라 부수면 죽습니다. 레일건·대물소총·작살총은 머리를 한 발에 부수고, 일회성 대전차·퀘이사 캐넌·무반동포는 한 발에 처치합니다.",
+    "en": "Most of it is armor 4, but the head (the red eye on the front) has only 250 health and kills it when destroyed. The Railgun, Anti-Materiel Rifle and Speargun break the head in one shot, and the Expendable Anti-Tank, Quasar Cannon and Recoilless Rifle kill it in one shot."
    }
   ]
  },
@@ -1844,6 +2502,28 @@
     "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
     "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩으로 먼 거리를 빠르게 건너와 어떻게든 가까이 붙으려 하므로, 멀리서 잡기 어렵습니다.",
+    "en": "It crosses large areas quickly with its jetpack and tries hard to get up close, so it is hard to kill at long range."
+   },
+   {
+    "ko": "제트팩은 본체보다 약하고, 부서지면 터지며 불을 붙여 주변 적과 자신, 그리고 나까지 다칠 수 있습니다. 퓨리파이어, 퍼니셔 플라스마, 이럽터로 멀리서 터뜨리면 대개 그 적도 처치합니다.",
+    "en": "The jetpack is weaker than the body and explodes in flames when destroyed, hurting nearby enemies, itself and possibly you. Detonating it from afar with the Purifier, Punisher Plasma or Eruptor often kills it too."
+   },
+   {
+    "ko": "경량 융합 연발포는 12발마다 잠깐 쉴 뿐 거의 쉬지 않고 쏴서, 중근거리에서 매우 위험합니다. 빗나가더라도 근처에 쏴서 제압하면 명중률이 떨어집니다.",
+    "en": "Its Light Fusion Repeater fires almost nonstop, pausing only briefly every 12 shots, so it is very dangerous at medium to close range. Firing near it, even inaccurately, suppresses it and lowers its accuracy."
+   },
+   {
+    "ko": "등 뒤 동력 장치에 방열판 2개가 솟아 있어 바로 알아볼 수 있습니다. 동력 장치는 쓰러진 뒤에도 터질 수 있으니 미리 쏴서 터뜨리세요.",
+    "en": "You can spot it right away by the 2 heat sink fins on its back-mounted powerpack. The powerpack can still explode on its remains, so shoot it to set it off early."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있으니 다 쏘기 전에 처치하세요. 수류탄이나 헤드샷이면 한 번에 확실히 처치합니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop, so kill it before the flare launches. Grenades and headshots reliably kill it in one hit."
+   }
   ]
  },
  "Jet Brigade Trooper": {
@@ -1875,6 +2555,28 @@
     "ko": "헬다이버가 사거리 밖으로 벗어나면 다시 제트팩으로 날아와 따라붙습니다.",
     "en": "If a Helldiver leaves its range, it jumps back in with the jet pack."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "제트팩으로 먼 거리를 빠르게 건너와 어떻게든 가까이 붙으려 하므로, 멀리서 잡기 어렵습니다.",
+    "en": "It crosses large areas quickly with its jetpack and tries hard to get up close, so it is hard to kill at long range."
+   },
+   {
+    "ko": "제트팩은 본체보다 약하고, 부서지면 터지며 불을 붙여 주변 적과 자신, 그리고 나까지 다칠 수 있습니다. 가슴이나 배에 들어간 피해로도 죽은 뒤 터질 수 있습니다.",
+    "en": "The jetpack is weaker than the body and explodes in flames when destroyed, hurting nearby enemies, itself and possibly you. Enough damage through its chest or stomach can also make it blow up after death."
+   },
+   {
+    "ko": "퓨리파이어, 퍼니셔 플라스마, 이럽터로 멀리서 제트팩을 터뜨리면 주변에 범위 피해를 주고 날지 못하게 하며, 대개 그 적도 처치합니다.",
+    "en": "The Purifier, Punisher Plasma and Eruptor can detonate the jetpack from afar, dealing area damage, grounding it and often killing it too."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Leviathan": {
@@ -1897,6 +2599,28 @@
    {
     "ko": "배 아래의 분해 컬버린 4문과 플라스마 폭탄 발생기 10개로 공격합니다. 폭탄은 리바이어던 바로 아래나 근처에 있는 대상에게만 떨어집니다.",
     "en": "It attacks with four ventral Disintegration Culverins and ten Plasma Bomb Generators. The bombs only drop on targets directly below or near it."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "분해 컬버린은 초당 400 피해로 하나만으로도 반 초 만에 헬다이버를 죽이고, 여러 줄기가 한 사람을 노리기도 합니다. 공격받으면 계속 움직이세요.",
+    "en": "Its Disintegration Culverins deal 400 damage per second; one can kill a Helldiver in half a second, and several beams often focus on one target. Keep moving under fire."
+   },
+   {
+    "ko": "포탑은 관통 4 이상 지원 무기로 부술 수 있고, 퀘이사 캐넌과 일회성 대전차는 한 발에 부숩니다. 포탑을 부수면 위험이 크게 줄어듭니다.",
+    "en": "The turrets can be destroyed by any support weapon with armor penetration 4 or higher, and the Quasar Cannon and Expendable Anti-Tank take one out in a single shot. Losing them makes it far less deadly."
+   },
+   {
+    "ko": "장갑과 체력이 커서 무반동포, 스피어 같은 대전차 무기가 좋습니다. 지느러미나 꼬리를 부수면 파란 불꽃을 뿜는 내부(장갑 4)가 드러나 대물소총이나 레이저 캐넌으로도 피해를 줄 수 있습니다.",
+    "en": "With tough armor and huge health, anti-tank weapons like the Recoilless Rifle and Spear are best. Breaking the fins or tail exposes the internals (armor 4, spewing blue flames), which the Anti-Materiel Rifle or Laser Cannon can damage."
+   },
+   {
+    "ko": "위치를 잘 잡으면 이글 기총소사나 궤도 개틀링 폭격 한 번으로 격추할 수 있습니다. 이글 연막 타격, 궤도 연막 타격으로 시야를 가리면 조준을 막지만, 이미 조준된 광선은 연기 속에서도 계속됩니다.",
+    "en": "With precise positioning, a single Eagle Strafing Run or Orbital Gatling Barrage can bring it down. Eagle or Orbital Smoke Strikes block its line of sight, but a beam already on you keeps firing through the smoke."
+   },
+   {
+    "ko": "엑소슈트, 포격 FRV, 거치포 스트라타젬은 쉽게 부서져 탄 사람도 죽기 쉬우니 피하세요. 바로 머리 위에서 격추하면 떨어지는 잔해에 깔릴 수 있습니다.",
+    "en": "Avoid Exosuits, the Gunner FRV and emplacement stratagems; it destroys them easily and usually kills the Helldiver inside. If you shoot one down right overhead, be ready to get out from under the falling wreckage."
    }
   ]
  },
@@ -1941,6 +2665,28 @@
     "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "경량 융합 연발포는 12발마다 잠깐 쉴 뿐 거의 쉬지 않고 쏴서, 중근거리에서 매우 위험합니다.",
+    "en": "Its Light Fusion Repeater fires almost nonstop, pausing only briefly every 12 shots, so it is very dangerous at medium to close range."
+   },
+   {
+    "ko": "한 번의 연사로 큰 피해를 줄 수 있습니다. 빗나가더라도 근처에 쏴서 제압하면 명중률이 떨어집니다.",
+    "en": "One burst can badly hurt you. Firing near it, even inaccurately, suppresses it and lowers its accuracy."
+   },
+   {
+    "ko": "등 뒤 동력 장치에 방열판 2개가 솟아 있어 바로 알아볼 수 있습니다. 동력 장치는 쓰러진 뒤에도 터질 수 있으니 미리 쏴서 터뜨리세요.",
+    "en": "You can spot it right away by the 2 heat sink fins on its back-mounted powerpack. The powerpack can still explode on its remains, so shoot it to set it off early."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Marauder": {
@@ -1967,6 +2713,20 @@
    {
     "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "몸통이 장갑 2라는 점 말고는 트루퍼·레이더와 비슷하게 행동합니다.",
+    "en": "It behaves much like Troopers and Raiders, except that its torso is armor 2."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
    }
   ]
  },
@@ -2032,12 +2792,48 @@
     "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "빠르고 물어서 독을 거니 거리를 유지하세요. 독에 걸리면 느려지고 질주할 수 없어 다른 녹셔스 적이 따라붙어 독을 더 겁니다.",
+    "en": "It is fast and its bite poisons you, so keep your distance. Poison slows you and stops you sprinting, letting other Noxious Terminids catch up and stack more poison."
+   },
+   {
+    "ko": "점프 팩·워프 팩·호버 팩으로 멀리서 싸우거나, 방어막 생성 팩·탄도 방패 배낭으로 공격을 막아 독을 피하세요.",
+    "en": "Use the Jump Pack, Warp Pack or Hover Pack to fight from a distance, or block attacks with the Shield Generator Pack or Ballistic Shield Backpack to avoid poison."
+   },
+   {
+    "ko": "근육 증진 부스터는 느려짐을 줄여 따라잡히기 전에 빠져나가게 해 줍니다.",
+    "en": "The Muscle Enhancement booster reduces the slow so you can escape before they catch you."
+   },
+   {
+    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
+    "en": "Its health is low enough for any weapon, so kill it first before it calls a Bug Breach. The Rover and explosives are effective against swarms of small Terminids."
+   }
   ]
  },
  "Noxious Spewer": {
   "revision": 142233,
   "spawning": [],
   "behavior": [],
+  "tactics": [
+   {
+    "ko": "뛰어올라 독을 걸고 거미줄을 뱉어 거의 움직이지 못하게 하니 거리를 유지하세요. 점프 팩·워프 팩·호버 팩이나 방어막 생성 팩·탄도 방패 배낭이 도움이 되고, 근육 증진 부스터는 느려짐을 줄여 줍니다.",
+    "en": "It leaps to poison you and spits webs that nearly immobilize you, so keep your distance. The Jump Pack, Warp Pack, Hover Pack, Shield Generator Pack and Ballistic Shield Backpack help, and the Muscle Enhancement booster reduces the slow."
+   },
+   {
+    "ko": "약점인 머리를 쏘세요. 장갑이 가벼워 모든 무기가 통하고 지원 무기로 특히 빨리 잡힙니다.",
+    "en": "Shoot its head, the weak spot. Its armor is light, so every weapon works, and support weapons kill it especially fast."
+   },
+   {
+    "ko": "바로 옆이나 밑에 떨어진 수류탄 하나면 대개 처치하거나 빈사로 만듭니다. 충격 수류탄이 특히 좋고, 잘 던지면 붙어 있는 2마리도 잡습니다.",
+    "en": "One grenade landing right next to or under it often kills it or nearly does. The Impact grenade is especially good and can kill 2 Spewers standing together."
+   },
+   {
+    "ko": "후방 복부는 내구도가 높지만 폭발 저항이 없어 폭발·플라스마 무기가 좋습니다. 퍼니셔·아크 발사기처럼 경직을 주는 무기는 분사 공격을 끊습니다.",
+    "en": "Its butt is highly durable but has no explosive resistance, so explosive and plasma weapons are a good choice. Stagger weapons like the Punisher and Arc Thrower interrupt its spew."
+   }
+  ],
   "tips": [
    {
     "ko": "머리와 입은 총탄도 잘 박혀 몇 발이면 죽습니다. 너싱 스퓨어와 같은 방법이 통합니다.",
@@ -2129,6 +2925,28 @@
     "ko": "몇 마리에서 수십 마리는 모여야 위협이 되지만, 날아다니고 무리로 나오기 때문에 주의를 많이 끌면 숫자가 금방 불어납니다.",
     "en": "It takes several to dozens of them to be a real threat, but because they fly and come in groups, their numbers add up fast if you draw too much attention."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "피해가 낮고 연사가 느리며 공격 예고가 분명해 하나하나는 약합니다. 둘러싸이지 않았다면 더 위험한 적을 먼저 처리하세요.",
+    "en": "Low damage, slow fire and clear telegraphs make each one weak. Unless you are getting surrounded, deal with more dangerous enemies first."
+   },
+   {
+    "ko": "연사력이 높고 다루기 쉬운 무기로 이리저리 옮겨 가며 쏘세요. 뭉쳐 다녀서 전격 무기와 폭발 무기도 좋고, 특히 오토캐넌 대공포탄이 효과적입니다. 탄이 느린 폭발 무기는 이리저리 움직여 직격이 어렵습니다.",
+    "en": "Use fast-firing weapons with good handling and snap from target to target. They bunch up, so arc and explosive weapons help too, especially the Autocannon in Flak mode. Slow explosive projectiles struggle to hit them as they bob and weave."
+   },
+   {
+    "ko": "가까이 달려들어서 '가드 독'과 로버가 쉽게 처리하고, K-9는 전격 연쇄로 무리를 묶어 둡니다.",
+    "en": "Because they rush in close, the Guard Dog and Rover pick them off easily, and the K-9 can lock down groups with arc chains."
+   },
+   {
+    "ko": "W.A.S.P. 발사기와 워런트는 옵트루더에 먼저 잠겨 뒤의 와처나 고위 오버시어를 노리기 어렵습니다. 와처와 비슷하게 생기고 소리도 같지만, 와처가 비추는 원뿔 모양 빛이 없습니다.",
+    "en": "The W.A.S.P. Launcher and Warrant lock onto Obtruders first, making it hard to target a Watcher or Elevated Overseer behind them. They look and sound like Watchers but lack the Watcher's cone of light."
+   },
+   {
+    "ko": "와처처럼 죽어서 땅에 닿으면 터져 바로 옆의 헬다이버에게 치명적일 수 있고, 이 폭발이 주변 옵트루더로 번져 연쇄 폭발이 일어날 수 있습니다.",
+    "en": "Like Watchers, they explode on death when they hit the ground, which can be lethal right next to you, and the blast can set off nearby Obtruders in a chain reaction."
+   }
   ]
  },
  "Overseer": {
@@ -2159,6 +2977,28 @@
    {
     "ko": "헬다이버를 처음 발견하면 빛의 창으로 가리키며 주변 무권자에게 공격을 명령합니다.",
     "en": "When it first notices a Helldiver, it points with its Lightspear and orders nearby Voteless to attack."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "빛의 창의 느린 탄은 움직여서 피할 수 있습니다. 가까이서는 근접 공격으로 넘어뜨린 뒤 이어지는 공격에 대개 죽으니 붙지 마세요.",
+    "en": "You can dodge the Lightspear's slow shots by moving around. Up close its melee knocks you down and the follow-up hits usually kill you, so do not let it get close."
+   },
+   {
+    "ko": "가장 약한 머리는 장갑 3 헬멧으로 덮여 있어 관통 3 이상이 필요합니다. 도미네이터, 데드아이, 세너터, 슬러거, 대물소총, 레일건이 좋습니다.",
+    "en": "Its weakest part, the head, is covered by an armor 3 helmet, so you need armor penetration 3 or higher. Good picks are the Dominator, Deadeye, Senator, Slugger, Anti-Materiel Rifle and Railgun."
+   },
+   {
+    "ko": "스코처 같은 폭발 무기는 본체 체력을 직접 깎고 방패 너머로도 피해를 줍니다. 장갑이 벗겨지면 기관총이나 리버레이터 같은 연사 무기로 빠르게 처리됩니다.",
+    "en": "Explosive weapons like the Scorcher damage its main health directly and hurt it through its shield. Once the armor is off, fast-firing weapons like the Machine Gun or Liberator shred it."
+   },
+   {
+    "ko": "방패가 다리를 다 가리지 못해 방패를 든 채로도 다리에 피해를 줄 수 있습니다. SEAF 병력이나 설비가 10m 안으로 다가오면 방패를 내립니다.",
+    "en": "Its shield does not cover its legs, so you can keep damaging it while the shield is up. Any SEAF asset within 10m forces it to lower its shield."
+   },
+   {
+    "ko": "기절 창이나 기절 제압봉은 한 번만 맞혀도 물러날 시간을 벌어 줍니다. 장갑 아래 몸은 경직 저항이 20(장갑은 35)이라 센서, 홀트, 스위퍼, 콘스티튜션으로 맞히면 공격이 끊깁니다.",
+    "en": "One hit from the Stun Lance or Stun Baton stuns it long enough to back off. The flesh under its armor has stagger resistance 20 (armor 35), so the Censor, Halt, Sweeper and Constitution interrupt its attacks."
    }
   ]
  },
@@ -2191,6 +3031,16 @@
     "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "체력이 낮아 어떤 무기로도 쉽게 처치됩니다. 떼로 몰려오면 로버나 폭발 무기가 효과적입니다.",
+    "en": "Its health is low, so any weapon kills it easily. Against swarms, the Rover and explosive weapons work well."
+   },
+   {
+    "ko": "순식간에 뛰어올라 근접 거리까지 붙으므로 다른 소형 테르미니드보다 먼저 처치하세요.",
+    "en": "It can leap into melee range very quickly, so kill it before other small Terminids."
+   }
   ]
  },
  "Predator Hunter": {
@@ -2209,6 +3059,28 @@
    {
     "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "일반 헌터와 달리 스토커처럼 위장할 수 있습니다.",
+    "en": "Unlike regular Hunters, it can cloak just like Stalkers."
+   },
+   {
+    "ko": "커스틱 스피터처럼 담즙을 뱉는데 총 피해가 훨씬 크므로 꼭 피하세요.",
+    "en": "Like Caustic Spitters it spews bile at you, but the total damage is much higher, so dodge it."
+   },
+   {
+    "ko": "독 브레스는 빠르고 날렵한 움직임을 늦춰 주어 특히 유용합니다.",
+    "en": "The Dog Breath is especially useful because it slows its fast, agile movement."
+   },
+   {
+    "ko": "머리를 쏘면 빨리 처치되고, 다리를 쏘면 크게 느려져 덮치기를 하지 못합니다.",
+    "en": "Headshots kill it quickly, and shooting its legs greatly slows it and stops it from pouncing."
+   },
+   {
+    "ko": "빠르게 다가와 덮치므로 무리 속에서는 다른 중형 테르미니드보다 먼저 처치하세요. 근접 공격으로 잠시 기절시키고 밀어낼 수도 있습니다.",
+    "en": "It closes in and pounces quickly, so prioritize it over other medium Terminids. A melee attack briefly stuns it and knocks it back."
    }
   ]
  },
@@ -2232,6 +3104,24 @@
    {
     "ko": "피해를 많이 받아도 물러나지 않고, 자신이나 헬다이버가 죽을 때까지 계속 쫓아옵니다.",
     "en": "It does not retreat when badly hurt and keeps chasing until it or the Helldiver dies."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "일반 스토커보다 약하지만 공격적이라 프레데터 헌터와 함께 순찰대나 버그 침공을 훨씬 위험하게 만듭니다. 혀 공격이 없는 대신 발톱으로 쉬지 않고 공격합니다.",
+    "en": "It is weaker than a regular Stalker but aggressive, and together with Predator Hunters it makes patrols and Bug Breaches far more dangerous. It has no tongue attack but claws at you nonstop."
+   },
+   {
+    "ko": "경직을 크게 주는 무기로 공격을 막으세요. 쿡아웃은 경직이 크고 이 적에게 화염 피해를 25% 더 줘서 특히 좋습니다.",
+    "en": "High-stagger weapons stop it from attacking. The Cookout is especially good, with heavy stagger and 25% extra fire damage against it."
+   },
+   {
+    "ko": "폭발 무기도 경직을 주지만 순식간에 가까이 붙으므로 조심해서 쓰세요.",
+    "en": "Explosives also stagger it, but it closes in so fast that they can be unsafe to use."
+   },
+   {
+    "ko": "시야가 좋은 곳에 둔 기관총 센트리·개틀링 센트리·화염 센트리는 무리를 빠르게 정리합니다. 독 브레스도 가까이 온 적을 혼란시키고 피해를 줍니다.",
+    "en": "Machine Gun, Gatling and Flame Sentries with a good vantage point clear swarms quickly. The Dog Breath also confuses and damages any that get close."
    }
   ]
  },
@@ -2264,6 +3154,28 @@
     "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "연료 탱크가 몸보다 높이 솟아 있어 쏘기 쉽고, 맞으면 터집니다. 안전한 거리에서 쏘고, 뒤로 몸을 날리며 쏘면 화염방사기 피해를 피하기 좋습니다.",
+    "en": "Its fuel tanks stick up above it, so they are easy to hit and explode when shot. Shoot from a safe distance, and dive backwards while firing to avoid its flamer."
+   },
+   {
+    "ko": "연료 탱크는 쓰러진 뒤에도 터질 수 있으니, 미리 쏴서 터뜨리세요.",
+    "en": "The tanks can still explode on its remains, so shoot them to set them off early."
+   },
+   {
+    "ko": "소각대가 던지는 수류탄은 훨씬 빨리 터지고 불을 붙입니다.",
+    "en": "Incineration Corps grenades detonate much sooner and set things on fire."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Radical": {
@@ -2295,6 +3207,28 @@
     "ko": "헬다이버가 근처에 있어도 발차기로 방어막 생성 릴레이 스트라타젬을 부순 사례가 있습니다.",
     "en": "It has been seen kicking apart Shield Generator Relay stratagems even with a Helldiver nearby."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "머리는 대물소총, 딜리전스, 도미네이터 같은 고피해 무기로 한 발에 처치됩니다.",
+    "en": "High-damage weapons such as the Anti-Materiel Rifle, Diligence and Dominator kill it with one shot to the head."
+   },
+   {
+    "ko": "아크 발사기와 K-9은 경직을 주고 여러 적을 한꺼번에 맞혀, 달려드는 래디컬을 상대하기에 아주 좋습니다.",
+    "en": "The Arc Thrower and K-9 stagger and hit several enemies at once, which makes them excellent against charging Radicals."
+   },
+   {
+    "ko": "본체 체력이 많지만, 폭발에는 여러 부위가 함께 맞습니다.",
+    "en": "Its main body has a lot of health, but explosions can hit several of its parts at once."
+   },
+   {
+    "ko": "근접 공격은 몸을 날려 피하세요. 공격을 마무리하는 동안 빈틈이 생깁니다. 굳건한 바위 패시브가 있으면 넘어뜨리지 못합니다.",
+    "en": "Dive out of the way of its melee attacks; it is vulnerable while finishing them. It cannot knock you over if you wear the Rock Solid passive."
+   },
+   {
+    "ko": "갑자기 날아온 연막 수류탄은 래디컬이 다가온다는 신호이니, 던진 방향을 보고 대비하세요. 이 연막으로 센트리를 눈멀게 한 뒤 다가와 부수기도 합니다.",
+    "en": "An unexpected smoke grenade warns that a Radical is coming, so note where it came from and get ready. It may also blind your sentries with smoke so it can close in and destroy them."
+   }
   ]
  },
  "Reinforced Scout Strider": {
@@ -2321,6 +3255,28 @@
    {
     "ko": "너무 가까이 붙으면 헬다이버를 짓밟습니다.",
     "en": "It stomps on Helldivers who get too close."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "조종사가 막혀 있어 일반형보다 잡기 어렵지만, 장갑 2인 로켓은 치명 부위 중 체력이 가장 낮고 내구도가 0%라 대부분의 무기로 먼저 노릴 곳입니다. 지금은 오류로 로켓이 터져도 죽지 않고 다리만 크게 약해집니다.",
+    "en": "With its pilot sealed in, it is harder to kill than the open-backed version, but its armor 2 rockets have the lowest health of any vital part and 0% durability, so most weapons should aim there first. A bug currently stops a rocket detonation from killing it, though the legs are badly weakened."
+   },
+   {
+    "ko": "관통 3 무기라면 크고 내구도가 없는 허리를 노리세요. 딜리전스 카운터 저격소총이나 어드주디케이터는 작은 로켓을 조준하지 않고도 빠르게 부숩니다.",
+    "en": "With armor penetration 3, aim for the large waist, which has no durability. The Diligence Counter Sniper or Adjudicator can break it quickly without aiming at the small rockets."
+   },
+   {
+    "ko": "로켓을 다 쏜 뒤에도 관통 2 무기로 장갑 2 다리를 부술 수 있지만, 다리는 체력이 더 많고 내구도가 75%라 더 오래 걸립니다.",
+    "en": "Even after the rockets are spent, armor penetration 2 weapons can destroy the armor 2 legs, but the legs have more health and 75% durability, so it takes longer."
+   },
+   {
+    "ko": "옆 로켓에 맞으면 강화 패시브 중량 방어구가 아니면 거의 즉사합니다. 빗맞아도 9m 충격파(넉백 100)에 튕겨 나가 지형에 부딪혀 죽기 쉽고, 굳건한 바위 패시브로도 버티지 못합니다.",
+    "en": "A hit from its side rockets kills you almost instantly unless you wear heavy armor with the Fortified passive. Near misses are nearly as deadly: the 9m shockwave with 100 push force throws you into the terrain, even with the Rock Solid passive."
+   },
+   {
+    "ko": "로켓을 쏘기 전에 멈춰 서고 로켓 끝에서 불꽃이 보입니다. 멀리서는 느려서 쉽게 피하지만, 가까우면 발사를 보자마자 몸을 날려 엎드리세요. 엎드릴 때 늘어나는 폭발 저항이 유일하게 살 길입니다.",
+    "en": "It stands still and the rocket's tail ignites before launch. From far away the slow rockets are easy to dodge, but up close dive as soon as you see the launch; the extra explosive resistance from going prone is your only chance to survive."
    }
   ]
  },
@@ -2352,6 +3308,24 @@
    {
     "ko": "너무 가까우면 주먹으로 쳐서 넘어뜨리고, 엎드린 헬다이버는 짓밟습니다.",
     "en": "It punches Helldivers who get too close, knocking them down, and stomps on prone Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "멀리서도 정확하고 위험하며, 로켓에 쓰러지면 다른 오토마톤에게 무방비가 됩니다. 언제나 먼저 처치할 대상입니다.",
+    "en": "It is accurate and deadly even at range, and being knocked down by its rockets leaves you open to other Automatons. Always treat it as a top priority."
+   },
+   {
+    "ko": "급할 때는 어떤 무기로든 로켓 포드를 부수면 일반 데버스테이터와 다름없어집니다. 두꺼운 엄폐물에서 들락날락하며 로켓을 낭비하게 할 수도 있습니다.",
+    "en": "In a pinch, any weapon can destroy its rocket pods, turning it into a regular Devastator. You can also peek in and out of thick cover to make it waste its rockets."
+   },
+   {
+    "ko": "흉부는 장갑 3이지만 머리와 복부는 장갑 1입니다. 버딕트·딜리전스로 머리를 맞히면 한 발에 처치할 수 있고, 복부를 노리면 더 안정적입니다.",
+    "en": "The chest is armor 3, but the head and stomach are armor 1. A headshot from the Verdict or Diligence can kill it in one shot, and the stomach is a more consistent target."
+   },
+   {
+    "ko": "익스플로딩 크로스보우는 흉부에 2발이면 대개 처치하고, 폭발 무기로 엉덩이와 다리를 노리면 빠르게 부술 수 있습니다. 퍼니셔 계열로 계속 비틀거리게 하는 것도 좋습니다.",
+    "en": "The Exploding Crossbow usually kills it with 2 shots to the chest, and explosive weapons aimed at the hips and legs take it apart quickly. Keeping it staggered with Punisher variants also works."
    }
   ]
  },
@@ -2388,6 +3362,24 @@
     "ko": "헬다이버를 발견하면 조명탄을 쏘아 봇 투하를 부를 수 있습니다.",
     "en": "When it notices a Helldiver, it can fire a flare to call in a Bot Drop."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "주변에 사격해 제압하면 명중률이 떨어집니다. 재장전과 연사가 느려 여럿이 싸울 때 위험이 크게 줄어듭니다.",
+    "en": "Suppressing it with fire lowers its accuracy. Because it reloads and fires slowly, this greatly cuts its threat in group firefights."
+   },
+   {
+    "ko": "작고 멀리서 쏘는 데다, 로켓에 맞으면 날아가 넘어져 다른 오토마톤에게 당하기 쉽습니다.",
+    "en": "It is small and fires from range, and its rockets can send you flying, leaving you open to other Automatons."
+   },
+   {
+    "ko": "왼팔에 숨긴 조명탄 발사기로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "A flare launcher hidden in its left arm can call in a Bot Drop. Kill it before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   }
   ]
  },
  "Rupture Charger": {
@@ -2402,6 +3394,28 @@
    {
     "ko": "일반 차저와 비슷하지만, 땅속으로 파고들어 땅 밑에서 헬다이버에게 돌진할 수 있습니다.",
     "en": "Behaves like a regular Charger, but can burrow and charge Helldivers from underground."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "차저와 같은 방법으로 처치하지만, 머리와 앞다리는 다른 차저 변종의 장갑 4보다 높은 장갑 5입니다.",
+    "en": "Use the same tactics as against Chargers, but its head and front legs are armor 5 instead of the armor 4 on other Charger variants."
+   },
+   {
+    "ko": "땅속으로 파고들어 다가와 보통 목표의 3m 안에서 솟아올라 공격합니다. 땅이 들썩이는 흔적이 다른 럽처 변종보다 커서 알아보기 쉽습니다.",
+    "en": "It burrows underground to approach and usually surfaces within 3m of its target before attacking. Its burrowing disturbance is larger than other Rupture Strain units, so it is easy to spot."
+   },
+   {
+    "ko": "가까이 왔을 때 땅속 위치를 향해, 또는 그 옆을 지나쳐 빠르게 달리면 불리한 각도로 솟아오르게 만들 수 있습니다.",
+    "en": "Sprinting toward or past its burrowed form when it is close can trick it into surfacing at a bad angle."
+   },
+   {
+    "ko": "폭발 효과라면 무엇이든 땅 위로 끌어낼 수 있습니다. 익스플로딩 크로스보우·스코처·퓨리파이어 같은 폭발형 주무기, 유탄 권총·로열리스트, 대부분의 수류탄이 해당합니다.",
+    "en": "Any explosive effect forces it to surface. This includes explosive primaries like the Exploding Crossbow, Scorcher and Purifier, secondaries like the Grenade Pistol and Loyalist, and most grenades."
+   },
+   {
+    "ko": "땅속에 있을 때는 수류탄과 가스, 때로는 불로만 피해를 줄 수 있습니다.",
+    "en": "While burrowed it can only be damaged by grenades, gas, and sometimes fire."
    }
   ]
  },
@@ -2430,6 +3444,28 @@
     "ko": "가까우면 짧은 거리의 담즙 분사를, 멀면 담즙 덩어리 3발 점사를 쏩니다.",
     "en": "It then uses a short-range bile breath when close, or a longer-ranged three-round bile burst when far."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "땅속으로 파고들어 폭발이 아닌 공격을 피하며 치고 빠집니다. 폭발 무기로 땅 밖으로 끌어낼 수 있고, 땅속에서도 가스·화염·폭발에는 맞습니다.",
+    "en": "It burrows underground to dodge non-explosive attacks and hits and runs. Explosives force it out of the ground, and gas, fire and explosions still hit it while it is underground."
+   },
+   {
+    "ko": "약점은 머리지만 관통 3이 필요합니다. 등 장갑판이나 후방 복부를 폭발 무기로 노려도 효율적으로 잡힙니다.",
+    "en": "Its head is the weak spot but needs armor penetration 3. Hitting its spinal plates or butt with explosives also kills it efficiently."
+   },
+   {
+    "ko": "후방 복부는 내구도가 높아 일반 탄으로는 오래 걸리지만 폭발 저항이 없어 이럽터·유탄 발사기 같은 폭발·플라스마 무기가 잘 통합니다. 무리로 다니니 복부를 터뜨리면 죽을 때 폭발로 서로 연쇄 피해를 줍니다.",
+    "en": "Its butt is very durable and takes many regular bullets, but it has no explosive resistance, so explosive and plasma weapons like the Eruptor and Grenade Launcher work well. They travel in groups, so popping their sacks sets off a chain of death explosions."
+   },
+   {
+    "ko": "입은 장갑 0이라 어떤 무기로도 피해를 주지만 작아서 맞히기 어렵습니다. 퍼니셔나 도미네이터면 비교적 쉽게 맞힙니다.",
+    "en": "The mouth is armor 0 and any weapon can hurt it, but it is small and hard to hit. The Punisher or Dominator hit it more easily."
+   },
+   {
+    "ko": "작살총·아크 발사기처럼 경직을 주는 무기는 분사 공격을 끊습니다. 다만 땅에서 나오며 머리를 드러낸 상태에서는 블리처 같은 경직이 통하지 않아 처치할 때까지 계속 공격합니다.",
+    "en": "Stagger weapons like the Speargun and Arc Thrower interrupt its spew. But once it emerges with its head exposed, stagger such as the Blitzer's does not affect it and it keeps attacking until killed."
+   }
   ]
  },
  "Rupture Warrior": {
@@ -2449,12 +3485,56 @@
     "ko": "땅속으로 파고들었다가 튀어나올 수 있어, 주의하지 않으면 기습을 당합니다.",
     "en": "Can burrow and burst out of the ground, often surprising Helldivers who are not paying attention."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "땅속에서 약 3m 안으로 다가오면 곧 발밑에서 튀어나와 앞에 있는 헬다이버에게 바로 피해를 줍니다. 앞발이 나올 때와 뒷다리가 빠질 때 2번 피해를 주고, 두 번째는 눈에 보이지 않아 근접 공격하려다 맞기 쉽습니다.",
+    "en": "Once it tunnels within about 3m of you it soon bursts out, often right under your feet, and hits you at once if you are in front. It deals 2 separate hits, one as its front claws come out and one as its hind legs pull free, and the second has no visible cue, so trying to melee it can catch you off guard."
+   },
+   {
+    "ko": "완전히 파고든 뒤 3~4초 이상 지났을 때 바로 위로 질주해 지나가면 공격을 피할 수 있지만, 너무 일찍 하면 땅속에 남아 있다가 정확히 쫓아와 때립니다. 익스플로딩 크로스보우 같은 폭발 무기로 위를 쏘면 억지로 끌어낼 수 있습니다.",
+    "en": "If it has been fully underground for at least 3 to 4 seconds, sprinting right over and past it avoids the attack, but go too early and it stays down and tracks you closely. Firing explosives like the Exploding Crossbow on top of it forces it to surface."
+   },
+   {
+    "ko": "여럿이 함께 파고드는 일이 많아 한 마리인지 무리인지 구분하기 어렵고, 임무 호스트에게는 더 가까이서 튀어나옵니다. 중량 방어구, 발 먼저 패시브, 방어막 생성 팩을 추천합니다.",
+    "en": "They often burrow in groups, making one hard to tell from several, and they surface much closer to the mission host. Heavy armor, the Feet First passive or the Shield Generator Pack are recommended."
+   },
+   {
+    "ko": "일반 워리어와 달리 머리와 앞발이 장갑 3입니다. 머리 위로 솟은 앞다리와 꼬리는 관통 2로 뚫리고, 파고드는 동작 중에는 몸 전체가 잠깐 드러납니다.",
+    "en": "Unlike a regular Warrior, its head and claws are armor 3. Its front legs and tail stick up above the head and are vulnerable to armor penetration 2, and its burrowing animation briefly exposes its whole body."
+   },
+   {
+    "ko": "머리를 부수는 것이 가장 빠르지만 날뛰며 빨라집니다. 더 쏴서 끝내거나 출혈로 쓰러질 때까지 피하세요. 다리를 하나라도 부수면 빨라지지 않습니다.",
+    "en": "Destroying its head is fastest but makes it go berserk and speed up. Keep shooting to finish it or avoid it until it bleeds out. Destroying any leg stops the speed boost."
+   }
   ]
  },
  "Sabotage Air Base": {
   "revision": 142431,
   "spawning": [],
-  "behavior": []
+  "behavior": [],
+  "tactics": [
+   {
+    "ko": "'드롭십 파괴하기' 목표의 드롭십은 날아다니는 드롭십과 달리 체력이 1,000(비행형 3,500)뿐이고, 추진기도 따로 부서지는 부위가 아닙니다.",
+    "en": "Dropships in the 'Destroy Dropships' objective have only 1,000 health (3,500 for flying ones), and their thrusters are not separate parts."
+   },
+   {
+    "ko": "이글 500kg 폭탄·이글 공중타격·이글 기총소사로 여러 대를 한꺼번에 부술 수 있습니다.",
+    "en": "The Eagle 500kg Bomb, Eagle Airstrike and Eagle Strafing Run can destroy several Dropships at once."
+   },
+   {
+    "ko": "관통 5 이상이면 부술 수 있고, 내구 피해가 높은 에포크나 퀘이사 캐넌이 좋습니다. 대전차 무기는 1발, 얼티메이텀은 1발, 미사일 권총은 2발이면 됩니다.",
+    "en": "Anything with armor penetration 5 or more can destroy them, ideally with high durable damage like the Epoch or Quasar Cannon. Any anti-tank weapon takes 1 shot, the Ultimatum 1 shot and the Missile Pistol 2 shots."
+   },
+   {
+    "ko": "테르밋이나 기가 수류탄은 1개, 유인 지뢰는 2개, 에포크는 끝까지 충전한 2발, 레일건은 99% 충전 3~4발이 필요합니다.",
+    "en": "It also takes 1 Thermite or Giga Grenade, 2 Lure Mines, 2 fully charged Epoch shots, or 3-4 Railgun shots at 99% charge."
+   },
+   {
+    "ko": "항공 기지 관제탑은 일반 공격으로 부서지지 않습니다. 목표 장비를 호출해 꽂은 뒤 터미널을 조작해 자폭시키세요.",
+    "en": "The Air Base Control Tower cannot be destroyed by normal attacks. Call down the objective equipment, insert it, and use the terminal to make the tower self-destruct."
+   }
+  ]
  },
  "Scavenger": {
   "revision": 142256,
@@ -2480,6 +3560,20 @@
    {
     "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release a pheromone cloud that calls a Bug Breach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "체력이 낮아 어떤 무기로도 쉽게 처치됩니다. 혼자 있다면 머리에 근접 공격 한 번으로 안전하게 처치해 탄약을 아낄 수 있습니다.",
+    "en": "Its health is low, so any weapon kills it easily. A lone one can be safely killed with a single melee hit to the head, saving ammo."
+   },
+   {
+    "ko": "순찰대나 무리를 만나면 버그 침공을 부르기 전에 스캐빈저부터 빨리 처치하세요.",
+    "en": "When you meet a patrol or group of Terminids, kill the Scavengers quickly before they can call a Bug Breach."
+   },
+   {
+    "ko": "떼로 몰려오면 로버나 폭발 무기가 효과적입니다.",
+    "en": "Against swarms, the Rover and explosive weapons work well."
    }
   ]
  },
@@ -2511,6 +3605,28 @@
    {
     "ko": "타고 있는 트루퍼를 처치하면 기체도 바로 파괴됩니다.",
     "en": "Killing the Trooper while it is riding destroys the walker immediately."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "몸을 빨리 돌려 뒤쪽 조종사를 쏘기 어렵습니다. 타이밍 맞춰 옆으로 몸을 날리거나, 동료가 시선을 끄는 동안 돌아가거나, 높은 곳에서 조종사 머리를 쏘세요.",
+    "en": "It turns quickly, so it is hard to get around it and shoot the exposed pilot. Dive to its flank at the right moment, flank while a teammate distracts it, or shoot the pilot's head from higher ground."
+   },
+   {
+    "ko": "한쪽으로 가다가 갑자기 방향을 바꾸면 조종사를 드러내게 할 수 있지만, 짓밟기 공격을 조심하세요.",
+    "en": "Moving one way and then quickly switching direction can force it to expose the pilot, but watch out for stomps."
+   },
+   {
+    "ko": "허리 연결부는 도미네이터나 리버레이터 페네트레이터 같은 관통 3 무기가 필요합니다. 다리는 장갑 2지만 내구도가 매우 높아, 급할 때만 관통 2 무기로 노리세요.",
+    "en": "The waist needs armor penetration 3 weapons such as the Dominator or Liberator Penetrator. The legs are armor 2 but very durable, so use armor penetration 2 weapons on them only in a pinch."
+   },
+   {
+    "ko": "조종사를 가린 정면 장갑판은 오토캐넌 같은 관통 4 지원 무기나 폭발 수류탄으로 부숴야 합니다. 관통 4인 세너터는 허리에 2발이면 처치합니다.",
+    "en": "The front plate shielding the pilot needs an armor penetration 4 support weapon like the Autocannon, or explosive grenades. The Senator has armor penetration 4 and kills it with 2 shots to the waist."
+   },
+   {
+    "ko": "잘 던진 수류탄 하나로 막 내린 스트라이더 무리를 한꺼번에 잡을 수 있습니다. 유탄 발사기로 기체 뒤쪽을 노리면 폭발이 드러난 조종사에게 닿습니다.",
+    "en": "A well-thrown grenade can kill one or a tight cluster of Scout Striders, such as right after they drop in. With the Grenade Launcher, aim behind the Strider so the blast hits the exposed pilot."
    }
   ]
  },
@@ -2594,6 +3710,28 @@
     "ko": "죽은 슈리커의 시체가 떨어지면 깔린 대상에게 피해를 줍니다.",
     "en": "A dead Shrieker's falling corpse damages whatever it lands on."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "장갑이 없어 대부분의 무기로 잡힙니다. 사이스와 레이저 캐넌은 사거리가 매우 길고 즉시 맞아 쫓아가며 쏘기 쉽습니다.",
+    "en": "It has no armor, so most weapons kill it. The Scythe and Laser Cannon have very long range and hit instantly, making it easy to track."
+   },
+   {
+    "ko": "퍼니셔·브레이커 인센디어리 같은 산탄총은 가까운 거리부터 중거리까지 통하고, 하나씩 떨어뜨리기에는 트라이던트가 가장 좋은 무기 중 하나입니다.",
+    "en": "Spread shotguns like the Punisher and Breaker Incendiary work at close to medium range, and the Trident is one of the best weapons for picking them off one by one."
+   },
+   {
+    "ko": "오토캐넌의 대공포탄은 거리와 상관없이 여러 마리를 잡습니다. 기관총 센트리·개틀링 센트리·아크 발사기는 무리에 효과적입니다.",
+    "en": "The Autocannon's flak ammo kills several at any distance. Machine Gun Sentries, Gatling Sentries and the Arc Thrower are effective against swarms."
+   },
+   {
+    "ko": "바위 같은 물체로 시야를 가리면 그쪽으로 공격하지 못하고, 엎드리면 잘 맞지 않습니다.",
+    "en": "Rocks and other objects that break line of sight stop it attacking from that direction, and lying prone makes you harder to hit."
+   },
+   {
+    "ko": "급강하 공격 중에 처치하면 처치한 헬다이버 쪽으로 곧장 떨어지니 움직이거나 몸을 날려 피하세요.",
+    "en": "If you kill it mid-dive, its body falls straight at you, so move or dive out of the way."
+   }
   ]
  },
  "Spore Burst Bile Titan": {
@@ -2625,6 +3763,28 @@
     "ko": "맞은 자리에 시야를 가리는 포자 구름이 남고, 이 구름은 근처 스포어 버스트 테르미니드의 속도를 높입니다.",
     "en": "The impact leaves a vision-blocking spore cloud that speeds up nearby Spore Burst Terminids."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "담즙 분사는 바닥에 포자를 남겨 시야를 가리고 근처 스포어 버스트 적을 빠르게 만듭니다. 분사 피해는 일반 바일 타이탄보다 훨씬 낮아 바스티온 같은 차량에게는 큰 위협이 아닙니다.",
+    "en": "Its bile spew leaves spores on the ground that block vision and speed up nearby Spore Burst Terminids. The spew deals far less damage than a regular Bile Titan's, so vehicles like the Bastion handle it well."
+   },
+   {
+    "ko": "분사의 밀쳐내는 힘이 커서 쉽게 넘어지고, 넘어진 사이 다른 벌레에게 공격당하기 쉽습니다. 굳건한 바위 패시브로 막을 수 있고, 포자낭을 부수면 분사를 못 해 강화와 넘어뜨림을 모두 막습니다.",
+    "en": "The spew has heavy stagger that easily ragdolls you, leaving you open to other Terminids. The Rock Solid passive prevents this, and destroying its sacs stops the spew, so it can no longer buff others or knock you down."
+   },
+   {
+    "ko": "본체 체력 7,000, 머리 체력 2,500으로 일반 바일 타이탄보다 단단해 일회성 대전차와 퀘이사 캐넌은 한 발에 처치하지 못합니다. 에이펙스·스피어·무반동포·노바가 더 낫습니다.",
+    "en": "With 7,000 main health and 2,500 head health it is tougher than a regular Bile Titan, so the Expendable Anti-Tank and Quasar Cannon will not kill it in one shot. The Apex, Spear, Recoilless Rifle or Nova are better choices."
+   },
+   {
+    "ko": "장갑 4에 피해가 매우 커서 거리를 두고 공격 스트라타젬으로 상대하세요. 궤도 레일캐넌 타격·궤도 정밀 타격·이글 110mm 로켓 포드·이글 500kg 폭탄은 한 번에 처치할 수 있지만 맞는 위치에 따라 다릅니다.",
+    "en": "It is armor 4 and hits very hard, so keep your distance and use offensive stratagems. The Orbital Railcannon Strike, Orbital Precision Strike, Eagle 110mm Rocket Pods and Eagle 500kg Bomb can kill it in one use, depending on where they land."
+   },
+   {
+    "ko": "기절과 혼란 효과는 통하지 않지만 가스 지속 피해는 들어갑니다. 쓰러질 때 몸에 깔리거나 크게 휘두르는 다리에 맞으면 죽을 수 있으니 떨어져 있으세요.",
+    "en": "Stun and confusion do not affect it, but gas damage over time does. Its falling body can crush you and its flailing legs can kill on contact, so stay clear when it dies."
+   }
   ]
  },
  "Spore Burst Hunter": {
@@ -2644,6 +3804,28 @@
     "ko": "일반 헌터와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
     "en": "Behaves like a normal Hunter, but explodes on death, damaging nearby Helldivers."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
+    "en": "On death it releases a spore cloud that damages nearby Helldivers, blocks vision and buffs nearby Spore Burst Terminids. Spore Burst Terminids inside a cloud become much faster."
+   },
+   {
+    "ko": "불에 타는 중에 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋고, 독 브레스 같은 가스·화염 무기는 접근을 늦춥니다.",
+    "en": "It does not release spores if it dies while burning. Fire weapons like the Flamethrower and Cremator and continuous lasers like the Scythe work well, and gas and fire weapons like the Dog Breath slow its approach."
+   },
+   {
+    "ko": "가스 지뢰·EMS 박격포 센트리·궤도 EMS 타격·테슬라 탑 같은 군중 제어 스트라타젬은 빨라진 적을 늦추는 데 특히 좋습니다.",
+    "en": "Crowd control stratagems like Gas Mines, the EMS Mortar Sentry, Orbital EMS Strike and Tesla Tower are especially good at slowing them down before they use their extra speed."
+   },
+   {
+    "ko": "머리를 쏘면 빨리 잡히고, 다리를 쏘면 크게 느려져 덮치지 못합니다. 무리 속에서는 빠르게 다가와 덮치므로 다른 중형 벌레보다 먼저 처치하세요.",
+    "en": "Headshots kill it quickly, and shooting its legs slows it greatly and stops its pounce. In a swarm, kill it before other medium Terminids because it closes in and pounces fast."
+   },
+   {
+    "ko": "포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다. 적응력·사막 돌격대 패시브는 포자 폭발 피해가 원래 낮아 큰 도움이 되지 않습니다.",
+    "en": "Melee weapons are not recommended, as repeated spore bursts stagger you and can eventually kill you. The Acclimated and Desert Stormer passives help little because spore burst damage is already low."
+   }
   ]
  },
  "Spore Burst Scavenger": {
@@ -2658,6 +3840,24 @@
    {
     "ko": "일반 스캐빈저와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
     "en": "Behaves like a normal Scavenger, but explodes on death, damaging nearby Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
+    "en": "On death it releases a spore cloud that damages nearby Helldivers, blocks vision and buffs nearby Spore Burst Terminids. Spore Burst Terminids inside a cloud become much faster."
+   },
+   {
+    "ko": "불에 타는 중에 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋고, 독 브레스 같은 가스·화염 무기는 접근을 늦춥니다.",
+    "en": "It does not release spores if it dies while burning. Fire weapons like the Flamethrower and Cremator and continuous lasers like the Scythe work well, and gas and fire weapons like the Dog Breath slow its approach."
+   },
+   {
+    "ko": "포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다. 적응력·사막 돌격대 패시브는 포자 폭발 피해가 원래 낮아 큰 도움이 되지 않습니다.",
+    "en": "Melee weapons are not recommended, as repeated spore bursts stagger you and can eventually kill you. The Acclimated and Desert Stormer passives help little because spore burst damage is already low."
+   },
+   {
+    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
+    "en": "Its health is low enough for any weapon, so kill it first before it calls a Bug Breach. The Rover and explosives are effective against swarms of small Terminids."
    }
   ]
  },
@@ -2677,6 +3877,28 @@
    {
     "ko": "일반 워리어와 똑같이 움직이지만, 죽으면 폭발해 근처 헬다이버에게 피해를 줍니다.",
     "en": "Behaves like a normal Warrior, but explodes on death, damaging nearby Helldivers."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
+    "en": "On death it releases a spore cloud that damages nearby Helldivers, blocks vision and buffs nearby Spore Burst Terminids. Spore Burst Terminids inside a cloud become much faster."
+   },
+   {
+    "ko": "불에 타는 중에 죽거나 머리가 부서진 뒤 출혈로 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋습니다.",
+    "en": "It does not release spores if it dies while burning or bleeds out after losing its head. Fire weapons like the Flamethrower and Cremator and continuous lasers like the Scythe work well."
+   },
+   {
+    "ko": "가스 지뢰·EMS 박격포 센트리·궤도 EMS 타격·테슬라 탑 같은 군중 제어 스트라타젬은 빨라진 적을 늦추는 데 특히 좋습니다.",
+    "en": "Crowd control stratagems like Gas Mines, the EMS Mortar Sentry, Orbital EMS Strike and Tesla Tower are especially good at slowing them down before they use their extra speed."
+   },
+   {
+    "ko": "머리를 부수는 것이 가장 빠르지만 날뛰는 상태가 됩니다. 더 쏴서 끝내거나 출혈로 쓰러질 때까지 피하세요. 다리를 하나라도 부수면 빨라지지 않습니다.",
+    "en": "Destroying its head is fastest but sends it berserk. Keep shooting to finish it or avoid it until it bleeds out. Destroying any leg stops its speed boost."
+   },
+   {
+    "ko": "연사가 빠르거나 폭발하는 무기는 무리를 빨리 정리합니다. 포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다.",
+    "en": "High fire rate or explosive weapons clear groups quickly. Melee weapons are not recommended, as repeated spore bursts stagger you and can eventually kill you."
    }
   ]
  },
@@ -2708,6 +3930,28 @@
    {
     "ko": "체력의 50% 이상(약 400HP)을 잃으면 뛰어 물러나며 다시 위장하고, 위장 중에 체력을 회복합니다(초당 약 50). 잠시 뒤 다시 추격합니다.",
     "en": "After losing at least 50% of its Health (~400HP) it leaps away and camouflages, regenerating about 50 HP per second, then resumes the hunt after a short while."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "가장 위험한 테르미니드 중 하나라 보이면 먼저 처치하세요. 혀 공격은 헬다이버를 넘어뜨리고, 발톱 공격은 빠르고 피해가 큽니다.",
+    "en": "One of the most dangerous Terminids, so make it a priority once spotted. Its tongue knocks Helldivers over, and its claw swipes are quick and hit hard."
+   },
+   {
+    "ko": "장갑은 없지만 헌터 같은 중형 테르미니드보다 훨씬 튼튼해 체력이 브루드 커맨더와 비슷합니다. 머리 체력은 매우 낮으니 정확히 머리를 노리세요.",
+    "en": "It has no armor but is far tougher than Hunters and other medium Terminids, with health close to a Brood Commander. Its head has very little health, so aim precisely."
+   },
+   {
+    "ko": "불이 붙거나 가스에 맞거나 테르미니드 체액이 묻으면 위장 중에도 일부 보입니다.",
+    "en": "When it is on fire, gassed, or covered in Terminid blood or bile, it stays partly visible while camouflaged."
+   },
+   {
+    "ko": "화염 피해를 25% 더 받아 쿡아웃이나 코요테 같은 소이 무기가 효과적이고, 체력 회복도 막을 수 있습니다.",
+    "en": "It takes 25% more fire damage, so incendiary weapons like the Cookout or Coyote work well and can counter its health regeneration."
+   },
+   {
+    "ko": "퍼니셔처럼 경직을 주는 무기는 공격을 막아 줍니다. 홀트나 퍼시파이어처럼 기절시키는 무기는 더 효과적이라 지원 무기로 공격할 틈을 만듭니다.",
+    "en": "Weapons that stagger, like the Punisher, stop its attacks. Weapons that stun, like the Halt or Pacifier, are even better and leave it open to support weapons."
    }
   ]
  },
@@ -2803,6 +4047,20 @@
     "ko": "사이보그 애지테이터가 트루퍼 분대를 지휘하면 더 빨리 움직이고 뭉쳐 다니며, 눈이 밝은 주황색으로 빛납니다.",
     "en": "Squads led by a Cyborg Agitator move faster and stay grouped, and their eyes glow bright orange."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "모든 경량 오토마톤은 조명탄으로 봇 투하를 부를 수 있습니다. 조명탄을 다 쏘기 전에 처치하면 봇 투하를 막을 수 있습니다.",
+    "en": "All light Automatons can fire a flare to call in a Bot Drop. Kill them before the flare finishes launching to stop the Bot Drop."
+   },
+   {
+    "ko": "수류탄이나 헤드샷이면 경량 오토마톤을 한 번에 확실히 처치합니다.",
+    "en": "Grenades and headshots reliably kill light Automatons in one hit."
+   },
+   {
+    "ko": "총을 든 팔을 떼어 내면 반격하지 못하고 근접 공격만 합니다.",
+    "en": "Blowing off its gun arm stops it from shooting back, leaving it only melee attacks."
+   }
   ]
  },
  "Veracitor": {
@@ -2830,6 +4088,28 @@
     "ko": "헬다이버와 거리가 멀면 조종사가 돌진하기도 합니다.",
     "en": "When far from Helldivers, the pilot sometimes charges."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "조종석은 재충전되는 보호막으로 막혀 있고, 기체 머리를 부수면 보호막이 영구히 꺼집니다. 드러난 조종사는 전체가 장갑 2라 아무 곳이나 쏘면 되고, 조종사를 죽이면 기체도 파괴됩니다.",
+    "en": "The cockpit is covered by a recharging shield, and destroying the mech's head turns it off for good. The exposed pilot is armor 2 all over, so shoot anywhere; killing the pilot destroys the mech."
+   },
+   {
+    "ko": "팔다리가 폭발 피해를 받지 않아 순수 폭발 무기는 잘 통하지 않습니다. 팔은 장갑 3이라 맥시건, 기관총처럼 중간 장갑을 뚫는 무기로 부술 수 있습니다.",
+    "en": "Its limbs are immune to explosive damage, so pure explosive weapons do little. The arms are armor 3, so the Maxigun, Machine Gun and other weapons that pierce medium armor can break them."
+   },
+   {
+    "ko": "공중폭발 로켓 발사기는 관통 3 파편이라 조종석을 노리면 모든 팔다리에 닿아 매우 효과적입니다.",
+    "en": "The Airburst Rocket Launcher's armor penetration 3 flak is extremely effective when aimed at the cockpit, since it reaches all the limbs from there."
+   },
+   {
+    "ko": "몸 곳곳의 파란 통풍구는 장갑 1 약점이라 부수면 붙은 부위가 파괴됩니다. 머리 주변 장갑을 벗기면 드러나는 조종석 약점(장갑 1)은 부수면 바로 처치되며, 높은 곳에서 노리면 더 쉽습니다.",
+    "en": "The blue vents on its body are armor 1 weak spots; breaking one destroys the part it is on. Strip the armor around the head to expose the armor 1 cockpit weak spot, which kills it instantly, and it is easier from high ground."
+   },
+   {
+    "ko": "일회성 대전차와 무반동포는 조종석에서 보호막이 없는 부분을 노리세요. 순찰 중인 버레이시터는 100m 밖에서도 헬다이버를 발견하고 공격합니다.",
+    "en": "Aim the Expendable Anti-Tank and Recoilless Rifle at the unshielded parts of the cockpit. A patrolling Veracitor can spot and engage Helldivers from 100m away."
+   }
   ]
  },
  "Voteless": {
@@ -2852,6 +4132,28 @@
    {
     "ko": "공격 거리보다 조금 먼 대상에게는 짧게 덤벼듭니다.",
     "en": "Lunges a short distance at targets just out of its normal reach."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "빠르게 떼로 몰려와 더 위험한 일루미닛 대신 총알을 받아 냅니다. 연사력이 높거나 범위가 넓은 무기가 좋고, 익스플로딩 크로스보우, 토처, 리버레이터 카빈, 퍼니셔 플라스마가 효과적입니다.",
+    "en": "They rush in fast and in numbers to soak up fire for the more dangerous Illuminate. High rate of fire or large area weapons work best, such as the Exploding Crossbow, Torcher, Liberator Carbine and Punisher Plasma."
+   },
+   {
+    "ko": "가스는 혼란을 일으켜 큰 무리에 특히 좋고, 가스 피해만으로도 크기에 따라 4~7초 안에 쓰러집니다.",
+    "en": "Gas is especially good against big hordes because it confuses them, and the gas damage alone kills one in 4 to 7 seconds depending on its size."
+   },
+   {
+    "ko": "불만 붙여도 죽지만 혼란은 일으키지 않습니다. 사이스 같은 광선 무기와 쿡아웃 같은 소이 산탄총은 달려오기 전에 타 죽을 만큼 먼 거리에서 불을 붙입니다.",
+    "en": "Setting them on fire is enough to kill them, though it does not confuse them. Beam weapons like the Scythe and incendiary shotguns like the Cookout can ignite them from farther than they can run before burning down."
+   },
+   {
+    "ko": "테슬라 탑과 화염 센트리는 범위 공격이라 무리에 효과적입니다.",
+    "en": "The Tesla Tower and Flame Sentry hit an area, so they work well against hordes."
+   },
+   {
+    "ko": "머리가 약점입니다. 대부분의 자동 무기는 다리를 한 발에 부숴 이동을 크게 늦추지만, 다리를 잃고도 기어 와서 공격하기도 합니다.",
+    "en": "The head is a weak point. Most fully automatic weapons can take off a leg in one shot to slow them down a lot, but some keep crawling and attacking without legs."
    }
   ]
  },
@@ -2883,6 +4185,46 @@
    {
     "ko": "헬다이버를 발견하면 꼭대기 확성기로 경보를 울리며 다가오고, 거리에 따라 무기를 바꿔 씁니다.",
     "en": "When alerted it sounds an alarm from its rooftop loudspeakers and advances, using different weapons depending on distance."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "체력 9,000에 화력이 강해 정면으로 맞서면 위험합니다. 레일건이나 오토캐넌처럼 내구 피해가 큰 무기로 미니건부터 부수고 옆으로 돌아가세요.",
+    "en": "With 9,000 health and heavy firepower, a head-on fight is risky. Destroy the miniguns first with high durable damage weapons such as the Railgun or Autocannon, then flank it."
+   },
+   {
+    "ko": "노란 방열판이 뒤쪽 아래에 3개, 위에 3개 있습니다. 한쪽 3개를 모두 부수면 해치가 열리고, 그 안에 투척 무기를 넣으면 바로 처치됩니다. 투척 나이프와 오토캐넌, 유탄 발사기 같은 폭발탄은 해당하지 않습니다.",
+    "en": "It has 3 glowing yellow heatsinks low at the back and 3 up top. Destroying one set of 3 opens a hatch, and any throwable tossed in destroys it at once. Throwing Knives and explosive rounds such as the Autocannon or Grenade Launcher do not count."
+   },
+   {
+    "ko": "방열판은 체력 300이고 맞힌 피해가 모두 본체로 가며, 하나 부술 때마다 본체에 700 피해가 더 들어갑니다. 레일건이나 배리어블(토탈 모드)처럼 한 발이 센 비폭발 무기로 노리면 효과적입니다.",
+    "en": "Each heatsink has 300 health, passes all damage to main health, and deals 700 extra damage to it when destroyed. Hard-hitting non-explosive single shots such as the Railgun or the Variable on Total mode work well on them."
+   },
+   {
+    "ko": "대포 양쪽을 모두 부수면 바로 처치됩니다. 대포는 체력 3,500이라 스피어나 바스티온 Mk XVI 주포는 한 발, 다른 대전차 무기는 두 발, 대전차 거치포와 애국자 엑소슈트는 3발, 코만도는 4발이 필요합니다.",
+    "en": "Destroying both cannons kills it outright. Each has 3,500 health: one shot from the Spear or the Bastion MK XVI main gun, two from other anti-tank weapons, 3 from the Anti-Tank Emplacement or Patriot Exosuit, and 4 from the Commando."
+   },
+   {
+    "ko": "정면에서는 하부에 C4 팩 2개, 테르밋 2개, 얼티메이텀 2발을 붙이거나, 솔로 사일로나 평탄화기를 몸통에 한 발 맞혀 처치할 수 있습니다. 무반동포는 150m 안에서 정면에 3발이면 됩니다.",
+    "en": "From the front, 2 C4 Packs, 2 Thermites or 2 Ultimatum shots on the undercarriage kill it, as does one Solo Silo or Leveller hit to the body. The Recoilless Rifle needs 3 shots to the front within 150m."
+   },
+   {
+    "ko": "궤도 레일캐넌 타격은 한 번에 처치하지만, 스피커에 맞으면 한 번에 처치되지 않을 수 있습니다. 이런 스트라타젬이 없으면 중기관총 거치포로 궤도 고정부, 궤도, 몸통 덮개를 쏴서 본체 체력을 깎으세요.",
+    "en": "One Orbital Railcannon Strike destroys it, but a hit on a speaker may not. Without such stratagems, use the HMG Emplacement on the trackpod latches, tracks and torso flaps to drain its main health."
+   },
+   {
+    "ko": "먼 거리에서는 미사일을 쏘며 떨어질 곳이 노랗게 빛납니다. 피할 수 없으면 엎드려 폭발 피해를 줄이세요. 대포는 바로 아래로도 쏘고, 철거력 50 시설을 부술 만큼 강해 교란기나 탐지 탑을 쏘게 유도할 수 있습니다.",
+    "en": "At long range it fires missiles whose impact spots glow yellow; if you cannot dodge, go prone to cut the blast damage. Its cannons can fire straight down and are strong enough to destroy demolition force 50 structures, so you can bait them into hitting Stratagem Jammers and Detector Towers."
+   },
+   {
+    "ko": "터질 때 잔해가 날아와 깔릴 수 있고, 석관은 마지막으로 보던 방향으로 튀어 나갑니다.",
+    "en": "When it explodes, debris can fall and crush you, and its sarcophagus is flung in the direction it was facing."
+   }
+  ],
+  "tips": [
+   {
+    "ko": "실전에서는 이글 기총소사 2회나 궤도 레일캐넌 타격 1회로 가장 빠르게 처치합니다.",
+    "en": "In practice, two Eagle Strafing Runs or one Orbital Railcannon Strike are the quickest kill."
    }
   ]
  },
@@ -2948,7 +4290,29 @@
  "Warp Ship": {
   "revision": 141833,
   "spawning": [],
-  "behavior": []
+  "behavior": [],
+  "tactics": [
+   {
+    "ko": "와처가 증원을 부르면 날아와 아래쪽 원형 빔으로 일루미닛 병력을 내려보냅니다. 드롭십과 비슷한 방법으로 처리할 수 있습니다.",
+    "en": "It flies in when a Watcher calls reinforcements and beams Illuminate forces down from its round underside. You can deal with it much like a Dropship."
+   },
+   {
+    "ko": "보호막은 착륙한 워프 함선과 같아서 먼저 없애야 선체에 피해가 들어갑니다. 보호막이 없으면 스피어나 무반동포 한 발에 격추되며, 무반동포는 동체에 직격해야 합니다.",
+    "en": "Its shield works like the grounded ship's and must go before the hull takes damage. Without the shield, one Spear or Recoilless Rifle rocket destroys it, though the Recoilless Rifle needs a direct hit to the fuselage."
+   },
+   {
+    "ko": "옆면에는 피해를 받으면 벗겨지는 장갑이 있어 옆을 쏘는 것은 좋지 않습니다.",
+    "en": "The sides have armor that only strips away after a lot of damage, so shooting the sides is a bad idea."
+   },
+   {
+    "ko": "SEAF 샘 사이트는 보통 미사일 한 발로 보호막을, 또 한 발로 함선을 부숩니다. 미사일이 반중력 고리(동체)와 겹치는 보호막에 맞으면 한 발에 부서지기도 합니다.",
+    "en": "A SEAF SAM Site usually needs one missile to break the shield and another to kill the ship. A missile that hits the shield where it overlaps the antigravity ring (fuselage) can destroy it in one hit."
+   },
+   {
+    "ko": "샘 사이트가 멀어 반중력 고리를 맞히기 어려우면, 보호막이 깨진 짧은 틈에 휴대용 대전차 무기로 격추하세요.",
+    "en": "If the SAM Site is too far to reliably hit the ring, use handheld anti-tank weapons in the short window after the SAM breaks the shield."
+   }
+  ]
  },
  "Warrior": {
   "revision": 141593,
@@ -2979,6 +4343,24 @@
     "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
     "en": "Can release a pheromone cloud that calls a Bug Breach."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "어떤 무기로도 처치할 수 있지만, 연사가 빠르거나 폭발하는 무기가 무리를 빨리 정리합니다.",
+    "en": "Any weapon can kill it, but high fire rate or explosive weapons clear groups quickly."
+   },
+   {
+    "ko": "머리를 부수는 것이 가장 빠르지만, 광폭 상태가 되어 빨라집니다. 더 쏴서 처치하거나 출혈로 죽을 때까지 피하세요. 다리를 하나라도 부수면 빨라지지 않습니다.",
+    "en": "Destroying the head is the fastest kill, but it then goes berserk and speeds up. Shoot it more or avoid it until it bleeds out. Destroying any leg stops the speed boost."
+   },
+   {
+    "ko": "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
+    "en": "It can call a Bug Breach even without its head, though it usually bleeds out before it finishes."
+   },
+   {
+    "ko": "대체로 느리지만 옆으로 움직이며 따라붙어, 다른 테르미니드에게서 물러날 때 방해가 될 수 있습니다.",
+    "en": "It is generally slow, but watch out for its strafing, which can get in the way when you retreat from other Terminids."
+   }
   ]
  },
  "Watcher": {
@@ -3006,6 +4388,28 @@
     "ko": "헬다이버가 가까이 있으면 테슬라 서프레서로 전기를 쏘아 공격하기도 합니다.",
     "en": "It may also zap nearby Helldivers with arcs of lightning from its Tesla Suppressor."
    }
+  ],
+  "tactics": [
+   {
+    "ko": "일루미닛에서 유일하게 증원을 부르니 먼저 처치하세요. 파란 조명탄보다 먼저 화면 위에 '일루미닛 함선 접근 중'이 뜨는 순간 이미 신호가 간 것입니다.",
+    "en": "It is the only Illuminate unit that calls reinforcements, so kill it first. The call is already sent when 'Illuminate Ships Incoming' appears at the top of the screen, before the blue flares go up."
+   },
+   {
+    "ko": "대물소총과 레일건은 본체에 한 발만 맞혀도 처치합니다. 지느러미는 여러 개 떨어져도 살아 있으니 몸 중앙을 노리세요.",
+    "en": "The Anti-Materiel Rifle and Railgun kill it with one hit to the main body. It survives losing several fins, so aim for center mass."
+   },
+   {
+    "ko": "블리처와 아크 발사기로 기절시키면 증원 호출이 끊기고 잠시 공중에 멈춥니다.",
+    "en": "Stunning it with the Blitzer or Arc Thrower interrupts the reinforcement call and leaves it floating still for a moment."
+   },
+   {
+    "ko": "전기 방전은 피해가 적지만 잠시 느려지고 스태미나가 조금 줄어, 무권자 무리나 플레시몹 근처에서 특히 위험합니다.",
+    "en": "Its lightning discharge deals little damage but briefly slows you and drains some stamina, which is especially dangerous near Voteless hordes or Fleshmobs."
+   },
+   {
+    "ko": "죽으면 떨어지고, 빠른 속도로 부딪히면 시체가 터집니다. 범위는 작지만 치명적입니다.",
+    "en": "When killed it falls, and if it hits something fast enough the carcass explodes. The blast is small but lethal."
+   }
   ]
  },
  "Wretch": {
@@ -3028,6 +4432,28 @@
    {
     "ko": "생각보다 빠르게 움직이며, 사거리에 들어오면 헬다이버에게 덤벼들어 큰 피해를 줍니다. 이 공격은 움직이는 헬다이버를 잘 따라와 피하기 어렵습니다.",
     "en": "It moves surprisingly fast and pounces once in range for heavy damage. The pounce tracks moving Helldivers well, making it hard to dodge."
+   }
+  ],
+  "tactics": [
+   {
+    "ko": "헌터처럼 덮쳐 오는데, 덮치는 동안 방향을 따라와 옆으로 베어서 몸을 날려도 맞기 쉽습니다. 공중에서 처치하거나 미끄러지기, 앉기, 바로 엎드리기로 피하세요.",
+    "en": "It pounces like a Hunter and tracks you mid-leap with a sideways slash that easily hits you mid-dive. Kill it in the air, or slide, crouch or go prone right away."
+   },
+   {
+    "ko": "덮치는 렛치는 일부 각도에서 방어막 생성 팩의 방어막을 뚫고 들어옵니다. 헬다이버보다 센트리와 거치포를 먼저 노립니다.",
+    "en": "A pouncing Wretch can pass through a Shield Generator Pack's shield from some angles. It goes for sentries and emplacements before Helldivers."
+   },
+   {
+    "ko": "무권자와 섞여 올 때는 불릿 스톰, 기관총처럼 초당 피해가 큰 무기가 좋습니다. 불과 가스는 렛치를 느리게 해 다가오지 못하게 하며, 크리스퍼, 스토커, 토처, 화염방사기, 크리메이터는 무리에도 효과적입니다.",
+    "en": "Against Wretches mixed with Voteless, high damage per second weapons like the Bullet Storm and Machine Gun work well. Fire and gas slow them and keep them off you; the Crisper, Stoker, Torcher, Flamethrower and Cremator work even against groups."
+   },
+   {
+    "ko": "머리가 떨어지면 바라보던 방향으로 발톱을 마구 휘두르니, 머리보다 팔다리, 특히 큰 발톱을 노리세요. 날뛰는 동안은 두 발로 서서 천천히 걸어 피하기 쉽습니다.",
+    "en": "When its head comes off it slashes wildly in the direction it was facing, so aim for the limbs, especially the bladed arms, rather than the head. The rampage is easy to avoid since it stands up and walks slowly."
+   },
+   {
+    "ko": "몸을 숙이고 있어 가까운 난전에서는 몸통을 맞히기 어렵습니다. 앉아서 낮게 쏘아 다리를 끊으면 공격과 추격을 막을 수 있습니다.",
+    "en": "Its hunched posture makes the body hard to hit in a messy close fight. Crouch and aim low to cut its legs, which stops it from attacking and chasing."
    }
   ]
  }
