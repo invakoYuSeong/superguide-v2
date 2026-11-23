@@ -275,4 +275,9 @@ export default {
   "탄약 걱정 없이 충전해 쏘는 저격 화기입니다. 제조소를 보이는 곳 어디서나 3발에 부수고, 가만히 서 있는 워 스트라이더의 눈은 한 발입니다.": "A charge-up marksman weapon with no ammo to worry about. It destroys a Fabricator from any angle in line of sight with 3 shots, and a standing War Strider's eye with one.",
   "대전차 무기가 부족할 때 무난하게 중장갑 적을 압박합니다.": "A solid way to pressure heavily armored enemies when the team is short on anti-tank weapons.",
   "교란기 밑에 내려놓기만 해도 교란기를 끄지 않고 부술 수 있고, 건십 시설처럼 철거력 60이 필요한 목표도 부숩니다.": "Just setting it down under a Stratagem Jammer destroys it without switching it off, and it also destroys targets that need demolition force 60, such as the Gunship Facility.",
+  "폭탄을 일렬로 떨어뜨려 벌레굴을 닫고 무리를 정리합니다. 굴 밖에 맞혀도 닫힐 만큼 철거력이 충분합니다.": "Drops a line of bombs that closes bug holes and clears swarms. Its demolition force closes a hole even from outside.",
+  "몰려오는 무리가 지나는 길에 깔아 둡니다. 굴 입구에 깔면 적이 밟아 굴 안쪽에서 터질 때 굴도 닫힙니다.": "Lay them where swarms will come through. At a bug hole entrance they close the hole when an enemy sets one off inside it.",
+  "보조무기로 장갑이 두꺼운 봇을 맡습니다. 미사일 권총은 관통 5, 볼트 피스톨은 관통 4입니다.": "A sidearm for heavily armored bots. The Missile Pistol has AP 5, the Bolt Pistol AP 4.",
+  "던지면 적을 따라가 터지는 관통 5 투척 무기로, 대형 봇을 압박합니다.": "A throwable that homes in on an enemy and bursts with AP 5, to pressure the big bots.",
+  "자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다.": "Set it up to take down tanks, War Striders and other big bots one after another.",
 };

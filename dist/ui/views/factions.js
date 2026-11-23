@@ -19,7 +19,7 @@ import { html, raw, render, $, $$, badge, external } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 let root, ctx;
-const state = { guide: factionGuides[0].id, recsOpen: true };
+const state = { guide: factionGuides[0].id, recsOpen: false };
 
 const weaponIcon = id => html`<img class="strat-icon" style="width:34px;height:34px" src="${wikiIcons[id]?.src}" alt="" loading="lazy">`;
 
@@ -83,7 +83,8 @@ function stratagemPicks(side) {
     const stratagem = stratagemById.get(entry);
     return html`<a href="#/arsenal/${stratagem.id}">${weaponIcon(stratagem.id)}${stratagem.name}</a>`;
   };
-  // Folds like the enemy view's panels but starts open; the choice stays while switching factions (state.recsOpen).
+  // Folds like the enemy view's panels and starts closed (user decision 2026-11-23); the choice stays while
+  // switching factions (state.recsOpen).
   return html`<details class="panel fold strat-recs" data-side="${side.id}" data-recs ${state.recsOpen ? raw('open') : ''}><summary><h2>${L(`${side.name} 추천 스트라타젬`, `Recommended stratagems vs ${T(side.name)}`)}</h2></summary>
     <div class="rec-grid">${recs.picks.map(pick => html`<article class="rec${pick.best ? ' best' : ''}">
       <div class="rec-items">${pick.items.map((entry, i) => html`${i ? html`<span class="faint">${L('또는', 'or')}</span>` : ''}${item(entry)}`)}</div>
