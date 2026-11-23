@@ -473,7 +473,7 @@ function matchupSection(enemy, entries) {
   const stats = attackStats(mode, { distance: rangeFor(mode) });
   const falls = fallsWithRange(mode);
   const rangeNote = !falls ? (state.distance && mode && !mode.unsupported ? L('이 모드는 사격 거리로 피해가 줄지 않습니다(항력이 없는 탄, 로켓 추진탄, 폭발, 광선 등).', 'This mode does not lose damage with shooting distance (no-drag or rocket-propelled rounds, explosions, beams and the like).') : '')
-    : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다(위키 공식, 중력은 무시한 어림값). 폭발 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m (wiki formula, an estimate that ignores gravity). Explosion damage does not fall off with range.`)
+    : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다. 폭발 피해와, 레벨러처럼 로켓 추진으로 속도를 유지하는 탄의 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m. Explosion damage, and rounds that keep their speed by rocket propulsion like the Leveller's, do not fall off with range.`)
     : L(`거리 0m(감쇠 없음) 기준입니다. 위의 사격 거리를 고르면 위키의 거리 감쇠 공식으로 다시 계산합니다(100m에서 탄 피해 ${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}%).`, `Counted at 0 m (no falloff). Pick a shooting distance above to recount with the wiki falloff formula (${Math.round(falloffAt(ballisticsOf(mode), 100) * 100)}% shot damage at 100 m).`);
   const notes = [rangeNote, mode?.note, profile?.note].filter(Boolean);
   return html`<section class="matchup" id="matchup">
