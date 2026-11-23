@@ -7,9 +7,8 @@ import { apBandOf } from '../core/catalog.js';
 // An enemy behind the circles at the same scale, so the radius reads against something known: a Trooper for
 // the smallest blasts, where a Charger would outgrow the circle (user decision 2026-11-23), a Charger for small
 // blasts, a Bile Titan for the rest (user decision 2026-11-20) and a grounded Illuminate Warp Ship for the biggest
-// (user decision 2026-11-23), low in the circle (`top`) where the labels and lines do not cover it; the scale
-// holds, only the place moves. Tried and dropped there: a Dragonroach (wings 41.5 m, too thin to make out), and a
-// Vox Engine or a Harvester (about a Bile Titan's size, too small).
+// (user decision 2026-11-23), centred like the others. Tried and dropped there: a Dragonroach (wings 41.5 m, too
+// thin to make out), and a Vox Engine or a Harvester (about a Bile Titan's size, too small).
 // Sizes are from the surface of the game models in their rest pose (Helldivers 2 01.007.202, via
 // hd2armorinspector.com), rounded; the wiki and the developer give no sizes. Spans are side to side across the
 // legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Trooper is sized by its height (2.05 m,
@@ -20,7 +19,7 @@ const SCALE_ENEMIES = [
   { upTo: 3, name: L('트루퍼', 'Trooper'), height: 2, src: './assets/blast/trooper.webp', ratio: 480 / 322 },
   { upTo: 6, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
   { upTo: 20, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
-  { upTo: Infinity, name: L('착륙한 워프 함선', 'grounded Warp Ship'), span: 34, lengthwise: true, src: './assets/blast/warp-ship.webp', ratio: 201 / 480, top: 80 },
+  { upTo: Infinity, name: L('착륙한 워프 함선', 'grounded Warp Ship'), span: 34, lengthwise: true, src: './assets/blast/warp-ship.webp', ratio: 201 / 480 },
 ];
 
 // Stat card caption under the full-damage radius.
@@ -55,7 +54,7 @@ export function blastFigure(item) {
       </radialGradient></defs>
       <circle cx="66" cy="66" r="${outer}" fill="url(#${fade})" stroke="var(--accent)" stroke-opacity=".45" stroke-dasharray="3 4"/>
       <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35"/>
-      <image class="blast-ref" href="${ref.src}" x="${66 - refW / 2}" y="${ref.top ?? 66 - refH / 2}" width="${refW}" height="${refH}" preserveAspectRatio="none"/>
+      <image class="blast-ref" href="${ref.src}" x="${66 - refW / 2}" y="${66 - refH / 2}" width="${refW}" height="${refH}" preserveAspectRatio="none"/>
       <circle cx="66" cy="66" r="${inner}" fill="none" stroke="var(--accent)"/>
       <path d="M66 66H${66 + outer}" stroke="var(--text-3)" stroke-width="1.2" stroke-dasharray="3 3"/>
       <path d="M66 66H${66 - inner}" stroke="var(--accent-text)" stroke-width="1.6"/>
