@@ -7,6 +7,8 @@ import { readFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { enemies, weaponProfiles } from '../dist/data/combat-data.js';
 import { structures, demolitionProfiles } from '../dist/data/demolition-data.js';
+import { stratagemAttackDamage, stratagemAttackSource } from '../dist/data/stratagem-attacks.js';
+import { buildStratagemAttacks } from './build-stratagem-attacks.mjs';
 import { factionGuides } from '../dist/data/faction-data.js';
 import { solveMatchup, withHitAssumption } from '../dist/core/combat.js';
 import { solveDemolition, structureOverview, weaponOverview } from '../dist/core/demolition.js';
@@ -132,9 +134,29 @@ const demolitionReason = {
   'blocked-force': () => '확인된 철거력 조건에 미달합니다. 여러 발의 철거력을 합산해 파괴할 수는 없습니다.',
 };
 const legacyVerdict = { pass: 'pass', short: 'insufficient', unknown: 'unknown', 'n/a': 'inapplicable' };
+// Attacks given structure damage after the legacy fixture (stratagem-attacks.js and support weapon combat
+// damage, 2026-11-23): the legacy results are replayed without it, and with it the health path resolves
+// where the legacy left it unknown while every force verdict stays the same.
+const healthAdded = { ...Object.fromEntries(Object.entries(stratagemAttackDamage).map(([id, modes]) => [id, Object.keys(modes)])),
+  'arc-thrower': ['standard'], meltagun: ['standard'], 'grenade-launcher': ['standard'], 'belt-fed-gl': ['standard'],
+  'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'] };
+const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).map(([id, profile]) => [id, !healthAdded[id] ? profile
+  : { ...profile, modes: profile.modes.map(mode => healthAdded[id].includes(mode.id) ? { ...mode, damage: undefined } : mode) }]));
+const builtAttacks = await buildStratagemAttacks();
+assert.deepEqual({ stratagemAttackDamage, stratagemAttackSource }, { stratagemAttackDamage: builtAttacks.damage, stratagemAttackSource: builtAttacks.source }, 'stratagem-attacks.js is out of date: run node scripts/build-stratagem-attacks.mjs');
+for (const [id, modes] of Object.entries(stratagemAttackDamage)) for (const modeId of Object.keys(modes)) assert(demolitionProfiles[id]?.modes.some(mode => mode.id === modeId && mode.damage === modes[modeId]), `${id}/${modeId}: damage reaches the demolition mode`);
+let healthResolved = 0;
+for (const [id, modeIds] of Object.entries(healthAdded)) for (const modeId of modeIds) for (const structure of structures) {
+  const current = solveDemolition(structure, demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId));
+  const legacy = solveDemolition(structure, legacyProfiles[id], legacyProfiles[id].modes.find(mode => mode.id === modeId));
+  assert(current.routes.every((row, index) => row.verdict === legacy.routes[index].verdict), `${structure.id} × ${id}/${modeId}: force verdicts unchanged`);
+  if (legacy.reason === 'health-unknown') { assert(current.outcome !== 'unknown', `${structure.id} × ${id}/${modeId}: health damage resolves it`); healthResolved++; }
+  else if (!current.health) assert.equal(current.outcome, legacy.outcome, `${structure.id} × ${id}/${modeId}: unchanged without health`);
+}
+assert(healthResolved > 0, 'added structure damage resolves some health paths');
 for (const expected of golden.demolition) {
   const structure = structures.find(item => item.id === expected.structure);
-  const profile = demolitionProfiles[expected.weapon];
+  const profile = legacyProfiles[expected.weapon];
   const mode = profile.modes.find(item => item.id === expected.mode);
   const result = solveDemolition(structure, profile, mode, expected.options);
   // A structure the stratagem is known not to destroy (profile.notOn, user decision 2026-11-20) departs from the
@@ -164,7 +186,7 @@ const legacyStructureIds = new Set(golden.demolition.map(row => row.structure));
 const legacyStructures = structures.filter(item => legacyStructureIds.has(item.id));
 assert.equal(legacyStructures.length, 18, 'legacy structure list size');
 // The known exceptions (profile.notOn) turn the legacy result for that pair into 'cannot'.
-const knownNot = (weapon, structure) => demolitionProfiles[weapon]?.notOn?.includes(structure);
+const knownNot = (weapon, structure) => legacyProfiles[weapon]?.notOn?.includes(structure);
 for (const expected of golden.selections) {
   const options = { shieldCleared: expected.shieldCleared, jammerDisabled: false };
   const structure = structures.find(item => item.id === expected.structure);
@@ -173,7 +195,7 @@ for (const expected of golden.selections) {
     assert(!structure && expected.weapon === 'all' || !stratagems.some(item => item.id === expected.weapon) && expected.weapon !== 'all', label);
   } else if (expected.view === 'weapons') {
     // The new catalogue lists stratagems in plain category order, so compare as sets.
-    const overview = structureOverview(structure, legacyCatalogue, demolitionProfiles, options);
+    const overview = structureOverview(structure, legacyCatalogue, legacyProfiles, options);
     const byId = (a, b) => a[0].localeCompare(b[0]);
     const dropped = expected.entries.filter(entry => knownNot(entry[0], expected.structure));
     const counts = [...expected.counts];
@@ -181,7 +203,7 @@ for (const expected of golden.selections) {
     assert.deepEqual(overview.entries.map(entry => [entry.weapon.id, entry.outcome, entry.attacks.map(attack => attack.mode.id)]).sort(byId), expected.entries.filter(entry => !dropped.includes(entry)).sort(byId), label);
     assert.deepEqual([overview.possible, overview.conditional, overview.unknown, overview.blocked], counts, label);
   } else {
-    const profile = demolitionProfiles[expected.weapon];
+    const profile = legacyProfiles[expected.weapon];
     const mode = profile?.modes.find(item => item.id === expected.mode);
     const targets = expected.structure === 'all' ? legacyStructures : [structure];
     assert.deepEqual(weaponOverview(targets, profile, mode, options).map(row => [row.structure.id, row.outcome]), expected.rows.map(([id, outcome]) => [id, knownNot(expected.weapon, id) ? 'blocked' : outcome]), label);

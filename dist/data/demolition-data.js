@@ -1,4 +1,5 @@
 import { weaponProfiles } from './combat-data.js';
+import { stratagemAttackDamage } from './stratagem-attacks.js';
 
 export const demolitionCheckedAt = '2026-09-16';
 export const demolitionSource = 'https://helldivers.wiki.gg/wiki/Demolition';
@@ -77,23 +78,23 @@ export const demolitionProfiles = {
   'nova': profile(shot(17, null, { damage: combatDamage('nova', 'standard') }), { source: wiki('Module:Decodedata-Attacks/weapons_data.json'), note: '철거력 17은 위키 데이터마이닝 값입니다. 위키 철거 문서의 종합표에는 아직 이 무기가 없습니다.' }),
   'spear': profile(shot(40, 30, { damage: damage(4000, 4000, 7, 200, 3) }), { source: wiki('FAF-14_Spear'), conditionalAim: true, note: indirect }),
   'laser-cannon': profile(shot(20, null, { directLabel: '광선', note: '광선이 실제로 닿아야 합니다. 지속 피해는 발 단위로 계산하지 않습니다.' })),
-  'arc-thrower': profile(shot(20, null, { directLabel: '전격' }), { conditionalAim: true, note: indirect }),
-  'meltagun': profile(shot(30, null, { directLabel: '광선' })),
-  'grenade-launcher': profile(shot(null, 30)),
-  'belt-fed-gl': profile(shot(null, 30)),
+  'arc-thrower': profile(shot(20, null, { directLabel: '전격', damage: combatDamage('arc-thrower', 'first-target') }), { conditionalAim: true, note: indirect }),
+  'meltagun': profile(shot(30, null, { directLabel: '광선', damage: combatDamage('meltagun', 'near') })),
+  'grenade-launcher': profile(shot(null, 30, { damage: combatDamage('grenade-launcher', 'standard') })),
+  'belt-fed-gl': profile(shot(null, 30, { damage: combatDamage('belt-fed-gl', 'standard') })),
   'c4-pack': profile(shot(null, 40, { name: '장약 1개 폭발', unit: '개', damage: damage(0, 0, 0, 2000, 7), shieldBypass: true, note: '본체가 폭발 중심 3 m 안에 있는 조건입니다. 워프 함선은 보호막이 있어도 장약 한 개로 체력을 소진할 수 있습니다.' }), { source: wiki('B/MD_C4_Pack') }),
   'breaching-hammer': profile([
-    mode('melee', '일반 타격', 30, null, { directLabel: '타격' }),
-    mode('charge', '폭발 장약 사용', 30, 30, { directLabel: '타격' }),
+    mode('melee', '일반 타격', 30, null, { directLabel: '타격', damage: combatDamage('breaching-hammer', 'melee') }),
+    mode('charge', '폭발 장약 사용', 30, 30, { directLabel: '타격', damage: combatDamage('breaching-hammer', 'explosive') }),
   // Known in play not to close bug holes, even from inside (user decision 2026-11-20).
   ], { notOn: ['bug-hole'] }),
-  'leveller': profile(shot(40, 40)),
+  'leveller': profile(shot(40, 40, { damage: combatDamage('leveller', 'standard') })),
   'wasp': profile(shot(30, 30), { conditionalAim: true, note: indirect }),
   'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.' })),
   // Wiki Demolition summary (revision 138005), Other Stratagems: TD-110 Maelstrom,
   // Missile Explosion, force 40, explosive. The table has no row for its Gatling guns.
   'maelstrom': profile(shot(null, 40, { name: '미사일 폭발' })),
-  'speargun': profile(shot(30, 30)),
+  'speargun': profile(shot(30, 30, { damage: combatDamage('speargun', 'direct') })),
   'de-escalator': profile(shot(20, null, { directLabel: '전격' }), { conditionalAim: true, note: indirect }),
   'epoch': profile([
     mode('standard', '일반 발사', 10, 10, { damage: damage(400, 200, 4, 500, 4), note: '피해: 직격 400 / 내구 200 / 폭발 500. 직격·폭발 관통 4.' }),
@@ -140,6 +141,15 @@ export const demolitionProfiles = {
     mode('smoke', '연막탄 · 탄체 직격', 50, null, { warpHullDirect: true }),
   ], { note: '실제로 장전되어 다음에 발사될 탄종을 고르세요. 여기서 고른다고 게임의 발사 순서가 바뀌지는 않습니다.' }),
 };
+
+// Health path for stratagems: damage per shot from the wiki attack datamine (dist/data/stratagem-attacks.js,
+// scripts/build-stratagem-attacks.mjs) on the modes that only had demolition force.
+for (const [id, modes] of Object.entries(stratagemAttackDamage)) {
+  for (const [modeId, damage] of Object.entries(modes)) {
+    const target = demolitionProfiles[id]?.modes.find(item => item.id === modeId);
+    if (target && !target.damage) target.damage = damage;
+  }
+}
 
 for (const id of ['orbital-120', 'orbital-380', 'orbital-walking']) demolitionProfiles[id].damageSource = wiki('Damage_Comparison');
 
