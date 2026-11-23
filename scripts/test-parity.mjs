@@ -216,8 +216,8 @@ for (const expected of golden.selections) {
 // recording (Caustic and Noxious Strains) are not in it; their picks must still resolve.
 const recorded = new Map(golden.factions.map(item => [`${item.guide}/${item.enemy}/${item.choice}`, item]));
 // Recorded picks the user took out of a guide on purpose (2026-11-23: the Recoilless Rifle against the Vox Engine,
-// replaced by the Orbital Railcannon Strike).
-const removedPicks = new Set(['cyborgs/vox-engine/recoilless']);
+// replaced by the Orbital Railcannon Strike; the Quasar Cannon wherever the Nova also kills in one shot).
+const removedPicks = new Set(['cyborgs/vox-engine/recoilless', 'incineration/hulk-firebomber/quasar']);
 for (const key of removedPicks) assert(recorded.has(key), `${key}: not a recorded pick`);
 let picks = 0, addedPicks = 0;
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
