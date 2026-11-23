@@ -10,7 +10,7 @@ import { dragOf, falloffAt, distanceAt, trajectory } from '../core/ballistics.js
 
 const MAX = 200;
 const MARKS = [25, 50, 100, 150, 200];
-const W = 320, H = 132, PAD = { l: 38, r: 10, t: 10, b: 22 };
+const W = 320, H = 140, PAD = { l: 46, r: 19, t: 12, b: 26 };
 const round = (value, step) => Math.round(value / step) * step;
 
 // One line over 0-200 m. `top`/`bottom` are the values at the top and bottom of the plot.
@@ -21,8 +21,8 @@ function chart(title, points, { top, bottom, ticks, label }) {
   const data = points.filter(p => p.x % 2 === 0).map(p => `${p.x},${+p.y.toFixed(3)}`).join(';');
   return html`<figure class="ballistic-chart"><figcaption>${title}</figcaption>
     <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${title}" data-points="${data}" data-label="${label}" data-top="${top}" data-bottom="${bottom}">
-      ${ticks.map(t => html`<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(t.value)}" y2="${py(t.value)}" class="grid"/><text x="${PAD.l - 5}" y="${py(t.value) + 3.5}" text-anchor="end">${t.text}</text>`)}
-      ${[0, 50, 100, 150, 200].map(x => html`<text x="${px(x)}" y="${H - 6}" text-anchor="middle">${x}m</text>`)}
+      ${ticks.map(t => html`<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(t.value)}" y2="${py(t.value)}" class="grid"/><text x="${PAD.l - 6}" y="${py(t.value) + 4.5}" text-anchor="end">${t.text}</text>`)}
+      ${[0, 50, 100, 150, 200].map(x => html`<text x="${px(x)}" y="${H - 5}" text-anchor="middle">${x}m</text>`)}
       <path d="${path}" class="line"/>
       <g class="hover" visibility="hidden"><line class="cross" y1="${PAD.t}" y2="${H - PAD.b}"/><circle r="4"/><text class="readout"/></g>
     </svg></figure>`;
@@ -109,7 +109,7 @@ export function wireBallisticCharts() {
     const value = unit === '%' ? `${Math.round(py)}%` : unit === 'cm' ? `${Math.round(py * 100)}cm` : `${(Math.round(py * 10) / 10)}m`;
     text.textContent = `${px}m · ${value}`;
     const right = sx > W / 2;
-    text.setAttribute('x', right ? sx - 6 : sx + 6); text.setAttribute('y', PAD.t + 10);
+    text.setAttribute('x', right ? sx - 6 : sx + 6); text.setAttribute('y', PAD.t + 13);
     text.setAttribute('text-anchor', right ? 'end' : 'start');
   });
 }
