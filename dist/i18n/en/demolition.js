@@ -3,7 +3,6 @@
 export default {
   "기본 공격": "Standard attack",
   "광선": "Beam",
-  "장약 1개 폭발": "One charge detonation",
   "일반 타격": "Normal strike",
   "타격": "Strike",
   "폭발 장약 사용": "With explosive charge",
@@ -11,9 +10,7 @@ export default {
   "시설에 닿은 광선": "Beam on the structure",
   "탄체·초기 효과": "Projectile·initial effect",
   "연막탄 탄체 직격": "Smoke shell impact",
-  "폭탄 1발": "One bomb",
   "탄체·집속 폭발": "Projectile·cluster blast",
-  "폭탄 1개 · 주 폭발": "One bomb · Main explosion",
   "지옥폭탄 폭발": "Hellbomb explosion",
   "네이팜탄": "Napalm",
   "정전기장탄": "Static Field",
@@ -209,4 +206,9 @@ export default {
   "인지 분열기 본체는 지원 무기나 스트라타젬으로 부술 수 없습니다. 궤도 네이팜 폭격, 궤도 120mm·380mm 고폭 폭격 같은 궤도 포격을 던지면 전원 장치를 쉽게 부술 수 있습니다.": "The Cognitive Disruptor itself cannot be destroyed with support weapons or stratagems. Orbital barrages such as the Orbital Napalm Barrage and the Orbital 120mm and 380mm HE Barrages destroy the power units easily.",
   "인지 분열기 본체가 아니라 근처의 전원 장치 4개를 찾아 부수면 꺼집니다. 장갑이 없어 주무기로 쏘면 충분합니다.": "Instead of the Cognitive Disruptor itself, find and destroy the 4 power units nearby to shut it down. They have no armor, so primary weapon fire is enough.",
   "지옥폭탄을 부를 때는 위를 확인하세요. 돌출부에 포드가 걸릴 수 있습니다.": "Look up before calling the Hellbomb: the pod can catch on an overhang.",
+  "포탄": "Shell",
+  "폭탄": "Bomb",
+  "기총탄": "Cannon round",
+  "장약 폭발": "Charge detonation",
+  "폭탄 · 주 폭발": "Bomb \u00b7 Main explosion",
 };
