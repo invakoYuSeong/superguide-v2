@@ -2,6 +2,7 @@
 import { num } from '../core/explain.js';
 import { html } from './dom.js';
 import { L } from '../core/i18n.js';
+import { apBandOf } from '../core/catalog.js';
 
 // An enemy behind the circles at the same scale, so the radius reads against something known: a Trooper for
 // the smallest blasts, where a Charger would outgrow the circle (user decision 2026-11-23), a Charger for small
@@ -29,6 +30,12 @@ export function blastFigure(item) {
   // core/combat.js blastAt), so the full-damage core reads as the range that counts (user decision 2026-11-23).
   const fade = `blast-fade-${++figureCount}`;
   const flat = item.innerRadius >= item.radius, half = (item.innerRadius + item.radius) / 2;
+  // Falloff penetration as core/combat.js blastAt has it (one less, never below 2), named by armor class, since
+  // big blasts still go through medium or heavy armor out there.
+  const fallAp = item.splashAp != null ? Math.max(2, item.splashAp - 1) : null;
+  const fallBand = fallAp != null ? apBandOf({ ap: fallAp }).name : '';
+  const fallKo = fallAp == null ? '관통력도 1 낮아짐' : fallAp === item.splashAp ? `관통력은 그대로 AP ${fallAp}(${fallBand})` : `관통력은 AP ${fallAp}(${fallBand}, 1 낮음)`;
+  const fallEn = fallAp == null ? 'with 1 less penetration' : fallAp === item.splashAp ? `still at AP ${fallAp} (${fallBand})` : `at AP ${fallAp} (${fallBand}) instead of ${item.splashAp}`;
   const b = text => html`<b style="color:var(--text)">${text}</b>`;
   // The inner circle is to scale, like the enemy behind it; the floor only keeps a tiny one visible (none is
   // that small today: the smallest is 1 m of 10 m).
@@ -54,9 +61,9 @@ export function blastFigure(item) {
     </svg>
     <p>${L(html`${flat
         ? html`${b(`${num(item.radius)}m`)} 안 어디서나 최대 피해, 바깥은 피해 없음.<br>나와 아군도 이 안에서 다칠 수 있음.`
-        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지 최대 피해(실제 효과 범위).<br>바깥은 ${b(`${num(item.radius)}m`)}까지 줄어들고(${b(`${num(half)}m`)}에서 절반) 관통력도 1 낮아 장갑 적에게는 거의 무효.<br>나와 아군은 ${num(item.radius)}m 안에서 다칠 수 있음.`}<br><span class="faint">충격파·함선 강화 제외. 뒤 그림은 같은 축척의 ${ref.name}(${refSize}).</span>`,
+        : html`${b(`중심 ${num(item.innerRadius)}m`)}까지 최대 피해(실제 효과 범위).<br>바깥은 ${b(`${num(item.radius)}m`)}까지 줄어들고(${b(`${num(half)}m`)}에서 절반) ${fallKo}.<br>나와 아군은 ${num(item.radius)}m 안에서 다칠 수 있음.`}<br><span class="faint">충격파·함선 강화 제외. 뒤 그림은 같은 축척의 ${ref.name}(${refSize}).</span>`,
       html`${flat
         ? html`Full damage anywhere within ${b(`${num(item.radius)}m`)}, none beyond.<br>You and teammates can get hurt inside it.`
-        : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}) with 1 less penetration, so it does little to armored enemies.<br>You and teammates can get hurt within ${num(item.radius)}m.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
+        : html`Full damage within ${b(`${num(item.innerRadius)}m`)}: the range that counts.<br>It fades out by ${b(`${num(item.radius)}m`)} (half at ${b(`${num(half)}m`)}), ${fallEn}.<br>You and teammates can get hurt within ${num(item.radius)}m.`}<br><span class="faint">No shockwaves or ship modules. Behind: a ${ref.name} (${refSize}), same scale.</span>`)}</p>
   </div>`;
 }
