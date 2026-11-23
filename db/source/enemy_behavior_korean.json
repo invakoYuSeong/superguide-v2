@@ -822,8 +822,8 @@
   ],
   "behavior": [
    {
-    "ko": "경계 전에는 하이브 월드 하늘을 날아다닙니다. 헬다이버를 발견하거나 공격받으면 목표를 향해 날아오며 넓은 직선 구역에 화염을 뿜습니다.",
-    "en": "Unalerted, it soars over the Hive World. When it spots a Helldiver or is shot, it makes a strafing run and breathes fire over a large straight-line area."
+    "ko": "경계 전에는 하늘을 날아다닙니다. 헬다이버를 발견하거나 공격받으면 목표를 향해 날아오며 넓은 직선 구역에 화염을 뿜습니다.",
+    "en": "Unalerted, it soars overhead. When it spots a Helldiver or is shot, it makes a strafing run and breathes fire over a large straight-line area."
    },
    {
     "ko": "그 뒤 목표 뒤쪽 낮은 높이에 잠시 떠 있다가 한 번 더 집중 화염을 뿜고 높이 올라갑니다. 공격 사이에는 높은 곳에서 목표 주위를 돕니다.",

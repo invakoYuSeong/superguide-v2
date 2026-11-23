@@ -839,12 +839,12 @@ export const enemyPages = {
    "On Evacuate High-Value Assets missions it can spawn before the pre-mission countdown ends, so be ready for it right away."
   ],
   "behavior": [
-   "경계 전에는 하이브 월드 하늘을 날아다닙니다. 헬다이버를 발견하거나 공격받으면 목표를 향해 날아오며 넓은 직선 구역에 화염을 뿜습니다.",
+   "경계 전에는 하늘을 날아다닙니다. 헬다이버를 발견하거나 공격받으면 목표를 향해 날아오며 넓은 직선 구역에 화염을 뿜습니다.",
    "그 뒤 목표 뒤쪽 낮은 높이에 잠시 떠 있다가 한 번 더 집중 화염을 뿜고 높이 올라갑니다. 공격 사이에는 높은 곳에서 목표 주위를 돕니다.",
    "바일 타이탄처럼 등껍질 장갑이 두껍고, 주된 약점은 머리입니다."
   ],
   "behaviorEn": [
-   "Unalerted, it soars over the Hive World. When it spots a Helldiver or is shot, it makes a strafing run and breathes fire over a large straight-line area.",
+   "Unalerted, it soars overhead. When it spots a Helldiver or is shot, it makes a strafing run and breathes fire over a large straight-line area.",
    "It then hovers low behind its target for a moment, breathes a concentrated burst of fire, and climbs again. Between attacks it circles its target at high altitude.",
    "Like the Bile Titan it has a heavily armored carapace; its main weak spot is the head."
   ]
