@@ -279,6 +279,6 @@ export default {
   "몰려오는 무리가 지나는 길에 깔아 둡니다.": "Lay them where swarms will come through.",
   "보조무기로 장갑이 두꺼운 봇을 맡습니다. 미사일 권총은 관통 5, 볼트 피스톨은 관통 4입니다.": "A sidearm for heavily armored bots. The Missile Pistol has AP 5, the Bolt Pistol AP 4.",
   "던지면 적을 따라가 터지는 관통 5 투척 무기로, 헐크까지 1개로 처치합니다.": "A throwable that homes in on an enemy and bursts with AP 5, killing even a Hulk with one.",
-  "자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다. 시야가 뚫려 있으면 초장거리에서 제조소 환풍구 안쪽을 맞혀 전초기지도 파괴할 수 있습니다.": "Set it up to take down tanks, War Striders and other big bots one after another. With a clear line of sight it can also destroy outposts from very long range by hitting inside the Fabricator vents.",
+  "자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다. 시야가 뚫려 있으면 초장거리에서 체력을 깎아 전초기지도 파괴할 수 있습니다.": "Set it up to take down tanks, War Striders and other big bots one after another. With a clear line of sight it can also destroy outposts from very long range by wearing down their health.",
   "주무기로 벌레굴을 닫을 수 있는 폭발형 무기입니다. 굴 안에 쏴 넣어 터뜨리면 닫히고, 장거리에서 포자 스퓨어, 슈리커 둥지, 불법 방송탑 등 오브젝트를 철거할 수 있습니다. 이럽터는 알파 커맨더도 한방에 잡을 수 있습니다.": "Explosive primaries that can close bug holes: fire one into the hole so it bursts inside. From long range they can also take down objectives such as Spore Spewers, Shrieker Nests and Illegal Broadcast Towers. The Eruptor can even drop an Alpha Commander in one shot.",
 };
