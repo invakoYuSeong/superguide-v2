@@ -243,7 +243,7 @@ function hero(enemy) {
   ];
   return html`<section class="panel enemy-hero" data-faction="${enemy.faction}">
     ${portrait(enemy, '', true)}
-    <div><span class="faction-tag">${enemy.faction}${sub ? html`·${sub.name}` : ''}</span>${sizeTag(enemy)}<h1>${enemy.name}</h1>
+    <div><span class="faction-tag">${enemy.faction}${sub ? html` · ${sub.name}` : ''}</span>${sizeTag(enemy)}<h1>${enemy.name}</h1>
       <div class="vitals">${vitals.map(([label, value]) => html`<span>${label}<b>${value}</b></span>`)}</div>
       <p class="note">${enemy.note}</p>
       <p class="sources">${external(enemy.source, L('위키 항목', 'Wiki page'))}</p>
