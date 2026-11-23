@@ -351,7 +351,7 @@ export default {
   "포탑이 빠르게 돌며 융합 사이클러를 쏩니다. 옆이나 뒤에서 포탑 뒤 방열판을 노리세요.": "Its turret turns fast, firing a fusion cycler. Hit the heat sink on the back of the turret from the side or rear.",
   "중장거리에서 로켓을 포격처럼 쏴 엄폐물을 소용없게 만듭니다. 보이면 먼저 처치하세요.": "Lobs rockets like artillery at medium to long range, making cover useless. Take it out first when you see it.",
   "공중에 떠서 대형 융합 사이클러와 로켓 일제 사격을 퍼붓고, 명중률이 높습니다. 멀리서 먼저 격추하거나 엄폐물 뒤에 숨어 상대하세요. 추진기 하나만 부숴도 추락합니다.": "Hovers and pours on fire from its heavy fusion cycler and rocket salvos, and it is accurate. Shoot it down from long range first, or fight it from behind cover. Destroying a single thruster brings it down.",
-  "약 1분마다 데버스테이터 4마리를 내보냅니다. 상부 포탑과 하부 개틀링은 가까이서 매우 위험하니 거리를 두세요.": "Drops off four Devastators about every minute. Its top turret and belly Gatling are very dangerous up close, so keep your distance.",
+  "약 1분마다 데버스테이터 4마리를 내보냅니다. 상부 포탑은 멀리서, 하부 개틀링은 가까이서 매우 위험합니다.": "Drops off four Devastators about every minute. Its top turret is very dangerous at range, and its belly Gatling up close.",
   "멀리서 유탄과 레이저를 쏘고 가까이 오면 밟습니다. 일회성 대전차·퀘이사 캐넌·무반동포는 골반·고관절·다리에 맞혀야 한 발입니다.": "Fires grenades and lasers from range and stomps anyone close. Expendable Anti-Tank, Quasar Cannon and Recoilless Rifle need the pelvis, hip or leg for a one-shot kill.",
   "날아다니며 파란 빛으로 주변을 훑고, 헬다이버를 발견하면 신호탄으로 워프 함선 증원을 부릅니다. 신호를 보내기 전에 처치하세요.": "Flies around scanning with blue light, and on spotting you calls Warp Ship reinforcements with a flare. Kill it before it signals.",
   "빠르게 날다가 기총소사하러 내려올 때 느려져 맞히기 쉽습니다. 공격 경로는 땅에 하늘색으로 표시됩니다.": "Flies fast but slows down when it dives for a strafing run, which is when it is easy to hit. Its attack path is marked on the ground in light blue.",

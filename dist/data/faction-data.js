@@ -99,7 +99,7 @@ export const factionGuides = [
       unit('shredder-tank', '포탑이 빠르게 돌며 융합 사이클러를 쏩니다. 옆이나 뒤에서 포탑 뒤 방열판을 노리세요.', ['turret-heatsink']),
       unit('barrager-tank', '중장거리에서 로켓을 포격처럼 쏴 엄폐물을 소용없게 만듭니다. 보이면 먼저 처치하세요.', ['turret']),
       unit('gunship', '공중에 떠서 대형 융합 사이클러와 로켓 일제 사격을 퍼붓고, 명중률이 높습니다. 멀리서 먼저 격추하거나 엄폐물 뒤에 숨어 상대하세요. 추진기 하나만 부숴도 추락합니다.', ['front-thruster']),
-      unit('factory-strider', '약 1분마다 데버스테이터 4마리를 내보냅니다. 상부 포탑과 하부 개틀링은 가까이서 매우 위험하니 거리를 두세요.', ['head']),
+      unit('factory-strider', '약 1분마다 데버스테이터 4마리를 내보냅니다. 상부 포탑은 멀리서, 하부 개틀링은 가까이서 매우 위험합니다.', ['head']),
       unit('war-strider', '멀리서 유탄과 레이저를 쏘고 가까이 오면 밟습니다. 일회성 대전차·퀘이사 캐넌·무반동포는 골반·고관절·다리에 맞혀야 한 발입니다.', ['hip'])] },
   // Named after its two enemies; the chip shows each one's wiki icon (subfaction-icons.js `dragonroach`, `hive-lord`).
   { id: 'dragonroach-hive-lord', side: 'terminid', name: '드래곤로치 · 하이브 로드', en: 'Dragonroach · Hive Lord', checklist: false, source: wiki('Hive_Lord'), checkedAt: '2026-11-23',
