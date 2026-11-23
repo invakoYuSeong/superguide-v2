@@ -2,7 +2,7 @@
 // check a loadout against a faction's key enemies.
 //   #/gear[/<weapon>]?cat=<group>&type=<type>&q=<text>&sort=<key>
 //   #/gear?tab=loadout&p=<primary>&s=<secondary>&g=<throwable>&st=<a,b,c,d>&f=<faction>
-//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>&d=<armor>   (body armor grouped by passive, gear-armor.js; d: open its details)
+//   #/gear?tab=armor&w=<light|medium|heavy>&a=<armor>&d=<armor>&q=<text>   (body armor grouped by passive, gear-armor.js; d: open its details; q: search)
 //   #/gear?tab=boosters&b=<booster>   (boosters, gear-boosters.js)
 //   #/gear?tab=modules&u=<module>   (ship module upgrades, gear-modules.js)
 import { personalWeapons, personalWeaponsCheckedAt } from '../../data/personal-weapons.js';
@@ -154,7 +154,7 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', bh: state.hole ? '1' : '', q: state.q, sort: state.sort };
+  const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail, q: armor.q } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', bh: state.hole ? '1' : '', q: state.q, sort: state.sort };
   ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
 }
 
@@ -432,7 +432,7 @@ async function renderLoadout() {
 }
 
 // --- Armor -------------------------------------------------------------------------
-const armor = { weight: '', passive: '', focus: '', detail: '' };
+const armor = { weight: '', passive: '', focus: '', detail: '', q: '' };
 const ARMOR_WEIGHTS = ['light', 'medium', 'heavy'];
 let armorUi = null;
 async function renderArmor() {
@@ -573,7 +573,7 @@ function selectVariant(id) {
 export function update(route) {
   const q = route.query;
   state.tab = ['loadout', 'armor', 'boosters', 'modules'].includes(q.tab) ? q.tab : 'browse';
-  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+(,[a-z0-9-]+)*$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '' });
+  if (state.tab === 'armor') Object.assign(armor, { weight: ARMOR_WEIGHTS.includes(q.w) ? q.w : '', passive: /^[a-z0-9-]+(,[a-z0-9-]+)*$/.test(q.p || '') ? q.p : '', focus: q.a || '', detail: q.d || '', q: q.q || '' });
   else if (state.tab === 'boosters') booster.focus = q.b || '';
   else if (state.tab === 'modules') shipModule.focus = q.u || '';
   else if (state.tab === 'browse') {

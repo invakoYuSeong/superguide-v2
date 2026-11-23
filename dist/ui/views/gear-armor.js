@@ -1,11 +1,12 @@
 // Armor tab of the gear view: body armor grouped by passive.
-//   #/gear?tab=armor&w=<light|medium|heavy>&p=<passive,passive>&a=<armor>   (p: show these passives; a: scroll to and mark one set)
+//   #/gear?tab=armor&w=<light|medium|heavy>&p=<passive,passive>&a=<armor>&q=<text>   (p: show these passives; a: scroll to and mark one set; q: search all sets)
 // Loaded on demand by gear.js and by the warbond item pane (armorDetail).
 import { armors, armorPassives, armorWeights, armorCheckedAt } from '../../data/armor.js';
 import { armorImages } from '../../data/armor-images.js';
 import { warbonds } from '../../data/warbonds.js';
 import { num } from '../../core/explain.js';
-import { html, render, $, $$, badge, external } from '../dom.js';
+import { search, personalNames } from '../../core/search.js';
+import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, lang } from '../../core/i18n.js';
 
 export const WEIGHT_IDS = armorWeights.map(weight => weight.id);
@@ -102,31 +103,50 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
   </div>`;
 }
 
-/** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set. */
+const passiveById = new Map(armorPassives.map(passive => [passive.id, passive]));
+const searchFields = armor => ({ names: personalNames(armor), text: [passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en, warbondById.get(armor.source.warbondId)?.name].filter(Boolean) });
+
+/** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set.
+ *  state.q searches every set (as the gear browser searches every group), still grouped by passive. */
 export function renderArmor(panel, { state, onChange, onOpen = null }) {
   focus = state.focus || '';
+  // The search box is drawn once and kept, so typing does not lose focus when the list below redraws.
+  if (!$('#armor-q', panel)) {
+    render(panel, html`<div class="arsenal-tools armor-tools">
+        <div class="row"><label class="field">${icon('search', 18)}<span class="sr-only">${L('방어구 검색', 'Search armor')}</span><input class="input" id="armor-q" type="search" placeholder="${L('이름·코드·패시브 검색 — 초성도 됩니다 (예: ㅈㅅ, B-01)', 'Search by name, code or passive (e.g. Tactical, B-01)')}" autocomplete="off"></label></div>
+        <div id="armor-filters" class="arsenal-tools" style="margin:0"></div>
+      </div>
+      <div id="armor-results"></div>`);
+    $('#armor-q', panel).addEventListener('input', event => { state.q = event.target.value; state.focus = ''; onChange(); });
+  }
+  const input = $('#armor-q', panel);
+  if (input.value !== (state.q || '')) input.value = state.q || '';
+  const q = (state.q || '').trim();
   const shown = armors.filter(armor => !state.weight || armor.weight === state.weight);
   const groups = armorPassives.map(passive => [passive, shown.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length);
   // Several passives can be picked; one with no set in the chosen weight is let go.
   const picked = (state.passive || '').split(',').filter(id => groups.some(([passive]) => passive.id === id));
   state.passive = picked.join(',');
-  const visible = picked.length ? groups.filter(([passive]) => picked.includes(passive.id)) : groups;
+  const found = q ? search(armors, q, searchFields) : null;
+  const visible = found ? armorPassives.map(passive => [passive, found.filter(armor => armor.passive === passive.id)]).filter(([, list]) => list.length)
+    : picked.length ? groups.filter(([passive]) => picked.includes(passive.id)) : groups;
   // Weight buttons count within the picked passives (as the passive chips count within the weight);
   // one with nothing to show is dimmed, and picking it lets the passives it lacks go (above).
   const withPassive = armor => !picked.length || picked.includes(armor.passive);
   const countOf = id => armors.filter(armor => (!id || armor.weight === id) && withPassive(armor)).length;
-  render(panel, html`<div class="arsenal-tools armor-tools">
-      <div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
-        <button type="button" data-weight="" aria-pressed="${!state.weight}">${L('전체', 'All')} <span class="count">${countOf('')}</span></button>
-        ${armorWeights.map(weight => html`<button type="button" class="${countOf(weight.id) ? '' : 'is-empty'}" data-weight="${weight.id}" aria-pressed="${state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
+  const setCount = visible.reduce((sum, [, list]) => sum + list.length, 0);
+  render($('#armor-filters', panel), html`<div class="segmented" role="group" aria-label="${L('무게', 'Weight')}">
+        <button type="button" data-weight="" aria-pressed="${!q && !state.weight}">${L('전체', 'All')} <span class="count">${countOf('')}</span></button>
+        ${armorWeights.map(weight => html`<button type="button" class="${countOf(weight.id) ? '' : 'is-empty'}" data-weight="${weight.id}" aria-pressed="${!q && state.weight === weight.id}"><span class="dot"></span>${weight.name} <span class="count">${countOf(weight.id)}</span></button>`)}
       </div>
-      <div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!picked.length}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${picked.includes(passive.id)}">${picture(passive.icon, 'chip-passive-icon')}${passive.name} <span class="count">${list.length}</span></button>`)}</div>
-    </div>
-    <div class="arsenal-meta"><span role="status">${L(html`패시브 <b>${visible.length}</b>종 · 방어구 <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b>종`, html`<b>${visible.length}</b> passives · <b>${visible.reduce((sum, [, list]) => sum + list.length, 0)}</b> armor sets`)}</span><span>${L(`자료 확인 ${armorCheckedAt}`, `Checked ${armorCheckedAt}`)}</span></div>
-    <div class="armor-passives">${visible.map(([passive, list]) => passiveSection(passive, list))}</div>`);
+      ${q ? '' : html`<div class="chips armor-passive-filter" role="group" aria-label="${L('패시브', 'Passive')}"><button class="chip" type="button" data-passive="" aria-pressed="${!picked.length}">${L('전체', 'All')} <span class="count">${shown.length}</span></button>${groups.map(([passive, list]) => html`<button class="chip" type="button" data-passive="${passive.id}" aria-pressed="${picked.includes(passive.id)}">${picture(passive.icon, 'chip-passive-icon')}${passive.name} <span class="count">${list.length}</span></button>`)}</div>`}`);
+  render($('#armor-results', panel), html`<div class="arsenal-meta"><span role="status">${q ? L(html`방어구 <b>${setCount}</b>종 표시 · 모든 방어구에서 검색`, html`Showing <b>${setCount}</b> armor sets · searching all armor`) : L(html`패시브 <b>${visible.length}</b>종 · 방어구 <b>${setCount}</b>종`, html`<b>${visible.length}</b> passives · <b>${setCount}</b> armor sets`)}</span><span>${L(`자료 확인 ${armorCheckedAt}`, `Checked ${armorCheckedAt}`)}</span></div>
+    ${visible.length ? html`<div class="armor-passives">${visible.map(([passive, list]) => passiveSection(passive, list))}</div>` : html`<div class="empty"><h3>${L('맞는 방어구가 없습니다', 'No matching armor')}</h3><p>${L('검색어를 줄이거나 바꿔 보세요.', 'Try a shorter or different search.')}</p></div>`}`);
   const marked = focus && $(`#armor-item-${focus}`, panel);
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
-  for (const button of $$('button[data-weight]', panel)) button.addEventListener('click', () => { state.weight = button.dataset.weight; state.focus = ''; onChange(); });
+  // Picking a weight or passive leaves the search, as picking a group does in the gear browser.
+  const leaveSearch = () => { state.q = ''; input.value = ''; };
+  for (const button of $$('button[data-weight]', panel)) button.addEventListener('click', () => { state.weight = button.dataset.weight; state.focus = ''; leaveSearch(); onChange(); });
   // A set opens its details in the side sheet (click, Enter or Space).
   if (onOpen) for (const item of $$('[data-armor-open]', panel)) {
     item.addEventListener('click', event => { if (!event.target.closest('a')) onOpen(item.dataset.armorOpen); });
