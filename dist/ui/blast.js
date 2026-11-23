@@ -6,16 +6,19 @@ import { apBandOf } from '../core/catalog.js';
 
 // An enemy behind the circles at the same scale, so the radius reads against something known: a Trooper for
 // the smallest blasts, where a Charger would outgrow the circle (user decision 2026-11-23), a Charger for small
-// blasts, a Bile Titan for the rest (user decision 2026-11-20).
+// blasts, a Bile Titan for the rest (user decision 2026-11-20) and a Dragonroach for the biggest, where a Bile
+// Titan would look small (user decision 2026-11-23; it stops at 20 m because its wings outgrow the circle there).
 // Sizes are from the surface of the game models in their rest pose (Helldivers 2 01.007.202, via
 // hd2armorinspector.com), rounded; the wiki and the developer give no sizes. Spans are side to side across the
 // legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Trooper is sized by its height (2.05 m,
-// measured 2026-11-23), since its rest pose spreads the arms. Pictures are the wiki's Enemy Icons cropped to
-// the body (480 px on the long side).
+// measured 2026-11-23), since its rest pose spreads the arms. The Dragonroach goes by its wingspan (41.5 m,
+// measured 2026-11-23); its icon sees the spread wings at an angle, so it is rougher still. Pictures are the
+// wiki's Enemy Icons cropped to the body (480 px on the long side).
 const SCALE_ENEMIES = [
   { upTo: 3, name: L('트루퍼', 'Trooper'), height: 2, src: './assets/blast/trooper.webp', ratio: 480 / 322 },
   { upTo: 6, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
-  { upTo: Infinity, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
+  { upTo: 20, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
+  { upTo: Infinity, name: L('드래곤로치', 'Dragonroach'), span: 42, wings: true, src: './assets/blast/dragonroach.webp', ratio: 142 / 480 },
 ];
 
 // Stat card caption under the full-damage radius.
@@ -42,7 +45,7 @@ export function blastFigure(item) {
   const outer = 63, inner = Math.max(3, outer * item.innerRadius / item.radius);
   const ref = SCALE_ENEMIES.find(enemy => item.radius <= enemy.upTo);
   const refW = ref.span ? ref.span * outer / item.radius : ref.height * outer / item.radius / ref.ratio, refH = refW * ref.ratio;
-  const refSize = ref.span ? L(`다리 폭 약 ${num(ref.span)}m`, `legs about ${num(ref.span)} m across`) : L(`키 약 ${num(ref.height)}m`, `about ${num(ref.height)} m tall`);
+  const refSize = ref.wings ? L(`날개 폭 약 ${num(ref.span)}m`, `wings about ${num(ref.span)} m across`) : ref.span ? L(`다리 폭 약 ${num(ref.span)}m`, `legs about ${num(ref.span)} m across`) : L(`키 약 ${num(ref.height)}m`, `about ${num(ref.height)} m tall`);
   return html`<section class="block"><h3>${L('폭발 반경', 'Blast radius')}</h3><div class="blast">
     <svg width="220" height="220" viewBox="0 0 132 132" role="img" aria-label="${L(`폭발 반경: 중심 ${item.innerRadius}m, 외곽 ${item.radius}m`, `Blast radius: inner ${item.innerRadius}m, outer ${item.radius}m`)}">
       <defs><radialGradient id="${fade}" gradientUnits="userSpaceOnUse" cx="66" cy="66" r="${outer}">
