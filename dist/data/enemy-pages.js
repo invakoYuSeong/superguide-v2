@@ -2063,10 +2063,36 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
-  "spawning": [],
-  "spawningEn": [],
-  "behavior": [],
-  "behaviorEn": []
+  "spawning": [
+   "난이도 4부터 오토마톤 전초기지 안에 보조 목표로 나옵니다. 주변에는 늘 샘플이 있습니다."
+  ],
+  "spawningEn": [
+   "From Difficulty 4 it appears inside Automaton outposts as an optional objective. Samples are always nearby."
+  ],
+  "behavior": [
+   "서 있는 동안 150m 안의 헬다이버는 이글 스트라타젬을 쓸 수 없습니다. 호출 코드 자리에 '대공으로 인해 차단됨'이라고 뜹니다.",
+   "가끔 하늘로 쏘아 올려 위치가 드러납니다.",
+   "범위 가장자리 근처에서 이글을 부르면 이글 1이 범위에 들어와 공격받고, 수리하는 동안 모든 이글 스트라타젬이 이글 재무장을 쓴 것처럼 재사용 대기에 들어갑니다."
+  ],
+  "behaviorEn": [
+   "While it stands, Helldivers within 150m cannot use Eagle stratagems; the call-in code is replaced by an \"Obstructed by Anti-Air\" message.",
+   "It fires upward now and then, giving away its position.",
+   "Calling an Eagle near the edge of its range can bring Eagle 1 into its coverage; she is shot at, and every Eagle stratagem goes on cooldown as if Eagle Rearm had been used while she is repaired."
+  ],
+  "tactics": [
+   "대부분 장갑 4이고 뒤쪽 방열판만 장갑 3입니다. 오토캐넌·레이저 캐넌 같은 관통 4 무기는 어느 방향에서든 부술 수 있고, 대전차 무기는 한 발이면 됩니다.",
+   "관통 3 무기는 뒤쪽 방열판만 상처를 내므로 뒤로 돌아가야 합니다. 관통 4 무기도 방열판을 쏘면 훨씬 빨리 부서집니다.",
+   "'가드 독' 배낭을 겨누며 돌아서므로, 뒤로 돌아갈 때는 배낭을 접어 두면 편합니다.",
+   "레일건은 80% 충전한 한 발, 에포크는 충전하지 않은 한 발이면 됩니다. 테르밋은 붙으면 한 개로, 고폭은 바로 옆에서 터져야 한 개로 부서지고, 다이너마이트는 두 개를 한 번에 부수기도 합니다.",
+   "이글을 뺀 공격 스트라타젬, 거치형 스트라타젬, 대전차 지뢰로도 부술 수 있고, 지옥폭탄을 불러도 됩니다."
+  ],
+  "tacticsEn": [
+   "Most of it is armor 4, with only the rear heatsink at armor 3. Armor penetration 4 weapons such as the Autocannon and Laser Cannon destroy it from any angle, and anti-tank weapons need one shot.",
+   "Armor penetration 3 weapons can only damage the rear heatsink, so you have to get behind it. Armor penetration 4 weapons also destroy it much faster through the heatsink.",
+   "It turns to target Guard Dog backpacks, so stowing yours makes flanking easier.",
+   "The Railgun needs one shot charged to 80%, and the Epoch one uncharged shot. A Thermite destroys it if it sticks, a High Explosive grenade only if it bursts right next to it, and Dynamite can even take out two at once.",
+   "Offensive stratagems other than Eagles, emplacement stratagems and Anti-Tank Mines can destroy it too, as can a called-in Hellbomb."
+  ]
  },
  "mortar-emplacement": {
   "page": "Mortar Emplacement",
@@ -2075,10 +2101,32 @@ export const enemyPages = {
   "subfaction": null,
   "fireMult": null,
   "staggerReq": null,
-  "spawning": [],
-  "spawningEn": [],
-  "behavior": [],
-  "behaviorEn": []
+  "spawning": [
+   "난이도 4부터 오토마톤 전초기지 안에 보조 목표로 나옵니다. 주변에 제조소, 탄약, 샘플이 함께 있을 수 있습니다."
+  ],
+  "spawningEn": [
+   "From Difficulty 4 it appears inside Automaton outposts as an optional objective. Fabricators, ammo and samples can be around it."
+  ],
+  "behavior": [
+   "다른 오토마톤에게 발견된 대상에게만 쏘며, 50m에서 150m 사이에 있는 대상만 노립니다.",
+   "포격을 받으면 임무 관제가 '적 포병 사거리 안'이라고 경고합니다. 포탄은 하늘에 붉은 꼬리를 남겨 쏜 방향과 위치를 알 수 있습니다."
+  ],
+  "behaviorEn": [
+   "It only fires at targets other Automatons have spotted, and only at those between 50m and 150m away.",
+   "When it fires at you, Mission Control warns that you are in range of enemy artillery. The shells leave bright red trails in the sky that show where it is."
+  ],
+  "tactics": [
+   "대부분 장갑 4이고 뒤쪽 방열판만 장갑 3입니다. 오토캐넌·레이저 캐넌 같은 관통 4 무기는 어느 방향에서든 부술 수 있고, 대전차 무기는 한 발이면 됩니다.",
+   "관통 3 무기는 뒤쪽 방열판만 상처를 내므로 뒤로 돌아가야 합니다. 동료를 쏘고 있을 때는 모든 거치포가 같은 쪽을 보고 있어 뒤를 잡기 쉽습니다.",
+   "레일건은 80% 충전한 한 발, 에포크는 완전히 충전한 한 발이 필요합니다. 테르밋은 붙으면 한 개로, 고폭과 다이너마이트는 바로 옆에서 터져야 한 개로 부서집니다.",
+   "공격 스트라타젬, 거치형 스트라타젬, 대전차 지뢰로도 부술 수 있고, 지옥폭탄을 불러도 됩니다."
+  ],
+  "tacticsEn": [
+   "Most of it is armor 4, with only the rear heatsinks at armor 3. Armor penetration 4 weapons such as the Autocannon and Laser Cannon destroy it from any angle, and anti-tank weapons need one shot.",
+   "Armor penetration 3 weapons can only damage the rear heatsinks, so you have to get behind it. That is easiest while it fires at a teammate, as every emplacement faces the same way.",
+   "The Railgun needs one shot charged to 80%, and the Epoch one fully charged shot. A Thermite destroys it if it sticks; a High Explosive grenade or Dynamite only if it bursts right next to it.",
+   "Offensive stratagems, emplacement stratagems and Anti-Tank Mines can destroy it too, as can a called-in Hellbomb."
+  ]
  },
  "gunship": {
   "page": "Gunship",
