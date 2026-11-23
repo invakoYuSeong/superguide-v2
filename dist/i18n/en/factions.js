@@ -378,4 +378,6 @@ export default {
   "포탄이 잇달아 떨어져 큰 몸통에 피해를 쌓습니다. 하이브 로드가 땅 위로 올라와 있을 때 몸통 가까이 던지세요.": "Shells keep landing and pile damage onto its huge body. Throw it close to the body while the Hive Lord is above ground.",
   "초대형 폭발 · 대피 필요": "Huge blast \u00b7 get clear",
   "하이브 로드 가까이에서 터뜨리는 강력한 폭탄입니다. 폭발 범위가 매우 넓으니 타이머를 켠 뒤 멀리 피하세요.": "A powerful bomb set off close to the Hive Lord. The blast is very wide, so start the timer and get far away.",
+  "머리 한 발 · 유도 미사일": "One shot to the head \u00b7 guided missile",
+  "표적을 잠근 뒤 쏘면 미사일이 따라가 날아다니는 적도 맞힙니다. 탄약 배낭이 필요하고, 잠그는 동안 표적을 계속 겨눠야 합니다.": "Lock on, then fire, and the missile follows its target, so it hits flying enemies too. It needs its ammo backpack, and you must keep the target in your sights while locking on.",
 };

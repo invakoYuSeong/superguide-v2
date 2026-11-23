@@ -313,6 +313,7 @@ export const factionLoadouts = {
   // stratagems are not combat-calculated, so they show no count.
   'dragonroach': [
     pick('recoilless', 'head', '머리 한 발 · 정지 재장전', '한 발 화력이 큽니다. 탄약 배낭이 필요하고 재장전할 때 멈춰야 하니 빗맞히지 않게 조준하세요.'),
+    pick('spear', 'head', '머리 한 발 · 유도 미사일', '표적을 잠근 뒤 쏘면 미사일이 따라가 날아다니는 적도 맞힙니다. 탄약 배낭이 필요하고, 잠그는 동안 표적을 계속 겨눠야 합니다.'),
     pick('quasar', 'head', '머리 한 발 · 충전 대기', '탄약 보급이 필요 없습니다. 충전하는 동안 표적을 따라가야 하고 다음 발까지 냉각을 기다려야 합니다.'),
     { ...pick('orbital-railcannon', null, '자동 조준 · 큰 한 방', '신호기 주변에서 가장 큰 적을 자동으로 골라 한 번에 큰 피해를 줍니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있으니 드래곤로치가 가까이 왔을 때 던지세요.'), adviceOnly: true,
       source: 'https://helldivers.wiki.gg/wiki/Dragonroach', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
