@@ -57,23 +57,28 @@ for (const slot of $$('[data-icon]')) slot.outerHTML = icon(slot.dataset.icon, s
 // --- Sheet (side panel on desktop, bottom sheet on phones) ---------------------
 const sheet = $('#sheet');
 let onSheetClose = null;
-export function openSheet(content, { wide = false, onClose = null, label = '' } = {}) {
+// keepScroll: refresh an open sheet in place (e.g. after a setting inside it changes).
+export function openSheet(content, { wide = false, onClose = null, label = '', keepScroll = false } = {}) {
   render($('#sheet-body'), content);
   sheet.classList.toggle('wide', wide);
   sheet.classList.remove('split');
   if (label) sheet.setAttribute('aria-label', label);
   onSheetClose = onClose;
   if (!sheet.open) sheet.showModal();
-  $('#sheet-body').scrollTop = 0;
+  if (!keepScroll) $('#sheet-body').scrollTop = 0;
 }
 export const closeSheet = () => sheet.open && sheet.close();
 // The dialog fires 'close' a moment after close(). When a view switch closes the sheet, the next
 // view may already have reopened it with its own handler by then: an event that arrives while the
 // sheet is open belongs to the earlier sheet and must not run the new handler.
-sheet.addEventListener('close', () => {
+const sheetClosed = () => {
   if (sheet.open) return;
   const done = onSheetClose; onSheetClose = null; done?.();
-});
+};
+sheet.addEventListener('close', sheetClosed);
+// Chromium can fire only 'toggle' (no 'close') when a mouse click closes the dialog: handle both,
+// the handler running once (onSheetClose is cleared on the first).
+sheet.addEventListener('toggle', event => { if (event.newState === 'closed') sheetClosed(); });
 sheet.addEventListener('click', event => {
   if (event.target === sheet || event.target.closest('[data-close]')) sheet.close();
 });

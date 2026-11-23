@@ -634,10 +634,9 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .rank-row { all: unset; box-sizing: border-box; width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1.3fr) minmax(0, 1fr) 92px 96px; gap: 12px; align-items: center; padding: 9px 14px; border-top: 1px solid var(--line); cursor: pointer; }
 .rank-row:first-of-type { border-top: 0; }
 .rank-row:hover { background: var(--surface-2); }
-/* The picked row and its calculation read as one open block: the same raised fill and a bar in the text
-   colour down both (yellow read as a warning); a one-shot row keeps its usual green tint (user decision
-   2026-11-23). */
-.rank-row[aria-current="true"] { background: var(--bg-raise); box-shadow: inset 4px 0 0 var(--text); }
+/* The picked row (its calculation opens in a side sheet): a thin neutral outline, so a one-shot row keeps
+   its usual green tint (user decision 2026-11-23). */
+.rank-row[aria-current="true"] { box-shadow: inset 0 0 0 2px var(--line-strong); }
 .rank-row:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 .rank-row img { width: 34px; height: 34px; }
 .rank-row .w b { display: block; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -946,9 +945,12 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-detail-art img { max-width: 90%; max-height: 200px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
 .detail-grid dd.dim a { color: var(--accent-text); font-weight: 650; }
 .group-tabs .count { font-size: 12px; opacity: .6; font-weight: 500; }
-.rank-detail { padding: 2px 14px 18px; background: var(--bg-raise); border-bottom: 1px solid var(--line); box-shadow: inset 4px 0 0 var(--text); }
-.rank-detail .matchup { display: grid; gap: 12px; }
-.rank-detail .matchup > .section-title { margin: 10px 0 0; }
+/* Part-by-part sheet (enemy page): distance tabs and the comparison count above the calculation. */
+.matchup-sheet .matchup { display: grid; gap: 12px; }
+.matchup-sheet .matchup > .section-title { margin: 0; }
+.matchup-sheet .rank-filters { margin: 0; align-items: center; }
+.sheet-compare { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); }
+.sheet-back { justify-self: start; }
 .size-tag { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; font-style: normal; font-size: 11px; font-weight: 750; vertical-align: 1px; background: var(--bleed-soft); color: var(--bleed); }
 .size-tag[data-size="massive"] { background: var(--blocked-soft); color: var(--blocked); }
 .enemy-hero .size-tag { margin-left: 8px; }
@@ -964,8 +966,6 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .lo-enemy .size-tag { margin: 0; }
 .acc-steps { margin: 8px 0; padding-left: 20px; display: grid; gap: 3px; font-size: 14px; }
 .compare-add { margin-left: auto; }
-.matchup.flash > .section-title + .panel { animation: matchup-flash 1.6s ease-out; }
-@keyframes matchup-flash { 0%, 35% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 7px var(--accent-soft); border-color: var(--accent); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .matchup-head .segmented + .compare-add, .matchup-head .compare-add + .segmented { margin-left: 0; }
 .enemy-compare { min-width: 520px; }
 .enemy-compare td .badge { margin-left: 4px; vertical-align: 2px; }
@@ -1102,7 +1102,6 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
   .picker-toggle { display: flex; }
 }
 @media (max-width: 820px) {
-  .rank-detail { padding: 2px 10px 14px; }
   .gear-tabs, .store-tabs { gap: 16px; }
   .gear-tabs button, .store-tabs a { font-size: 22px; }
   .lo-slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }

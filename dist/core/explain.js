@@ -3,6 +3,7 @@
 // comes from the engines or the data.
 import { explosionsOf, partPool } from './combat.js';
 import { L, T, lang, locale, plural } from './i18n.js';
+import { ballisticsOf, falloffAt, fallsWithRange } from './ballistics.js';
 
 export const num = value => Number.isFinite(value) ? value.toLocaleString(locale(), { maximumFractionDigits: 2 }) : L('미확인', 'Unverified');
 // The strongest of several attacks ({ demo, stun, push }): highest demolition, then stagger, then push.
@@ -107,8 +108,11 @@ export function deliveryOf(mode) {
 }
 
 /** Stat chips for an attack mode: [{ label, value, note? }]. */
-export function attackStats(mode) {
+// distance: shooting range in metres; a projectile's direct hit shows the damage left there.
+export function attackStats(mode, { distance = 0 } = {}) {
   if (!mode || mode.unsupported) return [];
+  const range = distance > 0 && fallsWithRange(mode) ? falloffAt(ballisticsOf(mode), distance) : 1;
+  const left = value => (range === 1 || !Number.isFinite(value) ? value : Math.floor(value * range + 1e-9));
   const durable = value => L(`내구 ${value}`, `Durable ${value}`);
   const radii = (inner, outer) => L(`중심 ${num(inner)}m / 외곽 ${num(outer)}m`, `inner ${num(inner)}m / outer ${num(outer)}m`);
   if (mode.beam) return [
@@ -118,7 +122,7 @@ export function attackStats(mode) {
   ];
   const stats = [];
   if (mode.directKind !== 'none' && !(mode.standard === 0 && mode.durable === 0)) {
-    stats.push({ label: deliveryOf(mode).hit, value: num(mode.standard), note: `${durable(num(mode.durable))} · AP ${mode.ap}` });
+    stats.push({ label: deliveryOf(mode).hit, value: num(left(mode.standard)), note: `${durable(num(left(mode.durable)))} · AP ${mode.ap}${range < 1 ? L(` · ${distance}m에서 ${Math.round(range * 100)}%`, ` · ${Math.round(range * 100)}% at ${distance} m`) : ''}` });
   }
   for (const blast of explosionsOf(mode)) {
     stats.push({ label: blast.name || L('폭발', 'Explosion'), value: num(blast.durable ?? blast.standard), note: `AP ${num(blast.ap)}${Number.isFinite(blast.innerRadius) ? ` · ${radii(blast.innerRadius, blast.radius)}` : ''}` });

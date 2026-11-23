@@ -298,27 +298,23 @@ function rankRow(entry, selected, large = false, noFatal = false) {
   </button>`;
 }
 
-// The selected weapon's part-by-part calculation opens right under its row.
-function ranking(enemy, entries, selectedId, detail) {
-  // The picked weapon moves to the top of the table, with its calculation open under it.
-  const picked = entries.find(entry => entry.weapon.id === selectedId);
-  const main = entries.filter(entry => entry !== picked && (entry.status === 'route' || entry.status === 'assume'));
-  const rest = entries.filter(entry => entry !== picked && !main.includes(entry));
+// The selected weapon's part-by-part calculation opens in a wide side sheet (showMatchupSheet).
+function ranking(enemy, entries, selectedId) {
+  const main = entries.filter(entry => entry.status === 'route' || entry.status === 'assume');
+  const rest = entries.filter(entry => !main.includes(entry));
   const large = isLargeEnemy(enemy);
   const noFatal = noFatalPart(enemy);
   const singles = large ? entries.filter(oneShot).length : 0;
-  const row = entry => entry.weapon.id === selectedId
-    ? html`${rankRow(entry, true, large, noFatal)}<div class="rank-detail">${detail}</div>`
-    : rankRow(entry, false, large, noFatal);
-  return html`<div class="section-title" id="rank-title"><h2>${L('무기별 최소 횟수', 'Fewest shots by weapon')}</h2><p>${L(`${groupOf(state.group).name} ${entries.length}종 · 가장 빠른 확인된 경로 기준. 연사력·재장전·조준 난도는 반영하지 않습니다. 무기를 누르면 바로 아래에 부위별 계산이 열립니다.`, `${entries.length} ${groupOf(state.group).name.toLowerCase()} weapons · ranked by their quickest verified route. Fire rate, reloads and aiming difficulty are not included. Tap a weapon to open its part-by-part calculation right below.`)}</p></div>
+  const row = entry => rankRow(entry, entry.weapon.id === selectedId, large, noFatal);
+  return html`<div class="section-title" id="rank-title"><h2>${L('무기별 최소 횟수', 'Fewest shots by weapon')}</h2><p>${L(`${groupOf(state.group).name} ${entries.length}종 · 가장 빠른 확인된 경로 기준. 연사력·재장전·조준 난도는 반영하지 않습니다. 무기를 누르면 부위별 계산이 창으로 열립니다.`, `${entries.length} ${groupOf(state.group).name.toLowerCase()} weapons · ranked by their quickest verified route. Fire rate, reloads and aiming difficulty are not included. Tap a weapon to open its part-by-part calculation in a panel.`)}</p></div>
   ${large ? html`<div class="one-shot-note ${singles ? '' : 'none'}">${L(singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 <b>${singles}종</b>이 한 발에 처치합니다. 강조된 줄을 먼저 보세요.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 한 발에 처치하는 무기가 없습니다. 여러 발이 필요하니 주의하세요.`,
     singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · <b>${singles}</b> ${groupOf(state.group).name.toLowerCase()} ${singles === 1 ? 'weapon kills' : 'weapons kill'} it in one shot. Check the highlighted rows first.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · no ${groupOf(state.group).name.toLowerCase()} weapon kills it in one shot. Expect to need several.`)}</div>` : ''}
   <div class="rank-filters"><div class="segmented group-tabs" role="group" aria-label="${L('무기 분류', 'Weapon group')}">${GROUPS.map(group => html`<button type="button" data-group-pick="${group.id}" aria-pressed="${group.id === state.group}">${group.name} <span class="count">${weaponsOf[group.id].length}</span></button>`)}</div>
     <div class="segmented range-tabs" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m</button>`)}</div></div>
   <div class="panel ranking">
     <div class="rank-head" aria-hidden="true"><span></span><span>${L('무기', 'Weapon')}</span><span>${L('노릴 부위', 'Aim for')}</span><span>${L('횟수', 'Shots')}</span><span>${L('결과', 'Result')}</span></div>
-    ${picked ? row(picked) : ''}${main.map(row)}
-    ${rest.length ? html`<details class="rank-more"><summary>${L(`처치 경로가 없거나 계산하지 않은 무기 ${rest.length}종`, `${rest.length} weapons with no kill route or not calculated`)}</summary>${rest.map(row)}</details>` : ''}
+    ${main.map(row)}
+    ${rest.length ? html`<details class="rank-more" ${rest.some(entry => entry.weapon.id === selectedId) ? raw('open') : ''}><summary>${L(`처치 경로가 없거나 계산하지 않은 무기 ${rest.length}종`, `${rest.length} weapons with no kill route or not calculated`)}</summary>${rest.map(row)}</details>` : ''}
   </div>`;
 }
 
@@ -343,7 +339,8 @@ function stageLines(row, enemy, mode) {
       const who = event.name ? html`<b>${event.name}${event.times > 1 ? ` ×${event.times}` : ''}</b> ` : '';
       const blasts = d.blasts.map(blast => blast.excluded ? html`<br><span class="faint">${blast.name}: ${L('장치는 폭발 면역 → 0', 'device is immune to explosions → 0')}</span>`
         : html`<br><span>${blast.name}: AP ${num(blast.effectiveAp)} → ${blast.redirected ? L('본체', 'main') : L('부위', 'part')} ${L('장갑', 'armor')} ${num(blast.armor)}, ${L('폭발 저항', 'explosive resistance')} ${pct(blast.exdr)} → <code>${num(blast.redirected ? blast.toMain : blast.toPart)}</code>${blast.redirected ? L(' (본체로)', ' (to main)') : ''}</span>`);
-      return html`<div>${who}${deliveryOf(event.attack).hit} <code>${num(d.direct)}</code> · ${L('부위 폭발', 'part explosion')} <code>${num(d.explosion)}</code>${d.mainExplosion ? html` · ${L('본체 폭발', 'main explosion')} <code>${num(d.mainExplosion)}</code>` : ''}${blasts}</div>`;
+      const ranged = rangeFor(event.attack) && d.direct > 0 ? html` <span class="faint">(${L(`${state.distance}m 거리 감쇠 반영`, `after ${state.distance} m falloff`)})</span>` : '';
+      return html`<div>${who}${deliveryOf(event.attack).hit} <code>${num(d.direct)}</code>${ranged} · ${L('부위 폭발', 'part explosion')} <code>${num(d.explosion)}</code>${d.mainExplosion ? html` · ${L('본체 폭발', 'main explosion')} <code>${num(d.mainExplosion)}</code>` : ''}${blasts}</div>`;
     });
     const transfer = part.partOnly ? L('독립 장치 — 본체 전달 없음', 'Separate device — nothing passes to main') : `${L('본체 전달', 'To main')} ${num(part.toMain)}%${part.overflowCap == null ? L(' · 상한 미확인', ' · cap unverified') : part.overflowCap ? L(` · 누적 상한 ${num(partPool(part) + (part.constitution || 0) + (part.transferExtraHealth || 0))}`, ` · total cap ${num(partPool(part) + (part.constitution || 0) + (part.transferExtraHealth || 0))}`) : L(' · 상한 없음', ' · no cap')}`;
     const beam = Number.isFinite(stage.contactSeconds) ? html`<div>${L('광선 접촉 약', 'Beam contact about')} <code>${num(stage.contactSeconds)}${L('초', 's')}</code> · ${L('부위 누적', 'part total')} <code>${num(stage.partTotal)}</code> · ${L('본체 전달', 'to main')} <code>${num(stage.mainTotal)}</code></div>` : '';
@@ -473,7 +470,7 @@ function matchupSection(enemy, entries) {
   const mode = withHitAssumption(rawMode, effectiveAssume(rawMode));
   const matchup = solveMatchup(enemy, mode, { shieldCleared: state.shield, distance: rangeFor(mode) });
   const reference = wikiReference(enemy, weapon.id, mode);
-  const stats = attackStats(mode);
+  const stats = attackStats(mode, { distance: rangeFor(mode) });
   const falls = fallsWithRange(mode);
   const rangeNote = !falls ? (state.distance && mode && !mode.unsupported ? L('이 모드는 사격 거리로 피해가 줄지 않습니다(항력이 없는 탄, 로켓 추진탄, 폭발, 광선 등).', 'This mode does not lose damage with shooting distance (no-drag or rocket-propelled rounds, explosions, beams and the like).') : '')
     : state.distance ? L(`${state.distance}m에서 탄 피해가 ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}%로 줄어든 값으로 계산했습니다(위키 공식, 중력은 무시한 어림값). 폭발 피해는 거리로 줄지 않습니다.`, `Counted with shot damage down to ${Math.round(falloffAt(ballisticsOf(mode), state.distance) * 100)}% at ${state.distance} m (wiki formula, an estimate that ignores gravity). Explosion damage does not fall off with range.`)
@@ -552,6 +549,7 @@ function compareContent() {
   };
   return html`<div class="sheet-top"><span>${L('같은 적 기준 비교', 'Compare against one enemy')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
   <div class="sheet-content">
+    ${sheetView ? backToMatchup() : ''}
     <h2 id="sheet-title" style="font-size:22px">${enemy.name} · ${L(`무기 ${result.entries.length}개 비교`, `${result.entries.length} weapons compared`)}</h2>
     <div class="segmented" role="group" aria-label="${L('비교할 부위', 'Part to compare')}"><button type="button" data-compare-part="" aria-pressed="${!compare.part}">${L('각자 가장 빠른 부위', 'Each one\'s fastest part')}</button>${result.parts.map(part => html`<button type="button" data-compare-part="${part.id}" aria-pressed="${compare.part === part.id}">${part.name}</button>`)}</div>
     <div class="compare-scroll" role="region" aria-label="${L('비교표', 'Comparison table')}" tabindex="0"><table class="compare-table enemy-compare">
@@ -566,41 +564,78 @@ function compareContent() {
   </div>`;
 }
 
-function openCompare() {
+function openCompare(keepScroll = false) {
   if (compare.picks.length < 2) return;
-  ctx.openSheet(compareContent(), { wide: true, label: L('같은 적 기준 무기 비교', 'Weapon comparison against one enemy') });
+  const label = L('같은 적 기준 무기 비교', 'Weapon comparison against one enemy');
+  if (sheetView) { sheetView = 'compare'; showSheet(compareContent(), label, keepScroll); }
+  else ctx.openSheet(compareContent(), { wide: true, label, keepScroll });
 }
 let sheetListener = null;
 
-function renderMain({ scrollToMatchup = false } = {}) {
+function renderMain() {
   const enemy = enemyById.get(state.enemy);
   const entries = rankWeapons(enemy, state.shield);
   const selected = weaponsOf[state.group].some(weapon => weapon.id === state.weapon) ? state.weapon : null;
-  render($('#enemy-main', root), html`${hero(enemy)}${enemyDetails(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
+  render($('#enemy-main', root), html`${hero(enemy)}${enemyDetails(enemy)}${ranking(enemy, entries, selected)}`);
   renderTray();
   renderPicker();
-  // The picked weapon now heads the table, so bringing the table's title into view is enough.
-  if (scrollToMatchup) $('#rank-title', root)?.scrollIntoView({ block: 'start' });
+  if (sheetView === 'matchup') showMatchupSheet(true);
 }
 
+const urlQuery = () => ({ g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0', r: state.distance || null });
 function syncUrl() {
-  ctx.replace({ view: 'enemy', id: state.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0', r: state.distance || null } });
+  ctx.replace({ view: 'enemy', id: state.enemy, query: urlQuery() });
+}
+
+// --- Part-by-part sheet -------------------------------------------------------------------------
+// The picked weapon's calculation opens in a wide side sheet, like the gear and stratagem details
+// (user decision 2026-11-23). While the sheet belongs to the picked weapon, sheetView says what it
+// shows: the calculation, a part's photos or the comparison opened from it (both with a way back).
+// Closing it (or Back) drops the pick.
+let sheetView = null;
+function showSheet(content, label, keepScroll = false) {
+  ctx.openSheet(content, { wide: true, label, keepScroll, onClose: matchupClosed });
+}
+function matchupClosed() {
+  if (!sheetView) return;
+  sheetView = null;
+  state.weapon = null; state.mode = null; resetAssumption();
+  renderMain();
+  // Back returns to the URL before the pick; if the distance changed in the sheet, keep it instead.
+  const back = state.pushedMatchup && state.distance === state.openedDistance;
+  state.pushedMatchup = false;
+  if (back) history.back(); else syncUrl();
+}
+const backToMatchup = () => html`<button class="button small ghost sheet-back" type="button" data-matchup-back>${L('부위별 계산으로 돌아가기', 'Back to the part-by-part math')}</button>`;
+function showMatchupSheet(keepScroll = false) {
+  const enemy = enemyById.get(state.enemy);
+  const entries = rankWeapons(enemy, state.shield);
+  sheetView = 'matchup';
+  const picks = compare.picks.length;
+  showSheet(html`<div class="sheet-top"><span>${enemy.name} · ${L('부위별 계산', 'Part by part')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
+    <div class="sheet-content matchup-sheet">
+      <div class="rank-filters"><div class="segmented range-tabs" role="group" aria-label="${L('사격 거리', 'Shooting distance')}">${DISTANCES.map(d => html`<button type="button" data-distance="${d}" aria-pressed="${d === state.distance}">${d}m</button>`)}</div>
+        ${picks ? html`<span class="sheet-compare">${L(`비교에 담은 무기 ${picks}/${MAX_COMPARE}`, `${picks}/${MAX_COMPARE} in the comparison`)} <button class="button small" type="button" data-compare-open ${picks < 2 ? raw('disabled') : ''}>${L('비교 보기', 'Compare')}</button></span>` : ''}</div>
+      ${matchupSection(enemy, entries)}
+    </div>`, L(`${enemy.name} 부위별 계산`, `${T(enemy.name)} part by part`), keepScroll);
 }
 
 function openPhotos(targetId) {
   const enemy = enemyById.get(state.enemy);
   const target = enemy.parts.find(part => part.id === targetId);
   const photos = combatImages[enemy.id]?.[targetId] || [];
-  ctx.openSheet(html`<div class="sheet-top"><span>${L('부위 위치', 'Part location')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
-    <div class="sheet-content image-viewer"><h2 id="sheet-title" style="font-size:20px">${enemy.name} · ${target.name}</h2><p class="muted">${target.tip}${enemy.id === 'harvester' ? L(' 좌우는 적의 몸 기준입니다.', ' Left and right are from the enemy\'s point of view.') : ''}</p>
+  sheetView = 'photo';
+  showSheet(html`<div class="sheet-top"><span>${L('부위 위치', 'Part location')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>
+    <div class="sheet-content image-viewer">${backToMatchup()}<h2 id="sheet-title" style="font-size:20px">${enemy.name} · ${target.name}</h2><p class="muted">${target.tip}${enemy.id === 'harvester' ? L(' 좌우는 적의 몸 기준입니다.', ' Left and right are from the enemy\'s point of view.') : ''}</p>
     ${photos.map(photo => { const caption = photo.caption || (target.next ? (photo.stage === 'initial' ? L('① 장갑이 남아 있는 상태', '① With the armor still on') : L('② 장갑을 벗긴 뒤 드러난 부위', '② Exposed once the armor is off')) : target.name);
-      return html`<figure><figcaption>${caption}</figcaption><img src="${photo.src}" alt="${L(`${enemy.name} ${caption} — 색칠된 영역이 조준 부위`, `${T(enemy.name)} ${T(caption)} — the colored area is where to aim`)}" width="${photo.width}" height="${photo.height}" decoding="async"><span class="sources">${external(photo.source, L('위키 원본 이미지', 'Original wiki image'))}</span></figure>`; })}</div>`, { label: `${T(enemy.name)} ${T(target.name)} ${L('사진', 'photos')}` });
+      return html`<figure><figcaption>${caption}</figcaption><img src="${photo.src}" alt="${L(`${enemy.name} ${caption} — 색칠된 영역이 조준 부위`, `${T(enemy.name)} ${T(caption)} — the colored area is where to aim`)}" width="${photo.width}" height="${photo.height}" decoding="async"><span class="sources">${external(photo.source, L('위키 원본 이미지', 'Original wiki image'))}</span></figure>`; })}</div>`, `${T(enemy.name)} ${T(target.name)} ${L('사진', 'photos')}`);
 }
 
 // --- Lifecycle ----------------------------------------------------------------------------------
-let arrived = false;
 export function mount(container, context) {
-  root = container; ctx = context; arrived = true;
+  root = container; ctx = context;
+  // Leaving the page closes the sheet without its handler: start clean.
+  sheetView = null; state.pushedMatchup = false;
   const families = new Set(enemies.map(enemy => enemy.family || enemy.id)).size;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Target Analysis</div><h1>${L('적 대응', 'Enemies')}</h1><p>${L('적을 고르면 지원 무기·주무기·보조무기·투척을 필요 횟수 순으로 비교합니다. 무기를 누르면 부위별 계산이 열립니다.', 'Pick an enemy to rank support, primary, secondary and throwable weapons by shots to kill. Tap a weapon to open the part-by-part math.')}</p></div>
     <span class="badge outline">${L(`적 ${families}종 · 계산 무기 ${Object.keys(weaponProfiles).length + Object.keys(personalProfiles).length}종`, `${families} enemies · ${Object.keys(weaponProfiles).length + Object.keys(personalProfiles).length} weapons calculated`)}</span></div>
@@ -628,70 +663,78 @@ export function mount(container, context) {
     if (event.target.matches?.('[data-attacks]')) state.attacksOpen = event.target.open;
     if (event.target.matches?.('[data-details]')) state.detailsOpen = event.target.open;
   }, true);
-  root.addEventListener('change', event => {
-    const target = event.target;
-    if (target.matches('[data-shield]')) { state.shield = target.checked; renderMain(); syncUrl(); }
-    if (target.matches('[data-assume-pct]')) {
-      state.assume.hitCount = String(hitCount({ min: Number(target.dataset.min), max: Number(target.dataset.max) }, Number(target.value)));
-      state.assume.pct = Number(target.value);
-      renderMain();
-      $('[data-assume-pct]', root)?.focus({ preventScroll: true });
-    }
-    if (target.dataset.assume) {
-      const key = target.dataset.assume;
-      state.assume[key] = target.type === 'checkbox' ? target.checked : target.value;
-      if (key === 'hitCount' && !(Number(target.value) > 0)) state.assume.bombletDirect = false;
-      renderMain();
-    }
-  });
-  root.addEventListener('input', event => {
-    const range = event.target.closest('[data-assume-pct]');
-    if (!range) return;
-    const c = { kind: range.dataset.kind, min: Number(range.dataset.min), max: Number(range.dataset.max) };
-    $('[data-pct-label]', root).textContent = `${range.value}%`;
-    $('[data-pct-count]', root).textContent = countLine(c, hitCount(c, Number(range.value)));
-  });
-  root.addEventListener('click', event => {
-    const target = event.target.closest('button');
-    if (!target) return;
-    if (target.dataset.enemy) {
-      state.pickerOpen = false;
-      ctx.go({ view: 'enemy', id: target.dataset.enemy, query: { g: state.group === 'support' ? null : state.group, w: state.weapon, m: state.weapon ? state.mode : null, shield: state.shield ? null : '0', r: state.distance || null } });
-    } else if (target.dataset.groupPick) {
-      state.group = target.dataset.groupPick;
-      if (weaponById.get(state.weapon)?.group !== state.group) { state.weapon = null; state.mode = null; resetAssumption(); }
-      renderMain(); syncUrl();
-    } else if (target.dataset.factionFilter != null) { state.faction = target.dataset.factionFilter; renderPicker(); }
-    else if (target.hasAttribute('data-picker-toggle')) { state.pickerOpen = !state.pickerOpen; target.setAttribute('aria-expanded', String(state.pickerOpen)); renderPicker(); if (state.pickerOpen) input.focus(); }
-    else if (target.dataset.weapon && target.dataset.weapon === state.weapon) {
-      // A second tap on the open row folds it away.
-      state.weapon = null; state.mode = null; resetAssumption();
-      renderMain(); syncUrl();
-    } else if (target.dataset.weapon) {
-      if (state.weapon !== target.dataset.weapon) resetAssumption();
-      state.weapon = target.dataset.weapon; state.mode = target.dataset.mode || null;
-      renderMain({ scrollToMatchup: true }); syncUrl();
-    } else if (target.dataset.distance) {
-      state.distance = Number(target.dataset.distance); renderMain(); syncUrl();
-    } else if (target.dataset.modePick) {
-      state.weapon ||= selectedWeaponId(); state.mode = target.dataset.modePick; resetAssumption(); renderMain(); syncUrl();
-    } else if (target.dataset.photo) openPhotos(target.dataset.photo);
-    else if (target.dataset.compareAdd) togglePick(target.dataset.compareAdd, target.dataset.compareMode);
-    else if (target.hasAttribute('data-compare-clear')) { compare.picks = []; compare.part = ''; renderMain(); }
-    else if (target.hasAttribute('data-compare-open')) { compare.part = ''; openCompare(); }
-  });
+  root.addEventListener('change', onChange);
+  root.addEventListener('input', onInput);
+  root.addEventListener('click', onClick);
+}
+
+// Shared by the page and the part-by-part sheet (listenToSheet); `scope` is where the event came from.
+function onChange(event) {
+  const target = event.target, scope = event.currentTarget;
+  if (target.matches('[data-shield]')) { state.shield = target.checked; renderMain(); syncUrl(); }
+  if (target.matches('[data-assume-pct]')) {
+    state.assume.hitCount = String(hitCount({ min: Number(target.dataset.min), max: Number(target.dataset.max) }, Number(target.value)));
+    state.assume.pct = Number(target.value);
+    renderMain();
+    $('[data-assume-pct]', scope)?.focus({ preventScroll: true });
+  }
+  if (target.dataset.assume) {
+    const key = target.dataset.assume;
+    state.assume[key] = target.type === 'checkbox' ? target.checked : target.value;
+    if (key === 'hitCount' && !(Number(target.value) > 0)) state.assume.bombletDirect = false;
+    renderMain();
+  }
+}
+function onInput(event) {
+  const range = event.target.closest('[data-assume-pct]');
+  if (!range) return;
+  const scope = event.currentTarget;
+  const c = { kind: range.dataset.kind, min: Number(range.dataset.min), max: Number(range.dataset.max) };
+  $('[data-pct-label]', scope).textContent = `${range.value}%`;
+  $('[data-pct-count]', scope).textContent = countLine(c, hitCount(c, Number(range.value)));
+}
+function onClick(event) {
+  const target = event.target.closest('button');
+  if (!target) return;
+  if (target.dataset.enemy) {
+    state.pickerOpen = false;
+    ctx.go({ view: 'enemy', id: target.dataset.enemy, query: urlQuery() });
+  } else if (target.dataset.groupPick) {
+    state.group = target.dataset.groupPick;
+    if (weaponById.get(state.weapon)?.group !== state.group) { state.weapon = null; state.mode = null; resetAssumption(); }
+    renderMain(); syncUrl();
+  } else if (target.dataset.factionFilter != null) { state.faction = target.dataset.factionFilter; renderPicker(); }
+  else if (target.hasAttribute('data-picker-toggle')) { state.pickerOpen = !state.pickerOpen; target.setAttribute('aria-expanded', String(state.pickerOpen)); renderPicker(); if (state.pickerOpen) $('#enemy-q', root).focus(); }
+  else if (target.dataset.weapon) {
+    // A new history entry, so Back closes the sheet (update opens it from the URL).
+    state.pushedMatchup = true;
+    ctx.go({ view: 'enemy', id: state.enemy, query: { ...urlQuery(), w: target.dataset.weapon, m: target.dataset.mode || null } });
+  } else if (target.dataset.distance) {
+    state.distance = Number(target.dataset.distance); renderMain(); syncUrl();
+  } else if (target.dataset.modePick) {
+    state.weapon ||= selectedWeaponId(); state.mode = target.dataset.modePick; resetAssumption(); renderMain(); syncUrl();
+  } else if (target.dataset.photo) openPhotos(target.dataset.photo);
+  else if (target.dataset.compareAdd) togglePick(target.dataset.compareAdd, target.dataset.compareMode);
+  else if (target.hasAttribute('data-compare-clear')) { compare.picks = []; compare.part = ''; renderMain(); }
+  else if (target.hasAttribute('data-compare-open')) { compare.part = ''; openCompare(); }
+  else if (target.hasAttribute('data-matchup-back')) showMatchupSheet();
 }
 const resetAssumption = () => { state.assume = { ...DEFAULT_ASSUME }; };
+// The sheet lives outside the page: its buttons and inputs reach the same handlers from here.
 function listenToSheet() {
   if (sheetListener) return;
+  const sheet = $('#sheet');
+  const mine = () => document.body.dataset.view === 'enemy';
   sheetListener = event => {
-    if (document.body.dataset.view !== 'enemy') return;
+    if (!mine()) return;
     const pick = event.target.closest('[data-compare-part]');
-    if (!pick) return;
+    if (!pick) return onClick(event);
     compare.part = pick.dataset.comparePart;
-    ctx.openSheet(compareContent(), { wide: true, label: L('같은 적 기준 무기 비교', 'Weapon comparison against one enemy') });
+    openCompare(true);
   };
-  $('#sheet').addEventListener('click', sheetListener);
+  sheet.addEventListener('click', sheetListener);
+  sheet.addEventListener('change', event => { if (mine()) onChange(event); });
+  sheet.addEventListener('input', event => { if (mine()) onInput(event); });
 }
 const selectedWeaponId = () => rankWeapons(enemyById.get(state.enemy), state.shield)[0].weapon.id;
 
@@ -703,9 +746,6 @@ export function update(route) {
   state.group = weapon ? weaponById.get(weapon).group : GROUPS.some(group => group.id === route.query.g) ? route.query.g : 'support';
   if (weapon !== state.weapon) resetAssumption();
   const switched = state.shown && enemy !== state.enemy;
-  // Arriving from a link (gear or stratagem detail) with a weapon: jump to its calculation.
-  const linked = weapon && (arrived || weapon !== state.weapon);
-  arrived = false;
   Object.assign(state, {
     enemy, weapon, shown: true,
     mode: modes.some(mode => mode.id === route.query.m) ? route.query.m : weapon ? state.weapon === weapon ? state.mode : null : null,
@@ -714,19 +754,12 @@ export function update(route) {
   });
   renderMain();
   if (route.id !== enemy) syncUrl();
+  // A weapon in the URL (a picked row, or a link from the gear or stratagem details) opens its
+  // calculation; Back to a URL without one closes it.
+  if (state.weapon && !sheetView) { state.openedDistance = state.distance; showMatchupSheet(); }
+  else if (!state.weapon && sheetView) { sheetView = null; state.pushedMatchup = false; ctx.closeSheet(); }
   // After picking another enemy, bring its summary into view.
   const main = $('#enemy-main', root);
-  if (linked) showMatchup();
-  else if (switched && main.getBoundingClientRect().top < 0) main.scrollIntoView({ block: 'start' });
-}
-
-// Scroll the fewest-shots table (the selected weapon heads it, its calculation below) into view and
-// flash the calculation once.
-function showMatchup() {
-  const section = $('#matchup', root);
-  if (!section) return;
-  ($('#rank-title', root) || section).scrollIntoView({ block: 'start' });
-  section.classList.add('flash');
-  section.addEventListener('animationend', () => section.classList.remove('flash'), { once: true });
+  if (switched && main.getBoundingClientRect().top < 0) main.scrollIntoView({ block: 'start' });
 }
 
