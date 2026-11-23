@@ -64,7 +64,7 @@
     "en": "Appears starting at Difficulty 8, fully replacing Brood Commanders."
    },
    {
-    "ko": "버그 침공, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다.",
+    "ko": "버그 증원, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다.",
     "en": "Spawns from Bug Breaches, in patrols, and guarding Objectives, Bug Nests and Minor Places of Interest."
    }
   ],
@@ -82,7 +82,7 @@
     "en": "Sometimes summons Hive Guards, a sign that many Hive Guards and other heavily armored enemies will spawn in that mission."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
   ],
@@ -100,7 +100,7 @@
     "en": "Its legs have only armor 1 and break to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even missing a leg its charge still deals damage and its effects."
    },
    {
-    "ko": "머리를 잃어도 버그 침공을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요.",
+    "ko": "머리를 잃어도 버그 증원을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요.",
     "en": "Even without its head it can call a Bug Breach and summon Alpha Warriors and Hive Guards, so finish it off quickly."
    }
   ]
@@ -123,7 +123,7 @@
     "en": "When its head is destroyed it goes berserk: it moves faster but keeps bleeding out."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
   ],
@@ -141,7 +141,7 @@
     "en": "Any weapon can kill it, but high fire rate or explosive weapons clear groups quickly."
    },
    {
-    "ko": "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
+    "ko": "머리가 없어도 버그 증원을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
     "en": "It can call a Bug Breach even without its head, though it usually bleeds out before it finishes."
    }
   ]
@@ -411,7 +411,7 @@
     "en": "Appears starting at Difficulty 4 as the target of the Eliminate Bile Titans mission."
    },
    {
-    "ko": "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+    "ko": "난이도 6부터 버그 증원에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
     "en": "Starting at Difficulty 6 it spawns from Bug Breaches and roams the map alone."
    },
    {
@@ -429,11 +429,11 @@
   ],
   "behavior": [
    {
-    "ko": "버그 침공 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
+    "ko": "버그 증원 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
     "en": "Outside Bug Breaches it usually stands still or follows a fixed patrol path, turning to face Helldivers it notices. A roar and front-leg slam signal its attack, and the music changes."
    },
    {
-    "ko": "버그 침공이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+    "ko": "버그 증원이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
     "en": "Those spawned from a Bug Breach or Bile Titan Bug Hole are aggressive at once and seek nearby Helldivers."
    },
    {
@@ -539,7 +539,7 @@
     "en": "Appears starting at Difficulty 1 as the target of the Eliminate Brood Commanders mission."
    },
    {
-    "ko": "난이도 3부터 버그 침공, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+    "ko": "난이도 3부터 버그 증원, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
     "en": "Starting at Difficulty 3 it spawns from Bug Breaches, in patrols, and guarding Objectives and Bug Nests; starting at Difficulty 4 it also guards Minor Places of Interest."
    },
    {
@@ -561,7 +561,7 @@
     "en": "Usually charges when you are 15~20m away. A hit deals damage, can knock you down and may concuss you. Dodge it, or let it hit terrain or a larger enemy like a Charger to stop it."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
   ],
@@ -579,7 +579,7 @@
     "en": "Its legs are only lightly armored (armor 1) and break easily to armor penetration 2 weapons. Each lost leg slows its movement and charge a lot, but even after losing a leg its charge still deals damage and its effects."
    },
    {
-    "ko": "머리를 잃어도 버그 침공을 부를 수 있습니다.",
+    "ko": "머리를 잃어도 버그 증원을 부를 수 있습니다.",
     "en": "It can still call a Bug Breach without its head."
    }
   ]
@@ -639,7 +639,7 @@
   "revision": 142179,
   "spawning": [
    {
-    "ko": "커스틱 변종 행성에서 나오며, 차저처럼 버그 침공과 다른 테르미니드와 함께하는 순찰대로 나타납니다.",
+    "ko": "커스틱 변종 행성에서 나오며, 차저처럼 버그 증원과 다른 테르미니드와 함께하는 순찰대로 나타납니다.",
     "en": "Found on Caustic Strain planets; like the Charger it spawns from Bug Breaches and patrols the map with other Terminids."
    },
    {
@@ -684,7 +684,7 @@
   "revision": 142383,
   "spawning": [
    {
-    "ko": "커스틱 변종 행성에서 난이도 3부터 나오며, 버그 침공, 순찰대, 임무 목표·소규모 관심 지점·버그 둥지 경비로 나타납니다.",
+    "ko": "커스틱 변종 행성에서 난이도 3부터 나오며, 버그 증원, 순찰대, 임무 목표·소규모 관심 지점·버그 둥지 경비로 나타납니다.",
     "en": "Found on Caustic Strain planets starting at Difficulty 3, spawning from Bug Breaches, in patrols, and guarding Objectives, Minor Places of Interest and Bug Nests."
    }
   ],
@@ -739,7 +739,7 @@
   "revision": 142385,
   "spawning": [
    {
-    "ko": "커스틱 변종 행성에서 난이도 1부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다.",
+    "ko": "커스틱 변종 행성에서 난이도 1부터 버그 증원, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다.",
     "en": "Found on Caustic Strain planets starting at Difficulty 1, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Minor Places of Interest and Objectives."
    }
   ],
@@ -757,7 +757,7 @@
     "en": "On death it bursts in a small bile explosion that damages nearby Terminids and Helldivers."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
   ],
@@ -776,7 +776,7 @@
   "revision": 142384,
   "spawning": [
    {
-    "ko": "커스틱 변종 행성에서 난이도 2부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다.",
+    "ko": "커스틱 변종 행성에서 난이도 2부터 버그 증원, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다.",
     "en": "Found on Caustic Strain planets starting at Difficulty 2, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Objectives and Minor Places of Interest."
    }
   ],
@@ -786,7 +786,7 @@
     "en": "Behaves like a Warrior, but when killed by a blow to its body it bursts in bile, damaging nearby Terminids and Helldivers."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release pheromones to call a Bug Breach."
    }
   ],
@@ -813,7 +813,7 @@
   "revision": 141505,
   "spawning": [
    {
-    "ko": "난이도 4부터 버그 침공, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
+    "ko": "난이도 4부터 버그 증원, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
     "en": "Starting at Difficulty 4 it spawns from Bug Breaches, patrols with other Terminids, and guards Objectives, more often on higher difficulties. At Minor Places of Interest it is sometimes burrowed."
    },
    {
@@ -827,11 +827,11 @@
   ],
   "behavior": [
    {
-    "ko": "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리 쪽으로 몸을 돌립니다. 포효하면 공격 신호이며, 바로 돌진하는 경우가 많습니다.",
+    "ko": "버그 증원 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리 쪽으로 몸을 돌립니다. 포효하면 공격 신호이며, 바로 돌진하는 경우가 많습니다.",
     "en": "Outside Bug Breaches it usually stands still and turns toward Helldiver movement or sounds. A roar signals its attack, often followed right away by a charge."
    },
    {
-    "ko": "버그 침공에서 나온 개체는 바로 주변 헬다이버를 찾아 짓밟으려 합니다.",
+    "ko": "버그 증원에서 나온 개체는 바로 주변 헬다이버를 찾아 짓밟으려 합니다.",
     "en": "Those spawned from a Bug Breach are aggressive at once and seek nearby Helldivers to trample."
    },
    {
@@ -882,7 +882,7 @@
     "en": "Starting at Difficulty 7, along with the Caustic Charger, it has a chance to replace Chargers, higher on higher difficulties."
    },
    {
-    "ko": "버그 침공, 순찰대, 임무 목표 경비로 나오고, 상급 버그 둥지, 난이도 10의 최상급 둥지, 소규모 관심 지점도 지키며 땅속에 숨어 있기도 합니다.",
+    "ko": "버그 증원, 순찰대, 임무 목표 경비로 나오고, 상급 버그 둥지, 난이도 10의 최상급 둥지, 소규모 관심 지점도 지키며 땅속에 숨어 있기도 합니다.",
     "en": "Spawns from Bug Breaches, in patrols and guarding Objectives, and also guards heavy Bug Nests, Difficulty 10 Mega Nests and Minor Places of Interest, sometimes burrowed."
    }
   ],
@@ -1174,11 +1174,11 @@
   "revision": 142362,
   "spawning": [
    {
-    "ko": "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 침공으로도 나오지 않습니다.",
+    "ko": "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 증원으로도 나오지 않습니다.",
     "en": "Spawns only as a lone patrol visible from long range. It has no fixed spawns at Objectives or POIs and does not come from Bug Breaches."
    },
    {
-    "ko": "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 침공처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+    "ko": "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 증원처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
     "en": "It never spawns alongside Bile Titans (except on Spore Burst Strain, with Spore Burst Bile Titans). Where a Bile Titan would spawn, such as Bile Titan Bug Holes, distant patrols and Bug Breaches, a Charger spawns instead."
    },
    {
@@ -1673,7 +1673,7 @@
   "revision": 141215,
   "spawning": [
    {
-    "ko": "난이도 2부터 나옵니다. 버그 침공, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
+    "ko": "난이도 2부터 나옵니다. 버그 증원, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
     "en": "Appears from Difficulty 2, from Bug Breaches, in patrols, and guarding Objectives and Bug Nests."
    },
    {
@@ -1695,7 +1695,7 @@
     "en": "Like the Warrior, once its head starts leaking green fluid it goes berserk and briefly moves faster before dying."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "It can release pheromones that call a Bug Breach."
    }
   ],
@@ -1736,7 +1736,7 @@
     "en": "On planets that feature it, it can appear in any mission of Difficulty 7 or higher, regardless of objectives or reinforcements."
    },
    {
-    "ko": "나오는 조건은 알려지지 않았지만, 버그 침공이 일어나면 곧이어 나올 가능성이 높습니다. 궤도 포격처럼 한곳에 폭발이 여러 번 일어나도 나올 수 있습니다.",
+    "ko": "나오는 조건은 알려지지 않았지만, 버그 증원이 오면 곧이어 나올 가능성이 높습니다. 궤도 포격처럼 한곳에 폭발이 여러 번 일어나도 나올 수 있습니다.",
     "en": "Its exact trigger is unknown, but it most likely shows up soon after a Bug Breach. Many explosions in one place, such as orbital barrages, can also summon it."
    },
    {
@@ -2067,7 +2067,7 @@
   "revision": 136565,
   "spawning": [
    {
-    "ko": "난이도 2부터 나옵니다. 버그 침공, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
+    "ko": "난이도 2부터 나옵니다. 버그 증원, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
     "en": "Appears from Difficulty 2, from Bug Breaches, in patrols, guarding Bug Nests and Objectives, and from certain Bug Holes."
    },
    {
@@ -2089,7 +2089,7 @@
     "en": "At short to medium range its tongue causes an Acid burn that slows Helldivers; right next to you it uses its claws."
    },
    {
-    "ko": "페로몬을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "It can release pheromones that call a Bug Breach."
    }
   ],
@@ -2124,7 +2124,7 @@
     "en": "First appears at Difficulty 5 as the target of the Eliminate Impaler mission."
    },
    {
-    "ko": "난이도 6부터 버그 침공과 단독 순찰로 나오며, 난이도가 높을수록 더 자주 나옵니다.",
+    "ko": "난이도 6부터 버그 증원과 단독 순찰로 나오며, 난이도가 높을수록 더 자주 나옵니다.",
     "en": "Starting at Difficulty 6 it comes from Bug Breaches and patrols alone, more often at higher difficulties."
    },
    {
@@ -2134,11 +2134,11 @@
   ],
   "behavior": [
    {
-    "ko": "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리가 나면 그쪽을 돌아봅니다. 순찰 중에도 근처에서 움직임이나 소리가 나면 멈춰서 돌아봅니다.",
+    "ko": "버그 증원 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리가 나면 그쪽을 돌아봅니다. 순찰 중에도 근처에서 움직임이나 소리가 나면 멈춰서 돌아봅니다.",
     "en": "Outside Bug Breaches it usually stays still and turns toward Helldiver movement or sounds; on patrol it also stops to face nearby movement or sounds."
    },
    {
-    "ko": "전투 중이거나 버그 침공으로 나오면 곧바로 '머리'를 땅에 박고, 촉수 3개로 시야 안의 헬다이버를 공격합니다.",
+    "ko": "전투 중이거나 버그 증원으로 나오면 곧바로 '머리'를 땅에 박고, 촉수 3개로 시야 안의 헬다이버를 공격합니다.",
     "en": "In combat or when it comes from a Bug Breach, it quickly burrows its \"head\" and attacks Helldivers in sight with its three tentacles."
    },
    {
@@ -2771,7 +2771,7 @@
   "revision": 142272,
   "spawning": [
    {
-    "ko": "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다.",
+    "ko": "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 증원·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다.",
     "en": "On Noxious Strain planets it replaces Scavengers and Pouncers. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests, Minor Places of Interest and Objectives."
    }
   ],
@@ -2789,7 +2789,7 @@
     "en": "Rarely, when a Helldiver is out of reach, it burrows underground and suddenly emerges to attack."
    },
    {
-    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "ko": "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
    }
   ],
@@ -2807,7 +2807,7 @@
     "en": "The Muscle Enhancement booster reduces the slow so you can escape before they catch you."
    },
    {
-    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
+    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 증원을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
     "en": "Its health is low enough for any weapon, so kill it first before it calls a Bug Breach. The Rover and explosives are effective against swarms of small Terminids."
    }
   ]
@@ -2849,7 +2849,7 @@
   "revision": 141638,
   "spawning": [
    {
-    "ko": "난이도 3부터 나옵니다. 버그 침공과 순찰대로 나오고, 임무 목표와 버그 둥지를 지킵니다.",
+    "ko": "난이도 3부터 나옵니다. 버그 증원과 순찰대로 나오고, 임무 목표와 버그 둥지를 지킵니다.",
     "en": "First appears at Difficulty 3. Comes from Bug Breaches and patrols, and guards Objectives and Bug Nests."
    },
    {
@@ -3006,7 +3006,7 @@
   "revision": 141525,
   "spawning": [
    {
-    "ko": "난이도 2부터 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
+    "ko": "난이도 2부터 나옵니다. 버그 증원·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
     "en": "First appears at Difficulty 2. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests and Objectives."
    },
    {
@@ -3028,7 +3028,7 @@
     "en": "When not leaping, it comes as directly as possible over terrain and obstacles to attack with its claws."
    },
    {
-    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "ko": "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
    }
   ],
@@ -3057,7 +3057,7 @@
     "en": "It tries to cloak, flank and leap at Helldivers, and is much more aggressive than the regular Hunter."
    },
    {
-    "ko": "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다.",
+    "ko": "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "It can release a pheromone cloud that causes a Bug Breach."
    }
   ],
@@ -3092,7 +3092,7 @@
     "en": "First appears at Difficulty 4 on Predator Strain planets."
    },
    {
-    "ko": "일반 스토커와 달리 스토커 둥지 없이 다른 테르미니드와 함께 나옵니다. 버그 침공과 순찰대로 나오고, 버그 둥지·임무 목표·소규모 관심 지점을 지킵니다.",
+    "ko": "일반 스토커와 달리 스토커 둥지 없이 다른 테르미니드와 함께 나옵니다. 버그 증원과 순찰대로 나오고, 버그 둥지·임무 목표·소규모 관심 지점을 지킵니다.",
     "en": "Unlike Stalkers, it needs no Stalker Lair and spawns with other Terminids: from Bug Breaches and patrols, and guarding Bug Nests, Objectives and Minor Places of Interest."
    }
   ],
@@ -3108,7 +3108,7 @@
   ],
   "tactics": [
    {
-    "ko": "일반 스토커보다 약하지만 공격적이라 프레데터 헌터와 함께 순찰대나 버그 침공을 훨씬 위험하게 만듭니다. 혀 공격이 없는 대신 발톱으로 쉬지 않고 공격합니다.",
+    "ko": "일반 스토커보다 약하지만 공격적이라 프레데터 헌터와 함께 순찰대나 버그 증원을 훨씬 위험하게 만듭니다. 혀 공격이 없는 대신 발톱으로 쉬지 않고 공격합니다.",
     "en": "It is weaker than a regular Stalker but aggressive, and together with Predator Hunters it makes patrols and Bug Breaches far more dangerous. It has no tongue attack but claws at you nonstop."
    },
    {
@@ -3427,7 +3427,7 @@
     "en": "Appears from Difficulty 6 on Rupture Strain planets, replacing all Nursing Spewers and some Caustic Spewers."
    },
    {
-    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비로 나옵니다.",
+    "ko": "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비로 나옵니다.",
     "en": "Spawns from Bug Breaches, in patrols, and guarding Bug Nests and Objectives."
    }
   ],
@@ -3476,7 +3476,7 @@
     "en": "Appears from Difficulty 6 on Rupture Strain planets, fully replacing Warriors."
    },
    {
-    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다.",
+    "ko": "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다.",
     "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from certain Bug Holes."
    }
   ],
@@ -3540,7 +3540,7 @@
   "revision": 142256,
   "spawning": [
    {
-    "ko": "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "ko": "모든 난이도에서 버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
     "en": "Found on all difficulties, spawning from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
    },
    {
@@ -3558,7 +3558,7 @@
     "en": "Rarely, when a Helldiver is out of reach, it digs underground and suddenly emerges to attack."
    },
    {
-    "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release a pheromone cloud that calls a Bug Breach."
    }
   ],
@@ -3568,7 +3568,7 @@
     "en": "Its health is low, so any weapon kills it easily. A lone one can be safely killed with a single melee hit to the head, saving ammo."
    },
    {
-    "ko": "순찰대나 무리를 만나면 버그 침공을 부르기 전에 스캐빈저부터 빨리 처치하세요.",
+    "ko": "순찰대나 무리를 만나면 버그 증원을 부르기 전에 스캐빈저부터 빨리 처치하세요.",
     "en": "When you meet a patrol or group of Terminids, kill the Scavengers quickly before they can call a Bug Breach."
    },
    {
@@ -3742,7 +3742,7 @@
     "en": "From Difficulty 5 it replaces the Bile Titan as the target of Eliminate Bile Titans missions on Spore Burst Strain planets."
    },
    {
-    "ko": "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+    "ko": "난이도 6부터 버그 증원에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
     "en": "From Difficulty 6 it spawns from Bug Breaches and can patrol the map alone."
    },
    {
@@ -3795,7 +3795,7 @@
     "en": "Appears from Difficulty 2 on Spore Burst Strain planets, replacing all Hunters."
    },
    {
-    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "ko": "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
     "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
    }
   ],
@@ -3856,7 +3856,7 @@
     "en": "Melee weapons are not recommended, as repeated spore bursts stagger you and can eventually kill you. The Acclimated and Desert Stormer passives help little because spore burst damage is already low."
    },
    {
-    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
+    "ko": "체력이 낮아 어떤 무기로도 잡히니 버그 증원을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다.",
     "en": "Its health is low enough for any weapon, so kill it first before it calls a Bug Breach. The Rover and explosives are effective against swarms of small Terminids."
    }
   ]
@@ -3869,7 +3869,7 @@
     "en": "Appears from Difficulty 2 on Spore Burst Strain planets, replacing Warriors, including those called by Brood Commanders."
    },
    {
-    "ko": "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+    "ko": "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
     "en": "Spawns from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes."
    }
   ],
@@ -4318,7 +4318,7 @@
   "revision": 141593,
   "spawning": [
    {
-    "ko": "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
+    "ko": "모든 난이도에서 버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
     "en": "Found on all difficulties from Bug Breaches, in patrols, guarding Bug Nests and Objectives, or from Bug Holes; Brood Commanders also call them in trios."
    },
    {
@@ -4340,7 +4340,7 @@
     "en": "Rarely, when a Helldiver is out of reach, it digs underground and suddenly emerges to attack."
    },
    {
-    "ko": "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다.",
+    "ko": "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다.",
     "en": "Can release a pheromone cloud that calls a Bug Breach."
    }
   ],
@@ -4354,7 +4354,7 @@
     "en": "Destroying the head is the fastest kill, but it then goes berserk and speeds up. Shoot it more or avoid it until it bleeds out. Destroying any leg stops the speed boost."
    },
    {
-    "ko": "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
+    "ko": "머리가 없어도 버그 증원을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
     "en": "It can call a Bug Breach even without its head, though it usually bleeds out before it finishes."
    },
    {

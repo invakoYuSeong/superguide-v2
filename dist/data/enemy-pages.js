@@ -14,7 +14,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+   "모든 난이도에서 버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -24,7 +24,7 @@ export const enemyPages = {
   "behavior": [
    "지형과 장애물을 타고 넘어 다가와 발톱으로 공격하고, 한 번 때린 뒤 조금 물러났다가 다시 다가옵니다.",
    "드물게 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
-   "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Climbs over terrain and obstacles to claw at Helldivers, backing off a short distance after each strike before coming again.",
@@ -33,7 +33,7 @@ export const enemyPages = {
   ],
   "tactics": [
    "체력이 낮아 어떤 무기로도 쉽게 처치됩니다. 혼자 있다면 머리에 근접 공격 한 번으로 안전하게 처치해 탄약을 아낄 수 있습니다.",
-   "순찰대나 무리를 만나면 버그 침공을 부르기 전에 스캐빈저부터 빨리 처치하세요.",
+   "순찰대나 무리를 만나면 버그 증원을 부르기 전에 스캐빈저부터 빨리 처치하세요.",
    "떼로 몰려오면 로버나 폭발 무기가 효과적입니다."
   ],
   "tacticsEn": [
@@ -65,7 +65,7 @@ export const enemyPages = {
    "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
    "불에 타는 중에 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋고, 독 브레스 같은 가스·화염 무기는 접근을 늦춥니다.",
    "포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다. 적응력·사막 돌격대 패시브는 포자 폭발 피해가 원래 낮아 큰 도움이 되지 않습니다.",
-   "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
+   "체력이 낮아 어떤 무기로도 잡히니 버그 증원을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
   ],
   "tacticsEn": [
    "On death it releases a spore cloud that damages nearby Helldivers, blocks vision and buffs nearby Spore Burst Terminids. Spore Burst Terminids inside a cloud become much faster.",
@@ -83,7 +83,7 @@ export const enemyPages = {
   "staggerReq": null,
   "reinforcements": "breach",
   "spawning": [
-   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
+   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 증원·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
   ],
   "spawningEn": [
    "On Noxious Strain planets it replaces Scavengers and Pouncers. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests, Minor Places of Interest and Objectives."
@@ -92,7 +92,7 @@ export const enemyPages = {
    "지형과 장애물을 타고 넘어 다가와 발톱으로 공격하고, 공격한 뒤에는 잠시 물러났다가 다시 다가옵니다.",
    "가까이 붙으면 물기도 하며, 물리면 독에 걸립니다.",
    "드물게, 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
-   "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다."
+   "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "It climbs over terrain to attack with its claws, then backs off a short distance before coming in again.",
@@ -104,7 +104,7 @@ export const enemyPages = {
    "빠르고 물어서 독을 거니 거리를 유지하세요. 독에 걸리면 느려지고 질주할 수 없어 다른 녹셔스 적이 따라붙어 독을 더 겁니다.",
    "점프 팩·워프 팩·호버 팩으로 멀리서 싸우거나, 방어막 생성 팩·탄도 방패 배낭으로 공격을 막아 독을 피하세요.",
    "근육 증진 부스터는 느려짐을 줄여 따라잡히기 전에 빠져나가게 해 줍니다.",
-   "체력이 낮아 어떤 무기로도 잡히니 버그 침공을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
+   "체력이 낮아 어떤 무기로도 잡히니 버그 증원을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
   ],
   "tacticsEn": [
    "It is fast and its bite poisons you, so keep your distance. Poison slows you and stops you sprinting, letting other Noxious Terminids catch up and stack more poison.",
@@ -122,7 +122,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 1부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
+   "커스틱 변종 행성에서 난이도 1부터 버그 증원, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 1, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Minor Places of Interest and Objectives."
@@ -131,7 +131,7 @@ export const enemyPages = {
    "지형을 타고 넘어 다가오며, 헬다이버가 15m 안에 들어오면 3초마다 담즙을 뱉습니다.",
    "담즙에 맞으면 느려지고 약한 지속 피해를 입습니다.",
    "죽을 때 작은 담즙 폭발을 일으켜 주변 테르미니드와 헬다이버에게 피해를 줍니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Climbs over terrain toward Helldivers and spits bile every three seconds once you are within 15m.",
@@ -157,7 +157,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 침공·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
+   "난이도 2부터 나옵니다. 버그 증원·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
    "일부 등장 조합에서는 스캐빈저·커스틱 스피터와 서로 바뀌어 나옵니다."
   ],
@@ -169,7 +169,7 @@ export const enemyPages = {
   "behavior": [
    "날개를 써서 헬다이버 쪽으로 먼 거리를 곧장 뛰어듭니다. 가끔 덜 뛰거나 지나쳐 떨어지기도 합니다.",
    "뛰지 않을 때는 지형과 장애물을 넘어 최대한 곧장 다가와 발톱으로 공격합니다.",
-   "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다."
+   "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "It uses its wings to leap long distances straight at Helldivers, sometimes falling short or overshooting.",
@@ -194,7 +194,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 침공, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
+   "난이도 2부터 나옵니다. 버그 증원, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -205,7 +205,7 @@ export const enemyPages = {
    "다른 테르미니드보다 빠르며, 주로 측면으로 돌아 헬다이버를 포위하려 합니다. 다가오며 옆으로 빠르게 움직이거나 짧게 뛰어 조준을 흐트러뜨립니다.",
    "헬다이버에게서 약 15~20m에 이르면 덮쳐 피해를 주고, 곧바로 발톱이나 혀로 이어서 공격할 수 있습니다.",
    "짧은~중간 거리에서는 혀를 써서 산성 화상으로 헬다이버를 느리게 하고, 바로 옆에서는 발톱을 씁니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Faster than other Terminids, it tries to flank and surround Helldivers, strafing quickly or making short jumps that throw off your aim.",
@@ -244,7 +244,7 @@ export const enemyPages = {
   ],
   "behavior": [
    "몸을 감춘 채 옆으로 돌아 들어와 헬다이버에게 뛰어들어 공격합니다. 일반 헌터보다 훨씬 공격적입니다.",
-   "페로몬 구름을 뿜어 버그 침공을 일으킬 수 있습니다."
+   "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "It tries to cloak, flank and leap at Helldivers, and is much more aggressive than the regular Hunter.",
@@ -274,7 +274,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 헌터를 모두 대신합니다.",
-   "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing all Hunters.",
@@ -310,7 +310,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
+   "모든 난이도에서 버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -321,7 +321,7 @@ export const enemyPages = {
    "지형과 장애물을 넘어 다가와 근접 거리에서 발톱으로 공격합니다. 옆으로 움직이며, 옆을 지나쳐 달리는 헬다이버의 길을 막으려 합니다.",
    "머리가 부서지면 '광폭' 상태가 되어 더 빨리 움직이지만, 계속 피를 흘리다 죽습니다.",
    "드물게 헬다이버가 닿지 않는 곳에 있으면 땅속으로 파고들었다가 갑자기 튀어나와 공격합니다.",
-   "페로몬 구름을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬 구름을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Climbs over terrain and obstacles to claw at Helldivers up close. It can strafe sideways and tries to cut off Helldivers running past.",
@@ -332,7 +332,7 @@ export const enemyPages = {
   "tactics": [
    "어떤 무기로도 처치할 수 있지만, 연사가 빠르거나 폭발하는 무기가 무리를 빨리 정리합니다.",
    "머리를 부수는 것이 가장 빠르지만, 광폭 상태가 되어 빨라집니다. 더 쏴서 처치하거나 출혈로 죽을 때까지 피하세요. 다리를 하나라도 부수면 빨라지지 않습니다.",
-   "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
+   "머리가 없어도 버그 증원을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다.",
    "대체로 느리지만 옆으로 움직이며 따라붙어, 다른 테르미니드에게서 물러날 때 방해가 될 수 있습니다."
   ],
   "tacticsEn": [
@@ -359,7 +359,7 @@ export const enemyPages = {
   "behavior": [
    "워리어와 똑같이 행동하지만 이동 속도가 빨라 헬다이버를 끈질기게 따라붙어 공격합니다.",
    "머리가 부서지면 광폭 상태가 되어 더 빨라지지만 계속 피를 흘리다 죽습니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Behaves like a Warrior, but its higher speed lets it keep up with Helldivers and attack constantly.",
@@ -370,7 +370,7 @@ export const enemyPages = {
    "머리를 부수면 오히려 더 위험해집니다. 빠른 속도로 달려와 피를 흘리다 죽기 전에 공격할 수 있으니, 출혈로 죽기를 기다리지 말고 확실히 처치하세요.",
    "워리어처럼 다리를 부수면 느려집니다.",
    "어떤 무기로도 처치할 수 있지만, 연사가 빠르거나 폭발하는 무기가 무리를 빨리 정리합니다.",
-   "머리가 없어도 버그 침공을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다."
+   "머리가 없어도 버그 증원을 부를 수 있지만, 대개 다 부르기 전에 출혈로 죽습니다."
   ],
   "tacticsEn": [
    "Destroying its head makes it much more dangerous, since its speed lets it reach and hurt you before it bleeds out. Finish it off instead of leaving it to bleed.",
@@ -388,14 +388,14 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 2부터 버그 침공, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
+   "커스틱 변종 행성에서 난이도 2부터 버그 증원, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 2, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Objectives and Minor Places of Interest."
   ],
   "behavior": [
    "워리어와 똑같이 행동하지만, 몸통에 치명타를 맞고 죽으면 담즙을 터뜨려 주변 테르미니드와 헬다이버에게 피해를 줍니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Behaves like a Warrior, but when killed by a blow to its body it bursts in bile, damaging nearby Terminids and Helldivers.",
@@ -423,7 +423,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 6부터 럽처 변종 행성에 나오며, 워리어를 모두 대신합니다.",
-   "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다."
+   "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 6 on Rupture Strain planets, fully replacing Warriors.",
@@ -459,7 +459,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 워리어를 대신합니다. 브루드 커맨더가 부르는 워리어도 포함됩니다.",
-   "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing Warriors, including those called by Brood Commanders.",
@@ -495,7 +495,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 침공, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
+   "난이도 2부터 나옵니다. 버그 증원, 순찰대, 임무 목표와 버그 둥지 경비로 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -506,7 +506,7 @@ export const enemyPages = {
    "지형과 장애물을 타고 넘어 다가와 가까이서 발톱으로 공격합니다. 옆으로 움직이며, 옆을 지나 달아나려는 헬다이버의 길을 막으려 합니다.",
    "근처나 몸에 총알을 몇 번 맞으면 앞다리를 몸 가까이 모으고 약 3초 웅크립니다. 헬다이버가 계속 쏘면 사격을 멈출 때까지 웅크린 채로 있습니다.",
    "워리어처럼 머리에서 초록 체액이 흐르기 시작하면 '광폭' 상태가 되어 죽기 전까지 잠깐 빨라집니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Climbs over terrain and obstacles to attack with its claws up close. It strafes sideways and tries to cut off Helldivers running past it.",
@@ -545,7 +545,7 @@ export const enemyPages = {
   "reinforcements": "breach",
   "spawning": [
    "난이도 1부터 '브루드 커맨더 제거하기' 임무의 목표로 나옵니다.",
-   "난이도 3부터 버그 침공, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
+   "난이도 3부터 버그 증원, 순찰대, 임무 목표·버그 둥지 경비로 나오며, 난이도 4부터는 소규모 관심 지점도 지킵니다.",
    "난이도 8부터는 알파 커맨더로 바뀝니다."
   ],
   "spawningEn": [
@@ -557,7 +557,7 @@ export const enemyPages = {
    "지형을 타고 넘어 다가와 발톱으로 근접 공격하며, 옆으로 움직이거나 지나가려는 헬다이버의 길을 막습니다.",
    "머리가 부서지면 광폭 상태가 되어 더 빨라지지만 계속 피를 흘리다 죽습니다. 가끔 워리어 3마리를 불러냅니다.",
    "보통 15~20m 거리에서 돌진합니다. 맞으면 피해를 입고 넘어지며 충격 효과를 받을 수 있습니다. 피하거나, 지형이나 차저 같은 큰 적에 부딪히게 하면 멈춥니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Climbs over terrain to claw at close range, strafes sideways, and tries to cut off Helldivers running past.",
@@ -569,7 +569,7 @@ export const enemyPages = {
    "장갑은 낮지만 탄을 많이 받아 내므로 피해가 큰 무기, 관통 3 무기, 폭발 무기를 추천합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
    "머리를 부수면 날뛰는 상태로 오래 버티며 쫓아옵니다. 다가오는 순간 근접 공격으로 경직시키면 피해 없이 출혈로 쓰러집니다.",
    "다리는 장갑이 얇아(장갑 1) 관통 2 무기로 쉽게 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리를 잃어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
-   "머리를 잃어도 버그 침공을 부를 수 있습니다."
+   "머리를 잃어도 버그 증원을 부를 수 있습니다."
   ],
   "tacticsEn": [
    "Its armor is low but it soaks up a lot of ammo, so high-damage weapons, armor penetration 3 weapons and explosives are recommended. The head, claws and body have slightly thicker armor that cuts damage from armor penetration 2 weapons.",
@@ -588,7 +588,7 @@ export const enemyPages = {
   "reinforcements": "breach",
   "spawning": [
    "난이도 8부터 나오며, 브루드 커맨더를 완전히 대신합니다.",
-   "버그 침공, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다."
+   "버그 증원, 순찰대, 임무 목표·버그 둥지·소규모 관심 지점 경비로 나타납니다."
   ],
   "spawningEn": [
    "Appears starting at Difficulty 8, fully replacing Brood Commanders.",
@@ -598,7 +598,7 @@ export const enemyPages = {
    "브루드 커맨더와 똑같이 행동하지만 체력과 내구도가 조금 더 높습니다.",
    "워리어 대신 더 빠르고 위험한 알파 워리어 3마리를 불러냅니다.",
    "가끔 하이브 가드를 불러내는데, 이는 그 임무에 하이브 가드와 다른 중장갑 적이 많이 나온다는 신호입니다.",
-   "페로몬을 뿜어 버그 침공을 부를 수 있습니다."
+   "페로몬을 뿜어 버그 증원을 부를 수 있습니다."
   ],
   "behaviorEn": [
    "Behaves like a Brood Commander, with slightly more health and durability.",
@@ -610,7 +610,7 @@ export const enemyPages = {
    "머리가 장갑 2이고 내구도가 높아 관통 3 무기와 폭발 무기가 더 잘 통합니다. 머리·앞발·몸통은 장갑이 조금 두꺼워 관통 2 무기의 피해가 줄어듭니다.",
    "앞발 양쪽을 모두 부수면 처치됩니다.",
    "다리는 장갑 1로 얇아 관통 2 무기로도 부서집니다. 다리를 잃을수록 이동과 돌진이 크게 느려지지만, 다리 하나를 잃어도 돌진 공격의 피해와 효과는 그대로 줍니다.",
-   "머리를 잃어도 버그 침공을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요."
+   "머리를 잃어도 버그 증원을 부르고 알파 워리어와 하이브 가드를 불러낼 수 있으니 빨리 끝내세요."
   ],
   "tacticsEn": [
    "Its head is armor 2 and it is very durable, so armor penetration 3 weapons and explosives work better. The head, claws and body have slightly thicker armor that cuts damage from armor penetration 2 weapons.",
@@ -627,7 +627,7 @@ export const enemyPages = {
   "fireMult": 1,
   "staggerReq": 30,
   "spawning": [
-   "난이도 3부터 나옵니다. 버그 침공과 순찰대로 나오고, 임무 목표와 버그 둥지를 지킵니다.",
+   "난이도 3부터 나옵니다. 버그 증원과 순찰대로 나오고, 임무 목표와 버그 둥지를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
    "가끔 커스틱 스퓨어 대신 나옵니다."
   ],
@@ -673,7 +673,7 @@ export const enemyPages = {
   "fireMult": 1,
   "staggerReq": 30,
   "spawning": [
-   "커스틱 변종 행성에서 난이도 3부터 나오며, 버그 침공, 순찰대, 임무 목표·소규모 관심 지점·버그 둥지 경비로 나타납니다."
+   "커스틱 변종 행성에서 난이도 3부터 나오며, 버그 증원, 순찰대, 임무 목표·소규모 관심 지점·버그 둥지 경비로 나타납니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 3, spawning from Bug Breaches, in patrols, and guarding Objectives, Minor Places of Interest and Bug Nests."
@@ -720,7 +720,7 @@ export const enemyPages = {
   "staggerReq": 30,
   "spawning": [
    "난이도 6부터 럽처 변종 행성에 나오며, 너싱 스퓨어 전부와 커스틱 스퓨어 일부를 대신합니다.",
-   "버그 침공, 순찰대, 버그 둥지와 임무 목표 경비로 나옵니다."
+   "버그 증원, 순찰대, 버그 둥지와 임무 목표 경비로 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 6 on Rupture Strain planets, replacing all Nursing Spewers and some Caustic Spewers.",
@@ -834,7 +834,7 @@ export const enemyPages = {
   "staggerReq": 30,
   "spawning": [
    "난이도 4부터 프레데터 변종이 침공한 행성에서 나옵니다.",
-   "일반 스토커와 달리 스토커 둥지 없이 다른 테르미니드와 함께 나옵니다. 버그 침공과 순찰대로 나오고, 버그 둥지·임무 목표·소규모 관심 지점을 지킵니다."
+   "일반 스토커와 달리 스토커 둥지 없이 다른 테르미니드와 함께 나옵니다. 버그 증원과 순찰대로 나오고, 버그 둥지·임무 목표·소규모 관심 지점을 지킵니다."
   ],
   "spawningEn": [
    "First appears at Difficulty 4 on Predator Strain planets.",
@@ -849,7 +849,7 @@ export const enemyPages = {
    "It does not retreat when badly hurt and keeps chasing until it or the Helldiver dies."
   ],
   "tactics": [
-   "일반 스토커보다 약하지만 공격적이라 프레데터 헌터와 함께 순찰대나 버그 침공을 훨씬 위험하게 만듭니다. 혀 공격이 없는 대신 발톱으로 쉬지 않고 공격합니다.",
+   "일반 스토커보다 약하지만 공격적이라 프레데터 헌터와 함께 순찰대나 버그 증원을 훨씬 위험하게 만듭니다. 혀 공격이 없는 대신 발톱으로 쉬지 않고 공격합니다.",
    "경직을 크게 주는 무기로 공격을 막으세요. 쿡아웃은 경직이 크고 이 적에게 화염 피해를 25% 더 줘서 특히 좋습니다.",
    "폭발 무기도 경직을 주지만 순식간에 가까이 붙으므로 조심해서 쓰세요.",
    "시야가 좋은 곳에 둔 기관총 센트리·개틀링 센트리·화염 센트리는 무리를 빠르게 정리합니다. 독 브레스도 가까이 온 적을 혼란시키고 피해를 줍니다."
@@ -869,7 +869,7 @@ export const enemyPages = {
   "fireMult": 1.5,
   "staggerReq": 38,
   "spawning": [
-   "난이도 4부터 버그 침공, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
+   "난이도 4부터 버그 증원, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
    "난이도 7부터 상급 버그 둥지와 난이도 10의 최상급 둥지를 지킵니다. 이때부터 차저 베히모스나 커스틱 차저로 바뀔 확률이 생기고, 난이도가 높을수록 커집니다.",
    "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다."
   ],
@@ -879,8 +879,8 @@ export const enemyPages = {
    "On Difficulty 10 it is otherwise fully replaced by its tougher variants, but on missions with Dragonroaches a regular Charger spawns in place of a Bile Titan, including from Bile Titan Bug Holes."
   ],
   "behavior": [
-   "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리 쪽으로 몸을 돌립니다. 포효하면 공격 신호이며, 바로 돌진하는 경우가 많습니다.",
-   "버그 침공에서 나온 개체는 바로 주변 헬다이버를 찾아 짓밟으려 합니다.",
+   "버그 증원 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리 쪽으로 몸을 돌립니다. 포효하면 공격 신호이며, 바로 돌진하는 경우가 많습니다.",
+   "버그 증원에서 나온 개체는 바로 주변 헬다이버를 찾아 짓밟으려 합니다.",
    "한 번 돌진하면 헬다이버를 지나치거나 단단한 지형이나 다른 차저에 부딪힐 때까지 멈추지 않습니다. 맞으면 넘어지거나 날아가고, 충격 효과를 받는 경우가 많습니다.",
    "가까이 있으면 앞다리로 공격합니다.",
    "엉덩이를 부수거나 몸통 장갑을 떼어 내면 느려지고 피를 흘리다 죽습니다."
@@ -917,7 +917,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 3부터 '차저 제거하기' 임무의 목표로 나옵니다.",
    "난이도 7부터 커스틱 차저와 함께 일정 확률로 차저를 대신하며, 난이도가 높을수록 확률이 커집니다.",
-   "버그 침공, 순찰대, 임무 목표 경비로 나오고, 상급 버그 둥지, 난이도 10의 최상급 둥지, 소규모 관심 지점도 지키며 땅속에 숨어 있기도 합니다."
+   "버그 증원, 순찰대, 임무 목표 경비로 나오고, 상급 버그 둥지, 난이도 10의 최상급 둥지, 소규모 관심 지점도 지키며 땅속에 숨어 있기도 합니다."
   ],
   "spawningEn": [
    "Appears starting at Difficulty 3 as the target of the Eliminate Chargers mission.",
@@ -963,7 +963,7 @@ export const enemyPages = {
   "fireMult": 1.5,
   "staggerReq": 38,
   "spawning": [
-   "커스틱 변종 행성에서 나오며, 차저처럼 버그 침공과 다른 테르미니드와 함께하는 순찰대로 나타납니다.",
+   "커스틱 변종 행성에서 나오며, 차저처럼 버그 증원과 다른 테르미니드와 함께하는 순찰대로 나타납니다.",
    "상급 버그 둥지, 임무 목표, 소규모 관심 지점도 지키며, 땅속에 숨어 있기도 합니다."
   ],
   "spawningEn": [
@@ -1036,7 +1036,7 @@ export const enemyPages = {
   "staggerReq": 50,
   "spawning": [
    "난이도 5의 '임페일러 제거하기' 임무 목표로 처음 나옵니다.",
-   "난이도 6부터 버그 침공과 단독 순찰로 나오며, 난이도가 높을수록 더 자주 나옵니다.",
+   "난이도 6부터 버그 증원과 단독 순찰로 나오며, 난이도가 높을수록 더 자주 나옵니다.",
    "난이도 10부터는 최상급 둥지도 지킵니다."
   ],
   "spawningEn": [
@@ -1045,8 +1045,8 @@ export const enemyPages = {
    "Starting at Difficulty 10 it also guards Mega Nests."
   ],
   "behavior": [
-   "버그 침공 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리가 나면 그쪽을 돌아봅니다. 순찰 중에도 근처에서 움직임이나 소리가 나면 멈춰서 돌아봅니다.",
-   "전투 중이거나 버그 침공으로 나오면 곧바로 '머리'를 땅에 박고, 촉수 3개로 시야 안의 헬다이버를 공격합니다.",
+   "버그 증원 밖에서는 보통 가만히 있다가 헬다이버의 움직임이나 소리가 나면 그쪽을 돌아봅니다. 순찰 중에도 근처에서 움직임이나 소리가 나면 멈춰서 돌아봅니다.",
+   "전투 중이거나 버그 증원으로 나오면 곧바로 '머리'를 땅에 박고, 촉수 3개로 시야 안의 헬다이버를 공격합니다.",
    "촉수에 피해를 주면 거둬들이게 할 수 있습니다. 시간이 지나거나 헬다이버를 놓치거나 죽으면 촉수를 모두 거둡니다.",
    "가까이서는 앞쪽 무게로 앞에 있는 모든 것을 짓누릅니다."
   ],
@@ -1125,8 +1125,8 @@ export const enemyPages = {
   "fireMult": 1.7,
   "staggerReq": 38,
   "spawning": [
-   "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 침공으로도 나오지 않습니다.",
-   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 침공처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+   "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 증원으로도 나오지 않습니다.",
+   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 증원처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
    "그래서 원래 차저 베히모스와 커스틱 차저로 모두 바뀌는 난이도 10에서도 일반 차저를 만날 수 있습니다.",
    "고가치 자산 후송하기 임무에서는 시작 전 카운트다운이 끝나기 전에도 나올 수 있으니 바로 대비해야 합니다."
   ],
@@ -1180,7 +1180,7 @@ export const enemyPages = {
   "staggerReq": 50,
   "spawning": [
    "난이도 4부터 '바일 타이탄 제거하기' 임무의 목표로 나옵니다.",
-   "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+   "난이도 6부터 버그 증원에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
    "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 벌레굴이 있을 수 있습니다.",
    "스포어 버스트 변종 행성에서는 난이도 5부터 스포어 버스트 바일 타이탄으로 완전히 바뀝니다.",
    "드래곤로치가 나오는 임무에서는 바일 타이탄 대신 차저가 나옵니다."
@@ -1193,8 +1193,8 @@ export const enemyPages = {
    "On missions with Dragonroaches, a Charger spawns in its place."
   ],
   "behavior": [
-   "버그 침공 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
-   "버그 침공이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+   "버그 증원 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
+   "버그 증원이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
    "헬다이버와 25~30m 떨어져 있으면 담즙을 뿜으며, 담즙 공격 사이에는 10초 대기가 있습니다.",
    "바로 앞에 있으면 오른쪽 다리로 내려찍고, 몸 아래에 있으면 두 앞다리로 앞쪽을 빠르게 짓밟습니다.",
    "걸어갈 때 다리에 닿아도 피해를 입거나 죽을 수 있고, 다리 공격이 아슬아슬하게 빗나가도 넘어질 수 있습니다."
@@ -1240,7 +1240,7 @@ export const enemyPages = {
   "staggerReq": 50,
   "spawning": [
    "난이도 5부터 스포어 버스트 변종 행성의 '바일 타이탄 제거하기' 임무에서 목표인 바일 타이탄을 대신해 나옵니다.",
-   "난이도 6부터 버그 침공에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
+   "난이도 6부터 버그 증원에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
    "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 벌레굴이 있을 수 있습니다."
   ],
   "spawningEn": [
@@ -1282,7 +1282,7 @@ export const enemyPages = {
   "staggerReq": null,
   "spawning": [
    "하이브 로드가 있는 행성에서는 난이도 7 이상 모든 임무에서 목표나 증원과 상관없이 나올 수 있습니다.",
-   "나오는 조건은 알려지지 않았지만, 버그 침공이 일어나면 곧이어 나올 가능성이 높습니다. 궤도 포격처럼 한곳에 폭발이 여러 번 일어나도 나올 수 있습니다.",
+   "나오는 조건은 알려지지 않았지만, 버그 증원이 오면 곧이어 나올 가능성이 높습니다. 궤도 포격처럼 한곳에 폭발이 여러 번 일어나도 나올 수 있습니다.",
    "임무당 1마리만 나오며, 처치하면 다시 나오지 않습니다. 물러났다가 다시 올라와도 입은 피해는 그대로 남아 있습니다."
   ],
   "spawningEn": [
