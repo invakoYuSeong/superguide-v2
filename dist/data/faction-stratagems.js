@@ -22,7 +22,7 @@ export const factionStratagems = {
       { items: ['autocannon'], tags: ['중형 적'], note: '데버스테이터 같은 중형 봇을 처리합니다.' },
       { items: ['recoilless', 'quasar'], tags: ['대형 적'], note: '워 스트라이더 같은 대형 봇을 처리합니다. 퀘이사 캐넌은 탄약 보급 없이 쓸 수 있고, 제조소도 보이는 곳 어디서나 한 발에 부숩니다.' },
       { items: ['nova'], tags: ['중형 적', '오브젝트'], note: '탄약 걱정 없이 충전해 쏘는 저격 화기입니다. 제조소를 보이는 곳 어디서나 3발에 부수고, 가만히 서 있는 워 스트라이더의 눈은 한 발입니다.' },
-      { items: ['at-emplacement'], tags: ['대형 적'], note: '자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다.' },
+      { items: ['at-emplacement'], tags: ['대형 적', '오브젝트'], note: '자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다. 시야가 뚫려 있으면 초장거리에서 제조소 환풍구 안쪽을 맞혀 전초기지도 파괴할 수 있습니다.' },
       { items: [{ gear: 'anti-tank-seeker' }], tags: ['대형 적'], note: '던지면 적을 따라가 터지는 관통 5 투척 무기로, 헐크까지 1개로 처치합니다.' },
       { items: [{ gear: 'missile-pistol' }, { gear: 'bolt-pistol' }], tags: ['대형 적'], note: '보조무기로 장갑이 두꺼운 봇을 맡습니다. 미사일 권총은 관통 5, 볼트 피스톨은 관통 4입니다.' },
       { items: ['rocket-sentry'], tags: ['대형 적'], note: '대전차 무기가 부족할 때 무난하게 중장갑 적을 압박합니다.' },
