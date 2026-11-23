@@ -1,7 +1,8 @@
 // Downloads the wiki icon of every enemy subfaction in the faction picks (the infobox image of its
-// wiki page) into dist/assets/subfactions/<guide id>.svg, safety-checked, and writes
-// dist/data/subfaction-icons.js. The view tints them in the faction colour (CSS mask).
-// Usage: node scripts/fetch-subfaction-icons.mjs
+// wiki page), and the enemy icons a guide named after its enemies shows, into
+// dist/assets/subfactions/<id>.svg, safety-checked, and writes dist/data/subfaction-icons.js. The view
+// tints them in the faction colour (CSS mask). Icons already saved are kept; --all fetches every one again.
+// Usage: node scripts/fetch-subfaction-icons.mjs [--all]
 import { writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validateSvg } from './svg-safety.mjs';
@@ -15,6 +16,9 @@ const PAGES = {
   'jet-brigade': 'Jet Brigade', incineration: 'Incineration Corps', cyborgs: 'Cyborg Legion',
   'vote-snatchers': 'Vote Snatchers', mindless: 'Mindless Masses', appropriators: 'Appropriators', invasion: 'Invasion Fleet',
 };
+// Icon id -> [wiki page, file]: enemy icons for the Dragonroach and Hive Lord guide (its chip shows both).
+const FILES = { dragonroach: ['Dragonroach', 'Dragonroach Icon.svg'], 'hive-lord': ['Hive Lord', 'Hive Lord Icon.svg'] };
+const { subfactionIcons: saved } = process.argv.includes('--all') ? { subfactionIcons: {} } : await import('../dist/data/subfaction-icons.js');
 // wiki.gg answers 429 (or a ratelimited error) when asked too fast: wait and try again.
 async function patient(url) {
   for (let attempt = 0; ; attempt++) {
@@ -27,13 +31,16 @@ async function patient(url) {
 }
 const get = async params => (await patient(`${API}?${new URLSearchParams({ format: 'json', formatversion: '2', ...params })}`)).json();
 
-const { query } = await get({ action: 'query', prop: 'revisions', rvprop: 'ids|content', rvslots: 'main', redirects: '1', titles: Object.values(PAGES).join('|') });
+const jobs = [...Object.entries(PAGES).map(([id, title]) => [id, title, null]), ...Object.entries(FILES).map(([id, [title, file]]) => [id, title, file])];
+const missing = jobs.filter(([id]) => !saved[id]);
+const { query } = missing.length ? await get({ action: 'query', prop: 'revisions', rvprop: 'ids|content', rvslots: 'main', redirects: '1', titles: missing.map(job => job[1]).join('|') }) : { query: { pages: [] } };
 const byTitle = new Map(query.pages.map(page => [page.title, page]));
 await mkdir(new URL('../dist/assets/subfactions/', import.meta.url), { recursive: true });
 const icons = {};
-for (const [id, title] of Object.entries(PAGES)) {
+for (const [id, title, file] of jobs) {
+  if (saved[id]) { icons[id] = saved[id]; continue; }
   const page = byTitle.get(title);
-  const image = /\|\s*image\s*=\s*([^\n|]+)/.exec(page?.revisions?.[0].slots.main.content ?? '')?.[1].trim();
+  const image = file ?? /\|\s*image\s*=\s*([^\n|]+)/.exec(page?.revisions?.[0].slots.main.content ?? '')?.[1].trim();
   if (!image) throw new Error(`${title}: no infobox image`);
   await sleep(3000);
   const info = (await get({ action: 'query', prop: 'imageinfo', iiprop: 'url', titles: `File:${image}` })).query.pages[0].imageinfo[0];

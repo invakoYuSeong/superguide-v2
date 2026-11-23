@@ -12,6 +12,11 @@ import { personalWeapons } from '../../data/personal-weapons.js';
 import { weaponImages } from '../../data/weapon-images.js';
 // A url() inside a custom property resolves against the stylesheet, so pass an absolute URL.
 const iconUrl = id => globalThis.location ? new URL(subfactionIcons[id].src, globalThis.location.href).href : subfactionIcons[id].src;
+const iconSpan = (id, side, large = false) => subfactionIcons[id] ? html`<span class="subfaction-icon${large ? ' large' : ''}" data-tint="${side}" style="--icon:url('${iconUrl(id)}')" aria-hidden="true"></span>` : '';
+// A guide named after its enemies (Dragonroach · Hive Lord) shows each enemy's icon before its name.
+const guideLabel = (guide, large = false) => guide.parts
+  ? guide.parts.map((part, index) => html`${index ? ' · ' : ''}${iconSpan(part.icon, guide.side, large)}${T(part.name)}`)
+  : html`${iconSpan(guide.id, guide.side, large)}${guide.name}`;
 import { stratagemById } from '../../core/catalog.js';
 import { recommend, findEnemy } from '../../core/factions.js';
 import { num, unitOf, outcomeOf, countText, aimText, routeNotes, josa, stageName } from '../../core/explain.js';
@@ -114,8 +119,8 @@ function renderView() {
   render($('#faction-body', root), html`
     <div class="faction-sides" role="group" aria-label="${L('진영', 'Faction')}">${factionSides.map(item => html`<button class="faction-side" type="button" data-side="${item.id}" aria-pressed="${item.id === side.id}"><img src="${item.icon}" alt="">${item.name}</button>`)}</div>
     ${stratagemPicks(side)}
-    <div class="chips" role="group" aria-label="${L('세력', 'Enemy force')}">${factionGuides.filter(item => item.side === side.id).map(item => html`<button class="chip subfaction-chip" type="button" data-guide="${item.id}" aria-pressed="${item.id === guide.id}">${subfactionIcons[item.id] ? html`<span class="subfaction-icon" data-tint="${item.side}" style="--icon:url('${iconUrl(item.id)}')" aria-hidden="true"></span>` : ''}${item.name}</button>`)}</div>
-    <section class="panel guide-intro" data-side="${side.id}">${lang === 'en' ? '' : html`<span class="en">${guide.en}</span>`}<h2>${subfactionIcons[guide.id] ? html`<span class="subfaction-icon large" data-tint="${guide.side}" style="--icon:url('${iconUrl(guide.id)}')" aria-hidden="true"></span>` : ''}${guide.name}</h2><p>${guide.intro}</p>
+    <div class="chips" role="group" aria-label="${L('세력', 'Enemy force')}">${factionGuides.filter(item => item.side === side.id).map(item => html`<button class="chip subfaction-chip" type="button" data-guide="${item.id}" aria-pressed="${item.id === guide.id}">${guideLabel(item)}</button>`)}</div>
+    <section class="panel guide-intro" data-side="${side.id}">${lang === 'en' ? '' : html`<span class="en">${guide.en}</span>`}<h2>${guideLabel(guide, true)}</h2><p>${guide.intro}</p>
       ${guide.coverage ? html`<p class="note">${guide.coverage}</p>` : ''}
       <p class="sources">${external(guide.source, L('세력 구성 출처', 'Force roster source'))}<span>${L(`확인 ${guideCheckedAt(guide.id)} · 주요 유닛 ${guide.units.length}종`, `Checked ${guideCheckedAt(guide.id)} · ${guide.units.length} key units`)}</span></p></section>
     <div class="units">${guide.units.map(unitCard)}</div>`);

@@ -84,5 +84,19 @@ export const subfactionIcons = {
   "revision": 141978,
   "source": "https://helldivers.wiki.gg/wiki/File:Invasion_Fleet_Enemy_Icon.svg",
   "sha256": "e49f40cf4feec7e809085f3926eadef75a0ee67d43cfded176dd0eed1eadd5a6"
+ },
+ "dragonroach": {
+  "src": "./assets/subfactions/dragonroach.svg",
+  "page": "Dragonroach",
+  "revision": 142362,
+  "source": "https://helldivers.wiki.gg/wiki/File:Dragonroach_Icon.svg",
+  "sha256": "e5ca8cbabdc701a5867041becd22a8cf3a0127074fb0f560b8405ae08e1d7630"
+ },
+ "hive-lord": {
+  "src": "./assets/subfactions/hive-lord.svg",
+  "page": "Hive Lord",
+  "revision": 139241,
+  "source": "https://helldivers.wiki.gg/wiki/File:Hive_Lord_Icon.svg",
+  "sha256": "4bfc6474acc01274ff57cdd4e8a056c14637f1c34f09141c48e5e769765cdccf"
  }
 };

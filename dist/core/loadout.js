@@ -8,6 +8,8 @@ import { L } from './i18n.js';
 
 // Common light/medium/heavy/air threats, plus the final (usually heavy) unit
 // in each existing variant guide. This is a documented checklist, not spawn odds.
+// Guides marked checklist: false (the Standard and Dragonroach · Hive Lord guides, 2026-11-23) add nothing:
+// the Hive Lord's 150,000 health is not a one-shot target.
 const baseline = {
   terminid: ['hunter-hardened', 'hive-guard', 'bile-spewer-armored', 'stalker', 'charger', 'impaler', 'shrieker', 'bile-titan'],
   automaton: ['trooper', 'berserker', 'devastator', 'heavy-devastator', 'hulk', 'annihilator-tank', 'gunship', 'factory-strider'],
@@ -16,7 +18,7 @@ const baseline = {
 const enemyById = new Map(enemies.map(enemy => [enemy.id, enemy]));
 const personalById = new Map(personalWeapons.map(weapon => [weapon.id, weapon]));
 export const loadoutFactions = factionSides.map(({ id, name }) => ({
-  id, name, enemyIds: [...new Set([...baseline[id], ...factionGuides.filter(guide => guide.side === id).map(guide => guide.units.at(-1).enemy)])],
+  id, name, enemyIds: [...new Set([...baseline[id], ...factionGuides.filter(guide => guide.side === id && guide.checklist !== false).map(guide => guide.units.at(-1).enemy)])],
 }));
 
 const personalSlots = ['primary', 'secondary', 'throwable'];
