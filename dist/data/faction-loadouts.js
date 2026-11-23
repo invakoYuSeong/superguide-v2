@@ -144,7 +144,7 @@ export const factionLoadouts = {
     // count is shown from the numbers instead: a 10,000 AP 7 direct hit (data-offense.js) beats the sarcophagus's
     // 7,000 health at armor 5 (combat-data.js), and destroying the sarcophagus kills it.
     { ...pick('orbital-railcannon', null, '자동 조준 · 석관 한 발', '신호기 주변에서 가장 큰 적을 자동으로 골라 쏩니다. 복스 엔진 가까이 던지면 한 발로 처치합니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있습니다.'), adviceOnly: true, shownHits: 1,
-      source: 'https://helldivers.wiki.gg/wiki/Vox_Engine', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아닙니다. 직격 피해 10,000(관통 7)이 석관 체력 7,000(장갑 5)보다 커서 한 발로 처치되며, 실전 경험과도 같습니다.' },
+      source: 'https://helldivers.wiki.gg/wiki/Vox_Engine', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아닙니다. 직격 피해 10,000(관통 7)이 석관 체력 7,000(장갑 5)보다 커서 한 발로 처치되며, 실전 경험과도 같습니다. 다만 스피커에 맞으면 그 부위의 피해 상한 때문에 한 번에 처치되지 않을 수 있습니다.' },
   ],
   // Caustic Strain (wiki Caustic_Strain rev 142183, Tactical Information): they burst in bile when they die, so the
   // picks keep distance; the wiki suggests long-range options for the Caustic Spewer and guided ones in the Charger's fog.

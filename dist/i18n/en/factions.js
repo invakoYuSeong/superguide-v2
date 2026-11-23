@@ -371,7 +371,7 @@ export default {
   "자동 조준 · 큰 한 방": "Auto-targets \u00b7 one big hit",
   "자동 조준 · 석관 한 발": "Auto-targets \u00b7 one shot to the sarcophagus",
   "신호기 주변에서 가장 큰 적을 자동으로 골라 쏩니다. 복스 엔진 가까이 던지면 한 발로 처치합니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있습니다.": "It picks the largest enemy near the beacon on its own. Thrown close to the Vox Engine, it kills it in one shot. Another large enemy nearby may be hit instead.",
-  "스트라타젬은 사이트의 전투 계산 대상이 아닙니다. 직격 피해 10,000(관통 7)이 석관 체력 7,000(장갑 5)보다 커서 한 발로 처치되며, 실전 경험과도 같습니다.": "Stratagems are not part of the site's combat math. Its 10,000 direct damage (penetration 7) beats the sarcophagus's 7,000 health (armor 5), so one shot kills, which matches play experience.",
+  "스트라타젬은 사이트의 전투 계산 대상이 아닙니다. 직격 피해 10,000(관통 7)이 석관 체력 7,000(장갑 5)보다 커서 한 발로 처치되며, 실전 경험과도 같습니다. 다만 스피커에 맞으면 그 부위의 피해 상한 때문에 한 번에 처치되지 않을 수 있습니다.": "Stratagems are not part of the site's combat math. Its 10,000 direct damage (penetration 7) beats the sarcophagus's 7,000 health (armor 5), so one shot kills, which matches play experience. A hit on a speaker, though, may not kill it in one, because that part caps the damage it passes on.",
   "신호기 주변에서 가장 큰 적을 자동으로 골라 한 번에 큰 피해를 줍니다. 근처에 다른 대형 적이 있으면 그쪽을 맞힐 수 있으니 드래곤로치가 가까이 왔을 때 던지세요.": "Picks the largest enemy near the beacon and hits it once, hard. With another big enemy nearby it may hit that one instead, so throw it when the Dragonroach is close.",
   "장갑판 깎기 · 짧은 재사용": "Wears down a plate \u00b7 short cooldown",
   "기총탄이 일렬로 쏟아져 같은 흉부 장갑을 여러 번 때립니다. 재사용 대기가 짧아 장갑을 떼어 낼 때까지 반복해서 부르기 좋습니다.": "A line of cannon rounds hits the same chest plate many times. The cooldown is short, so you can call it again and again until the plate comes off.",
