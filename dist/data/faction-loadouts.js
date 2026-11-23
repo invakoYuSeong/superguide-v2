@@ -318,7 +318,7 @@ export const factionLoadouts = {
       source: 'https://helldivers.wiki.gg/wiki/Dragonroach', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
   ],
   'hive-lord': [
-    { ...pick('eagle-strafing', null, '장갑판 깎기 · 짧은 재사용', '기총탄이 일렬로 쏟아져 같은 장갑판을 여러 번 때립니다. 재사용 대기가 짧아 장갑판을 떼어 낼 때까지 반복해서 부르기 좋습니다.'), adviceOnly: true,
+    { ...pick('eagle-strafing', null, '장갑판 깎기 · 짧은 재사용', '기총탄이 일렬로 쏟아져 같은 흉부 장갑을 여러 번 때립니다. 재사용 대기가 짧아 장갑을 떼어 낼 때까지 반복해서 부르기 좋습니다.'), adviceOnly: true,
       source: 'https://helldivers.wiki.gg/wiki/Hive_Lord', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
     { ...pick('orbital-gatling', null, '연속 포격 · 누적 피해', '포탄이 잇달아 떨어져 큰 몸통에 피해를 쌓습니다. 하이브 로드가 땅 위로 올라와 있을 때 몸통 가까이 던지세요.'), adviceOnly: true,
       source: 'https://helldivers.wiki.gg/wiki/Hive_Lord', limitation: '스트라타젬은 사이트의 전투 계산 대상이 아니라 처치 횟수를 표시하지 않습니다. 실전 경험에 따른 추천입니다.' },
