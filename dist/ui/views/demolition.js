@@ -5,7 +5,8 @@ import { structureObjectives } from '../../data/structure-objectives.js';
 import { wikiIcons } from '../../data/wiki-icons.js';
 import { stratagems, stratagemById, categories, categoryOf } from '../../core/catalog.js';
 import { solveDemolition, structureOverview, forceRange } from '../../core/demolition.js';
-import { search, stratagemFields } from '../../core/search.js';
+import { search, stratagemFields, collabKeywords } from '../../core/search.js';
+import { warbondSources } from '../../data/warbond-sources.js';
 import { num, unitText } from '../../core/explain.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
@@ -13,6 +14,8 @@ import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 const MAX_FORCE = 60;
 const structureById = new Map(structures.map(item => [item.id, item]));
 const armed = stratagems.filter(item => demolitionProfiles[item.id]);
+// Collaboration warbonds' game names (e.g. Warhammer) also find their stratagems.
+const armedFields = item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; };
 const confirmedCount = Object.values(demolitionProfiles).filter(profile => profile.modes.some(mode => !mode.forceUnknown)).length;
 
 let root, ctx;
@@ -133,7 +136,7 @@ function structureResults(structure) {
 }
 
 function weaponPicker() {
-  const list = search(armed, state.q, stratagemFields);
+  const list = search(armed, state.q, armedFields);
   return html`<div style="display:grid;gap:10px">
     <label class="field">${icon('search', 16)}<span class="sr-only">${L('스트라타젬 검색', 'Search stratagems')}</span><input class="input" id="demo-q" type="search" placeholder="${L('스트라타젬 검색 (예: 500, 지옥폭탄)', 'Search stratagems (e.g. 500, Hellbomb)')}" value="${state.q}" autocomplete="off"></label>
     <div class="tile-grid" id="demo-weapons">${list.map(item => html`<button class="tile" type="button" data-weapon="${item.id}" aria-current="${item.id === state.weapon}">${weaponIcon(item.id, 40)}<span><b>${item.name}</b><small class="faint">${categoryOf(item.category).name}</small></span></button>`)}</div>
@@ -203,7 +206,7 @@ function renderView() {
     const input = $('#demo-q', root);
     input.addEventListener('input', () => {
       state.q = input.value;
-      render($('#demo-weapons', root), search(armed, state.q, stratagemFields).map(item => html`<button class="tile" type="button" data-weapon="${item.id}" aria-current="${item.id === state.weapon}">${weaponIcon(item.id, 40)}<span><b>${item.name}</b><small class="faint">${categoryOf(item.category).name}</small></span></button>`));
+      render($('#demo-weapons', root), search(armed, state.q, armedFields).map(item => html`<button class="tile" type="button" data-weapon="${item.id}" aria-current="${item.id === state.weapon}">${weaponIcon(item.id, 40)}<span><b>${item.name}</b><small class="faint">${categoryOf(item.category).name}</small></span></button>`));
     });
   }
 }
