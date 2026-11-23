@@ -18,7 +18,14 @@ export const conditions = [
   },
   "biomes": [
    "acidic-badlands"
-  ]
+  ],
+  "detail": [
+   "헬다이버와 적 모두 방어구 수치가 1 낮아집니다."
+  ],
+  "detailEn": [
+   "Helldivers and enemies alike lose 1 armor value."
+  ],
+  "revision": 107572
  },
  {
   "id": "blizzards",
@@ -34,7 +41,22 @@ export const conditions = [
   },
   "biomes": [
    "icy-glaciers"
-  ]
+  ],
+  "detail": [
+   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
+   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
+   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
+   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
+   "모래 폭풍과 효과가 같습니다."
+  ],
+  "detailEn": [
+   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
+   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
+   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
+   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
+   "Works exactly like Sandstorms."
+  ],
+  "revision": 90433
  },
  {
   "id": "extreme-cold",
@@ -54,7 +76,18 @@ export const conditions = [
    "desert-dunes",
    "moon",
    "cyberstan-megafactory"
-  ]
+  ],
+  "detail": [
+   "연사 속도가 약 10% 느려집니다.",
+   "게임 설명과 달리 과열되는 무기가 더 빨리 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 짧아집니다(위키가 인용한 실험 영상 기준).",
+   "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
+  ],
+  "detailEn": [
+   "Rate of fire drops by about 10%.",
+   "Despite the game description, heat-based weapons cool down faster: after overheating they are ready again usually 33% sooner (per the test video the wiki cites).",
+   "It turns on and off with the time of day and the weather, and stays on for good on some planets."
+  ],
+  "revision": 116130
  },
  {
   "id": "fire-tornados",
@@ -70,7 +103,20 @@ export const conditions = [
   },
   "biomes": [
    "scorched-moor"
-  ]
+  ],
+  "detail": [
+   "토네이도가 지나간 자리에 길이 30m, 폭 10m의 불길이 30초 동안 남습니다. 토네이도나 불길에 닿으면 불이 붙고, 다이브하면 꺼집니다.",
+   "폭풍이 부는 동안에는 혹서가 함께 켜지고 적의 시야가 줄어듭니다. 헬다이버의 시야는 그대로입니다.",
+   "철거력이 없어 울타리 같은 구조물은 부수지 못합니다. 다만 로켓 센트리 같은 설비는 고도화된 구조 모듈이 없으면 불 피해를 버티지 못합니다.",
+   "적 순찰대처럼 걸어 다닐 수 있는 곳으로만 움직입니다. 바위 절벽이나 도시의 건물 위로 올라가면 안전합니다."
+  ],
+  "detailEn": [
+   "Each tornado leaves a trail of flames 30 m long and 10 m wide that burns for 30 seconds. Touching the tornado or its trail sets you on fire, and diving puts it out.",
+   "While the storm lasts, Intense Heat is on as well and enemy vision is reduced. Helldiver vision is unaffected.",
+   "It has no demolition force, so fences and other structures survive. Emplacements such as the Rocket Sentry, though, cannot survive its fire damage without the Advanced Construction module.",
+   "It only goes where a patrol could walk. Climbing a rocky cliff or a city building keeps you safe."
+  ],
+  "revision": 133891
  },
  {
   "id": "intense-heat",
@@ -90,7 +136,18 @@ export const conditions = [
    "scorched-moor",
    "magma-desert",
    "desert-oasis"
-  ]
+  ],
+  "detail": [
+   "최대 기력이 절반이 됩니다. 회복 속도는 같아서 가득 차는 시간도 절반입니다.",
+   "게임 설명과 달리 과열되는 무기가 더 느리게 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 길어집니다(위키가 인용한 실험 영상 기준).",
+   "낮밤과 날씨에 따라 켜지고 꺼집니다. 화염 토네이도 행성에서는 토네이도 폭풍이 부는 동안만 켜집니다."
+  ],
+  "detailEn": [
+   "Maximum stamina is halved. It regenerates at the same rate, so it also refills in half the time.",
+   "Despite the game description, heat-based weapons cool down slower: after overheating they take usually 33% longer to be ready again (per the test video the wiki cites).",
+   "It turns on and off with the time of day and the weather. On Fire Tornado planets it is only on while a tornado storm lasts."
+  ],
+  "revision": 119909
  },
  {
   "id": "ion-storms",
@@ -107,6 +164,21 @@ export const conditions = [
   "biomes": [
    "ionic-jungle",
    "ionic-crimson"
+  ],
+  "detail": [
+   "폭풍 동안 새 스트라타젬을 부를 수 없습니다. 증원도 마찬가지입니다.",
+   "미니맵을 조작할 수 없고 레이더 신호, 아군 위치, 목표 위치가 모두 숨겨집니다. 나침반과 이미 찍어 둔 표시는 그대로 보입니다."
+  ],
+  "detailEn": [
+   "No new stratagems can be called in during the storm, Reinforce included.",
+   "The minimap cannot be used and hides radar contacts, Helldiver positions and objective locations. The compass and waypoints already placed still show."
+  ],
+  "revision": 90341,
+  "tips": [
+   "한 번 오면 약 40초 동안 이어집니다."
+  ],
+  "tipsEn": [
+   "Each storm lasts about 40 seconds."
   ]
  },
  {
@@ -123,7 +195,20 @@ export const conditions = [
   },
   "biomes": [
    "moon"
-  ]
+  ],
+  "detail": [
+   "유성 직격: 피해 800, 관통 8, 철거력 50.",
+   "폭발: 중심 1.25m까지 피해 700, 8.5m까지 점점 줄어들고, 충격파는 23m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
+   "떨어질 자리가 땅에 파란 빛으로 표시됩니다. 방어막 생성 팩을 메고 있어도 맞으면 죽습니다.",
+   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
+  ],
+  "detailEn": [
+   "Direct hit: 800 damage, penetration 8, demolition force 50.",
+   "Explosion: 700 damage out to 1.25 m, falling off to 8.5 m, with a shockwave out to 23 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
+   "Impact spots glow blue on the ground. A hit kills you even with a Shield Generator Pack.",
+   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
+  ],
+  "revision": 90432
  },
  {
   "id": "rainstorms",
@@ -142,7 +227,14 @@ export const conditions = [
    "basic-swamp",
    "plains",
    "super-earth-metropolis"
-  ]
+  ],
+  "detail": [
+   "구름 밀도에 따라 시야가 달라집니다. 평균 35m, 짙을 때는 25m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility depends on cloud density: 35 m on average, down to 25 m at worst."
+  ],
+  "revision": 135713
  },
  {
   "id": "sandstorms",
@@ -158,7 +250,22 @@ export const conditions = [
   },
   "biomes": [
    "desert-dunes"
-  ]
+  ],
+  "detail": [
+   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
+   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
+   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
+   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
+   "눈보라와 효과가 같습니다."
+  ],
+  "detailEn": [
+   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
+   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
+   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
+   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
+   "Works exactly like Blizzards."
+  ],
+  "revision": 90346
  },
  {
   "id": "thick-fog",
@@ -175,7 +282,14 @@ export const conditions = [
   "biomes": [
    "haunted-swamp",
    "deadlands"
-  ]
+  ],
+  "detail": [
+   "시야가 약 50m로 줄어듭니다. 적의 탐지 거리도 50m에서 30m로 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility drops to about 50 m, and enemy detection range from 50 m to 30 m."
+  ],
+  "revision": 130624
  },
  {
   "id": "tremors",
@@ -192,7 +306,18 @@ export const conditions = [
   "biomes": [
    "rocky-canyons",
    "desert-cliffs"
-  ]
+  ],
+  "detail": [
+   "지진이 시작되면 기력이 모두 사라집니다.",
+   "지진 동안 적은 계속 기절하고, 헬다이버는 느려지기만 합니다.",
+   "맵 전체가 아니라 무작위로 고른 헬다이버 한 명 주변에서 일어납니다. datamine 지진 기록 기준 범위는 75m이고, 가장자리까지 90m입니다."
+  ],
+  "detailEn": [
+   "It drains all your stamina when it starts.",
+   "Enemies stay stunned while it lasts, and Helldivers are only slowed.",
+   "It strikes around one random Helldiver, not the whole map. The datamine earthquake record reaches 75 m, with its edge at 90 m."
+  ],
+  "revision": 90350
  },
  {
   "id": "volcanic-activity",
@@ -208,7 +333,20 @@ export const conditions = [
   },
   "biomes": [
    "volcanic-jungle"
-  ]
+  ],
+  "detail": [
+   "바위 직격: 피해 50, 관통 8, 철거력 10.",
+   "폭발: 중심 1m까지 피해 700, 7.5m까지 점점 줄어들고, 충격파는 15m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
+   "떨어질 자리가 낮에는 붉게, 밤에는 떨어지기 직전까지 하얗게 표시됩니다. 떨어진 자리에는 불이 남습니다.",
+   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
+  ],
+  "detailEn": [
+   "Direct hit: 50 damage, penetration 8, demolition force 10.",
+   "Explosion: 700 damage out to 1 m, falling off to 7.5 m, with a shockwave out to 15 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
+   "Impact spots show red by day and white at night until just before impact. Patches of fire stay where rocks land.",
+   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
+  ],
+  "revision": 90351
  }
 ];
 export const gloomLevels = [

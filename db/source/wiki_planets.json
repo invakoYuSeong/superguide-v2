@@ -797,5 +797,199 @@
    "timestamp": "2026-04-26T13:30:12Z",
    "text": "{{Infobox Hazard\n| title=Volcano Plant\n| image=Volcano Plant.png\n| description=Emits flammable gas.  If shot, the gas it emits bursts into flames.\n| type=Flora\n| locations= [[Biomes#Swamp Biomes|Swamp Biomes]]}}\n'''{{PAGENAME}}''', is a unique feature of [[Biomes#Swamp Biomes|Swamp Biomes]]. It is considered an [[Environmental Hazards|Environmental Hazard]].\n\n== Effect ==\nThe Volcano Plant emits flammable gas. Should the plant be shot, the gas will ignite into intense flames, shooting out the top of the Volcano Plant.\n\n== Detailed Statistics ==\n<div class=\"flextablediv\">\n{{Attack_Data/attack|explosion|GasChimney}}\n</div>\n\n== Locations ==\n'''Volcano Plants''' can be found on [[Biomes#Swamp Biomes|Swamp Biomes]].\n<gallery heights=\"200\">\nVolcano Plant.png|Volcano Plant before being shot\nVolcano Active.png|Volcano Plant after being shot.\n</gallery>\n\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.400|changes=\nChanges\n* The acid effect applied by Bug Mines and other Terminids now allows you to sprint while under the effect.\n* Acid now slows you by 30% instead of 50%.\n* Acid duration increased from 3 seconds to 4 seconds.\n}}\n\n[[Category:Flora]]\n[[Category:Environmental Hazards]]\n\n{{Nav Mechanic}}"
   }
+ },
+ "conditionPages": {
+  "Thick Fog": {
+   "revision": 130624,
+   "timestamp": "2026-08-19T16:57:21Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|Thick Fog}}\n\n== Details ==\n* Reduces visibility to around 50 meters. Enemy [[Stealth#Enemy Behavior|detection]] reduced from 50 to 30 meters\n\n== Affected Biomes ==\n* [[Deadlands]]\n* [[Haunted Swamp]]\n\n== Gallery==\n\n<gallery heights=\"220\" widths=\"200\" mode=\"packed\" class=\"responsive-image\">\nPenta_City_Planetside_2.png| Image of a colony on [[Penta]] during Thick Fog\n</gallery>\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Rainstorms": {
+   "revision": 135713,
+   "timestamp": "2026-09-17T21:49:01Z",
+   "text": "{{Stub|Add more details.}}\n{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|{{PAGENAME}}}}\n\n== Details ==\n* Reduces visibility to varying degrees, depending on cloud density. Average 35m, can go as low as 25m.\n\n== Affected Biomes ==\n*[[Plains]]\n*[[Basic Swamp]]\n*[[Volcanic Jungle]]\n*[[Super Earth Metropolis]]\n\n== Gallery ==\n<gallery></gallery>\n\n==Change History==\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Intense Heat": {
+   "revision": 119909,
+   "timestamp": "2026-05-07T21:52:05Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Quote|High temperatures increase stamina drain and speed up heat buildup in weapons.|Galactic War Map}}\n\n{{Environmental Conditions|Intense Heat}}\n\n== Effects ==\nIntense Heat is applied depending on the time of day and weather conditions. Planets with [[Fire Tornados]] will activate the Intense Heat modifier only for the duration of the Fire Tornado storm. \n* Maximum stamina is halved. This means it takes half as long for a Helldiver to become winded from constant sprinting, but it also means they regain their maximum stamina in half the usual time (because the rate of stamina regen is unaffected).\n* Heat-based weapons lose heat slowly, contrary to the in-game description of increasing build-up. This means that once overheated, it takes longer for the weapon to cool down, usually by a factor of 33% relative to it's normal cooldown duration.<ref>[https://youtu.be/okeILhqZc4o Helldivers 2 - Laser Cooldowns Tested on Hot vs Cold Planets]</ref>\n\n== Affected Biomes ==\n*[[Desert Dunes]]\n*[[Desert Cliffs]]\n*[[Scorched Moor]]\n*[[Magma Desert]]\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.100|changes=\nChanges\n* The Intense Heat modifier is no longer static throughout the entire mission, and may now change based on time of day or different weather conditions.\n* Some desert planets will now only have the Intense Heat modifier active during the day. This means that during night the planet will either have no modifier, or in some cases have the Extreme Cold modifier.\n* [[Scorched Moor|Arid planets]] (similar to the [[Hellmire]] planet) will now only have the Intense Heat modifier active during [[Fire Tornados|fire tornado]] storms.\n}}\n\n== References ==\n<references />\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Sandstorms": {
+   "revision": 90346,
+   "timestamp": "2025-11-07T20:22:58Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|Sandstorms}}\n== Details ==\n* Reduces visibility\n** Things past 5m are more difficult to see\n** Things past 25m are not visible\n*[[Stealth#Enemy Behavior|Detection]]-ranges of enemies and Stratagem targeting-range are also reduced approximately by ~60-percent (E.G. [[AX/LAS-5 \"Guard Dog\" Rover]] targeting range is reduced from 30-meters to 12-meters during the storm)\n*Lock-on ranges for guided weapons such as the [[FAF-14 Spear]] or [[P-92 Warrant]] are unaffected by weather conditions.\n* Slows down Helldivers, both normal walking and sprinting. Does not affect sprint duration.\n* Functionally identical with [[Blizzards]]\n\n== Affected Biomes ==\n* [[Desert Dunes]]\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.002|changes=\nChanges\n* Sandstorms are now blocked by energy shields such as the [[SH-32 Shield Generator Pack|Shield Generator Pack]] and [[FX-12 Shield Generator Relay|Shield Generator Relay]].\n}}\n{{Change History Update|1.000.200|changes=\n* Added to the game.\n}}\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Extreme Cold": {
+   "revision": 116130,
+   "timestamp": "2026-04-26T09:09:56Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Quote|Icy temperatures reduce rate of fire and delay heat buildup in weapons.|Galactic War Map}}\n\n{{Environmental Conditions|Extreme Cold}}\n\n\n==Effects==\nExtreme Cold is applied depending on the time of day and weather conditions.  On certain planets, it's always active.\n\n* Rate of fire is reduced by about 10%.\n* Heat-based weapons lose heat faster, contrary to the in-game description stating that it delays heat buildup. This means that once overheated, it takes a shorter amount of time for the weapon to cool down, usually by a factor of 33% relative to its normal cooldown duration.<ref>[https://youtu.be/okeILhqZc4o Helldivers 2 - Laser Cooldowns Tested on Hot vs Cold Planets]</ref>\n\n== Affected Biomes ==\n*[[Boneyard]]\n*[[Icy Glaciers]]\n*[[Moon]]\n*[[Desert Dunes]]\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.100|changes=\nChanges\n* The Extreme Cold modifier is no longer static throughout the entire mission, and may now change based on time of day or different weather conditions.\n* [[Desert Dunes|Some desert planets]] may now have the Extreme Cold modifier at night.\n}}\n\n== References ==\n<references />\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Blizzards": {
+   "revision": 90433,
+   "timestamp": "2025-11-08T19:25:20Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|Blizzards}}\n\n== Details ==\n*Reduces visibility\n**Things past 5m are more difficult to see\n**Things past 25m are not visible\n*[[Stealth#Enemy Behavior|Detection]]-ranges of enemies and Stratagem targeting-range are also reduced approximately by ~60-percent (E.G. [[AX/LAS-5 \"Guard Dog\" Rover]] targeting range is reduced from 30-meters to 12-meters during the storm)\n*Lock-on ranges for guided weapons such as the [[FAF-14 Spear]] or [[P-92 Warrant]] are unaffected by weather conditions.\n*Slows down Helldivers, both normal walking and sprinting. Does not affect sprint duration.\n*Functionally identical with [[Sandstorms]]\n\n== Affected Biomes ==\n* [[Icy Glaciers]]\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.002|changes=\nChanges\n* Blizzards are now blocked by energy shields such as the [[SH-32 Shield Generator Pack|Shield Generator Pack]] and [[FX-12 Shield Generator Relay|Shield Generator Relay]].\n}}\n{{Change History Update|1.000.200|changes=\nAddition\n* Added to the game.\n}}\n\n[[Category:Environmental Conditions]]\n\n{{Nav Mechanic}}"
+  },
+  "Acid Storms": {
+   "revision": 107572,
+   "timestamp": "2026-03-20T23:14:51Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|{{PAGENAME}}}}\n\n==Details==\n*[[Helldiver|Helldivers]] and [[Enemies]] armor value reduced by 1.\n\n==Affected Biomes==\n* [[Acidic Badlands]]\n\n[[Category:Environmental Conditions]]\n\n{{Nav Mechanic}}"
+  },
+  "Tremors": {
+   "revision": 90350,
+   "timestamp": "2025-11-07T20:28:30Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{Environmental Conditions|Tremors}}\n\n== Details ==\n* Removes all of Stamina on start\n* Stuns creatures for the entire duration\n** Stunning effects only slow Helldivers\n* Tremors do not affect the entire map, and instead occur in a large area around a random player.\n\n== Affected Biomes ==\n* [[Desert Cliffs]]\n* [[Rocky Canyons]]\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.400|changes=\nChanges\n* Tremors have had their spawning tweaked to be slightly more random.\n* Tremors have had their epicenter size and effect range increased.\n}}\n{{Change History Update|1.000.300|changes=\nChanges\n* Added ambience to the Tremor planetary hazard to underline the severity so Helldivers can react accordingly.\n}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n}}\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Ion Storms": {
+   "revision": 90341,
+   "timestamp": "2025-11-07T20:16:12Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n\n{{Environmental Conditions|{{PAGENAME}}}}\n\n== Details ==\n\n* During an Ion Storm, no new Stratagems can be deployed (including [[Reinforce]]). The minimap is rendered into non-interactable state, hiding all information including nearby radar contacts, Helldiver positions and objective locations. The compass retains the normal functionality alongside already tagged waypoints and nearby undiscovered [[Minor Places of Interest|Minor Places Of Interest]].\n\n== Affected Biomes ==\n* [[Ionic Crimson]]\n* [[Ionic Jungle]]\n<!--\n*[[Alairt III]]\n*[[Atrama]]\n*[[Brink-2]]\n*[[Gemma]]\n*[[Genesis Prime]]\n*[[Kuper]]\n*[[Malevelon Creek]]\n*[[Merak]]\n*[[Minchir]]\n*[[Nabatea Secundus]]\n*[[New Haven]]\n*[[Peacock]]\n*[[Prosperity Falls]]\n*[[Seasse]]\n*[[Siemnot]]\n*[[Veld]]\n\n*[[Acrab XI]]\n*[[Charon Prime]]\n*[[Crimsica]]\n*[[Elysian Meadows]]\n*[[Enuliale]]\n*[[Fort Sanctuary]]\n*[[Freedom Peak]]\n*[[Gatria]]\n*[[Gunvald]]\n*[[Ingmar]]\n*[[Kharst]]\n*[[Liberty Ridge]]\n*[[Overgoe Prime]]\n*[[Providence]]\n*[[Stout]]\n*[[Ubanea]]\n*[[Valgaard]]\n*[[Valmox]]\n*[[Yed Prior]]\n-->\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.001.002|changes=\nFixes\n* Fixed issue where minimap would allow interactions during ion storms.\n}}\n{{Change History Update|1.000.400|changes=\nChanges\n* Added additional VFX for Ion Storms.\n}}\n{{Change History Update|1.000.300|changes=\nFixes\n* Fixed issue where ion storms incorrectly prevented the extraction beacon from deploying.\n}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n}}\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Fire Tornados": {
+   "revision": 133891,
+   "timestamp": "2026-09-04T01:35:11Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n{{DisambigMsg|the fire-based environmental condition|the Exostorm effect|Exostorm#Class_2{{!}}Class 2 Exostorms}}\n{{Quote|{{Environmental Conditions|{{PAGENAME}}}}|Galactic War Map}}\n\n'''Fire Tornados''' are an environmental condition that create occasional storms of Fire Tornados on [[Scorched Moor]] planets. which move slowly and (semi)randomly throughout the play area. An active Fire Tornado storm will activate the [[Intense Heat]] environmental condition for its duration, after which the condition will deactivate.\n\n== Overview ==\n[[File:ThreeFireTornadoesOnExtract.png|thumb|alt=Three Fire Tornados on extraction.|Three Fire Tornadoes on extract.]]\nWhen spawned, each Fire Tornado will move around the map similar to an enemy patrol, with slightly more randomization.  Wherever the Fire Tornado goes, it will leave an immolating (30-meters long, 10-meters wide) trail of flames with the immolation-lifetime of 30-seconds.  Contact with the Fire Tornado or it's flame trail will result in any living entity making contact to be lit on fire; structure-entities such as [[A/MLS-4X Rocket Sentry]] won't get immolated but will suffer and won't survive the base-fire-damage without health upgrade from [[Advanced Construction]]. Immolated [[Helldiver]]s can extinguish themselves by performing a dive.\n\nWhile Fire Tornadoes are active on the map, the [[Intense Heat]] environmental condition will be active as well.\n\nWhile most certainly very deadly and destructive to Helldivers and their stratagems, the Fire Tornado itself lacks demolition force, leaving structures in their pristine conditions (E.G. fences).\n\n=== Dealing with Fire Tornadoes ===\n* Fire Tornadoes can go anywhere an enemy NOT chasing after a [[Helldiver]] can walk. Climbing on a rocky cliff should keep a player safe from said tornadoes.\n** This can best be seen within [[Cities]].  As patrols tend to stick to the roads, so will the Fire Tornadoes.  Helldivers will find themselves to be safe on the buildings.\n* Should a Helldiver be unable to avoid the trail of flames, they should quickly dive to extinguish themselves.\n\n== Trivia ==\n* The name for the in-game effect uses ''Tornados'', the less common plural spelling of Tornado. This spelling originates from Spanish and has always been less popular than ''Tornadoes''.\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.003.002|changes=\nUndocumented fix\n* Fixed the displacement issue of the Fire Tornados trails. The trails are now once more properly anchored to tornados itself rather than being invisible and immolating unsuspecting victims located other side of the map while the visually observed trails were only a visual nuisance.\n}}\n{{Change History Update|1.001.201|changes=\nChanges\n* Light intensity slightly reduced during the Fire Tornado weather effect.\n}}\n{{Change History Update|1.001.100|changes=\nChanges\n* Arid planets (similar to the Hellmire planet) will now only have the [[Intense Heat]] modifier active during fire tornado storms.\n}}\n{{Change History Update|1.000.400|changes=\nChanges\n* Fire tornados have had their behavior changed, they should no longer feel like they actively respond to player movement, and should move more randomly.\n* While a fire tornado storm takes place, enemy vision is reduced. Player vision is unaffected.\n}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n}}\n\n[[Category:Environmental Conditions]]\n\n{{Nav Mechanic}}"
+  },
+  "Meteor Storms": {
+   "revision": 90432,
+   "timestamp": "2025-11-08T19:24:49Z",
+   "text": "{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n\n{{Environmental Conditions|{{PAGENAME}}}}\n\n== Details ==\n=== Attack Data===\n<div class=\"flextablediv\">\n{{Attack_Data/attack|projectile|World_Meteor}}\n{{Attack_Data/attack|explosion|World_Meteor}}\n</div>\n\n== Tactical Information ==\n* Impact zones can be seen with a blue light on the ground\n* Helldivers caught in a Meteor will die, even with the [[SH-32 Shield Generator Pack]] equipped\n* The haphazard nature of Meteor Storm while deadly to Helldivers has the possible perk of significantly hastening the progress of the mission by destroying objectives hundreds of meters away from the current location of the Helldivers due to being a map-wide event rather than being a radius tied to a Helldiver.\n\n== Affected Biomes ==\n*[[Moon]]\n*[[Tien Kwan]] - This is the only non-moon planet with this environmental hazard.\n\n== Gallery ==\n<gallery>\nFile:Meteor Storm Sky.png|Falling meteorites\nFile:Meteor Storm Iminent Impact Zones.png|Multiple highlighted imminent impact zones\nFile:Meteor Storm Imminent Impact Zones Close Up.png|Closer look on an imminent impact zone\nFile:Meteorite After Extraction.png|An image having captured a falling meteorite as Pelican 1 enters the planetary atmosphere\n</gallery>\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n* Reduced meteor explosion radius.\n* Reduced meteor damage slightly.\n* Reduced meteor velocity slightly.\n* Meteor color has been changed slightly to try and make it easier to spot.\n}}\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  },
+  "Volcanic Activity": {
+   "revision": 90351,
+   "timestamp": "2025-11-07T20:29:01Z",
+   "text": "{{Stub|Get Images!}}\n{{Breadcrumb Auto|parent=Environmental Conditions|overview=Conditions}}\n\n{{Environmental Conditions|{{PAGENAME}}}}\n\n== Details ==\n===Attack Data===\n<div class=\"flextablediv\">\n{{Attack_Data/attack|projectile|World_VolcanoStrike}}\n{{Attack_Data/attack|explosion|World_VolcanoStrike}}\n</div>\n\n== Tactical Information ==\n* Impact zones on the ground can be seen with a red-hue during daytime and during night the impact zones are white-hued until a moment before the impact.\n* On impact, the burning rocks leave behind patches of fire.\n* The haphazard nature of Volcanic Activity while deadly to Helldivers has the possible perk of significantly hastening the progress of the mission by destroying objectives hundreds of meters away from the current location of the Helldivers due to being a map-wide event rather than being a radius tied to a Helldiver.\n\n== Affected Biomes ==\n* [[Volcanic Jungle]]\n\n== Gallery ==\n<gallery>\nFile:Volcanic Activity Falling Burning Rock.png|A burning rock seem falling in the distance\nFile:Volcanic Activity Falling Burning Rock Closer Towards.png|A burning rock falling trhough a cloud of smoke towards the observer\n</gallery>\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.103|changes=\nChanges\n* Now spawns less frequently during missions.\n* Reduced rock explosion radius\n* Reduced rock velocity slightly\n}}\n\n[[Category:Environmental Conditions]]\n{{Nav Mechanic}}"
+  }
+ },
+ "conditionAttacks": {
+  "source": "Module:Decodedata-Attacks/enemydata.json",
+  "revision": 73882,
+  "timestamp": "2025-06-21T18:59:09Z",
+  "records": {
+   "Meteor Storms": {
+    "explosion": {
+     "r1": 1.25,
+     "r2": 8.5,
+     "r3": 23,
+     "crater": "Large",
+     "name": "World Meteor",
+     "damageid": "Explosion_Projectile_WorldMeteor"
+    },
+    "explosionDamage": {
+     "dmg": 700,
+     "dmg2": 700,
+     "ap1": 6,
+     "ap2": 0,
+     "ap3": 0,
+     "ap4": 0,
+     "demo": 50,
+     "stun": 70,
+     "push": 60,
+     "name": "Explosion World Meteor"
+    },
+    "projectile": {
+     "caliber": 406,
+     "pellets": 1,
+     "velocity": 65,
+     "mass": 15000,
+     "drag": 0,
+     "gravity": 0,
+     "lifetime": 0,
+     "liferandom": 0,
+     "penslow": 0.25,
+     "xangle": 80,
+     "xproximity": 0,
+     "xdelay": 0,
+     "name": "World Meteor",
+     "ximpactid": "World_Meteor",
+     "damageid": "Projectile_World_Meteor"
+    },
+    "damage": {
+     "dmg": 800,
+     "dmg2": 800,
+     "ap1": 8,
+     "ap2": 7,
+     "ap3": 6,
+     "ap4": 0,
+     "demo": 50,
+     "stun": 35,
+     "push": 25,
+     "name": "World Meteor"
+    }
+   },
+   "Volcanic Activity": {
+    "explosion": {
+     "r1": 1,
+     "r2": 7.5,
+     "r3": 15,
+     "crater": "Medium",
+     "name": "World Volcano Strike",
+     "damageid": "Explosion_Projectile_WorldMeteor"
+    },
+    "explosionDamage": {
+     "dmg": 700,
+     "dmg2": 700,
+     "ap1": 6,
+     "ap2": 0,
+     "ap3": 0,
+     "ap4": 0,
+     "demo": 50,
+     "stun": 70,
+     "push": 60,
+     "name": "Explosion World Meteor"
+    },
+    "projectile": {
+     "caliber": 406,
+     "pellets": 1,
+     "velocity": 50,
+     "mass": 15000,
+     "drag": 0,
+     "gravity": 0,
+     "lifetime": 0,
+     "liferandom": 0,
+     "penslow": 0.25,
+     "xangle": 80,
+     "xproximity": 0,
+     "xdelay": 0,
+     "name": "World Volcano Strike",
+     "ximpactid": "World_VolcanoStrike",
+     "damageid": "Projectile_World_VolcanoStrike"
+    },
+    "damage": {
+     "dmg": 50,
+     "dmg2": 50,
+     "ap1": 8,
+     "ap2": 7,
+     "ap3": 6,
+     "ap4": 0,
+     "demo": 10,
+     "stun": 30,
+     "push": 20,
+     "name": "World Volcano Strike"
+    }
+   },
+   "Tremors": {
+    "explosion": {
+     "r1": 75,
+     "r2": 85,
+     "r3": 90,
+     "name": "World Earthquake",
+     "damageid": "Explosion_Earthquake"
+    },
+    "explosionDamage": {
+     "dmg": 0,
+     "dmg2": 0,
+     "ap1": 6,
+     "ap2": 0,
+     "ap3": 0,
+     "ap4": 0,
+     "demo": 0,
+     "stun": 10,
+     "push": 40,
+     "param1": 50,
+     "name": "Explosion Earthquake",
+     "status_name": "Tremor"
+    }
+   }
+  }
  }
 }

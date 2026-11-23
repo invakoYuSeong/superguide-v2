@@ -49,6 +49,7 @@ function effectCard(item) {
       ${item.description ? html`<p class="info-desc">${text(item.description, item.descriptionEn)}</p>` : ''}
       ${item.where === 'metropolis' ? html`<p class="info-detail">${L('도시(메트로폴리스) 지역에서만 나옵니다.', 'Only in Metropolis areas.')}</p>` : ''}
       ${(lang === 'en' ? item.detailEn : item.detail)?.map(line => html`<p class="info-detail">${line}</p>`) ?? ''}
+      ${item.tips ? html`<p class="info-tips-label">${L('실전 팁', 'Field tips')}</p>${(lang === 'en' ? item.tipsEn : item.tips).map(line => html`<p class="info-detail">${line}</p>`)}` : ''}
       ${item.biomes?.length ? html`<p class="armor-source">${L('나오는 생물군계', 'Biomes')}: ${item.biomes.map((id, i) => html`${i ? ' · ' : ''}<a href="#/planets?tab=biomes&b=${id}">${biomeById.get(id) ? title(biomeById.get(id)) : id}</a>`)}</p>` : ''}
       <p class="armor-source">${external(item.wiki, L('위키', 'Wiki'))}</p>
     </div>
@@ -56,7 +57,7 @@ function effectCard(item) {
 }
 
 function conditionsTab() {
-  return html`<p class="lede-note">${L('행성마다 붙는 날씨·지형 효과입니다. 같은 생물군계라도 행성에 따라 다를 수 있습니다.', 'Weather and terrain effects attached to each planet. Planets of the same biome can differ.')}</p>
+  return html`<p class="lede-note">${L('행성마다 붙는 날씨·지형 효과입니다. 같은 생물군계라도 행성에 따라 다를 수 있습니다. 폭풍·지진·유성처럼 잠깐씩 일어났다 멎는 효과는 임무를 시작하고 최소 5분이 지나야 처음 일어나고, 끝난 뒤에는 5분마다 다시 일어납니다.', 'Weather and terrain effects attached to each planet. Planets of the same biome can differ. Effects that come and go, such as storms, tremors and meteors, first strike at least 5 minutes into the mission and return every 5 minutes after each one ends.')}</p>
     <ul class="info-list">${conditions.map(effectCard)}</ul>
     <h2 class="planet-sub">${L('환경 위험 요소', 'Environmental hazards')}</h2>
     <p class="lede-note">${L('지형에 놓인 지뢰, 식물, 용암 같은 위험 요소입니다. 생물군계나 그 지역을 차지한 적에 따라 나옵니다.', 'Mines, plants, lava and other hazards in the terrain. Which ones appear depends on the biome or the enemy holding the area.')}</p>

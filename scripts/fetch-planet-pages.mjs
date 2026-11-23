@@ -42,6 +42,27 @@ const out = {
 const HAZARD_PAGES = ['Automaton Mine', 'Barbed Wire', 'Bug Mine', 'Cars', 'Exploding Barrels', 'Ice Plant', 'Lava', 'Lava Geyser', 'Lava Pits', 'Moor Mushroom', 'Shrub', 'Spike Plant', 'Volcano Plant'];
 await sleep(2000);
 out.hazardPages = await pages(HAZARD_PAGES);
+// Each environmental condition's own page (its Details numbers), 2026-11-23.
+const CONDITION_PAGES = ['Acid Storms', 'Blizzards', 'Extreme Cold', 'Fire Tornados', 'Intense Heat', 'Ion Storms', 'Meteor Storms', 'Rainstorms', 'Sandstorms', 'Thick Fog', 'Tremors', 'Volcanic Activity'];
+await sleep(2000);
+out.conditionPages = await pages(CONDITION_PAGES);
+// The datamine records the Meteor Storms and Volcanic Activity pages show in their Attack Data boxes,
+// and the World Earthquake explosion (the tremor's reach).
+await sleep(2000);
+const ENEMY_DATA = 'Module:Decodedata-Attacks/enemydata.json';
+const enemyData = (await pages([ENEMY_DATA]))[ENEMY_DATA];
+const attacks = JSON.parse(enemyData.text);
+const attackOf = (projectile, explosion) => {
+  const record = { explosion: attacks.explosion[explosion] };
+  record.explosionDamage = attacks.damage[record.explosion.damageid];
+  if (projectile) Object.assign(record, { projectile: attacks.projectile[projectile], damage: attacks.damage[attacks.projectile[projectile].damageid] });
+  if (Object.values(record).some(value => !value)) throw new Error(`${ENEMY_DATA}: ${projectile ?? explosion} record missing`);
+  return record;
+};
+out.conditionAttacks = {
+  source: ENEMY_DATA, revision: enemyData.revision, timestamp: enemyData.timestamp,
+  records: { 'Meteor Storms': attackOf('World_Meteor', 'World_Meteor'), 'Volcanic Activity': attackOf('World_VolcanoStrike', 'World_VolcanoStrike'), Tremors: attackOf(null, 'World_Earthquake') },
+};
 // Biome pages named in the Biomes page's {{BiomeBox|...}} lists (the city megastructures are regions, not biomes).
 const titles = [...main.Biomes.text.matchAll(/\{\{BiomeBox\|([^}]+)\}\}/g)].flatMap(match => match[1].split('|').map(title => title.trim()))
   .filter(title => !['Metropolis', 'Automaton Megafactory', 'Colonies'].includes(title));

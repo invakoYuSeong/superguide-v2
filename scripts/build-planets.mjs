@@ -32,9 +32,13 @@ const entry = (item, extra = {}) => ({
 
 // The wiki's original icon of an entry, when fetch-planet-pages stored one for its id.
 const iconOf = id => wiki.icons[id] ? { src: `./assets/conditions/${wiki.icons[id].file}`, source: wiki.icons[id].source, sha256: wiki.icons[id].sha256 } : null;
+// Detail lines summarize the condition's own wiki page (and its datamine attack record); tips are
+// player experience the wiki lacks, shown apart as field tips.
 const conditions = text.conditions.map(item => entry(item, {
   icon: iconOf(item.id),
   biomes: biomesWith(item.page),
+  ...(item.detail && { detail: item.detail.ko, detailEn: item.detail.en, revision: wiki.conditionPages?.[item.page]?.revision ?? null }),
+  ...(item.tips && { tips: item.tips.ko, tipsEn: item.tips.en }),
 }));
 const gloom = text.gloom.map(item => entry(item));
 // Exostorm classes, Heavy SEAF Presence and the Democracy Space Station: game name and description, plus the wiki page's facts.
