@@ -48,7 +48,7 @@ await sleep(2000);
 out.conditionPages = await pages(CONDITION_PAGES);
 // Operation modifier pages whose Details the planet tab summarizes, 2026-11-23.
 await sleep(2000);
-out.modifierPages = await pages(['Orbital Fluctuations', 'Poor Intel']);
+out.modifierPages = await pages(['Orbital Fluctuations', 'Poor Intel', 'Atmospheric Spores']);
 // The datamine records the Meteor Storms and Volcanic Activity pages show in their Attack Data boxes.
 await sleep(2000);
 const ENEMY_DATA = 'Module:Decodedata-Attacks/enemydata.json';

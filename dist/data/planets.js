@@ -654,7 +654,16 @@ export const operationModifiers = [
   "descriptionEn": "Map obscured by Bug Spores.",
   "wiki": "https://helldivers.wiki.gg/wiki/Atmospheric_Spores",
   "faction": "terminid",
-  "where": null
+  "where": null,
+  "detail": [
+   "미니맵에 테르미니드 위치가 표시되지 않고, 지형도 알아보기 어렵습니다.",
+   "둥지 같은 전초기지도 미니맵에 나타나지 않아 상황을 알 수 없습니다. 부순 뒤에도 표시되지 않습니다."
+  ],
+  "detailEn": [
+   "Terminid blips do not show on the minimap, and the terrain is hard to make out.",
+   "Bug Nests and other outposts do not appear on the minimap either, so you cannot tell their state. They stay unmarked even after you destroy them."
+  ],
+  "revision": 138505
  },
  {
   "id": "roving-shriekers",
