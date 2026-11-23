@@ -280,4 +280,5 @@ export default {
   "보조무기로 장갑이 두꺼운 봇을 맡습니다. 미사일 권총은 관통 5, 볼트 피스톨은 관통 4입니다.": "A sidearm for heavily armored bots. The Missile Pistol has AP 5, the Bolt Pistol AP 4.",
   "던지면 적을 따라가 터지는 관통 5 투척 무기로, 대형 봇을 압박합니다.": "A throwable that homes in on an enemy and bursts with AP 5, to pressure the big bots.",
   "자리를 잡고 탱크와 워 스트라이더 같은 대형 봇을 연달아 처리합니다.": "Set it up to take down tanks, War Striders and other big bots one after another.",
+  "주무기로 벌레굴을 닫을 수 있는 폭발형 무기입니다. 굴 안에 쏴 넣어 터뜨리면 닫히고, 이럽터는 관통 4라 장갑이 두꺼운 적에게도 통합니다.": "Explosive primaries that can close bug holes: fire one into the hole so it bursts inside. The Eruptor, with AP 4, also gets through heavier armor.",
 };
