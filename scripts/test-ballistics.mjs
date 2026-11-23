@@ -55,6 +55,16 @@ for (const expanded of [false, true]) {
   checks++;
 }
 
+// Short-lived projectiles ending on an odd metre keep their final point on chart curves.
+for (const oddRecord of ['P-33_P', 'RL-77_P1']) {
+  const expectedLastX = trajectory(projectileBallistics[oddRecord]).points.at(-1).x;
+  const chartHtml = String(ballisticsBlock([{ record: oddRecord }], true));
+  const chartLastXs = [...chartHtml.matchAll(/data-points="([^"]+)"/g)]
+    .map(([, points]) => Number(points.split(';').at(-1).split(',')[0]));
+  assert.deepEqual(chartLastXs, [expectedLastX, expectedLastX], `${oddRecord}: chart reaches ${expectedLastX}m`);
+  checks++;
+}
+
 // Engine: falloff on the projectile's own hit only, and only with a distance.
 const part = { armor: 0, durability: 0, exdr: 0, hp: 1000, toMain: 0 };
 const shot = { standard: 90, durable: 22, ap: 2, explosion: 100, explosionDurable: 100, explosionAp: 2, innerRadius: 1, radius: 2, record: 'AR-23_P' };

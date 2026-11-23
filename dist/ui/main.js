@@ -92,9 +92,8 @@ function collapseExpandedSheet(event) {
 }
 sheet.addEventListener('cancel', collapseExpandedSheet);
 sheet.addEventListener('click', event => {
-  if (event.target === sheet || event.target.closest('[data-close]')) {
-    if (!collapseExpandedSheet(event)) sheet.close();
-  }
+  if (event.target.closest('[data-close]')) sheet.close();
+  else if (event.target === sheet && !collapseExpandedSheet(event)) sheet.close();
 });
 
 // --- Toast -----------------------------------------------------------------------

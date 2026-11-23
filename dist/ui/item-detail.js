@@ -106,6 +106,7 @@ export function openItemSheet(ctx, state, content, { label, keepScroll = false }
       }
       state.detail = null;
       state.variant = '';
+      state.expanded = false;
       state.panelSnapshot = null;
       const { view, query } = ctx.route;
       ctx.replace({ view, query: { ...query, m: '', full: '' } });
@@ -124,7 +125,7 @@ export function selectItemVariant(state, variant) {
   for (const panel of $$('[data-variant-panel]', sheet)) panel.hidden = panel.dataset.variantPanel !== selected;
 }
 
-export function updateItemDetail(ctx, state, route, id, variants, openDetail) {
+export function updateItemDetail(ctx, state, route, id, variants, openDetail, { refresh = false } = {}) {
   if (!id) {
     if (!state.detail) return;
     Object.assign(state, { detail: null, variant: '', expanded: false, panelSnapshot: null });
@@ -135,13 +136,8 @@ export function updateItemDetail(ctx, state, route, id, variants, openDetail) {
   const expanded = route.query.full === '1';
   const changedSize = sameItem && state.expanded !== expanded;
   const requested = route.query.m || '';
-  const requestedVariant = variants?.some(mode => mode.id === requested) ? requested : '';
-  const variant = changedSize && !expanded ? state.variant : requestedVariant;
+  const variant = variants?.some(mode => mode.id === requested) ? requested : '';
   state.expanded = expanded;
-  if (changedSize && !expanded && variant !== requested) {
-    // The previous history entry still has the mode selected before expansion.
-    ctx.replace({ ...route, query: { ...route.query, m: variant } });
-  }
   if (!sameItem || !$('#sheet').open) {
     Object.assign(state, { detail: id, variant, panelSnapshot: null });
     openDetail(id);
@@ -154,6 +150,11 @@ export function updateItemDetail(ctx, state, route, id, variants, openDetail) {
     openDetail(id, true);
     if (!expanded && state.panelSnapshot) restorePanel(body, state.panelSnapshot);
     else body.scrollTop = 0;
+    return;
+  }
+  if (refresh) {
+    state.variant = variant;
+    openDetail(id, true);
     return;
   }
   if (state.variant !== variant) selectItemVariant(state, variant);

@@ -705,6 +705,7 @@ let sheetListener = false;
 
 export function update(route) {
   const q = route.query;
+  const prevMod = state.mod;
   Object.assign(state, {
     c: categories.some(cat => cat.id === q.c) ? q.c : '',
     ap: AP_FILTERS.some(band => band.id === q.ap) ? q.ap : '',
@@ -713,11 +714,13 @@ export function update(route) {
     mod: q.mod !== 'off',
   });
   // A category and type that cannot meet (from a link) drop the type, as a click would.
-  if (state.c && state.p && !stratagems.some(item => item.category === state.c && permitOf(item) === state.p)) { state.p = ''; syncUrl(); }
+  const conflict = state.c && state.p && !stratagems.some(item => item.category === state.c && permitOf(item) === state.p);
+  if (conflict) state.p = '';
   setModulesOn(state.mod);
   $('#arsenal-q', root).value = state.q;
   $('#arsenal-sort', root).value = state.sort;
   renderList();
   const id = stratagemById.has(route.id) ? route.id : null;
-  updateItemDetail(ctx, state, route, id, stratagemById.get(id)?.variants, openDetail);
+  updateItemDetail(ctx, state, route, id, stratagemById.get(id)?.variants, openDetail, { refresh: prevMod !== state.mod });
+  if (conflict) syncUrl();
 }

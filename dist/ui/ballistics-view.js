@@ -33,7 +33,7 @@ function computeFlight(recordId, propelled) {
   for (let i = 0; i < points.length; i++) {
     const p = points[i];
     if (p.drop > maxDrop) maxDrop = p.drop;
-    if (p.x % 2 === 0) {
+    if (p.x % 2 === 0 || i === points.length - 1) {
       damage.push({ x: p.x, y: falloffAt(b, p.x) * 100 });
       drop.push({ x: p.x, y: p.drop });
     }
