@@ -61,7 +61,7 @@ export function blastFigure(item) {
       <circle cx="66" cy="66" r="2.5" fill="var(--text)"/>
       <g class="blast-label" aria-hidden="true">
         <text class="blast-inner" x="62" y="59" text-anchor="end">${L('중심', 'Inner')} ${num(item.innerRadius)}m</text>
-        <text class="blast-outer" x="70" y="80">${L('외곽', 'Outer')} ${num(item.radius)}m</text>
+        <text class="blast-outer" x="${66 + outer - 2}" y="80" text-anchor="end">${L('외곽', 'Outer')} ${num(item.radius)}m</text>
       </g>
     </svg>
     <p>${L(html`${flat
