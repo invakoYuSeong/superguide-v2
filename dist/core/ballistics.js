@@ -31,7 +31,10 @@ export function distanceAt(b, share) {
 // Flight fired level from the muzzle, stepped in time: distance, drop below the line
 // of fire (m), speed and time at each whole metre up to `maxX`, or until the lifetime
 // runs out. Returns { points, endX } where endX is where a limited lifetime ends it.
+const TRAJECTORY_CACHE = new WeakMap();
+
 export function trajectory(b, maxX = 200) {
+  if (b && maxX === 200 && TRAJECTORY_CACHE.has(b)) return TRAJECTORY_CACHE.get(b);
   const points = [{ x: 0, drop: 0, speed: b.velocity, time: 0 }];
   if (!(b?.velocity > 0)) return { points, endX: 0 };
   const d = dragOf(b), g = GAME_GRAVITY * (b.gravity || 0), life = b.lifetime > 0 ? b.lifetime : Infinity;
@@ -44,5 +47,7 @@ export function trajectory(b, maxX = 200) {
     x += vx * dt; y += vy * dt; t += dt;
     while (x >= next && next <= maxX) { points.push({ x: next, drop: -y, speed: Math.hypot(vx, vy), time: t }); next++; }
   }
-  return { points, endX: t >= life ? x : null };
+  const result = { points, endX: t >= life ? x : null };
+  if (b && maxX === 200) TRAJECTORY_CACHE.set(b, result);
+  return result;
 }

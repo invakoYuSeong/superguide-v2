@@ -19,6 +19,7 @@ import { num, strongest } from '../../core/explain.js';
 import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
 import { ballisticsBlock } from '../ballistics-view.js';
+import { detailColumns, detailDisclosure, detailModeList, detailStatCell, bindItemSheetActions, FORCE_NOTE, itemDetailToggle, itemVariantPanel, openItemPanel, openItemSheet, updateItemDetail } from '../item-detail.js';
 import { warbondChip } from '../warbond-chip.js';
 import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
@@ -35,7 +36,7 @@ const SORTS = [
 ];
 
 let root, ctx;
-const state = { tab: 'browse', cat: 'primary', type: '', hand: false, hole: false, q: '', sort: '', detail: null, variant: '', pushedDetail: false };
+const state = { tab: 'browse', cat: 'primary', type: '', hand: false, hole: false, q: '', sort: '', detail: null, variant: '', expanded: false };
 // One-handed weapons (wiki infobox trait): fire while jogging or holding a shield or mission item.
 const oneHanded = w => (w.traitTags || []).includes('one-handed');
 // Bug holes, by the demolition data's thresholds: a hit of the outer force (40) closes one from outside,
@@ -50,11 +51,18 @@ const HOLE_CONDITIONS = {
   'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
   'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
 };
+const HOLE_TIER_CACHE = new Map();
 export const holeTier = w => {
-  if (HOLE_CONDITIONS[w.id]) return 'conditional';
-  const records = [w, ...(w.variants || [])];
-  if (records.some(r => Math.max(r.demolition ?? 0, r.splashDemolition ?? 0) >= HOLE_OUTER)) return 'outer';
-  return records.some(r => (r.splashDemolition ?? 0) >= HOLE_INNER) ? 'inner' : null;
+  if (HOLE_TIER_CACHE.has(w.id)) return HOLE_TIER_CACHE.get(w.id);
+  let tier = null;
+  if (HOLE_CONDITIONS[w.id]) tier = 'conditional';
+  else {
+    const records = [w, ...(w.variants || [])];
+    if (records.some(r => Math.max(r.demolition ?? 0, r.splashDemolition ?? 0) >= HOLE_OUTER)) tier = 'outer';
+    else if (records.some(r => (r.splashDemolition ?? 0) >= HOLE_INNER)) tier = 'inner';
+  }
+  HOLE_TIER_CACHE.set(w.id, tier);
+  return tier;
 };
 const HOLE = {
   outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 벌레굴이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
@@ -156,26 +164,33 @@ function visibleItems() {
 
 function syncUrl() {
   const query = state.tab === 'loadout' ? { tab: 'loadout', ...loadoutQuery() } : state.tab === 'armor' ? { tab: 'armor', w: armor.weight, p: armor.passive, a: armor.focus, d: armor.detail, q: armor.q } : state.tab === 'boosters' ? { tab: 'boosters', b: booster.focus } : state.tab === 'modules' ? { tab: 'modules', u: shipModule.focus } : { cat: state.cat === 'primary' ? '' : state.cat, type: state.type, h: state.hand ? '1' : '', bh: state.hole ? '1' : '', q: state.q, sort: state.sort };
-  ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '' } });
+  ctx.replace({ view: 'gear', id: state.detail, query: { ...query, m: state.detail ? state.variant : '', full: state.expanded ? '1' : '' } });
 }
 
 function renderBrowse() {
   const items = visibleItems();
   for (const button of $$('[data-cat]', root)) button.setAttribute('aria-pressed', String(!state.q && button.dataset.cat === state.cat));
   const types = typesOf(state.cat);
-  // The one-handed filter only where it narrows the list (every secondary is one-handed, no throwable is).
-  // Type and one-handed chips count within each other's choice, like the stratagem filters; a chip
-  // with nothing to show is dimmed, and picking it lets the other choice go.
+  // Count each type, one-handed, and bug-hole chip in a single pass over the active group.
   const inCat = personalWeapons.filter(w => w.category === state.cat);
-  const showHand = inCat.some(oneHanded) && !inCat.every(oneHanded);
-  // The bug hole filter likewise only where some but not all of the group close holes.
-  const showHole = inCat.some(holeTier) && !inCat.every(holeTier);
-  const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w)) && (!state.hole || holeTier(w))).length;
-  const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type) && (!state.hole || holeTier(w))).length;
-  const holeCount = inCat.filter(w => holeTier(w) && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w))).length;
+  let showHandAll = true, hasHand = false, showHoleAll = true, hasHole = false;
+  let handCount = 0, holeCount = 0;
+  const typeCounts = new Map();
+  for (const w of inCat) {
+    const isHand = oneHanded(w);
+    const isHole = Boolean(holeTier(w));
+    if (isHand) hasHand = true; else showHandAll = false;
+    if (isHole) hasHole = true; else showHoleAll = false;
+    if ((!state.hand || isHand) && (!state.hole || isHole)) typeCounts.set(w.type, (typeCounts.get(w.type) || 0) + 1);
+    if ((!state.type || w.type === state.type) && (!state.hole || isHole) && isHand) handCount++;
+    if ((!state.type || w.type === state.type) && (!state.hand || isHand) && isHole) holeCount++;
+  }
+  const showHand = hasHand && !showHandAll;
+  const showHole = hasHole && !showHoleAll;
+  const typeCount = type => typeCounts.get(type) || 0;
   render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
-  const total = personalWeapons.filter(w => w.category === state.cat).length;
+  const total = inCat.length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
   render($('#gear-grid', root), items.length ? items.map(card) : html`<div class="empty" style="grid-column:1/-1"><h3>${L('맞는 장비가 없습니다', 'No matching gear')}</h3><p>${L('검색어를 줄이거나 분류를 바꿔 보세요.', 'Try a shorter search or another group.')}</p></div>`);
 }
@@ -257,7 +272,7 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.icon ? html`<span class="ico-${row.icon}" aria-hidden="true"></span>` : ''}${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
+const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(stat => detailStatCell(stat, true))}</dl>`;
 
 // An underbarrel attachment has its own ammo, fire rate and reload; a mode the
 // shot calculator skips starts with no damage numbers of its own.
@@ -282,15 +297,16 @@ function modeView(w, m) {
   return { ...w, dot: null, ...(m.id === 'underbarrel' ? GUN_FIELDS : {}), ...own, ...extra };
 }
 
-// Modes the player switches between get tabs, like the stratagem modes in the arsenal.
-function modeTabs(w, modes, current) {
-  return html`<div class="variant-tabs"><h3>${L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map(m => html`<button type="button" data-variant="${m.id}" aria-pressed="${String(m === current)}">${m.name}</button>`)}</div></div>
-    ${modes.map(m => {
-      const v = modeView(w, m);
-      return html`<div class="variant-panel" data-variant-panel="${m.id}" ${m === current ? '' : raw('hidden')}>${v
-        ? html`${detailGrid(v)}${blastFigure(v)}${v.modeNotes?.length ? html`<ul class="notes">${v.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`
-        : html`<p class="variant-note">${m.unsupported}</p>`}</div>`;
-    })}`;
+function modeStats({ mode, stats }) {
+  if (!stats) return html`<p class="variant-note">${mode.unsupported}</p>`;
+  return html`${detailGrid(stats)}${blastFigure(stats)}
+    ${stats.modeNotes?.length ? html`<ul class="notes">${stats.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`;
+}
+
+// Modes the player switches between get tabs in the compact panel.
+function modeTabs(modes, current) {
+  return html`<div class="variant-tabs"><h3>${L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map(({ mode }) => html`<button type="button" data-variant="${mode.id}" aria-pressed="${String(mode === current)}">${mode.name}</button>`)}</div></div>
+    ${modes.map(entry => itemVariantPanel(entry.mode.id, current.id, modeStats(entry)))}`;
 }
 
 // Customization (primary weapons): every attachment per slot with its unlock level,
@@ -321,11 +337,40 @@ const EFFECTS = [
 ];
 export const attachmentEffects = effects => EFFECTS.filter(([key]) => effects[key] != null).map(([key, label, text]) => ({ key, label: label(), text: text(effects[key]) }));
 
-export function attachmentTable(w) {
+const estSlotHeight = items => items.reduce((sum, it) => {
+  const part = attachmentParts[it.part];
+  const effects = part.effects ? Object.keys(part.effects).length : 1;
+  const xpLines = it.level != null && !it.builtIn ? 2.2 : 1.2;
+  return sum + Math.max(xpLines, effects * 1.45) + 0.9;
+}, 2.6);
+
+function partitionAttachmentSlots(entries) {
+  let best = null;
+  for (let mask = 0; mask < (1 << (entries.length - 1)); mask++) {
+    const left = [entries[0]], right = [];
+    let hl = entries[0].height, hr = 0;
+    for (let i = 1; i < entries.length; i++) {
+      if ((mask >> (i - 1)) & 1) { left.push(entries[i]); hl += entries[i].height; }
+      else { right.push(entries[i]); hr += entries[i].height; }
+    }
+    if (!right.length) continue;
+    const diff = Math.abs(hl - hr);
+    if (!best || diff < best.diff) best = { cols: [left, right], diff };
+  }
+  return best.cols;
+}
+
+export function attachmentTable(w, expanded = false) {
   const list = w.category === 'primary' ? weaponAttachments[w.id] : null;
   if (!list?.length) return '';
   const unconfirmed = html`<span class="dim">${L('미확인', 'Unverified')}</span>`;
-  const slots = [...new Set(list.map(item => attachmentParts[item.part].slot))];
+  const slotMap = new Map();
+  for (const item of list) {
+    const slot = attachmentParts[item.part].slot;
+    let group = slotMap.get(slot);
+    if (!group) { group = []; slotMap.set(slot, group); }
+    group.push(item);
+  }
   const row = item => {
     const part = attachmentParts[item.part];
     const effects = part.effects ? attachmentEffects(part.effects) : null;
@@ -334,14 +379,42 @@ export function attachmentTable(w) {
       <td>${item.builtIn ? L('기본 장착', 'Built in') : item.cost != null ? num(item.cost) : unconfirmed}</td>
       <td>${effects == null ? unconfirmed : effects.length ? html`<ul class="attach-effects">${effects.map(e => html`<li>${e.label} <b>${e.text}</b></li>`)}</ul>` : html`<span class="faint">${L('변화 없음', 'No change')}</span>`}</td></tr>`;
   };
-  // Long lists (up to two dozen attachments), so the section starts folded.
-  return html`<details class="block gear-block gear-attach-block disclosure"><summary><h3>${L('커스터마이징', 'Customization')}</h3><span class="attach-count">${L(`부착물 ${list.length}개`, `${list.length} attachments`)}</span></summary>
-    <div class="compare-scroll" role="region" aria-label="${L('부착물', 'Attachments')}" tabindex="0"><table class="compare-table gear-modes gear-attach">
-      <thead><tr><th scope="col">${L('부착물', 'Attachment')}</th><th scope="col">${L('해금', 'Unlock')}</th><th scope="col">${L('비용', 'Cost')}</th><th scope="col">${L('변동 수치', 'Stat changes')}</th></tr></thead>
-      ${slots.map(slot => html`<tbody><tr class="attach-slot"><th scope="rowgroup" colspan="4">${slotName(slot)}</th></tr>${list.filter(item => attachmentParts[item.part].slot === slot).map(row)}</tbody>`)}
-    </table></div>
+  const tableHead = html`<thead><tr><th scope="col">${L('부착물', 'Attachment')}</th><th scope="col">${L('해금', 'Unlock')}</th><th scope="col">${L('비용', 'Cost')}</th><th scope="col">${L('변동 수치', 'Stat changes')}</th></tr></thead>`;
+  const bySlot = [...slotMap].map(([slot, items]) => ({ slot, items, height: estSlotHeight(items) }));
+  let bodyTable;
+  if (expanded) {
+    const slotCard = ({ slot, items }, wide = false) => html`<section class="attach-slot-card${wide ? ' is-wide' : ''}">
+      <header class="attach-slot-head"><h4>${slotName(slot)}</h4><span>${L(`${items.length}종`, `${items.length}`)}</span></header>
+      <div class="compare-scroll" role="region" aria-label="${slotName(slot)}" tabindex="0"><table class="compare-table gear-modes gear-attach">
+        ${tableHead}<tbody>${items.map(row)}</tbody>
+      </table></div>
+    </section>`;
+    if (bySlot.length === 1) {
+      bodyTable = slotCard(bySlot[0], true);
+    } else if (bySlot.length === 2) {
+      bodyTable = html`<div class="attach-slot-grid">${bySlot.map(entry => slotCard(entry))}</div>`;
+    } else if (bySlot.length === 3) {
+      const sorted = [...bySlot].sort((a, b) => b.height - a.height);
+      const top = bySlot.filter(entry => entry !== sorted[2]);
+      bodyTable = html`<div class="attach-slot-grid">${top.map(entry => slotCard(entry))}${slotCard(sorted[2], true)}</div>`;
+    } else {
+      const cols = partitionAttachmentSlots(bySlot);
+      bodyTable = html`<div class="attach-slot-grid">${cols.map(col => html`<div class="attach-slot-col">${col.map(entry => slotCard(entry))}</div>`)}</div>`;
+    }
+  } else {
+    bodyTable = html`<div class="compare-scroll" role="region" aria-label="${L('부착물', 'Attachments')}" tabindex="0"><table class="compare-table gear-modes gear-attach">
+      ${tableHead}
+      ${bySlot.map(({ slot, items }) => html`<tbody><tr class="attach-slot"><th scope="rowgroup" colspan="4">${slotName(slot)}</th></tr>${items.map(row)}</tbody>`)}
+    </table></div>`;
+  }
+  const content = html`${bodyTable}
     <p class="faint attach-note">${L('+/-와 %는 기본 상태 대비 변화, 탄창 용량과 탄창 수, 재장전 시간은 장착했을 때의 값입니다. 해금은 무기 레벨(누적 경험치는 그 레벨까지 필요한 무기 경험치로 모든 주무기가 같음), 비용은 요청 신청서 기준입니다. 한국어 이름을 확인하지 못한 부착물은 영어 이름으로 표시합니다.', 'Signed numbers and percentages are changes from the base weapon; capacity, magazine counts and reload times are the values with the attachment fitted. Unlock is the weapon level (the XP total to reach it is the same for every primary); cost is in Requisition Slips.')} ${external(`${w.source}#Attachments`, L('위키 부착물 표', 'Wiki attachments table'))}</p>
-  </details>`;
+  `;
+  return detailDisclosure(L('커스터마이징', 'Customization'), content, {
+    className: 'gear-block gear-attach-block',
+    expanded,
+    meta: html`<span class="attach-count">${L(`부착물 ${list.length}개`, `${list.length} attachments`)}</span>`,
+  });
 }
 
 // Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
@@ -363,25 +436,42 @@ function specialBlock(w) {
     <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
   return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
     <dl class="detail-grid">${rows.map(cell)}</dl>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.', 'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach the structure threshold in a single hit or blast; hits do not add up.')}</p>
+    <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>
   </section>`;
 }
 
-export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
+export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant, expandable = false, expanded = false } = {}) {
   const group = groupOf(w.category);
   const conflicts = w.infoboxConflicts || [];
   const image = weaponImages[w.id];
   const modes = personalProfiles[w.id]?.modes || [];
   const current = modes.find(m => m.id === variant) || modes[0];
+  const modeDetails = modes.length > 1 ? modes.map(mode => ({ mode, stats: modeView(w, mode) })) : [];
+  const special = specialBlock(w);
+  let stats;
+  if (modeDetails.length) {
+    const byMode = expanded
+      ? detailModeList(L('모드별 수치', 'Stats by mode'), modeDetails.map(entry => ({ name: entry.mode.name, content: modeStats(entry) })))
+      : modeTabs(modeDetails, current);
+    stats = html`${byMode}${special}`;
+  } else {
+    const base = html`<section class="block item-detail-key-stats"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>`;
+    const blast = blastFigure(w);
+    stats = expanded
+      ? html`${blast ? detailColumns(base, html`${blast}${special}`) : html`${base}${special}`}${variantTable(w)}`
+      : html`${base}${blast}${variantTable(w)}${special}`;
+  }
+  const ballistics = ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))], expanded);
+  const art = weaponArt(w, 'gear-art large');
+  const identity = html`<div class="detail-id gear-id${expandable ? ' item-detail-actions' : ''}"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
+      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div>
+      ${expandable ? itemDetailToggle(expanded) : ''}</div>`;
   return html`${header ?? html`<div class="sheet-top"><span>${group.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`}
   <div class="sheet-content">
-    ${weaponArt(w, 'gear-art large')}
-    <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
-      <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
-    ${modes.length > 1 ? modeTabs(w, modes, current) : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>${blastFigure(w)}${variantTable(w)}`}
-    ${specialBlock(w)}
-    ${ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))])}
-    ${attachmentTable(w)}
+    ${expanded ? html`<div class="item-detail-gear-head" data-group="${w.category}">${art}${identity}</div>` : html`${art}${identity}`}
+    ${stats}
+    ${ballistics}
+    ${attachmentTable(w, expanded)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || CONFLICT_FIELDS[c.field]?.[0] || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || CONFLICT_FIELDS[c.field]?.[1] || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
     <div class="links">
@@ -397,16 +487,12 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
   </div>`;
 }
 
-function openDetail(id) {
+function openDetail(id, keepScroll = false) {
   const w = weaponById.get(id);
   if (!w) return;
-  ctx.openSheet(weaponDetail(w), {
+  openItemSheet(ctx, state, weaponDetail(w, { expandable: true, expanded: state.expanded }), {
     label: `${T(displayName(w))} ${L('상세', 'details')}`,
-    onClose: () => {
-      if (state.detail !== id) return;
-      state.detail = null; state.variant = '';
-      if (state.pushedDetail) { state.pushedDetail = false; history.back(); } else syncUrl();
-    },
+    keepScroll,
   });
 }
 
@@ -514,7 +600,7 @@ function showTab() {
 export function mount(container, context) {
   root = container; ctx = context;
   // A fresh visit has no open detail; leaving through a link skips the close handler that clears it.
-  state.detail = null; state.variant = ''; state.pushedDetail = false;
+  Object.assign(state, { detail: null, variant: '', expanded: false, panelSnapshot: null });
   const count = id => personalWeapons.filter(w => w.category === id).length;
   LEDES.browse = L(`주무기 ${count('primary')}종 · 보조무기 ${count('secondary')}종 · 투척 ${count('throwable')}종의 수치. 카드를 누르면 자세한 기준이 열립니다.`, `Stats for ${count('primary')} primaries, ${count('secondary')} secondaries and ${count('throwable')} throwables. Open a card for the details behind the numbers.`);
   render(root, html`<div class="page-head gear-head"><div><div class="eyebrow">Armory</div>
@@ -549,27 +635,15 @@ export function mount(container, context) {
     else if (target.dataset.hand != null) { state.hand = !state.hand; if (target.classList.contains('is-empty')) { state.type = ''; state.hole = false; } renderBrowse(); syncUrl(); }
     else if (target.dataset.hole != null) { state.hole = !state.hole; if (target.classList.contains('is-empty')) { state.type = ''; state.hand = false; } renderBrowse(); syncUrl(); }
     else if (target.dataset.type != null) { state.type = state.type === target.dataset.type ? '' : target.dataset.type; if (target.classList.contains('is-empty')) { state.hand = false; state.hole = false; } renderBrowse(); syncUrl(); }
-    else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'gear', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
+    else if (target.dataset.open) openItemPanel(ctx, target.dataset.open);
   });
   // Mode buttons inside the sheet live outside `root`; register that listener once.
   if (!sheetListener) {
-    sheetListener = event => {
-      if (document.body.dataset.view !== 'gear') return;
-      const pick = event.target.closest('[data-variant]');
-      if (pick) selectVariant(pick.dataset.variant);
-    };
-    $('#sheet').addEventListener('click', sheetListener);
+    sheetListener = true;
+    bindItemSheetActions('gear', state, ctx, { onVariant: syncUrl });
   }
 }
-let sheetListener = null;
-
-function selectVariant(id) {
-  state.variant = id;
-  const sheet = $('#sheet');
-  for (const button of $$('[data-variant]', sheet)) button.setAttribute('aria-pressed', String(button.dataset.variant === id));
-  for (const panel of $$('[data-variant-panel]', sheet)) panel.hidden = panel.dataset.variantPanel !== id;
-  syncUrl();
-}
+let sheetListener = false;
 
 export function update(route) {
   const q = route.query;
@@ -592,6 +666,5 @@ export function update(route) {
   }
   showTab();
   const id = weaponById.has(route.id) ? route.id : null;
-  if (id && id !== state.detail) { state.detail = id; state.variant = personalProfiles[id]?.modes.some(m => m.id === q.m) ? q.m : ''; openDetail(id); }
-  else if (!id && state.detail) { state.detail = null; state.variant = ''; state.pushedDetail = false; ctx.closeSheet(); }
+  updateItemDetail(ctx, state, route, id, personalProfiles[id]?.modes, openDetail);
 }

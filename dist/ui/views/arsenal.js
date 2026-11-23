@@ -8,6 +8,7 @@ import { wikiIcons } from '../../data/wiki-icons.js';
 import { html, raw, render, $, $$, icon, keycaps, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
 import { ballisticsBlock } from '../ballistics-view.js';
+import { detailColumns, detailModeList, detailStatCell, bindItemSheetActions, FORCE_NOTE, itemDetailToggle, itemVariantPanel, openItemPanel, openItemSheet, updateItemDetail } from '../item-detail.js';
 import { supportProjectileRecords, propelledModes } from '../../data/support-records.js';
 import { warbondChip } from '../warbond-chip.js';
 import { L, T, lang } from '../../core/i18n.js';
@@ -34,7 +35,7 @@ const PERMITS = [
 const permitOf = item => stratagemStats[item.id]?.permit;
 // AP bands offered as filters ("unverified AP" is not one).
 const AP_FILTERS = apBands.filter(band => band.id !== 'unknown');
-const state = { c: '', ap: '', p: '', q: '', sort: '', mod: true, compare: new Set(), detail: null, variant: '', pushedDetail: false };
+const state = { c: '', ap: '', p: '', q: '', sort: '', mod: true, compare: new Set(), detail: null, variant: '', expanded: false };
 
 const subtitle = item => lang === 'en' ? (item.code && !item.en.startsWith(item.code) ? item.code : '') : item.en;
 export const iconOf = item => html`<img class="strat-icon" src="${wikiIcons[item.id]?.src}" alt="" width="44" height="44" loading="lazy" decoding="async">`;
@@ -118,23 +119,35 @@ function visibleItems() {
 }
 
 function syncUrl() {
-  ctx.replace({ view: 'arsenal', id: state.detail, query: { c: state.c, ap: state.ap, p: state.p, q: state.q, sort: state.sort, mod: state.mod ? '' : 'off', m: state.detail ? state.variant : '' } });
+  ctx.replace({ view: 'arsenal', id: state.detail, query: { c: state.c, ap: state.ap, p: state.p, q: state.q, sort: state.sort, mod: state.mod ? '' : 'off', m: state.detail ? state.variant : '', full: state.expanded ? '1' : '' } });
 }
 
 function renderList() {
   const items = visibleItems();
-  // Category and type chips count within each other's choice; a chip with nothing to show is dimmed
-  // (picking it lets the other choice go).
-  const inCategory = (item, id = state.c) => !id || item.category === id;
-  const inPermit = (item, id = state.p) => !id || permitOf(item) === id;
-  const total = stratagems.filter(item => inCategory(item) && inPermit(item)).length;
+  // Count categories and permit types in a single scan over stratagems.
+  const catCounts = new Map(), permitCounts = new Map();
+  let total = 0, permitAll = 0, catAll = 0;
+  for (const item of stratagems) {
+    const matchCat = !state.c || item.category === state.c;
+    const permit = permitOf(item);
+    const matchPermit = !state.p || permit === state.p;
+    if (matchCat && matchPermit) total++;
+    if (matchPermit) {
+      catAll++;
+      catCounts.set(item.category, (catCounts.get(item.category) || 0) + 1);
+    }
+    if (matchCat) {
+      permitAll++;
+      permitCounts.set(permit, (permitCounts.get(permit) || 0) + 1);
+    }
+  }
   for (const chip of $$('[data-cat]', root)) {
-    const n = stratagems.filter(item => inCategory(item, chip.dataset.cat) && inPermit(item)).length;
+    const n = chip.dataset.cat ? (catCounts.get(chip.dataset.cat) || 0) : catAll;
     chip.querySelector('.count').textContent = n;
     chip.classList.toggle('is-empty', !n);
   }
   for (const chip of $$('[data-permit]', root)) {
-    const n = stratagems.filter(item => inPermit(item, chip.dataset.permit) && inCategory(item)).length;
+    const n = chip.dataset.permit ? (permitCounts.get(chip.dataset.permit) || 0) : permitAll;
     if (chip.dataset.permit) chip.querySelector('.count').textContent = n;
     chip.classList.toggle('is-empty', !n);
   }
@@ -223,17 +236,18 @@ function rateCell(item) {
 }
 // Modes picked on the weapon that change how it fires or detonates (Airburst cluster/flak,
 // W.A.S.P. burst/artillery). Each mode lists its own facts; the damage stats stay below.
-function firingModesBlock(item) {
+function firingModesBlock(item, expanded = false) {
   const modes = item.firingModes;
   if (!modes?.length) return '';
   const unit = value => value === '발' || value === '개' ? L(value, '') : value;
+  const modeRows = mode => html`<dl class="detail-grid">${mode.rows.map(row => html`<div><dt>${row.label}</dt><dd class="${/\d/.test(row.value) ? '' : 'dim'}">${row.value}${row.unit ? html`<small>${unit(row.unit)}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>
+    ${mode.note ? html`<p class="variant-note">${mode.note}</p>` : ''}`;
+  const note = item.firingModesNote ? html`<p class="variant-note">${item.firingModesNote}</p>` : '';
+  if (expanded) return html`${detailModeList(L('사격 모드', 'Firing modes'), modes.map(mode => ({ name: mode.name, content: modeRows(mode) })))}${note}`;
   return html`<div class="firing-modes" data-fire-modes>
     <div class="variant-tabs"><h3>${L('모드', 'Mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map((m, i) => html`<button type="button" data-fire-mode="${m.id}" aria-pressed="${String(!i)}">${m.name}</button>`)}</div></div>
-    ${modes.map((m, i) => html`<div class="variant-panel" data-fire-mode-panel="${m.id}" ${i ? raw('hidden') : ''}>
-      <dl class="detail-grid">${m.rows.map(row => html`<div><dt>${row.label}</dt><dd class="${/\d/.test(row.value) ? '' : 'dim'}">${row.value}${row.unit ? html`<small>${unit(row.unit)}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>
-      ${m.note ? html`<p class="variant-note">${m.note}</p>` : ''}
-    </div>`)}
-    ${item.firingModesNote ? html`<p class="variant-note">${item.firingModesNote}</p>` : ''}
+    ${modes.map((m, i) => html`<div class="variant-panel" data-fire-mode-panel="${m.id}" ${i ? raw('hidden') : ''}>${modeRows(m)}</div>`)}
+    ${note}
   </div>`;
 }
 // The buttons switch only their own block, in the arsenal sheet or an embedded warbond pane.
@@ -265,7 +279,7 @@ function planetLines(t) {
 
 // Planet and ship module changes to the cooldown block, folded by default (user decision 2026-11-19) and placed
 // below the special effects (user decision 2026-11-23).
-function changesBlock(item) {
+function changesBlock(item, expanded = false) {
   const t = timingOf(item);
   if (!t || (t.cooldown == null && t.rearm == null && t.callIn == null)) return '';
   const lines = planetLines(t);
@@ -275,12 +289,14 @@ function changesBlock(item) {
     : module.uses ? L(`사용 +${module.uses}회`, `+${module.uses} use`)
     : module.ammo ? L(`탄약 +${Math.round((module.ammo - 1) * 100)}%`, `ammo +${Math.round((module.ammo - 1) * 100)}%`)
     : module.health ? L(`체력 +${Math.round((module.health - 1) * 100)}%`, `health +${Math.round((module.health - 1) * 100)}%`) : L('호출 시간 단축', 'faster call-in');
-  const modules = modulesOn() && t.modules.length ? t.modules : [];
+  const modules = expanded || modulesOn() ? t.modules : [];
   if (!lines.length && !modules.length) return '';
-  return html`<details class="planet-effects"><summary>${L('행성 조건과 함선 모듈에 따른 변화', 'Changes under planet conditions and ship modules')}</summary>
-    ${lines.length ? html`<ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
+  const title = L('행성 조건과 함선 모듈에 따른 변화', 'Changes under planet conditions and ship modules');
+  const content = html`${lines.length ? html`<ul class="notes">${lines.map(line => html`<li>${line}</li>`)}</ul>
     <p class="faint" style="font-size:12.5px">${L('재사용 대기와 호출에 표시된 값에 비율을 곱한 값입니다.', 'The rate applied to the cooldown and call-in values shown above.')} <a href="#/planets?tab=modifiers">${L('작전 제한 조건 보기', 'See operation modifiers')}</a></p>` : ''}
-    ${modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}</details>`;
+    ${modules.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${L('함선 모듈(모두 최고 단계)', 'Ship modules (all fully upgraded)')}: ${modules.map(module => `${lang === 'en' ? module.en : module.name} (${effect(module)})`).join(' · ')}</p>` : ''}`;
+  return expanded ? html`<section class="block item-detail-changes"><h3>${title}</h3><div class="item-detail-card">${content}</div></section>`
+    : html`<details class="planet-effects"><summary>${title}</summary>${content}</details>`;
 }
 
 // Cooldown, call-in time, uses and Eagle rearm, with the ship modules that change them.
@@ -301,21 +317,32 @@ function durabilityBlock(item) {
   </section>`;
 }
 
-function timingBlock(item) {
+function timingBlock(item, expanded = false) {
   const t = timingOf(item);
   if (!t || (t.cooldown == null && t.rearm == null && t.callIn == null)) return '';
   const on = modulesOn();
+  const upgraded = expanded && !on ? timingOf(item, true) : null;
   const s = L('초', 's');
-  const caption = (value, base, unit = true) => !on ? L('함선 모듈 미적용', 'Without ship modules')
-    : value !== base ? (unit ? L(`기본 ${num(base)}초`, `Base ${num(base)}s`) : L(`기본 ${num(base)}회`, `Base ${num(base)}`))
-    : L('함선 모듈 영향 없음', 'No ship module changes it');
+  const caption = key => {
+    const base = t[`${key}Base`];
+    const value = t[key];
+    const unit = key === 'uses' ? L('회', '') : s;
+    if (!on) {
+      const enhanced = upgraded?.[key];
+      if (enhanced == null || enhanced === value) return L('함선 모듈 미적용', 'Without ship modules');
+      const adjusted = num(key === 'cooldown' ? Math.round(enhanced) : enhanced);
+      return L(`함선 모듈 적용 시 ${adjusted}${unit}`, `With ship modules: ${adjusted}${unit}`);
+    }
+    return value !== base ? L(`기본 ${num(base)}${unit}`, `Base ${num(base)}${unit}`)
+      : L('함선 모듈 영향 없음', 'No ship module changes it');
+  };
   const cell = (label, value, unit, text) => html`<div><dt>${label}</dt><dd>${value}${unit ? html`<small>${unit}</small>` : ''}</dd>${text ? html`<div class="caption">${text}</div>` : ''}</div>`;
   return html`<section class="block"><h3>${L('재사용 대기와 호출', 'Cooldown and call-in')}</h3>
     <dl class="detail-grid">
-      ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(Math.round(t.cooldown)), s, caption(t.cooldown, t.cooldownBase)) : ''}
-      ${t.rearm != null ? cell(L('재무장 시간', 'Rearm time'), num(t.rearm), s, caption(t.rearm, t.rearmBase)) : ''}
-      ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption(t.uses, t.usesBase, false)) : ''}
-      ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption(t.callIn, t.callInBase)) : ''}
+      ${t.cooldown != null ? cell(L('재사용 대기', 'Cooldown'), num(Math.round(t.cooldown)), s, caption('cooldown')) : ''}
+      ${t.rearm != null ? cell(L('재무장 시간', 'Rearm time'), num(t.rearm), s, caption('rearm')) : ''}
+      ${typeof t.uses === 'number' ? cell(t.rearm != null ? L('재무장당 사용', 'Uses per rearm') : L('사용 횟수', 'Uses'), num(t.uses), L('회', ''), caption('uses')) : ''}
+      ${t.callIn != null ? cell(L('호출 시간', 'Call-in time'), num(t.callIn), s, caption('callIn')) : ''}
     </dl>
   </section>`;
 }
@@ -323,8 +350,7 @@ function timingBlock(item) {
 // Special effects: demolition, stagger and push force of each attack from the wiki attack
 // datamine (stratagem-stats.js `forces`); demolition-data.js where the datamine has no record.
 const FORCE_KIND = { direct: L('직격', 'Direct'), beam: L('광선', 'Beam'), arc: L('전격', 'Arc'), spray: L('분사', 'Spray'), blast: L('폭발', 'Blast'), fragment: L('파편', 'Fragment'), overcharge: L('과충전 폭발', 'Overcharge blast'), backblast: L('후폭풍', 'Backblast'), wreck: L('차량 폭발', 'Vehicle explosion') };
-export const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.',
-  'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach a structure\'s threshold in a single hit or blast; hits do not add up.');
+export { FORCE_NOTE };
 const DIRECT_KINDS = ['direct', 'beam', 'arc', 'spray'];
 // Explosions (the blast, an overcharge, a backblast) carry the blast icon in front of their name.
 const BLAST_KINDS = ['blast', 'overcharge', 'backblast', 'wreck'];
@@ -380,8 +406,8 @@ function specialBlock(item, profile, variant = null) {
 // Same order as the gear sheet: damage (direct, blast, durable, penetration), reach, ammo and fire rate,
 // handling, unlock. A stat the item does not have at all (no blast, '—' on utility gear) is left out;
 // an unverified one stays as 미확인.
-const statCell = stat => html`<div><dt>${stat.icon ? html`<span class="ico-${stat.icon}" aria-hidden="true"></span>` : ''}${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}${stat.warn ? html`<div class="caption force-note">${stat.warn}</div>` : ''}</div>`;
-const statGrid = item => {
+const statCell = detailStatCell;
+const statGrid = (item, expanded = false) => {
   const [direct, blast, ap, reach] = stats(item);
   const [durable, ...ammo] = ammoCells(item);
   const { ergonomics, sway, unlock, times, body } = stratagemStats[item.id] ?? {};
@@ -398,11 +424,15 @@ const statGrid = item => {
   // A sentry's ammo and health follow the ship module toggle (Shock Absorption Gel, Advanced Construction).
   const load = sentryLoadOf(item);
   const on = modulesOn();
-  const moduleNote = (value, base) => !on ? L('함선 모듈 미적용', 'Without ship modules') : value !== base ? L(`기본 ${num(base)}`, `Base ${num(base)}`) : '';
+  const moduleNote = (value, base, upgraded) => {
+    if (on) return value !== base ? L(`기본 ${num(base)}`, `Base ${num(base)}`) : '';
+    if (expanded && upgraded != null && upgraded !== base) return L(`함선 모듈 적용 시 ${num(upgraded)}`, `With ship modules: ${num(upgraded)}`);
+    return L('함선 모듈 미적용', 'Without ship modules');
+  };
   const bodyHealth = load?.health ?? body?.health;
   const bodyCells = body && !item.defense?.body ? [
     { label: body.drone ? L('드론 체력', 'Drone health') : L('본체 체력', 'Main health'), text: num(bodyHealth),
-      caption: [L(`장갑 ${body.armor}`, `Armor ${body.armor}`), load?.healthBase != null ? moduleNote(load.health, load.healthBase) : ''].filter(Boolean).join(' · ') },
+      caption: [L(`장갑 ${body.armor}`, `Armor ${body.armor}`), load?.healthBase != null ? moduleNote(load.health, load.healthBase, load.healthModules) : ''].filter(Boolean).join(' · ') },
     ...(body.magazine != null ? [{ label: L('드론 탄창', 'Drone magazine'), text: num(body.magazine), caption: ['hot-dog', 'dog-breath'].includes(item.id) ? L(`연료 · 최대 ${body.mags}개 보유`, `Fuel · up to ${body.mags} carried`) : L(`최대 ${body.mags}개 보유`, `Up to ${body.mags} carried`) }] : []),
   ] : [];
   // Sentry gun (stratagem-stats.js `sentry`): fire rate from the wiki stats table, else the datamine; ammo with
@@ -415,11 +445,13 @@ const statGrid = item => {
     rpm != null ? { label: L('연사', 'Fire rate'), text: gun.rpmApprox ? L(`약 ${num(rpm)}`, `~${num(rpm)}`) : num(rpm),
       caption: [L('분당 발수', 'Rounds per minute'), gun.rpm != null && gun.rpmData != null && gun.rpmData !== gun.rpm ? L(`게임 데이터 ${num(gun.rpmData)}`, `Game data ${num(gun.rpmData)}`) : ''].filter(Boolean).join(' · ') } : null,
     load?.ammo != null ? { label: L('탄약', 'Ammo'), text: num(load.ammo), unit: L('발', ''),
-      caption: [moduleNote(load.ammo, load.ammoBase) || L('설치 1회에 쏘는 양', 'Fired per deployment'),
+      caption: [moduleNote(load.ammo, load.ammoBase, load.ammoModules) || L('설치 1회에 쏘는 양', 'Fired per deployment'),
         on && firstPod != null && firstPod !== gun.magazine ? L(`모듈은 첫 탄창에만 적용`, 'The module fills only the first load') : '',
         on && !load.ammoFromPage && load.ammo !== load.ammoBase ? L('모듈 50%로 계산', 'Module 50% applied') : ''].filter(Boolean).join(' · ') } : null,
     firstPod != null ? { label: L('재장전', 'Reload'), text: L(`${num(gun.magazine)}발마다`, `Every ${num(gun.magazine)}`),
-      caption: [firstPod !== gun.magazine ? L(`첫 탄창 ${num(firstPod)}발`, `First load ${num(firstPod)}`) : '', L('짧은 재장전 · 시간 미확인', 'Short reload · time unverified')].filter(Boolean).join(' · ') } : null,
+      caption: [firstPod !== gun.magazine ? L(`첫 탄창 ${num(firstPod)}발`, `First load ${num(firstPod)}`) : '',
+        expanded && !on && load.ammoModules > load.ammoBase ? L(`함선 모듈 적용 시 첫 탄창 ${num(gun.magazine + load.ammoModules - load.ammoBase)}발`, `First load with ship modules: ${num(gun.magazine + load.ammoModules - load.ammoBase)}`) : '',
+        L('짧은 재장전 · 시간 미확인', 'Short reload · time unverified')].filter(Boolean).join(' · ') } : null,
   ].filter(Boolean);
   const absent = stat => stat.dim && (stat.text === '—' || stat.text === L('없음', 'None'));
   // A support weapon with no known reach leaves the area cell out instead of showing 미확인 (user request 2026-11-23).
@@ -439,31 +471,55 @@ const statGrid = item => {
   return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
 };
 
-export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
+export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true, expandable = false, expanded = false } = {}) {
   const cat = categoryOf(item.category);
   const variants = item.variants?.length > 1 ? item.variants : null;
   const current = variantOf(item, variant);
   const combat = item.category === 'support';
   const notes = [item.rangeNote, item.notes, ...(item.modes || [])].filter(Boolean);
   const inCompare = state.compare.has(item.id);
+  const variantStats = variants?.map(mode => ({ mode, stats: withVariant(item, mode) }));
+  const effectsByMode = variants?.some(v => v.record);
+  const commonEffects = effectsByMode ? '' : specialBlock(item, force);
+  const modeTitle = item.variantLabel || L('모드별 수치', 'Stats by mode');
+  const modeStats = ({ mode, stats }) => html`${statGrid(stats, expanded)}${blastFigure(stats)}${mode.note ? html`<p class="variant-note">${mode.note}</p>` : ''}`;
+  let base;
+  if (variantStats) {
+    base = expanded
+      ? detailModeList(modeTitle, variantStats.map(entry => ({
+        name: entry.mode.tab || entry.mode.name,
+        content: html`${modeStats(entry)}${effectsByMode ? specialBlock(item, force, entry.mode) : ''}`,
+      })))
+      : html`<div class="variant-tabs"><h3>${modeTitle}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
+        ${variantStats.map(entry => itemVariantPanel(entry.mode.id, current.id, modeStats(entry)))}`;
+  } else {
+    base = html`<section class="block item-detail-key-stats"><h3>${L('기본 수치', 'Key stats')}</h3>${statGrid(item, expanded)}</section>`;
+  }
+  const blasts = variantStats ? '' : blastFigure(item);
+  const spread = spreadBlock(item);
+  const timing = timingBlock(item, expanded);
+  const durability = durabilityBlock(item);
+  const defense = defenseBlock(item);
+  const changes = changesBlock(item, expanded);
+  const firing = firingModesBlock(item, expanded);
+  const ballistics = ballisticsBlock(Object.entries(supportProjectileRecords[item.id] || {}).map(([modeId, record]) => ({ label: T(item.variants?.find(v => v.id === modeId)?.name) ?? MODE_LABELS[modeId] ?? item.name, record, propelled: propelledModes[item.id]?.includes(modeId) })), expanded);
+  const compactEffects = !expanded && effectsByMode
+    ? variants.map(v => html`<div data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${specialBlock(item, force, v)}</div>`)
+    : commonEffects;
+  const statsLayout = expanded
+    ? html`${variantStats ? html`${base}${commonEffects}` : blasts ? detailColumns(base, html`${blasts}${commonEffects}`) : html`${base}${commonEffects}`}
+      ${firing}${ballistics}${detailColumns(timing, changes)}${detailColumns(spread, defense)}${durability}`
+    : html`${firing}${base}${blasts}${spread}${timing}${durability}${defense}${compactEffects}${ballistics}${changes}`;
+  const heroHead = html`<div class="detail-id${expandable && !item.input ? ' item-detail-actions' : ''}"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
+      <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
+      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}${holeTag(item)}</div>${holeNote(item)}</div>
+      ${expandable && !item.input ? itemDetailToggle(expanded) : ''}</div>
+    ${item.input ? html`<div class="item-detail-actions item-detail-strat-bar"><div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>${expandable ? itemDetailToggle(expanded) : ''}</div>` : ''}
+    <p class="item-detail-summary" style="font-size:16px">${item.summary}</p>`;
   return html`${header ?? html`<div class="sheet-top"><span>${cat.name} · ${L('상세', 'Details')}</span><button class="icon-button" type="button" data-close aria-label="${L('닫기', 'Close')}">${icon('close', 18)}</button></div>`}
   <div class="sheet-content">
-    <div class="detail-id"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
-      <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
-      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}${holeTag(item)}</div>${holeNote(item)}</div></div>
-    ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
-    <p style="font-size:16px">${item.summary}</p>
-    ${firingModesBlock(item)}
-    ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
-      ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
-      : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${statGrid(item)}</section>${blastFigure(item)}`}
-    ${spreadBlock(item)}
-    ${timingBlock(item)}
-    ${durabilityBlock(item)}
-    ${defenseBlock(item)}
-    ${variants?.some(v => v.record) ? variants.map(v => html`<div data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${specialBlock(item, force, v)}</div>`) : specialBlock(item, force)}
-    ${ballisticsBlock(Object.entries(supportProjectileRecords[item.id] || {}).map(([modeId, record]) => ({ label: T(item.variants?.find(v => v.id === modeId)?.name) ?? MODE_LABELS[modeId] ?? item.name, record, propelled: propelledModes[item.id]?.includes(modeId) })))}
-    ${changesBlock(item)}
+    ${expanded ? html`<div class="item-detail-strat-head" style="--cat:${cat.color}">${heroHead}</div>` : heroHead}
+    ${statsLayout}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>
     ${item.warning ? html`<div class="callout warn"><h3>${L('주의', 'Watch out')}</h3><p>${item.warning}</p></div>` : ''}
     ${notes.length ? html`<section class="block"><h3>${L('수치 기준', 'About the numbers')}</h3><ul class="notes">${notes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
@@ -530,21 +586,22 @@ const holeTag = item => {
 };
 const holeNote = item => bugHoleTier(item.id) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[item.id]}</p>` : '';
 
-function openDetail(id) {
+function openDetail(id, keepScroll = false) {
   const item = stratagemById.get(id);
   if (!item) return;
-  const show = () => ctx.openSheet(stratagemDetail(item, { demolition: Boolean(demolitionProfiles?.[id]), force: demolitionProfiles?.[id] }), {
+  const show = keepScroll => openItemSheet(ctx, state, stratagemDetail(item, {
+    demolition: Boolean(demolitionProfiles?.[id]),
+    force: demolitionProfiles?.[id],
+    expandable: true,
+    expanded: state.expanded,
+  }), {
     label: `${T(item.name)} ${L('상세', 'details')}`,
-    onClose: () => {
-      if (state.detail !== id) return;
-      state.detail = null; state.variant = '';
-      if (state.pushedDetail) { state.pushedDetail = false; history.back(); } else syncUrl();
-    },
+    keepScroll,
   });
-  show();
+  show(keepScroll);
   // Demolition data is large; learn which stratagems have it only when needed.
   if (!demolitionProfiles) loadDemolition().then(profiles => {
-    if (state.detail === id && (profiles[id] || bugHoleTier(id))) show();
+    if (ctx.route.view === 'arsenal' && state.detail === id && $('#sheet').open && (profiles[id] || bugHoleTier(id))) show(true);
   });
 }
 
@@ -585,14 +642,14 @@ function toggleCompare(id) {
   else if (state.compare.size >= MAX_COMPARE) { ctx.toast(L(`비교는 최대 ${MAX_COMPARE}개까지입니다. 하나를 빼 주세요.`, `You can compare up to ${MAX_COMPARE}. Remove one first.`)); return; }
   else state.compare.add(id);
   renderList();
-  if (state.detail === id) openDetail(id);
+  if (state.detail === id) openDetail(id, true);
 }
 
 // --- View lifecycle -------------------------------------------------------------------
 export function mount(container, context) {
   root = container; ctx = context;
   // A fresh visit has no open detail; leaving through a link skips the close handler that clears it.
-  state.detail = null; state.variant = ''; state.pushedDetail = false;
+  Object.assign(state, { detail: null, variant: '', expanded: false, panelSnapshot: null });
   const count = id => stratagems.filter(item => item.category === id).length;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Stratagem Arsenal</div><h1>${L('스트라타젬 도감', 'Stratagems')}</h1><p>${L(`${stratagems.length}종의 피해·관통·범위와 사용법. 카드를 누르면 자세한 기준이 열립니다.`, `Damage, penetration, reach and how to use all ${stratagems.length} stratagems. Open a card for the details behind the numbers.`)}</p></div></div>
   <div class="arsenal-tools">
@@ -632,7 +689,7 @@ export function mount(container, context) {
       renderList(); syncUrl();
     }
     else if (target.dataset.mod) { state.mod = target.dataset.mod === 'on'; setModulesOn(state.mod); renderList(); syncUrl(); }
-    else if (target.dataset.open) { state.pushedDetail = true; ctx.go({ view: 'arsenal', id: target.dataset.open, query: { ...ctx.route.query, m: '' } }); }
+    else if (target.dataset.open) openItemPanel(ctx, target.dataset.open);
     else if (target.dataset.compare) toggleCompare(target.dataset.compare);
     else if (target.hasAttribute('data-compare-clear')) { state.compare.clear(); renderList(); }
     else if (target.hasAttribute('data-compare-open')) openCompare();
@@ -640,25 +697,11 @@ export function mount(container, context) {
   });
   // Buttons inside the sheet live outside `root`; register that listener once.
   if (!sheetListener) {
-    sheetListener = event => {
-      if (document.body.dataset.view !== 'arsenal') return;
-      const target = event.target.closest('[data-compare]');
-      if (target) toggleCompare(target.dataset.compare);
-      const pick = event.target.closest('[data-variant]');
-      if (pick) selectVariant(pick.dataset.variant);
-    };
-    $('#sheet').addEventListener('click', sheetListener);
+    sheetListener = true;
+    bindItemSheetActions('arsenal', state, ctx, { onCompare: toggleCompare, onVariant: syncUrl });
   }
 }
-let sheetListener = null;
-
-function selectVariant(id) {
-  state.variant = id;
-  const sheet = $('#sheet');
-  for (const button of $$('[data-variant]', sheet)) button.setAttribute('aria-pressed', String(button.dataset.variant === id));
-  for (const panel of $$('[data-variant-panel]', sheet)) panel.hidden = panel.dataset.variantPanel !== id;
-  syncUrl();
-}
+let sheetListener = false;
 
 export function update(route) {
   const q = route.query;
@@ -676,6 +719,5 @@ export function update(route) {
   $('#arsenal-sort', root).value = state.sort;
   renderList();
   const id = stratagemById.has(route.id) ? route.id : null;
-  if (id && id !== state.detail) { state.detail = id; state.variant = stratagemById.get(id).variants?.some(v => v.id === q.m) ? q.m : ''; openDetail(id); }
-  else if (!id && state.detail) { state.detail = null; state.variant = ''; state.pushedDetail = false; ctx.closeSheet(); }
+  updateItemDetail(ctx, state, route, id, stratagemById.get(id)?.variants, openDetail);
 }

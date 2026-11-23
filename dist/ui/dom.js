@@ -4,19 +4,37 @@ import { L, T } from '../core/i18n.js';
 
 class Safe { constructor(text) { this.text = text; } toString() { return this.text; } }
 const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-export const escape = value => String(value).replace(/[&<>"']/g, char => ESC[char]);
+const ESC_TEST = /[&<>"']/;
+const ESC_RE = /[&<>"']/g;
+const ESC_FN = char => ESC[char];
+export const escape = value => {
+  if (typeof value === 'number') return String(value);
+  const s = String(value);
+  return ESC_TEST.test(s) ? s.replace(ESC_RE, ESC_FN) : s;
+};
 export const raw = text => new Safe(String(text));
 // Shown text is looked up in the English dictionary (T is a no-op in Korean):
 // text between tags and human-readable attributes. Other attribute values
 // (data-*, value, class …) keep their raw text, because code reads them back.
-const piece = (value, shown = true) => value == null || value === false ? '' : value instanceof Safe ? value.text
-  : Array.isArray(value) ? value.map(item => piece(item, shown)).join('') : escape(shown ? T(value) : value);
+const piece = (value, shown = true) => {
+  if (value == null || value === false) return '';
+  if (value instanceof Safe) return value.text;
+  if (Array.isArray(value)) {
+    let out = '';
+    for (let i = 0; i < value.length; i++) out += piece(value[i], shown);
+    return out;
+  }
+  return escape(shown ? T(value) : value);
+};
 const READABLE = /\s(?:aria-label|aria-valuetext|title|alt|placeholder)=["'][^"']*$/;
 const shownAt = out => { const open = out.lastIndexOf('<'); return open <= out.lastIndexOf('>') || READABLE.test(out.slice(open)); };
-export const html = (strings, ...values) => new Safe(strings.reduce((out, text, i) => {
-  const next = out + text;
-  return i < values.length ? next + piece(values[i], shownAt(next)) : next;
-}, ''));
+export const html = (strings, ...values) => {
+  let out = strings[0];
+  for (let i = 0; i < values.length; i++) {
+    out += piece(values[i], shownAt(out)) + strings[i + 1];
+  }
+  return new Safe(out);
+};
 
 export const $ = (selector, root = document) => root.querySelector(selector);
 export const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -73,6 +91,7 @@ const ICONS = {
   back: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
   shield: '<path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6z"/>',
   expand: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
+  collapse: '<path d="M9 4v5H4m11-5v5h5M9 20v-5H4m11 5v-5h5"/>',
   moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>',
 };

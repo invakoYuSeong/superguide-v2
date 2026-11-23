@@ -7,11 +7,13 @@ import { readFile } from 'node:fs/promises';
 import { ballisticsOutput } from './build-ballistics.mjs';
 import { projectileBallistics } from '../dist/data/ballistics.js';
 import { dragOf, falloffAt, distanceAt, trajectory, ballisticsOf } from '../dist/core/ballistics.js';
+import { num } from '../dist/core/explain.js';
 import { hitDamage, solveMatchup } from '../dist/core/combat.js';
 import { compareAttacks } from '../dist/core/compare.js';
 import { personalProfiles } from '../dist/data/personal-profiles.js';
 import { weaponProfiles, enemies } from '../dist/data/combat-data.js';
 import { supportProjectileRecords } from '../dist/data/support-records.js';
+import { ballisticsBlock } from '../dist/ui/ballistics-view.js';
 
 let checks = 0;
 const check = (value, message) => { checks++; assert.ok(value, message); };
@@ -37,6 +39,21 @@ const falling = trajectory(sample, 200).points;
 check(falling.every((p, i) => !i || p.drop >= falling[i - 1].drop) && falling.at(-1).drop > 0, 'drop grows with distance');
 const short = trajectory({ ...sample, lifetime: 0.1 }, 200);
 check(short.endX > 80 && short.endX < 90 && short.points.at(-1).x < 90, 'lifetime ends the flight');
+
+// The distance table shows the rounded flight speed at each reachable distance.
+const rifleRecord = 'AR-23_P';
+const riflePoints = trajectory(projectileBallistics[rifleRecord]).points;
+const expectedSpeedRows = [25, 50, 100, 150, 200].map(distance => {
+  const point = riflePoints.find(p => p.x === distance);
+  return [String(distance), point ? `${num(Math.round(point.speed))}m/s` : '—'];
+});
+for (const expanded of [false, true]) {
+  const html = String(ballisticsBlock([{ record: rifleRecord }], expanded));
+  const speedRows = [...html.matchAll(/<tr><th scope="row">(\d+)m<\/th>[\s\S]*?<td>([^<]*)<\/td><\/tr>/g)]
+    .map(([, distance, speed]) => [distance, speed]);
+  assert.deepEqual(speedRows, expectedSpeedRows, `distance table speeds (${expanded ? 'fullscreen' : 'panel'})`);
+  checks++;
+}
 
 // Engine: falloff on the projectile's own hit only, and only with a distance.
 const part = { armor: 0, durability: 0, exdr: 0, hp: 1000, toMain: 0 };
