@@ -44,7 +44,20 @@ export const factionTactics = {
 // Order within each side is what the faction picks screen shows left to right: Terminid and Automaton guides
 // follow release order (wiki change history and first appearances, checked 2026-11-20); the Illuminate order
 // is the user's (2026-11-20).
+// Each side opens with its Standard guide: the regular units met on Difficulty 10 (user request 2026-11-23).
 export const factionGuides = [
+  { id: 'terminid-base', side: 'terminid', name: '기본', en: 'Standard', source: wiki('Terminids'), checkedAt: '2026-11-23',
+    intro: '대규모 무리와 중장갑 대형 버그가 함께 나옵니다. 무리를 처리할 화력과 대전차 화력을 나눠 준비하세요.',
+    coverage: '변종이 아닌 일반 테르미니드 중 난이도 10에서 자주 만나는 9종입니다. 난이도 10에서는 차저가 차저 베히모스로, 브루드 커맨더가 알파 커맨더로 바뀝니다.',
+    units: [unit('hunter-hardened', '옆으로 빠르게 움직이다 측면에서 덮치는 소형 버그입니다. 머리 체력 40·장갑 0이라 대부분의 무기로 한 발이면 쓰러집니다.', ['head']),
+      unit('warrior-hardened', '가까이 다가와 발톱으로 공격합니다. 머리를 부수면 잠시 더 빨라지지만 피를 흘리다 죽으니 거리를 유지하세요.', ['head']),
+      unit('hive-guard', '총탄을 맞으면 앞다리로 머리를 가리고 웅크립니다. 머리 장갑이 3이라 관통 3 이상 무기나 폭발로 노리세요.', ['head']),
+      unit('alpha-commander', '난이도 8부터 브루드 커맨더를 대신합니다. 15~20m 거리에서 돌진하고 알파 워리어 3마리를 불러내니 먼저 처치하세요.', ['head']),
+      unit('nursing-spewer', '나타날 때 포자 구름으로 작은 버그를 가립니다. 머리가 약점이고, 장갑 없는 엉덩이는 폭발 저항이 없어 폭발이 잘 통합니다.', ['head']),
+      unit('stalker', '스토커 둥지 근처에서 위장한 채 따라와 옆이나 뒤에서 덮칩니다. 체력의 절반을 잃으면 물러나 위장하고 회복하니 한 번에 끝내세요.', ['head']),
+      unit('behemoth', '난이도 10에서는 일반 차저 대부분이 차저 베히모스로 바뀝니다. 돌진은 단단한 지형에 부딪힐 때까지 멈추지 않으니 옆으로 피하세요.', ['head']),
+      unit('impaler', '촉수 3개를 땅에 박아 공격하며, 이때 드러나는 머리를 맞히면 가장 빨리 처치합니다. 아래 탄수는 머리가 가려져 있을 때 위키가 다음으로 권하는 다리 장갑 경로입니다.', ['leg-armor']),
+      unit('bile-titan', '25~30m 거리에서 담즙을 뿜고 가까이서는 짓밟습니다. 거의 온몸이 장갑 4라 대전차 무기로 머리를 노리세요.', ['head'])] },
   { id: 'predator', side: 'terminid', name: '프레데터 변종', en: 'Predator Strain', source: wiki('Predator_Strain'),
     intro: '기습과 추격에 대비하세요. 접근하는 변종의 몸통에 연사하거나 큰 표적에 직접 화력을 넣는 대응을 고릅니다.',
     coverage: '헌터와 스토커 두 변종을 모두 안내합니다. 각 변종의 전용 부위 수치와 적 대응 계산으로 연결됩니다.',
@@ -70,6 +83,24 @@ export const factionGuides = [
     coverage: '녹셔스 스캐빈저와 스퓨어 두 유닛을 안내합니다. 위키 전술 정보가 아직 비어 있어 공식 공지를 기준으로 합니다.',
     units: [unit('noxious-scavenger', '물 때마다 독이 1중첩 쌓입니다. 현재 위키의 부위 수치는 일반 스캐빈저와 같습니다.', ['body']),
       unit('noxious-spewer', '물 때마다 독이 2중첩 쌓입니다. 복부가 터지면 주변을 묶는 거미줄 폭발이 일어납니다. 최소 난이도 5부터 등장합니다.', ['butt'])] },
+  { id: 'automaton-base', side: 'automaton', name: '기본', en: 'Standard', source: wiki('Automatons'), checkedAt: '2026-11-23',
+    intro: '멀리서 쏘는 적과 장갑이 두꺼운 적이 많습니다. 엄폐물을 활용하고, 중형 봇을 맞힐 정밀 무기와 대전차 화력을 함께 준비하세요.',
+    coverage: '변종이 아닌 일반 오토마톤 중 난이도 10에서 자주 만나는 15종입니다. 난이도 10에서는 스카우트 스트라이더가 강화 스카우트 스트라이더로 바뀝니다.',
+    units: [unit('trooper', '5발씩 끊어 쏘고 4초 식힙니다. 헬다이버를 발견하면 조명탄으로 봇 투하를 부를 수 있으니 먼저 처치하세요.', ['torso']),
+      unit('berserker', '회전 톱을 들고 곧장 달려옵니다. 작은 머리보다 넓은 배를 노리세요.', ['stomach']),
+      unit('devastator', '융합 돌격포를 2발씩 쏘며 천천히 다가옵니다. 작은 머리(장갑 1)가 약점입니다.', ['head']),
+      unit('heavy-devastator', '방패를 앞세우고 융합 연발포를 3초씩 쏩니다. 방패 밖으로 드러난 머리나 배를 노리세요.', ['head']),
+      unit('rocket-devastator', '로켓 4발을 한꺼번에 쏩니다. 로켓 12발을 다 쓰면 한 번 재장전하니 숨을 곳을 확보하고 머리를 노리세요.', ['head']),
+      unit('reinforced-strider', '난이도 8부터 스카우트 스트라이더를 대신하며 전신이 장갑입니다. 정면 판은 장갑 4라 허리나 다리를 노리세요.', ['waist']),
+      unit('hulk', '약 25m 안에서 화염을 넓게 뿜습니다. 정면의 붉은 눈은 체력 250이라 부서지면 처치됩니다.', ['head']),
+      unit('hulk-bruiser', '융합 기관포나 로켓으로 멀리서도 쏩니다. 정면의 붉은 눈(체력 250)을 노리세요.', ['head']),
+      unit('hulk-obliterator', '양팔에서 로켓을 3발씩 번갈아 쏩니다. 정면의 붉은 눈(체력 250)을 노리세요.', ['head']),
+      unit('annihilator-tank', '주포는 빨간 빛이 번쩍이고 2초 뒤 발사됩니다. 포탑이 느리게 도니 뒤로 돌아가 포탑 뒤 방열판을 노리세요.', ['heatsink']),
+      unit('shredder-tank', '포탑이 빠르게 돌며 융합 사이클러를 쏩니다. 옆이나 뒤에서 포탑 뒤 방열판을 노리세요.', ['turret-heatsink']),
+      unit('barrager-tank', '중장거리에서 로켓을 포격처럼 쏴 엄폐물을 소용없게 만듭니다. 보이면 먼저 처치하세요.', ['turret']),
+      unit('gunship', '떠서 융합 사이클러와 로켓을 쏩니다. 추진기 하나만 부숴도 추락합니다.', ['front-thruster']),
+      unit('factory-strider', '50~55초마다 데버스테이터 4마리를 내보냅니다. 하부 개틀링은 가까이서 매우 위험하니 거리를 두세요.', ['head']),
+      unit('war-strider', '멀리서 유탄과 레이저를 쏘고 가까이 오면 밟습니다. 일회성 대전차·퀘이사 캐넌·무반동포는 골반·고관절·다리에 맞혀야 한 발입니다.', ['hip'])] },
   { id: 'jet-brigade', side: 'automaton', name: '제트 여단', en: 'Jet Brigade', source: wiki('Jet_Brigade'),
     intro: '점프팩으로 거리를 좁힙니다. 헐크는 점프팩 파괴가 처치로 이어지지만, 데버스테이터는 같은 조건이 아닙니다.',
     coverage: '점프팩 보병 4종과 데버스테이터·헐크 3종을 모두 안내합니다. 소형 보병의 팩 폭발 피해를 중장갑 변종에 그대로 적용하지 않습니다.',
@@ -81,6 +112,10 @@ export const factionGuides = [
   { id: 'cyborgs', side: 'automaton', name: '사이보그', en: 'Cyborg Legion', source: wiki('Cyborg_Legion'),
     intro: '래디컬·애지테이터가 스트라이더 계열을 대체하고, 고난이도에는 복스 엔진이 등장합니다. 보병 정밀 대응과 대형 표적용 화력을 함께 준비하세요.',
     units: [unit('radical', '빠르게 접근하는 전용 보병입니다. 넓은 가슴에 연사하거나 몸통 주변에 폭발을 넣으세요.'), unit('agitator', '주변 병력을 지휘하는 전용 보병입니다. 골반·왼다리에 화력을 넣거나 가슴 외피를 벗겨 공격할 수 있습니다. 투구 제거 후 머리 공격은 별도 경로입니다.', ['helmet', 'torso-armor']), unit('vox-engine', '팩토리 스트라이더를 대체하는 대형 병기입니다. 넓은 폭발의 위키 처치 안내와 단일 부위 계산을 구분합니다.', ['sarcophagus'])] },
+  { id: 'illuminate-base', side: 'illuminate', name: '기본', en: 'Standard', source: wiki('Illuminate'), checkedAt: '2026-11-23',
+    intro: '무권자 무리와 보호막을 가진 대형 병기, 날아다니는 적이 섞여 나옵니다. 다수 대응 무기와 대형·비행 표적용 화력을 함께 준비하세요.',
+    coverage: '일반 일루미닛 중 난이도 10에서 자주 만나는 7종입니다. 무권자·오버시어·고위 오버시어·플레시몹·하베스터 카드는 다른 세력 안내와 같습니다.',
+    units: [] },
   { id: 'mindless', side: 'illuminate', name: '무분별한 대중', en: 'Mindless Masses', source: wiki('Mindless_Masses'),
     intro: '무권자·플레시몹의 비중이 커지는 편성입니다. 다수 대응용 무기와 고난이도 하베스터 대응 수단을 나눠 준비하세요.',
     coverage: '무권자는 중량형을 대표로 표시합니다. 팩션 버프가 아니라 체형별 수치이며, 전체 계산기에서 다른 체형도 선택할 수 있습니다.',
@@ -97,3 +132,9 @@ export const factionGuides = [
     intro: '렛치와 크러셔가 주요 일루미닛 병력을 대체합니다. 무권자·플레시몹도 함께 등장하므로 근접 압박에 대비하세요.',
     units: [unit('wretch', '머리 파괴만으로 즉사하지 않습니다. 본체로 피해가 전달되는 다리 경로를 비교합니다.', ['leg']), unit('crusher', '장갑 4 헬멧을 제거한 뒤 머리를 공격합니다. 몸통·다리의 재생을 제외한 수치는 별도 조건입니다.', ['helmet'])] },
 ];
+
+// The Standard Illuminate guide shares the cards of units another guide already covers (same text and picks).
+const sharedUnit = (guide, enemy) => factionGuides.find(item => item.id === guide).units.find(item => item.enemy === enemy);
+factionGuides.find(item => item.id === 'illuminate-base').units.push(sharedUnit('mindless', 'voteless-heavy'),
+  unit('watcher', '날아다니며 파란 빛으로 주변을 훑고, 헬다이버를 발견하면 신호탄으로 워프 함선 증원을 부릅니다. 신호를 보내기 전에 처치하세요.', ['body']), sharedUnit('invasion', 'overseer'), sharedUnit('invasion', 'elevated-overseer'),
+  sharedUnit('mindless', 'fleshmob'), sharedUnit('invasion', 'harvester'), unit('stingray', '빠르게 날다가 기총소사하러 내려올 때 느려져 맞히기 쉽습니다. 공격 경로는 땅에 하늘색으로 표시됩니다.', ['gun-ports']));

@@ -219,7 +219,8 @@ let picks = 0, addedPicks = 0;
 for (const guide of factionGuides) for (const unit of guide.units) for (const choice of unit.weapons) {
   if (!recorded.has(`${guide.id}/${unit.enemy}/${choice}`)) {
     const pick = recommend(unit, choice, findEnemy(unit.enemy));
-    assert(pick.adviceOnly || pick.route, `${guide.id}/${unit.enemy}/${choice}: a pick added after the recording resolves to a route or advice`);
+    // A shared card's pick may show a wiki tactic instead of a fixed count (Fleshmob flak), as in its own guide.
+    assert(pick.adviceOnly || pick.route || pick.tactic, `${guide.id}/${unit.enemy}/${choice}: a pick added after the recording resolves to a route, advice or a wiki tactic`);
     addedPicks++;
     continue;
   }
