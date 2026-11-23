@@ -139,7 +139,7 @@ const legacyVerdict = { pass: 'pass', short: 'insufficient', unknown: 'unknown',
 // where the legacy left it unknown while every force verdict stays the same.
 const healthAdded = { ...Object.fromEntries(Object.entries(stratagemAttackDamage).map(([id, modes]) => [id, Object.keys(modes)])),
   'arc-thrower': ['standard'], meltagun: ['standard'], 'grenade-launcher': ['standard'], 'belt-fed-gl': ['standard'],
-  'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'], 'solo-silo': ['standard'] };
+  'breaching-hammer': ['melee', 'charge'], leveller: ['standard'], speargun: ['standard'], 'solo-silo': ['standard'], autocannon: ['flak'] };
 // Attacks the user confirmed to destroy the Grounded Warp Ship through its shield (2026-11-23): replayed without it.
 const shieldBypassAdded = { 'portable-hellbomb': ['standard'], hellbomb: ['standard'], leveller: ['standard'], 'solo-silo': ['standard'] };
 const legacyMode = (id, mode) => {
@@ -148,8 +148,14 @@ const legacyMode = (id, mode) => {
   return out;
 };
 // Stratagems given a profile from the attack datamine after the recording (2026-11-23) had none then.
+// SEAF Artillery was recorded as a call-in a jammer blocks; the wiki says jammers cannot block it (2026-11-23).
+const callInRemoved = ['seaf-artillery'];
 const legacyProfiles = Object.fromEntries(Object.entries(demolitionProfiles).filter(([id]) => !datamineProfileIds.includes(id)).map(([id, profile]) => [id, !healthAdded[id] && !shieldBypassAdded[id] ? profile
-  : { ...profile, modes: profile.modes.map(mode => legacyMode(id, mode)) }]));
+  : { ...profile, modes: profile.modes.map(mode => legacyMode(id, mode)) }]).map(([id, profile]) => [id, callInRemoved.includes(id) ? { ...profile, requiresCallIn: true } : profile]));
+for (const id of callInRemoved) for (const mode of demolitionProfiles[id].modes) {
+  const result = solveDemolition(structures.find(item => item.id === 'jammer'), demolitionProfiles[id], mode);
+  assert(!result.conditions.some(item => item.kind === 'jammer'), `${id}/${mode.id}: a jammer does not block it`);
+}
 for (const [id, modeIds] of Object.entries(shieldBypassAdded)) for (const modeId of modeIds) {
   const result = solveDemolition(structures.find(item => item.id === 'warp-ship'), demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId));
   assert(['demolish', 'health'].includes(result.outcome) && !result.conditions.length && (result.method !== 'health' || result.hits === 1), `${id}/${modeId}: destroys the Warp Ship through its shield`);
@@ -158,9 +164,11 @@ const builtAttacks = await buildStratagemAttacks();
 assert.deepEqual({ stratagemAttackDamage, stratagemAttackSource }, { stratagemAttackDamage: builtAttacks.damage, stratagemAttackSource: builtAttacks.source }, 'stratagem-attacks.js is out of date: run node scripts/build-stratagem-attacks.mjs');
 for (const [id, modes] of Object.entries(stratagemAttackDamage)) for (const modeId of Object.keys(modes)) assert(demolitionProfiles[id]?.modes.some(mode => mode.id === modeId && mode.damage === modes[modeId]), `${id}/${modeId}: damage reaches the demolition mode`);
 let healthResolved = 0;
-for (const [id, modeIds] of Object.entries(healthAdded)) for (const modeId of modeIds) for (const structure of structures) {
-  const current = solveDemolition(structure, demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId));
-  const legacy = solveDemolition(structure, legacyProfiles[id], legacyProfiles[id].modes.find(mode => mode.id === modeId));
+// Stratagems with no legacy profile at all (given one from the attack datamine) have nothing to replay.
+for (const [id, modeIds] of Object.entries(healthAdded)) if (legacyProfiles[id]) for (const modeId of modeIds) for (const structure of structures) {
+  // With jammers off, so a call-in rule changed since (SEAF Artillery) does not count as a health change.
+  const current = solveDemolition(structure, demolitionProfiles[id], demolitionProfiles[id].modes.find(mode => mode.id === modeId), { jammerDisabled: true });
+  const legacy = solveDemolition(structure, legacyProfiles[id], legacyProfiles[id].modes.find(mode => mode.id === modeId), { jammerDisabled: true });
   assert(current.routes.every((row, index) => row.verdict === legacy.routes[index].verdict), `${structure.id} × ${id}/${modeId}: force verdicts unchanged`);
   if (legacy.reason === 'health-unknown') { assert(current.outcome !== 'unknown', `${structure.id} × ${id}/${modeId}: health damage resolves it`); healthResolved++; }
   else if (!current.health) assert.equal(current.outcome, legacy.outcome, `${structure.id} × ${id}/${modeId}: unchanged without health`);

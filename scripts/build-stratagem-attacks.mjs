@@ -25,7 +25,12 @@ export const ATTACKS = {
   'at-mines': { standard: [null, 'ANTI-TANK MINES_E'] },
   'personnel-mines': { standard: [null, 'ANTI-PERSONNEL MINEFIELD_E'] },
   'incendiary-mines': { standard: [null, 'INCENDIARY MINES_E'] },
-  'maelstrom': { standard: [null, 'SWP_MAELSTROMIII_E'] },
+  // Vehicles, one demolition mode per weapon tab (the tab's datamine record in data-equipment.js); the
+  // Lumberer's flamethrower is a spray and left out.
+  'maelstrom': { missile: [null, 'SWP_MAELSTROMIII_E'], gatling: ['P11', null] },
+  'patriot': { rocket: ['P6', 'P6_IE'], mg: ['MG-43_P', null] },
+  'lumberer': { cannon: ['P8', 'P8_IE'] },
+  'bastion': { main: ['P10', 'P10_IE'], coax: ['MG-206_P', null] },
   // SEAF shells: matched by the explosion's demolition force and radius to the stratagem's modes.
   'seaf-artillery': {
     he: ['S_P8', 'S_P8_IE'], 'high-yield': ['S_P9', 'S_P9_IE'], 'mini-nuke': ['S_P10', 'S_P10_IE'],

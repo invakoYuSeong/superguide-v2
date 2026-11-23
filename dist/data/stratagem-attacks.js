@@ -18,6 +18,9 @@ export const stratagemAttackDamage = {
   "at-mines": {"standard":{"standard":0,"durable":0,"ap":0,"explosion":2000,"explosionAp":5}},
   "personnel-mines": {"standard":{"standard":0,"durable":0,"ap":0,"explosion":700,"explosionAp":3}},
   "incendiary-mines": {"standard":{"standard":0,"durable":0,"ap":0,"explosion":300,"explosionAp":3}},
-  "maelstrom": {"standard":{"standard":0,"durable":0,"ap":0,"explosion":2000,"explosionAp":5}},
+  "maelstrom": {"missile":{"standard":0,"durable":0,"ap":0,"explosion":2000,"explosionAp":5},"gatling":{"standard":150,"durable":35,"ap":4,"explosion":0,"explosionAp":0}},
+  "patriot": {"rocket":{"standard":1250,"durable":1250,"ap":6,"explosion":400,"explosionAp":3},"mg":{"standard":90,"durable":23,"ap":3,"explosion":0,"explosionAp":0}},
+  "lumberer": {"cannon":{"standard":1300,"durable":1300,"ap":6,"explosion":150,"explosionAp":3}},
+  "bastion": {"main":{"standard":3500,"durable":3500,"ap":8,"explosion":750,"explosionAp":5},"coax":{"standard":150,"durable":35,"ap":4,"explosion":0,"explosionAp":0}},
   "seaf-artillery": {"he":{"standard":4000,"durable":4000,"ap":8,"explosion":1500,"explosionAp":6},"high-yield":{"standard":4000,"durable":4000,"ap":8,"explosion":1500,"explosionAp":6},"mini-nuke":{"standard":4000,"durable":4000,"ap":8,"explosion":10000,"explosionAp":10},"napalm":{"standard":4000,"durable":4000,"ap":8,"explosion":250,"explosionAp":3},"ems":{"standard":4000,"durable":4000,"ap":8,"explosion":0,"explosionAp":6},"smoke":{"standard":4000,"durable":4000,"ap":8,"explosion":0,"explosionAp":0}},
 };

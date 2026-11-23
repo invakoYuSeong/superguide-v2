@@ -1,6 +1,7 @@
 import { weaponProfiles } from './combat-data.js';
 import { stratagemAttackDamage } from './stratagem-attacks.js';
 import { stratagemStats } from './stratagem-stats.js';
+import { vehicles } from './data-equipment.js';
 
 export const demolitionCheckedAt = '2026-09-16';
 export const demolitionSource = 'https://helldivers.wiki.gg/wiki/Demolition';
@@ -71,9 +72,17 @@ const automatic = '자동 포탑은 시설을 표적으로 직접 지정할 수 
 // Profiles read from the attack datamine (stratagem-stats.js `forces`): one mode with the strongest hit (direct, beam,
 // arc or spray) and the strongest blast, plus a vehicle's death explosion as its own mode. Options: label (what the
 // hit is called), damage (combat-data.js mode id for the health path), callIn (Eagles and orbitals need a call-in),
-// automatic (sentries and drones pick their own targets), many (several weapons: the strongest of them), noDirect (an
+// automatic (sentries and drones pick their own targets), many (several weapons: the strongest of them), tabs (one mode
+// per weapon tab instead), noDirect (an
 // airburst shell never hits directly), note.
 const HIT_KINDS = ['direct', 'beam', 'arc', 'spray'];
+// A vehicle's weapon tabs (data-equipment.js variants naming their datamine record) as demolition modes, each with the
+// force of its own record (structure damage from stratagem-attacks.js, below). only: the tab ids to take.
+function weaponModes(id, only = null) {
+  const parts = record => (stratagemStats[id]?.forces ?? []).filter(group => [record].flat().includes(group.attack)).flatMap(group => group.parts);
+  return vehicles.find(item => item.id === id).variants.filter(v => v.record && (!only || only.includes(v.id)))
+    .map(v => mode(v.id, v.name, strongestDemo(parts(v.record), HIT_KINDS), strongestDemo(parts(v.record), ['blast']), parts(v.record).some(part => part.kind === 'spray') ? { directLabel: '분사' } : {}));
+}
 const strongestDemo = (parts, kinds) => parts.filter(part => kinds.includes(part.kind) && part.demo != null).reduce((best, part) => Math.max(best ?? 0, part.demo), null);
 // Ids given a profile this way, so checks can tell them from the wiki summary's stratagems.
 export const datamineProfileIds = [];
@@ -85,7 +94,7 @@ function datamineProfiles(options) {
     const blast = strongestDemo(parts, ['blast']);
     const wreck = parts.find(part => part.kind === 'wreck');
     const notes = [opt.note, opt.many && '여러 무기 중 철거력이 가장 큰 공격 기준입니다.'].filter(Boolean).join(' ');
-    const modes = [mode('standard', '기본 공격', direct || null, blast || null, {
+    const modes = opt.tabs ? weaponModes(id) : [mode('standard', '기본 공격', direct || null, blast || null, {
       ...(opt.label && { directLabel: opt.label }), ...(opt.damage && { damage: combatDamage(id, opt.damage) }), ...(notes && { note: notes }) })];
     if (wreck) modes.push(mode('wreck', '연료 탱크 폭발', null, wreck.demo, { selfDestruct: true, damage: damage(0, 0, 0, wreck.damage, wreck.ap),
       note: '차량이 파괴될 때의 폭발입니다(이글 500kg 폭탄과 같은 크기). 화염방사기 연료가 다 떨어진 뒤에는 일반 차량 폭발로 바뀌고, 타고 있던 헬다이버는 죽습니다.' }));
@@ -97,7 +106,7 @@ function datamineProfiles(options) {
 export const demolitionProfiles = {
   'autocannon': profile([
     mode('aphet', '철갑고폭예광탄(APHET)', 30, 30, { damage: combatDamage('autocannon', 'aphet') }),
-    mode('flak', '대공포탄 모드', 20, 20, { note: '근접 신관이 입구 앞에서 터지면 내부 철거에 실패할 수 있습니다. 파편 피해의 탄수 계산은 보류합니다.' }),
+    mode('flak', '대공포탄 모드', 20, 20, { damage: combatDamage('autocannon', 'flak'), note: '근접 신관이 입구 앞에서 터지면 내부 철거에 실패할 수 있습니다. 파편 피해의 탄수 계산은 보류합니다.' }),
   ], { source: wiki('AC-8_Autocannon') }),
   'recoilless': profile([
     mode('heat', '대전차 고폭탄(HEAT)', 30, 30, { damage: combatDamage('recoilless', 'heat') }),
@@ -130,7 +139,7 @@ export const demolitionProfiles = {
   'solo-silo': profile(shot(null, 40, { name: '미사일 폭발', note: '여러 폭발의 철거력 40을 합산하지 않습니다.', damage: largestBlast('solo-silo', 'standard'), shieldBypass: true })),
   // Wiki Demolition summary (revision 138005), Other Stratagems: TD-110 Maelstrom,
   // Missile Explosion, force 40, explosive. The table has no row for its Gatling guns.
-  'maelstrom': profile(shot(null, 40, { name: '미사일 폭발' })),
+  'maelstrom': profile([mode('missile', '미사일 폭발', null, 40), ...weaponModes('maelstrom', ['gatling'])]),
   'speargun': profile(shot(30, 30, { damage: combatDamage('speargun', 'direct') })),
   'de-escalator': profile(shot(20, null, { directLabel: '전격' }), { conditionalAim: true, note: indirect }),
   'epoch': profile([
@@ -170,7 +179,8 @@ export const demolitionProfiles = {
   // The Hellbombs destroy a Grounded Warp Ship whatever its shield (user's play experience 2026-11-23; the wiki is silent).
   'portable-hellbomb': profile(shot(null, 60, { name: '지옥폭탄 폭발', shieldBypass: true, note: '시설이 중심 17 m 안에 들어오는 조건입니다. 이미 휴대한 폭탄의 기폭은 스트라타젬 호출과 다릅니다.' }), { source: wiki('Portable_Hellbomb') }),
   'hellbomb': callIn(shot(null, 60, { name: '지옥폭탄 폭발', shieldBypass: true, note: '시설이 중심 17 m 안에 들어오는 조건입니다. 호출이 허용되는 임무 구역에서 장전해야 합니다.' }), { source: wiki('Portable_Hellbomb') }),
-  'seaf-artillery': callIn([
+  // Not a call-in: Stratagem Jammers and Ion Storms cannot block SEAF Artillery (wiki SEAF Artillery rev 139226).
+  'seaf-artillery': profile([
     mode('he', '폭탄', 50, 50, { shieldBypass: true }),
     mode('high-yield', '고성능 폭탄', 50, 50, { shieldBypass: true }),
     mode('mini-nuke', '소형 핵탄두', 50, 60, { shieldBypass: true }),
@@ -187,7 +197,7 @@ export const demolitionProfiles = {
     'eagle-gas': { callIn: true },
     'machine-gun-sentry': { automatic: true }, 'gatling-sentry': { automatic: true }, 'gas-mortar': { automatic: true }, 'flame-sentry': { automatic: true, label: '분사' }, 'laser-sentry': { automatic: true, label: '광선' },
     'guard-dog': { automatic: true }, rover: { automatic: true, label: '광선' }, k9: { automatic: true }, 'hot-dog': { automatic: true }, 'dog-breath': { automatic: true, label: '분사' },
-    patriot: { many: true }, emancipator: { many: true }, lumberer: { many: true }, breakthrough: { many: true }, 'gunner-frv': { many: true }, 'supply-frv': { many: true }, bastion: { many: true },
+    patriot: { tabs: true }, emancipator: { many: true }, lumberer: { tabs: true }, breakthrough: { many: true }, 'gunner-frv': { many: true }, 'supply-frv': { many: true }, bastion: { tabs: true },
     'incinerator-frv': { many: true, label: '분사' },
   }),
 };
