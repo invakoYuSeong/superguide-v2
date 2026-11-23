@@ -4,19 +4,22 @@ import { html } from './dom.js';
 import { L } from '../core/i18n.js';
 import { apBandOf } from '../core/catalog.js';
 
-// An enemy behind the circles at the same scale, so the radius reads against something known: a Trooper for
-// the smallest blasts, where a Charger would outgrow the circle (user decision 2026-11-23), a Charger for small
+// An enemy behind the circles at the same scale, so the radius reads against something known: a Rocket
+// Devastator up to 2 m and a Hulk Scorcher up to 3 m, where a Charger would outgrow the circle (user decision
+// 2026-11-23; a Trooper was there first, a Hulk is taller than a 2 m circle), a Charger for small
 // blasts, a Bile Titan for the rest (user decision 2026-11-20) and a grounded Illuminate Warp Ship for the biggest
 // (user decision 2026-11-23), centred like the others. Tried and dropped there: a Dragonroach (wings 41.5 m, too
 // thin to make out), and a Vox Engine or a Harvester (about a Bile Titan's size, too small).
 // Sizes are from the surface of the game models in their rest pose (Helldivers 2 01.007.202, via
 // hd2armorinspector.com), rounded; the wiki and the developer give no sizes. Spans are side to side across the
-// legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Trooper is sized by its height (2.05 m,
-// measured 2026-11-23), since its rest pose spreads the arms; the Warp Ship by its length (34.2 m, measured
-// 2026-11-23; 24.2 m wide), which its near-side view shows across. Pictures are the wiki's Enemy Icons (the Warp
-// Ship's is its 'Grounded Warp Ship Icon Render') cropped to the body (480 px on the long side).
+// legs (measured 2026-11-20: Charger 5.1 m, Bile Titan 12.9 m); the Rocket Devastator and the Hulk Scorcher by
+// their height (2.83 m and 4.33 m, measured 2026-11-23), since their rest poses spread the arms; the Warp Ship by
+// its length (34.2 m, measured 2026-11-23; 24.2 m wide), which its near-side view shows across. Pictures are the
+// wiki's Enemy Icons (the Warp Ship's is its 'Grounded Warp Ship Icon Render') cropped to the body (480 px on the
+// long side).
 const SCALE_ENEMIES = [
-  { upTo: 3, name: L('트루퍼', 'Trooper'), height: 2, src: './assets/blast/trooper.webp', ratio: 480 / 322 },
+  { upTo: 2, name: L('로켓 데버스테이터', 'Rocket Devastator'), height: 2.8, src: './assets/blast/rocket-devastator.webp', ratio: 480 / 413 },
+  { upTo: 3, name: L('헐크 스코처', 'Hulk Scorcher'), height: 4.3, src: './assets/blast/hulk-scorcher.webp', ratio: 480 / 356 },
   { upTo: 6, name: L('차저', 'Charger'), span: 5, src: './assets/blast/charger.webp', ratio: 372 / 480 },
   { upTo: 20, name: L('바일 타이탄', 'Bile Titan'), span: 13, src: './assets/blast/bile-titan.webp', ratio: 375 / 480 },
   { upTo: Infinity, name: L('착륙한 워프 함선', 'grounded Warp Ship'), span: 34, lengthwise: true, src: './assets/blast/warp-ship.webp', ratio: 201 / 480 },
