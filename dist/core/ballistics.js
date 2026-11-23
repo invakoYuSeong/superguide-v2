@@ -2,11 +2,12 @@
 // quadratic drag dv/dt = -D * v * |v| with D = 0.0004712389 * caliber^2 * Cd / mass (mm, g),
 // and the damage multiplier 0.25 + 0.75 * (v / v0)^2, which along a straight path is
 // 1 - 0.75 * (1 - e^(-2Dx)). The wiki marks this as an approximation: it ignores gravity.
-// Drop is drawn from the same drag plus gravity, assuming Earth gravity (9.81 m/s^2)
-// times the record's gravity multiplier; the game's gravity value is not on the wiki.
+// Drop is drawn from the same drag plus gravity: 9.82 m/s^2 times the record's gravity multiplier, the
+// value helldiversotl.com's ballistics calculator uses as checked in the game code (game 7.1.0; not on the
+// wiki; user decision 2026-11-23). The same site's drag term matches the wiki's D exactly.
 import { projectileBallistics } from '../data/ballistics.js';
 
-export const EARTH_GRAVITY = 9.81;
+export const GAME_GRAVITY = 9.82;
 
 export const ballisticsOf = attack => (attack?.record ? projectileBallistics[attack.record] ?? null : null);
 
@@ -33,7 +34,7 @@ export function distanceAt(b, share) {
 export function trajectory(b, maxX = 200) {
   const points = [{ x: 0, drop: 0, speed: b.velocity, time: 0 }];
   if (!(b?.velocity > 0)) return { points, endX: 0 };
-  const d = dragOf(b), g = EARTH_GRAVITY * (b.gravity || 0), life = b.lifetime > 0 ? b.lifetime : Infinity;
+  const d = dragOf(b), g = GAME_GRAVITY * (b.gravity || 0), life = b.lifetime > 0 ? b.lifetime : Infinity;
   const dt = Math.min(0.0005, 0.25 / b.velocity);
   let vx = b.velocity, vy = 0, x = 0, y = 0, t = 0, next = 1;
   while (x < maxX && t < life && t < 30) {

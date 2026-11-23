@@ -36,6 +36,11 @@ export async function createPalette(ctx) {
   const groups = [
     { id: 'stratagems', name: L('스트라타젬', 'Stratagems'), items: stratagems.map(item => ({ fields: stratagemFields(item), label: T(item.name), sub: withEn(categoryOf(item.category).name, item.en), image: wikiIcons[item.id]?.src, route: { view: 'arsenal', id: item.id } })) },
     { id: 'gear', name: L('장비', 'Gear'), items: personalWeapons.map(item => ({ fields: { names: personalNames(item), text: [GEAR_GROUP[item.category]] }, label: displayName(item), sub: withEn(GEAR_GROUP[item.category], item.en), image: weaponImages[item.id]?.src, route: { view: 'gear', id: item.id } })) },
+    // Armor passives: the armor tab showing that passive's sets (#/gear?tab=armor&p=<passive>).
+    { id: 'passives', name: L('방어구 패시브', 'Armor passives'), items: armorPassives.map(item => {
+      const count = armors.filter(armor => armor.passive === item.id).length;
+      return { fields: { names: [item.name, item.en], text: item.effects.flatMap(effect => [effect.name, effect.en]) }, label: T(item.name), sub: withEn(L(`방어구 패시브 · ${count}종`, `Armor passive · ${count} ${count === 1 ? 'set' : 'sets'}`), item.en), image: armorImages[item.icon]?.src, route: { view: 'gear', query: { tab: 'armor', p: item.id } } };
+    }) },
     { id: 'armor', name: L('방어구', 'Armor'), items: armors.map(item => {
       const passive = armorPassives.find(entry => entry.id === item.passive);
       const weight = armorWeights.find(entry => entry.id === item.weight);

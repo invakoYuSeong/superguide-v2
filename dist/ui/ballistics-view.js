@@ -58,7 +58,7 @@ function recordBlock(label, record, propelled) {
     </dl>
     <div class="ballistic-charts">
       ${chart(L('거리별 탄 피해', 'Shot damage by distance'), damage, { top: 100, bottom: 25, label: '%', ticks: [100, 75, 50, 25].map(v => ({ value: v, text: `${v}%` })) })}
-      ${chart(L('낙차 (어림)', 'Drop (estimate)'), drop, { top: 0, bottom: dropTop, label: dropTop < 2 ? 'cm' : 'm', ticks: [0, dropTop / 2, dropTop].map(v => ({ value: v, text: dropText(v) })) })}
+      ${chart(L('낙차', 'Drop'), drop, { top: 0, bottom: dropTop, label: dropTop < 2 ? 'cm' : 'm', ticks: [0, dropTop / 2, dropTop].map(v => ({ value: v, text: dropText(v) })) })}
     </div>
     <div class="compare-scroll" role="region" aria-label="${L('거리별 값', 'Values by distance')}" tabindex="0"><table class="compare-table ballistic-table">
       <thead><tr><th scope="col">${L('거리', 'Distance')}</th><th scope="col">${L('탄 피해', 'Shot damage')}</th><th scope="col">${L('낙차', 'Drop')}</th><th scope="col">${L('도달 시간', 'Flight time')}</th><th scope="col">${L('탄속', 'Speed')}</th></tr></thead>
@@ -80,7 +80,7 @@ export function ballisticsBlock(entries) {
   // Folded by default (user decision 2026-11-23), like the customization table.
   return html`<details class="block disclosure ballistic-block"><summary><h3>${L('세부 수치', 'Detailed stats')}</h3></summary>
     ${list.map(e => recordBlock(list.length > 1 ? e.label : '', projectileBallistics[e.record], e.propelled))}
-    <p class="faint" style="font-size:12.5px">${L('탄 피해는 중력과 궤적은 반영하지 않습니다. 낙차는 게임의 중력 값이 공개되지 않아 지구 중력(9.81m/s²)에 중력 배율을 곱하고 수평으로 쐈다고 가정한 어림값입니다.', 'Shot damage leaves out gravity and the flight path. Drop is an estimate assuming Earth gravity (9.81 m/s²) times the gravity multiplier and a level shot, since the game\'s gravity is not published.')}</p>
+    <p class="faint" style="font-size:12.5px">${L('탄 피해는 중력과 궤적은 반영하지 않습니다. 낙차는 중력 9.82m/s²(helldiversotl.com이 게임 코드에서 확인한 값)에 중력 배율을 곱하고, 항력을 함께 넣어 수평으로 쐈을 때를 계산한 값입니다.', 'Shot damage leaves out gravity and the flight path. Drop uses gravity of 9.82 m/s² (the value helldiversotl.com checked in the game code) times the gravity multiplier, with drag, for a level shot.')}</p>
   </details>`;
 }
 
