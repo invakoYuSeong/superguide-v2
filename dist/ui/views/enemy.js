@@ -310,7 +310,7 @@ function ranking(enemy, entries, selectedId, detail) {
   const row = entry => entry.weapon.id === selectedId
     ? html`${rankRow(entry, true, large, noFatal)}<div class="rank-detail">${detail}</div>`
     : rankRow(entry, false, large, noFatal);
-  return html`<div class="section-title"><h2>${L('무기별 최소 횟수', 'Fewest shots by weapon')}</h2><p>${L(`${groupOf(state.group).name} ${entries.length}종 · 가장 빠른 확인된 경로 기준. 연사력·재장전·조준 난도는 반영하지 않습니다. 무기를 누르면 바로 아래에 부위별 계산이 열립니다.`, `${entries.length} ${groupOf(state.group).name.toLowerCase()} weapons · ranked by their quickest verified route. Fire rate, reloads and aiming difficulty are not included. Tap a weapon to open its part-by-part calculation right below.`)}</p></div>
+  return html`<div class="section-title" id="rank-title"><h2>${L('무기별 최소 횟수', 'Fewest shots by weapon')}</h2><p>${L(`${groupOf(state.group).name} ${entries.length}종 · 가장 빠른 확인된 경로 기준. 연사력·재장전·조준 난도는 반영하지 않습니다. 무기를 누르면 바로 아래에 부위별 계산이 열립니다.`, `${entries.length} ${groupOf(state.group).name.toLowerCase()} weapons · ranked by their quickest verified route. Fire rate, reloads and aiming difficulty are not included. Tap a weapon to open its part-by-part calculation right below.`)}</p></div>
   ${large ? html`<div class="one-shot-note ${singles ? '' : 'none'}">${L(singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 <b>${singles}종</b>이 한 발에 처치합니다. 강조된 줄을 먼저 보세요.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} 적</b> · ${groupOf(state.group).name} 중 한 발에 처치하는 무기가 없습니다. 여러 발이 필요하니 주의하세요.`,
     singles ? html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · <b>${singles}</b> ${groupOf(state.group).name.toLowerCase()} ${singles === 1 ? 'weapon kills' : 'weapons kill'} it in one shot. Check the highlighted rows first.` : html`<b>${SIZE_NAMES[enemySize(enemy)]} enemy</b> · no ${groupOf(state.group).name.toLowerCase()} weapon kills it in one shot. Expect to need several.`)}</div>` : ''}
   <div class="rank-filters"><div class="segmented group-tabs" role="group" aria-label="${L('무기 분류', 'Weapon group')}">${GROUPS.map(group => html`<button type="button" data-group-pick="${group.id}" aria-pressed="${group.id === state.group}">${group.name} <span class="count">${weaponsOf[group.id].length}</span></button>`)}</div>
@@ -579,7 +579,8 @@ function renderMain({ scrollToMatchup = false } = {}) {
   render($('#enemy-main', root), html`${hero(enemy)}${lore(enemy)}${attacks(enemy)}${ranking(enemy, entries, selected, selected ? matchupSection(enemy, entries) : '')}`);
   renderTray();
   renderPicker();
-  if (scrollToMatchup) $('.rank-row[aria-expanded="true"]', root)?.scrollIntoView({ block: 'start' });
+  // The picked weapon now heads the table, so bringing the table's title into view is enough.
+  if (scrollToMatchup) $('#rank-title', root)?.scrollIntoView({ block: 'start' });
 }
 
 function syncUrl() {
@@ -720,11 +721,12 @@ export function update(route) {
   else if (switched && main.getBoundingClientRect().top < 0) main.scrollIntoView({ block: 'start' });
 }
 
-// Scroll the selected weapon's row (with its calculation below) into view and flash it once.
+// Scroll the fewest-shots table (the selected weapon heads it, its calculation below) into view and
+// flash the calculation once.
 function showMatchup() {
   const section = $('#matchup', root);
   if (!section) return;
-  ($('.rank-row[aria-expanded="true"]', root) || section).scrollIntoView({ block: 'start' });
+  ($('#rank-title', root) || section).scrollIntoView({ block: 'start' });
   section.classList.add('flash');
   section.addEventListener('animationend', () => section.classList.remove('flash'), { once: true });
 }
