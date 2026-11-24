@@ -228,7 +228,10 @@ for (const item of support.filter(item => item.magazine != null || item.spareMag
   const record = weapons[item.en.toUpperCase()];
   if (!record) { ammoWarnings.push(`${item.id}: no datamine weapon record to compare`); continue; }
   const spare = record.roundtype === 'rounds' ? { rounds: record.rounds } : record.cap === 1 ? { rounds: record.mags } : { mags: record.mags };
-  if (item.magazine != null && item.magazine !== record.cap) ammoWarnings.push(`${item.id}: magazine ${item.magazine}, datamine cap ${record.cap}`);
+  // A record with no ammo fields (C4 Pack): the wiki infobox capacity is the source.
+  const wikiCapacity = Number.parseInt(/\|\s*capacity\s*=\s*([^\n|]*)/.exec(stratagemStatsSource.stratagems[item.id]?.infobox ?? '')?.[1], 10);
+  if (record.roundtype == null && record.cap == null) ok(item.magazine === wikiCapacity, `${item.id}: magazine ${item.magazine} is the wiki infobox capacity (${wikiCapacity})`);
+  else if (item.magazine != null && item.magazine !== record.cap) ammoWarnings.push(`${item.id}: magazine ${item.magazine}, datamine cap ${record.cap}`);
   if (item.spareMags != null && item.spareMags !== spare.mags) ammoWarnings.push(`${item.id}: spare magazines ${item.spareMags}, datamine ${spare.mags ?? 'none'}`);
   // Backpack spares follow the wiki infobox (spare_rounds '50 (Backpack)', spare_mags '5'), not the weapon record,
   // on a weapon the infobox gives the Backpack trait.
