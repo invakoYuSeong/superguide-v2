@@ -74,7 +74,7 @@
    "detail": { "ko": ["가슴 부상, 가시 식물, 철조망에 닿으면 걸리며 지속 피해를 받습니다. 셋은 따로 겹칩니다."],
     "en": ["A chest injury, spike plants and barbed wire each cause it, as separate effects, dealing damage over time."] } },
   { "id": "fire", "name": "Burning", "en": "Fire",
-   "detail": { "ko": ["불은 AP 4 장갑까지 뚫고 기본 3초 동안 탑니다. 큰 적은 불 피해 배율이 높을 수 있습니다(임페일러 1.7배).", "화염방사기처럼 직접 뿜는 불은 적을 혼란에 빠뜨리고 느리게 합니다(대형 이상 비벌레 적 제외).", "네이팜 이글·네이팜 포격·일회성 네이팜은 1초 동안 훨씬 강한 화상을 더합니다."],
+   "detail": { "ko": ["불은 AP 4 장갑까지 뚫고 기본 3초 동안 탑니다. 큰 적은 불 피해 배율이 높을 수 있습니다(임페일러 1.7배).", "화염방사기처럼 직접 뿜는 불은 적을 혼란에 빠뜨리고 느리게 합니다(대형 이상 버그가 아닌 적 제외).", "네이팜 이글·네이팜 포격·일회성 네이팜은 1초 동안 훨씬 강한 화상을 더합니다."],
     "en": ["Fire gets through AP 4 armor and burns for 3 seconds by default. Bigger enemies can take more fire damage (Impalers 1.7x).", "A direct flame stream, as from flamethrowers, panics and slows enemies (not large or bigger non-Terminids).", "Napalm Eagle, Napalm Barrage and Expendable Napalm add a much stronger burn that lasts 1 second."] } },
   { "id": "gas", "name": "Gas", "en": "Gas",
    "detail": { "ko": ["본체 체력에만 지속 피해를 주고 혼란에 빠뜨립니다. 혼란에 빠진 적은 아무 방향으로나 움직이고 공격하며, 가스에 걸리면 25% 느려집니다.", "가스 수류탄·가스 타격·가스 박격포 등은 6초(혼란 5초), 스테릴라이저와 독 브레스는 10초(혼란 9초)입니다."],

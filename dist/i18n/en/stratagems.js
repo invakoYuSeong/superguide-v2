@@ -514,7 +514,7 @@ export default {
   "적이 공격 동작으로 멈추거나 기절했을 때 발밑에 투하하세요. 포탄이 도착할 시간을 고려해 조준합니다.": "Drop it at an enemy's feet when it stops to attack or is stunned. Aim with the shell's travel time in mind.",
   "직격을 놓치면 중장갑 적이 폭발만 버틸 수 있습니다. 아군과 착탄 지점을 떨어뜨리세요.": "If the direct hit misses, heavy enemies can survive the blast alone. Keep teammates away from the impact point.",
   "증원 지점 위에 작은 포탄을 연속으로 쏟는 포격.": "Barrage that rains small shells continuously on reinforcement points.",
-  "벌레 굴 파기나 적 증원 지점에 던져 계속 나오는 적을 묶으세요.": "Throw it at bug breaches or enemy reinforcement points to pin down the enemies that keep coming.",
+  "버그 출몰 지점이나 적 증원 지점에 던져 계속 나오는 적을 묶으세요.": "Throw it at bug breaches or enemy reinforcement points to pin down the enemies that keep coming.",
   "포격 구역 안의 모든 곳이 안전 없이 균일하게 맞는 것은 아닙니다. 아군이 들어가지 않게 하세요.": "Coverage inside the barrage zone isn't even, but no spot in it is safe. Keep teammates out.",
   "하늘에서 파편을 반복 살포해 보병 무리를 정리하는 공격.": "Strike that repeatedly showers shrapnel from the sky to clear infantry groups.",
   "적이 계속 쏟아지는 입구에 던지고 마지막 파편이 떨어질 때까지 접근하지 마세요.": "Throw it at an entrance enemies keep pouring out of, and stay back until the last shrapnel lands.",

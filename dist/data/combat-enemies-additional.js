@@ -16,7 +16,7 @@ export const additionalEnemies = [
       "exdr": 0,
       "constitution": 0
     },
-    "note": "작은 근접 벌레입니다. 머리는 치명 부위이며 다리 하나의 파괴는 처치와 다릅니다.",
+    "note": "작은 근접 적입니다. 머리는 치명 부위이며 다리 하나의 파괴는 처치와 다릅니다.",
     "spearLock": false,
     "parts": [
       {
