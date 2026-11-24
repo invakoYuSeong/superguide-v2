@@ -920,15 +920,47 @@ export const hazards = [
  },
  {
   "id": "explosive-barrel",
-  "name": "폭발성 통",
-  "en": "Explosive Barrel",
+  "name": "슈퍼 지구 폭발성 통",
+  "en": "Super Earth Barrel",
   "detail": [
-   "철거력 5 이상인 공격을 받으면 터집니다. 슈퍼 지구의 통은 대부분 터진 자리에 약 10초 동안 불을 남깁니다.",
-   "오토마톤 전초기지의 배터리 통은 들어 옮길 수 없고, 터져도 불을 남기지 않습니다."
+   "모든 임무에 있습니다. 주로 소규모 관심 지점과 탈출 지점 주변에 많고, ICBM 발사·E-710 탈출 임무에서는 목표 단말기 바로 옆에도 자주 놓입니다.",
+   "철거력 5 이상인 공격을 받으면 터지고, 대부분 터진 자리에 약 10초 동안 불을 남깁니다."
   ],
   "detailEn": [
-   "It explodes when hit by demolition force 5 or more. Most Super Earth barrels leave the ground burning for about 10 seconds.",
-   "The battery barrels in Automaton outposts cannot be lifted and leave no fire."
+   "Found on every mission, mostly at Minor Places of Interest and around extraction, and often right next to objective terminals in Launch ICBM and Enable E-710 Extraction missions.",
+   "It explodes when hit by demolition force 5 or more, and most leave the ground burning for about 10 seconds."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
+  "revision": 96635
+ },
+ {
+  "id": "automaton-barrel",
+  "name": "오토마톤 폭발성 통",
+  "en": "Automaton Barrel",
+  "detail": [
+   "오토마톤 임무에서 대부분의 오토마톤 전초기지 안에 있는 배터리 통입니다.",
+   "철거력 5 이상인 공격을 받으면 터집니다. 들어 옮길 수 없고, 터져도 불을 남기지 않습니다."
+  ],
+  "detailEn": [
+   "Battery barrels inside most Automaton Outposts on Automaton missions.",
+   "It explodes when hit by demolition force 5 or more. It cannot be lifted and leaves no fire when it explodes."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
+  "revision": 96635
+ },
+ {
+  "id": "illuminate-barrel",
+  "name": "일루미닛 폭발성 통",
+  "en": "Illuminate Barrel",
+  "detail": [
+   "일루미닛 임무에서 주로 일루미닛 야영지 안에 있습니다.",
+   "철거력 5 이상인 공격을 받으면 터집니다. 불 웅덩이를 남기지 않는 대신 다른 폭발성 통보다 폭발 범위가 훨씬 넓고, 폭발에서 살아남은 헬다이버에게 불이 붙습니다."
+  ],
+  "detailEn": [
+   "Found on Illuminate missions, mostly inside Illuminate Encampments.",
+   "It explodes when hit by demolition force 5 or more. It leaves no fire pool, but its blast reaches much farther than the other barrels, and a Helldiver who survives the blast is set on fire."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
