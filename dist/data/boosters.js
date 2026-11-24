@@ -254,7 +254,7 @@ export const boosters = [
   "en": "Firebomb Hellpods",
   "description": "모든 헬포드에 충격 시 폭발하는 휘발성 소이탄을 배치하여 낙하지점 근처에 있는 모든 유닛을 불태웁니다.",
   "descriptionEn": "Lines all Hellpods with volatile incendiaries that detonate upon impact, igniting any units in vicinity of the drop site.",
-  "detail": "사람이 탄 포드와 장비 포드 모두 착지할 때 폭발·화염 피해를 줍니다. 아군도 다치니 첫 투하 때 동료에게 알리세요.",
+  "detail": "헬포드가 착지할 때 폭발·화염 피해를 줍니다. 아군도 다치니 첫 투하 때 동료에게 알리세요.",
   "detailEn": "Every Hellpod, manned or not, deals blast and fire damage on landing. It hurts friends too, so warn your squad before the first drop.",
   "warbondId": "freedoms-flame",
   "page": 3,
@@ -356,12 +356,6 @@ export const boosters = [
   "descriptionEn": "Exposes Hellpod wiring upon surface contact, stunning any units in the vicinity of the drop site.",
   "detail": "지원 무기 포드를 포함한 모든 포드가 착지할 때 주변을 기절시키며, 아군도 기절합니다. 기절 시간은 10초로 게임에서 가장 깁니다.",
   "detailEn": "Every Hellpod, support weapon pods included, stuns everything nearby on landing, teammates too. The stun lasts 10 seconds, the longest in the game.",
-  "tips": [
-   "포드 근처의 헬다이버는 소량의 피해와 함께 넘어지고, 스태미나가 모두 빠지며 느려집니다. 효과는 착지하는 순간 한 번뿐이라 나중에 다가가면 괜찮습니다."
-  ],
-  "tipsEn": [
-   "Helldivers near a pod take a little damage, get knocked down, lose all stamina and slow down. It only goes off the moment the pod lands, so walking up later is safe."
-  ],
   "warbondId": "force-of-law",
   "page": 2,
   "cost": 55,
@@ -380,7 +374,7 @@ export const boosters = [
   "en": "Concealed Insertion",
   "description": "헬포드에 충격 시 연막을 방출하여 헬다이버가 배치될 때 모습을 가립니다.",
   "descriptionEn": "Equips Hellpods to deploy smokescreens on impact, obscuring Helldiver deployment.",
-  "detail": "사람이 탄 포드와 장비 포드 모두 착지할 때 잠깐 연막을 뿜습니다.",
+  "detail": "헬포드가 착지할 때 잠깐 연막을 뿜습니다.",
   "detailEn": "Every Hellpod, manned or not, puts out a short burst of smoke on landing.",
   "warbondId": "redacted-regiment",
   "page": 3,
