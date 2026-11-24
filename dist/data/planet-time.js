@@ -1,0 +1,50 @@
+// Planet clock speed: how many minutes of a planet's local time (the galaxy map's SEST)
+// pass in one real minute. Not on the wiki: measured in game on the galaxy map on
+// 2026-11-24 for the 42 planets with an open front that day (user's own measurement).
+// rate < 0 = the clock runs backwards. averagedMinutes = rate is the average over a second
+// reading that many real minutes later; without it, two readings 45 seconds apart.
+export const planetTimeMeasuredAt = '2026-11-24';
+export const planetTimeScales = [
+  {"en": "ALAMAK VII", "rate": 59.33, "averagedMinutes": 57},
+  {"en": "ALARAPH", "rate": 37.88, "averagedMinutes": 58},
+  {"en": "GRAFMERE", "rate": 27.23, "averagedMinutes": 42},
+  {"en": "CHARON PRIME", "rate": 23.16, "averagedMinutes": 21},
+  {"en": "BORE ROCK", "rate": 22.69, "averagedMinutes": 41},
+  {"en": "HALDUS", "rate": 21.67, "averagedMinutes": 43},
+  {"en": "ASPEROTH PRIME", "rate": 21.66, "averagedMinutes": 28},
+  {"en": "VALMOX", "rate": 21.21, "averagedMinutes": 45},
+  {"en": "LUXURIANT", "rate": 20.91, "averagedMinutes": 51},
+  {"en": "ALDERIDGE COVE", "rate": 20.24, "averagedMinutes": 60},
+  {"en": "SANGIS", "rate": 20.08},
+  {"en": "BRILLIANCE", "rate": 19.64, "averagedMinutes": 41},
+  {"en": "X-45", "rate": 19.41, "averagedMinutes": 15},
+  {"en": "HERTHON SECUNDUS", "rate": -18.66, "averagedMinutes": 54},
+  {"en": "MERGA IV", "rate": 18.44, "averagedMinutes": 32},
+  {"en": "NIVEL 43", "rate": 18.01, "averagedMinutes": 44},
+  {"en": "BLISTICA", "rate": -16.89, "averagedMinutes": 34},
+  {"en": "MINTORIA", "rate": 14.02, "averagedMinutes": 37},
+  {"en": "IRO", "rate": 13.83, "averagedMinutes": 45},
+  {"en": "KHANDARK", "rate": 13.7, "averagedMinutes": 62},
+  {"en": "TRANDOR", "rate": 13.08, "averagedMinutes": 53},
+  {"en": "SETIA", "rate": 11.09},
+  {"en": "ROGUE 5", "rate": 5.12, "averagedMinutes": 51},
+  {"en": "CHOEPESSA IV", "rate": 3.67, "averagedMinutes": 19},
+  {"en": "KEID", "rate": 2.37},
+  {"en": "HEZE BAY", "rate": 1.82},
+  {"en": "MENKENT", "rate": 1.75},
+  {"en": "MATAR BAY", "rate": 1.64},
+  {"en": "MEISSA", "rate": 1.53},
+  {"en": "OVERGOE PRIME", "rate": 1.51},
+  {"en": "CHOOHE", "rate": 1.49},
+  {"en": "GENESIS PRIME", "rate": 1.4},
+  {"en": "ALAIRT III", "rate": 1.33},
+  {"en": "SIEMNOT", "rate": 1.22},
+  {"en": "HESOE PRIME", "rate": 1.16},
+  {"en": "USTOTU", "rate": 1.13},
+  {"en": "MARTALE", "rate": 1.11},
+  {"en": "PEACOCK", "rate": 1.02},
+  {"en": "K", "rate": 0.98},
+  {"en": "RD-4", "rate": 0.95},
+  {"en": "OMICRON", "rate": 0.87},
+  {"en": "AURORA BAY", "rate": 0.87}
+];

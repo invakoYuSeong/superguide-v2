@@ -918,6 +918,14 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .biome-planets { margin-top: 8px; font-size: 13.5px; color: var(--text-2); }
 .biome-planets summary { cursor: pointer; font-weight: 650; color: var(--text); }
 .biome-planets p { margin-top: 6px; line-height: 1.7; }
+/* Planet clock speed table (planet tab 'time'). */
+.info-list.time-notes { grid-template-columns: 1fr; margin-bottom: 12px; }
+.time-table { min-width: 560px; }
+.time-table tbody th { width: auto; color: var(--text); font-size: 14px; font-weight: 700; }
+.time-table tbody th small { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; }
+.time-table td a, .time-table th a { color: var(--accent-text); font-weight: 650; }
+.time-table td, .time-table tbody th { vertical-align: middle; padding: 8px 12px; }
+.time-table tr[data-reverse] td b { color: var(--bleed); }
 .mission-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .mission-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .mission-list a { color: var(--text); font-weight: 650; }

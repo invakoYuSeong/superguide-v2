@@ -1,6 +1,7 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
-//   #/planets?tab=<conditions|modifiers|biomes|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
+//   #/planets?tab=<conditions|modifiers|biomes|time|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
+import { planetTimeScales, planetTimeMeasuredAt } from '../../data/planet-time.js';
 import { biomeImages } from '../../data/biome-images.js';
 import { hazardImages } from '../../data/hazard-images.js';
 import { html, render, $, $$, badge, external, icon } from '../dom.js';
@@ -10,6 +11,7 @@ const TABS = [
   { id: 'conditions', name: L('환경 조건', 'Environment'), icon: 'tab-conditions' },
   { id: 'modifiers', name: L('작전 제한 조건', 'Operation modifiers'), icon: 'tab-modifiers' },
   { id: 'biomes', name: L('생물군계', 'Biomes'), icon: 'tab-biomes' },
+  { id: 'time', name: L('시간 배율', 'Clock speed'), icon: 'tab-time' },
   { id: 'status', name: L('상태 이상', 'Status effects'), icon: 'tab-status' },
 ];
 const FACTIONS = [
@@ -120,6 +122,36 @@ const planetLink = planet => {
   return planet.wiki ? html`<a href="https://helldivers.wiki.gg/wiki/${encodeURIComponent(planet.wiki.replaceAll(' ', '_'))}" target="_blank" rel="noopener noreferrer">${name}<span aria-hidden="true"> ↗</span></a>` : name;
 };
 
+// Clock speed (planet-time.js, measured in game): names and biomes come from the biome planet lists.
+const biomeOfPlanet = new Map(biomes.flatMap(biome => biome.planets.map(planet => [planet.en, { planet, biome }])));
+const duration = minutes => {
+  const h = Math.floor(minutes / 60), m = minutes % 60;
+  return h ? L(`${h}시간${m ? ` ${m}분` : ''}`, `${h} h${m ? ` ${m} min` : ''}`) : L(`${m}분`, `${m} min`);
+};
+
+function timeTab() {
+  return html`<p class="lede-note">${L(`행성마다 현지 시각이 흐르는 빠르기가 다릅니다. 배율은 실제 1분 동안 행성 시각이 몇 분 흐르는지입니다. 위키에 없는 자료라 ${planetTimeMeasuredAt}에 전선이 열려 있던 행성 ${planetTimeScales.length}곳을 은하 지도의 행성 시각(SEST)으로 직접 잰 값입니다.`,
+      `Each planet's local clock runs at its own speed. The rate is how many minutes of planet time pass in one real minute. The wiki has no such data, so these are our own readings of the galaxy map's planet clock (SEST) for the ${planetTimeScales.length} planets with an open front on ${planetTimeMeasuredAt}.`)}</p>
+    <ul class="info-list time-notes"><li class="info-item plain"><div class="info-body">
+      <p class="info-detail">${L('낮은 06시~18시, 밤은 18시~06시입니다. 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.', 'Day runs 06:00-18:00 and night 18:00-06:00; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
+      <p class="info-detail">${L('빠른 행성은 실제 30분 안팎에 하루가 지나고, 느린 행성은 실제 하루보다 깁니다. 같은 생물군계라도 행성마다 다릅니다.', 'On fast planets a whole day passes in about half a real hour; on slow ones it lasts longer than a real day. Planets of the same biome can differ.')}</p>
+      <p class="info-detail">${L('헤르손 세쿤두스와 블리스티카는 시각이 거꾸로 흐릅니다.', 'On Herthon Secundus and Blistica the clock runs backwards.')}</p>
+      <p class="info-detail">${L('하루 안에서도 빠르기가 조금씩 바뀝니다(애스페로스 프라임은 20~24배). 그래서 15~60분 뒤 다시 읽어 낸 평균을 쓰고, 3배 미만으로 느린 행성은 45초 간격으로 두 번 읽은 값입니다.', 'The speed also shifts a little through the day (Asperoth Prime 20-24x), so the table uses the average over a second reading 15-60 minutes later; planets slower than 3x use two readings 45 seconds apart.')}</p>
+      <p class="info-detail">${L('표에 없는 행성은 은하 지도에서 그 행성 시각을 1분 간격으로 두 번 읽으면 잴 수 있습니다.', 'For a planet not listed, read its clock on the galaxy map twice, one minute apart.')}</p>
+    </div></li></ul>
+    <div class="compare-scroll" role="region" aria-label="${L('행성별 시간 배율', 'Clock speed by planet')}" tabindex="0"><table class="compare-table time-table">
+      <thead><tr><th scope="col">${L('행성', 'Planet')}</th><th scope="col">${L('생물군계', 'Biome')}</th><th scope="col">${L('배율', 'Rate')}</th><th scope="col">${L('하루 (실제)', 'Day (real time)')}</th><th scope="col">${L('낮 12시간 (실제)', '12 h daylight (real time)')}</th></tr></thead>
+      <tbody>${planetTimeScales.map(item => {
+        const { planet, biome } = biomeOfPlanet.get(item.en) ?? {};
+        const day = Math.round(1440 / Math.abs(item.rate));
+        return html`<tr ${item.rate < 0 ? 'data-reverse' : ''}><th scope="row">${planet ? planetLink(planet) : item.en}${planet && lang !== 'en' && planet.name !== planet.en ? html`<small>${planet.en}</small>` : ''}</th>
+          <td>${biome ? html`<a href="#/planets?tab=biomes&b=${biome.id}">${title(biome)}</a>` : '-'}</td>
+          <td><b>${L(`${item.rate}배`, `${item.rate}x`)}</b><small>${item.rate < 0 ? L('거꾸로 흐름 · ', 'runs backwards · ') : ''}${item.averagedMinutes ? L(`${item.averagedMinutes}분 간격 평균`, `${item.averagedMinutes} min average`) : L('45초 간격', '45 s readings')}</small></td>
+          <td>${duration(day)}</td><td>${duration(Math.round(day / 2))}</td></tr>`;
+      })}</tbody>
+    </table></div>`;
+}
+
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
     <ul class="info-list">${statusEffects.map(item => html`<li class="info-item" id="planet-${item.id}" ${item.id === state.biome ? 'data-focus' : ''}>
@@ -132,10 +164,11 @@ function statusTab() {
     </li>`)}</ul>`;
 }
 
-const BODIES = { conditions: conditionsTab, modifiers: modifiersTab, biomes: biomesTab, status: statusTab };
+const BODIES = { conditions: conditionsTab, modifiers: modifiersTab, biomes: biomesTab, time: timeTab, status: statusTab };
 
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
+  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`실측 ${planetTimeMeasuredAt}`, `Measured ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
   render($('#planet-body', root), BODIES[state.tab]());
   const marked = state.biome && ($(`#biome-${state.biome}`, root) || $(`#planet-${state.biome}`, root));
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
@@ -146,7 +179,7 @@ const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab ===
 export function mount(container, context) {
   root = container; ctx = context;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Planets</div><h1>${L('행성', 'Planets')}</h1>
-    <p>${L('출격할 행성의 환경 조건, 작전 제한 조건, 생물군계, 상태 이상을 정리했습니다.', 'Environmental conditions, operation modifiers, biomes and status effects of the planets you drop on.')}</p></div></div>
+    <p>${L('출격할 행성의 환경 조건, 작전 제한 조건, 생물군계, 시간 배율, 상태 이상을 정리했습니다.', 'Environmental conditions, operation modifiers, biomes, clock speeds and status effects of the planets you drop on.')}</p></div></div>
     <div class="planet-head"><div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${icon(tab.icon, 16)} ${tab.name}</button>`)}</div>
       <span class="planet-checked">${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
     <div id="planet-body"></div>`);
