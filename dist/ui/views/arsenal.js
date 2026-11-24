@@ -228,6 +228,21 @@ function ammoCells(item) {
   ];
 }
 
+// Support weapon reload from the wiki infobox (stratagem-stats.js reload): from empty, with rounds left, by a teammate
+// from the backpack, a clip-fed weapon's clips, and the Stationary Reload trait (user request 2026-11-24).
+function reloadCell(item) {
+  const r = stratagemStats[item.id]?.reload;
+  if (!r || (r.time == null && r.tactical == null)) return '';
+  const s = L('초', 's');
+  const parts = [
+    r.time != null && r.tactical != null ? L(`탄이 남았을 때 ${num(r.tactical)}초`, `${num(r.tactical)}s with rounds left`) : r.time == null ? L('탄이 남았을 때', 'With rounds left') : L('탄창을 비웠을 때', 'From empty'),
+    r.clipFirst != null ? L(`클립 하나씩 장전 ${num(r.clipFirst)}초, 다음 클립 ${num(r.clipRest)}초`, `Clip by clip: ${num(r.clipFirst)}s, then ${num(r.clipRest)}s each`) : '',
+    r.assisted != null ? L(`동료가 장전하면 ${num(r.assisted)}초`, `${num(r.assisted)}s when a teammate loads it`) : '',
+    r.stationary ? L('정지 재장전: 장전하는 동안 움직일 수 없음', 'Stationary reload: you cannot move while reloading') : '',
+  ].filter(Boolean).join(' · ');
+  return html`<div><dt>${L('재장전', 'Reload')}</dt><dd>${num(r.time ?? r.tactical)}<small>${s}</small></dd><div class="caption">${parts}</div></div>`;
+}
+
 // Fire rate from the wiki infobox, or the rates the player picks between.
 function rateCell(item) {
   if (item.rpmModes?.length > 1) return html`<div><dt>${L('연사 모드', 'Fire rate modes')}</dt><dd>${item.rpmModes.map(num).join(' / ')}</dd><div class="caption">${L('분당 발수 · 골라서 사용', 'Rounds per minute · pick one')}</div></div>`;
@@ -449,7 +464,7 @@ const statGrid = (item, effects = []) => {
     .map(cell => statCell({ label: cell.label, icon: cell.icon, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
   // A direct hit that practically never happens (a carrier shell bursting in the air) is flagged in orange.
   if (item.directWarn) direct.warn = item.directWarn;
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}${effects}</dl>`;
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${reloadCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}${effects}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {

@@ -103,6 +103,31 @@ export function sentryOf(id, title, type, table, strat) {
   return Object.keys(out).length ? out : null;
 }
 /** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
+// Support weapon reload from the wiki infobox: reload_time '5.0s<br>4.55s (Upgraded)<br>3s (Assisted)' (base, with the
+// Payroll Management System ship module, by a teammate from the backpack) and tac_reload_time (with rounds left);
+// stationary = the Stationary Reload trait (the Helldiver cannot move while reloading). Null without any of them.
+const reloadParts = text => {
+  const out = {};
+  for (const token of String(text ?? '').split(/<br\s*\/?>|\{\{\*\}\}/)) {
+    const m = /(\d+(?:\.\d+)?)\s*s?\s*(?:\(([^)]+)\))?/.exec(token.trim());
+    if (!m) continue;
+    const key = m[2] ? m[2].trim().toLowerCase() : 'plain';
+    if (!(key in out)) out[key] = Number(m[1]);
+  }
+  // '1.2s {{*}} 1.35s (Base)' (Railgun): the labelled base wins over an unlabelled number.
+  return { base: out.base ?? out.plain ?? null, upgraded: out.upgraded ?? null, assisted: out.assisted ?? null };
+};
+export function reloadOf(entry) {
+  const box = entry?.infobox ?? '';
+  if (!/Infobox Support Weapon/.test(box)) return null;
+  const line = key => new RegExp(`\\|\\s*${key}\\s*=\\s*([^\\n]*)`).exec(box)?.[1] ?? '';
+  // Clip-fed weapons (Autocannon) give the full reload and each clip instead: rounds_reload_full_time / _first / _rest.
+  const full = reloadParts(line('reload_time') || line('rounds_reload_full_time')), tac = reloadParts(line('tac_reload_time'));
+  const clipFirst = reloadParts(line('rounds_reload_first')).base, clipRest = reloadParts(line('rounds_reload_rest')).base;
+  const stationary = /Stationary Reload/i.test(line('traits'));
+  const out = { ...(full.base != null && { time: full.base }), ...(tac.base != null && { tactical: tac.base }), ...(full.assisted != null && { assisted: full.assisted }), ...(clipFirst != null && { clipFirst }), ...(clipRest != null && { clipRest }), ...(stationary && { stationary }) };
+  return Object.keys(out).length ? out : null;
+}
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
 // Continuous-fire heat of a beam weapon (datamine heatdata, the table the wiki shows as Heat Data): it overheats
 // once heat_per_second takes it to overheat_temp, as the wiki infobox capacity of the Laser Cannon (100 / 8 = 12.5 s)
