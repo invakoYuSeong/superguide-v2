@@ -205,6 +205,7 @@ function spreadBlock(item) {
 
 // Durable damage, magazine and spare ammo from the datamine (see data-support.js).
 function ammoCells(item) {
+  const heat = stratagemStats[item.id]?.heat;
   const cell = (label, text, unit, caption) => html`<div><dt>${label}</dt><dd>${text}${unit ? html`<small>${unit}</small>` : ''}</dd>${caption ? html`<div class="caption">${caption}</div>` : ''}</div>`;
   // Spare ammo is the magazine cell's second line (user request 2026-11-24), as in the gear details.
   const pack = item.spareFromBackpack ? L('(탄약 배낭)', ' (in the backpack)') : '';
@@ -219,6 +220,11 @@ function ammoCells(item) {
     item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : L('발', ''), [spare, wikiNote].filter(Boolean).join(' · ')) : '',
     item.magazine == null && item.spareMags != null ? cell(item.fuel ? L('예비 연료통', 'Spare tanks') : L('예비 탄창', 'Spare magazines'), num(item.spareMags), L('개', ''), L('최대 보유', 'Maximum carried')) : '',
     item.magazine == null && item.spareRounds != null ? cell(L('예비탄', 'Spare rounds'), num(item.spareRounds), L('발', ''), L('최대 보유', 'Maximum carried')) : '',
+    // Beam weapons that heat up (datamine heatdata, stratagem-stats.js): how long they fire in a row before
+    // overheating; a support weapon then swaps a heat sink, the Laser Sentry burns out and self-destructs.
+    heat ? cell(L('과열까지', 'Until overheat'), num(heat.seconds), L('초', 's'), heat.heatsinks != null
+      ? L(`연달아 쏠 때 · 예비 방열판 ${num(heat.heatsinks)}개`, `Firing nonstop · ${num(heat.heatsinks)} spare heatsinks`)
+      : L('연달아 쏠 때 · 과열되면 자폭', 'Firing nonstop · self-destructs when it overheats')) : '',
   ];
 }
 

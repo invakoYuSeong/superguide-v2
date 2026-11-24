@@ -104,6 +104,17 @@ export function sentryOf(id, title, type, table, strat) {
 }
 /** Aim sway multiplier (datamine `sway`, 1 = standard) of the same weapon entry; else null. */
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
+// Continuous-fire heat of a beam weapon (datamine heatdata, the table the wiki shows as Heat Data): it overheats
+// once heat_per_second takes it to overheat_temp, as the wiki infobox capacity of the Laser Cannon (100 / 8 = 12.5 s)
+// and the Scythe (8 s) show; heatsinks = spare heat sinks of a support weapon. Sentries keep their gun under weapons
+// by their bare name (LASER SENTRY).
+export function heatOf(found, title, strat) {
+  const bare = title.toUpperCase().replace(/^\S*\d\S*\s+/, '');
+  const heat = found?.entry?.heatdata ?? strat.weapons?.[bare]?.heatdata;
+  if (!(heat?.overheat_temp > 0 && heat.heat_per_second > 0)) return null;
+  const heatsinks = Number.isFinite(found?.entry?.mags) && found.entry.roundtype === 'heat' ? found.entry.mags : null;
+  return { overheatTemp: heat.overheat_temp, perSecond: heat.heat_per_second, seconds: Math.round(heat.overheat_temp / heat.heat_per_second * 100) / 100, ...(heatsinks != null && { heatsinks }) };
+}
 
 export function datamineEntry(id, title, strat, weapons) {
   const upper = title.toUpperCase(), bare = upper.replace(/^\S*\d\S*\s+/, '');
