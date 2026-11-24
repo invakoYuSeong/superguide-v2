@@ -77,7 +77,7 @@ export const armorPassives = [
     "order": 5,
     "icon": "Engineering Kit Armor Passive Icon.svg",
     "effects": [
-      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%."},
+      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%.","exact":"실제로는 자세와 상관없이 늘 반동 30% 감소(앉기·엎드리기의 기본 반동 감소와 함께 적용)","exactEn":"Actually cuts recoil by 30% in every stance, on top of the usual crouch and prone reduction"},
       {"name":"투척 무기의 초기 인벤토리와 소지 용량이 +2 증가합니다.","en":"Increases initial inventory and holding capacity of throwables by +2."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Engineering_Kit",
@@ -107,7 +107,7 @@ export const armorPassives = [
     "order": 7,
     "icon": "Fortified Armor Passive Icon.svg",
     "effects": [
-      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%."},
+      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%.","exact":"실제로는 자세와 상관없이 늘 반동 30% 감소(앉기·엎드리기의 기본 반동 감소와 함께 적용)","exactEn":"Actually cuts recoil by 30% in every stance, on top of the usual crouch and prone reduction"},
       {"name":"폭발 대미지에 대한 저항력을 50% 제공합니다.","en":"Provides 50% resistance to explosive damage."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Fortified",
