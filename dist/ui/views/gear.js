@@ -241,7 +241,12 @@ function detailRows(w) {
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
   else if (w.rpm != null) add(L('연사', 'Fire rate'), num(w.rpm), '', L('분당 발수', 'Rounds per minute'));
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
-  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
+  // Where emptying it first is faster (heat weapons: an overheated heat sink pops out by itself, wiki Sickle and Talon
+  // pages), the caption says so (user request 2026-11-24).
+  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical == null ? L('탄창을 비웠을 때', 'From empty')
+    : w.reload < w.reloadTactical ? (w.heatCapacity?.raw ? L(`과열됐을 때 · 과열 전에 갈면 ${num(w.reloadTactical)}초(방열판이 저절로 빠져 과열됐을 때가 더 빠름)`, `When overheated · ${num(w.reloadTactical)}s before that (the heat sink pops out by itself, so overheated is faster)`)
+      : L(`탄창을 비웠을 때 · 탄이 남았을 때 ${num(w.reloadTactical)}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · ${num(w.reloadTactical)}s with rounds left (emptying first is faster)`))
+    : L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`));
   // Customizable weapons (an attachment table) read with the level 1 attachments; others have no 'base' to name.
   const customizable = w.category === 'primary' && weaponAttachments[w.id]?.length;
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', customizable ? L('1레벨 부착물 기준 · 높을수록 조준이 빠름', 'With level 1 attachments · higher = faster aim') : L('높을수록 조준이 빠름', 'Higher = faster aim'));
