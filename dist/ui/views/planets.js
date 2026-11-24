@@ -155,7 +155,7 @@ function timeTab() {
 
 // The wiki's damage type icons (Damage_*_Icon.svg, Dogo314) for the statuses that have one (user request 2026-11-24);
 // the rest keep the site-drawn line icons.
-const STATUS_ICONS = { acid: 'damage-acid.svg', fire: 'damage-fire.svg', gas: 'damage-gas.svg', stagger: 'damage-stagger.svg' };
+const STATUS_ICONS = { acid: 'damage-acid.svg', bleed: 'damage-bleed.svg', fire: 'damage-fire.svg', gas: 'damage-gas.svg', stun: 'damage-arc.svg', stagger: 'damage-stagger.svg' };
 
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
