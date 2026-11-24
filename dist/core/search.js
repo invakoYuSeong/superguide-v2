@@ -17,7 +17,7 @@ export const initials = value => [...normalize(value)].map(char => {
   return code >= 0 && code < 11172 ? INITIALS[Math.floor(code / 588)] : char;
 }).join('');
 
-// A query that names a collab keyword outright beats every other match (see search below).
+// A query that names a collab keyword outright beats every other match, so those items list first.
 const KEYWORD = 7;
 
 /** Returns a scorer: 0 = no match, higher = better. keywords: collab game names (COLLAB_KEYWORDS). */
@@ -51,13 +51,12 @@ export function scorer(query) {
   };
 }
 
-/** Filters and ranks; ties keep their original order. A query naming a collab game keeps only that collab's
- *  items, so 'ㅇㅎㅁ' lists the Warhammer gear instead of every name with 위험물 in it. */
+/** Filters and ranks; ties keep their original order. A query naming a collab game puts that collab's items
+ *  first ('ㅇㅎㅁ': the Warhammer gear, then names with 위험물 in them). */
 export function search(items, query, fields) {
   const score = scorer(query);
-  const scored = items.map((item, index) => ({ item, index, score: score(fields(item)) }));
-  const floor = scored.some(entry => entry.score === KEYWORD) ? KEYWORD : 1;
-  return scored.filter(entry => entry.score >= floor)
+  return items.map((item, index) => ({ item, index, score: score(fields(item)) }))
+    .filter(entry => entry.score > 0)
     .sort((a, b) => b.score - a.score || a.index - b.index)
     .map(entry => entry.item);
 }

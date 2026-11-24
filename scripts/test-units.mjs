@@ -115,11 +115,11 @@ ok(names('AC-8')[0] === '오토캐넌', 'code search');
 ok(initials('궤도 정밀') === 'ㄱㄷㅈㅁ', 'initials');
 ok(normalize('ＡＢ ㄱ') === 'abㄱ', 'NFKC folding keeps typed consonants');
 ok(names('').length === stratagems.length, 'empty query keeps everything');
-// A collab game named outright (word or full initials) keeps only that collab's items.
+// A collab game named outright (word or full initials) lists that collab's items first, keeping the rest.
 const collabItems = [{ name: '위험물 전문가' }, { name: '충격 방지 패드, 위험물' }, { name: '머시너리 갑옷', keywords: ['워해머', 'Warhammer'] }];
 const collabFind = query => search(collabItems, query, item => ({ names: [item.name], keywords: item.keywords })).map(item => item.name);
-ok(collabFind('ㅇㅎㅁ').join() === '머시너리 갑옷', 'ㅇㅎㅁ finds only the Warhammer item, not 위험물');
-ok(collabFind('워해머').join() === '머시너리 갑옷' && collabFind('warhammer').join() === '머시너리 갑옷', 'collab name finds only its items');
+ok(collabFind('ㅇㅎㅁ').join() === '머시너리 갑옷,위험물 전문가,충격 방지 패드, 위험물', 'ㅇㅎㅁ lists the Warhammer item first, then 위험물');
+ok(collabFind('워해머').join() === '머시너리 갑옷' && collabFind('warhammer').join() === '머시너리 갑옷', 'collab name finds its items');
 ok(collabFind('해머').join() === '머시너리 갑옷', 'part of a collab name still finds it');
 ok(collabFind('위험물').length === 2 && collabFind('ㅇㅎ').length === 2, 'other queries match as before');
 
