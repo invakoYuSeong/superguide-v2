@@ -153,10 +153,14 @@ function timeTab() {
     </table></div>`;
 }
 
+// The wiki's damage type icons (Damage_*_Icon.svg, Dogo314) for the statuses that have one (user request 2026-11-24);
+// the rest keep the site-drawn line icons.
+const STATUS_ICONS = { acid: 'damage-acid.svg', fire: 'damage-fire.svg', gas: 'damage-gas.svg', stagger: 'damage-stagger.svg' };
+
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
     <ul class="info-list">${statusEffects.map(item => html`<li class="info-item" id="planet-${item.id}" ${item.id === state.biome ? 'data-focus' : ''}>
-      <span class="info-icon drawn" aria-hidden="true">${icon(`status-${item.id}`, 30)}</span>
+      ${STATUS_ICONS[item.id] ? html`<span class="info-icon"><img src="./assets/icons/${STATUS_ICONS[item.id]}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>` : html`<span class="info-icon drawn" aria-hidden="true">${icon(`status-${item.id}`, 30)}</span>`}
       <div class="info-body">
         <h3>${title(item)}</h3>${enLine(item)}
         ${(lang === 'en' ? item.detailEn : item.detail).map(line => html`<p class="info-detail">${line}</p>`)}
