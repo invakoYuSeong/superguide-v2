@@ -133,14 +133,14 @@ function timeTab() {
   return html`<p class="lede-note">${L('행성마다 현지 시각이 흐르는 빠르기가 다릅니다. 낮은 06시~18시, 밤은 18시~06시입니다. 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.',
       'Each planet\'s local clock runs at its own speed. Day runs 06:00-18:00 and night 18:00-06:00; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
     <div class="compare-scroll" role="region" aria-label="${L('행성별 시간 배율', 'Clock speed by planet')}" tabindex="0"><table class="compare-table time-table">
-      <thead><tr><th scope="col">${L('행성', 'Planet')}</th><th scope="col">${L('생물군계', 'Biome')}</th><th scope="col">${L('배율', 'Rate')}</th><th scope="col">${L('하루 (실제)', 'Day (real time)')}</th><th scope="col">${L('낮 12시간 (실제)', '12 h daylight (real time)')}</th></tr></thead>
+      <thead><tr><th scope="col">${L('행성', 'Planet')}</th><th scope="col">${L('생물군계', 'Biome')}</th><th scope="col">${L('배율', 'Rate')}</th><th scope="col">${L('하루가 지나는 실제 시간', 'Real time per planet day')}</th></tr></thead>
       <tbody>${planetTimeScales.map(item => {
         const { planet, biome } = biomeOfPlanet.get(item.en) ?? {};
         const day = Math.round(1440 / Math.abs(item.rate));
         return html`<tr ${item.rate < 0 ? 'data-reverse' : ''}><th scope="row">${planet ? planetLink(planet) : item.en}${planet && lang !== 'en' && planet.name !== planet.en ? html`<small>${planet.en}</small>` : ''}</th>
           <td>${biome ? html`<a href="#/planets?tab=biomes&b=${biome.id}">${title(biome)}</a>` : '-'}</td>
           <td><b>${L(`${item.rate}배`, `${item.rate}x`)}</b><small>${item.rate < 0 ? L('거꾸로 흐름 · ', 'runs backwards · ') : ''}${item.averagedMinutes ? L(`${item.averagedMinutes}분 간격 평균`, `${item.averagedMinutes} min average`) : L('45초 간격', '45 s readings')}</small></td>
-          <td>${duration(day)}</td><td>${duration(Math.round(day / 2))}</td></tr>`;
+          <td>${duration(day)}</td></tr>`;
       })}</tbody>
     </table></div>`;
 }
