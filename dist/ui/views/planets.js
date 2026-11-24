@@ -1,6 +1,6 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
 //   #/planets?tab=<conditions|modifiers|biomes|time|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
-import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt } from '../../data/planets.js';
+import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt, playablePlanetCount } from '../../data/planets.js';
 import { planetTimeScales, planetTimeMeasuredAt } from '../../data/planet-time.js';
 import { biomeImages } from '../../data/biome-images.js';
 import { hazardImages } from '../../data/hazard-images.js';
@@ -112,7 +112,7 @@ function biomeCard(biome) {
 }
 
 function biomesTab() {
-  return html`<p class="lede-note">${L('행성의 지형과 기후를 정하는 생물군계입니다. 행성 목록은 게임 데이터 기준입니다.', 'The biome sets a planet\'s terrain and climate. Planet lists follow the game data.')}</p>
+  return html`<p class="lede-note">${L(`행성의 지형과 기후를 정하는 생물군계입니다. 행성 목록은 은하 지도에서 갈 수 있는 행성 ${playablePlanetCount}개 기준입니다(슈퍼지구, 블랙홀, 파괴된 행성 제외).`, `The biome sets a planet's terrain and climate. Planet lists cover the ${playablePlanetCount} planets you can reach on the galaxy map (not Super Earth, black holes or destroyed planets).`)}</p>
     <ul class="info-list biome-list">${biomes.map(biomeCard)}</ul>`;
 }
 
@@ -161,7 +161,7 @@ const BODIES = { conditions: conditionsTab, modifiers: modifiersTab, biomes: bio
 
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
-  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`실측 ${planetTimeMeasuredAt}`, `Measured ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
+  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`행성 ${playablePlanetCount}개 중 ${planetTimeScales.length}개 실측 · ${planetTimeMeasuredAt}`, `${planetTimeScales.length} of ${playablePlanetCount} planets measured · ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
   render($('#planet-body', root), BODIES[state.tab]());
   const marked = state.biome && ($(`#biome-${state.biome}`, root) || $(`#planet-${state.biome}`, root));
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
