@@ -981,6 +981,42 @@ export const hazards = [
   "revision": 96635
  },
  {
+  "id": "damaged-hellbomb",
+  "name": "손상된 지옥폭탄",
+  "en": "Damaged Hellbomb",
+  "detail": [
+   "난이도 4부터 맵 곳곳에 땅에 박힌 채 있고, 죽음의 땅 생물군계에서는 모든 난이도에 나옵니다. 옆에 지원 무기가 놓여 있기도 합니다.",
+   "공격을 받으면 잠시 뒤 터지고, 철거력 30 이상인 공격을 받으면 바로 터집니다. 지옥폭탄 스트라타젬과 같은 폭발이라 근처의 적 무리나 큰 적을 한 번에 정리할 수 있습니다.",
+   "폭발 피해 10,000: 중심 17m 안에서 최대, 25m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "From difficulty 4 it sits lodged in the ground around the map, and on Deadlands planets on every difficulty. A support weapon sometimes lies next to it.",
+   "Any damage sets it off after a short delay, and demolition force 30 or more sets it off at once. It is the same blast as the Hellbomb stratagem, good for wiping out a crowd or a big enemy nearby.",
+   "Blast damage 10,000: full within 17 m, falling off to 25 m."
+  ],
+  "biomes": [
+   "deadlands"
+  ],
+  "wiki": "https://helldivers.wiki.gg/wiki/Damaged_Hellbomb",
+  "revision": 136568
+ },
+ {
+  "id": "forklift",
+  "name": "지게차",
+  "en": "Forklift",
+  "detail": [
+   "사람이 지은 구조물 근처에 있습니다.",
+   "철거력 20 이상인 공격을 받으면 작게 터집니다. 폭발 피해 200: 중심 0.6m 안에서 최대, 7m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Found around human structures.",
+   "It blows up in a small explosion when hit by demolition force 20 or more. Blast damage 200: full within 0.6 m, falling off to 7 m."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Forklift",
+  "revision": 130566
+ },
+ {
   "id": "cars",
   "name": "자동차",
   "en": "Cars",
