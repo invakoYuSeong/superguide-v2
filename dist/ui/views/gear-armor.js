@@ -28,6 +28,9 @@ function passiveNote(passive) {
     `Example: a Trooper spots a standing Helldiver at about ${DETECTION.day} m by day and ${DETECTION.night} m at night. With the Scout passive that drops to about ${day} m and ${night} m. Crouching or lying prone lets you get closer still.`)} ${external(STEALTH_PAGE, L('위키 Stealth', 'Wiki Stealth'))}</p>`;
 }
 
+// The game's effect line, then the exact value from the wiki Explanation where the line is vague ('higher armor rating' = +50).
+const effectLine = effect => html`<li>${effect.name}${effect.exact ? html` <b class="armor-exact">${L(effect.exact, effect.exactEn)}</b>` : ''}</li>`;
+
 function picture(file, cls, alt = '') {
   const image = armorImages[file];
   return image ? html`<img class="${cls}" src="${image.src}" alt="${alt}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">` : '';
@@ -73,7 +76,7 @@ function passiveSection(passive, list) {
       <div><h3 id="armor-${passive.id}-title" tabindex="-1">${passive.name}</h3>${lang === 'en' || passive.name === passive.en ? '' : html`<p class="en">${passive.en}</p>`}</div>
       <span class="armor-passive-count">${L(`${list.length}종`, `${list.length} ${list.length === 1 ? 'set' : 'sets'}`)}</span>
     </header>
-    <ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul>${passiveNote(passive)}
+    <ul class="armor-effects">${passive.effects.map(effectLine)}</ul>${passiveNote(passive)}
     <ul class="armor-list">${list.map(armorCard)}</ul>
   </section>`;
 }
@@ -93,7 +96,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
       ${row(L('스태미나 회복', 'Stamina regen'), armor.staminaRegen)}
       <div><dt>${L('얻는 곳', 'Where to get it')}</dt><dd class="dim">${source(armor)}</dd></div>
     </dl>
-    ${passive ? html`<section class="block"><h3>${L('패시브', 'Passive')} · ${passive.name}</h3><ul class="armor-effects">${passive.effects.map(effect => html`<li>${effect.name}</li>`)}</ul>${passiveNote(passive)}</section>` : ''}
+    ${passive ? html`<section class="block"><h3>${L('패시브', 'Passive')} · ${passive.name}</h3><ul class="armor-effects">${passive.effects.map(effectLine)}</ul>${passiveNote(passive)}</section>` : ''}
     ${inGear ? '' : html`<div class="links"><a class="button primary" href="#/gear?tab=armor&a=${armor.id}">${L('같은 패시브 방어구 보기', 'Armor with the same passive')}</a></div>`}
     <div class="sources">
       <span>${L('자료 확인', 'Checked')} ${armorCheckedAt}</span>

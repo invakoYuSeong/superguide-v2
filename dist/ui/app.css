@@ -869,6 +869,7 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .armor-effects { list-style: none; margin: 12px 0 14px; padding: 0; display: grid; gap: 4px; font-size: 14px; color: var(--text-2); }
 .armor-effects li { position: relative; padding-left: 16px; }
 .armor-effects li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--accent); }
+.armor-effects .armor-exact { color: var(--accent-text); font-weight: 750; white-space: nowrap; }
 .armor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; }
 .armor-item { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 10px; background: var(--surface-2); border: 1px solid var(--line);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
