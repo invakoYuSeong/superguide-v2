@@ -252,7 +252,8 @@ function detailRows(w) {
   if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, roundsText ? roundsText : w.reloadTactical == null ? L('탄창을 비웠을 때', 'From empty')
     : w.reload < w.reloadTactical ? (w.heatCapacity?.raw ? L(`과열됐을 때 · 과열 전에 갈면 ${num(w.reloadTactical)}초(방열판이 저절로 빠져 과열됐을 때가 더 빠름)`, `When overheated · ${num(w.reloadTactical)}s before that (the heat sink pops out by itself, so overheated is faster)`)
       : L(`탄창을 비웠을 때 · 탄이 남았을 때 ${num(w.reloadTactical)}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · ${num(w.reloadTactical)}s with rounds left (emptying first is faster)`))
-    : L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`));
+    // The same time with rounds left: there is no faster tactical reload (user request 2026-11-24).
+    : w.reloadTactical === w.reload ? L('전술 재장전 없음', 'No tactical reload') : L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`));
   // Customizable weapons (an attachment table) read with the level 1 attachments; others have no 'base' to name.
   const customizable = w.category === 'primary' && weaponAttachments[w.id]?.length;
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', customizable ? L('1레벨 부착물 기준 · 높을수록 조준이 빠름', 'With level 1 attachments · higher = faster aim') : L('높을수록 조준이 빠름', 'Higher = faster aim'));

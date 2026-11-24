@@ -877,7 +877,7 @@ export const hazards = [
  {
   "id": "contact-mine",
   "name": "오토마톤 지뢰",
-  "en": "Contact Mine",
+  "en": "Automaton Mine",
   "detail": [
    "오토마톤 전초기지 주변과, 난이도 7부터는 대부분의 소규모 관심 지점 주변에 깔려 있습니다. 난이도가 오를수록 많아져 트인 지형에서도 나옵니다.",
    "밟거나 공격을 받으면 터져 주변에 피해를 줍니다."
