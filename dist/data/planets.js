@@ -1069,10 +1069,12 @@ export const hazards = [
   "name": "고원 버섯",
   "en": "Moor Mushroom",
   "detail": [
-   "밟으면 연막 같은 포자 구름과 충격파가 나와 헬다이버를 날리고 생명체를 밀어냅니다. 원거리 적의 시야를 끊고 빠져나가는 데 쓸 수 있습니다."
+   "밟으면 연막 같은 포자 구름(반경 5m)만 나와 시야를 가립니다. 원거리 적의 시야를 끊고 빠져나가는 데 쓸 수 있습니다.",
+   "공격으로 터뜨리면 충격파가 나와 근처 헬다이버를 날리고 생명체를 밀어냅니다(반경 8m)."
   ],
   "detailEn": [
-   "Stepped on, it releases a smokescreen-like spore cloud and a shockwave that launches Helldivers and pushes creatures back. It can break the line of sight of ranged enemies so you can get away."
+   "Stepped on, it only releases a smokescreen-like spore cloud (5 m radius) that blocks sight. It can break the line of sight of ranged enemies so you can get away.",
+   "Shot or blown up, it also lets out a shockwave that launches nearby Helldivers and pushes creatures back (8 m radius)."
   ],
   "biomes": [
    "plains",
