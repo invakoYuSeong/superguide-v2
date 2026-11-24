@@ -559,8 +559,8 @@ const HOLE_CONDITIONS = {
   'gas-mines': L('굴 입구에 깔아 두고 적이 밟아 굴 안쪽에서 터질 때만 닫힙니다.', 'Closes a bug hole only when laid at its mouth and an enemy steps on one, exploding inside.'),
 };
 const HOLE_TAGS = {
-  outer: [L('굴 파괴', 'Closes bug holes'), L('철거력이 충분해 굴 밖에 맞혀도 벌레굴이 닫힙니다.', 'Enough demolition force to close a bug hole even hitting outside it.')],
-  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L('폭발을 굴 안쪽에 넣어야 벌레굴이 닫힙니다.', 'Closes a bug hole when the explosion goes inside it.')],
+  outer: [L('굴 파괴', 'Closes bug holes'), L('철거력이 충분해 굴 밖에 맞혀도 버그 구멍이 닫힙니다.', 'Enough demolition force to close a bug hole even hitting outside it.')],
+  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L('폭발을 굴 안쪽에 넣어야 버그 구멍이 닫힙니다.', 'Closes a bug hole when the explosion goes inside it.')],
   conditional: [L('굴 안쪽 파괴 · 조건부', 'Bug holes from inside · conditional'), ''],
 };
 export async function loadDemolition() {

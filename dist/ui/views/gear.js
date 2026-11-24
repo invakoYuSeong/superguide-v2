@@ -46,9 +46,9 @@ const HOLE_OUTER = bugHole.routes.find(route => !route.explosiveOnly).threshold,
 // when a drone homes in on an enemy by the hole or an enemy steps on a mine set at its mouth (user decision
 // 2026-11-20). They get the conditional tier, with how it happens.
 const HOLE_CONDITIONS = {
-  seeker: L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
-  'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
-  'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
+  seeker: L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
 };
 export const holeTier = w => {
   if (HOLE_CONDITIONS[w.id]) return 'conditional';
@@ -57,8 +57,8 @@ export const holeTier = w => {
   return records.some(r => (r.splashDemolition ?? 0) >= HOLE_INNER) ? 'inner' : null;
 };
 const HOLE = {
-  outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 벌레굴이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
-  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 벌레굴이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
+  outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 버그 구멍이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
+  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 버그 구멍이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
   conditional: [L('굴 안쪽 파괴 · 조건부', 'Bug holes from inside · conditional'), ''],
 };
 const holeText = (w, tier) => tier === 'conditional' ? HOLE_CONDITIONS[w.id] : HOLE[tier][1];
@@ -175,7 +175,7 @@ function renderBrowse() {
   const typeCount = type => inCat.filter(w => w.type === type && (!state.hand || oneHanded(w)) && (!state.hole || holeTier(w))).length;
   const handCount = inCat.filter(w => oneHanded(w) && (!state.type || w.type === state.type) && (!state.hole || holeTier(w))).length;
   const holeCount = inCat.filter(w => holeTier(w) && (!state.type || w.type === state.type) && (!state.hand || oneHanded(w))).length;
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('버그 구멍을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = personalWeapons.filter(w => w.category === state.cat).length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();

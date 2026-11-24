@@ -14,7 +14,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -83,7 +83,7 @@ export const enemyPages = {
   "staggerReq": null,
   "reinforcements": "breach",
   "spawning": [
-   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 출몰·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
+   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 출몰·순찰대·버그 구멍에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
   ],
   "spawningEn": [
    "On Noxious Strain planets it replaces Scavengers and Pouncers. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests, Minor Places of Interest and Objectives."
@@ -122,7 +122,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 1부터 버그 출몰, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
+   "커스틱 변종 행성에서 난이도 1부터 버그 출몰, 순찰대, 버그 구멍으로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 1, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Minor Places of Interest and Objectives."
@@ -157,7 +157,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 출몰·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
+   "난이도 2부터 나옵니다. 버그 출몰·순찰대·버그 구멍에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
    "일부 등장 조합에서는 스캐빈저·커스틱 스피터와 서로 바뀌어 나옵니다."
   ],
@@ -194,7 +194,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 출몰, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
+   "난이도 2부터 나옵니다. 버그 출몰, 순찰대, 버그 둥지·임무 목표 경비, 특정 버그 구멍에서 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -274,7 +274,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 헌터를 모두 대신합니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing all Hunters.",
@@ -310,7 +310,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
+   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -388,7 +388,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 2부터 버그 출몰, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
+   "커스틱 변종 행성에서 난이도 2부터 버그 출몰, 순찰대, 버그 구멍으로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 2, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Objectives and Minor Places of Interest."
@@ -423,7 +423,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 6부터 럽처 변종 행성에 나오며, 워리어를 모두 대신합니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 일부 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 6 on Rupture Strain planets, fully replacing Warriors.",
@@ -459,7 +459,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 워리어를 대신합니다. 브루드 커맨더가 부르는 워리어도 포함됩니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing Warriors, including those called by Brood Commanders.",
@@ -792,7 +792,7 @@ export const enemyPages = {
   "staggerReq": 30,
   "spawning": [
    "난이도 4부터 나오는 선택 목표인 스토커 둥지에서만 나옵니다.",
-   "둥지에는 벌레굴이 최대 2개 있고, 둥지를 부술 때까지 주기적으로 스토커가 나옵니다. 일부 둥지에는 스캐빈저와 파운서가 나오는 일반 벌레굴도 있습니다."
+   "둥지에는 버그 구멍이 최대 2개 있고, 둥지를 부술 때까지 주기적으로 스토커가 나옵니다. 일부 둥지에는 스캐빈저와 파운서가 나오는 일반 버그 구멍도 있습니다."
   ],
   "spawningEn": [
    "Spawns only from Stalker Lairs, an optional objective that appears from Difficulty 4.",
@@ -871,7 +871,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 4부터 버그 출몰, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
    "난이도 7부터 상급 버그 둥지와 난이도 10의 최상급 둥지를 지킵니다. 이때부터 차저 베히모스나 커스틱 차저로 바뀔 확률이 생기고, 난이도가 높을수록 커집니다.",
-   "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다."
+   "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 버그 구멍 포함) 대신 나오는 일반 차저는 만날 수 있습니다."
   ],
   "spawningEn": [
    "Starting at Difficulty 4 it spawns from Bug Breaches, patrols with other Terminids, and guards Objectives, more often on higher difficulties. At Minor Places of Interest it is sometimes burrowed.",
@@ -1126,7 +1126,7 @@ export const enemyPages = {
   "staggerReq": 38,
   "spawning": [
    "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 출몰으로도 나오지 않습니다.",
-   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 출몰처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 버그 구멍·먼 순찰대·버그 출몰처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
    "그래서 원래 차저 베히모스와 커스틱 차저로 모두 바뀌는 난이도 10에서도 일반 차저를 만날 수 있습니다.",
    "고가치 자산 후송하기 임무에서는 시작 전 카운트다운이 끝나기 전에도 나올 수 있으니 바로 대비해야 합니다."
   ],
@@ -1181,7 +1181,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 4부터 '바일 타이탄 제거하기' 임무의 목표로 나옵니다.",
    "난이도 6부터 버그 출몰에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
-   "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 벌레굴이 있을 수 있습니다.",
+   "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 버그 구멍이 있을 수 있습니다.",
    "스포어 버스트 변종 행성에서는 난이도 5부터 스포어 버스트 바일 타이탄으로 완전히 바뀝니다.",
    "드래곤로치가 나오는 임무에서는 바일 타이탄 대신 차저가 나옵니다."
   ],
@@ -1194,7 +1194,7 @@ export const enemyPages = {
   ],
   "behavior": [
    "버그 출몰 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
-   "버그 출몰이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+   "버그 출몰이나 타이탄 버그 구멍에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
    "헬다이버와 25~30m 떨어져 있으면 담즙을 뿜으며, 담즙 공격 사이에는 10초 대기가 있습니다.",
    "바로 앞에 있으면 오른쪽 다리로 내려찍고, 몸 아래에 있으면 두 앞다리로 앞쪽을 빠르게 짓밟습니다.",
    "걸어갈 때 다리에 닿아도 피해를 입거나 죽을 수 있고, 다리 공격이 아슬아슬하게 빗나가도 넘어질 수 있습니다."
@@ -1241,7 +1241,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 5부터 스포어 버스트 변종 행성의 '바일 타이탄 제거하기' 임무에서 목표인 바일 타이탄을 대신해 나옵니다.",
    "난이도 6부터 버그 출몰에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
-   "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 벌레굴이 있을 수 있습니다."
+   "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 버그 구멍이 있을 수 있습니다."
   ],
   "spawningEn": [
    "From Difficulty 5 it replaces the Bile Titan as the target of Eliminate Bile Titans missions on Spore Burst Strain planets.",
