@@ -92,7 +92,7 @@ export const armorPassives = [
     "order": 6,
     "icon": "Scout Armor Passive Icon.svg",
     "effects": [
-      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s."},
+      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s.","exact":"스캔 결과는 자신에게만 보임","exactEn":"Only you see the scan results"},
       {"name":"적이 착용자를 탐지할 수 있는 거리가 30% 감소합니다.","en":"Reduces range at which enemies can detect the wearer by 30%."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Scout",
@@ -181,7 +181,7 @@ export const armorPassives = [
     "effects": [
       {"name":"헬다이버가 피격 시에도 주저하지 않을 수 있도록 도와줍니다.","en":"Helps prevent Helldivers from flinching when hit.","exact":"피격 반동 95% 감소","exactEn":"Damage recoil -95%"},
       {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +25","exactEn":"Armor rating +25"},
-      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s."}
+      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s.","exact":"스캔 결과는 자신에게만 보임","exactEn":"Only you see the scan results"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Unflinching",
     "revision": 139469,
