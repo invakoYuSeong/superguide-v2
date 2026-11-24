@@ -925,6 +925,11 @@ html:has(dialog:modal), html:has(dialog:modal) body { overflow: hidden; }
 .time-table td a, .time-table th a { color: var(--accent-text); font-weight: 650; }
 .time-table td, .time-table tbody th { vertical-align: middle; padding: 8px 12px; }
 .time-table tr[data-reverse] td b { color: var(--bleed); }
+/* Sortable header: a CSS triangle points up for ascending, down for descending. */
+.th-sort { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.th-sort::after { content: ''; border-style: solid; border-color: var(--accent-text) transparent; border-width: 0 5px 7px; }
+.th-sort[data-dir="desc"]::after { border-width: 7px 5px 0; }
+.th-sort:hover { color: var(--accent-text); }
 .mission-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .mission-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .mission-list a { color: var(--text); font-weight: 650; }
