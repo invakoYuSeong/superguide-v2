@@ -12,6 +12,7 @@ import { support } from '../dist/data/data-support.js';
 import { demolitionProfiles } from '../dist/data/demolition-data.js';
 
 const snapshot = JSON.parse(await readFile(new URL('../db/source/weapons_data.json', import.meta.url), 'utf8'));
+const stratagemStatsSource = JSON.parse(await readFile(new URL('../db/source/wiki_stratagem_stats.json', import.meta.url), 'utf8'));
 const { damage, projectile, explosion, beam, arc, spray, weapons } = snapshot.data;
 let checks = 0;
 const failures = [];   // collected so one run lists every difference
@@ -229,7 +230,11 @@ for (const item of support.filter(item => item.magazine != null || item.spareMag
   const spare = record.roundtype === 'rounds' ? { rounds: record.rounds } : record.cap === 1 ? { rounds: record.mags } : { mags: record.mags };
   if (item.magazine != null && item.magazine !== record.cap) ammoWarnings.push(`${item.id}: magazine ${item.magazine}, datamine cap ${record.cap}`);
   if (item.spareMags != null && item.spareMags !== spare.mags) ammoWarnings.push(`${item.id}: spare magazines ${item.spareMags}, datamine ${spare.mags ?? 'none'}`);
-  if (item.spareRounds != null && item.spareRounds !== spare.rounds) ammoWarnings.push(`${item.id}: spare rounds ${item.spareRounds}, datamine ${spare.rounds ?? 'none'}`);
+  // Backpack spares follow the wiki infobox (spare_rounds '50 (Backpack)'), not the weapon record.
+  if (item.spareFromBackpack) {
+    const infobox = /\|\s*spare_rounds\s*=\s*([^\n|]*)/.exec(stratagemStatsSource.stratagems[item.id]?.infobox ?? '')?.[1]?.trim();
+    ok(/backpack/i.test(String(infobox)) && Number.parseInt(infobox, 10) === item.spareRounds, `${item.id}: backpack spare rounds ${item.spareRounds} are the wiki infobox's (${infobox})`);
+  } else if (item.spareRounds != null && item.spareRounds !== spare.rounds) ammoWarnings.push(`${item.id}: spare rounds ${item.spareRounds}, datamine ${spare.rounds ?? 'none'}`);
 }
 for (const message of ammoWarnings) console.warn(`warning: support ammo: ${message}`);
 
