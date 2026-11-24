@@ -52,7 +52,8 @@ const ICONS = {
   'tab-biomes': '<path d="m2.5 19.5 6-9 4 6 3-4 6 7z"/><circle cx="17" cy="6" r="2"/>',
   'tab-status': '<path d="M2.5 12h4l2-5 4 10 2.5-6 1.5 1h5"/>',
   'tab-time': '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
-  'tab-dss': '<circle cx="12" cy="12" r="3.5"/><ellipse cx="12" cy="12" rx="9.5" ry="3.5"/><path d="M12 2.5v6M12 15.5v6"/>',
+  // Redrawn from the wiki DSS icon (File:DSS_Icon.svg, the Exosuit Reserves card's picture), filled.
+  'tab-dss': '<path d="M6 16.4V3.5a1.5 1.5 0 0 1 1.5-1.5h5.8v4.1H7.1v5.2h3.6v5.1H9.4V21a1.05 1.05 0 0 1-2.1 0v-4.6z" fill="currentColor" stroke="none"/><path d="M8.1 7h9.7v3.4H8.1z" fill="currentColor" stroke="none"/>',
   'tab-hazards': '<circle cx="12" cy="13" r="6"/><path d="M12 3v4M5 6l2.5 2.5M19 6l-2.5 2.5M3 13h3M18 13h3"/>',
   // Status effects (planet tab).
   'status-acid': '<path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/><circle cx="10" cy="15" r="1.5"/><circle cx="14" cy="12" r="1"/>',
