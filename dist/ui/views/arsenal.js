@@ -207,8 +207,12 @@ function spreadBlock(item) {
 function ammoCells(item) {
   const cell = (label, text, unit, caption) => html`<div><dt>${label}</dt><dd>${text}${unit ? html`<small>${unit}</small>` : ''}</dd>${caption ? html`<div class="caption">${caption}</div>` : ''}</div>`;
   // Spare ammo is the magazine cell's second line (user request 2026-11-24), as in the gear details.
-  const spare = item.spareMags != null ? (item.fuel ? L(`예비 연료통 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare tanks`) : L(`예비 탄창 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare magazines`))
-    : item.spareRounds != null ? L(`예비탄 ${num(item.spareRounds)}발${item.spareFromBackpack ? '(탄약 배낭)' : ''}`, `${num(item.spareRounds)} spare rounds${item.spareFromBackpack ? ' (in the backpack)' : ''}`) : '';
+  const pack = item.spareFromBackpack ? L('(탄약 배낭)', ' (in the backpack)') : '';
+  const spare = item.spareMags != null ? (item.fuel ? L(`예비 연료통 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare tanks`) : L(`예비 탄창 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare magazines`)) + pack
+    : item.spareRounds != null ? L(`예비탄 ${num(item.spareRounds)}발`, `${num(item.spareRounds)} spare rounds`) + pack
+    // A weapon that never reloads says so instead.
+    : item.noReload === 'backpack' ? (item.fuel ? L('연료 배낭에서 바로 공급 · 재장전 없음', 'Fed straight from the fuel backpack · no reload') : L('탄약 배낭에서 바로 공급 · 재장전 없음', 'Fed straight from the ammo backpack · no reload'))
+    : item.noReload === 'expendable' ? L('재장전 없음 · 다 쓰면 버림', 'No reload · thrown away when empty') : '';
   const wikiNote = item.magazineWiki != null ? L(`게임 데이터 기준 · 위키 표기 ${num(item.magazineWiki)}`, `Game data · wiki says ${num(item.magazineWiki)}`) : '';
   return [
     item.durable != null ? cell(L('내구 피해', 'Durable damage'), num(item.durable), item.damageKind === 'dps' ? '/s' : '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts')) : '',

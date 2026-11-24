@@ -230,10 +230,14 @@ for (const item of support.filter(item => item.magazine != null || item.spareMag
   const spare = record.roundtype === 'rounds' ? { rounds: record.rounds } : record.cap === 1 ? { rounds: record.mags } : { mags: record.mags };
   if (item.magazine != null && item.magazine !== record.cap) ammoWarnings.push(`${item.id}: magazine ${item.magazine}, datamine cap ${record.cap}`);
   if (item.spareMags != null && item.spareMags !== spare.mags) ammoWarnings.push(`${item.id}: spare magazines ${item.spareMags}, datamine ${spare.mags ?? 'none'}`);
-  // Backpack spares follow the wiki infobox (spare_rounds '50 (Backpack)'), not the weapon record.
+  // Backpack spares follow the wiki infobox (spare_rounds '50 (Backpack)', spare_mags '5'), not the weapon record,
+  // on a weapon the infobox gives the Backpack trait.
+  const infobox = stratagemStatsSource.stratagems[item.id]?.infobox ?? '';
+  const field = name => /\|\s*(\w+)\s*=\s*([^\n]*)/g[Symbol.matchAll](infobox).find(m => m[1] === name)?.[2]?.trim();
+  if (item.noReload) ok(!field('reload_time') && new RegExp(item.noReload, 'i').test(field('traits') ?? ''), `${item.id}: no reload and the ${item.noReload} trait in the wiki infobox`);
   if (item.spareFromBackpack) {
-    const infobox = /\|\s*spare_rounds\s*=\s*([^\n|]*)/.exec(stratagemStatsSource.stratagems[item.id]?.infobox ?? '')?.[1]?.trim();
-    ok(/backpack/i.test(String(infobox)) && Number.parseInt(infobox, 10) === item.spareRounds, `${item.id}: backpack spare rounds ${item.spareRounds} are the wiki infobox's (${infobox})`);
+    const wikiSpare = field(item.spareMags != null ? 'spare_mags' : 'spare_rounds');
+    ok(/backpack/i.test(field('traits') ?? '') && Number.parseInt(wikiSpare, 10) === (item.spareMags ?? item.spareRounds), `${item.id}: backpack spares ${item.spareMags ?? item.spareRounds} are the wiki infobox's (${wikiSpare})`);
   } else if (item.spareRounds != null && item.spareRounds !== spare.rounds) ammoWarnings.push(`${item.id}: spare rounds ${item.spareRounds}, datamine ${spare.rounds ?? 'none'}`);
 }
 for (const message of ammoWarnings) console.warn(`warning: support ammo: ${message}`);
