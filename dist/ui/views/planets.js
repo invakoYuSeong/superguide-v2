@@ -165,7 +165,7 @@ const BODIES = { conditions: conditionsTab, hazards: hazardsTab, modifiers: modi
 
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
-  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`행성 ${playablePlanetCount}개 중 ${planetTimeScales.length}개 실측 · ${planetTimeMeasuredAt}`, `${planetTimeScales.length} of ${playablePlanetCount} planets measured · ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
+  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`행성 ${playablePlanetCount}개 중 ${planetTimeScales.length}개를 게임 은하 지도에서 직접 실측(위키에 없음) · ${planetTimeMeasuredAt}`, `${planetTimeScales.length} of ${playablePlanetCount} planets measured on the in-game galaxy map (not on the wiki) · ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
   render($('#planet-body', root), BODIES[state.tab]());
   const marked = state.biome && ($(`#biome-${state.biome}`, root) || $(`#planet-${state.biome}`, root));
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
