@@ -31,7 +31,16 @@ export function infoboxExtras(box, weapon) {
   const rateParts = rateText.split(/\{\{\s*\*\s*\}\}/).map(s => s.trim());
   const rates = rateParts.map(s => s.match(new RegExp(`^(${numeric})\\s*(?:rpm)?$`, 'i'))).map(m => m ? num(m[1]) : null);
   const validRates = rates.length && rates.every(n => n !== null) ? rates : [];
-  return { dot, heatCapacity, swingsPerMinute: weapon.type === 'melee' ? scalar(box.fire_rate) : null,
+  // Round-by-round reload (Rounds Reload weapons): rounds_reload_first '1.25s (Empty)<br>0.4s (Partial)' and _rest per
+  // round. clip: an empty magazine refills at once by clip or speedloader (reload_time, no rounds_reload_full_time:
+  // Constitution, Senator, Stim Pistol), so it is faster than loading round by round.
+  const seconds = text => { const m = clean(text).match(new RegExp(`^(${numeric})\\s*s?$`, 'i')); return m ? num(m[1]) : null; };
+  const firstParts = String(box.rounds_reload_first ?? '').split(/<br\s*\/?>/i).map(part => clean(part));
+  const firstOf = label => { const part = firstParts.find(p => new RegExp(`\\(${label}\\)`, 'i').test(p)) ?? (label === 'Empty' ? firstParts.find(p => !/\(/.test(p)) : null); return part ? seconds(part.replace(/\([^)]*\)/, '')) : null; };
+  const roundsReload = weapon.roundType === 'rounds' && firstOf('Empty') != null && seconds(box.rounds_reload_rest) != null
+    ? { first: firstOf('Empty'), firstPartial: firstOf('Partial'), rest: seconds(box.rounds_reload_rest), clip: Boolean(clean(box.reload_time)) && !clean(box.rounds_reload_full_time) }
+    : null;
+  return { dot, heatCapacity, roundsReload, swingsPerMinute: weapon.type === 'melee' ? scalar(box.fire_rate) : null,
     rpmModes: weapon.type !== 'melee' && validRates.length > 1 ? validRates : [],
     rpm: weapon.type !== 'melee' && validRates.length === 1 ? validRates[0] : null,
     spareRounds: scalar(box.spare_rounds) };

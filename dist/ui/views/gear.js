@@ -243,7 +243,13 @@ function detailRows(w) {
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
   // Where emptying it first is faster (heat weapons: an overheated heat sink pops out by itself, wiki Sickle and Talon
   // pages), the caption says so (user request 2026-11-24).
-  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical == null ? L('탄창을 비웠을 때', 'From empty')
+  // Round-by-round reload (wiki rounds_reload_*, user request 2026-11-24): with a clip or speedloader an empty magazine
+  // refills at once (faster); otherwise the reload value is the time to fill it from empty, one load at a time.
+  const rr = w.roundsReload;
+  const roundsText = rr && (rr.clip
+    ? L(`탄창을 비웠을 때(클립·스피드로더로 한 번에, 더 빠름) · 남았을 때는 한 발씩: 첫 발 ${num(rr.first)}초, 이후 발당 ${num(rr.rest)}초`, `From empty (all at once by clip or speedloader, faster) · with rounds left, one at a time: ${num(rr.first)}s for the first, then ${num(rr.rest)}s each`)
+    : L(`비운 탄창을 다 채울 때 · 하나씩 장전: 첫 장전 ${num(rr.first)}초${rr.firstPartial != null ? `(남았을 때 ${num(rr.firstPartial)}초)` : ''}, 이후 한 번 넣을 때마다 ${num(rr.rest)}초`, `Filling it from empty · loaded one at a time: ${num(rr.first)}s for the first${rr.firstPartial != null ? ` (${num(rr.firstPartial)}s with rounds left)` : ''}, then ${num(rr.rest)}s each`));
+  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, roundsText ? roundsText : w.reloadTactical == null ? L('탄창을 비웠을 때', 'From empty')
     : w.reload < w.reloadTactical ? (w.heatCapacity?.raw ? L(`과열됐을 때 · 과열 전에 갈면 ${num(w.reloadTactical)}초(방열판이 저절로 빠져 과열됐을 때가 더 빠름)`, `When overheated · ${num(w.reloadTactical)}s before that (the heat sink pops out by itself, so overheated is faster)`)
       : L(`탄창을 비웠을 때 · 탄이 남았을 때 ${num(w.reloadTactical)}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · ${num(w.reloadTactical)}s with rounds left (emptying first is faster)`))
     : L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`));

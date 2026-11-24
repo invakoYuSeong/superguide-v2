@@ -96,6 +96,7 @@ export const weapons = [
     rpm: 1200,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -321,6 +322,7 @@ export const weapons = [
     rpm: 600,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -448,6 +450,7 @@ export const weapons = [
     rpm: 640,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -567,6 +570,7 @@ export const weapons = [
     rpm: 920,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -686,6 +690,7 @@ export const weapons = [
     rpm: 400,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -798,6 +803,7 @@ export const weapons = [
     rpm: 660,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -909,6 +915,7 @@ export const weapons = [
     rpm: 640,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1035,6 +1042,7 @@ export const weapons = [
     rpm: 700,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1162,6 +1170,7 @@ export const weapons = [
     rpm: 850,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1295,6 +1304,7 @@ export const weapons = [
     rpm: 600,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [600, 850],
     infoboxRaw: {
@@ -1428,6 +1438,7 @@ export const weapons = [
     rpm: 650,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1627,6 +1638,7 @@ export const weapons = [
     rpm: 45,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1746,6 +1758,7 @@ export const weapons = [
     rpm: 550,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -1879,6 +1892,7 @@ export const weapons = [
     rpm: 50,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2013,6 +2027,7 @@ export const weapons = [
     rpm: 650,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2153,6 +2168,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 150, duration: null, raw: '{{Damage|Fire|150 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2282,6 +2298,7 @@ export const weapons = [
     rpm: 60,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.45, firstPartial: 0.5, rest: 0.45, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2431,6 +2448,7 @@ export const weapons = [
     rpm: 250,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2571,6 +2589,7 @@ export const weapons = [
     rpm: 800,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: 4, shots: 53, raw: '4s (53)' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2718,6 +2737,7 @@ export const weapons = [
     rpm: 300,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: 2, shots: 10, raw: '2s (10)' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2858,6 +2878,7 @@ export const weapons = [
     rpm: 750,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: 8.4, shots: 106, raw: '8.4s (106)' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -2998,6 +3019,7 @@ export const weapons = [
     rpm: 700,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: 15, shots: 175, raw: '15s (175) (Fires Indefinitely)' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3259,6 +3281,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 DPS}}' },
     heatCapacity: { seconds: 8, shots: null, raw: '8s' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3386,6 +3409,7 @@ export const weapons = [
     rpm: 872,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3512,6 +3536,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.5, firstPartial: 0.45, rest: 0.4, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3653,6 +3678,7 @@ export const weapons = [
     rpm: 640,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3779,6 +3805,7 @@ export const weapons = [
     rpm: 1380,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -3905,6 +3932,7 @@ export const weapons = [
     rpm: 350,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -4039,6 +4067,7 @@ export const weapons = [
     rpm: 1000,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -4432,6 +4461,7 @@ export const weapons = [
     rpm: 550,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -4710,6 +4740,7 @@ export const weapons = [
     rpm: 480,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -4836,6 +4867,7 @@ export const weapons = [
     rpm: 60,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 0.95, firstPartial: null, rest: 0.3, clip: true },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -4976,6 +5008,7 @@ export const weapons = [
     rpm: 32,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5175,6 +5208,7 @@ export const weapons = [
     rpm: 190,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5302,6 +5336,7 @@ export const weapons = [
     rpm: 40,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5428,6 +5463,7 @@ export const weapons = [
     rpm: 100,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 2.3, firstPartial: 1.4, rest: 0.6, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5569,6 +5605,7 @@ export const weapons = [
     rpm: 350,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5702,6 +5739,7 @@ export const weapons = [
     rpm: 350,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5828,6 +5866,7 @@ export const weapons = [
     rpm: 400,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -5946,6 +5985,7 @@ export const weapons = [
     rpm: 210,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6072,6 +6112,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.25, firstPartial: 0.33, rest: 0.2, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6271,6 +6312,7 @@ export const weapons = [
     rpm: 300,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6397,6 +6439,7 @@ export const weapons = [
     rpm: 300,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6517,6 +6560,7 @@ export const weapons = [
     rpm: 330,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6636,6 +6680,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.25, firstPartial: 0.4, rest: 0.33, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6771,6 +6816,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.25, firstPartial: 0.4, rest: 0.33, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -6904,6 +6950,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7031,6 +7078,7 @@ export const weapons = [
     rpm: 80,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.25, firstPartial: 0.4, rest: 0.33, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7165,6 +7213,7 @@ export const weapons = [
     rpm: 150,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.5, firstPartial: 0.43, rest: 0.43, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7299,6 +7348,7 @@ export const weapons = [
     rpm: 1380,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7425,6 +7475,7 @@ export const weapons = [
     rpm: 490,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7551,6 +7602,7 @@ export const weapons = [
     rpm: 520,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7670,6 +7722,7 @@ export const weapons = [
     rpm: 475,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -7804,6 +7857,7 @@ export const weapons = [
     rpm: 420,
     dot: { element: 'fire', perSecond: 150, duration: null, raw: '{{Damage|Fire| 150 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -8013,6 +8067,7 @@ export const weapons = [
     rpm: 1050,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -8146,6 +8201,7 @@ export const weapons = [
     rpm: 790,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -8288,6 +8344,7 @@ export const weapons = [
     rpm: 550,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [300, 550, 750],
     infoboxRaw: {
@@ -8407,6 +8464,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -8518,6 +8576,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: 150,
     rpmModes: [],
     infoboxRaw: {
@@ -8622,6 +8681,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -8733,6 +8793,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: 72,
     rpmModes: [],
     infoboxRaw: {
@@ -8844,6 +8905,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: 100,
     rpmModes: [],
     infoboxRaw: {
@@ -8956,6 +9018,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: 150,
     rpmModes: [],
     infoboxRaw: {
@@ -9074,6 +9137,7 @@ export const weapons = [
     rpm: 900,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9194,6 +9258,7 @@ export const weapons = [
     rpm: 900,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9328,6 +9393,7 @@ export const weapons = [
     rpm: 750,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: 7, raw: '7' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9475,6 +9541,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 DPS}}' },
     heatCapacity: { seconds: 6.67, shots: null, raw: '6.67s' },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9609,6 +9676,7 @@ export const weapons = [
     rpm: 900,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9735,6 +9803,7 @@ export const weapons = [
     rpm: 70,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 2, firstPartial: null, rest: 0.75, clip: true },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -9875,6 +9944,7 @@ export const weapons = [
     rpm: 450,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10008,6 +10078,7 @@ export const weapons = [
     rpm: 1100,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10141,6 +10212,7 @@ export const weapons = [
     rpm: 900,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10274,6 +10346,7 @@ export const weapons = [
     rpm: 60,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10472,6 +10545,7 @@ export const weapons = [
     rpm: 20,
     dot: { element: 'fire', perSecond: 150, duration: 4, raw: '{{Damage|Fire|150/s over 4s}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10664,6 +10738,7 @@ export const weapons = [
     rpm: 110,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10792,6 +10867,7 @@ export const weapons = [
     rpm: 200,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.45, firstPartial: null, rest: 0.65, clip: true },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -10932,6 +11008,7 @@ export const weapons = [
     rpm: 400,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11058,6 +11135,7 @@ export const weapons = [
     rpm: 750,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.45, firstPartial: 2.1, rest: 1.85, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11206,6 +11284,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 150, duration: null, raw: '{{Damage|Fire|150 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11342,6 +11421,7 @@ export const weapons = [
     rpm: 450,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11541,6 +11621,7 @@ export const weapons = [
     rpm: 150,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11675,6 +11756,7 @@ export const weapons = [
     rpm: 1000,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -11977,6 +12059,7 @@ export const weapons = [
     rpm: 650,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: { first: 1.1, firstPartial: null, rest: 0.3, clip: false },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12117,6 +12200,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 Fire DPS|notext}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12229,6 +12313,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12334,6 +12419,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12446,6 +12532,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12564,6 +12651,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 150, duration: 6.5, raw: '{{Damage|Fire|150/s over 6.5s}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12684,6 +12772,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 100, duration: null, raw: '{{Damage|Fire|100 Fire DPS|notext}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12803,6 +12892,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'fire', perSecond: 20, duration: null, raw: '{{Damage|Fire|20 DPS}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -12972,6 +13062,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13083,6 +13174,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13195,6 +13287,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13306,6 +13399,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13489,6 +13583,7 @@ export const weapons = [
     rpm: null,
     dot: { element: 'gas', perSecond: 25, duration: null, raw: '{{Damage|Gas|25 DPS Gas|notext}}' },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13595,6 +13690,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13699,6 +13795,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13810,6 +13907,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -13978,6 +14076,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14089,6 +14188,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14258,6 +14358,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14363,6 +14464,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14467,6 +14569,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14642,6 +14745,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14744,6 +14848,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14848,6 +14953,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
@@ -14952,6 +15058,7 @@ export const weapons = [
     rpm: null,
     dot: { element: null, perSecond: null, duration: null, raw: null },
     heatCapacity: { seconds: null, shots: null, raw: null },
+    roundsReload: null,
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {
