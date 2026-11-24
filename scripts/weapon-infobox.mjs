@@ -24,7 +24,9 @@ export function infoboxExtras(box, weapon) {
   }
   const heatRaw = weapon.roundType === 'heat' && box.capacity ? box.capacity : null;
   const heat = clean(heatRaw).match(new RegExp(`^(${numeric})\\s*s(?:\\s*\\((${numeric})\\))?(?:\\s*\\(Fires Indefinitely\\))?$`, 'i'));
-  const heatCapacity = { seconds: heat ? num(heat[1]) : null, shots: heat?.[2] ? num(heat[2]) : null, raw: heatRaw };
+  // A bare whole number is shots, not seconds: the Talon's '7' (its page: 'can overheat within 7 shots').
+  const bareShots = !heat && /^\d+$/.test(clean(heatRaw)) ? num(clean(heatRaw)) : null;
+  const heatCapacity = { seconds: heat ? num(heat[1]) : null, shots: heat?.[2] ? num(heat[2]) : bareShots, raw: heatRaw };
   const rateText = clean(box.fire_rate);
   const rateParts = rateText.split(/\{\{\s*\*\s*\}\}/).map(s => s.trim());
   const rates = rateParts.map(s => s.match(new RegExp(`^(${numeric})\\s*(?:rpm)?$`, 'i'))).map(m => m ? num(m[1]) : null);

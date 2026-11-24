@@ -9327,7 +9327,7 @@ export const weapons = [
     spareMags: 3,
     rpm: 750,
     dot: { element: null, perSecond: null, duration: null, raw: null },
-    heatCapacity: { seconds: null, shots: null, raw: '7' },
+    heatCapacity: { seconds: null, shots: 7, raw: '7' },
     swingsPerMinute: null,
     rpmModes: [],
     infoboxRaw: {

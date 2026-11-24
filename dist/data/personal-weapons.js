@@ -4762,7 +4762,7 @@ export const personalWeapons = [
     reloadTactical: 4.6,
     fireModes: ['single', 'none'],
     dot: { element: null, perSecond: null, duration: null, raw: null },
-    heatCapacity: { seconds: null, shots: null, raw: '7' },
+    heatCapacity: { seconds: null, shots: 7, raw: '7' },
     swingsPerMinute: null,
     fuse: null,
     throwableCapacity: null,
