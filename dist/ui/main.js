@@ -56,16 +56,21 @@ for (const slot of $$('[data-icon]')) slot.outerHTML = icon(slot.dataset.icon, s
 
 // --- Sheet (side panel on desktop, bottom sheet on phones) ---------------------
 const sheet = $('#sheet');
+const sheetBody = $('#sheet-body');
 let onSheetClose = null;
+let onSheetCollapse = null;
 // keepScroll: refresh an open sheet in place (e.g. after a setting inside it changes).
-export function openSheet(content, { wide = false, onClose = null, label = '', keepScroll = false } = {}) {
-  render($('#sheet-body'), content);
+export function openSheet(content, { wide = false, expanded = false, onClose = null, onCollapse = null, label = '', keepScroll = false } = {}) {
+  const scrollTop = keepScroll ? sheetBody.scrollTop : 0;
+  render(sheetBody, content);
   sheet.classList.toggle('wide', wide);
+  sheet.classList.toggle('expanded', expanded);
   sheet.classList.remove('split');
   if (label) sheet.setAttribute('aria-label', label);
   onSheetClose = onClose;
+  onSheetCollapse = onCollapse;
   if (!sheet.open) sheet.showModal();
-  if (!keepScroll) $('#sheet-body').scrollTop = 0;
+  sheetBody.scrollTop = scrollTop;
 }
 export const closeSheet = () => sheet.open && sheet.close();
 // The dialog fires 'close' a moment after close(). When a view switch closes the sheet, the next
@@ -79,8 +84,16 @@ sheet.addEventListener('close', sheetClosed);
 // Chromium can fire only 'toggle' (no 'close') when a mouse click closes the dialog: handle both,
 // the handler running once (onSheetClose is cleared on the first).
 sheet.addEventListener('toggle', event => { if (event.newState === 'closed') sheetClosed(); });
+function collapseExpandedSheet(event) {
+  if (!sheet.classList.contains('expanded') || !onSheetCollapse) return false;
+  event.preventDefault();
+  onSheetCollapse();
+  return true;
+}
+sheet.addEventListener('cancel', collapseExpandedSheet);
 sheet.addEventListener('click', event => {
-  if (event.target === sheet || event.target.closest('[data-close]')) sheet.close();
+  if (event.target.closest('[data-close]')) sheet.close();
+  else if (event.target === sheet && !collapseExpandedSheet(event)) sheet.close();
 });
 
 // --- Toast -----------------------------------------------------------------------
@@ -94,7 +107,14 @@ export function toast(message) {
 // --- Routing ---------------------------------------------------------------------
 export const ctx = {
   /** Push a new history entry (Back returns here). */
-  go(route) { location.hash = formatRoute(route); },
+  go(route, { entryState = null, replace = false } = {}) {
+    const hash = formatRoute(route);
+    if (hash === location.hash) return;
+    if (!entryState && !replace) { location.hash = hash; return; }
+    if (replace) history.replaceState(entryState, '', hash);
+    else history.pushState(entryState, '', hash);
+    handle().catch(console.error);
+  },
   /** Update the URL for the current state without a new history entry or re-render. */
   replace(route) {
     const hash = formatRoute(route);

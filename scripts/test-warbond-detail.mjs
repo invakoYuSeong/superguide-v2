@@ -64,6 +64,11 @@ for (const [value, renderer] of [['gear/sightliner', weaponDetail], ['arsenal/no
   const ref = resolveWarbondItem('scope-of-authority', value);
   const content = String(renderer(ref.target));
   ok(content.includes('id="sheet-title"') && content.includes('data-close'), `${value}: ordinary full-page detail still has its original header`);
+  ok(!content.includes('data-item-detail-toggle'), `${value}: embedded details do not expose the catalogue panel control`);
+  for (const expanded of [false, true]) {
+    const standalone = String(renderer(ref.target, { expandable: true, expanded }));
+    ok(standalone.includes(`data-item-detail-toggle aria-expanded="${expanded}"`), `${value}: initial button has an explicit ${expanded ? 'expanded' : 'collapsed'} state`);
+  }
 }
 const css = await readFile(new URL('../dist/ui/app.css', import.meta.url), 'utf8');
 // Browser-free layout contracts. Actual panel rectangles, scrollbar counts and
@@ -203,6 +208,26 @@ ok(embeddedWeapon.includes('href="#/gear/arbitrator?m=underbarrel"'), 'full-page
     ok(chip && chip[1] === formatRoute(itemRoute({ id: source.id, query: {} }, `${view}/${id}`)), `${view}/${id}: chip links the item on its warbond board`);
     ok(chip && chip[0].includes(escape(source.name)) && chip[0].includes('무료') === (source.price === 0), `${view}/${id}: chip names the warbond and marks a free one`);
   }
+}
+// The full-screen views show complete sections and every mode without disclosure controls.
+{
+  const { stratagemById } = await import('../dist/core/catalog.js');
+  const options = { expandable: true, expanded: true };
+  const coyote = String(weaponDetail(weaponById.get('coyote'), options));
+  const oneTwo = String(weaponDetail(weaponById.get('one-two'), options));
+  const recoilless = String(stratagemDetail(stratagemById.get('recoilless'), options));
+  const airburst = String(stratagemDetail(stratagemById.get('airburst-launcher'), options));
+  for (const content of [coyote, oneTwo, recoilless, airburst]) {
+    ok(!/<(?:details|summary)\b|data-(?:variant|fire-mode)=/.test(content), 'full screen has no folds or mode selectors');
+  }
+  ok(coyote.includes('<section class="block ballistic-block">') && coyote.includes('<section class="block gear-block gear-attach-block">'), 'weapon ballistics and attachments are already visible');
+  eq((oneTwo.match(/class="item-detail-mode"/g) || []).length, personalProfiles['one-two'].modes.length, 'weapon shows every mode');
+  eq((recoilless.match(/class="item-detail-mode"/g) || []).length, stratagemById.get('recoilless').variants.length, 'stratagem shows every mode');
+  const airburstItem = stratagemById.get('airburst-launcher');
+  eq([...airburst.matchAll(/class="item-detail-mode"><h4>([^<]+)<\/h4>/g)].map(match => match[1]),
+    [...airburstItem.variants.map(mode => mode.tab || mode.name), ...airburstItem.firingModes.map(mode => mode.name)],
+    'stratagem shows every damage component and firing mode');
+  ok(recoilless.includes('<h3>행성 조건과 함선 모듈에 따른 변화</h3>'), 'planet and ship changes are already visible');
 }
 // Spread choices picked before throwing (Caltrops) show only where the data has them.
 for (const w of weaponById.values()) eq(String(weaponDetail(w)).includes('<dt>퍼뜨리기'), Boolean(w.spreadModes?.length), `${w.id}: spread row only with spread choices`);
