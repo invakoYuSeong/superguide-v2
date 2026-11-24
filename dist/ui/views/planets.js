@@ -139,7 +139,7 @@ function timeTab() {
         const day = Math.round(1440 / Math.abs(item.rate));
         return html`<tr ${item.rate < 0 ? 'data-reverse' : ''}><th scope="row">${planet ? planetLink(planet) : item.en}${planet && lang !== 'en' && planet.name !== planet.en ? html`<small>${planet.en}</small>` : ''}</th>
           <td>${biome ? html`<a href="#/planets?tab=biomes&b=${biome.id}">${title(biome)}</a>` : '-'}</td>
-          <td><b>${L(`${item.rate}배`, `${item.rate}x`)}</b><small>${item.rate < 0 ? L('거꾸로 흐름 · ', 'runs backwards · ') : ''}${item.averagedMinutes ? L(`${item.averagedMinutes}분 간격 평균`, `${item.averagedMinutes} min average`) : L('45초 간격', '45 s readings')}</small></td>
+          <td><b>${L(`${item.rate}배`, `${item.rate}x`)}</b>${item.rate < 0 ? html`<small>${L('거꾸로 흐름', 'runs backwards')}</small>` : ''}</td>
           <td>${duration(day)}</td></tr>`;
       })}</tbody>
     </table></div>`;
