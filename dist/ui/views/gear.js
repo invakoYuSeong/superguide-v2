@@ -101,7 +101,7 @@ export function gearStats(w) {
       { label: L('소지', 'Carried'), ...value(w.throwableCapacity, L('개', '')), caption: fuseText(w) ? L(`신관 ${fuseText(w)}`, `Fuse: ${fuseText(w)}`) : '' }];
   }
   const ammo = w.heatCapacity?.seconds != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.seconds), unit: L('초', 's'), caption: w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발`, `About ${w.heatCapacity.shots} shots`) : L('무한 탄약', 'Unlimited ammo') }
-    : w.heatCapacity?.shots != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.shots), unit: L('발', ' shots'), caption: L('쉬지 않고 쏠 때 · 쉬면 식음', 'Firing nonstop · cools when you pause') }
+    : w.heatCapacity?.shots != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.shots), unit: L('발', ' shots'), caption: L('쉬지 않고 쏠 때', 'Firing nonstop') }
     // Melee weapons show swings, unverified where the wiki gives no rate (Stun Lance, Stun Baton), never a magazine.
     : w.type === 'melee' ? { label: L('휘두르기', 'Swings'), ...(w.swingsPerMinute != null ? { text: num(w.swingsPerMinute), unit: L('/분', '/min') } : dim(L('미확인', 'Unverified'))), caption: L('근접', 'Melee') }
     : { label: L('탄창', 'Magazine'), ...value(w.magazine), caption: w.spareMags != null ? L(`예비 ${w.spareMags}개`, `${w.spareMags} spare`) : w.spareRounds != null ? L(`예비탄 ${w.spareRounds}`, `${w.spareRounds} spare rounds`) : '' };
@@ -235,7 +235,7 @@ function detailRows(w) {
   if (heat) {
     const heatsinks = w.magazine == null && w.spareMags != null ? L(`예비 방열판 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare heatsinks`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink');
     // A count of shots (Talon): only that many in a row overheats it; fewer, and it cools down between them.
-    if (w.heatCapacity.seconds == null && w.heatCapacity.shots != null) add(L('과열까지', 'Until overheat'), num(w.heatCapacity.shots), L('발', ' shots'), L('쉬지 않고 쏠 때 · 쉬면 천천히 식음 · ', 'Firing nonstop · cools slowly when you pause · ') + heatsinks);
+    if (w.heatCapacity.seconds == null && w.heatCapacity.shots != null) add(L('과열까지', 'Until overheat'), num(w.heatCapacity.shots), L('발', ' shots'), L('쉬지 않고 쏠 때 · ', 'Firing nonstop · ') + heatsinks);
     else add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · `, `About ${w.heatCapacity.shots} shots · `) + heatsinks : heatsinks);
   }
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
