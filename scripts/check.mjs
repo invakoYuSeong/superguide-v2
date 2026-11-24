@@ -16,6 +16,7 @@ await import('./test-boosters.mjs');
 await import('./test-ship-module-upgrades.mjs');
 await import('./test-enemy-weapons.mjs');
 await import('./test-melee.mjs');
+await import('./test-recoil.mjs');
 await import('./test-vehicle-durability.mjs');
 await import('./test-weapon-experience.mjs');
 await import('./test-structure-objectives.mjs');

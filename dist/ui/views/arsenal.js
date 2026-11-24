@@ -10,6 +10,7 @@ import { blastFigure, blastCaption } from '../blast.js';
 import { ballisticsBlock } from '../ballistics-view.js';
 import { supportProjectileRecords, propelledModes } from '../../data/support-records.js';
 import { warbondChip } from '../warbond-chip.js';
+import { recoilStats } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn, sentryLoadOf } from '../../core/modules.js';
 import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
@@ -428,6 +429,7 @@ const statGrid = item => {
     ...(ergonomics == null ? [] : [{ label: L('인체공학성', 'Ergonomics'), text: num(ergonomics), caption: L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster') }]),
     // Sway only where it differs from the standard 100% (user decision 2026-11-19).
     ...(sway == null || sway === 1 ? [] : [{ label: L('흔들림', 'Sway'), text: num(Math.round(sway * 100)), unit: '%', caption: L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less') }]),
+    ...recoilStats(`arsenal/${item.id}`),
     ...(unlock ? [{ label: L('해금', 'Unlock'), text: L(`레벨 ${unlock.level}`, `Level ${unlock.level}`), caption: unlock.requisition ? L(`요청 신청서 ${num(unlock.requisition)}`, `${num(unlock.requisition)} Requisition Slips`) : L('처음부터 사용 가능', 'Available from the start') }] : []),
   ];
   // Extra cells from the data (numbers the stats above have no slot for), placed with their group.

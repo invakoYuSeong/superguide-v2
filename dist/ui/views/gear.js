@@ -20,7 +20,7 @@ import { html, raw, render, $, $$, icon, badge, external } from '../dom.js';
 import { blastFigure, blastCaption } from '../blast.js';
 import { ballisticsBlock } from '../ballistics-view.js';
 import { warbondChip } from '../warbond-chip.js';
-import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
+import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes, recoilStats } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const DOT_ICON = { gas: 'gas', fire: 'fire', arc: 'arc', electric: 'arc' };
@@ -228,6 +228,7 @@ function detailRows(w) {
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', L('기본 상태 · 높을수록 조준이 빨리 따라옴', 'Base · higher = the aim follows faster'));
   // Sway only where it differs from the standard 100% (user decision 2026-11-19).
   if (w.sway != null && w.sway !== 1) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
+  for (const cell of recoilStats(`gear/${w.id}`)) add(cell.label, cell.text, '', cell.caption);
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
   if (w.fuse != null) add(L('신관', 'Fuse'), num(w.fuse), s, L('던진 뒤 폭발까지', 'From throw to detonation'));
   else if (fuseText(w)) add(L('신관', 'Fuse'), fuseText(w), '', { impact: L('닿는 순간 폭발', 'Explodes on contact'), proximity: L('적이 가까이 오면 폭발', 'Explodes when an enemy comes close'), selectable: L('던지기 전에 시간 선택', 'Pick the timer before throwing') }[w.fuseType] || '');

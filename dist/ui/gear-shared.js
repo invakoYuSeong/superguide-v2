@@ -1,6 +1,7 @@
 // Shared lookups for the gear tab and its loadout check (kept apart so the two
 // view modules never import each other).
 import { personalWeapons } from '../data/personal-weapons.js';
+import { weaponRecoil } from '../data/weapon-recoil.js';
 import { L } from '../core/i18n.js';
 
 export const GROUPS = [
@@ -24,3 +25,16 @@ export const weaponById = new Map(personalWeapons.map(weapon => [weapon.id, weap
 // Use the weapon's own English name: Korean names can also name an enemy
 // (e.g. 스토커 is both the Stoker weapon and the Stalker enemy).
 export const displayName = w => L(w.name || w.en, w.en || w.name);
+
+// Base recoil cells for a gear or support weapon detail (weapon-recoil.js, key 'gear/<id>' or 'arsenal/<id>'):
+// how far the weapon kicks and how far the view climbs, horizontal / vertical, before stance and attachments.
+export function recoilStats(key) {
+  const recoil = weaponRecoil[key];
+  if (!recoil) return [];
+  const pair = ([h, v]) => `${h} / ${v}`;
+  const limit = recoil.limit ? L(` · 위로 ${recoil.limit[0]}도부터 세로 반동 줄어듦`, ` · vertical kick eases off from ${recoil.limit[0]} degrees up`) : '';
+  return [
+    { label: L('무기 반동', 'Weapon kick'), text: pair(recoil.drift), caption: L('가로 / 세로 · 무기가 튀는 정도', 'Horizontal / vertical · how far the weapon kicks') },
+    { label: L('화면 반동', 'View climb'), text: pair(recoil.climb), caption: L('가로 / 세로 · 화면이 올라가는 정도', 'Horizontal / vertical · how far the view climbs') + limit },
+  ];
+}
