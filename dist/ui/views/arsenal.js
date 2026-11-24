@@ -15,6 +15,7 @@ import { L, T, lang } from '../../core/i18n.js';
 import { timingOf, modulesOn, setModulesOn, sentryLoadOf } from '../../core/modules.js';
 import { stratagemEffects } from '../../data/planet-stratagem-effects.js';
 import { stratagemStats } from '../../data/stratagem-stats.js';
+import { shipModuleSections } from '../../data/ship-module-upgrades.js';
 import { vehicleDurability } from '../../data/vehicle-durability.js';
 
 const SORTS = [
@@ -416,12 +417,15 @@ function specialCells(item, profile, variant = null) {
   return rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`);
 }
 // The key stats grid with the special effect cells at its end, and their note under it.
-// The ship module's cut to a support weapon's reload, as the wiki's base and upgraded times give it (user request 2026-11-24).
+// The ship module's cut to a support weapon's reload: the percentage its own effect text gives (Payroll Management
+// System, 'Reduces reload time for all support weapons by 10%.', user request 2026-11-24), on weapons the wiki lists
+// an upgraded reload for.
+const RELOAD_CUT = Number(/reload time for all support weapons by (\d+)%/i.exec(shipModuleSections.flatMap(section => section.modules).map(module => module.effectEn).join(' '))?.[1]);
 function reloadModuleNote(item) {
   const r = stratagemStats[item.id]?.reload;
   const main = r?.time != null ? 'time' : 'tactical';
-  if (!r?.[`${main}Upgraded`]) return '';
-  const cut = Math.round((1 - r[`${main}Upgraded`] / r[main]) * 100);
+  if (!r?.[`${main}Upgraded`] || !RELOAD_CUT) return '';
+  const cut = RELOAD_CUT;
   return L(`함선 모듈 업그레이드 시 재장전 시간이 ${num(r[main])}초에서 ${cut}% 감소합니다.`, `The ship module upgrade cuts the reload from ${num(r[main])}s by ${cut}%.`);
 }
 const statsWithEffects = (shown, cells) => {

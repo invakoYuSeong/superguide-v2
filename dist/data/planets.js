@@ -931,12 +931,12 @@ export const hazards = [
   "name": "폭발성 통",
   "en": "Explosive Barrel",
   "detail": [
-   "모든 임무에 있습니다. 주로 소규모 관심 지점과 탈출 지점 주변에 많고, ICBM 발사·E-710 탈출 임무에서는 목표 단말기 바로 옆에도 자주 놓입니다.",
+   "모든 임무의 소규모 관심 지점, 탈출 지점, 터미널 근처에 많습니다.",
    "철거력 5 이상인 공격을 받으면 터지고, 대부분 터진 자리에 약 10초 동안 불을 남깁니다.",
    "폭발 피해 400: 중심 0.4m 안에서 최대, 4m까지 줄어듭니다."
   ],
   "detailEn": [
-   "Found on every mission, mostly at Minor Places of Interest and around extraction, and often right next to objective terminals in Launch ICBM and Enable E-710 Extraction missions.",
+   "Common on every mission around Minor Places of Interest, extraction and terminals.",
    "It explodes when hit by demolition force 5 or more, and most leave the ground burning for about 10 seconds.",
    "Blast damage 400: full within 0.4 m, falling off to 4 m."
   ],
