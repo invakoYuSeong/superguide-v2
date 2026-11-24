@@ -130,8 +130,8 @@ const duration = minutes => {
 };
 
 function timeTab() {
-  return html`<p class="lede-note">${L('행성마다 현지 시각이 흐르는 속도가 다릅니다. 낮은 06시~18시, 밤은 18시~06시입니다. 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.',
-      'Each planet\'s local clock runs at its own speed. Day runs 06:00-18:00 and night 18:00-06:00; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
+  return html`<p class="lede-note">${L('행성마다 현지 시각이 흐르는 속도가 다릅니다. 낮은 06시~18시, 밤은 18시~06시로 동일하며, 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.',
+      'Each planet\'s local clock runs at its own speed. Day runs 06:00-18:00 and night 18:00-06:00 on every planet; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
     <div class="compare-scroll" role="region" aria-label="${L('행성별 시간 배율', 'Clock speed by planet')}" tabindex="0"><table class="compare-table time-table">
       <thead><tr><th scope="col">${L('행성', 'Planet')}</th><th scope="col">${L('생물군계', 'Biome')}</th><th scope="col">${L('배율', 'Rate')}</th><th scope="col" aria-sort="${state.timeSort === 'asc' ? 'ascending' : 'descending'}"><button type="button" class="th-sort" data-time-sort data-dir="${state.timeSort}">${L('자전주기', 'Rotation period')}</button></th></tr></thead>
       <tbody>${[...planetTimeScales].sort((a, b) => (Math.abs(b.rate) - Math.abs(a.rate)) * (state.timeSort === 'asc' ? 1 : -1)).map(item => {
