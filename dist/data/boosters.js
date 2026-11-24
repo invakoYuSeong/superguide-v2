@@ -30,8 +30,14 @@ export const boosters = [
   "en": "Vitality Enhancement",
   "description": "대미지를 유발하는 모든 물체로부터 헬다이버가 받는 대미지가 소폭 감소합니다.",
   "descriptionEn": "Provides minor damage reduction from all sources for all Helldivers.",
-  "detail": "받는 피해가 10% 줄고 팔다리 부상도 덜 입습니다.",
-  "detailEn": "Damage taken drops by 10% and limb injuries happen less often.",
+  "detail": "받는 피해가 10% 줄고 팔다리 부상도 덜 입습니다. 가스·화상 같은 지속 피해도 줄어듭니다. 데드 스프린트의 체력 소모가 초당 약 3.6%에서 약 1%로 줄고, 가스 지속 피해(초당 25)는 2.5, 더블 엣지 시클의 자해 화상 피해는 초당 1~2씩 줄어듭니다.",
+  "detailEn": "Damage taken drops by 10% and limb injuries happen less often. Damage over time such as gas and burning is cut too. Dead Sprint drains about 1% health a second instead of about 3.6%, lingering gas (25 a second) loses 2.5, and the Double-Edge Sickle's self-burn loses 1 to 2 a second.",
+  "tips": [
+   "피해의 소수점 아래를 버리기 때문에 작은 지속 피해일수록 실제로 훨씬 많이 줄어, 버그 지뢰나 바일 계열의 산성 지속 피해는 거의 들어오지 않습니다. 화상·철조망 피해도 줄지만 무시할 정도는 아닙니다."
+  ],
+  "tipsEn": [
+   "Damage loses its fractions, so small ticks shrink far more than 10%: acid ticks from Bug Mines and bile enemies barely land. Burning and barbed wire drop too, though not to nothing."
+  ],
   "warbondId": "helldivers-mobilize",
   "page": 4,
   "cost": 20,
@@ -70,8 +76,8 @@ export const boosters = [
   "en": "Stamina Enhancement",
   "description": "모든 헬다이버의 스태미나 용량과 회복력이 높아집니다.",
   "descriptionEn": "Increases all Helldivers' stamina capacity and recovery.",
-  "detail": "달리기·슬라이딩의 스태미나 소모가 22.5% 줄고 회복 속도가 30% 빨라집니다.",
-  "detailEn": "Sprinting and sliding drain 22.5% less stamina, and stamina recovers 30% faster.",
+  "detail": "달리기·슬라이딩의 스태미나 소모가 22.5% 줄고 회복 속도가 30% 빨라집니다. 다이빙·슬라이딩을 시작할 때 드는 고정 소모는 줄지 않습니다. 최대 스태미나가 절반이 되는 강한 열기 행성에서 특히 도움이 됩니다.",
+  "detailEn": "Sprinting and sliding drain 22.5% less stamina, and stamina recovers 30% faster. The fixed cost of starting a dive or slide is not cut. It helps most on Intense Heat planets, where maximum stamina is halved.",
   "warbondId": "helldivers-mobilize",
   "page": 7,
   "cost": 75,
@@ -92,6 +98,12 @@ export const boosters = [
   "descriptionEn": "Allows Helldivers to traverse difficult terrain with ease.",
   "detail": "모래 폭풍·눈보라·물·눈·진흙·풀숲·철조망에서 느려지는 정도와 산성 공격의 감속을 줄입니다. 맨 모래·오르막·기어오르기·흔들림에는 효과가 없습니다.",
   "detailEn": "Less slowdown in sandstorms, blizzards, water, snow, mud, foliage and barbed wire, and from acid attacks. No effect on plain sand, slopes, climbing or tremors.",
+  "tips": [
+   "느려지는 효과를 약 75% 줄여 줍니다. 산성의 감속은 줄지만 지속 시간은 그대로입니다."
+  ],
+  "tipsEn": [
+   "It cuts slowdowns by about 75%. Acid slows you less, but for just as long."
+  ],
   "warbondId": "helldivers-mobilize",
   "page": 9,
   "cost": 70,
@@ -150,8 +162,14 @@ export const boosters = [
   "en": "Localization Confusion",
   "description": "적과의 전투 사이의 시간이 증가합니다.",
   "descriptionEn": "Increases the time between enemy encounters.",
-  "detail": "벌레굴·드롭십 같은 적 증원 호출 사이의 간격이 길어집니다.",
-  "detailEn": "Enemy reinforcement calls such as bug breaches and dropships come further apart.",
+  "detail": "버그 출몰·봇 투하 같은 적 증원 호출 사이의 간격이 길어집니다. 호출 사이의 대기 시간이 약 15% 길어집니다(난이도 9에서 혼자일 때 2분 30초에서 약 2분 52.5초로). 순찰대가 생기는 빈도와 호출 뒤 오는 적의 수는 그대로입니다.",
+  "detailEn": "Enemy reinforcement calls such as Bug Breaches and Bot Drops come further apart. The wait between calls grows by about 15% (2 min 30 s to about 2 min 52.5 s when solo on difficulty 9). Patrol spawns and the size of each call are unchanged.",
+  "tips": [
+   "임무가 강제로 부르는 증원(지질 조사·섬멸·고가치 자산 후송·민주주의 전파)과 탐지 탑이 부르는 증원에는 효과가 없습니다."
+  ],
+  "tipsEn": [
+   "It does nothing for reinforcements a mission forces (Geological Survey, Eradicate, Evacuate High-Value Assets, Spread Democracy) or those a Detector Tower calls."
+  ],
   "warbondId": "cutting-edge",
   "page": 1,
   "cost": 18,
@@ -212,6 +230,12 @@ export const boosters = [
   "descriptionEn": "In addition to restoring health, stims temporarily increase movement speed and damage reduction.",
   "detail": "각성제를 쓰면 잠시 이동 속도가 10% 빨라지고 받는 피해가 10% 더 줄어듭니다. 대신 조준선 흔들림이 25% 커집니다.",
   "detailEn": "Stims briefly add 10% movement speed and 10% damage resistance, but aiming sway grows by 25%.",
+  "tips": [
+   "효과는 각성제를 쓴 뒤 약 10초 동안 이어지고, 각성제 권총으로 맞아도 적용됩니다."
+  ],
+  "tipsEn": [
+   "The effect lasts about 10 seconds after the stim, and a Stim Pistol shot triggers it too."
+  ],
   "warbondId": "viper-commandos",
   "page": 3,
   "cost": 80,
@@ -230,7 +254,7 @@ export const boosters = [
   "en": "Firebomb Hellpods",
   "description": "모든 헬포드에 충격 시 폭발하는 휘발성 소이탄을 배치하여 낙하지점 근처에 있는 모든 유닛을 불태웁니다.",
   "descriptionEn": "Lines all Hellpods with volatile incendiaries that detonate upon impact, igniting any units in vicinity of the drop site.",
-  "detail": "사람이 탄 포드와 장비 포드 모두 착지할 때 폭발·화염 피해를 줍니다. 아군도 다치니 첫 투하 때 동료에게 알리세요.",
+  "detail": "헬포드가 착지할 때 폭발·화염 피해를 줍니다. 아군도 다치니 첫 투하 때 동료에게 알리세요.",
   "detailEn": "Every Hellpod, manned or not, deals blast and fire damage on landing. It hurts friends too, so warn your squad before the first drop.",
   "warbondId": "freedoms-flame",
   "page": 3,
@@ -250,8 +274,8 @@ export const boosters = [
   "en": "Dead Sprint",
   "description": "헬다이버가 스태미나를 소진해도 체력을 소모하며 달릴 수 있습니다.",
   "descriptionEn": "Allows Helldivers to keep sprinting even when they are out of stamina, draining their health instead.",
-  "detail": null,
-  "detailEn": null,
+  "detail": "스태미나가 바닥난 뒤에도 달리면 초당 체력이 약 3.6% 줄어듭니다(생명력 증진과 함께면 약 1%). 한 번에 약 25초까지 달릴 수 있고, 체력이 5%가 되면 멈추며 이 부스터로 죽지는 않습니다.",
+  "detailEn": "Sprinting with no stamina left drains about 3.6% health a second (about 1% with Vitality Enhancement). It lasts about 25 seconds at a time and stops at 5% health, so it never kills you.",
   "warbondId": "truth-enforcers",
   "page": 1,
   "cost": 35,
@@ -330,8 +354,8 @@ export const boosters = [
   "en": "Stun Pods",
   "description": "지표면에 닿으면 헬포드 배선이 노출되어 투하 지점 근처의 모든 유닛을 기절시킵니다.",
   "descriptionEn": "Exposes Hellpod wiring upon surface contact, stunning any units in the vicinity of the drop site.",
-  "detail": null,
-  "detailEn": null,
+  "detail": "지원 무기 포드를 포함한 모든 포드가 착지할 때 주변을 기절시키며, 아군도 기절합니다. 기절 시간은 10초로 게임에서 가장 깁니다.",
+  "detailEn": "Every Hellpod, support weapon pods included, stuns everything nearby on landing, teammates too. The stun lasts 10 seconds, the longest in the game.",
   "warbondId": "force-of-law",
   "page": 2,
   "cost": 55,
@@ -350,7 +374,7 @@ export const boosters = [
   "en": "Concealed Insertion",
   "description": "헬포드에 충격 시 연막을 방출하여 헬다이버가 배치될 때 모습을 가립니다.",
   "descriptionEn": "Equips Hellpods to deploy smokescreens on impact, obscuring Helldiver deployment.",
-  "detail": "사람이 탄 포드와 장비 포드 모두 착지할 때 잠깐 연막을 뿜습니다.",
+  "detail": "헬포드가 착지할 때 잠깐 연막을 뿜습니다.",
   "detailEn": "Every Hellpod, manned or not, puts out a short burst of smoke on landing.",
   "warbondId": "redacted-regiment",
   "page": 3,
@@ -390,8 +414,8 @@ export const boosters = [
   "en": "Integrated Extinguishers",
   "description": "몸에 꼭 맞는 자동화된 화재 신속 진압 시스템을 탑재한 헬다이버 전투복입니다. 지상 지원으로 소화 작업을 하지 않아도 자연히 화염을 끄는 데 걸리는 시간을 크게 단축합니다.",
   "descriptionEn": "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering maneuvers.",
-  "detail": "몸에 붙은 불이 저절로 빨리 꺼져서 다이빙하거나 엎드리지 않아도 됩니다.",
-  "detailEn": "Flames on you go out quickly on their own, so you no longer have to dive or go prone.",
+  "detail": "불이 저절로 꺼지기까지 걸리는 시간이 3초에서 1.5초로 줄어듭니다.",
+  "detailEn": "Burning goes out by itself in 1.5 seconds instead of 3.",
   "warbondId": "ironclad-democracy",
   "page": 3,
   "cost": 65,

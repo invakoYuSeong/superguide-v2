@@ -34,15 +34,23 @@ export function explosionsOf(attack) {
   }];
 }
 
+// Blast falloff curves from helldiversotl.com/research/explosion-falloff (game code 7.1.0, the standard
+// curve also measured live; the wiki says linear): x = 0 at the inner radius, 1 at the outer radius.
+// Standard blasts lose strength fast (1 - sqrt x); wide blasts, which the page names only for the
+// Eagle 500kg main blast, keep most of it (1 - x^2). Demolition force falls off by the same factor.
+// Combat profiles hold no wide blast (the 500kg is a stratagem), so blastAt uses the standard curve.
+export const WIDE_BLASTS = new Set(['eagle-500kg']);
+export const blastFalloff = (x, wide = false) => (x <= 0 ? 1 : x >= 1 ? 0 : wide ? 1 - x * x : 1 - Math.sqrt(x));
+
 // Explosion strength at a distance from its centre: full inside the inner
-// radius, then linear falloff with AP reduced by one (never below 2).
+// radius, then the falloff curve with AP reduced by one (never below 2).
 function blastAt(blast, distance) {
   if (!known(distance)) return { factor: null, ap: null };
   if (distance === 0) return { factor: 1, ap: blast.ap };
   if (known(blast.radius) && distance >= blast.radius) return { factor: 0, ap: blast.ap };
   if (!known(blast.innerRadius) || !known(blast.radius) || blast.radius < blast.innerRadius) return { factor: null, ap: null };
   if (distance <= blast.innerRadius) return { factor: 1, ap: blast.ap };
-  return { factor: (blast.radius - distance) / (blast.radius - blast.innerRadius), ap: known(blast.ap) ? Math.max(2, blast.ap - 1) : null };
+  return { factor: blastFalloff((distance - blast.innerRadius) / (blast.radius - blast.innerRadius)), ap: known(blast.ap) ? Math.max(2, blast.ap - 1) : null };
 }
 
 function directDamage(attack, part, directHit, distance = 0) {

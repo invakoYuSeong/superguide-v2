@@ -21,7 +21,7 @@ import { blastFigure, blastCaption } from '../blast.js';
 import { ballisticsBlock } from '../ballistics-view.js';
 import { detailColumns, detailDisclosure, detailModeList, detailStatCell, bindItemSheetActions, FORCE_NOTE, itemDetailToggle, itemVariantPanel, openItemPanel, openItemSheet, updateItemDetail } from '../item-detail.js';
 import { warbondChip } from '../warbond-chip.js';
-import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes } from '../gear-shared.js';
+import { GROUPS, groupOf, typeName, weaponById, displayName, orderTypes, recoilStats } from '../gear-shared.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const DOT_ICON = { gas: 'gas', fire: 'fire', arc: 'arc', electric: 'arc' };
@@ -47,9 +47,9 @@ const HOLE_OUTER = bugHole.routes.find(route => !route.explosiveOnly).threshold,
 // when a drone homes in on an enemy by the hole or an enemy steps on a mine set at its mouth (user decision
 // 2026-11-20). They get the conditional tier, with how it happens.
 const HOLE_CONDITIONS = {
-  seeker: L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
-  'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
-  'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 벌레굴이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
+  seeker: L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'anti-tank-seeker': L('굴 가까이 있는 적에게 유도되어 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다. 직접 굴에 넣을 수는 없습니다.', 'Closes a bug hole only when it homes in on an enemy by the hole and explodes inside it; you cannot put it into the hole yourself.'),
+  'lure-mine': L('굴 입구에 설치해 두고 적이 밟아 굴 안쪽에서 터질 때만 버그 구멍이 닫힙니다.', 'Closes a bug hole only when it is set at the hole\'s mouth and an enemy steps on it, exploding inside.'),
 };
 const HOLE_TIER_CACHE = new Map();
 export const holeTier = w => {
@@ -65,8 +65,8 @@ export const holeTier = w => {
   return tier;
 };
 const HOLE = {
-  outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 벌레굴이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
-  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 벌레굴이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
+  outer: [L('굴 파괴', 'Closes bug holes'), L(`철거력 ${HOLE_OUTER} 이상이라 굴 밖에 맞혀도 버그 구멍이 닫힙니다.`, `Demolition force ${HOLE_OUTER}+: closes a bug hole even hitting outside it.`)],
+  inner: [L('굴 안쪽 파괴', 'Bug holes from inside'), L(`폭발 철거력 ${HOLE_INNER} 이상이라 굴 안쪽에 넣어 터뜨려야 버그 구멍이 닫힙니다.`, `Blast demolition force ${HOLE_INNER}+: closes a bug hole when it explodes inside.`)],
   conditional: [L('굴 안쪽 파괴 · 조건부', 'Bug holes from inside · conditional'), ''],
 };
 const holeText = (w, tier) => tier === 'conditional' ? HOLE_CONDITIONS[w.id] : HOLE[tier][1];
@@ -109,7 +109,9 @@ export function gearStats(w) {
       { label: L('소지', 'Carried'), ...value(w.throwableCapacity, L('개', '')), caption: fuseText(w) ? L(`신관 ${fuseText(w)}`, `Fuse: ${fuseText(w)}`) : '' }];
   }
   const ammo = w.heatCapacity?.seconds != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.seconds), unit: L('초', 's'), caption: w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발`, `About ${w.heatCapacity.shots} shots`) : L('무한 탄약', 'Unlimited ammo') }
-    : w.swingsPerMinute != null ? { label: L('휘두르기', 'Swings'), text: num(w.swingsPerMinute), unit: L('/분', '/min'), caption: L('근접', 'Melee') }
+    : w.heatCapacity?.shots != null ? { label: L('과열까지', 'Until overheat'), text: num(w.heatCapacity.shots), unit: L('발', ' shots'), caption: L('연달아 쏠 때', 'Firing nonstop') }
+    // Melee weapons show swings, unverified where the wiki gives no rate (Stun Lance, Stun Baton), never a magazine.
+    : w.type === 'melee' ? { label: L('휘두르기', 'Swings'), ...(w.swingsPerMinute != null ? { text: num(w.swingsPerMinute), unit: L('/분', '/min') } : dim(L('미확인', 'Unverified'))), caption: L('근접', 'Melee') }
     : { label: L('탄창', 'Magazine'), ...value(w.magazine), caption: w.spareMags != null ? L(`예비 ${w.spareMags}개`, `${w.spareMags} spare`) : w.spareRounds != null ? L(`예비탄 ${w.spareRounds}`, `${w.spareRounds} spare rounds`) : '' };
   const rate = w.rpmModes?.length > 1 ? { label: L('연사', 'Fire rate'), text: w.rpmModes.map(num).join('/'), caption: L('분당 · 모드별', 'RPM · by mode') }
     : w.rpm != null ? { label: L('연사', 'Fire rate'), text: num(w.rpm), caption: L('분당 발수', 'Rounds per minute') }
@@ -151,7 +153,7 @@ function card(w) {
 
 // --- Browse ------------------------------------------------------------------------
 const typesOf = cat => orderTypes(new Set(personalWeapons.filter(w => w.category === cat).map(w => w.type)));
-const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name, ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
+const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name], keywords: collabKeywords(warbondSources[`gear/${w.id}`]?.id) });
 
 function visibleItems() {
   // A search looks across every group, so "세열" finds the grenade from the rifle list.
@@ -188,7 +190,7 @@ function renderBrowse() {
   const showHand = hasHand && !showHandAll;
   const showHole = hasHole && !showHoleAll;
   const typeCount = type => typeCounts.get(type) || 0;
-  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('벌레굴을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
+  render($('#gear-types', root), types.length > 1 ? html`<button class="chip" type="button" data-type="" aria-pressed="${!state.type}">${L('전체', 'All')}</button>${types.map(type => html`<button class="chip ${typeCount(type) ? '' : 'is-empty'}" type="button" data-type="${type}" aria-pressed="${state.type === type}">${typeName(type)} <span class="count">${typeCount(type)}</span></button>`)}${showHand ? html`<button class="chip chip-hand ${handCount ? '' : 'is-empty'}" type="button" data-hand aria-pressed="${state.hand}" title="${L('달리면서 쏘거나 방패, 임무 물건을 든 채 쓸 수 있는 무기', 'Weapons you can fire while jogging or while holding a shield or mission item')}">${L('한손 무기만', 'One-handed only')} <span class="count">${handCount}</span></button>` : ''}${showHole ? html`<button class="chip chip-hole ${holeCount ? '' : 'is-empty'}" type="button" data-hole aria-pressed="${state.hole}" title="${L('버그 구멍을 닫을 수 있는 무기(굴 밖에서도 닫히는 것과 굴 안쪽에 넣어야 하는 것)', 'Weapons that can close bug holes (from outside, or only from inside the hole)')}">${L('굴 파괴 가능', 'Closes bug holes')} <span class="count">${holeCount}</span></button>` : ''}` : '');
   $('#gear-types', root).hidden = Boolean(state.q) || types.length < 2;
   const total = inCat.length;
   $('#gear-count', root).innerHTML = html`<span>${L(html`<b>${items.length}</b>개 표시${state.q ? ' · 모든 분류에서 검색' : ` · ${groupOf(state.cat).name} ${total}개`}`, html`Showing <b>${items.length}</b>${state.q ? ' · searching every group' : ` of ${total} ${groupOf(state.cat).name.toLowerCase()}`}`)}</span>`.toString();
@@ -198,6 +200,13 @@ function renderBrowse() {
 // --- Detail sheet ------------------------------------------------------------------
 // Same order as the stratagem sheet: damage (direct, blast, durable, penetration, fragments, over time),
 // reach, ammo, fire rate and reload, handling, throwable facts, quick melee.
+// Recoil for the detailed stats: the wiki's own recoil cell (EXTRA_STATS) and the base kick and climb (weapon-recoil.js).
+const recoilCells = w => [...(w.extraStats ?? []).filter(cell => cell.label === '반동').map(cell => ({ label: L('반동 수치', 'Recoil rating'), text: num(cell.value), unit: cell.unit, caption: cell.caption })), ...recoilStats(`gear/${w.id}`)];
+
+// The spare ammo line under the magazine: spare magazines (or fuel tanks), or rounds loaded one at a time.
+const spareText = w => w.spareMags != null ? (w.fuel ? L(`예비 연료통 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare tanks`) : L(`예비 탄창 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare magazines`))
+  : w.spareRounds != null ? L(`예비탄 ${num(w.spareRounds)}발 · 한 발씩 장전`, `${num(w.spareRounds)} spare rounds · loaded one at a time`) : '';
+
 function detailRows(w) {
   const rows = [];
   // Numbers show at full strength; words (a fuse type, raw wiki text) are dimmed.
@@ -213,7 +222,8 @@ function detailRows(w) {
   if (w.splash != null) add(L('폭발', 'Blast'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
   // Extra cells (EXTRA_STATS in personal-display.mjs), each with its group of rows.
   const UNIT_EN = { '초': 's', '개': '' };
-  const extra = after => (w.extraStats ?? []).filter(cell => cell.after === after)
+  // The wiki's recoil cell goes to the detailed stats with the other recoil numbers (recoilCells).
+  const extra = after => (w.extraStats ?? []).filter(cell => cell.after === after && cell.label !== '반동')
     .forEach(cell => add(cell.label, num(cell.value), lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, cell.caption));
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
   if (apOf(w) != null) add(L('관통', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
@@ -231,16 +241,37 @@ function detailRows(w) {
     add(L('실드 반경', 'Shield radius'), num(w.shield.radius), 'm', L('전방위', 'All around'));
     add(L('재생 대기', 'Regen delay'), num(w.shield.regenDelay), s, L(`맞은 뒤 · 깨지면 ${num(w.shield.brokenDelay)}초`, `After a hit · ${num(w.shield.brokenDelay)} s once broken`));
   }
-  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
-  if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
+  // Spare ammo is the magazine cell's second line (user request 2026-11-24); a heat weapon has no magazine,
+  // so its spare heatsinks go under 'until overheat' instead.
+  const spare = spareText(w), heat = w.heatCapacity?.raw;
+  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''), spare);
+  else if (w.spareMags != null && !heat) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
   extra('ammo');
-  if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
-  if (w.heatCapacity?.raw) add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · 방열판 교체로 재장전`, `About ${w.heatCapacity.shots} shots · reload by swapping the heatsink`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink'));
+  if (heat) {
+    const heatsinks = w.magazine == null && w.spareMags != null ? L(`예비 방열판 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare heatsinks`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink');
+    // A count of shots (Talon): only that many in a row overheats it; fewer, and it cools down between them.
+    if (w.heatCapacity.seconds == null && w.heatCapacity.shots != null) add(L('과열까지', 'Until overheat'), num(w.heatCapacity.shots), L('발', ' shots'), L('연달아 쏠 때 · ', 'Firing nonstop · ') + heatsinks);
+    else add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · `, `About ${w.heatCapacity.shots} shots · `) + heatsinks : heatsinks);
+  }
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
   else if (w.rpm != null) add(L('연사', 'Fire rate'), num(w.rpm), '', L('분당 발수', 'Rounds per minute'));
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
-  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
-  if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', L('기본 상태 · 높을수록 조준이 빨리 따라옴', 'Base · higher = the aim follows faster'));
+  // Where emptying it first is faster (heat weapons: an overheated heat sink pops out by itself, wiki Sickle and Talon
+  // pages), the caption says so (user request 2026-11-24).
+  // Round-by-round reload (wiki rounds_reload_*, user request 2026-11-24): with a clip or speedloader an empty magazine
+  // refills at once (faster); otherwise the reload value is the time to fill it from empty, one load at a time.
+  const rr = w.roundsReload;
+  const roundsText = rr && (rr.clip
+    ? L(`비웠을 때 한 번에 장전(더 빠름) · 남았을 때는 한 발씩: 첫 발 ${num(rr.first)}초, 이후 발당 ${num(rr.rest)}초`, `From empty, all at once (faster) · with rounds left, one at a time: ${num(rr.first)}s, then ${num(rr.rest)}s each`)
+    : L(`비운 탄창을 다 채울 때 · 하나씩 장전: 첫 장전 ${num(rr.first)}초${rr.firstPartial != null ? `(남았을 때 ${num(rr.firstPartial)}초)` : ''}, 이후 한 번 넣을 때마다 ${num(rr.rest)}초`, `Filling it from empty · loaded one at a time: ${num(rr.first)}s for the first${rr.firstPartial != null ? ` (${num(rr.firstPartial)}s with rounds left)` : ''}, then ${num(rr.rest)}s each`));
+  if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, roundsText ? roundsText : w.reloadTactical == null ? L('탄창을 비웠을 때', 'From empty')
+    : w.reload < w.reloadTactical ? (w.heatCapacity?.raw ? L(`과열됐을 때 · 과열 전에 갈면 ${num(w.reloadTactical)}초(방열판이 저절로 빠져 과열됐을 때가 더 빠름)`, `When overheated · ${num(w.reloadTactical)}s before that (the heat sink pops out by itself, so overheated is faster)`)
+      : L(`탄창을 비웠을 때 · 전술 재장전 ${num(w.reloadTactical)}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · tactical reload ${num(w.reloadTactical)}s (emptying first is faster)`))
+    // The same time with rounds left: there is no faster tactical reload (user request 2026-11-24).
+    : w.reloadTactical === w.reload ? L('전술 재장전 없음', 'No tactical reload') : L(`전술 재장전 ${num(w.reloadTactical)}초`, `Tactical reload ${num(w.reloadTactical)}s`));
+  // Customizable weapons (an attachment table) read with the level 1 attachments; others have no 'base' to name.
+  const customizable = w.category === 'primary' && weaponAttachments[w.id]?.length;
+  if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', customizable ? L('1레벨 부착물 기준 · 높을수록 조준이 빠름', 'With level 1 attachments · higher = faster aim') : L('높을수록 조준이 빠름', 'Higher = faster aim'));
   // Sway only where it differs from the standard 100% (user decision 2026-11-19).
   if (w.sway != null && w.sway !== 1) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
@@ -272,7 +303,7 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(stat => detailStatCell(stat, true))}</dl>`;
+const detailGrid = (w, extra = []) => html`<dl class="detail-grid">${detailRows(w).map(stat => detailStatCell(stat, true))}${extra}</dl>`;
 
 // An underbarrel attachment has its own ammo, fire rate and reload; a mode the
 // shot calculator skips starts with no damage numbers of its own.
@@ -297,16 +328,16 @@ function modeView(w, m) {
   return { ...w, dot: null, ...(m.id === 'underbarrel' ? GUN_FIELDS : {}), ...own, ...extra };
 }
 
-function modeStats({ mode, stats }) {
+function modeStats({ mode, stats }, w) {
   if (!stats) return html`<p class="variant-note">${mode.unsupported}</p>`;
-  return html`${detailGrid(stats)}${blastFigure(stats)}
+  return html`${statsWithEffects(stats, w)}${blastFigure(stats)}
     ${stats.modeNotes?.length ? html`<ul class="notes">${stats.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`;
 }
 
 // Modes the player switches between get tabs in the compact panel.
-function modeTabs(modes, current) {
+function modeTabs(w, modes, current) {
   return html`<div class="variant-tabs"><h3>${L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${L('모드 선택', 'Mode')}">${modes.map(({ mode }) => html`<button type="button" data-variant="${mode.id}" aria-pressed="${String(mode === current)}">${mode.name}</button>`)}</div></div>
-    ${modes.map(entry => itemVariantPanel(entry.mode.id, current.id, modeStats(entry)))}`;
+    ${modes.map(entry => itemVariantPanel(entry.mode.id, current.id, modeStats(entry, w)))}`;
 }
 
 // Customization (primary weapons): every attachment per slot with its unlock level,
@@ -332,7 +363,7 @@ const EFFECTS = [
   ['startMags', () => L('출격 시 탄창', 'Starting magazines'), v => L(`${num(v)}개`, num(v))],
   ['maxMags', () => L('최대 탄창', 'Max magazines'), v => L(`${num(v)}개`, num(v))],
   ['reload', () => L('재장전', 'Reload'), v => L(`${num(v)}초`, `${num(v)}s`)],
-  ['reloadTactical', () => L('탄이 남았을 때 재장전', 'Reload with rounds left'), v => L(`${num(v)}초`, `${num(v)}s`)],
+  ['reloadTactical', () => L('전술 재장전', 'Tactical reload'), v => L(`${num(v)}초`, `${num(v)}s`)],
   ['function', () => L('기능', 'Function'), v => v.map(f => f === 'laser' ? L('레이저 조준', 'Laser') : L('조명', 'Flashlight')).join(' + ')],
 ];
 export const attachmentEffects = effects => EFFECTS.filter(([key]) => effects[key] != null).map(([key, label, text]) => ({ key, label: label(), text: text(effects[key]) }));
@@ -417,8 +448,9 @@ export function attachmentTable(w, expanded = false) {
   });
 }
 
-// Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
-function specialBlock(w) {
+// Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields), as
+// cells at the end of the key stats (user request 2026-11-24: no separate block).
+function specialCells(w) {
   // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
   // demolition, then stagger, then push. A record delivered as an explosion counts as a blast; a shot that
   // explodes on impact (Evictor, Eruptor, Exploding Crossbow...) adds its explosion as a blast of its own.
@@ -431,14 +463,14 @@ function specialBlock(w) {
   ]);
   const top = list => strongest(list.map(row => ({ ...row, demo: row.demolition })));
   const rows = [top(all.filter(row => !row.blast)), top(all.filter(row => row.blast))].filter(Boolean);
-  if (!rows.length) return '';
-  const cell = row => html`<div><dt>${row.blast ? html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발', 'Blast')}` : L('직격', 'Direct')}</dt><dd class="force-lines">
-    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
-  return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
-    <dl class="detail-grid">${rows.map(cell)}</dl>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>
-  </section>`;
+  return rows.map(row => html`<div><dt>${row.blast ? html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발 효과', 'Blast effects')}` : L('직격 효과', 'Direct effects')}</dt><dd class="force-lines">
+    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`);
 }
+// The key stats grid with the special effect cells at its end, and their note under it.
+const statsWithEffects = (v, w) => {
+  const cells = specialCells(w);
+  return html`${detailGrid(v, cells)}${cells.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>` : ''}`;
+};
 
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant, expandable = false, expanded = false } = {}) {
   const group = groupOf(w.category);
@@ -447,21 +479,20 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
   const modes = personalProfiles[w.id]?.modes || [];
   const current = modes.find(m => m.id === variant) || modes[0];
   const modeDetails = modes.length > 1 ? modes.map(mode => ({ mode, stats: modeView(w, mode) })) : [];
-  const special = specialBlock(w);
   let stats;
   if (modeDetails.length) {
     const byMode = expanded
-      ? detailModeList(L('모드별 수치', 'Stats by mode'), modeDetails.map(entry => ({ name: entry.mode.name, content: modeStats(entry) })))
-      : modeTabs(modeDetails, current);
-    stats = html`${byMode}${special}`;
+      ? detailModeList(L('모드별 수치', 'Stats by mode'), modeDetails.map(entry => ({ name: entry.mode.name, content: modeStats(entry, w) })))
+      : modeTabs(w, modeDetails, current);
+    stats = byMode;
   } else {
-    const base = html`<section class="block item-detail-key-stats"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>`;
+    const base = html`<section class="block item-detail-key-stats"><h3>${L('기본 수치', 'Key stats')}</h3>${statsWithEffects(w, w)}</section>`;
     const blast = blastFigure(w);
     stats = expanded
-      ? html`${blast ? detailColumns(base, html`${blast}${special}`) : html`${base}${special}`}${variantTable(w)}`
-      : html`${base}${blast}${variantTable(w)}${special}`;
+      ? html`${blast ? detailColumns(base, blast) : base}${variantTable(w)}`
+      : html`${base}${blast}${variantTable(w)}`;
   }
-  const ballistics = ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))], expanded);
+  const ballistics = ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))], expanded, recoilCells(w));
   const art = weaponArt(w, 'gear-art large');
   const identity = html`<div class="detail-id gear-id${expandable ? ' item-detail-actions' : ''}"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div>

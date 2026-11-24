@@ -7,7 +7,7 @@ import { stratagems } from '../dist/core/catalog.js';
 import { stratagemStats } from '../dist/data/stratagem-stats.js';
 import { shipModules, shipModulesSource } from '../dist/data/ship-modules.js';
 import { timingOf, setModulesOn, modulesOn } from '../dist/core/modules.js';
-import { statsOf, field, value, datamineEntry, forcesOf, wreckForces, ergonomicsOf, swayOf, timesOf, bodyOf, sentryOf, PERMIT_OVERRIDES, unlockOf } from './stratagem-stats-parse.mjs';
+import { statsOf, field, value, datamineEntry, forcesOf, wreckForces, ergonomicsOf, swayOf, heatOf, reloadOf, timesOf, bodyOf, sentryOf, PERMIT_OVERRIDES, unlockOf } from './stratagem-stats-parse.mjs';
 
 const source = JSON.parse(await readFile(new URL('../db/source/wiki_stratagem_stats.json', import.meta.url), 'utf8'));
 const strat = JSON.parse(await readFile(new URL('../db/source/stratagems_data.json', import.meta.url), 'utf8')).data;
@@ -26,7 +26,7 @@ for (const item of stratagems) {
   ok(entry && !entry.missing, `${item.id}: no wiki page in db/source/wiki_stratagem_stats.json (run fetch-stratagem-stats)`);
   const found = datamineEntry(item.id, entry.title, strat, weaponData);
   const forces = [...forcesOf(found, strat, weaponData), ...wreckForces(item.id, wrecks)];
-  ok(JSON.stringify(stratagemStats[item.id]) === JSON.stringify({ ...statsOf(entry), ...(PERMIT_OVERRIDES[item.id] && { permit: PERMIT_OVERRIDES[item.id] }), ergonomics: ergonomicsOf(found), sway: swayOf(found), ...(timesOf(item.id, entry.title, strat) && { times: timesOf(item.id, entry.title, strat) }), ...(bodyOf(item.id, entry.title, statsOf(entry).type, strat, weaponData) && { body: bodyOf(item.id, entry.title, statsOf(entry).type, strat, weaponData) }), ...(sentryOf(item.id, entry.title, statsOf(entry).type, entry.statsTable, strat) && { sentry: sentryOf(item.id, entry.title, statsOf(entry).type, entry.statsTable, strat) }), forces }), `${item.id}: dist/data/stratagem-stats.js is stale (run build-stratagem-stats)`);
+  ok(JSON.stringify(stratagemStats[item.id]) === JSON.stringify({ ...statsOf(entry), ...(PERMIT_OVERRIDES[item.id] && { permit: PERMIT_OVERRIDES[item.id] }), ergonomics: ergonomicsOf(found), sway: swayOf(found), ...(heatOf(found, entry.title, strat) && { heat: heatOf(found, entry.title, strat) }), ...(reloadOf(entry) && { reload: reloadOf(entry) }), ...(timesOf(item.id, entry.title, strat) && { times: timesOf(item.id, entry.title, strat) }), ...(bodyOf(item.id, entry.title, statsOf(entry).type, strat, weaponData) && { body: bodyOf(item.id, entry.title, statsOf(entry).type, strat, weaponData) }), ...(sentryOf(item.id, entry.title, statsOf(entry).type, entry.statsTable, strat) && { sentry: sentryOf(item.id, entry.title, statsOf(entry).type, entry.statsTable, strat) }), forces }), `${item.id}: dist/data/stratagem-stats.js is stale (run build-stratagem-stats)`);
   // Every weapon-type stratagem has stagger and push from the datamine.
   if (['support', 'orbital', 'eagle'].includes(item.category) && !['orbital-railcannon'].includes(item.id)) ok(forces.length, `${item.id}: no stagger or push in the attack datamine`);
 }
@@ -93,5 +93,10 @@ ok(unlockOf(`| unlock_cost = {{Currency|Medals|110}}
 // Mode tabs that name their datamine record (special effects per tab) point at a record the forces really have.
 for (const item of stratagems) for (const variant of item.variants ?? []) for (const record of [variant.record ?? []].flat()) {
   ok(stratagemStats[item.id]?.forces.some(group => group.attack === record), `${item.id}/${variant.id}: record ${record} is not among its datamine attacks`);
+}
+// Overheat time from the datamine heat table matches the wiki infobox capacity where the infobox gives seconds.
+for (const [id, s] of Object.entries(stratagemStats).filter(([, s]) => s.heat)) {
+  const capacity = /\|\s*capacity\s*=\s*([\d.]+)\s*s\b/.exec(source.stratagems[id]?.infobox ?? '')?.[1];
+  if (capacity) ok(Number(capacity) === s.heat.seconds, `${id}: overheat ${s.heat.seconds} s, wiki infobox ${capacity} s`);
 }
 console.log(`PASS stratagem stats: ${checks} checks (${stratagems.length} stratagems, ${shipModules.length} ship modules, Ship Modules revision ${shipModulesSource.revision}, ${REVIEWED.size} reviewed difference).`);

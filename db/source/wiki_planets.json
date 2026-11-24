@@ -796,6 +796,16 @@
    "revision": 116172,
    "timestamp": "2026-04-26T13:30:12Z",
    "text": "{{Infobox Hazard\n| title=Volcano Plant\n| image=Volcano Plant.png\n| description=Emits flammable gas.  If shot, the gas it emits bursts into flames.\n| type=Flora\n| locations= [[Biomes#Swamp Biomes|Swamp Biomes]]}}\n'''{{PAGENAME}}''', is a unique feature of [[Biomes#Swamp Biomes|Swamp Biomes]]. It is considered an [[Environmental Hazards|Environmental Hazard]].\n\n== Effect ==\nThe Volcano Plant emits flammable gas. Should the plant be shot, the gas will ignite into intense flames, shooting out the top of the Volcano Plant.\n\n== Detailed Statistics ==\n<div class=\"flextablediv\">\n{{Attack_Data/attack|explosion|GasChimney}}\n</div>\n\n== Locations ==\n'''Volcano Plants''' can be found on [[Biomes#Swamp Biomes|Swamp Biomes]].\n<gallery heights=\"200\">\nVolcano Plant.png|Volcano Plant before being shot\nVolcano Active.png|Volcano Plant after being shot.\n</gallery>\n\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.000.400|changes=\nChanges\n* The acid effect applied by Bug Mines and other Terminids now allows you to sprint while under the effect.\n* Acid now slows you by 30% instead of 50%.\n* Acid duration increased from 3 seconds to 4 seconds.\n}}\n\n[[Category:Flora]]\n[[Category:Environmental Hazards]]\n\n{{Nav Mechanic}}"
+  },
+  "Damaged Hellbomb": {
+   "revision": 136568,
+   "timestamp": "2026-09-24T18:17:20Z",
+   "text": "{{DisambigMsg|the Environmental Hazard|the Mission Stratagem|NUX-223 Hellbomb}}\n\n{{Infobox POI\n| title = Damaged Hellbomb\n| image-caption = \n| image = Hellbomb POI Helldiver.png\n| faction = {{Super_Earth|text}}\n| description = A damaged Hellbomb randomly found around maps on Challenging difficulty and higher. Damaging it causes a massive explosion that can be used against enemies.\n| loot = * 0-1 Support Weapon\n* [[Words Scribbled on Bomb]]\n}}\n\n'''Damaged Hellbombs''' are an Environmental Hazard that consists of a [[NUX-223 Hellbomb|Hellbomb]] lodged into the ground.\n\n== Description==\n\nThe Damaged [[NUX-223 Hellbomb|Hellbomb]] is a type of Hazard consisting of a Hellbomb lodged into the terrain. It may be triggered by dealing any damage to it; after a short time, it will explode with a massive 25m blast radius. However, any attack with a minimum [[Demolition|demolition force]] of 30 will instead detonate them immediately. It is best used to easily dispatch any crowds of enemies or high-health units that are nearby. The explosion is similar, if not the same, in effects as a regular Hellbomb [[Stratagems|Stratagem]]. Damaged Hellbombs may be found around the map during {{Difficulty|4}} missions or higher, or in the [[Deadlands]] [[Biomes|Biome]] on all difficulties.\n\n=== Minor Place of Interest ===\nDamaged Hellbombs can occasionally be found as a Minor Place of Interest. Support Weapons such as the [[FLAM-40 Flamethrower]] and [[LAS-98 Laser Cannon|LAS-90 Laser Cannon]] can sometimes be found next to it. Additionally, inscribed words may be found on the Hellbomb (see [[Words Scribbled on Bomb]]).\n\n== Detailed Statistics ==\n{{Attack_Data/attack|explosion|Hellbomb}}\n\n== Gallery ==\n<gallery>\nFile:PoI Hellbomb Charger.png|A Damaged Hellbomb found lodged in a dead Charger, with a FLAM-40 Flamethrower next to it.\nFile:Hellbomb POI Helldiver.png|A Damaged Hellbomb on top of a human corpse, with an LAS-98 Laser Cannon next to it.\nWords Scribbled on Bomb Structure.png|Ditto\n</gallery>\n\n== Change History ==\n{{Change History Head}}\n{{Change History Update|1.004.000|changes=\nFix\n* Fixed an issue where the planetary hazard damaged Hellbombs will visually appear to explode twice when shot by GL-21 Grenade Launcher, from the shooter's POV.\n}}\n{{Change History Update|1.001.100|changes=\nFix\n* Fixed unexploded Hellbombs on the terrain not being pingable.\n}}\n{{Change History Update|1.000.400|changes=\nChange\n* Unexploded Hellbombs will now explode immediately if hit with strong explosions or heavy weaponry.\n}}\n\n{{Nav POI}}\n{{Nav Mechanic}}\n[[Category:Locations]]\n[[Category:Super Earth Hazard]]\n__FORCETOC__"
+  },
+  "Forklift": {
+   "revision": 130566,
+   "timestamp": "2026-08-19T16:46:07Z",
+   "text": "{{Infobox Hazard\n| title= Forklift\n| image= forklift.png\n| description= Will explode when hit with a weapon with sufficient demo force\n| type= Environmental Hazards\n| locations= All Missions\n}}\n\n'''{{PAGENAME}}s''' can be found at [[Minor Place of Interest|Human Structures]].\n\n== Detailed Statistics ==\n{{Attack_Data/attack|explosion|Vehicle_Explosion_Medium}}\n\n== Tactical Information ==\n* {{PAGENAME}}s can be destroyed with any weapon with a demo force of '''20''' creating a small explosion.\n\n== Lore ==\nHere's a list of possible transcripts found when interacting with a {{PAGENAME}}:\n* A pair of safety goggles hang by a strap, the frames spattered with blood. They seem to have failed their purpose.\n* \"Do not operate without a ground guide.\"\n* Used to transport ore, modular dwellings, and dissident holding pens.\n* This forklift is the red blood cell of Managed Democracy, conveying vital necessities to wherever they are needed.\n\n== Gallery ==\n<gallery mode=\"packed\" widths=\"200\" heights=\"300\" class=\"responsive-image\">\nForklift.png|A forklift\n</gallery>\n\n[[Category:Lore]]\n[[Category:Super Earth Hazard]]\n[[Category:Lore Pickup]]\n[[Category:Super Earth Vehicles]]\n__FORCETOC__\n{{Navbox Lore}}\n{{Nav Mechanic}}"
   }
  },
  "conditionPages": {
@@ -982,6 +992,226 @@
      "stun": 30,
      "push": 20,
      "name": "World Volcano Strike"
+    }
+   }
+  }
+ },
+ "hazardAttacks": {
+  "source": "Module:Decodedata-Attacks/data.json",
+  "revision": 142140,
+  "timestamp": null,
+  "records": {
+   "explosive-barrel": {
+    "Barrel_Medium": {
+     "explosion": {
+      "r1": 0.4,
+      "r2": 4,
+      "r3": 12,
+      "crater": "Small",
+      "name": "Barrel Medium",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "automaton-barrel": {
+    "Barrel_Large": {
+     "explosion": {
+      "r1": 0.6,
+      "r2": 6,
+      "r3": 15,
+      "crater": "Small",
+      "name": "Barrel Large",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "illuminate-barrel": {
+    "Barrel_Illuminate": {
+     "explosion": {
+      "r1": 7,
+      "r2": 10,
+      "r3": 4,
+      "crater": "Small",
+      "name": "Barrel Large",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "contact-mine": {
+    "Cyborg_Mine": {
+     "explosion": {
+      "r1": 1.6,
+      "r2": 4,
+      "r3": 6,
+      "crater": "Large",
+      "name": "Cyborg Mine",
+      "damageid": "Explosion_CyborgMine"
+     },
+     "explosionDamage": {
+      "dmg": 300,
+      "dmg2": 300,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 30,
+      "push": 40,
+      "name": "Explosion Cyborg Mine"
+     }
+    }
+   },
+   "bug-mine": {
+    "BugTrap": {
+     "explosion": {
+      "r1": 0.3,
+      "r2": 2,
+      "r3": 2.5,
+      "name": "Bug Trap",
+      "damageid": "Explosion_BugTrap"
+     },
+     "explosionDamage": {
+      "dmg": 0,
+      "dmg2": 0,
+      "ap1": 6,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 10,
+      "stun": 20,
+      "push": 40,
+      "param1": 100,
+      "name": "Explosion Bug Trap",
+      "element_name": "Acid",
+      "status_name": "Acid Splash"
+     }
+    }
+   },
+   "moor-mushroom": {
+    "MoorMushroom_Burst": {
+     "explosion": {
+      "r1": 7,
+      "r2": 8,
+      "r3": 9,
+      "crater": "Small",
+      "name": "Moor Mushroom Burst",
+      "damageid": "Explosion_MoorMushroom_Burst"
+     },
+     "explosionDamage": {
+      "dmg": 5,
+      "dmg2": 5,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 20,
+      "stun": 55,
+      "push": 55,
+      "param1": 25,
+      "name": "Explosion Moor Mushroom Burst",
+      "status_name": "Stun Medium"
+     }
+    },
+    "MoorMushroom_Smoke": {
+     "explosion": {
+      "r1": 5,
+      "r2": 5,
+      "r3": 0,
+      "name": "Moor Mushroom Smoke"
+     }
+    }
+   },
+   "damaged-hellbomb": {
+    "Hellbomb": {
+     "explosion": {
+      "r1": 17,
+      "r2": 25,
+      "r3": 45,
+      "crater": "Nuke",
+      "name": "Hellbomb",
+      "damageid": "Explosion_Hellbomb"
+     },
+     "explosionDamage": {
+      "dmg": 10000,
+      "dmg2": 10000,
+      "ap1": 10,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 60,
+      "stun": 50,
+      "push": 100,
+      "name": "Explosion Hellbomb"
+     }
+    }
+   },
+   "forklift": {
+    "Vehicle_Explosion_Medium": {
+     "explosion": {
+      "r1": 0.6,
+      "r2": 7,
+      "r3": 10,
+      "crater": "Medium",
+      "name": "Vehicle Destruction Medium",
+      "damageid": "Explosion_Vehicle_SeMediumDeath"
+     },
+     "explosionDamage": {
+      "dmg": 200,
+      "dmg2": 200,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 50,
+      "push": 40,
+      "name": "Explosion Vehicle Se Medium Death"
+     }
     }
    }
   }

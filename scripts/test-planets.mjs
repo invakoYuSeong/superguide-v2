@@ -16,6 +16,7 @@ const text = await read('planet_korean.json');
 const wiki = await read('wiki_planets.json');
 const game = await read('game_names_ko.json');
 const gamePlanets = await read('game_planets_ko.json');
+const galaxy = await read('galaxy_planets.json');
 let checks = 0;
 const ok = (condition, message) => { assert(condition, message); checks++; };
 
@@ -90,16 +91,29 @@ ok(planets.hazards.length === (text.hazards ?? []).length, 'hazards is stale (ru
   ok(page, `${source.id}: wiki page ${source.page} not downloaded (run fetch-planet-pages)`);
   ok(item.id === source.id && item.name === (source.name ? game.strings.planets[source.name] : source.ko), `${source.id}: name is not the game's Korean or the site's (run build-game-names and build-planets)`);
   ok(item.detail.length === item.detailEn.length, `${source.id}: detail needs Korean and English line by line`);
-  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(page.text.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page}`);
+  // Blast numbers come from the hazard's datamine attack records (hazardAttacks, the table the wiki page shows).
+  const hazardText = page.text + JSON.stringify(wiki.hazardAttacks?.records[source.id] ?? {});
+  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(hazardText.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page} or its attack records`);
+  if (source.tips) ok(item.tips?.length === source.tips.ko.length && item.tips.length === item.tipsEn.length, `${source.id}: tips need Korean and English line by line (run build-planets)`);
   for (const name of [...(source.biomes ?? []), ...(source.archetypes ?? [])]) ok(page.text.includes(name), `${source.id}: ${name} is not named on the wiki page ${source.page}`);
 });
+// Playable planets: the galaxy map less excludedPlanets (each one on the map), every one in a biome list.
+const excluded = new Set(text.excludedPlanets.map(planet => planet.name));
+ok([...excluded].every(name => galaxy.planets.some(planet => planet.name === name)), 'every excluded planet is on the galaxy map');
+const playable = galaxy.planets.filter(planet => !excluded.has(planet.name)).map(planet => planet.name);
+const listedPlanets = planets.biomes.flatMap(biome => biome.planets.map(planet => planet.en));
+ok(planets.playablePlanetCount === playable.length && listedPlanets.length === playable.length && playable.every(name => listedPlanets.includes(name)), 'biome lists hold exactly the playable galaxy map planets (run build-planets)');
+const { planetTimeScales } = await import('../dist/data/planet-time.js');
+ok(planetTimeScales.every(item => listedPlanets.includes(item.en)), 'every measured clock speed planet is a playable planet');
+
 // Biomes: every wiki biome page, with the game's planets for its internal name.
 ok(planets.biomes.length === Object.keys(wiki.biomes).length, 'every wiki biome is listed');
 for (const biome of planets.biomes) {
   const page = wiki.biomes[biome.en];
   ok(page && page.revision === biome.revision && biome.id === slug(biome.en), `${biome.en}: stale (run build-planets)`);
   ok(biome.name === text.biomeNames[biome.en] && biome.archetypeName === (text.archetypeNames[biome.archetype] ?? null), `${biome.en}: Korean name or archetype is stale (run build-planets)`);
-  ok(biome.planets.length === gamePlanets.planets.filter(planet => planet.biome === biome.internal).length, `${biome.en}: planet list does not match the game data`);
+  ok(new Set(biome.planets.map(planet => planet.en)).size === biome.planets.length, `${biome.en}: a planet is listed twice`);
+  ok(biome.planets.every(planet => gamePlanets.planets.some(item => item.en === planet.en && item.biome === biome.internal)), `${biome.en}: planet list does not match the game data`);
   for (const id of biome.conditions) ok(planets.conditions.some(item => item.id === id), `${biome.en}: unknown condition ${id}`);
 }
 // Biome thumbnails: small WebP files, unchanged since fetch-biome-images.py (Volcanic Jungle uses a
@@ -142,4 +156,4 @@ for (const effect of stratagemEffects) {
   const linked = planets.biomes.flatMap(biome => biome.planets).filter(planet => planet.wiki);
   ok(linked.every(planet => pages.has(planet.wiki)) && linked.length > 250, 'every linked planet has a wiki page, and most planets are linked');
 }
-console.log(`PASS planets: ${checks} checks (${planets.conditions.length} conditions, ${planets.gloomLevels.length} Gloom levels, ${planets.operationModifiers.length} modifiers, ${planets.eventEffects.length} events, ${planets.biomes.length} biomes, ${planets.statusEffects.length} status effects, game build ${game.build}).`);
+console.log(`PASS planets: ${checks} checks (${planets.conditions.length} conditions, ${planets.gloomLevels.length} Gloom levels, ${planets.operationModifiers.length} modifiers, ${planets.eventEffects.length} events, ${planets.biomes.length} biomes, ${planets.statusEffects.length} status effects, ${planets.playablePlanetCount} playable planets, game build ${game.build}).`);

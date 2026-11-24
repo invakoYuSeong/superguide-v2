@@ -18,7 +18,7 @@ export const armorPassives = [
     "order": 1,
     "icon": "Extra Padding Armor Passive Icon.svg",
     "effects": [
-      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating."}
+      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +50","exactEn":"Armor rating +50"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Extra_Padding",
     "revision": 139485,
@@ -35,6 +35,8 @@ export const armorPassives = [
       {"name":"치명적 대미지에도 50% 확률로 사망하지 않습니다.","en":"50% chance to not die when taking lethal damage."},
       {"name":"흉부 출혈 시 출혈로 인한 모든 대미지를 방지합니다.","en":"Prevents all damage from bleeding if chest hemorrhages."}
     ],
+    "tips": ["치명상을 버티면 체력 1이 남고 잠깐 무적이 되며, 다시 발동하려면 0.5초가 지나야 합니다."],
+    "tipsEn": ["A lethal hit you survive leaves you at 1 health with a moment of invulnerability, and it can trigger again after 0.5 seconds."],
     "source": "https://helldivers.wiki.gg/wiki/Democracy_Protects",
     "revision": 139484,
     "revisionTimestamp": "2026-10-21T01:06:29Z"
@@ -50,6 +52,8 @@ export const armorPassives = [
       {"name":"투척 거리가 30% 증가합니다.","en":"Increases throwing range by 30%."},
       {"name":"+50%의 사지 체력을 제공합니다.","en":"Provides +50% limb health."}
     ],
+    "tips": ["투척물이 날아가는 속도가 30% 빨라지는 효과로, 스트라타젬을 평지에서 약 45m 대신 약 65m까지 던질 수 있습니다."],
+    "tipsEn": ["Throws fly 30% faster, so a stratagem beacon reaches about 65 m on flat ground instead of about 45 m."],
     "source": "https://helldivers.wiki.gg/wiki/Servo-Assisted",
     "revision": 139483,
     "revisionTimestamp": "2026-10-21T01:05:37Z"
@@ -77,7 +81,7 @@ export const armorPassives = [
     "order": 5,
     "icon": "Engineering Kit Armor Passive Icon.svg",
     "effects": [
-      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%."},
+      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%.","exact":"실제로는 자세와 상관없이 상시 반동 30% 감소(앉기·엎드리기의 기본 반동 감소와 함께 적용)","exactEn":"Actually cuts recoil by 30% in every stance, on top of the usual crouch and prone reduction"},
       {"name":"투척 무기의 초기 인벤토리와 소지 용량이 +2 증가합니다.","en":"Increases initial inventory and holding capacity of throwables by +2."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Engineering_Kit",
@@ -92,7 +96,7 @@ export const armorPassives = [
     "order": 6,
     "icon": "Scout Armor Passive Icon.svg",
     "effects": [
-      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s."},
+      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s.","exact":"스캔 결과는 자신에게만 보임","exactEn":"Only you see the scan results"},
       {"name":"적이 착용자를 탐지할 수 있는 거리가 30% 감소합니다.","en":"Reduces range at which enemies can detect the wearer by 30%."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Scout",
@@ -107,7 +111,7 @@ export const armorPassives = [
     "order": 7,
     "icon": "Fortified Armor Passive Icon.svg",
     "effects": [
-      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%."},
+      {"name":"앉거나 포복할 때 반동이 추가로 30% 감소합니다.","en":"Further reduces recoil when crouching or prone by 30%.","exact":"실제로는 자세와 상관없이 상시 반동 30% 감소(앉기·엎드리기의 기본 반동 감소와 함께 적용)","exactEn":"Actually cuts recoil by 30% in every stance, on top of the usual crouch and prone reduction"},
       {"name":"폭발 대미지에 대한 저항력을 50% 제공합니다.","en":"Provides 50% resistance to explosive damage."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Fortified",
@@ -124,6 +128,8 @@ export const armorPassives = [
     "effects": [
       {"name":"아크 대미지에 대한 저항력을 95% 제공합니다.","en":"Provides 95% resistance to arc damage."}
     ],
+    "tips": ["아크에 맞을 때의 경직도 95% 줄지만, 기절에 의한 감속은 그대로입니다."],
+    "tipsEn": ["Arc stagger drops by 95% too, but the slow from stun stays."],
     "source": "https://helldivers.wiki.gg/wiki/Electrical_Conduit",
     "revision": 139476,
     "revisionTimestamp": "2026-10-21T00:56:59Z"
@@ -137,7 +143,7 @@ export const armorPassives = [
     "icon": "Peak Physique Armor Passive Icon.svg",
     "effects": [
       {"name":"근접 공격 대미지가 40% 증가합니다.","en":"Increases melee damage by 40%."},
-      {"name":"무기 취급 능력이 향상되어 무기 움직임에 휘둘리지 않습니다.","en":"Improves weapons handling with less drag on weapon movement."}
+      {"name":"무기 취급 능력이 향상되어 무기 움직임에 휘둘리지 않습니다.","en":"Improves weapons handling with less drag on weapon movement.","exact":"인체공학 +30","exactEn":"Ergonomics +30"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Peak_Physique",
     "revision": 140551,
@@ -179,9 +185,9 @@ export const armorPassives = [
     "order": 12,
     "icon": "Unflinching Armor Passive Icon.svg",
     "effects": [
-      {"name":"헬다이버가 피격 시에도 주저하지 않을 수 있도록 도와줍니다.","en":"Helps prevent Helldivers from flinching when hit."},
-      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating."},
-      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s."}
+      {"name":"헬다이버가 피격 시에도 주저하지 않을 수 있도록 도와줍니다.","en":"Helps prevent Helldivers from flinching when hit.","exact":"피격 반동 95% 감소","exactEn":"Damage recoil -95%"},
+      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +25","exactEn":"Armor rating +25"},
+      {"name":"지도에 배치한 마커가 2.0초 간격으로 레이더 스캔을 생성합니다.","en":"Markers placed on the map will generate radar scans every 2.0s.","exact":"스캔 결과는 자신에게만 보임","exactEn":"Only you see the scan results"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Unflinching",
     "revision": 139469,
@@ -198,6 +204,8 @@ export const armorPassives = [
       {"name":"주 무기의 재장전 속도가 30% 증가합니다.","en":"Increases reload speed of primary weapons by 30%."},
       {"name":"모든 무기의 탄약 용량이 20% 증가합니다. 무기 배낭에는 영향을 주지 않습니다.","en":"Increases ammo capacity of all weapons by 20%. Does not affect weapon backpacks."}
     ],
+    "tips": ["늘어나는 탄약의 소수점은 올림이고, 보조 무기와 탄약 배낭을 쓰지 않는 지원 무기에도 적용됩니다. 얼티메이텀과 원투의 유탄 발사기는 예외입니다."],
+    "tipsEn": ["Extra ammo rounds up, and it also covers sidearms and support weapons without an ammo backpack. The Ultimatum and the One-Two's grenade launcher are left out."],
     "source": "https://helldivers.wiki.gg/wiki/Siege-Ready",
     "revision": 139468,
     "revisionTimestamp": "2026-10-21T00:51:09Z"
@@ -224,7 +232,7 @@ export const armorPassives = [
     "order": 15,
     "icon": "Integrated Explosives Armor Passive Icon.svg",
     "effects": [
-      {"name":"착용자가 사망한 뒤 1.5초 후 방어구가 폭발합니다.","en":"Armor explodes 1.5s after the wearer dies."},
+      {"name":"착용자가 사망한 뒤 1.5초 후 방어구가 폭발합니다.","en":"Armor explodes 1.5s after the wearer dies.","exact":"폭발 피해 2,000, 관통 5, 철거력 30","exactEn":"Explosion: 2,000 damage, AP 5, demolition force 30"},
       {"name":"투척 무기의 초기 인벤토리와 소지 용량이 +2 증가합니다.","en":"Increases initial inventory and holding capacity of throwables by +2."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Integrated_Explosives",
@@ -287,10 +295,12 @@ export const armorPassives = [
     "order": 19,
     "icon": "Adreno-Defibrillator Armor Passive Icon.svg",
     "effects": [
-      {"name":"헬다이버의 신체가 아직 온전한 경우, 사망 시 지속 시간이 짧은 일회성 소생술을 제공합니다.","en":"Provides one-time, short-lived resuscitation upon death, given that the Helldiver's body is still intact."},
+      {"name":"헬다이버의 신체가 아직 온전한 경우, 사망 시 지속 시간이 짧은 일회성 소생술을 제공합니다.","en":"Provides one-time, short-lived resuscitation upon death, given that the Helldiver's body is still intact.","exact":"되살아나면 체력이 가득 차지만 초당 약 20%씩 줄어듦","exactEn":"Revives at full health, which then drains about 20% per second"},
       {"name":"각성제 지속 시간이 2.0초 증가합니다.","en":"Increases stim effect duration by 2.0s."},
       {"name":"아크 대미지에 대한 저항력을 50% 제공합니다.","en":"Provides 50% resistance to arc damage."}
     ],
+    "tips": ["되살아난 뒤 다른 피해가 없으면 약 6초(생명력 증진 부스터와 함께면 약 10초) 버팁니다. 몸이 산산조각 나거나 사지가 잘리면 되살아나지 않습니다."],
+    "tipsEn": ["After the revive you last about 6 seconds with no other damage (about 10 with Vitality Enhancement). Being blown apart or losing a limb means no revive."],
     "source": "https://helldivers.wiki.gg/wiki/Adreno-Defibrillator",
     "revision": 139460,
     "revisionTimestamp": "2026-10-21T00:40:23Z"
@@ -304,7 +314,7 @@ export const armorPassives = [
     "icon": "Feet First Armor Passive Icon.svg",
     "effects": [
       {"name":"착용하면 이동 시 소음이 50% 만큼 줄어듭니다.","en":"Wearer makes 50% less noise when moving."},
-      {"name":"관심 지점 인식 범위가 30% 만큼 증가합니다.","en":"Increases point-of-interest identification range by 30%."},
+      {"name":"관심 지점 인식 범위가 30% 만큼 증가합니다.","en":"Increases point-of-interest identification range by 30%.","exact":"약 55m에서 약 70m로 늘어남","exactEn":"From about 55 m to about 70 m"},
       {"name":"다리 부상에 면역이 생깁니다.","en":"Provides immunity to leg injuries."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Feet_First",
@@ -335,7 +345,7 @@ export const armorPassives = [
     "icon": "Rock Solid Armor Passive Icon.svg",
     "effects": [
       {"name":"근접 공격 대미지가 40% 증가합니다.","en":"Increases melee damage by 40%."},
-      {"name":"지니고 있으면 넘어짐에 대한 저항력이 높아집니다.","en":"Bearer is more resistant to being knocked prone."}
+      {"name":"지니고 있으면 넘어짐에 대한 저항력이 높아집니다.","en":"Bearer is more resistant to being knocked prone.","exact":"받는 경직 30% 감소(경직치 36 미만 공격에는 넘어지지 않음)","exactEn":"Incoming stagger -30% (attacks with a stagger value under 36 no longer knock you down)"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Rock_Solid",
     "revision": 139458,
@@ -365,7 +375,7 @@ export const armorPassives = [
     "icon": "Supplemental Adrenaline Armor Passive Icon.svg",
     "effects": [
       {"name":"착용자가 피해를 입으면 스태미나를 일부 회복합니다.","en":"When the wearer takes damage, they regain some stamina."},
-      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating."}
+      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +25","exactEn":"Armor rating +25"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Supplemental_Adrenaline",
     "revision": 139456,
@@ -381,7 +391,7 @@ export const armorPassives = [
     "icon": "Concussive Padding Armor Passive Icon.svg",
     "effects": [
       {"name":"폭발 대미지에 대한 저항력을 50% 제공합니다.","en":"Provides 50% resistance to explosive damage."},
-      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating."}
+      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +30","exactEn":"Armor rating +30"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Concussive_Padding%2C_Reinforced",
     "revision": 139455,
@@ -427,8 +437,8 @@ export const armorPassives = [
     "order": 27,
     "icon": "Oxygenator Armor Passive Icon.svg",
     "effects": [
-      {"name":"착용자의 걷기 속도와 달리기 속도가 증가합니다.","en":"Increases the wearer's walking speed and running speed."},
-      {"name":"슬라이딩 속도와 지속 시간이 증가합니다.","en":"Increases the speed and duration of slides."}
+      {"name":"착용자의 걷기 속도와 달리기 속도가 증가합니다.","en":"Increases the wearer's walking speed and running speed.","exact":"걷기·달리기 속도 10% 증가(엎드림·웅크림·조준 중에는 제외)","exactEn":"Walk and run speed +10% (not while prone, crouching or aiming)"},
+      {"name":"슬라이딩 속도와 지속 시간이 증가합니다.","en":"Increases the speed and duration of slides.","exact":"슬라이딩이 약 160ms 더 길어 거리 50%(약 1m) 증가","exactEn":"Slides about 160 ms longer, 50% (about 1 m) farther"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Oxygenator",
     "revision": 133670,
@@ -460,7 +470,7 @@ export const armorPassives = [
     "icon": "True Grit Armor Passive Icon.svg",
     "effects": [
       {"name":"지원 무기의 재장전 속도가 30% 증가합니다.","en":"Increases reload speed of support weapons by 30%."},
-      {"name":"무기의 인체공학 설계를 약간 개선하여 무기 이동 시 항력을 줄입니다.","en":"Slightly increases weapon ergonomics to reduce drag on weapon movement."}
+      {"name":"무기의 인체공학 설계를 약간 개선하여 무기 이동 시 항력을 줄입니다.","en":"Slightly increases weapon ergonomics to reduce drag on weapon movement.","exact":"인체공학 +20","exactEn":"Ergonomics +20"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/True_Grit",
     "revision": 140562,
@@ -474,9 +484,9 @@ export const armorPassives = [
     "order": 30,
     "icon": "Blunt-Force Mitigation Armor Passive Icon.svg",
     "effects": [
-      {"name":"지니고 있으면 넘어짐에 대한 저항력이 높아집니다.","en":"Bearer is more resistant to being knocked prone."},
+      {"name":"지니고 있으면 넘어짐에 대한 저항력이 높아집니다.","en":"Bearer is more resistant to being knocked prone.","exact":"받는 경직 30% 감소(경직치 36 미만 공격에는 넘어지지 않음)","exactEn":"Incoming stagger -30% (attacks with a stagger value under 36 no longer knock you down)"},
       {"name":"충격 및 충돌로 인한 손상을 30% 만큼 줄입니다.","en":"Reduces damage taken from impact and collisions by 30%."},
-      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating."}
+      {"name":"더 높은 장갑 등급을 제공합니다.","en":"Provides a higher armor rating.","exact":"장갑 등급 +25","exactEn":"Armor rating +25"}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Blunt-Force_Mitigation",
     "revision": 139450,

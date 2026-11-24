@@ -85,7 +85,9 @@ def main():
     for hazard in text.get("hazards", []):
         page = pages.get(hazard["page"])
         match = page and re.search(r"\|\s*image\s*=\s*([^\n|]+)", page["text"])
-        if match:
+        if hazard.get("image"):  # one page for several hazards (the three barrels): the hazard's own picture
+            wanted[hazard["id"]] = hazard["image"]
+        elif match:
             wanted[hazard["id"]] = match.group(1).strip().replace("_", " ")
         else:
             print(f"  no infobox image: {hazard['id']} ({hazard['page']})")

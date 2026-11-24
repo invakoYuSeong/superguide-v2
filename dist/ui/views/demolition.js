@@ -20,7 +20,7 @@ const MAX_FORCE = 60;
 const structureById = new Map(structures.map(item => [item.id, item]));
 const armed = stratagems.filter(item => demolitionProfiles[item.id]);
 // Collaboration warbonds' game names (e.g. Warhammer) also find their stratagems.
-const armedFields = item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; };
+const armedFields = item => ({ ...stratagemFields(item), keywords: collabKeywords(warbondSources[`arsenal/${item.id}`]?.id) });
 const confirmedCount = Object.values(demolitionProfiles).filter(profile => profile.modes.some(mode => !mode.forceUnknown)).length;
 
 // Gear (primaries, secondaries, throwables) as demolition profiles: each combat mode of personal-profiles.js with the
@@ -52,7 +52,7 @@ const gearProfiles = Object.fromEntries(personalWeapons.map(w => [w.id, {
   source: w.source, modes: personalProfiles[w.id]?.modes?.length ? personalProfiles[w.id].modes.map(mode => gearMode(w, mode)) : [gearMode(w, null)],
 }]));
 const gearById = new Map(personalWeapons.map(w => [w.id, w]));
-const gearFields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name, ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
+const gearFields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name], keywords: collabKeywords(warbondSources[`gear/${w.id}`]?.id) });
 const gearIcon = (w, size = 40) => weaponImages[w.id]?.src ? html`<img src="${weaponImages[w.id].src}" alt="" width="${size}" height="${size}" loading="lazy" style="width:${size}px;height:${size}px;object-fit:contain">` : '';
 
 let root, ctx;

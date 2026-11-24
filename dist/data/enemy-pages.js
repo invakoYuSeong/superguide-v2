@@ -14,7 +14,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다.",
+   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -65,7 +65,7 @@ export const enemyPages = {
    "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
    "불에 타는 중에 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋고, 독 브레스 같은 가스·화염 무기는 접근을 늦춥니다.",
    "포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다. 적응력·사막 돌격대 패시브는 포자 폭발 피해가 원래 낮아 큰 도움이 되지 않습니다.",
-   "체력이 낮아 어떤 무기로도 잡히니 버그 출몰을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
+   "체력이 낮아 어떤 무기로도 잡히니 버그 출몰을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 버그 무리에 효과적입니다."
   ],
   "tacticsEn": [
    "On death it releases a spore cloud that damages nearby Helldivers, blocks vision and buffs nearby Spore Burst Terminids. Spore Burst Terminids inside a cloud become much faster.",
@@ -83,7 +83,7 @@ export const enemyPages = {
   "staggerReq": null,
   "reinforcements": "breach",
   "spawning": [
-   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 출몰·순찰대·벌레굴에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
+   "녹셔스 변종이 침공한 행성에서 스캐빈저와 파운서 대신 나옵니다. 버그 출몰·순찰대·버그 구멍에서 나오고, 버그 둥지·소규모 관심 지점·임무 목표를 지킵니다."
   ],
   "spawningEn": [
    "On Noxious Strain planets it replaces Scavengers and Pouncers. Comes from Bug Breaches, patrols and Bug Holes, and guards Bug Nests, Minor Places of Interest and Objectives."
@@ -104,7 +104,7 @@ export const enemyPages = {
    "빠르고 물어서 독을 거니 거리를 유지하세요. 독에 걸리면 느려지고 질주할 수 없어 다른 녹셔스 적이 따라붙어 독을 더 겁니다.",
    "점프 팩·워프 팩·호버 팩으로 멀리서 싸우거나, 방어막 생성 팩·탄도 방패 배낭으로 공격을 막아 독을 피하세요.",
    "근육 증진 부스터는 느려짐을 줄여 따라잡히기 전에 빠져나가게 해 줍니다.",
-   "체력이 낮아 어떤 무기로도 잡히니 버그 출몰을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 벌레 무리에 효과적입니다."
+   "체력이 낮아 어떤 무기로도 잡히니 버그 출몰을 부르기 전에 먼저 처치하세요. 로버와 폭발 무기는 작은 버그 무리에 효과적입니다."
   ],
   "tacticsEn": [
    "It is fast and its bite poisons you, so keep your distance. Poison slows you and stops you sprinting, letting other Noxious Terminids catch up and stack more poison.",
@@ -122,7 +122,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 1부터 버그 출몰, 순찰대, 벌레굴로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
+   "커스틱 변종 행성에서 난이도 1부터 버그 출몰, 순찰대, 버그 구멍으로 나오며, 버그 둥지·소규모 관심 지점·임무 목표도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 1, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Minor Places of Interest and Objectives."
@@ -157,7 +157,7 @@ export const enemyPages = {
   "staggerReq": 1,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 출몰·순찰대·벌레굴에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
+   "난이도 2부터 나옵니다. 버그 출몰·순찰대·버그 구멍에서 나오고, 버그 둥지와 임무 목표를 지킵니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다.",
    "일부 등장 조합에서는 스캐빈저·커스틱 스피터와 서로 바뀌어 나옵니다."
   ],
@@ -194,7 +194,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "reinforcements": "breach",
   "spawning": [
-   "난이도 2부터 나옵니다. 버그 출몰, 순찰대, 버그 둥지·임무 목표 경비, 특정 벌레굴에서 나옵니다.",
+   "난이도 2부터 나옵니다. 버그 출몰, 순찰대, 버그 둥지·임무 목표 경비, 특정 버그 구멍에서 나옵니다.",
    "난이도 4부터는 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -274,7 +274,7 @@ export const enemyPages = {
   "staggerReq": 15,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 헌터를 모두 대신합니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing all Hunters.",
@@ -290,7 +290,7 @@ export const enemyPages = {
    "죽으면 포자 구름을 뿌려 주변 헬다이버에게 피해를 주고 시야를 가리며, 근처 스포어 버스트 적을 강화합니다. 포자 구름에 들어간 스포어 버스트 적은 훨씬 빨라집니다.",
    "불에 타는 중에 죽으면 포자를 뿌리지 않습니다. 화염방사기·크리메이터 같은 화염 무기나 사이스 같은 연속 레이저 무기가 좋고, 독 브레스 같은 가스·화염 무기는 접근을 늦춥니다.",
    "가스 지뢰·EMS 박격포 센트리·궤도 EMS 타격·테슬라 탑 같은 군중 제어 스트라타젬은 빨라진 적을 늦추는 데 특히 좋습니다.",
-   "머리를 쏘면 빨리 잡히고, 다리를 쏘면 크게 느려져 덮치지 못합니다. 무리 속에서는 빠르게 다가와 덮치므로 다른 중형 벌레보다 먼저 처치하세요.",
+   "머리를 쏘면 빨리 잡히고, 다리를 쏘면 크게 느려져 덮치지 못합니다. 무리 속에서는 빠르게 다가와 덮치므로 다른 중형 버그보다 먼저 처치하세요.",
    "포자 폭발을 계속 맞으면 경직되다 결국 죽을 수 있어 근접 무기는 추천하지 않습니다. 적응력·사막 돌격대 패시브는 포자 폭발 피해가 원래 낮아 큰 도움이 되지 않습니다."
   ],
   "tacticsEn": [
@@ -310,7 +310,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
+   "모든 난이도에서 버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나오며, 브루드 커맨더가 3마리씩 부르기도 합니다.",
    "난이도 4부터 소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
@@ -388,7 +388,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "reinforcements": "breach",
   "spawning": [
-   "커스틱 변종 행성에서 난이도 2부터 버그 출몰, 순찰대, 벌레굴로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
+   "커스틱 변종 행성에서 난이도 2부터 버그 출몰, 순찰대, 버그 구멍으로 나오며, 버그 둥지·임무 목표·소규모 관심 지점도 지킵니다."
   ],
   "spawningEn": [
    "Found on Caustic Strain planets starting at Difficulty 2, spawning from Bug Breaches, in patrols or from Bug Holes, and guarding Bug Nests, Objectives and Minor Places of Interest."
@@ -423,7 +423,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 6부터 럽처 변종 행성에 나오며, 워리어를 모두 대신합니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 일부 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 일부 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 6 on Rupture Strain planets, fully replacing Warriors.",
@@ -459,7 +459,7 @@ export const enemyPages = {
   "staggerReq": 20,
   "spawning": [
    "난이도 2부터 스포어 버스트 변종 행성에 나오며, 워리어를 대신합니다. 브루드 커맨더가 부르는 워리어도 포함됩니다.",
-   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 벌레굴에서 나옵니다."
+   "버그 출몰, 순찰대, 버그 둥지와 임무 목표 경비, 버그 구멍에서 나옵니다."
   ],
   "spawningEn": [
    "Appears from Difficulty 2 on Spore Burst Strain planets, replacing Warriors, including those called by Brood Commanders.",
@@ -792,7 +792,7 @@ export const enemyPages = {
   "staggerReq": 30,
   "spawning": [
    "난이도 4부터 나오는 선택 목표인 스토커 둥지에서만 나옵니다.",
-   "둥지에는 벌레굴이 최대 2개 있고, 둥지를 부술 때까지 주기적으로 스토커가 나옵니다. 일부 둥지에는 스캐빈저와 파운서가 나오는 일반 벌레굴도 있습니다."
+   "둥지에는 버그 구멍이 최대 2개 있고, 둥지를 부술 때까지 주기적으로 스토커가 나옵니다. 일부 둥지에는 스캐빈저와 파운서가 나오는 일반 버그 구멍도 있습니다."
   ],
   "spawningEn": [
    "Spawns only from Stalker Lairs, an optional objective that appears from Difficulty 4.",
@@ -871,7 +871,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 4부터 버그 출몰, 다른 테르미니드와 함께하는 순찰대, 임무 목표 경비로 나오며, 난이도가 높을수록 자주 나옵니다. 소규모 관심 지점에서는 땅속에 숨어 있기도 합니다.",
    "난이도 7부터 상급 버그 둥지와 난이도 10의 최상급 둥지를 지킵니다. 이때부터 차저 베히모스나 커스틱 차저로 바뀔 확률이 생기고, 난이도가 높을수록 커집니다.",
-   "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 벌레굴 포함) 대신 나오는 일반 차저는 만날 수 있습니다."
+   "난이도 10에서는 원래 강화형으로 모두 바뀌지만, 드래곤로치가 있는 임무에서 바일 타이탄(타이탄 버그 구멍 포함) 대신 나오는 일반 차저는 만날 수 있습니다."
   ],
   "spawningEn": [
    "Starting at Difficulty 4 it spawns from Bug Breaches, patrols with other Terminids, and guards Objectives, more often on higher difficulties. At Minor Places of Interest it is sometimes burrowed.",
@@ -1126,7 +1126,7 @@ export const enemyPages = {
   "staggerReq": 38,
   "spawning": [
    "멀리서도 보이는 단독 순찰로만 나옵니다. 임무 목표나 관심 지점에 고정으로 배치되지 않고, 버그 출몰으로도 나오지 않습니다.",
-   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 벌레굴·먼 순찰대·버그 출몰처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
+   "바일 타이탄과 함께 나오지 않습니다(스포어 버스트 변종에서는 스포어 버스트 바일 타이탄과 함께 나옴). 타이탄 버그 구멍·먼 순찰대·버그 출몰처럼 원래 바일 타이탄이 나올 자리에는 차저가 나옵니다.",
    "그래서 원래 차저 베히모스와 커스틱 차저로 모두 바뀌는 난이도 10에서도 일반 차저를 만날 수 있습니다.",
    "고가치 자산 후송하기 임무에서는 시작 전 카운트다운이 끝나기 전에도 나올 수 있으니 바로 대비해야 합니다."
   ],
@@ -1181,7 +1181,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 4부터 '바일 타이탄 제거하기' 임무의 목표로 나옵니다.",
    "난이도 6부터 버그 출몰에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
-   "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 벌레굴이 있을 수 있습니다.",
+   "난이도 7부터 일부 상급 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 바일 타이탄이 나오는 버그 구멍이 있을 수 있습니다.",
    "스포어 버스트 변종 행성에서는 난이도 5부터 스포어 버스트 바일 타이탄으로 완전히 바뀝니다.",
    "드래곤로치가 나오는 임무에서는 바일 타이탄 대신 차저가 나옵니다."
   ],
@@ -1194,7 +1194,7 @@ export const enemyPages = {
   ],
   "behavior": [
    "버그 출몰 밖에서는 보통 가만히 있거나 정해진 길을 돌다가, 헬다이버를 보면 몸을 돌립니다. 포효하며 앞다리로 땅을 내려치면 공격 시작 신호이며 배경 음악도 바뀝니다.",
-   "버그 출몰이나 타이탄 벌레굴에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
+   "버그 출몰이나 타이탄 버그 구멍에서 나온 개체는 바로 주변 헬다이버를 찾아 공격합니다.",
    "헬다이버와 25~30m 떨어져 있으면 담즙을 뿜으며, 담즙 공격 사이에는 10초 대기가 있습니다.",
    "바로 앞에 있으면 오른쪽 다리로 내려찍고, 몸 아래에 있으면 두 앞다리로 앞쪽을 빠르게 짓밟습니다.",
    "걸어갈 때 다리에 닿아도 피해를 입거나 죽을 수 있고, 다리 공격이 아슬아슬하게 빗나가도 넘어질 수 있습니다."
@@ -1241,7 +1241,7 @@ export const enemyPages = {
   "spawning": [
    "난이도 5부터 스포어 버스트 변종 행성의 '바일 타이탄 제거하기' 임무에서 목표인 바일 타이탄을 대신해 나옵니다.",
    "난이도 6부터 버그 출몰에서 나오고, 혼자 맵을 돌아다니기도 합니다.",
-   "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 벌레굴이 있을 수 있습니다."
+   "난이도 7부터 일부 대형 버그 둥지와 난이도 10의 최상급 둥지를 지키며, 이런 둥지에는 이 적이 나오는 버그 구멍이 있을 수 있습니다."
   ],
   "spawningEn": [
    "From Difficulty 5 it replaces the Bile Titan as the target of Eliminate Bile Titans missions on Spore Burst Strain planets.",
@@ -1260,7 +1260,7 @@ export const enemyPages = {
   ],
   "tactics": [
    "담즙 분사는 바닥에 포자를 남겨 시야를 가리고 근처 스포어 버스트 적을 빠르게 만듭니다. 분사 피해는 일반 바일 타이탄보다 훨씬 낮아 바스티온 Mk XVI 같은 차량에게는 큰 위협이 아닙니다.",
-   "분사의 밀쳐내는 힘이 커서 쉽게 넘어지고, 넘어진 사이 다른 벌레에게 공격당하기 쉽습니다. 굳건한 바위 패시브로 막을 수 있고, 포자낭을 부수면 분사를 못 해 강화와 넘어뜨림을 모두 막습니다.",
+   "분사의 밀쳐내는 힘이 커서 쉽게 넘어지고, 넘어진 사이 다른 버그에게 공격당하기 쉽습니다. 굳건한 바위 패시브로 막을 수 있고, 포자낭을 부수면 분사를 못 해 강화와 넘어뜨림을 모두 막습니다.",
    "본체 체력 7,000, 머리 체력 2,500으로 일반 바일 타이탄보다 단단해 일회성 대전차와 퀘이사 캐넌은 한 발에 처치하지 못합니다. 에이펙스·스피어·무반동포·노바가 더 낫습니다.",
    "장갑 4에 피해가 매우 커서 거리를 두고 공격 스트라타젬으로 상대하세요. 궤도 레일캐넌 타격·궤도 정밀 타격·이글 110mm 로켓 포드·이글 500kg 폭탄은 한 번에 처치할 수 있지만 맞는 위치에 따라 다릅니다.",
    "기절과 혼란 효과는 통하지 않지만 가스 지속 피해는 들어갑니다. 쓰러질 때 몸에 깔리거나 크게 휘두르는 다리에 맞으면 죽을 수 있으니 떨어져 있으세요."

@@ -26,14 +26,14 @@ import factionText from './en/factions.js';
 import warbondText from './en/warbonds.js';
 import armorText from './en/armor.js';
 
-// Armor: set and passive names, the wiki's own effect lines and the acquisition names.
-const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passive => passive.effects), ...armors.map(armor => armor.source)];
+// Armor: set and passive names, the wiki's own effect lines, their exact values and the acquisition names.
+const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passive => passive.effects), ...armorPassives.flatMap(passive => passive.effects).filter(effect => effect.exact).map(effect => ({ name: effect.exact, en: effect.exactEn })), ...armorPassives.flatMap(passive => (passive.tips ?? []).map((line, i) => ({ name: line, en: passive.tipsEn[i] }))), ...armors.map(armor => armor.source)];
 // Warbond tiles: Korean cosmetic and booster names (`ko`) with the wiki's English name. Listed first so
 // a Korean name shared with something else keeps that meaning (자유의 종복 is a warbond and a title);
 // the board itself shows these names with L(), not through the dictionary.
 const warbondTileNames = warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => item.ko).map(item => ({ name: item.ko, en: item.name }));
 // Boosters: the game's Korean name and description, and the detail line, each with its English.
-const boosterText = boosters.flatMap(item => [item, { name: item.description, en: item.descriptionEn }, { name: item.detail, en: item.detailEn }]);
+const boosterText = boosters.flatMap(item => [item, { name: item.description, en: item.descriptionEn }, { name: item.detail, en: item.detailEn }, ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]);
 // Missions per demolition structure: the game's Korean and English objective names.
 const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().replace(/(^|[\s:(-])([a-z])/g, (_, gap, letter) => gap + letter.toUpperCase()) : text;
 const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ name: item.name, en: titleCase(item.en) }));
@@ -45,7 +45,7 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
   .concat(planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })), planetBiomes)
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
-  .concat(hazards, hazards.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
+  .concat(hazards, hazards.flatMap(item => [...item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]));
 // Enemy view: the summarized wiki Spawning, Behavior and Tactics lines and the field tips, each with its English,
 // and the game's difficulty names.
 const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] })), ...(item.tactics ?? []).map((line, i) => ({ name: line, en: item.tacticsEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]).concat(difficultyNames);

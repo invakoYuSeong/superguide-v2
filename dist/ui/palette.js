@@ -28,7 +28,9 @@ export async function createPalette(ctx) {
   const kindName = kind => L(...(KIND[kind] ?? ['기타', 'Other']));
   const { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes } = planetData;
   const PLANET_TABS = [
-    ['conditions', L('환경 조건', 'Environment'), [conditions, hazards, gloomLevels, specialEffects]],
+    ['dss', L('민주주의 우주 정거장', 'Democracy Space Station'), [specialEffects.filter(item => item.id.startsWith('dss'))]],
+    ['conditions', L('환경 조건', 'Environment'), [conditions, gloomLevels, specialEffects.filter(item => !item.id.startsWith('dss'))]],
+    ['hazards', L('환경 위험 요소', 'Hazards'), [hazards]],
     ['modifiers', L('작전 제한 조건', 'Operation modifiers'), [operationModifiers, eventEffects]],
     ['biomes', L('생물군계', 'Biomes'), [biomes]],
     ['status', L('상태 이상', 'Status effects'), [statusEffects]],
@@ -51,7 +53,7 @@ export async function createPalette(ctx) {
     { id: 'enemies', name: L('적', 'Enemies'), items: enemies.map(item => ({ fields: { names: [item.name, T(item.name), item.id.replaceAll('-', ' ')], text: [item.faction, T(item.faction)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('무기별 탄수 비교', 'shots to kill by weapon')}`, image: pickerEnemyImages[item.id]?.src, route: { view: 'enemy', id: item.id } })) },
     { id: 'structures', name: L('시설', 'Structures'), items: structures.map(item => ({ fields: { names: [item.name, T(item.name)], text: [item.faction, T(item.faction), item.tip, T(item.tip)] }, label: T(item.name), sub: `${T(item.faction)} · ${L('철거 방법', 'how to demolish')}`, image: pickerStructureImages[item.id]?.src, route: { view: 'demolition', query: { s: item.id } } })) },
     { id: 'factions', name: L('팩션', 'Factions'), items: factionGuides.map(item => ({ fields: { names: [item.name, item.en], text: [item.intro, T(item.intro)] }, label: T(item.name), sub: `${T(factionSides.find(side => side.id === item.side).name)} · ${L('추천 장비', 'recommended loadout')}`, image: factionSides.find(side => side.id === item.side).icon, route: { view: 'factions', id: item.id } })) },
-    { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en, ...collabKeywords(item.id)], text: [tierName(item.tier)] }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
+    { id: 'warbonds', name: L('전쟁 채권', 'Warbonds'), items: warbonds.map(item => ({ fields: { names: [item.name, item.en, ...collabKeywords(item.id)], text: [tierName(item.tier)], keywords: collabKeywords(item.id) }, label: T(item.name), sub: withEn(`${tierName(item.tier)} · ${item.date}`, item.en), image: warbondImages[item.id]?.src, route: { view: 'warbonds', id: item.id } })) },
     // Warbond tiles that have no page of their own elsewhere (cosmetics, helmets, boosters...): open their
     // warbond and mark the tile (f=<page>-<n>, the n-th tile of that page).
     { id: 'warbond-items', name: L('전쟁 채권 항목', 'Warbond items'), items: warbonds.flatMap(bond => bond.pages.flatMap(page => page.items

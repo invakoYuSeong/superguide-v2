@@ -3,29 +3,151 @@
 // lines summarize the wiki Status Effects page. Condition icons are the wiki's original SVGs.
 export const planetsCheckedAt = "2026-11-19";
 export const planetsGameBuild = "26568081";
+// Planets that can be played on the galaxy map (https://api.helldivers2.dev/api/v1/planets, 2026-11-24), less excludedPlanets.
+export const playablePlanetCount = 262;
 export const conditions = [
  {
-  "id": "acid-storms",
-  "name": "산성 폭풍",
-  "en": "Acid Storms",
-  "description": "부식성 산성 폭풍으로 적과 아군 유닛 모두 방어구 효과가 일시적으로 감소합니다.",
-  "descriptionEn": "Corrosive acid storms temporarily reduce armor effectiveness for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Acid_Storms",
+  "id": "extreme-cold",
+  "name": "혹한",
+  "en": "Extreme Cold",
+  "description": "차가운 기온이 지속되는 동안 연사율이 감소하고 무기의 과열 속도가 지연됩니다.",
+  "descriptionEn": "Periods of freezing temperatures reduce rate of fire and delay heat buildup in weapons.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Extreme_Cold",
   "icon": {
-   "src": "./assets/conditions/acid-storms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Acid_Storms_Environmental_Condition_Icon.svg",
-   "sha256": "4b7b01678619265894cdb69683a1ad1bee0254125da3fccbe896cd9008bc0ebe"
+   "src": "./assets/conditions/extreme-cold.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Extreme_Cold_Environmental_Condition_Icon.svg",
+   "sha256": "b9881b9eea7c0ff7f1ec7810a86ac2d2dd719f3bf72a252c7daabb985dd5ccf4"
   },
   "biomes": [
-   "acidic-badlands"
+   "icy-glaciers",
+   "boneyard",
+   "desert-dunes",
+   "moon",
+   "cyberstan-megafactory"
   ],
   "detail": [
-   "헬다이버와 적 모두 방어구 수치가 1 낮아집니다."
+   "연사 속도가 약 10% 느려집니다.",
+   "과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 33% 짧아집니다.",
+   "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
   ],
   "detailEn": [
-   "Helldivers and enemies alike lose 1 armor value."
+   "Rate of fire drops by about 10%.",
+   "After overheating, weapons are ready to fire again 33% sooner.",
+   "It turns on and off with the time of day and the weather, and stays on for good on some planets."
   ],
-  "revision": 107572
+  "revision": 116130
+ },
+ {
+  "id": "intense-heat",
+  "name": "혹서",
+  "en": "Intense Heat",
+  "description": "높은 기온이 지속되는 동안 스태미나 소모가 증가하고 무기의 과열 속도가 가속됩니다.",
+  "descriptionEn": "Periods of high temperatures increase stamina drain and speed up heat buildup in weapons.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Intense_Heat",
+  "icon": {
+   "src": "./assets/conditions/intense-heat.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Intense_Heat_Environmental_Condition_Icon.svg",
+   "sha256": "bd67b75cedc431346ae448840ea2d1241b5ffc4a6def4d8aac62faabb7a89f7d"
+  },
+  "biomes": [
+   "desert-dunes",
+   "desert-cliffs",
+   "scorched-moor",
+   "magma-desert",
+   "desert-oasis"
+  ],
+  "detail": [
+   "최대 기력이 절반이 됩니다. 회복 속도는 같아서 가득 차는 시간도 절반입니다.",
+   "게임 설명과 달리 과열되는 무기가 더 느리게 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 길어집니다(위키가 인용한 실험 영상 기준).",
+   "낮밤과 날씨에 따라 켜지고 꺼집니다. 화염 토네이도 행성에서는 토네이도 폭풍이 부는 동안만 켜집니다."
+  ],
+  "detailEn": [
+   "Maximum stamina is halved. It regenerates at the same rate, so it also refills in half the time.",
+   "Despite the game description, heat-based weapons cool down slower: after overheating they take usually 33% longer to be ready again (per the test video the wiki cites).",
+   "It turns on and off with the time of day and the weather. On Fire Tornado planets it is only on while a tornado storm lasts."
+  ],
+  "revision": 119909
+ },
+ {
+  "id": "rainstorms",
+  "name": "폭풍우",
+  "en": "Rainstorms",
+  "description": "폭풍우로 가시성이 감소합니다.",
+  "descriptionEn": "Torrential rainstorms reduce visibility.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Rainstorms",
+  "icon": {
+   "src": "./assets/conditions/rainstorms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Rainstorms_Environmental_Condition_Icon.svg",
+   "sha256": "67b9bfec422977f1e5cb99cf684fdcd5df750bed31f243a4239c11481165c714"
+  },
+  "biomes": [
+   "volcanic-jungle",
+   "basic-swamp",
+   "plains",
+   "super-earth-metropolis"
+  ],
+  "detail": [
+   "구름 밀도에 따라 시야가 달라집니다. 평균 35m, 짙을 때는 25m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility depends on cloud density: 35 m on average, down to 25 m at worst."
+  ],
+  "revision": 135713
+ },
+ {
+  "id": "thick-fog",
+  "name": "짙은 안개",
+  "en": "Thick Fog",
+  "description": "짙은 안개로 적과 아군 모두 가시성이 약간 감소합니다.",
+  "descriptionEn": "Dense fog lightly reduces visibility for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Thick_Fog",
+  "icon": {
+   "src": "./assets/conditions/thick-fog.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Thick_Fog_Environmental_Condition_Icon.svg",
+   "sha256": "bfb0ba83342bc793ae1215420e0c67e8c5b7ad1227e6fc7c54dab713d7b1e9fa"
+  },
+  "biomes": [
+   "haunted-swamp",
+   "deadlands"
+  ],
+  "detail": [
+   "시야가 약 50m로 줄어듭니다. 적의 탐지 거리도 50m에서 30m로 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility drops to about 50 m, and enemy detection range from 50 m to 30 m."
+  ],
+  "revision": 130624
+ },
+ {
+  "id": "sandstorms",
+  "name": "모래 폭풍",
+  "en": "Sandstorms",
+  "description": "짙은 모래 폭풍으로 적과 아군 모두 기동성이 감소하고 가시성이 크게 감소합니다.",
+  "descriptionEn": "Dense sandstorms reduce mobility and greatly reduce visibility for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Sandstorms",
+  "icon": {
+   "src": "./assets/conditions/sandstorms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Sandstorms_Environmental_Condition_Icon.svg",
+   "sha256": "c14e5e794c9ad23d9859eb8ac9ac9b10492964c89b40329f13cc9ee6803646fb"
+  },
+  "biomes": [
+   "desert-dunes"
+  ],
+  "detail": [
+   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
+   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
+   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
+   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
+   "눈보라와 효과가 같습니다."
+  ],
+  "detailEn": [
+   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
+   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
+   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
+   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
+   "Works exactly like Blizzards."
+  ],
+  "revision": 90346
  },
  {
   "id": "blizzards",
@@ -59,95 +181,27 @@ export const conditions = [
   "revision": 90433
  },
  {
-  "id": "extreme-cold",
-  "name": "혹한",
-  "en": "Extreme Cold",
-  "description": "차가운 기온이 지속되는 동안 연사율이 감소하고 무기의 과열 속도가 지연됩니다.",
-  "descriptionEn": "Periods of freezing temperatures reduce rate of fire and delay heat buildup in weapons.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Extreme_Cold",
+  "id": "acid-storms",
+  "name": "산성 폭풍",
+  "en": "Acid Storms",
+  "description": "부식성 산성 폭풍으로 적과 아군 유닛 모두 방어구 효과가 일시적으로 감소합니다.",
+  "descriptionEn": "Corrosive acid storms temporarily reduce armor effectiveness for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Acid_Storms",
   "icon": {
-   "src": "./assets/conditions/extreme-cold.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Extreme_Cold_Environmental_Condition_Icon.svg",
-   "sha256": "b9881b9eea7c0ff7f1ec7810a86ac2d2dd719f3bf72a252c7daabb985dd5ccf4"
+   "src": "./assets/conditions/acid-storms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Acid_Storms_Environmental_Condition_Icon.svg",
+   "sha256": "4b7b01678619265894cdb69683a1ad1bee0254125da3fccbe896cd9008bc0ebe"
   },
   "biomes": [
-   "icy-glaciers",
-   "boneyard",
-   "desert-dunes",
-   "moon",
-   "cyberstan-megafactory"
+   "acidic-badlands"
   ],
   "detail": [
-   "연사 속도가 약 10% 느려집니다.",
-   "게임 설명과 달리 과열되는 무기가 더 빨리 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 짧아집니다(위키가 인용한 실험 영상 기준).",
-   "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
+   "헬다이버와 적 모두 방어구 수치가 1 낮아집니다."
   ],
   "detailEn": [
-   "Rate of fire drops by about 10%.",
-   "Despite the game description, heat-based weapons cool down faster: after overheating they are ready again usually 33% sooner (per the test video the wiki cites).",
-   "It turns on and off with the time of day and the weather, and stays on for good on some planets."
+   "Helldivers and enemies alike lose 1 armor value."
   ],
-  "revision": 116130
- },
- {
-  "id": "fire-tornados",
-  "name": "화염 토네이도",
-  "en": "Fire Tornados",
-  "description": "위협적인 화염 토네이도는 행성을 황폐화합니다.",
-  "descriptionEn": "Planet is ravaged by deadly fire tornados.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Fire_Tornados",
-  "icon": {
-   "src": "./assets/conditions/fire-tornados.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Fire_Tornados_Environmental_Condition_Icon.svg",
-   "sha256": "ffec26e3665bd6ed5695c18450c22ed03e0ece9cd8767f6838fe21f874920480"
-  },
-  "biomes": [
-   "scorched-moor"
-  ],
-  "detail": [
-   "토네이도가 지나간 자리에 길이 30m, 폭 10m의 불길이 30초 동안 남습니다. 토네이도나 불길에 닿으면 불이 붙고, 다이브하면 꺼집니다.",
-   "폭풍이 부는 동안에는 혹서가 함께 켜지고 적의 시야가 줄어듭니다. 헬다이버의 시야는 그대로입니다.",
-   "철거력이 없어 울타리 같은 구조물은 부수지 못합니다. 다만 로켓 센트리 같은 설비는 고도화된 구조 모듈이 없으면 불 피해를 버티지 못합니다.",
-   "적 순찰대처럼 걸어 다닐 수 있는 곳으로만 움직입니다. 바위 절벽이나 도시의 건물 위로 올라가면 안전합니다."
-  ],
-  "detailEn": [
-   "Each tornado leaves a trail of flames 30 m long and 10 m wide that burns for 30 seconds. Touching the tornado or its trail sets you on fire, and diving puts it out.",
-   "While the storm lasts, Intense Heat is on as well and enemy vision is reduced. Helldiver vision is unaffected.",
-   "It has no demolition force, so fences and other structures survive. Emplacements such as the Rocket Sentry, though, cannot survive its fire damage without the Advanced Construction module.",
-   "It only goes where a patrol could walk. Climbing a rocky cliff or a city building keeps you safe."
-  ],
-  "revision": 133891
- },
- {
-  "id": "intense-heat",
-  "name": "혹서",
-  "en": "Intense Heat",
-  "description": "높은 기온이 지속되는 동안 스태미나 소모가 증가하고 무기의 과열 속도가 가속됩니다.",
-  "descriptionEn": "Periods of high temperatures increase stamina drain and speed up heat buildup in weapons.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Intense_Heat",
-  "icon": {
-   "src": "./assets/conditions/intense-heat.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Intense_Heat_Environmental_Condition_Icon.svg",
-   "sha256": "bd67b75cedc431346ae448840ea2d1241b5ffc4a6def4d8aac62faabb7a89f7d"
-  },
-  "biomes": [
-   "desert-dunes",
-   "desert-cliffs",
-   "scorched-moor",
-   "magma-desert",
-   "desert-oasis"
-  ],
-  "detail": [
-   "최대 기력이 절반이 됩니다. 회복 속도는 같아서 가득 차는 시간도 절반입니다.",
-   "게임 설명과 달리 과열되는 무기가 더 느리게 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 길어집니다(위키가 인용한 실험 영상 기준).",
-   "낮밤과 날씨에 따라 켜지고 꺼집니다. 화염 토네이도 행성에서는 토네이도 폭풍이 부는 동안만 켜집니다."
-  ],
-  "detailEn": [
-   "Maximum stamina is halved. It regenerates at the same rate, so it also refills in half the time.",
-   "Despite the game description, heat-based weapons cool down slower: after overheating they take usually 33% longer to be ready again (per the test video the wiki cites).",
-   "It turns on and off with the time of day and the weather. On Fire Tornado planets it is only on while a tornado storm lasts."
-  ],
-  "revision": 119909
+  "revision": 107572
  },
  {
   "id": "ion-storms",
@@ -211,85 +265,62 @@ export const conditions = [
   "revision": 90432
  },
  {
-  "id": "rainstorms",
-  "name": "폭풍우",
-  "en": "Rainstorms",
-  "description": "폭풍우로 가시성이 감소합니다.",
-  "descriptionEn": "Torrential rainstorms reduce visibility.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Rainstorms",
+  "id": "volcanic-activity",
+  "name": "화산 활동",
+  "en": "Volcanic Activity",
+  "description": "화산은 행성 곳곳에 불타는 암석을 날립니다.",
+  "descriptionEn": "Volcanos throw burning rocks around this planet.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Volcanic_Activity",
   "icon": {
-   "src": "./assets/conditions/rainstorms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Rainstorms_Environmental_Condition_Icon.svg",
-   "sha256": "67b9bfec422977f1e5cb99cf684fdcd5df750bed31f243a4239c11481165c714"
+   "src": "./assets/conditions/volcanic-activity.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
+   "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
   },
   "biomes": [
-   "volcanic-jungle",
-   "basic-swamp",
-   "plains",
-   "super-earth-metropolis"
+   "volcanic-jungle"
   ],
   "detail": [
-   "구름 밀도에 따라 시야가 달라집니다. 평균 35m, 짙을 때는 25m까지 줄어듭니다."
+   "바위 직격: 피해 50, 관통 8, 철거력 10.",
+   "폭발: 중심 1m까지 피해 700, 7.5m까지 점점 줄어들고, 충격파는 15m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
+   "떨어질 자리가 낮에는 붉게, 밤에는 떨어지기 직전까지 하얗게 표시됩니다. 떨어진 자리에는 불이 남습니다.",
+   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
   ],
   "detailEn": [
-   "Visibility depends on cloud density: 35 m on average, down to 25 m at worst."
+   "Direct hit: 50 damage, penetration 8, demolition force 10.",
+   "Explosion: 700 damage out to 1 m, falling off to 7.5 m, with a shockwave out to 15 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
+   "Impact spots show red by day and white at night until just before impact. Patches of fire stay where rocks land.",
+   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
   ],
-  "revision": 135713
+  "revision": 90351
  },
  {
-  "id": "sandstorms",
-  "name": "모래 폭풍",
-  "en": "Sandstorms",
-  "description": "짙은 모래 폭풍으로 적과 아군 모두 기동성이 감소하고 가시성이 크게 감소합니다.",
-  "descriptionEn": "Dense sandstorms reduce mobility and greatly reduce visibility for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Sandstorms",
+  "id": "fire-tornados",
+  "name": "화염 토네이도",
+  "en": "Fire Tornados",
+  "description": "위협적인 화염 토네이도는 행성을 황폐화합니다.",
+  "descriptionEn": "Planet is ravaged by deadly fire tornados.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Fire_Tornados",
   "icon": {
-   "src": "./assets/conditions/sandstorms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Sandstorms_Environmental_Condition_Icon.svg",
-   "sha256": "c14e5e794c9ad23d9859eb8ac9ac9b10492964c89b40329f13cc9ee6803646fb"
+   "src": "./assets/conditions/fire-tornados.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Fire_Tornados_Environmental_Condition_Icon.svg",
+   "sha256": "ffec26e3665bd6ed5695c18450c22ed03e0ece9cd8767f6838fe21f874920480"
   },
   "biomes": [
-   "desert-dunes"
+   "scorched-moor"
   ],
   "detail": [
-   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
-   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
-   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
-   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
-   "눈보라와 효과가 같습니다."
+   "토네이도가 지나간 자리에 길이 30m, 폭 10m의 불길이 30초 동안 남습니다. 토네이도나 불길에 닿으면 불이 붙고, 다이브하면 꺼집니다.",
+   "폭풍이 부는 동안에는 혹서가 함께 켜지고 적의 시야가 줄어듭니다. 헬다이버의 시야는 그대로입니다.",
+   "철거력이 없어 울타리 같은 구조물은 부수지 못합니다. 다만 로켓 센트리 같은 설비는 고도화된 구조 모듈이 없으면 불 피해를 버티지 못합니다.",
+   "적 순찰대처럼 걸어 다닐 수 있는 곳으로만 움직입니다. 바위 절벽이나 도시의 건물 위로 올라가면 안전합니다."
   ],
   "detailEn": [
-   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
-   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
-   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
-   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
-   "Works exactly like Blizzards."
+   "Each tornado leaves a trail of flames 30 m long and 10 m wide that burns for 30 seconds. Touching the tornado or its trail sets you on fire, and diving puts it out.",
+   "While the storm lasts, Intense Heat is on as well and enemy vision is reduced. Helldiver vision is unaffected.",
+   "It has no demolition force, so fences and other structures survive. Emplacements such as the Rocket Sentry, though, cannot survive its fire damage without the Advanced Construction module.",
+   "It only goes where a patrol could walk. Climbing a rocky cliff or a city building keeps you safe."
   ],
-  "revision": 90346
- },
- {
-  "id": "thick-fog",
-  "name": "짙은 안개",
-  "en": "Thick Fog",
-  "description": "짙은 안개로 적과 아군 모두 가시성이 약간 감소합니다.",
-  "descriptionEn": "Dense fog lightly reduces visibility for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Thick_Fog",
-  "icon": {
-   "src": "./assets/conditions/thick-fog.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Thick_Fog_Environmental_Condition_Icon.svg",
-   "sha256": "bfb0ba83342bc793ae1215420e0c67e8c5b7ad1227e6fc7c54dab713d7b1e9fa"
-  },
-  "biomes": [
-   "haunted-swamp",
-   "deadlands"
-  ],
-  "detail": [
-   "시야가 약 50m로 줄어듭니다. 적의 탐지 거리도 50m에서 30m로 줄어듭니다."
-  ],
-  "detailEn": [
-   "Visibility drops to about 50 m, and enemy detection range from 50 m to 30 m."
-  ],
-  "revision": 130624
+  "revision": 133891
  },
  {
   "id": "tremors",
@@ -318,35 +349,6 @@ export const conditions = [
    "It strikes a wide area around one random Helldiver, not the whole map."
   ],
   "revision": 90350
- },
- {
-  "id": "volcanic-activity",
-  "name": "화산 활동",
-  "en": "Volcanic Activity",
-  "description": "화산은 행성 곳곳에 불타는 암석을 날립니다.",
-  "descriptionEn": "Volcanos throw burning rocks around this planet.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Volcanic_Activity",
-  "icon": {
-   "src": "./assets/conditions/volcanic-activity.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
-   "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
-  },
-  "biomes": [
-   "volcanic-jungle"
-  ],
-  "detail": [
-   "바위 직격: 피해 50, 관통 8, 철거력 10.",
-   "폭발: 중심 1m까지 피해 700, 7.5m까지 점점 줄어들고, 충격파는 15m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
-   "떨어질 자리가 낮에는 붉게, 밤에는 떨어지기 직전까지 하얗게 표시됩니다. 떨어진 자리에는 불이 남습니다.",
-   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
-  ],
-  "detailEn": [
-   "Direct hit: 50 damage, penetration 8, demolition force 10.",
-   "Explosion: 700 damage out to 1 m, falling off to 7.5 m, with a shockwave out to 15 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
-   "Impact spots show red by day and white at night until just before impact. Patches of fire stay where rocks land.",
-   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
-  ],
-  "revision": 90351
  }
 ];
 export const gloomLevels = [
@@ -874,15 +876,17 @@ export const eventKinds = [
 export const hazards = [
  {
   "id": "contact-mine",
-  "name": "접촉 지뢰",
-  "en": "Contact Mine",
+  "name": "오토마톤 지뢰",
+  "en": "Automaton Mine",
   "detail": [
    "오토마톤 전초기지 주변과, 난이도 7부터는 대부분의 소규모 관심 지점 주변에 깔려 있습니다. 난이도가 오를수록 많아져 트인 지형에서도 나옵니다.",
-   "밟거나 공격을 받으면 터져 주변에 피해를 줍니다."
+   "밟거나 공격을 받으면 터집니다. 폭발 피해 300: 중심 1.6m 안에서 최대, 4m까지 줄어듭니다.",
+   "경량만이 아니라 중량 방어구도 밟으면 거의 살아남지 못합니다. 민주주의의 가호나 강화 패시브가 있어야 버틸 수 있고, 강화 패시브를 단 중량 방어구도 체력이 약 1/3만 남습니다."
   ],
   "detailEn": [
    "Laid around Automaton outposts and, from difficulty 7, around most Minor Places of Interest. They grow more common with difficulty, up to open ground.",
-   "It explodes when stepped on or damaged, hurting anything nearby."
+   "It explodes when stepped on or damaged. Blast damage 300: full within 1.6 m, falling off to 4 m.",
+   "Not just light armor: even heavy armor rarely survives stepping on one. Only Democracy Protects or the Fortified passive gives a chance, and Fortified heavy armor still leaves about 1/3 of your health."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Automaton_Mine",
@@ -904,13 +908,19 @@ export const hazards = [
  },
  {
   "id": "bug-mine",
-  "name": "벌레 지뢰",
+  "name": "버그 지뢰",
   "en": "Bug Mine",
   "detail": [
    "테르미니드에게 점령된 지역에만 있습니다. 밟거나 공격을 받으면 터지며 산성을 뿌려 피해를 주고 느리게 합니다. 여러 개의 산성은 겹치지 않습니다."
   ],
   "detailEn": [
    "Only in Terminid-infested areas. It explodes when stepped on or damaged, splashing acid that damages and slows. Acid from several of them does not stack."
+  ],
+  "tips": [
+   "가벼운 탑승물은 밟으면 뒤집힐 수 있습니다."
+  ],
+  "tipsEn": [
+   "A light vehicle that drives over one can be flipped."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Bug_Mine",
@@ -921,16 +931,90 @@ export const hazards = [
   "name": "폭발성 통",
   "en": "Explosive Barrel",
   "detail": [
-   "철거력 5 이상인 공격을 받으면 터집니다. 슈퍼 지구의 통은 대부분 터진 자리에 약 10초 동안 불을 남깁니다.",
-   "오토마톤 전초기지의 배터리 통은 들어 옮길 수 없고, 터져도 불을 남기지 않습니다."
+   "모든 임무의 소규모 관심 지점, 탈출 지점, 터미널 근처에 많습니다.",
+   "철거력 5 이상인 공격을 받으면 터지고, 대부분 터진 자리에 약 10초 동안 불을 남깁니다.",
+   "폭발 피해 400: 중심 0.4m 안에서 최대, 4m까지 줄어듭니다."
   ],
   "detailEn": [
-   "It explodes when hit by demolition force 5 or more. Most Super Earth barrels leave the ground burning for about 10 seconds.",
-   "The battery barrels in Automaton outposts cannot be lifted and leave no fire."
+   "Common on every mission around Minor Places of Interest, extraction and terminals.",
+   "It explodes when hit by demolition force 5 or more, and most leave the ground burning for about 10 seconds.",
+   "Blast damage 400: full within 0.4 m, falling off to 4 m."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
   "revision": 96635
+ },
+ {
+  "id": "automaton-barrel",
+  "name": "오토마톤 폭발성 통",
+  "en": "Automaton Barrel",
+  "detail": [
+   "오토마톤 임무에서 대부분의 오토마톤 전초기지 안에 있는 배터리 통입니다.",
+   "철거력 5 이상인 공격을 받으면 터집니다. 들어 옮길 수 없고, 터져도 불을 남기지 않습니다.",
+   "폭발 피해 400: 중심 0.6m 안에서 최대, 6m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Battery barrels inside most Automaton Outposts on Automaton missions.",
+   "It explodes when hit by demolition force 5 or more. It cannot be lifted and leaves no fire when it explodes.",
+   "Blast damage 400: full within 0.6 m, falling off to 6 m."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
+  "revision": 96635
+ },
+ {
+  "id": "illuminate-barrel",
+  "name": "일루미닛 폭발성 통",
+  "en": "Illuminate Barrel",
+  "detail": [
+   "일루미닛 임무에서 주로 일루미닛 야영지 안에 있습니다.",
+   "철거력 5 이상인 공격을 받으면 터집니다. 불 웅덩이를 남기지 않는 대신 다른 폭발성 통보다 폭발 범위가 훨씬 넓고, 폭발에서 살아남은 헬다이버에게 불이 붙습니다.",
+   "폭발 피해 400: 중심 7m 안에서 최대, 10m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Found on Illuminate missions, mostly inside Illuminate Encampments.",
+   "It explodes when hit by demolition force 5 or more. It leaves no fire pool, but its blast reaches much farther than the other barrels, and a Helldiver who survives the blast is set on fire.",
+   "Blast damage 400: full within 7 m, falling off to 10 m."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
+  "revision": 96635
+ },
+ {
+  "id": "damaged-hellbomb",
+  "name": "손상된 지옥폭탄",
+  "en": "Damaged Hellbomb",
+  "detail": [
+   "난이도 4부터 맵 곳곳에 땅에 박힌 채 있고, 죽음의 땅 생물군계에서는 모든 난이도에 나옵니다. 옆에 지원 무기가 놓여 있기도 합니다.",
+   "공격을 받으면 잠시 뒤 터지고, 철거력 30 이상인 공격을 받으면 바로 터집니다. 지옥폭탄 스트라타젬과 같은 폭발이라 근처의 적 무리나 큰 적을 한 번에 정리할 수 있습니다.",
+   "폭발 피해 10,000: 중심 17m 안에서 최대, 25m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "From difficulty 4 it sits lodged in the ground around the map, and on Deadlands planets on every difficulty. A support weapon sometimes lies next to it.",
+   "Any damage sets it off after a short delay, and demolition force 30 or more sets it off at once. It is the same blast as the Hellbomb stratagem, good for wiping out a crowd or a big enemy nearby.",
+   "Blast damage 10,000: full within 17 m, falling off to 25 m."
+  ],
+  "biomes": [
+   "deadlands"
+  ],
+  "wiki": "https://helldivers.wiki.gg/wiki/Damaged_Hellbomb",
+  "revision": 136568
+ },
+ {
+  "id": "forklift",
+  "name": "지게차",
+  "en": "Forklift",
+  "detail": [
+   "사람이 지은 구조물 근처에 있습니다.",
+   "철거력 20 이상인 공격을 받으면 작게 터집니다. 폭발 피해 200: 중심 0.6m 안에서 최대, 7m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Found around human structures.",
+   "It blows up in a small explosion when hit by demolition force 20 or more. Blast damage 200: full within 0.6 m, falling off to 7 m."
+  ],
+  "biomes": [],
+  "wiki": "https://helldivers.wiki.gg/wiki/Forklift",
+  "revision": 130566
  },
  {
   "id": "cars",
@@ -948,7 +1032,7 @@ export const hazards = [
  },
  {
   "id": "ice-plant",
-  "name": "서리꽃",
+  "name": "얼음꽃",
   "en": "Ice Plant",
   "detail": [
    "밟거나 공격을 받으면 터져 잠시 정지 구름을 만듭니다. 헬다이버는 느려지고 약한 피해를 받으며, 다른 생명체는 구름 안에서 기절합니다."
@@ -1018,13 +1102,15 @@ export const hazards = [
  },
  {
   "id": "moor-mushroom",
-  "name": "황무지 버섯",
+  "name": "고원 버섯",
   "en": "Moor Mushroom",
   "detail": [
-   "밟으면 연막 같은 포자 구름과 충격파가 나와 헬다이버를 날리고 생명체를 밀어냅니다. 원거리 적의 시야를 끊고 빠져나가는 데 쓸 수 있습니다."
+   "밟으면 연막 같은 포자 구름(반경 5m)만 나와 시야를 가립니다. 원거리 적의 시야를 끊고 빠져나가는 데 쓸 수 있습니다.",
+   "공격으로 터뜨리면 충격파가 나와 근처 헬다이버를 날리고 생명체를 밀어냅니다(반경 8m)."
   ],
   "detailEn": [
-   "Stepped on, it releases a smokescreen-like spore cloud and a shockwave that launches Helldivers and pushes creatures back. It can break the line of sight of ranged enemies so you can get away."
+   "Stepped on, it only releases a smokescreen-like spore cloud (5 m radius) that blocks sight. It can break the line of sight of ranged enemies so you can get away.",
+   "Shot or blown up, it also lets out a shockwave that launches nearby Helldivers and pushes creatures back (8 m radius)."
   ],
   "biomes": [
    "plains",
@@ -1091,7 +1177,7 @@ export const hazards = [
   "revision": 116172
  }
 ];
-export const biomes = [{"id":"supercolony","name":"슈퍼식민지","en":"Supercolony","archetype":"Primordial","archetypeName":"원시","internal":"primordial_bug","description":null,"descriptionEn":null,"conditions":[],"planets":[],"wiki":"https://helldivers.wiki.gg/wiki/Supercolony","revision":130671},{"id":"volcanic-jungle","name":"화산 정글","en":"Volcanic Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_base","description":"생명이 풍부하고 물이 많은 이 행성은 깊은 바다, 울창한 숲, 그리고 키 큰 풀로 덮여 있습니다.","descriptionEn":"Abundant with life, this wet planet is covered in deep oceans, thick forests, and tall grasses.","conditions":["rainstorms","volcanic-activity"],"planets":[{"name":"나비 VII","en":"NAVI VII","wiki":"Navi VII"},{"name":"더블릿 II","en":"DOUBLET II"},{"name":"레그누스","en":"REGNUS","wiki":"Regnus"},{"name":"로그 5","en":"ROGUE 5","wiki":"Rogue 5"},{"name":"만테스","en":"MANTES","wiki":"Mantes"},{"name":"메리디아","en":"MERIDIA","wiki":"Meridia"},{"name":"메리디아","en":"MERIDIA","wiki":"Meridia"},{"name":"메이사","en":"MEISSA","wiki":"Meissa"},{"name":"모모-1","en":"MOMO-1"},{"name":"묀스테로스 II","en":"MÖNSTERÅS II"},{"name":"미확인 성계","en":"UNKNOWN SYSTEM"},{"name":"발드릭 프라임","en":"BALDRICK PRIME","wiki":"Baldrick Prime"},{"name":"비공개 위치","en":"UNDISCLOSED LOCATION"},{"name":"스페리온","en":"SPHERION","wiki":"Spherion"},{"name":"스포일","en":"SPOYLE"},{"name":"알라드파르 CXI","en":"ALADFAR CXI"},{"name":"알타 V","en":"ALTA V","wiki":"Alta V"},{"name":"엘리바르","en":"GAELLIVARE","wiki":"Gaellivare"},{"name":"오아시스","en":"OASIS","wiki":"Oasis"},{"name":"이룰타","en":"IRULTA","wiki":"Irulta"},{"name":"제게마 패러다이스","en":"ZEGEMA PARADISE","wiki":"Zegema Paradise"},{"name":"키릭","en":"KIRRIK","wiki":"Kirrik"},{"name":"페스티스","en":"PESTIS"},{"name":"폴룩스 31","en":"POLLUX 31","wiki":"Pollux 31"},{"name":"프라케니리아","en":"FRAKENEERIA"},{"name":"프로배어","en":"PROBARE"},{"name":"프리모디아","en":"PRIMORDIA","wiki":"Primordia"}],"wiki":"https://helldivers.wiki.gg/wiki/Volcanic_Jungle","revision":140258},{"id":"haunted-swamp","name":"음산한 늪지","en":"Haunted Swamp","archetype":"Swamp","archetypeName":"늪지","internal":"swamp_haunted","description":"질척이는 진흙, 뒤틀린 뿌리, 부패와 무정부 상태의 냄새가 진동하는 행성입니다. 무언가로 들끓으며 끝이 없는 늪지가 있습니다.","descriptionEn":"Squelching mud, twisting roots; the odor of rot and anarchy. A teeming, endless morass.","conditions":["thick-fog"],"planets":[{"name":"가르 하린","en":"GAR HAREN","wiki":"Gar Haren"},{"name":"누블라리아 I","en":"NUBLARIA I","wiki":"Nublaria I"},{"name":"래치","en":"RATCH","wiki":"Ratch"},{"name":"메르가 IV","en":"MERGA IV","wiki":"Merga IV"},{"name":"바시르","en":"BASHYR","wiki":"Bashyr"},{"name":"세티아","en":"SETIA","wiki":"Setia"},{"name":"소코로 III","en":"SOCORRO III","wiki":"Socorro III"},{"name":"솔가스트","en":"SOLGHAST","wiki":"Solghast"},{"name":"스키터","en":"SKITTER","wiki":"Skitter"},{"name":"아트라마","en":"ATRAMA","wiki":"Atrama"},{"name":"이로","en":"IRO","wiki":"Iro"},{"name":"칸다크","en":"KHANDARK","wiki":"Khandark"},{"name":"클라카 5","en":"KLAKA 5","wiki":"Klaka 5"},{"name":"타슈","en":"TARSH","wiki":"Tarsh"},{"name":"UVP 델타","en":"UVP DELTA","wiki":"UVP Delta"}],"wiki":"https://helldivers.wiki.gg/wiki/Haunted_Swamp","revision":141006},{"id":"icy-glaciers","name":"얼음 빙하","en":"Icy Glaciers","archetype":"Arctic","archetypeName":"극지","internal":"arctic_glacier_base","description":"영원한 겨울에 잠긴 이 세계의 서리 낀 봉우리들은 너무나도 먼 별빛 속에서 희미하게 빛납니다.","descriptionEn":"Submerged in eternal winter, this world's frosty peaks glimmer in the light of its too-distant star.","conditions":["blizzards","extreme-cold"],"planets":[{"name":"뉴 스톡홀름","en":"NEW STOCKHOLM","wiki":"New Stockholm"},{"name":"뉴 키루나","en":"NEW KIRUNA","wiki":"New Kiruna"},{"name":"로지스티케이","en":"LOGISTICAE"},{"name":"린돔","en":"LINDOME"},{"name":"마르파르크","en":"MARFARK","wiki":"Marfark"},{"name":"메리디안 IIa","en":"MERIDIAN IIa"},{"name":"모그","en":"MOG","wiki":"Mog"},{"name":"반달론 IV","en":"VANDALON IV","wiki":"Vandalon IV"},{"name":"베가 베이","en":"VEGA BAY","wiki":"Vega Bay"},{"name":"변칙 성계","en":"ANOMALOUS SYSTEM"},{"name":"보그-소요스","en":"VOG-SOJOTH","wiki":"Vog-Sojoth"},{"name":"보레아","en":"BOREA","wiki":"Borea"},{"name":"아르크투루스","en":"ARKTURUS","wiki":"Arkturus"},{"name":"알라스파르 XI","en":"ALATHFAR XI","wiki":"Alathfar XI"},{"name":"엡실론 피엔시스 VI","en":"EPSILON PHOENCIS VI","wiki":"Epsilon Phoencis VI"},{"name":"오쿨 VI","en":"OKUL VI","wiki":"Okul VI"},{"name":"와일","en":"WILE"},{"name":"율헤임","en":"JULHEIM","wiki":"Julheim"},{"name":"제너레이션","en":"GENERATION"},{"name":"켈비노르","en":"KELVINOR","wiki":"Kelvinor"},{"name":"탠덤","en":"TANDEM"},{"name":"헤소에 프라임","en":"HESOE PRIME","wiki":"Hesoe Prime"},{"name":"헤이다르","en":"HADAR","wiki":"Hadar"},{"name":"히스","en":"HEETH","wiki":"Heeth"}],"wiki":"https://helldivers.wiki.gg/wiki/Icy_Glaciers","revision":142571},{"id":"boneyard","name":"뼈 무덤","en":"Boneyard","archetype":"Arctic","archetypeName":"극지","internal":"arctic_glacier_coldrocky","description":"얼음과 이끼로 덮인 바위가 행성의 표면 대부분에서 발견됩니다.","descriptionEn":"Ice and moss-covered rock can be found across most of the surface of this planet.","conditions":["extreme-cold"],"planets":[{"name":"그래프미어","en":"GRAFMERE","wiki":"Grafmere"},{"name":"데네브 세쿤두스","en":"DENEB SECUNDUS","wiki":"Deneb Secundus"},{"name":"레사스","en":"LESATH","wiki":"Lesath"},{"name":"리트리뷰터리","en":"RETRIBUTARY"},{"name":"마터스 베이","en":"MARTYR'S BAY","wiki":"Martyr's Bay"},{"name":"스토어 타 프라임","en":"STOR THA PRIME","wiki":"Stor Tha Prime"},{"name":"스톨테트","en":"STOLTHET"},{"name":"아크룩스 IX","en":"ACRUX IX","wiki":"Acrux IX"},{"name":"에스타누","en":"ESTANU","wiki":"Estanu"},{"name":"오슬로 스테이션","en":"OSLO STATION","wiki":"Oslo Station"},{"name":"유렉템","en":"URECTEM"},{"name":"유코리아","en":"EUKORIA","wiki":"Eukoria"},{"name":"이글라","en":"IGLA","wiki":"Igla"},{"name":"이나리","en":"INARI","wiki":"Inari"},{"name":"초에페사 IV","en":"CHOEPESSA IV","wiki":"Choepessa IV"},{"name":"크라카투","en":"KRAKATWO","wiki":"Krakatwo"},{"name":"티엔 콴","en":"TIEN KWAN","wiki":"Tien Kwan"},{"name":"티엔 콴","en":"TIEN KWAN","wiki":"Tien Kwan"},{"name":"헤일리스 포트","en":"HALIES PORT","wiki":"Halies Port"}],"wiki":"https://helldivers.wiki.gg/wiki/Boneyard","revision":140250},{"id":"basic-swamp","name":"늪지","en":"Basic Swamp","archetype":"Swamp","archetypeName":"늪지","internal":"swamp_base","description":"높고 뒤틀린 나무들이 지면을 뒤덮은 울창한 숲 지역입니다. 매달린 덩굴 사이로 비치는 햇살이 지면의 빽빽한 덤불까지 간신히 닿습니다.","descriptionEn":"Tall, gnarled trees flourish across the surface of this forested world. Sunlight filters past dangling vines, to the saturated undergrowth below.","conditions":["rainstorms"],"planets":[{"name":"개크룩스","en":"GACRUX","wiki":"Gacrux"},{"name":"나바테아 세쿤두스","en":"NABATEA SECUNDUS","wiki":"Nabatea Secundus"},{"name":"바라보스","en":"BARABOS","wiki":"Barabos"},{"name":"보어 록","en":"BORE ROCK","wiki":"Bore Rock"},{"name":"아이비스","en":"IVIS","wiki":"Ivis"},{"name":"애스페로스 프라임","en":"ASPEROTH PRIME","wiki":"Asperoth Prime"},{"name":"이스트 이리듐 트레이딩 베이","en":"EAST IRIDIUM TRADING BAY","wiki":"East Iridium Trading Bay"},{"name":"카프","en":"CAPH","wiki":"Caph"},{"name":"크라카보스","en":"KRAKABOS","wiki":"Krakabos"},{"name":"클라사","en":"CLASA","wiki":"Clasa"},{"name":"파슈","en":"PARSH","wiki":"Parsh"},{"name":"페어카드 세쿤두스","en":"PHERKAD SECUNDUS","wiki":"Pherkad Secundus"},{"name":"포렌스코구르 II","en":"FORNSKOGUR II","wiki":"Fornskogur II"},{"name":"할두스","en":"HALDUS","wiki":"Haldus"},{"name":"X-45","en":"X-45","wiki":"X-45"}],"wiki":"https://helldivers.wiki.gg/wiki/Basic_Swamp","revision":140262},{"id":"desert-dunes","name":"사막 모래언덕","en":"Desert Dunes","archetype":"Sandy","archetypeName":"사막","internal":"sandy_base","description":"타는 듯이 뜨거운 사막 행성으로, 끝없는 모래 언덕의 바다에 유일하게 있는 것은 바위 메사 뿐입니다.","descriptionEn":"A blazing-hot desert planet, its rocky mesas are the sole interruptions to the endless sea of dunes.","conditions":["intense-heat","extreme-cold","sandstorms"],"planets":[{"name":"거주 불가 성계","en":"UNINHABITABLE SYSTEM"},{"name":"다이아스포라 X","en":"DIASPORA X","wiki":"Diaspora X"},{"name":"데르긴","en":"DURGEN","wiki":"Durgen"},{"name":"라스토프","en":"LASTOFE","wiki":"Lastofe"},{"name":"리질리언스","en":"RESILIENCE"},{"name":"마스티아","en":"MASTIA","wiki":"Mastia"},{"name":"모라데시","en":"MORADESH","wiki":"Moradesh"},{"name":"바카","en":"VACCA"},{"name":"비리디아 프라임","en":"VIRIDIA PRIME","wiki":"Viridia Prime"},{"name":"빈지","en":"VINGE"},{"name":"아웃포스트 32","en":"OUTPOST 32","wiki":"Outpost 32"},{"name":"오수프섬","en":"OSUPSAM","wiki":"Osupsam"},{"name":"오스테호벨","en":"OSTEHOVEL"},{"name":"자니아 프라임","en":"ZZANIAH PRIME","wiki":"Zzaniah Prime"},{"name":"추헤","en":"CHOOHE","wiki":"Choohe"},{"name":"카라무어","en":"CARAMOOR","wiki":"Caramoor"},{"name":"카이드","en":"KEID","wiki":"Keid"},{"name":"클렌 다흐스 II","en":"KLEN DAHTH II","wiki":"Klen Dahth II"},{"name":"팍트 베이","en":"PHACT BAY","wiki":"Phact Bay"},{"name":"프로푸스","en":"PROPUS","wiki":"Propus"},{"name":"헤제 베이","en":"HEZE BAY","wiki":"Heze Bay"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Dunes","revision":140241},{"id":"acidic-badlands","name":"산성 불모지","en":"Acidic Badlands","archetype":"Sandy","archetypeName":"사막","internal":"sandy_acid","description":"행성의 지각 깊숙한 곳에서부터 짙은 유독 가스가 갈라진 틈 사이로 스며 나와, 지면을 역한 아지랑이로 뒤덮고 있습니다.","descriptionEn":"Dense, toxic fumes from deep within the planet's crust seep out of cracks in the earth and coat the ground in a sickly haze.","conditions":["acid-storms"],"planets":[{"name":"다리우스 II","en":"DARIUS II","wiki":"Darius II"},{"name":"대로우스포트","en":"DARROWSPORT","wiki":"Darrowsport"},{"name":"레이스","en":"WRAITH","wiki":"Wraith"},{"name":"레잉 세쿤두스","en":"LENG SECUNDUS","wiki":"Leng Secundus"},{"name":"리르가 베이","en":"RIRGA BAY","wiki":"Rirga Bay"},{"name":"버그 쿼런틴","en":"THE BUG QUARANTINE"},{"name":"보타인","en":"BOTEIN","wiki":"Botein"},{"name":"셰테","en":"SHETE","wiki":"Shete"},{"name":"스비트요드","en":"SVITJOD"},{"name":"스카아시","en":"SKAASH","wiki":"Skaash"},{"name":"슬리프","en":"SLIF","wiki":"Slif"},{"name":"에스커","en":"ESKER","wiki":"Esker"},{"name":"오투르","en":"OTUR"},{"name":"왜샛","en":"WASAT","wiki":"Wasat"},{"name":"윌포드 스테이션","en":"WILFORD STATION","wiki":"Wilford Station"},{"name":"차르발 VII","en":"CHARBAL-VII","wiki":"Charbal-VII"},{"name":"초트 베이","en":"CHORT BAY","wiki":"Chort Bay"},{"name":"피오니","en":"PEONY"}],"wiki":"https://helldivers.wiki.gg/wiki/Acidic_Badlands","revision":140243},{"id":"moon","name":"위성","en":"Moon","archetype":"Sandy","archetypeName":"사막","internal":"sandy_moon","description":"표면 아래에 매우 귀한 광물이 매장되어 있는 고독한 바위투성이의 위성입니다.","descriptionEn":"A rocky, lonely moon with extremely valuable mineral deposits underneath the surface.","conditions":["extreme-cold","meteor-storms"],"planets":[{"name":"군나르","en":"GUNNAR"},{"name":"노서","en":"NOSSER"},{"name":"돌프","en":"DOLPH","wiki":"Dolph"},{"name":"라스프","en":"RASP","wiki":"Rasp"},{"name":"마이아","en":"MAIA","wiki":"Maia"},{"name":"시리우스","en":"SIRIUS","wiki":"Sirius"},{"name":"시리우스 II","en":"SIRIUS II"},{"name":"아르젠티스","en":"ARGENTIS"},{"name":"알디-4","en":"RD-4","wiki":"RD-4"},{"name":"위도우스 하버","en":"WIDOW'S HARBOR","wiki":"Widow's Harbor"},{"name":"유포리아 III","en":"EUPHORIA III","wiki":"Euphoria III"},{"name":"조스마","en":"ZOSMA","wiki":"Zosma"},{"name":"코르브","en":"KORV"},{"name":"큐리아","en":"CURIA","wiki":"Curia"},{"name":"클라오렐","en":"CLAORELL","wiki":"Claorell"},{"name":"테렉","en":"TERREK","wiki":"Terrek"},{"name":"펜리르 III","en":"FENRIR III","wiki":"Fenrir III"},{"name":"하마르비","en":"HAMMARBY"}],"wiki":"https://helldivers.wiki.gg/wiki/Moon","revision":140252},{"id":"rocky-canyons","name":"바위 협곡","en":"Rocky Canyons","archetype":"Sandy","archetypeName":"사막","internal":"sandy_mineral","description":"이 세계를 덮고 있는 건조한 바위 생물군계는 다양한 생물체가 물을 특히나 효율적으로 사용하도록 진화를 이끌었습니다.","descriptionEn":"The arid, rocky biome covering this world has driven the evolution of exceptionally efficient water usage in its various organisms.","conditions":["tremors"],"planets":[{"name":"메크부다","en":"MEKBUDA","wiki":"Mekbuda"},{"name":"미리움","en":"MYRIUM","wiki":"Myrium"},{"name":"밸럿","en":"BALLOT"},{"name":"버넌 웰스","en":"VERNEN WELLS","wiki":"Vernen Wells"},{"name":"센게이 23","en":"SENGE 23","wiki":"Senge 23"},{"name":"아미테레","en":"AMITTERE"},{"name":"아즈테라","en":"AZTERRA","wiki":"Azterra"},{"name":"아치르드 III","en":"ACHIRD III","wiki":"Achird III"},{"name":"에메리아","en":"EMERIA","wiki":"Emeria"},{"name":"에플루비아","en":"EFFLUVIA","wiki":"Effluvia"},{"name":"칼립소","en":"CALYPSO","wiki":"Calypso"},{"name":"캐스터","en":"CASTOR","wiki":"Castor"},{"name":"쿠마","en":"KUMA","wiki":"Kuma"},{"name":"크라즈","en":"KRAZ","wiki":"Kraz"},{"name":"파이오니어 II","en":"PIONEER II","wiki":"Pioneer II"},{"name":"포리 프라임","en":"FORI PRIME","wiki":"Fori Prime"},{"name":"프라사","en":"PRASA","wiki":"Prasa"},{"name":"하이드로폴 프라임","en":"HYDROFALL PRIME","wiki":"Hydrofall Prime"}],"wiki":"https://helldivers.wiki.gg/wiki/Rocky_Canyons","revision":138839},{"id":"desert-cliffs","name":"사막 절벽","en":"Desert Cliffs","archetype":"Sandy","archetypeName":"사막","internal":"sandy_spiky","description":"예측불허의 위험한 모래 회오리바람이 발생하기 쉬운 사막 행성입니다.","descriptionEn":"A desert planet prone to unpredictable and dangerous sand twisters.","conditions":["intense-heat","tremors"],"planets":[{"name":"디콘","en":"DEECON"},{"name":"디펜서블","en":"DEFENSIBLE"},{"name":"론","en":"LONE"},{"name":"모어택스 프라임","en":"MORTAX PRIME","wiki":"Mortax Prime"},{"name":"미라데슈","en":"MYRADESH","wiki":"Myradesh"},{"name":"시라하마","en":"SHIRAHAMA"},{"name":"아주르 세쿤두스","en":"AZUR SECUNDUS","wiki":"Azur Secundus"},{"name":"어슨 샌즈","en":"ERSON SANDS","wiki":"Erson Sands"},{"name":"에라타 프라임","en":"ERATA PRIME","wiki":"Erata Prime"},{"name":"우스토투","en":"USTOTU","wiki":"Ustotu"},{"name":"제아 루고시아","en":"ZEA RUGOSIA","wiki":"Zea Rugosia"},{"name":"카노푸스","en":"CANOPUS","wiki":"Canopus"},{"name":"카라","en":"CHARA"},{"name":"케르베로스 IIIc","en":"CERBERUS IIIc","wiki":"Cerberus IIIc"},{"name":"폴라리스 프라임","en":"POLARIS PRIME","wiki":"Polaris Prime"},{"name":"필렌 V","en":"PILEN V","wiki":"Pilen V"},{"name":"하이드로비우스","en":"HYDROBIUS","wiki":"Hydrobius"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Cliffs","revision":140248},{"id":"deadlands","name":"죽음의 땅","en":"Deadlands","archetype":"Primordial","archetypeName":"원시","internal":"primordial_dead","description":"이 행성의 생기 없는 회색 지대에  그나마 있는 것은 이상하고 기생적인 돌출부에서 자라는 보라색 꽃뿐입니다.","descriptionEn":"The lifeless grey of this planet is interrupted only by the violet flowers that grow from strange, parasitic outcroppings.","conditions":["thick-fog"],"planets":[{"name":"니벨 43","en":"NIVEL 43","wiki":"Nivel 43"},{"name":"모트","en":"MORT","wiki":"Mort"},{"name":"미케","en":"MIQÉ"},{"name":"미탐사 성계","en":"UNMAPPED SYSTEM"},{"name":"베일","en":"VEIL","wiki":"Veil"},{"name":"보후스","en":"BOHUS"},{"name":"스카트 베이","en":"SKAT BAY","wiki":"Skat Bay"},{"name":"시러스","en":"CIRRUS","wiki":"Cirrus"},{"name":"아이시어 패스","en":"AESIR PASS","wiki":"Aesir Pass"},{"name":"아인-5","en":"AIN-5","wiki":"Ain-5"},{"name":"알더리즈 코브","en":"ALDERIDGE COVE","wiki":"Alderidge Cove"},{"name":"알라라프","en":"ALARAPH","wiki":"Alaraph"},{"name":"워치도그 5","en":"WATCHDOG 5"},{"name":"재멀주리움","en":"SAMMELSURIUM"},{"name":"트루스트","en":"TROOST","wiki":"Troost"},{"name":"판디온-XXIV","en":"PANDION-XXIV","wiki":"Pandion-XXIV"},{"name":"펜타","en":"PENTA","wiki":"Penta"},{"name":"프로버빌리티","en":"PROBABILITY"},{"name":"하카","en":"HAKA","wiki":"Haka"},{"name":"UVP 베타","en":"UVP BETA","wiki":"UVP Beta"}],"wiki":"https://helldivers.wiki.gg/wiki/Deadlands","revision":140251},{"id":"ethereal-jungle","name":"신비로운 정글","en":"Ethereal Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_purple","description":"이 세계는 고요하고 방해받지 않은 채 표면 전체에 퍼져 있는, 무한하며 이국적인 독특한 식물 생명체로 가득합니다.","descriptionEn":"This world teems with ethereal, boundless, and peculiar plant life that spreads silent and uninterrupted across its entire surface.","conditions":[],"planets":[{"name":"모르디아 9","en":"MORDIA 9","wiki":"Mordia 9"},{"name":"미등록 성계","en":"UNREGISTERED SYSTEM"},{"name":"베크밤 III","en":"BEKVAM III","wiki":"Bekvam III"},{"name":"빈데미타릭스 프라임","en":"VINDEMITARIX PRIME","wiki":"Vindemitarix Prime"},{"name":"샬루스","en":"SHALLUS","wiki":"Shallus"},{"name":"세이셸 비치","en":"SEYSHEL BEACH","wiki":"Seyshel Beach"},{"name":"술푸라","en":"SULFURA","wiki":"Sulfura"},{"name":"시그니아 III","en":"CYGNIA III"},{"name":"아다페라 세쿤두스","en":"ADHAFERA SECUNDUS"},{"name":"알라막 VII","en":"ALAMAK VII","wiki":"Alamak VII"},{"name":"애쿠벤즈 프라임","en":"ACUBENS PRIME","wiki":"Acubens Prime"},{"name":"어르시카 XI","en":"URSICA XI","wiki":"Ursica XI"},{"name":"에모라스","en":"EMORATH","wiki":"Emorath"},{"name":"이리디카","en":"IRIDICA","wiki":"Iridica"},{"name":"제피아","en":"ZEFIA","wiki":"Zefia"},{"name":"튜링","en":"TURING","wiki":"Turing"},{"name":"티비트","en":"TIBIT","wiki":"Tibit"},{"name":"팬텀 1","en":"PHANTOM 1"},{"name":"포트 저스티스","en":"FORT JUSTICE","wiki":"Fort Justice"}],"wiki":"https://helldivers.wiki.gg/wiki/Ethereal_Jungle","revision":136201},{"id":"ionic-jungle","name":"이온 정글","en":"Ionic Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_blue","description":"이 행성에서 번성하는 이상한 색상의 식물군을 지탱하는 광합성의 기이한 전멸은 슈퍼지구 최고의 외계 생물학자들에게 흥미로운 미스터리로 남아 있습니다.","descriptionEn":"The strange subversion of photosynthesis that sustains the oddly-hued flora that flourishes on this planet remains an intriguing mystery to Super Earth's greatest exo-biologists.","conditions":["ion-storms"],"planets":[{"name":"뉴 헤이븐","en":"NEW HAVEN","wiki":"New Haven"},{"name":"레이스팅","en":"RAYSTING"},{"name":"말레벨론 크릭","en":"MALEVELON CREEK","wiki":"Malevelon Creek"},{"name":"메라크","en":"MERAK","wiki":"Merak"},{"name":"민치어","en":"MINCHIR","wiki":"Minchir"},{"name":"뱅커빌리티","en":"BANKABILITY"},{"name":"벨드","en":"VELD","wiki":"Veld"},{"name":"브링크-2","en":"BRINK-2","wiki":"Brink-2"},{"name":"시엠노트","en":"SIEMNOT","wiki":"Siemnot"},{"name":"아를리아","en":"ARLIA"},{"name":"알라이르트 III","en":"ALAIRT III","wiki":"Alairt III"},{"name":"에런트","en":"ERRANT"},{"name":"제네시스 프라임","en":"GENESIS PRIME","wiki":"Genesis Prime"},{"name":"젬마","en":"GEMMA","wiki":"Gemma"},{"name":"콘론 콜로니","en":"CONLON COLONY"},{"name":"쿠퍼","en":"KUPER","wiki":"Kuper"},{"name":"프로스퍼리티 폴스","en":"PROSPERITY FALLS","wiki":"Prosperity Falls"},{"name":"피콕","en":"PEACOCK","wiki":"Peacock"}],"wiki":"https://helldivers.wiki.gg/wiki/Ionic_Jungle","revision":140247},{"id":"plains","name":"평원","en":"Plains","archetype":"Moor","archetypeName":"황무지","internal":"moor_baseplanet","description":"안개 낀 고원 지형이 지배적인 행성에서 바위 돌출부가 키 큰 풀밭을 관통하고 있습니다.","descriptionEn":"Rocky outcroppings punctuate fields of tall grass in a planet dominated by misty highland terrain.","conditions":["rainstorms"],"planets":[{"name":"니비루","en":"NIBIRU"},{"name":"드라우프니르","en":"DRAUPNIR","wiki":"Draupnir"},{"name":"램배스트","en":"LAMBAST"},{"name":"리프","en":"REAF","wiki":"Reaf"},{"name":"마타르 베이","en":"MATAR BAY","wiki":"Matar Bay"},{"name":"민토리아","en":"MINTORIA","wiki":"Mintoria"},{"name":"바릴리아 5","en":"VARYLIA 5","wiki":"Varylia 5"},{"name":"벨라트릭스","en":"BELLATRIX","wiki":"Bellatrix"},{"name":"볼테라","en":"VOLTERRA","wiki":"Volterra"},{"name":"스쿠툼 카니스 루푸스","en":"SCUTUM CANIS LUPUS"},{"name":"아카마르 IV","en":"ACAMAR IV","wiki":"Acamar IV"},{"name":"아케르나르 세쿤두스","en":"ACHERNAR SECUNDUS","wiki":"Achernar Secundus"},{"name":"아포야이 베이","en":"AFOYAY BAY","wiki":"Afoyay Bay"},{"name":"엘렉트라 베이","en":"ELECTRA BAY","wiki":"Electra Bay"},{"name":"엘리저블","en":"ELIGIBLE"},{"name":"오바리","en":"OBARI","wiki":"Obari"},{"name":"위어","en":"THE WEIR","wiki":"The Weir"},{"name":"젬스톤 블러프스","en":"GEMSTONE BLUFFS","wiki":"Gemstone Bluffs"},{"name":"테르마돈","en":"TERMADON","wiki":"Termadon"},{"name":"파용","en":"PAYONG"},{"name":"패스파인더 V","en":"PATHFINDER V","wiki":"Pathfinder V"},{"name":"펜마이어","en":"FENMIRE","wiki":"Fenmire"},{"name":"포트 유니언","en":"FORT UNION","wiki":"Fort Union"},{"name":"피피오넴","en":"PIPIONEM"},{"name":"핵심 성계","en":"VITAL SYSTEM"},{"name":"호르트","en":"HORT","wiki":"Hort"},{"name":"후사리아","en":"HUSARIA"}],"wiki":"https://helldivers.wiki.gg/wiki/Plains","revision":140265},{"id":"tundra","name":"툰드라","en":"Tundra","archetype":"Moor","archetypeName":"황무지","internal":"moor_tundra","description":"끊이지 않는 추운 기후로 인해 짧고 화려한 색상의 관목이 행성 표면에 번성하고 있습니다.","descriptionEn":"A perenially chilly climate has allowed short, colorful shrubs to flourish across this planet's surface.","conditions":[],"planets":[{"name":"데미우르그","en":"DEMIURG","wiki":"Demiurg"},{"name":"두마 티어","en":"DUMA TYR","wiki":"Duma Tyr"},{"name":"딜루비아","en":"DILUVIA","wiki":"Diluvia"},{"name":"라즈 알게티","en":"RAS ALGETHI","wiki":"Ras Algethi"},{"name":"마르탈","en":"MARTALE","wiki":"Martale"},{"name":"미다스버그","en":"MIDASBURG","wiki":"Midasburg"},{"name":"분다 세쿤두스","en":"BUNDA SECUNDUS","wiki":"Bunda Secundus"},{"name":"셸트","en":"SHELT","wiki":"Shelt"},{"name":"앤다르","en":"ANDAR","wiki":"Andar"},{"name":"엔젤스 벤처","en":"ANGEL'S VENTURE","wiki":"Angel's Venture"},{"name":"엠볼드","en":"EMBOLD"},{"name":"오로라 베이","en":"AURORA BAY","wiki":"Aurora Bay"},{"name":"일두나 프라임","en":"ILDUNA PRIME","wiki":"Ilduna Prime"},{"name":"커스 세쿤두스","en":"KERTH SECUNDUS","wiki":"Kerth Secundus"},{"name":"크루시블","en":"CRUCIBLE","wiki":"Crucible"},{"name":"트랜도르","en":"TRANDOR","wiki":"Trandor"},{"name":"황폐화된 성계","en":"RUINED SYSTEM"},{"name":"E-710이 풍부한 성계","en":"E-710-RICH SYSTEM"}],"wiki":"https://helldivers.wiki.gg/wiki/Tundra","revision":140264},{"id":"scorched-moor","name":"불탄 황무지","en":"Scorched Moor","archetype":"Moor","archetypeName":"황무지","internal":"moor_arid","description":"불타는 듯한 기온, 높은 풍량, 낮은 강수량으로 인해 일정 주기의 화염이 행성을 휩쓸고, 불지옥 사이에 짧고 무성한 부활이 폭발하듯 이루어집니다.","descriptionEn":"Scorching temperatures, high winds, and low precipitation cause a near-constant cycle of fires to sweep this planet, punctuated by short bursts of lush rebirth between infernos.","conditions":["intense-heat","fire-tornados"],"planets":[{"name":"그랜드 에런트","en":"GRAND ERRANT","wiki":"Grand Errant"},{"name":"링크 B","en":"LINK B"},{"name":"마레 IV","en":"MARRE IV","wiki":"Marre IV"},{"name":"멘켄트","en":"MENKENT","wiki":"Menkent"},{"name":"모우","en":"MAW","wiki":"Maw"},{"name":"블리스티카","en":"BLISTICA","wiki":"Blistica"},{"name":"아다라","en":"ADHARA","wiki":"Adhara"},{"name":"알미나 IV","en":"ALMINA IV"},{"name":"웨이진","en":"WEZEN","wiki":"Wezen"},{"name":"은폐된 성계","en":"CONCEALED SYSTEM"},{"name":"임버","en":"IMBER","wiki":"Imber"},{"name":"칼리아","en":"KARLIA","wiki":"Karlia"},{"name":"컬럼비대","en":"COLUMBIDAE"},{"name":"크네스 포트","en":"KNETH PORT","wiki":"Kneth Port"},{"name":"파르티온","en":"PARTION","wiki":"Partion"},{"name":"푀플리 IX","en":"PÖPLI IX","wiki":"Pöpli IX"},{"name":"헤르손 세쿤두스","en":"HERTHON SECUNDUS","wiki":"Herthon Secundus"},{"name":"헬마이어","en":"HELLMIRE","wiki":"Hellmire"},{"name":"헬마이어","en":"HELLMIRE","wiki":"Hellmire"}],"wiki":"https://helldivers.wiki.gg/wiki/Scorched_Moor","revision":140244},{"id":"ionic-crimson","name":"붉은 이온 황무지","en":"Ionic Crimson","archetype":"Moor","archetypeName":"황무지","internal":"moor_red","description":"선홍색 조류가 행성 전체에 널리 퍼져 바위 언덕을 붉은색으로 뒤덮었고, 이는 폭정으로부터 행성을 지킨 영웅들이 흘린 피를 가립니다.","descriptionEn":"A crimson algae has propagated wildly across this entire planet, coating its rocky hills with a constant red that masks the spilt blood of the heroes who defend it from tyranny.","conditions":["ion-storms"],"planets":[{"name":"가트리아","en":"GATRIA","wiki":"Gatria"},{"name":"군발드","en":"GUNVALD","wiki":"Gunvald"},{"name":"리버티 리지","en":"LIBERTY RIDGE","wiki":"Liberty Ridge"},{"name":"발가르드","en":"VALGAARD","wiki":"Valgaard"},{"name":"발모크스","en":"VALMOX","wiki":"Valmox"},{"name":"새틀라리아","en":"SATELLARIA"},{"name":"스래시 IV","en":"THRASH IV"},{"name":"스타우트","en":"STOUT","wiki":"Stout"},{"name":"아크라브 XI","en":"ACRAB XI","wiki":"Acrab XI"},{"name":"에눌리알라이","en":"ENULIALE","wiki":"Enuliale"},{"name":"예드 프라이어","en":"YED PRIOR","wiki":"Yed Prior"},{"name":"오버고 프라임","en":"OVERGOE PRIME","wiki":"Overgoe Prime"},{"name":"우바네아","en":"UBANEA","wiki":"Ubanea"},{"name":"일리시안 메도우즈","en":"ELYSIAN MEADOWS","wiki":"Elysian Meadows"},{"name":"잉그마르","en":"INGMAR","wiki":"Ingmar"},{"name":"전멸한 성계","en":"ANNIHILATED SYSTEM"},{"name":"카론 프라임","en":"CHARON PRIME","wiki":"Charon Prime"},{"name":"카르스트","en":"KHARST","wiki":"Kharst"},{"name":"크림시카","en":"CRIMSICA","wiki":"Crimsica"},{"name":"포트 생츄어리","en":"FORT SANCTUARY","wiki":"Fort Sanctuary"},{"name":"프로비던스","en":"PROVIDENCE","wiki":"Providence"},{"name":"프리덤 피크","en":"FREEDOM PEAK","wiki":"Freedom Peak"},{"name":"피에아","en":"PIEA"}],"wiki":"https://helldivers.wiki.gg/wiki/Ionic_Crimson","revision":140266},{"id":"super-earth-metropolis","name":"슈퍼지구 대도시","en":"Super Earth Metropolis","archetype":"Special","archetypeName":"특수","internal":"super_earth","description":null,"descriptionEn":null,"conditions":["rainstorms"],"planets":[{"name":"슈퍼지구","en":"SUPER EARTH","wiki":"Super Earth"}],"wiki":"https://helldivers.wiki.gg/wiki/Super_Earth_Metropolis","revision":138098},{"id":"hive-world","name":"하이브 월드","en":"Hive World","archetype":"Special","archetypeName":"특수","internal":"bug_hiveworld","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"오미크론","en":"OMICRON","wiki":"Omicron"},{"name":"오샤우네","en":"OSHAUNE","wiki":"Oshaune"},{"name":"자곤 프라임","en":"ZAGON PRIME","wiki":"Zagon Prime"}],"wiki":"https://helldivers.wiki.gg/wiki/Hive_World","revision":142331},{"id":"magma-desert","name":"마그마 사막","en":"Magma Desert","archetype":"Special","archetypeName":"특수","internal":"magma_base","description":"끊임없는 화산 분출로 인해 이 행성은 용암류로 뒤덮여 있어 민주적 생명체가 살기에 전혀 적합하지 않습니다. 또한 이로 인해 희귀한 광물의 보고가 되기도 했습니다.","descriptionEn":"Constant eruptions keep this planet covered in lava flows and utterly inhospitable to Democratic life. It also makes it a treasure trove of rare minerals.","conditions":["intense-heat"],"planets":[{"name":"뉴 위즈덤","en":"NEW WISDOM"},{"name":"뉴 인사이트","en":"NEW INSIGHT"},{"name":"목스","en":"MOX","wiki":"Mox"},{"name":"바이셉","en":"BICEP"},{"name":"아드레날 8","en":"ADRENAL 8"},{"name":"오로스","en":"OROTH"},{"name":"웨이워드","en":"WAYWARD"},{"name":"커사","en":"CURSA"},{"name":"케어론 베이","en":"KARON BAY"},{"name":"퓨리","en":"FURY","wiki":"Fury"},{"name":"K","en":"K","wiki":"K"}],"wiki":"https://helldivers.wiki.gg/wiki/Magma_Desert","revision":140249},{"id":"cyberstan-megafactory","name":"사이버스탄 메가팩토리","en":"Cyberstan Megafactory","archetype":"Arctic","archetypeName":"극지","internal":"cyberstan","description":null,"descriptionEn":null,"conditions":["extreme-cold"],"planets":[{"name":"사이버스탠","en":"CYBERSTAN","wiki":"Cyberstan"}],"wiki":"https://helldivers.wiki.gg/wiki/Cyberstan_Megafactory","revision":130691},{"id":"deciduous-forest","name":"낙엽수림","en":"Deciduous Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_base","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"램스 패치","en":"LAMB'S PATCH"},{"name":"럭셔리언트","en":"LUXURIANT","wiki":"Luxuriant"},{"name":"몬하임","en":"MONHEIM"},{"name":"브릴리언스","en":"BRILLIANCE","wiki":"Brilliance"},{"name":"앤드웰","en":"ANDWELL"},{"name":"오스피스","en":"AUSPICE"},{"name":"테렌","en":"TERRENE"},{"name":"플레지","en":"FLEDGE"},{"name":"호프풀","en":"HOPEFUL"}],"wiki":"https://helldivers.wiki.gg/wiki/Deciduous_Forest","revision":140263},{"id":"desert-oasis","name":"사막 오아시스","en":"Desert Oasis","archetype":"Oasis","archetypeName":"오아시스","internal":"oasis_base","description":null,"descriptionEn":null,"conditions":["intense-heat"],"planets":[{"name":"만딜라리아","en":"MANDILARIA"},{"name":"미네르바","en":"MINERVA"},{"name":"빅 록","en":"BIG ROCK","wiki":"Big Rock"},{"name":"아빌라","en":"AVILA"},{"name":"자이고스","en":"ZYGOS","wiki":"Zygos"},{"name":"칼레팩토리아","en":"CALEFACTORIA"},{"name":"토르 E","en":"TOR E"},{"name":"프론테리아","en":"FRONTERIA","wiki":"Fronteria"},{"name":"헷","en":"HETT"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Oasis","revision":140246},{"id":"autumn-forest","name":"가을 숲","en":"Autumn Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_autumn","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"두누니아","en":"DUNOONIA"},{"name":"바스퀸 VIII","en":"BASQUINE VIII","wiki":"Basquine VIII"},{"name":"상제스","en":"SANGIS","wiki":"Sangis"},{"name":"세렌디피티 XI","en":"SERENDIPITY XI"},{"name":"애러빌리티","en":"ARABILITY"},{"name":"자일","en":"GILE"}],"wiki":"https://helldivers.wiki.gg/wiki/Autumn_Forest","revision":140245},{"id":"bleak-oasis","name":"황량한 오아시스","en":"Bleak Oasis","archetype":"Oasis","archetypeName":"오아시스","internal":"oasis_bleak","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"UVP 감마","en":"UVP GAMMA","wiki":"UVP Gamma"}],"wiki":"https://helldivers.wiki.gg/wiki/Bleak_Oasis","revision":130693},{"id":"crimson-forest","name":"진홍 숲","en":"Crimson Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_crimson","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"UVP 알파","en":"UVP ALPHA","wiki":"UVP Alpha"}],"wiki":"https://helldivers.wiki.gg/wiki/Crimson_Forest","revision":140257},{"id":"void-forest","name":"공허의 숲","en":"Void Forest","archetype":"Special","archetypeName":"특수","internal":"rift_active","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"시시","en":"SEASSE","wiki":"Seasse"}],"wiki":"https://helldivers.wiki.gg/wiki/Void_Forest","revision":142176}];
+export const biomes = [{"id":"supercolony","name":"슈퍼식민지","en":"Supercolony","archetype":"Primordial","archetypeName":"원시","internal":"primordial_bug","description":null,"descriptionEn":null,"conditions":[],"planets":[],"wiki":"https://helldivers.wiki.gg/wiki/Supercolony","revision":130671},{"id":"volcanic-jungle","name":"화산 정글","en":"Volcanic Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_base","description":"생명이 풍부하고 물이 많은 이 행성은 깊은 바다, 울창한 숲, 그리고 키 큰 풀로 덮여 있습니다.","descriptionEn":"Abundant with life, this wet planet is covered in deep oceans, thick forests, and tall grasses.","conditions":["rainstorms","volcanic-activity"],"planets":[{"name":"나비 VII","en":"NAVI VII","wiki":"Navi VII"},{"name":"레그누스","en":"REGNUS","wiki":"Regnus"},{"name":"로그 5","en":"ROGUE 5","wiki":"Rogue 5"},{"name":"만테스","en":"MANTES","wiki":"Mantes"},{"name":"메이사","en":"MEISSA","wiki":"Meissa"},{"name":"발드릭 프라임","en":"BALDRICK PRIME","wiki":"Baldrick Prime"},{"name":"스페리온","en":"SPHERION","wiki":"Spherion"},{"name":"알타 V","en":"ALTA V","wiki":"Alta V"},{"name":"엘리바르","en":"GAELLIVARE","wiki":"Gaellivare"},{"name":"오아시스","en":"OASIS","wiki":"Oasis"},{"name":"이룰타","en":"IRULTA","wiki":"Irulta"},{"name":"제게마 패러다이스","en":"ZEGEMA PARADISE","wiki":"Zegema Paradise"},{"name":"키릭","en":"KIRRIK","wiki":"Kirrik"},{"name":"폴룩스 31","en":"POLLUX 31","wiki":"Pollux 31"},{"name":"프리모디아","en":"PRIMORDIA","wiki":"Primordia"}],"wiki":"https://helldivers.wiki.gg/wiki/Volcanic_Jungle","revision":140258},{"id":"haunted-swamp","name":"음산한 늪지","en":"Haunted Swamp","archetype":"Swamp","archetypeName":"늪지","internal":"swamp_haunted","description":"질척이는 진흙, 뒤틀린 뿌리, 부패와 무정부 상태의 냄새가 진동하는 행성입니다. 무언가로 들끓으며 끝이 없는 늪지가 있습니다.","descriptionEn":"Squelching mud, twisting roots; the odor of rot and anarchy. A teeming, endless morass.","conditions":["thick-fog"],"planets":[{"name":"가르 하린","en":"GAR HAREN","wiki":"Gar Haren"},{"name":"누블라리아 I","en":"NUBLARIA I","wiki":"Nublaria I"},{"name":"래치","en":"RATCH","wiki":"Ratch"},{"name":"메르가 IV","en":"MERGA IV","wiki":"Merga IV"},{"name":"바시르","en":"BASHYR","wiki":"Bashyr"},{"name":"세티아","en":"SETIA","wiki":"Setia"},{"name":"소코로 III","en":"SOCORRO III","wiki":"Socorro III"},{"name":"솔가스트","en":"SOLGHAST","wiki":"Solghast"},{"name":"스키터","en":"SKITTER","wiki":"Skitter"},{"name":"아트라마","en":"ATRAMA","wiki":"Atrama"},{"name":"이로","en":"IRO","wiki":"Iro"},{"name":"칸다크","en":"KHANDARK","wiki":"Khandark"},{"name":"클라카 5","en":"KLAKA 5","wiki":"Klaka 5"},{"name":"타슈","en":"TARSH","wiki":"Tarsh"}],"wiki":"https://helldivers.wiki.gg/wiki/Haunted_Swamp","revision":141006},{"id":"icy-glaciers","name":"얼음 빙하","en":"Icy Glaciers","archetype":"Arctic","archetypeName":"극지","internal":"arctic_glacier_base","description":"영원한 겨울에 잠긴 이 세계의 서리 낀 봉우리들은 너무나도 먼 별빛 속에서 희미하게 빛납니다.","descriptionEn":"Submerged in eternal winter, this world's frosty peaks glimmer in the light of its too-distant star.","conditions":["blizzards","extreme-cold"],"planets":[{"name":"뉴 스톡홀름","en":"NEW STOCKHOLM","wiki":"New Stockholm"},{"name":"뉴 키루나","en":"NEW KIRUNA","wiki":"New Kiruna"},{"name":"마르파르크","en":"MARFARK","wiki":"Marfark"},{"name":"모그","en":"MOG","wiki":"Mog"},{"name":"반달론 IV","en":"VANDALON IV","wiki":"Vandalon IV"},{"name":"베가 베이","en":"VEGA BAY","wiki":"Vega Bay"},{"name":"보그-소요스","en":"VOG-SOJOTH","wiki":"Vog-Sojoth"},{"name":"보레아","en":"BOREA","wiki":"Borea"},{"name":"아르크투루스","en":"ARKTURUS","wiki":"Arkturus"},{"name":"알라스파르 XI","en":"ALATHFAR XI","wiki":"Alathfar XI"},{"name":"엡실론 피엔시스 VI","en":"EPSILON PHOENCIS VI","wiki":"Epsilon Phoencis VI"},{"name":"오쿨 VI","en":"OKUL VI","wiki":"Okul VI"},{"name":"율헤임","en":"JULHEIM","wiki":"Julheim"},{"name":"켈비노르","en":"KELVINOR","wiki":"Kelvinor"},{"name":"헤소에 프라임","en":"HESOE PRIME","wiki":"Hesoe Prime"},{"name":"헤이다르","en":"HADAR","wiki":"Hadar"},{"name":"히스","en":"HEETH","wiki":"Heeth"}],"wiki":"https://helldivers.wiki.gg/wiki/Icy_Glaciers","revision":142571},{"id":"boneyard","name":"뼈 무덤","en":"Boneyard","archetype":"Arctic","archetypeName":"극지","internal":"arctic_glacier_coldrocky","description":"얼음과 이끼로 덮인 바위가 행성의 표면 대부분에서 발견됩니다.","descriptionEn":"Ice and moss-covered rock can be found across most of the surface of this planet.","conditions":["extreme-cold"],"planets":[{"name":"그래프미어","en":"GRAFMERE","wiki":"Grafmere"},{"name":"데네브 세쿤두스","en":"DENEB SECUNDUS","wiki":"Deneb Secundus"},{"name":"레사스","en":"LESATH","wiki":"Lesath"},{"name":"마터스 베이","en":"MARTYR'S BAY","wiki":"Martyr's Bay"},{"name":"스토어 타 프라임","en":"STOR THA PRIME","wiki":"Stor Tha Prime"},{"name":"아크룩스 IX","en":"ACRUX IX","wiki":"Acrux IX"},{"name":"에스타누","en":"ESTANU","wiki":"Estanu"},{"name":"오슬로 스테이션","en":"OSLO STATION","wiki":"Oslo Station"},{"name":"유코리아","en":"EUKORIA","wiki":"Eukoria"},{"name":"이글라","en":"IGLA","wiki":"Igla"},{"name":"이나리","en":"INARI","wiki":"Inari"},{"name":"초에페사 IV","en":"CHOEPESSA IV","wiki":"Choepessa IV"},{"name":"크라카투","en":"KRAKATWO","wiki":"Krakatwo"},{"name":"티엔 콴","en":"TIEN KWAN","wiki":"Tien Kwan"},{"name":"헤일리스 포트","en":"HALIES PORT","wiki":"Halies Port"}],"wiki":"https://helldivers.wiki.gg/wiki/Boneyard","revision":140250},{"id":"basic-swamp","name":"늪지","en":"Basic Swamp","archetype":"Swamp","archetypeName":"늪지","internal":"swamp_base","description":"높고 뒤틀린 나무들이 지면을 뒤덮은 울창한 숲 지역입니다. 매달린 덩굴 사이로 비치는 햇살이 지면의 빽빽한 덤불까지 간신히 닿습니다.","descriptionEn":"Tall, gnarled trees flourish across the surface of this forested world. Sunlight filters past dangling vines, to the saturated undergrowth below.","conditions":["rainstorms"],"planets":[{"name":"개크룩스","en":"GACRUX","wiki":"Gacrux"},{"name":"나바테아 세쿤두스","en":"NABATEA SECUNDUS","wiki":"Nabatea Secundus"},{"name":"바라보스","en":"BARABOS","wiki":"Barabos"},{"name":"보어 록","en":"BORE ROCK","wiki":"Bore Rock"},{"name":"애스페로스 프라임","en":"ASPEROTH PRIME","wiki":"Asperoth Prime"},{"name":"이스트 이리듐 트레이딩 베이","en":"EAST IRIDIUM TRADING BAY","wiki":"East Iridium Trading Bay"},{"name":"카프","en":"CAPH","wiki":"Caph"},{"name":"크라카보스","en":"KRAKABOS","wiki":"Krakabos"},{"name":"클라사","en":"CLASA","wiki":"Clasa"},{"name":"파슈","en":"PARSH","wiki":"Parsh"},{"name":"페어카드 세쿤두스","en":"PHERKAD SECUNDUS","wiki":"Pherkad Secundus"},{"name":"포렌스코구르 II","en":"FORNSKOGUR II","wiki":"Fornskogur II"},{"name":"할두스","en":"HALDUS","wiki":"Haldus"},{"name":"X-45","en":"X-45","wiki":"X-45"}],"wiki":"https://helldivers.wiki.gg/wiki/Basic_Swamp","revision":140262},{"id":"desert-dunes","name":"사막 모래언덕","en":"Desert Dunes","archetype":"Sandy","archetypeName":"사막","internal":"sandy_base","description":"타는 듯이 뜨거운 사막 행성으로, 끝없는 모래 언덕의 바다에 유일하게 있는 것은 바위 메사 뿐입니다.","descriptionEn":"A blazing-hot desert planet, its rocky mesas are the sole interruptions to the endless sea of dunes.","conditions":["intense-heat","extreme-cold","sandstorms"],"planets":[{"name":"다이아스포라 X","en":"DIASPORA X","wiki":"Diaspora X"},{"name":"데르긴","en":"DURGEN","wiki":"Durgen"},{"name":"라스토프","en":"LASTOFE","wiki":"Lastofe"},{"name":"마스티아","en":"MASTIA","wiki":"Mastia"},{"name":"비리디아 프라임","en":"VIRIDIA PRIME","wiki":"Viridia Prime"},{"name":"아웃포스트 32","en":"OUTPOST 32","wiki":"Outpost 32"},{"name":"오수프섬","en":"OSUPSAM","wiki":"Osupsam"},{"name":"자니아 프라임","en":"ZZANIAH PRIME","wiki":"Zzaniah Prime"},{"name":"추헤","en":"CHOOHE","wiki":"Choohe"},{"name":"카라무어","en":"CARAMOOR","wiki":"Caramoor"},{"name":"카이드","en":"KEID","wiki":"Keid"},{"name":"클렌 다흐스 II","en":"KLEN DAHTH II","wiki":"Klen Dahth II"},{"name":"팍트 베이","en":"PHACT BAY","wiki":"Phact Bay"},{"name":"프로푸스","en":"PROPUS","wiki":"Propus"},{"name":"헤제 베이","en":"HEZE BAY","wiki":"Heze Bay"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Dunes","revision":140241},{"id":"acidic-badlands","name":"산성 불모지","en":"Acidic Badlands","archetype":"Sandy","archetypeName":"사막","internal":"sandy_acid","description":"행성의 지각 깊숙한 곳에서부터 짙은 유독 가스가 갈라진 틈 사이로 스며 나와, 지면을 역한 아지랑이로 뒤덮고 있습니다.","descriptionEn":"Dense, toxic fumes from deep within the planet's crust seep out of cracks in the earth and coat the ground in a sickly haze.","conditions":["acid-storms"],"planets":[{"name":"다리우스 II","en":"DARIUS II","wiki":"Darius II"},{"name":"대로우스포트","en":"DARROWSPORT","wiki":"Darrowsport"},{"name":"레이스","en":"WRAITH","wiki":"Wraith"},{"name":"레잉 세쿤두스","en":"LENG SECUNDUS","wiki":"Leng Secundus"},{"name":"리르가 베이","en":"RIRGA BAY","wiki":"Rirga Bay"},{"name":"보타인","en":"BOTEIN","wiki":"Botein"},{"name":"셰테","en":"SHETE","wiki":"Shete"},{"name":"스카아시","en":"SKAASH","wiki":"Skaash"},{"name":"슬리프","en":"SLIF","wiki":"Slif"},{"name":"에스커","en":"ESKER","wiki":"Esker"},{"name":"왜샛","en":"WASAT","wiki":"Wasat"},{"name":"윌포드 스테이션","en":"WILFORD STATION","wiki":"Wilford Station"},{"name":"차르발 VII","en":"CHARBAL-VII","wiki":"Charbal-VII"}],"wiki":"https://helldivers.wiki.gg/wiki/Acidic_Badlands","revision":140243},{"id":"moon","name":"위성","en":"Moon","archetype":"Sandy","archetypeName":"사막","internal":"sandy_moon","description":"표면 아래에 매우 귀한 광물이 매장되어 있는 고독한 바위투성이의 위성입니다.","descriptionEn":"A rocky, lonely moon with extremely valuable mineral deposits underneath the surface.","conditions":["extreme-cold","meteor-storms"],"planets":[{"name":"돌프","en":"DOLPH","wiki":"Dolph"},{"name":"라스프","en":"RASP","wiki":"Rasp"},{"name":"마이아","en":"MAIA","wiki":"Maia"},{"name":"시리우스","en":"SIRIUS","wiki":"Sirius"},{"name":"알디-4","en":"RD-4","wiki":"RD-4"},{"name":"유포리아 III","en":"EUPHORIA III","wiki":"Euphoria III"},{"name":"조스마","en":"ZOSMA","wiki":"Zosma"},{"name":"큐리아","en":"CURIA","wiki":"Curia"},{"name":"클라오렐","en":"CLAORELL","wiki":"Claorell"},{"name":"테렉","en":"TERREK","wiki":"Terrek"},{"name":"펜리르 III","en":"FENRIR III","wiki":"Fenrir III"}],"wiki":"https://helldivers.wiki.gg/wiki/Moon","revision":140252},{"id":"rocky-canyons","name":"바위 협곡","en":"Rocky Canyons","archetype":"Sandy","archetypeName":"사막","internal":"sandy_mineral","description":"이 세계를 덮고 있는 건조한 바위 생물군계는 다양한 생물체가 물을 특히나 효율적으로 사용하도록 진화를 이끌었습니다.","descriptionEn":"The arid, rocky biome covering this world has driven the evolution of exceptionally efficient water usage in its various organisms.","conditions":["tremors"],"planets":[{"name":"메크부다","en":"MEKBUDA","wiki":"Mekbuda"},{"name":"미리움","en":"MYRIUM","wiki":"Myrium"},{"name":"버넌 웰스","en":"VERNEN WELLS","wiki":"Vernen Wells"},{"name":"센게이 23","en":"SENGE 23","wiki":"Senge 23"},{"name":"아즈테라","en":"AZTERRA","wiki":"Azterra"},{"name":"아치르드 III","en":"ACHIRD III","wiki":"Achird III"},{"name":"에메리아","en":"EMERIA","wiki":"Emeria"},{"name":"에플루비아","en":"EFFLUVIA","wiki":"Effluvia"},{"name":"캐스터","en":"CASTOR","wiki":"Castor"},{"name":"쿠마","en":"KUMA","wiki":"Kuma"},{"name":"크라즈","en":"KRAZ","wiki":"Kraz"},{"name":"파이오니어 II","en":"PIONEER II","wiki":"Pioneer II"},{"name":"포리 프라임","en":"FORI PRIME","wiki":"Fori Prime"},{"name":"프라사","en":"PRASA","wiki":"Prasa"},{"name":"하이드로폴 프라임","en":"HYDROFALL PRIME","wiki":"Hydrofall Prime"}],"wiki":"https://helldivers.wiki.gg/wiki/Rocky_Canyons","revision":138839},{"id":"desert-cliffs","name":"사막 절벽","en":"Desert Cliffs","archetype":"Sandy","archetypeName":"사막","internal":"sandy_spiky","description":"예측불허의 위험한 모래 회오리바람이 발생하기 쉬운 사막 행성입니다.","descriptionEn":"A desert planet prone to unpredictable and dangerous sand twisters.","conditions":["intense-heat","tremors"],"planets":[{"name":"모어택스 프라임","en":"MORTAX PRIME","wiki":"Mortax Prime"},{"name":"미라데슈","en":"MYRADESH","wiki":"Myradesh"},{"name":"아주르 세쿤두스","en":"AZUR SECUNDUS","wiki":"Azur Secundus"},{"name":"어슨 샌즈","en":"ERSON SANDS","wiki":"Erson Sands"},{"name":"에라타 프라임","en":"ERATA PRIME","wiki":"Erata Prime"},{"name":"우스토투","en":"USTOTU","wiki":"Ustotu"},{"name":"제아 루고시아","en":"ZEA RUGOSIA","wiki":"Zea Rugosia"},{"name":"카노푸스","en":"CANOPUS","wiki":"Canopus"},{"name":"케르베로스 IIIc","en":"CERBERUS IIIc","wiki":"Cerberus IIIc"},{"name":"폴라리스 프라임","en":"POLARIS PRIME","wiki":"Polaris Prime"},{"name":"하이드로비우스","en":"HYDROBIUS","wiki":"Hydrobius"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Cliffs","revision":140248},{"id":"deadlands","name":"죽음의 땅","en":"Deadlands","archetype":"Primordial","archetypeName":"원시","internal":"primordial_dead","description":"이 행성의 생기 없는 회색 지대에  그나마 있는 것은 이상하고 기생적인 돌출부에서 자라는 보라색 꽃뿐입니다.","descriptionEn":"The lifeless grey of this planet is interrupted only by the violet flowers that grow from strange, parasitic outcroppings.","conditions":["thick-fog"],"planets":[{"name":"니벨 43","en":"NIVEL 43","wiki":"Nivel 43"},{"name":"모트","en":"MORT","wiki":"Mort"},{"name":"베일","en":"VEIL","wiki":"Veil"},{"name":"스카트 베이","en":"SKAT BAY","wiki":"Skat Bay"},{"name":"시러스","en":"CIRRUS","wiki":"Cirrus"},{"name":"아이시어 패스","en":"AESIR PASS","wiki":"Aesir Pass"},{"name":"아인-5","en":"AIN-5","wiki":"Ain-5"},{"name":"알더리즈 코브","en":"ALDERIDGE COVE","wiki":"Alderidge Cove"},{"name":"알라라프","en":"ALARAPH","wiki":"Alaraph"},{"name":"트루스트","en":"TROOST","wiki":"Troost"},{"name":"판디온-XXIV","en":"PANDION-XXIV","wiki":"Pandion-XXIV"},{"name":"하카","en":"HAKA","wiki":"Haka"}],"wiki":"https://helldivers.wiki.gg/wiki/Deadlands","revision":140251},{"id":"ethereal-jungle","name":"신비로운 정글","en":"Ethereal Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_purple","description":"이 세계는 고요하고 방해받지 않은 채 표면 전체에 퍼져 있는, 무한하며 이국적인 독특한 식물 생명체로 가득합니다.","descriptionEn":"This world teems with ethereal, boundless, and peculiar plant life that spreads silent and uninterrupted across its entire surface.","conditions":[],"planets":[{"name":"모르디아 9","en":"MORDIA 9","wiki":"Mordia 9"},{"name":"베크밤 III","en":"BEKVAM III","wiki":"Bekvam III"},{"name":"빈데미타릭스 프라임","en":"VINDEMITARIX PRIME","wiki":"Vindemitarix Prime"},{"name":"샬루스","en":"SHALLUS","wiki":"Shallus"},{"name":"세이셸 비치","en":"SEYSHEL BEACH","wiki":"Seyshel Beach"},{"name":"술푸라","en":"SULFURA","wiki":"Sulfura"},{"name":"알라막 VII","en":"ALAMAK VII","wiki":"Alamak VII"},{"name":"애쿠벤즈 프라임","en":"ACUBENS PRIME","wiki":"Acubens Prime"},{"name":"어르시카 XI","en":"URSICA XI","wiki":"Ursica XI"},{"name":"에모라스","en":"EMORATH","wiki":"Emorath"},{"name":"이리디카","en":"IRIDICA","wiki":"Iridica"},{"name":"제피아","en":"ZEFIA","wiki":"Zefia"},{"name":"튜링","en":"TURING","wiki":"Turing"},{"name":"티비트","en":"TIBIT","wiki":"Tibit"},{"name":"포트 저스티스","en":"FORT JUSTICE","wiki":"Fort Justice"}],"wiki":"https://helldivers.wiki.gg/wiki/Ethereal_Jungle","revision":136201},{"id":"ionic-jungle","name":"이온 정글","en":"Ionic Jungle","archetype":"Primordial","archetypeName":"원시","internal":"primordial_blue","description":"이 행성에서 번성하는 이상한 색상의 식물군을 지탱하는 광합성의 기이한 전멸은 슈퍼지구 최고의 외계 생물학자들에게 흥미로운 미스터리로 남아 있습니다.","descriptionEn":"The strange subversion of photosynthesis that sustains the oddly-hued flora that flourishes on this planet remains an intriguing mystery to Super Earth's greatest exo-biologists.","conditions":["ion-storms"],"planets":[{"name":"뉴 헤이븐","en":"NEW HAVEN","wiki":"New Haven"},{"name":"말레벨론 크릭","en":"MALEVELON CREEK","wiki":"Malevelon Creek"},{"name":"민치어","en":"MINCHIR","wiki":"Minchir"},{"name":"벨드","en":"VELD","wiki":"Veld"},{"name":"브링크-2","en":"BRINK-2","wiki":"Brink-2"},{"name":"시엠노트","en":"SIEMNOT","wiki":"Siemnot"},{"name":"알라이르트 III","en":"ALAIRT III","wiki":"Alairt III"},{"name":"제네시스 프라임","en":"GENESIS PRIME","wiki":"Genesis Prime"},{"name":"젬마","en":"GEMMA","wiki":"Gemma"},{"name":"쿠퍼","en":"KUPER","wiki":"Kuper"},{"name":"프로스퍼리티 폴스","en":"PROSPERITY FALLS","wiki":"Prosperity Falls"},{"name":"피콕","en":"PEACOCK","wiki":"Peacock"}],"wiki":"https://helldivers.wiki.gg/wiki/Ionic_Jungle","revision":140247},{"id":"plains","name":"평원","en":"Plains","archetype":"Moor","archetypeName":"황무지","internal":"moor_baseplanet","description":"안개 낀 고원 지형이 지배적인 행성에서 바위 돌출부가 키 큰 풀밭을 관통하고 있습니다.","descriptionEn":"Rocky outcroppings punctuate fields of tall grass in a planet dominated by misty highland terrain.","conditions":["rainstorms"],"planets":[{"name":"드라우프니르","en":"DRAUPNIR","wiki":"Draupnir"},{"name":"리프","en":"REAF","wiki":"Reaf"},{"name":"마타르 베이","en":"MATAR BAY","wiki":"Matar Bay"},{"name":"민토리아","en":"MINTORIA","wiki":"Mintoria"},{"name":"바릴리아 5","en":"VARYLIA 5","wiki":"Varylia 5"},{"name":"벨라트릭스","en":"BELLATRIX","wiki":"Bellatrix"},{"name":"볼테라","en":"VOLTERRA","wiki":"Volterra"},{"name":"아카마르 IV","en":"ACAMAR IV","wiki":"Acamar IV"},{"name":"아케르나르 세쿤두스","en":"ACHERNAR SECUNDUS","wiki":"Achernar Secundus"},{"name":"아포야이 베이","en":"AFOYAY BAY","wiki":"Afoyay Bay"},{"name":"엘렉트라 베이","en":"ELECTRA BAY","wiki":"Electra Bay"},{"name":"오바리","en":"OBARI","wiki":"Obari"},{"name":"위어","en":"THE WEIR","wiki":"The Weir"},{"name":"젬스톤 블러프스","en":"GEMSTONE BLUFFS","wiki":"Gemstone Bluffs"},{"name":"테르마돈","en":"TERMADON","wiki":"Termadon"},{"name":"패스파인더 V","en":"PATHFINDER V","wiki":"Pathfinder V"},{"name":"펜마이어","en":"FENMIRE","wiki":"Fenmire"},{"name":"포트 유니언","en":"FORT UNION","wiki":"Fort Union"},{"name":"호르트","en":"HORT","wiki":"Hort"}],"wiki":"https://helldivers.wiki.gg/wiki/Plains","revision":140265},{"id":"tundra","name":"툰드라","en":"Tundra","archetype":"Moor","archetypeName":"황무지","internal":"moor_tundra","description":"끊이지 않는 추운 기후로 인해 짧고 화려한 색상의 관목이 행성 표면에 번성하고 있습니다.","descriptionEn":"A perenially chilly climate has allowed short, colorful shrubs to flourish across this planet's surface.","conditions":[],"planets":[{"name":"데미우르그","en":"DEMIURG","wiki":"Demiurg"},{"name":"두마 티어","en":"DUMA TYR","wiki":"Duma Tyr"},{"name":"딜루비아","en":"DILUVIA","wiki":"Diluvia"},{"name":"라즈 알게티","en":"RAS ALGETHI","wiki":"Ras Algethi"},{"name":"마르탈","en":"MARTALE","wiki":"Martale"},{"name":"미다스버그","en":"MIDASBURG","wiki":"Midasburg"},{"name":"분다 세쿤두스","en":"BUNDA SECUNDUS","wiki":"Bunda Secundus"},{"name":"셸트","en":"SHELT","wiki":"Shelt"},{"name":"앤다르","en":"ANDAR","wiki":"Andar"},{"name":"오로라 베이","en":"AURORA BAY","wiki":"Aurora Bay"},{"name":"일두나 프라임","en":"ILDUNA PRIME","wiki":"Ilduna Prime"},{"name":"커스 세쿤두스","en":"KERTH SECUNDUS","wiki":"Kerth Secundus"},{"name":"크루시블","en":"CRUCIBLE","wiki":"Crucible"},{"name":"트랜도르","en":"TRANDOR","wiki":"Trandor"}],"wiki":"https://helldivers.wiki.gg/wiki/Tundra","revision":140264},{"id":"scorched-moor","name":"불탄 황무지","en":"Scorched Moor","archetype":"Moor","archetypeName":"황무지","internal":"moor_arid","description":"불타는 듯한 기온, 높은 풍량, 낮은 강수량으로 인해 일정 주기의 화염이 행성을 휩쓸고, 불지옥 사이에 짧고 무성한 부활이 폭발하듯 이루어집니다.","descriptionEn":"Scorching temperatures, high winds, and low precipitation cause a near-constant cycle of fires to sweep this planet, punctuated by short bursts of lush rebirth between infernos.","conditions":["intense-heat","fire-tornados"],"planets":[{"name":"그랜드 에런트","en":"GRAND ERRANT","wiki":"Grand Errant"},{"name":"마레 IV","en":"MARRE IV","wiki":"Marre IV"},{"name":"멘켄트","en":"MENKENT","wiki":"Menkent"},{"name":"모우","en":"MAW","wiki":"Maw"},{"name":"블리스티카","en":"BLISTICA","wiki":"Blistica"},{"name":"아다라","en":"ADHARA","wiki":"Adhara"},{"name":"웨이진","en":"WEZEN","wiki":"Wezen"},{"name":"임버","en":"IMBER","wiki":"Imber"},{"name":"칼리아","en":"KARLIA","wiki":"Karlia"},{"name":"크네스 포트","en":"KNETH PORT","wiki":"Kneth Port"},{"name":"파르티온","en":"PARTION","wiki":"Partion"},{"name":"푀플리 IX","en":"PÖPLI IX","wiki":"Pöpli IX"},{"name":"헤르손 세쿤두스","en":"HERTHON SECUNDUS","wiki":"Herthon Secundus"},{"name":"헬마이어","en":"HELLMIRE","wiki":"Hellmire"}],"wiki":"https://helldivers.wiki.gg/wiki/Scorched_Moor","revision":140244},{"id":"ionic-crimson","name":"붉은 이온 황무지","en":"Ionic Crimson","archetype":"Moor","archetypeName":"황무지","internal":"moor_red","description":"선홍색 조류가 행성 전체에 널리 퍼져 바위 언덕을 붉은색으로 뒤덮었고, 이는 폭정으로부터 행성을 지킨 영웅들이 흘린 피를 가립니다.","descriptionEn":"A crimson algae has propagated wildly across this entire planet, coating its rocky hills with a constant red that masks the spilt blood of the heroes who defend it from tyranny.","conditions":["ion-storms"],"planets":[{"name":"가트리아","en":"GATRIA","wiki":"Gatria"},{"name":"군발드","en":"GUNVALD","wiki":"Gunvald"},{"name":"리버티 리지","en":"LIBERTY RIDGE","wiki":"Liberty Ridge"},{"name":"발가르드","en":"VALGAARD","wiki":"Valgaard"},{"name":"발모크스","en":"VALMOX","wiki":"Valmox"},{"name":"스타우트","en":"STOUT","wiki":"Stout"},{"name":"아크라브 XI","en":"ACRAB XI","wiki":"Acrab XI"},{"name":"에눌리알라이","en":"ENULIALE","wiki":"Enuliale"},{"name":"예드 프라이어","en":"YED PRIOR","wiki":"Yed Prior"},{"name":"오버고 프라임","en":"OVERGOE PRIME","wiki":"Overgoe Prime"},{"name":"우바네아","en":"UBANEA","wiki":"Ubanea"},{"name":"일리시안 메도우즈","en":"ELYSIAN MEADOWS","wiki":"Elysian Meadows"},{"name":"잉그마르","en":"INGMAR","wiki":"Ingmar"},{"name":"카론 프라임","en":"CHARON PRIME","wiki":"Charon Prime"},{"name":"카르스트","en":"KHARST","wiki":"Kharst"},{"name":"크림시카","en":"CRIMSICA","wiki":"Crimsica"},{"name":"포트 생츄어리","en":"FORT SANCTUARY","wiki":"Fort Sanctuary"},{"name":"프로비던스","en":"PROVIDENCE","wiki":"Providence"},{"name":"프리덤 피크","en":"FREEDOM PEAK","wiki":"Freedom Peak"}],"wiki":"https://helldivers.wiki.gg/wiki/Ionic_Crimson","revision":140266},{"id":"super-earth-metropolis","name":"슈퍼지구 대도시","en":"Super Earth Metropolis","archetype":"Special","archetypeName":"특수","internal":"super_earth","description":null,"descriptionEn":null,"conditions":["rainstorms"],"planets":[],"wiki":"https://helldivers.wiki.gg/wiki/Super_Earth_Metropolis","revision":138098},{"id":"hive-world","name":"하이브 월드","en":"Hive World","archetype":"Special","archetypeName":"특수","internal":"bug_hiveworld","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"오미크론","en":"OMICRON","wiki":"Omicron"},{"name":"오샤우네","en":"OSHAUNE","wiki":"Oshaune"},{"name":"자곤 프라임","en":"ZAGON PRIME","wiki":"Zagon Prime"}],"wiki":"https://helldivers.wiki.gg/wiki/Hive_World","revision":142331},{"id":"magma-desert","name":"마그마 사막","en":"Magma Desert","archetype":"Special","archetypeName":"특수","internal":"magma_base","description":"끊임없는 화산 분출로 인해 이 행성은 용암류로 뒤덮여 있어 민주적 생명체가 살기에 전혀 적합하지 않습니다. 또한 이로 인해 희귀한 광물의 보고가 되기도 했습니다.","descriptionEn":"Constant eruptions keep this planet covered in lava flows and utterly inhospitable to Democratic life. It also makes it a treasure trove of rare minerals.","conditions":["intense-heat"],"planets":[{"name":"뉴 인사이트","en":"NEW INSIGHT"},{"name":"목스","en":"MOX","wiki":"Mox"},{"name":"웨이워드","en":"WAYWARD"},{"name":"퓨리","en":"FURY","wiki":"Fury"},{"name":"K","en":"K","wiki":"K"}],"wiki":"https://helldivers.wiki.gg/wiki/Magma_Desert","revision":140249},{"id":"cyberstan-megafactory","name":"사이버스탄 메가팩토리","en":"Cyberstan Megafactory","archetype":"Arctic","archetypeName":"극지","internal":"cyberstan","description":null,"descriptionEn":null,"conditions":["extreme-cold"],"planets":[{"name":"사이버스탠","en":"CYBERSTAN","wiki":"Cyberstan"}],"wiki":"https://helldivers.wiki.gg/wiki/Cyberstan_Megafactory","revision":130691},{"id":"deciduous-forest","name":"낙엽수림","en":"Deciduous Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_base","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"럭셔리언트","en":"LUXURIANT","wiki":"Luxuriant"},{"name":"브릴리언스","en":"BRILLIANCE","wiki":"Brilliance"}],"wiki":"https://helldivers.wiki.gg/wiki/Deciduous_Forest","revision":140263},{"id":"desert-oasis","name":"사막 오아시스","en":"Desert Oasis","archetype":"Oasis","archetypeName":"오아시스","internal":"oasis_base","description":null,"descriptionEn":null,"conditions":["intense-heat"],"planets":[{"name":"빅 록","en":"BIG ROCK","wiki":"Big Rock"},{"name":"자이고스","en":"ZYGOS","wiki":"Zygos"},{"name":"프론테리아","en":"FRONTERIA","wiki":"Fronteria"}],"wiki":"https://helldivers.wiki.gg/wiki/Desert_Oasis","revision":140246},{"id":"autumn-forest","name":"가을 숲","en":"Autumn Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_autumn","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"바스퀸 VIII","en":"BASQUINE VIII","wiki":"Basquine VIII"},{"name":"상제스","en":"SANGIS","wiki":"Sangis"}],"wiki":"https://helldivers.wiki.gg/wiki/Autumn_Forest","revision":140245},{"id":"bleak-oasis","name":"황량한 오아시스","en":"Bleak Oasis","archetype":"Oasis","archetypeName":"오아시스","internal":"oasis_bleak","description":null,"descriptionEn":null,"conditions":[],"planets":[],"wiki":"https://helldivers.wiki.gg/wiki/Bleak_Oasis","revision":130693},{"id":"crimson-forest","name":"진홍 숲","en":"Crimson Forest","archetype":"Forest","archetypeName":"숲","internal":"deciduous_crimson","description":null,"descriptionEn":null,"conditions":[],"planets":[],"wiki":"https://helldivers.wiki.gg/wiki/Crimson_Forest","revision":140257},{"id":"void-forest","name":"공허의 숲","en":"Void Forest","archetype":"Special","archetypeName":"특수","internal":"rift_active","description":null,"descriptionEn":null,"conditions":[],"planets":[{"name":"시시","en":"SEASSE","wiki":"Seasse"}],"wiki":"https://helldivers.wiki.gg/wiki/Void_Forest","revision":142176}];
 export const statusEffects = [
  {
   "id": "acid",
@@ -1099,7 +1185,7 @@ export const statusEffects = [
   "en": "Acid Splash",
   "detail": [
    "산성에 묻으면 4초 동안 느려지고 지속 피해를 받을 수 있습니다.",
-   "테르미니드의 산성 공격(스피터·스퓨어·차저·바일 타이탄 등)과 벌레 지뢰, 스포어 버스트 변종이 겁니다."
+   "테르미니드의 산성 공격(스피터·스퓨어·차저·바일 타이탄 등)과 버그 지뢰, 스포어 버스트 변종이 겁니다."
   ],
   "detailEn": [
    "Acid slows you for 4 seconds and may deal damage over time.",
@@ -1125,7 +1211,7 @@ export const statusEffects = [
   "en": "Fire",
   "detail": [
    "불은 AP 4 장갑까지 뚫고 기본 3초 동안 탑니다. 큰 적은 불 피해 배율이 높을 수 있습니다(임페일러 1.7배).",
-   "화염방사기처럼 직접 뿜는 불은 적을 혼란에 빠뜨리고 느리게 합니다(대형 이상 비벌레 적 제외).",
+   "화염방사기처럼 직접 뿜는 불은 적을 혼란에 빠뜨리고 느리게 합니다(대형 이상 버그가 아닌 적 제외).",
    "네이팜 이글·네이팜 포격·일회성 네이팜은 1초 동안 훨씬 강한 화상을 더합니다."
   ],
   "detailEn": [

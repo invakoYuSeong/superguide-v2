@@ -28,6 +28,7 @@ const boosters = Object.entries(wiki.boosters).map(([id, page]) => {
     description: text.description ? gameText(ko(text.description), text.value) : null,
     descriptionEn: text.description ? gameText(text.description, text.value) : null,
     detail: text.detail?.ko ?? null, detailEn: text.detail?.en ?? null,
+    ...(text.tips && { tips: text.tips.ko, tipsEn: text.tips.en }),
     warbondId, page: facts.page, cost: facts.cost, order: facts.order,
     icon: { src: `./assets/boosters/${page.icon.file}`, source: page.icon.source, sha256: page.icon.sha256 },
     wiki: `https://helldivers.wiki.gg/wiki/${page.title.replaceAll(' ', '_')}`, revision: page.revision,

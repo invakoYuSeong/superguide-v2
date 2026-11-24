@@ -52,15 +52,24 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds, game 
     const gameName = game.passives[title];
     if (!gameName && ko.name != null && !namuHeadings.has(ko.name) && !namuHeadings.has(ko.name.split(', ')[0])) throw new Error(`Korean passive name "${ko.name}" (${title}) is not a Namu Wiki heading in db/source/namu_armor.json`);
     if (ko.effects.length !== parsed.effects.length) throw new Error(`${title}: ${ko.effects.length} Korean effect lines for ${parsed.effects.length} wiki lines`);
+    if (ko.exact && ko.exact.length !== ko.effects.length) throw new Error(`${title}: 'exact' has ${ko.exact.length} entries for ${ko.effects.length} effect lines`);
+    const pageNumbers = new Set(numbersOf(page.wikitext));
     const effects = parsed.effects.map((en, i) => {
       if (numbersOf(ko.effects[i]).join() !== numbersOf(en).join()) throw new Error(`${title}: numbers differ between "${ko.effects[i]}" and wiki "${en}"`);
-      return { name: ko.effects[i], en };
+      // The exact value the wiki Explanation gives for a vague game line ('higher armor rating' = +50).
+      const exact = ko.exact?.[i];
+      if (!exact) return { name: ko.effects[i], en };
+      if (numbersOf(exact[0]).join() !== numbersOf(exact[1]).join()) throw new Error(`${title}: numbers differ between exact "${exact[0]}" and "${exact[1]}"`);
+      // exactRounded: a number the user chose to round from a wiki range, with that range ({ '55': '54-56' }).
+      const missing = numbersOf(exact[1]).filter(number => !pageNumbers.has(number) && !ko.exactRounded?.[number]?.split('-').every(end => pageNumbers.has(end)));
+      if (missing.length) throw new Error(`${title}: exact "${exact[1]}" has ${missing.join(', ')}, not on the wiki page`);
+      return { name: ko.effects[i], en, exact: exact[0], exactEn: exact[1] };
     });
     const id = armorId(title);
     passiveIds.set(title, id);
     return {
       id, name: gameName ?? ko.name ?? title, en: title, nameStatus: gameName || ko.name != null ? 'confirmed' : UNCONFIRMED, ...(gameName ? { nameSource: 'game' } : {}),
-      order: parsed.order, icon: parsed.icon, effects,
+      order: parsed.order, icon: parsed.icon, effects, ...(ko.tips && { tips: ko.tips.ko, tipsEn: ko.tips.en }),
       source: page.source, revision: page.revision, revisionTimestamp: page.revisionTimestamp,
     };
   });
