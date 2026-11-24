@@ -14,7 +14,7 @@ import { factionLoadouts } from '../dist/data/faction-loadouts.js';
 import { wikiIcons } from '../dist/data/wiki-icons.js';
 import { combatImages } from '../dist/data/combat-images.js';
 import { pickerEnemyImages, pickerStructureImages } from '../dist/data/selector-images.js';
-import { solveMatchup, hitDamage } from '../dist/core/combat.js';
+import { solveMatchup, hitDamage, blastFalloff } from '../dist/core/combat.js';
 import { recommend } from '../dist/core/factions.js';
 import { versionFiles, readSources, localReferences } from './version-assets.mjs';
 
@@ -103,6 +103,10 @@ ok(shareTo({ hp: 1000, armor: 4, exdr: 0 }).mainExplosion === 65, 'equal AP pass
 ok(shareTo({ hp: 1000, armor: 5, exdr: 0 }).mainExplosion === 0, 'main armor above the blast AP stops the share');
 ok(shareTo({ hp: 1000, armor: 0, exdr: 0 }, { exdrRedirect: false }).mainExplosion === 0, 'rule off: no share');
 ok(hitDamage(blastShot, { ...testPart, exdr: 100 }, { hp: 1000, armor: 0, exdr: 0 }).mainExplosion === 400, 'ExDR 100 still redirects the whole blast');
+// Blast falloff (helldiversotl.com explosion-falloff tables): Leveller 12.5 m of 10-25 m = 59.2%, Eagle 500kg 20 m = 55.6%.
+ok(Math.round(blastFalloff(2.5 / 15) * 1000) === 592 && Math.round(blastFalloff(10 / 15, true) * 1000) === 556, 'standard and wide blast falloff curves');
+const quarterOut = hitDamage(blastShot, testPart, { hp: 1000, armor: 0, exdr: 0 }, { directHit: false, blastDistance: 1.25 });
+ok(quarterOut.explosion === 200, 'a quarter of the way through the falloff band deals half (standard curve)');
 
 // --- Search ------------------------------------------------------------------------
 const names = query => search(stratagems, query, stratagemFields).map(item => item.name);

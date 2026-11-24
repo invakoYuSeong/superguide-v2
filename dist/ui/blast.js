@@ -3,6 +3,7 @@ import { num } from '../core/explain.js';
 import { html } from './dom.js';
 import { L } from '../core/i18n.js';
 import { apBandOf } from '../core/catalog.js';
+import { blastFalloff, WIDE_BLASTS } from '../core/combat.js';
 
 // An enemy behind the circles at the same scale, so the radius reads against something known, each kept to
 // roughly seven to ten tenths of the circle where a clean picture allows: a Rocket Devastator up to 2 m, a Hulk
@@ -36,10 +37,13 @@ let figureCount = 0;
 
 export function blastFigure(item) {
   if (item.radius == null || item.innerRadius == null) return '';
-  // The falloff ring fades from the inner circle to nothing at the outer edge, as the damage does (linear,
-  // core/combat.js blastAt), so the full-damage core reads as the range that counts (user decision 2026-11-23).
+  // The falloff ring fades from the inner circle to nothing at the outer edge along the damage curve
+  // (core/combat.js blastFalloff), so the full-damage core reads as the range that counts (user decision 2026-11-23).
+  // Half damage: x = 1/4 of the band on the standard curve (1 - sqrt x), x = sqrt(1/2) on the wide one (1 - x^2).
   const fade = `blast-fade-${++figureCount}`;
-  const flat = item.innerRadius >= item.radius, half = (item.innerRadius + item.radius) / 2;
+  const wide = WIDE_BLASTS.has(item.id);
+  const flat = item.innerRadius >= item.radius;
+  const half = Math.round((item.innerRadius + (item.radius - item.innerRadius) * (wide ? Math.SQRT1_2 : 0.25)) * 10) / 10;
   // Falloff penetration as core/combat.js blastAt has it (one less, never below 2), named by armor class, since
   // big blasts still go through medium or heavy armor out there.
   const fallAp = item.splashAp != null ? Math.max(2, item.splashAp - 1) : null;
@@ -56,7 +60,7 @@ export function blastFigure(item) {
   return html`<section class="block"><h3>${L('폭발 반경', 'Blast radius')}</h3><div class="blast">
     <svg width="220" height="220" viewBox="0 0 132 132" role="img" aria-label="${L(`폭발 반경: 중심 ${item.innerRadius}m, 외곽 ${item.radius}m`, `Blast radius: inner ${item.innerRadius}m, outer ${item.radius}m`)}">
       <defs><radialGradient id="${fade}" gradientUnits="userSpaceOnUse" cx="66" cy="66" r="${outer}">
-        <stop offset="${inner / outer}" style="stop-color:var(--accent);stop-opacity:.3"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/>
+        ${[0, 0.25, 0.5, 0.75, 1].map(x => html`<stop offset="${(inner + (outer - inner) * x) / outer}" style="stop-color:var(--accent);stop-opacity:${Math.round(0.3 * blastFalloff(x, wide) * 1000) / 1000}"/>`)}
       </radialGradient></defs>
       <circle cx="66" cy="66" r="${outer}" fill="url(#${fade})" stroke="var(--accent)" stroke-opacity=".45" stroke-dasharray="3 4"/>
       <circle cx="66" cy="66" r="${inner}" fill="var(--accent)" fill-opacity=".35"/>
