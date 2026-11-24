@@ -228,6 +228,12 @@ function ammoCells(item) {
   ];
 }
 
+// Reload tags beside the hole tag (user request 2026-11-24): the Stationary Reload trait, and a teammate's assisted reload.
+const reloadTags = item => {
+  const r = stratagemStats[item.id]?.reload;
+  return html`${r?.stationary ? badge(L('정지 재장전', 'Stationary reload')) : ''}${r?.assisted != null || r?.assistedPerClip != null ? badge(L('장전 지원', 'Assisted reload')) : ''}`;
+};
+
 // Support weapon reload from the wiki infobox (stratagem-stats.js reload): from empty, with rounds left, by a teammate
 // from the backpack, a clip-fed weapon's clips, and the Stationary Reload trait (user request 2026-11-24).
 function reloadCell(item) {
@@ -238,16 +244,16 @@ function reloadCell(item) {
   const on = modulesOn();
   const v = key => on ? r[`${key}Upgraded`] ?? r[key] : r[key];
   const main = r.time != null ? 'time' : 'tactical';
-  const moduleNote = !on ? L('함선 모듈 미적용', 'Without ship modules') : r[`${main}Upgraded`] != null ? L(`기본 ${num(r[main])}초`, `Base ${num(r[main])}s`) : L('함선 모듈 반영값 미확인', 'Ship module value unverified');
+  // The base time and the module's cut are a sentence under the key stats (reloadModuleNote), not in the caption.
   const parts = [
-    moduleNote,
+    !on ? L('함선 모듈 미적용', 'Without ship modules') : '',
     // Emptying first is faster on a heat weapon: an overheated heat sink pops out by itself (Laser Cannon).
     r.time != null && r.tactical != null && r.time < r.tactical ? (stratagemStats[item.id]?.heat ? L(`과열됐을 때 · 과열 전에 갈면 ${num(v('tactical'))}초(방열판이 저절로 빠져 과열됐을 때가 더 빠름)`, `When overheated · ${num(v('tactical'))}s before that (the heat sink pops out by itself, so overheated is faster)`)
-      : L(`탄창을 비웠을 때 · 탄이 남았을 때 ${num(v('tactical'))}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · ${num(v('tactical'))}s with rounds left (emptying first is faster)`))
-    : r.time != null && r.tactical != null ? (r.time === r.tactical ? L('전술 재장전 없음', 'No tactical reload') : L(`탄이 남았을 때 ${num(v('tactical'))}초`, `${num(v('tactical'))}s with rounds left`)) : r.time == null ? L('탄이 남았을 때', 'With rounds left') : L('탄창을 비웠을 때', 'From empty'),
+      : L(`탄창을 비웠을 때 · 전술 재장전 ${num(v('tactical'))}초(비우고 장전하는 쪽이 더 빠름)`, `From empty · tactical reload ${num(v('tactical'))}s (emptying first is faster)`))
+    : r.time != null && r.tactical != null ? (r.time === r.tactical ? L('전술 재장전 없음', 'No tactical reload') : L(`전술 재장전 ${num(v('tactical'))}초`, `Tactical reload ${num(v('tactical'))}s`)) : r.time == null ? L('전술 재장전', 'Tactical reload') : L('탄창을 비웠을 때', 'From empty'),
     r.clipFirst != null ? L(`클립 하나씩 장전 ${num(v('clipFirst'))}초, 다음 클립 ${num(v('clipRest'))}초`, `Clip by clip: ${num(v('clipFirst'))}s, then ${num(v('clipRest'))}s each`) : '',
-    r.assisted != null ? L(`동료가 장전하면 ${num(r.assisted)}초`, `${num(r.assisted)}s when a teammate loads it`) : '',
-    r.stationary ? L('정지 재장전: 장전하는 동안 움직일 수 없음', 'Stationary reload: you cannot move while reloading') : '',
+    r.assisted != null ? L(`동료가 장전하면 ${num(r.assisted)}초`, `${num(r.assisted)}s when a teammate loads it`) : r.assistedPerClip != null ? L(`동료가 장전하면 클립당 ${num(r.assistedPerClip)}초`, `${num(r.assistedPerClip)}s a clip when a teammate loads it`) : '',
+    r.stationary ? L('정지 재장전', 'Stationary reload') : '',
   ].filter(Boolean).join(' · ');
   return html`<div><dt>${L('재장전', 'Reload')}</dt><dd>${num(v(main))}<small>${s}</small></dd><div class="caption">${parts}</div></div>`;
 }
@@ -410,7 +416,18 @@ function specialCells(item, profile, variant = null) {
   return rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`);
 }
 // The key stats grid with the special effect cells at its end, and their note under it.
-const statsWithEffects = (shown, cells) => html`${statGrid(shown, cells)}${cells.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>` : ''}`;
+// The ship module's cut to a support weapon's reload, as the wiki's base and upgraded times give it (user request 2026-11-24).
+function reloadModuleNote(item) {
+  const r = stratagemStats[item.id]?.reload;
+  const main = r?.time != null ? 'time' : 'tactical';
+  if (!r?.[`${main}Upgraded`]) return '';
+  const cut = Math.round((1 - r[`${main}Upgraded`] / r[main]) * 100);
+  return L(`함선 모듈 업그레이드 시 재장전 시간이 ${num(r[main])}초에서 ${cut}% 감소합니다.`, `The ship module upgrade cuts the reload from ${num(r[main])}s by ${cut}%.`);
+}
+const statsWithEffects = (shown, cells) => {
+  const notes = [reloadModuleNote(shown), cells.length ? FORCE_NOTE : ''].filter(Boolean);
+  return html`${statGrid(shown, cells)}${notes.map(note => html`<p class="faint" style="font-size:12.5px;margin-top:8px">${note}</p>`)}`;
+};
 
 // The detail grid: the card stats plus durable damage, ammo and fire rate (data-support.js), a support
 // weapon's ergonomics and sway (datamine) and the ship unlock (level and Requisition Slips, wiki infobox).
@@ -487,7 +504,7 @@ export function stratagemDetail(item, { demolition = false, force = null, header
   <div class="sheet-content">
     <div class="detail-id"><img class="strat-icon large" src="${wikiIcons[item.id]?.src}" alt="" width="64" height="64">
       <div><h2 id="${titleId}">${item.name}</h2><p>${subtitle(item)}</p>
-      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}${holeTag(item)}</div>${holeNote(item)}</div></div>
+      <div class="chips" style="margin-top:6px">${badge(cat.name, 'outline')}${warbondChip('arsenal', item.id)}${item.ap != null ? badge(`AP ${item.ap} · ${apBandOf(item).name}`, 'accent') : ''}${item.tags.map(tag => badge(tag))}${stratagemStats[item.id]?.oneHanded ? badge(L('한손', 'One-handed')) : ''}${holeTag(item)}${reloadTags(item)}</div>${holeNote(item)}</div></div>
     ${item.input ? html`<div class="block"><h3>${L('호출 코드', 'Stratagem code')}</h3>${keycaps(item.input, 'large')}</div>` : ''}
     <p style="font-size:16px">${item.summary}</p>
     ${firingModesBlock(item)}

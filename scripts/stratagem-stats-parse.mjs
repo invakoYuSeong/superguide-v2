@@ -115,7 +115,7 @@ const reloadParts = text => {
     if (!(key in out)) out[key] = Number(m[1]);
   }
   // '1.2s {{*}} 1.35s (Base)' (Railgun): the labelled base wins over an unlabelled number.
-  return { base: out.base ?? out.plain ?? null, upgraded: out.upgraded ?? null, assisted: out.assisted ?? null };
+  return { base: out.base ?? out.plain ?? null, upgraded: out.upgraded ?? null, assisted: out.assisted ?? null, assistedPerClip: out['assisted per clip'] ?? null };
 };
 export function reloadOf(entry) {
   const box = entry?.infobox ?? '';
@@ -127,7 +127,7 @@ export function reloadOf(entry) {
   const stationary = /Stationary Reload/i.test(line('traits'));
   // *Upgraded: the wiki's value with the ship module (shown while ship modules are on, user request 2026-11-24).
   const pair = (key, parts) => ({ ...(parts.base != null && { [key]: parts.base }), ...(parts.upgraded != null && { [`${key}Upgraded`]: parts.upgraded }) });
-  const out = { ...pair('time', full), ...pair('tactical', tac), ...(full.assisted != null && { assisted: full.assisted }), ...pair('clipFirst', first), ...pair('clipRest', rest), ...(stationary && { stationary }) };
+  const out = { ...pair('time', full), ...pair('tactical', tac), ...(full.assisted != null && { assisted: full.assisted }), ...(full.assistedPerClip != null && { assistedPerClip: full.assistedPerClip }), ...pair('clipFirst', first), ...pair('clipRest', rest), ...(stationary && { stationary }) };
   return Object.keys(out).length ? out : null;
 }
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
