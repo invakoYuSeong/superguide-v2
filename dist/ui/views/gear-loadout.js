@@ -52,13 +52,13 @@ function slotTile(slot) {
 
 // --- Slot picker sheet -------------------------------------------------------------
 // Candidates grouped by kind: weapon subtypes (data order) or stratagem categories.
-const weaponFields = w => ({ names: personalNames(w), text: [typeName(w.type), ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
+const weaponFields = w => ({ names: personalNames(w), text: [typeName(w.type)], keywords: collabKeywords(warbondSources[`gear/${w.id}`]?.id) });
 function pickerGroups(slot) {
   if (slot.stratagem != null) {
     const taken = new Set(env.loadout.st.filter((id, index) => id && index !== slot.stratagem));
     // Mission and shared stratagems (reinforce, resupply, objectives) are not loadout picks.
     const list = stratagems.filter(item => item.category !== 'mission' && !taken.has(item.id));
-    return categories.map(cat => ({ id: cat.id, name: cat.name, color: cat.color, fields: item => { const fields = stratagemFields(item); return { ...fields, text: [...fields.text, ...collabKeywords(warbondSources[`arsenal/${item.id}`]?.id)] }; }, items: list.filter(item => item.category === cat.id) }))
+    return categories.map(cat => ({ id: cat.id, name: cat.name, color: cat.color, fields: item => ({ ...stratagemFields(item), keywords: collabKeywords(warbondSources[`arsenal/${item.id}`]?.id) }), items: list.filter(item => item.category === cat.id) }))
       .filter(group => group.items.length);
   }
   const list = personalWeapons.filter(w => w.category === slot.group);

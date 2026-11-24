@@ -105,7 +105,7 @@ export function armorDetail(armor, { header = null, titleId = 'sheet-title', inG
 
 const passiveById = new Map(armorPassives.map(passive => [passive.id, passive]));
 // The passive counts as a name, so its initials find it too ('ㄷㄱ' for 둔기 충격 완화), as they do the set's own name.
-const searchFields = armor => ({ names: [...personalNames(armor), passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en].filter(Boolean), text: [warbondById.get(armor.source.warbondId)?.name, ...collabKeywords(armor.source.warbondId)].filter(Boolean) });
+const searchFields = armor => ({ names: [...personalNames(armor), passiveById.get(armor.passive)?.name, passiveById.get(armor.passive)?.en].filter(Boolean), text: [warbondById.get(armor.source.warbondId)?.name].filter(Boolean), keywords: collabKeywords(armor.source.warbondId) });
 
 /** Renders the armor tab into panel. state.weight and state.passive (comma list) filter ('' = all); state.focus marks one set.
  *  state.q searches every set (as the gear browser searches every group), still grouped by passive. */

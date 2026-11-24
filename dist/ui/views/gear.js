@@ -143,7 +143,7 @@ function card(w) {
 
 // --- Browse ------------------------------------------------------------------------
 const typesOf = cat => orderTypes(new Set(personalWeapons.filter(w => w.category === cat).map(w => w.type)));
-const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name, ...collabKeywords(warbondSources[`gear/${w.id}`]?.id)] });
+const fields = w => ({ names: personalNames(w), text: [typeName(w.type), groupOf(w.category).name], keywords: collabKeywords(warbondSources[`gear/${w.id}`]?.id) });
 
 function visibleItems() {
   // A search looks across every group, so "세열" finds the grenade from the rifle list.
