@@ -150,7 +150,7 @@ export const boosters = [
   "en": "Localization Confusion",
   "description": "적과의 전투 사이의 시간이 증가합니다.",
   "descriptionEn": "Increases the time between enemy encounters.",
-  "detail": "벌레굴·드롭십 같은 적 증원 호출 사이의 간격이 길어집니다. 호출 사이의 대기 시간이 약 15% 길어집니다(난이도 9에서 혼자일 때 2분 30초 → 약 2분 52.5초). 순찰대가 생기는 빈도와 호출 뒤 오는 적의 수는 그대로입니다.",
+  "detail": "벌레굴·드롭십 같은 적 증원 호출 사이의 간격이 길어집니다. 호출 사이의 대기 시간이 약 15% 길어집니다(난이도 9에서 혼자일 때 2분 30초에서 약 2분 52.5초로). 순찰대가 생기는 빈도와 호출 뒤 오는 적의 수는 그대로입니다.",
   "detailEn": "Enemy reinforcement calls such as bug breaches and dropships come further apart. The wait between calls grows by about 15% (2 min 30 s to about 2 min 52.5 s when solo on difficulty 9). Patrol spawns and the size of each call are unchanged.",
   "warbondId": "cutting-edge",
   "page": 1,
