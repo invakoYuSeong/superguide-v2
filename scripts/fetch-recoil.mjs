@@ -1,7 +1,8 @@
 // Downloads the weapon recoil table of helldiversotl.com/research/recoil (base sway, weapon drift and
 // camera climb from the game's weapon data; the page states the game version it was written for) into
 // db/source/otl_recoil.json. The page's own text is kept as numbers: '10 / 15' -> [10, 15], '1x' -> 1.
-// The wiki datamine has only the attachment changes to recoil, not the base values.
+// The site takes drift and climb from the wiki datamine (they matched this table on 2026-11-24); only the
+// angle limits (where vertical recoil eases off), which the datamine lacks, come from here.
 // Usage: node scripts/fetch-recoil.mjs  ->  node scripts/build-recoil.mjs
 import { writeFile } from 'node:fs/promises';
 

@@ -1,4 +1,5 @@
-// Weapon recoil: dist/data/weapon-recoil.js is what build-recoil.mjs makes from db/source/otl_recoil.json, every
+// Weapon recoil: dist/data/weapon-recoil.js is what build-recoil.mjs makes from the wiki datamine (and the angle
+// limits of db/source/otl_recoil.json), every
 // key is a real gear or support weapon, and the gear detail shows the recoil cells in its detailed stats.
 import assert from 'node:assert/strict';
 import { weaponRecoil, recoilSource } from '../dist/data/weapon-recoil.js';
@@ -25,4 +26,4 @@ const [h, v] = weaponRecoil[`gear/${sample.id}`].drift;
 const detail = String(weaponDetail(sample));
 ok(detail.includes(`<dt>무기 반동</dt><dd>${h} / ${v}</dd>`), `${sample.id}: gear detail shows the weapon kick`);
 ok(detail.indexOf('무기 반동') > detail.indexOf('세부 수치'), `${sample.id}: recoil sits in the detailed stats, not the key stats`);
-console.log(`PASS recoil: ${checks} checks (${Object.keys(weaponRecoil).length} weapons, written for game ${recoilSource.writtenFor}; not on the site: ${built.unmatched.length}).`);
+console.log(`PASS recoil: ${checks} checks (${Object.keys(weaponRecoil).length} weapons, wiki datamine revision ${recoilSource.revision}).`);
