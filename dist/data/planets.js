@@ -876,7 +876,7 @@ export const eventKinds = [
 export const hazards = [
  {
   "id": "contact-mine",
-  "name": "접촉 지뢰",
+  "name": "오토마톤 지뢰",
   "en": "Contact Mine",
   "detail": [
    "오토마톤 전초기지 주변과, 난이도 7부터는 대부분의 소규모 관심 지점 주변에 깔려 있습니다. 난이도가 오를수록 많아져 트인 지형에서도 나옵니다.",
@@ -906,7 +906,7 @@ export const hazards = [
  },
  {
   "id": "bug-mine",
-  "name": "벌레 지뢰",
+  "name": "버그 지뢰",
   "en": "Bug Mine",
   "detail": [
    "테르미니드에게 점령된 지역에만 있습니다. 밟거나 공격을 받으면 터지며 산성을 뿌려 피해를 주고 느리게 합니다. 여러 개의 산성은 겹치지 않습니다."
@@ -950,7 +950,7 @@ export const hazards = [
  },
  {
   "id": "ice-plant",
-  "name": "서리꽃",
+  "name": "얼음꽃",
   "en": "Ice Plant",
   "detail": [
    "밟거나 공격을 받으면 터져 잠시 정지 구름을 만듭니다. 헬다이버는 느려지고 약한 피해를 받으며, 다른 생명체는 구름 안에서 기절합니다."
@@ -1020,7 +1020,7 @@ export const hazards = [
  },
  {
   "id": "moor-mushroom",
-  "name": "황무지 버섯",
+  "name": "고원 버섯",
   "en": "Moor Mushroom",
   "detail": [
    "밟으면 연막 같은 포자 구름과 충격파가 나와 헬다이버를 날리고 생명체를 밀어냅니다. 원거리 적의 시야를 끊고 빠져나가는 데 쓸 수 있습니다."
@@ -1101,7 +1101,7 @@ export const statusEffects = [
   "en": "Acid Splash",
   "detail": [
    "산성에 묻으면 4초 동안 느려지고 지속 피해를 받을 수 있습니다.",
-   "테르미니드의 산성 공격(스피터·스퓨어·차저·바일 타이탄 등)과 벌레 지뢰, 스포어 버스트 변종이 겁니다."
+   "테르미니드의 산성 공격(스피터·스퓨어·차저·바일 타이탄 등)과 버그 지뢰, 스포어 버스트 변종이 겁니다."
   ],
   "detailEn": [
    "Acid slows you for 4 seconds and may deal damage over time.",
