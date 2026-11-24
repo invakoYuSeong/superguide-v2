@@ -183,6 +183,9 @@ function renderBrowse() {
 // --- Detail sheet ------------------------------------------------------------------
 // Same order as the stratagem sheet: damage (direct, blast, durable, penetration, fragments, over time),
 // reach, ammo, fire rate and reload, handling, throwable facts, quick melee.
+// Recoil for the detailed stats: the wiki's own recoil cell (EXTRA_STATS) and the base kick and climb (weapon-recoil.js).
+const recoilCells = w => [...(w.extraStats ?? []).filter(cell => cell.label === '반동').map(cell => ({ label: L('반동 수치', 'Recoil rating'), text: num(cell.value), unit: cell.unit, caption: cell.caption })), ...recoilStats(`gear/${w.id}`)];
+
 function detailRows(w) {
   const rows = [];
   // Numbers show at full strength; words (a fuse type, raw wiki text) are dimmed.
@@ -198,7 +201,8 @@ function detailRows(w) {
   if (w.splash != null) add(L('폭발', 'Blast'), num(w.splash), '', w.splashAp != null ? L(`폭발 AP ${w.splashAp}`, `Blast AP ${w.splashAp}`) : '');
   // Extra cells (EXTRA_STATS in personal-display.mjs), each with its group of rows.
   const UNIT_EN = { '초': 's', '개': '' };
-  const extra = after => (w.extraStats ?? []).filter(cell => cell.after === after)
+  // The wiki's recoil cell goes to the detailed stats with the other recoil numbers (recoilCells).
+  const extra = after => (w.extraStats ?? []).filter(cell => cell.after === after && cell.label !== '반동')
     .forEach(cell => add(cell.label, num(cell.value), lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, cell.caption));
   if (w.durable != null) add(L('내구 피해', 'Durable damage'), num(w.durable), '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts'));
   if (apOf(w) != null) add(L('관통', 'Penetration'), apText(w), '', apBandOf({ ap: apOf(w) })?.name);
@@ -228,7 +232,6 @@ function detailRows(w) {
   if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', L('기본 상태 · 높을수록 조준이 빨리 따라옴', 'Base · higher = the aim follows faster'));
   // Sway only where it differs from the standard 100% (user decision 2026-11-19).
   if (w.sway != null && w.sway !== 1) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
-  for (const cell of recoilStats(`gear/${w.id}`)) add(cell.label, cell.text, '', cell.caption);
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
   if (w.fuse != null) add(L('신관', 'Fuse'), num(w.fuse), s, L('던진 뒤 폭발까지', 'From throw to detonation'));
   else if (fuseText(w)) add(L('신관', 'Fuse'), fuseText(w), '', { impact: L('닿는 순간 폭발', 'Explodes on contact'), proximity: L('적이 가까이 오면 폭발', 'Explodes when an enemy comes close'), selectable: L('던지기 전에 시간 선택', 'Pick the timer before throwing') }[w.fuseType] || '');
@@ -381,7 +384,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
     ${modes.length > 1 ? modeTabs(w, modes, current) : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>${blastFigure(w)}${variantTable(w)}`}
     ${specialBlock(w)}
-    ${ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))])}
+    ${ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))], recoilCells(w))}
     ${attachmentTable(w)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || CONFLICT_FIELDS[c.field]?.[0] || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || CONFLICT_FIELDS[c.field]?.[1] || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
     ${w.playerNotes?.length ? html`<section class="block"><h3>${L('알아 둘 점', 'Good to know')}</h3><ul class="notes">${w.playerNotes.map(note => html`<li>${note}</li>`)}</ul></section>` : ''}
