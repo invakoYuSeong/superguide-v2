@@ -232,7 +232,7 @@ if (caltrops) {
       else ok(!grid.includes(`<dt>${label}</dt>`), `${item.id}: no ${label} cell without a value`);
     }
     // Spare ammo is the magazine cell's second line, not a cell of its own.
-    const spareLine = item.spareMags != null ? `${item.fuel ? '예비 연료통' : '예비 탄창'} ${num(item.spareMags)}개` : item.spareRounds != null ? `예비탄 ${num(item.spareRounds)}발` : null;
+    const spareLine = item.spareMags != null ? `${item.fuel ? '예비 연료통' : '예비 탄창'} ${num(item.spareMags)}개` : item.spareRounds != null ? (item.countUnit ? `예비 ${num(item.spareRounds)}개` : `예비탄 ${num(item.spareRounds)}발`) : null;
     if (spareLine && item.magazine != null) ok(grid.includes(spareLine) && !grid.includes('<dt>예비 탄창</dt>') && !grid.includes('<dt>예비탄</dt>'), `${item.id}: ${spareLine} under the magazine`);
   }
 }

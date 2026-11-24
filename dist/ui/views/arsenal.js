@@ -210,14 +210,14 @@ function ammoCells(item) {
   // Spare ammo is the magazine cell's second line (user request 2026-11-24), as in the gear details.
   const pack = item.spareFromBackpack ? L('(탄약 배낭)', ' (in the backpack)') : '';
   const spare = item.spareMags != null ? (item.fuel ? L(`예비 연료통 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare tanks`) : L(`예비 탄창 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare magazines`)) + pack
-    : item.spareRounds != null ? L(`예비탄 ${num(item.spareRounds)}발`, `${num(item.spareRounds)} spare rounds`) + pack
+    : item.spareRounds != null ? (item.countUnit ? L(`예비 ${num(item.spareRounds)}개`, `${num(item.spareRounds)} spare`) : L(`예비탄 ${num(item.spareRounds)}발`, `${num(item.spareRounds)} spare rounds`)) + pack
     // A weapon that never reloads says so instead.
     : item.noReload === 'backpack' ? (item.fuel ? L('연료 배낭에서 바로 공급 · 재장전 없음', 'Fed straight from the fuel backpack · no reload') : L('탄약 배낭에서 바로 공급 · 재장전 없음', 'Fed straight from the ammo backpack · no reload'))
     : item.noReload === 'expendable' ? L('재장전 없음 · 다 쓰면 버림', 'No reload · thrown away when empty') : '';
   const wikiNote = item.magazineWiki != null ? L(`게임 데이터 기준 · 위키 표기 ${num(item.magazineWiki)}`, `Game data · wiki says ${num(item.magazineWiki)}`) : '';
   return [
     item.durable != null ? cell(L('내구 피해', 'Durable damage'), num(item.durable), item.damageKind === 'dps' ? '/s' : '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts')) : '',
-    item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : L('발', ''), [spare, wikiNote].filter(Boolean).join(' · ')) : '',
+    item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : item.countUnit ? L('개', '') : L('발', ''), [spare, wikiNote].filter(Boolean).join(' · ')) : '',
     item.magazine == null && item.spareMags != null ? cell(item.fuel ? L('예비 연료통', 'Spare tanks') : L('예비 탄창', 'Spare magazines'), num(item.spareMags), L('개', ''), L('최대 보유', 'Maximum carried')) : '',
     item.magazine == null && item.spareRounds != null ? cell(L('예비탄', 'Spare rounds'), num(item.spareRounds), L('발', ''), L('최대 보유', 'Maximum carried')) : '',
     // Beam weapons that heat up (datamine heatdata, stratagem-stats.js): how long they fire in a row before
