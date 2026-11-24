@@ -67,6 +67,8 @@ const hazards = (text.hazards ?? []).map(item => {
   for (const title of named) if (!biomeIds.has(slug(title))) throw new Error(`${item.id}: biome ${title} is not a wiki biome`);
   return {
     id: item.id, name: item.name ? ko(item.name) : item.ko, en: item.en, detail: item.detail.ko, detailEn: item.detail.en,
+    // Field tips: player experience the wiki lacks, shown apart (Bug Mine flipping light vehicles, user request 2026-11-24).
+    ...(item.tips && { tips: item.tips.ko, tipsEn: item.tips.en }),
     biomes: [...new Set(named.map(slug))], wiki: wikiUrl(item.page), revision: wiki.hazardPages?.[item.page]?.revision ?? null,
   };
 });

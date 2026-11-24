@@ -91,7 +91,10 @@ ok(planets.hazards.length === (text.hazards ?? []).length, 'hazards is stale (ru
   ok(page, `${source.id}: wiki page ${source.page} not downloaded (run fetch-planet-pages)`);
   ok(item.id === source.id && item.name === (source.name ? game.strings.planets[source.name] : source.ko), `${source.id}: name is not the game's Korean or the site's (run build-game-names and build-planets)`);
   ok(item.detail.length === item.detailEn.length, `${source.id}: detail needs Korean and English line by line`);
-  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(page.text.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page}`);
+  // Blast numbers come from the hazard's datamine attack records (hazardAttacks, the table the wiki page shows).
+  const hazardText = page.text + JSON.stringify(wiki.hazardAttacks?.records[source.id] ?? {});
+  for (const number of item.detail.concat(item.detailEn).join(' ').match(/\d+(?:\.\d+)?/g) || []) ok(hazardText.includes(number), `${source.id}: ${number} is not on the wiki page ${source.page} or its attack records`);
+  if (source.tips) ok(item.tips?.length === source.tips.ko.length && item.tips.length === item.tipsEn.length, `${source.id}: tips need Korean and English line by line (run build-planets)`);
   for (const name of [...(source.biomes ?? []), ...(source.archetypes ?? [])]) ok(page.text.includes(name), `${source.id}: ${name} is not named on the wiki page ${source.page}`);
 });
 // Playable planets: the galaxy map less excludedPlanets (each one on the map), every one in a biome list.

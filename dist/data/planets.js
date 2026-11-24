@@ -880,11 +880,13 @@ export const hazards = [
   "en": "Automaton Mine",
   "detail": [
    "오토마톤 전초기지 주변과, 난이도 7부터는 대부분의 소규모 관심 지점 주변에 깔려 있습니다. 난이도가 오를수록 많아져 트인 지형에서도 나옵니다.",
-   "밟거나 공격을 받으면 터져 주변에 피해를 줍니다."
+   "밟거나 공격을 받으면 터집니다. 폭발 피해 300: 중심 1.6m 안에서 최대, 4m까지 줄어듭니다.",
+   "경량만이 아니라 중량 방어구도 밟으면 거의 살아남지 못합니다. 민주주의의 가호나 강화 패시브가 있어야 버틸 수 있고, 강화 패시브를 단 중량 방어구도 체력이 약 1/3만 남습니다."
   ],
   "detailEn": [
    "Laid around Automaton outposts and, from difficulty 7, around most Minor Places of Interest. They grow more common with difficulty, up to open ground.",
-   "It explodes when stepped on or damaged, hurting anything nearby."
+   "It explodes when stepped on or damaged. Blast damage 300: full within 1.6 m, falling off to 4 m.",
+   "Not just light armor: even heavy armor rarely survives stepping on one. Only Democracy Protects or the Fortified passive gives a chance, and Fortified heavy armor still leaves about 1/3 of your health."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Automaton_Mine",
@@ -914,21 +916,29 @@ export const hazards = [
   "detailEn": [
    "Only in Terminid-infested areas. It explodes when stepped on or damaged, splashing acid that damages and slows. Acid from several of them does not stack."
   ],
+  "tips": [
+   "가벼운 탑승물은 밟으면 뒤집힐 수 있습니다."
+  ],
+  "tipsEn": [
+   "A light vehicle that drives over one can be flipped."
+  ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Bug_Mine",
   "revision": 90329
  },
  {
   "id": "explosive-barrel",
-  "name": "슈퍼 지구 폭발성 통",
-  "en": "Super Earth Barrel",
+  "name": "폭발성 통",
+  "en": "Explosive Barrel",
   "detail": [
    "모든 임무에 있습니다. 주로 소규모 관심 지점과 탈출 지점 주변에 많고, ICBM 발사·E-710 탈출 임무에서는 목표 단말기 바로 옆에도 자주 놓입니다.",
-   "철거력 5 이상인 공격을 받으면 터지고, 대부분 터진 자리에 약 10초 동안 불을 남깁니다."
+   "철거력 5 이상인 공격을 받으면 터지고, 대부분 터진 자리에 약 10초 동안 불을 남깁니다.",
+   "폭발 피해 400: 중심 0.4m 안에서 최대, 4m까지 줄어듭니다."
   ],
   "detailEn": [
    "Found on every mission, mostly at Minor Places of Interest and around extraction, and often right next to objective terminals in Launch ICBM and Enable E-710 Extraction missions.",
-   "It explodes when hit by demolition force 5 or more, and most leave the ground burning for about 10 seconds."
+   "It explodes when hit by demolition force 5 or more, and most leave the ground burning for about 10 seconds.",
+   "Blast damage 400: full within 0.4 m, falling off to 4 m."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
@@ -940,11 +950,13 @@ export const hazards = [
   "en": "Automaton Barrel",
   "detail": [
    "오토마톤 임무에서 대부분의 오토마톤 전초기지 안에 있는 배터리 통입니다.",
-   "철거력 5 이상인 공격을 받으면 터집니다. 들어 옮길 수 없고, 터져도 불을 남기지 않습니다."
+   "철거력 5 이상인 공격을 받으면 터집니다. 들어 옮길 수 없고, 터져도 불을 남기지 않습니다.",
+   "폭발 피해 400: 중심 0.6m 안에서 최대, 6m까지 줄어듭니다."
   ],
   "detailEn": [
    "Battery barrels inside most Automaton Outposts on Automaton missions.",
-   "It explodes when hit by demolition force 5 or more. It cannot be lifted and leaves no fire when it explodes."
+   "It explodes when hit by demolition force 5 or more. It cannot be lifted and leaves no fire when it explodes.",
+   "Blast damage 400: full within 0.6 m, falling off to 6 m."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",
@@ -956,11 +968,13 @@ export const hazards = [
   "en": "Illuminate Barrel",
   "detail": [
    "일루미닛 임무에서 주로 일루미닛 야영지 안에 있습니다.",
-   "철거력 5 이상인 공격을 받으면 터집니다. 불 웅덩이를 남기지 않는 대신 다른 폭발성 통보다 폭발 범위가 훨씬 넓고, 폭발에서 살아남은 헬다이버에게 불이 붙습니다."
+   "철거력 5 이상인 공격을 받으면 터집니다. 불 웅덩이를 남기지 않는 대신 다른 폭발성 통보다 폭발 범위가 훨씬 넓고, 폭발에서 살아남은 헬다이버에게 불이 붙습니다.",
+   "폭발 피해 400: 중심 7m 안에서 최대, 10m까지 줄어듭니다."
   ],
   "detailEn": [
    "Found on Illuminate missions, mostly inside Illuminate Encampments.",
-   "It explodes when hit by demolition force 5 or more. It leaves no fire pool, but its blast reaches much farther than the other barrels, and a Helldiver who survives the blast is set on fire."
+   "It explodes when hit by demolition force 5 or more. It leaves no fire pool, but its blast reaches much farther than the other barrels, and a Helldiver who survives the blast is set on fire.",
+   "Blast damage 400: full within 7 m, falling off to 10 m."
   ],
   "biomes": [],
   "wiki": "https://helldivers.wiki.gg/wiki/Exploding_Barrels",

@@ -985,5 +985,177 @@
     }
    }
   }
+ },
+ "hazardAttacks": {
+  "source": "Module:Decodedata-Attacks/data.json",
+  "revision": 142140,
+  "timestamp": null,
+  "records": {
+   "explosive-barrel": {
+    "Barrel_Medium": {
+     "explosion": {
+      "r1": 0.4,
+      "r2": 4,
+      "r3": 12,
+      "crater": "Small",
+      "name": "Barrel Medium",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "automaton-barrel": {
+    "Barrel_Large": {
+     "explosion": {
+      "r1": 0.6,
+      "r2": 6,
+      "r3": 15,
+      "crater": "Small",
+      "name": "Barrel Large",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "illuminate-barrel": {
+    "Barrel_Illuminate": {
+     "explosion": {
+      "r1": 7,
+      "r2": 10,
+      "r3": 4,
+      "crater": "Small",
+      "name": "Barrel Large",
+      "damageid": "Explosion_Prop_Barrel"
+     },
+     "explosionDamage": {
+      "dmg": 400,
+      "dmg2": 400,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 20,
+      "push": 40,
+      "param1": 20,
+      "name": "Explosion Prop Barrel",
+      "element_name": "Fire",
+      "status_name": "Fire"
+     }
+    }
+   },
+   "contact-mine": {
+    "Cyborg_Mine": {
+     "explosion": {
+      "r1": 1.6,
+      "r2": 4,
+      "r3": 6,
+      "crater": "Large",
+      "name": "Cyborg Mine",
+      "damageid": "Explosion_CyborgMine"
+     },
+     "explosionDamage": {
+      "dmg": 300,
+      "dmg2": 300,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 30,
+      "stun": 30,
+      "push": 40,
+      "name": "Explosion Cyborg Mine"
+     }
+    }
+   },
+   "bug-mine": {
+    "BugTrap": {
+     "explosion": {
+      "r1": 0.3,
+      "r2": 2,
+      "r3": 2.5,
+      "name": "Bug Trap",
+      "damageid": "Explosion_BugTrap"
+     },
+     "explosionDamage": {
+      "dmg": 0,
+      "dmg2": 0,
+      "ap1": 6,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 10,
+      "stun": 20,
+      "push": 40,
+      "param1": 100,
+      "name": "Explosion Bug Trap",
+      "element_name": "Acid",
+      "status_name": "Acid Splash"
+     }
+    }
+   },
+   "moor-mushroom": {
+    "MoorMushroom_Burst": {
+     "explosion": {
+      "r1": 7,
+      "r2": 8,
+      "r3": 9,
+      "crater": "Small",
+      "name": "Moor Mushroom Burst",
+      "damageid": "Explosion_MoorMushroom_Burst"
+     },
+     "explosionDamage": {
+      "dmg": 5,
+      "dmg2": 5,
+      "ap1": 3,
+      "ap2": 0,
+      "ap3": 0,
+      "ap4": 0,
+      "demo": 20,
+      "stun": 55,
+      "push": 55,
+      "param1": 25,
+      "name": "Explosion Moor Mushroom Burst",
+      "status_name": "Stun Medium"
+     }
+    },
+    "MoorMushroom_Smoke": {
+     "explosion": {
+      "r1": 5,
+      "r2": 5,
+      "r3": 0,
+      "name": "Moor Mushroom Smoke"
+     }
+    }
+   }
+  }
  }
 }

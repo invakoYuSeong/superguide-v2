@@ -61,6 +61,20 @@ const attackOf = (projectile, explosion) => {
   if (Object.values(record).some(value => !value)) throw new Error(`${ENEMY_DATA}: ${projectile ?? explosion} record missing`);
   return record;
 };
+// Hazard blasts (barrels, mines, Moor Mushroom) from the current attack datamine, keyed by hazard id: the numbers
+// the hazard cards quote (test-planets checks them here).
+const HAZARD_ATTACKS = { 'explosive-barrel': ['Barrel_Medium'], 'automaton-barrel': ['Barrel_Large'], 'illuminate-barrel': ['Barrel_Illuminate'], 'contact-mine': ['Cyborg_Mine'], 'bug-mine': ['BugTrap'], 'moor-mushroom': ['MoorMushroom_Burst', 'MoorMushroom_Smoke'] };
+await sleep(2000);
+const attackData = (await pages(['Module:Decodedata-Attacks/data.json']))['Module:Decodedata-Attacks/data.json'];
+const allAttacks = JSON.parse(attackData.text);
+out.hazardAttacks = {
+  source: 'Module:Decodedata-Attacks/data.json', revision: attackData.revision, timestamp: attackData.timestamp,
+  records: Object.fromEntries(Object.entries(HAZARD_ATTACKS).map(([id, keys]) => [id, Object.fromEntries(keys.map(key => {
+    const explosion = allAttacks.explosion[key];
+    if (!explosion) throw new Error(`attack datamine: no explosion ${key}`);
+    return [key, { explosion, ...(explosion.damageid && { explosionDamage: allAttacks.damage[explosion.damageid] }) }];
+  }))])),
+};
 out.conditionAttacks = {
   source: ENEMY_DATA, revision: enemyData.revision, timestamp: enemyData.timestamp,
   records: { 'Meteor Storms': attackOf('World_Meteor', 'World_Meteor'), 'Volcanic Activity': attackOf('World_VolcanoStrike', 'World_VolcanoStrike') },

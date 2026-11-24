@@ -45,7 +45,7 @@ const planetText = [...conditions, ...gloomLevels, ...specialEffects, ...operati
   .concat(planetBiomes.filter(biome => biome.archetypeName).map(biome => ({ name: biome.archetypeName, en: biome.archetype })), planetBiomes)
   .concat(planetBiomes.filter(biome => biome.description).map(biome => ({ name: biome.description, en: biome.descriptionEn })), planetBiomes.flatMap(biome => biome.planets))
   .concat(statusEffects.filter(item => item.name), statusEffects.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))))
-  .concat(hazards, hazards.flatMap(item => item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] }))));
+  .concat(hazards, hazards.flatMap(item => [...item.detail.map((line, i) => ({ name: line, en: item.detailEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]));
 // Enemy view: the summarized wiki Spawning, Behavior and Tactics lines and the field tips, each with its English,
 // and the game's difficulty names.
 const enemyLore = Object.values(enemyPages).flatMap(item => [...item.spawning.map((line, i) => ({ name: line, en: item.spawningEn[i] })), ...item.behavior.map((line, i) => ({ name: line, en: item.behaviorEn[i] })), ...(item.tactics ?? []).map((line, i) => ({ name: line, en: item.tacticsEn[i] })), ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]).concat(difficultyNames);
