@@ -28,7 +28,8 @@ export async function createPalette(ctx) {
   const kindName = kind => L(...(KIND[kind] ?? ['기타', 'Other']));
   const { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, hazards, statusEffects, biomes } = planetData;
   const PLANET_TABS = [
-    ['conditions', L('환경 조건', 'Environment'), [conditions, hazards, gloomLevels, specialEffects]],
+    ['conditions', L('환경 조건', 'Environment'), [conditions, gloomLevels, specialEffects]],
+    ['hazards', L('환경 위험 요소', 'Hazards'), [hazards]],
     ['modifiers', L('작전 제한 조건', 'Operation modifiers'), [operationModifiers, eventEffects]],
     ['biomes', L('생물군계', 'Biomes'), [biomes]],
     ['status', L('상태 이상', 'Status effects'), [statusEffects]],

@@ -1,5 +1,5 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
-//   #/planets?tab=<conditions|modifiers|biomes|time|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
+//   #/planets?tab=<conditions|hazards|modifiers|biomes|time|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt, playablePlanetCount } from '../../data/planets.js';
 import { planetTimeScales, planetTimeMeasuredAt } from '../../data/planet-time.js';
 import { biomeImages } from '../../data/biome-images.js';
@@ -9,6 +9,7 @@ import { L, T, lang } from '../../core/i18n.js';
 
 const TABS = [
   { id: 'conditions', name: L('환경 조건', 'Environment'), icon: 'tab-conditions' },
+  { id: 'hazards', name: L('환경 위험 요소', 'Hazards'), icon: 'tab-hazards' },
   { id: 'modifiers', name: L('작전 제한 조건', 'Operation modifiers'), icon: 'tab-modifiers' },
   { id: 'biomes', name: L('생물군계', 'Biomes'), icon: 'tab-biomes' },
   { id: 'time', name: L('시간 배율', 'Clock speed'), icon: 'tab-time' },
@@ -61,9 +62,6 @@ function effectCard(item) {
 function conditionsTab() {
   return html`<p class="lede-note">${L('행성마다 붙는 날씨·지형 효과입니다. 같은 생물군계라도 행성에 따라 다를 수 있습니다. 폭풍·지진·유성처럼 잠깐씩 일어났다 멎는 효과는 임무를 시작하고 최소 5분이 지나야 처음 일어나고, 끝난 뒤에는 5분마다 다시 일어납니다.', 'Weather and terrain effects attached to each planet. Planets of the same biome can differ. Effects that come and go, such as storms, tremors and meteors, first strike at least 5 minutes into the mission and return every 5 minutes after each one ends.')}</p>
     <ul class="info-list">${conditions.map(effectCard)}</ul>
-    <h2 class="planet-sub">${L('환경 위험 요소', 'Environmental hazards')}</h2>
-    <p class="lede-note">${L('지형에 놓인 지뢰, 식물, 용암 같은 위험 요소입니다. 생물군계나 그 지역을 차지한 적에 따라 나옵니다.', 'Mines, plants, lava and other hazards in the terrain. Which ones appear depends on the biome or the enemy holding the area.')}</p>
-    <ul class="info-list">${hazards.map(effectCard)}</ul>
     <h2 class="planet-sub">${L('글룸', 'The Gloom')}</h2>
     <p class="lede-note">${L('글룸에 덮인 행성의 물류 효과입니다. 단계가 높을수록 탈출이 늦어지고 이글 재무장이 느려집니다.', 'Logistics effects on planets covered by the Gloom. Higher levels slow extraction and Eagle rearm more.')}</p>
     <ul class="info-list">${gloomLevels.map(effectCard)}</ul>
@@ -76,6 +74,12 @@ function conditionsTab() {
     <h2 class="planet-sub">${L('민주주의 우주 정거장', 'Democracy Space Station')}</h2>
     <p class="lede-note">${L('헬다이버들이 투표로 옮기는 슈퍼 지구의 우주 정거장입니다. 정거장이 머무는 행성에는 기본 효과 2개가 늘 붙고, 기부로 충전한 전술 행동이 24시간 동안 켜집니다.', 'A Super Earth space station the Helldivers move by vote. The planet it orbits always gets its two base effects, plus a Tactical Action charged by donations for 24 hours.')}</p>
     <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('dss')).map(effectCard)}</ul>`;
+}
+
+// Environmental hazards: a tab of their own beside the conditions (user request 2026-11-24).
+function hazardsTab() {
+  return html`<p class="lede-note">${L('지형에 놓인 지뢰, 식물, 용암 같은 위험 요소입니다. 생물군계나 그 지역을 차지한 적에 따라 나옵니다.', 'Mines, plants, lava and other hazards in the terrain. Which ones appear depends on the biome or the enemy holding the area.')}</p>
+    <ul class="info-list">${hazards.map(effectCard)}</ul>`;
 }
 
 function modifiersTab() {
@@ -157,7 +161,7 @@ function statusTab() {
     </li>`)}</ul>`;
 }
 
-const BODIES = { conditions: conditionsTab, modifiers: modifiersTab, biomes: biomesTab, time: timeTab, status: statusTab };
+const BODIES = { conditions: conditionsTab, hazards: hazardsTab, modifiers: modifiersTab, biomes: biomesTab, time: timeTab, status: statusTab };
 
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
@@ -172,7 +176,7 @@ const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab ===
 export function mount(container, context) {
   root = container; ctx = context;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Planets</div><h1>${L('행성', 'Planets')}</h1>
-    <p>${L('출격할 행성의 환경 조건, 작전 제한 조건, 생물군계, 시간 배율, 상태 이상을 정리했습니다.', 'Environmental conditions, operation modifiers, biomes, clock speeds and status effects of the planets you drop on.')}</p></div></div>
+    <p>${L('출격할 행성의 환경 조건, 환경 위험 요소, 작전 제한 조건, 생물군계, 시간 배율, 상태 이상을 정리했습니다.', 'Environmental conditions, hazards, operation modifiers, biomes, clock speeds and status effects of the planets you drop on.')}</p></div></div>
     <div class="planet-head"><div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${icon(tab.icon, 16)} ${tab.name}</button>`)}</div>
       <span class="planet-checked">${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
     <div id="planet-body"></div>`);
