@@ -33,7 +33,7 @@ const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passiv
 // the board itself shows these names with L(), not through the dictionary.
 const warbondTileNames = warbonds.flatMap(warbond => warbond.pages.flatMap(page => page.items)).filter(item => item.ko).map(item => ({ name: item.ko, en: item.name }));
 // Boosters: the game's Korean name and description, and the detail line, each with its English.
-const boosterText = boosters.flatMap(item => [item, { name: item.description, en: item.descriptionEn }, { name: item.detail, en: item.detailEn }]);
+const boosterText = boosters.flatMap(item => [item, { name: item.description, en: item.descriptionEn }, { name: item.detail, en: item.detailEn }, ...(item.tips ?? []).map((line, i) => ({ name: line, en: item.tipsEn[i] }))]);
 // Missions per demolition structure: the game's Korean and English objective names.
 const titleCase = text => text === text.toUpperCase() ? text.toLowerCase().replace(/(^|[\s:(-])([a-z])/g, (_, gap, letter) => gap + letter.toUpperCase()) : text;
 const objectiveNames = Object.values(structureObjectives).flat().map(item => ({ name: item.name, en: titleCase(item.en) }));

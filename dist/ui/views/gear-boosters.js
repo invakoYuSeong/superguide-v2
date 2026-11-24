@@ -19,6 +19,7 @@ function boosterCard(booster, focus) {
       ${lang === 'en' || booster.name === booster.en ? '' : html`<p class="en">${booster.en}</p>`}
       ${description ? html`<p class="info-desc">${description}</p>` : ''}
       ${detail ? html`<p class="info-detail">${detail}</p>` : ''}
+      ${booster.tips ? html`<p class="info-tips-label">${L('실전 팁', 'Field tips')}</p>${(lang === 'en' ? booster.tipsEn : booster.tips).map(line => html`<p class="info-detail">${line}</p>`)}` : ''}
       <p class="armor-source"><a href="#/warbonds/${booster.warbondId}">${warbond.name}</a>${booster.page ? L(` · ${booster.page}페이지`, ` · page ${booster.page}`) : ''}${booster.cost ? L(` · ${booster.cost} 메달`, ` · ${booster.cost} medals`) : ''}
         ${external(booster.wiki, L('위키', 'Wiki'))}</p>
     </div>

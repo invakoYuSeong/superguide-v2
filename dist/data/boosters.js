@@ -32,6 +32,12 @@ export const boosters = [
   "descriptionEn": "Provides minor damage reduction from all sources for all Helldivers.",
   "detail": "받는 피해가 10% 줄고 팔다리 부상도 덜 입습니다. 가스·화상 같은 지속 피해도 줄어듭니다. 데드 스프린트의 체력 소모가 초당 약 3.6%에서 약 1%로 줄고, 가스 지속 피해(초당 25)는 2.5, 더블 엣지 시클의 자해 화상 피해는 초당 1~2씩 줄어듭니다.",
   "detailEn": "Damage taken drops by 10% and limb injuries happen less often. Damage over time such as gas and burning is cut too. Dead Sprint drains about 1% health a second instead of about 3.6%, lingering gas (25 a second) loses 2.5, and the Double-Edge Sickle's self-burn loses 1 to 2 a second.",
+  "tips": [
+   "피해의 소수점 아래를 버리기 때문에 작은 지속 피해일수록 실제로 훨씬 많이 줄어, 버그 지뢰나 바일 계열의 산성 지속 피해는 거의 들어오지 않습니다. 화상·철조망 피해도 줄지만 무시할 정도는 아닙니다."
+  ],
+  "tipsEn": [
+   "Damage loses its fractions, so small ticks shrink far more than 10%: acid ticks from Bug Mines and bile enemies barely land. Burning and barbed wire drop too, though not to nothing."
+  ],
   "warbondId": "helldivers-mobilize",
   "page": 4,
   "cost": 20,
@@ -92,6 +98,12 @@ export const boosters = [
   "descriptionEn": "Allows Helldivers to traverse difficult terrain with ease.",
   "detail": "모래 폭풍·눈보라·물·눈·진흙·풀숲·철조망에서 느려지는 정도와 산성 공격의 감속을 줄입니다. 맨 모래·오르막·기어오르기·흔들림에는 효과가 없습니다.",
   "detailEn": "Less slowdown in sandstorms, blizzards, water, snow, mud, foliage and barbed wire, and from acid attacks. No effect on plain sand, slopes, climbing or tremors.",
+  "tips": [
+   "느려지는 효과를 약 75% 줄여 줍니다. 산성의 감속은 줄지만 지속 시간은 그대로입니다."
+  ],
+  "tipsEn": [
+   "It cuts slowdowns by about 75%. Acid slows you less, but for just as long."
+  ],
   "warbondId": "helldivers-mobilize",
   "page": 9,
   "cost": 70,
@@ -152,6 +164,12 @@ export const boosters = [
   "descriptionEn": "Increases the time between enemy encounters.",
   "detail": "벌레굴·드롭십 같은 적 증원 호출 사이의 간격이 길어집니다. 호출 사이의 대기 시간이 약 15% 길어집니다(난이도 9에서 혼자일 때 2분 30초에서 약 2분 52.5초로). 순찰대가 생기는 빈도와 호출 뒤 오는 적의 수는 그대로입니다.",
   "detailEn": "Enemy reinforcement calls such as bug breaches and dropships come further apart. The wait between calls grows by about 15% (2 min 30 s to about 2 min 52.5 s when solo on difficulty 9). Patrol spawns and the size of each call are unchanged.",
+  "tips": [
+   "임무가 강제로 부르는 증원(지질 조사·섬멸·고가치 자산 후송·민주주의 전파)과 탐지 탑이 부르는 증원에는 효과가 없습니다."
+  ],
+  "tipsEn": [
+   "It does nothing for reinforcements a mission forces (Geological Survey, Eradicate, Evacuate High-Value Assets, Spread Democracy) or those a Detector Tower calls."
+  ],
   "warbondId": "cutting-edge",
   "page": 1,
   "cost": 18,
@@ -212,6 +230,12 @@ export const boosters = [
   "descriptionEn": "In addition to restoring health, stims temporarily increase movement speed and damage reduction.",
   "detail": "각성제를 쓰면 잠시 이동 속도가 10% 빨라지고 받는 피해가 10% 더 줄어듭니다. 대신 조준선 흔들림이 25% 커집니다.",
   "detailEn": "Stims briefly add 10% movement speed and 10% damage resistance, but aiming sway grows by 25%.",
+  "tips": [
+   "효과는 각성제를 쓴 뒤 약 10초 동안 이어지고, 각성제 권총으로 맞아도 적용됩니다."
+  ],
+  "tipsEn": [
+   "The effect lasts about 10 seconds after the stim, and a Stim Pistol shot triggers it too."
+  ],
   "warbondId": "viper-commandos",
   "page": 3,
   "cost": 80,
@@ -332,6 +356,12 @@ export const boosters = [
   "descriptionEn": "Exposes Hellpod wiring upon surface contact, stunning any units in the vicinity of the drop site.",
   "detail": "지원 무기 포드를 포함한 모든 포드가 착지할 때 주변을 기절시키며, 아군도 기절합니다. 기절 시간은 10초로 게임에서 가장 깁니다.",
   "detailEn": "Every Hellpod, support weapon pods included, stuns everything nearby on landing, teammates too. The stun lasts 10 seconds, the longest in the game.",
+  "tips": [
+   "포드 근처의 헬다이버는 소량의 피해와 함께 넘어지고, 스태미나가 모두 빠지며 느려집니다. 효과는 착지하는 순간 한 번뿐이라 나중에 다가가면 괜찮습니다."
+  ],
+  "tipsEn": [
+   "Helldivers near a pod take a little damage, get knocked down, lose all stamina and slow down. It only goes off the moment the pod lands, so walking up later is safe."
+  ],
   "warbondId": "force-of-law",
   "page": 2,
   "cost": 55,
