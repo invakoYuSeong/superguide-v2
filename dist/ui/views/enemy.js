@@ -167,7 +167,7 @@ function renderPicker() {
 }
 
 // How an enemy calls reinforcements (enemy-pages.js `reinforcements`).
-const REINFORCEMENTS = { breach: L('페로몬으로 버그 출몰', 'Bug Breach by pheromones'), dropship: L('조명탄으로 드롭십', 'Bot Drop by flare'), warp: L('조명탄으로 워프 함선', 'Warp Ships by flare') };
+const REINFORCEMENTS = { breach: L('페로몬으로 버그 출몰', 'Bug Breach by pheromones'), dropship: L('조명탄으로 봇 투하', 'Bot Drop by flare'), warp: L('조명탄으로 워프 함선', 'Warp Ships by flare') };
 
 // Wiki fire damage multiplier shown like the explosive resistance: x0.8 = 20%, x1.5 = -50% (takes more).
 const fireText = mult => mult == null ? L('미확인', 'Unverified') : pct(Math.round((1 - mult) * 100));
