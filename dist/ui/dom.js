@@ -55,8 +55,6 @@ const ICONS = {
   // Redrawn from the wiki DSS icon (File:DSS_Icon.svg, the Exosuit Reserves card's picture), filled.
   'tab-dss': '<path d="M6 16.4V3.5a1.5 1.5 0 0 1 1.5-1.5h5.8v4.1H7.1v5.2h3.6v5.1H9.4V21a1.05 1.05 0 0 1-2.1 0v-4.6z" fill="currentColor" stroke="none"/><path d="M8.1 7h9.7v3.4H8.1z" fill="currentColor" stroke="none"/>',
   'tab-hazards': '<circle cx="12" cy="13" r="6"/><path d="M12 3v4M5 6l2.5 2.5M19 6l-2.5 2.5M3 13h3M18 13h3"/>',
-  // Status effects (planet tab) without a wiki damage icon.
-  'status-poison': '<path d="M9 3h6M10 3v5l-5 9a2.5 2.5 0 0 0 2.2 3.7h9.6A2.5 2.5 0 0 0 19 17l-5-9V3M7.5 14h9"/>',
   planets: '<circle cx="12" cy="12" r="6.5"/><path d="M3.5 15.5c-1.8 2.2-.9 3.6 2.2 3.3 3.4-.3 8.6-2.4 12.3-5.4 3.6-2.9 4.6-5.6 2.1-6.1"/>',
   // Primary weapon mark from the Helldivers Wiki (File:Primary Weapon Currency Icon.svg, traced by Dogo314,
   // CC BY-NC-SA 4.0): its rifle outline (x 2120-2328, y 631-729) fitted 22 units wide, in the text colour.

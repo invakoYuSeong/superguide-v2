@@ -153,9 +153,9 @@ function timeTab() {
     </table></div>`;
 }
 
-// The wiki's damage type icons (Damage_*_Icon.svg, Dogo314) for the statuses that have one (user request 2026-11-24);
-// the rest keep the site-drawn line icons.
-const STATUS_ICONS = { acid: 'damage-acid.svg', bleed: 'damage-bleed.svg', fire: 'damage-fire.svg', gas: 'damage-gas.svg', stun: 'damage-arc.svg', stagger: 'damage-stagger.svg' };
+// The wiki's damage type icons (Damage_*_Icon.svg, Dogo314) for the statuses (user request 2026-11-24); poison has
+// none, so it uses a site-made picture built from the wiki Noxious Strain icon.
+const STATUS_ICONS = { acid: 'damage-acid.svg', bleed: 'damage-bleed.svg', fire: 'damage-fire.svg', gas: 'damage-gas.svg', stun: 'damage-arc.svg', poison: 'status-poison.svg', stagger: 'damage-stagger.svg' };
 
 function statusTab() {
   return html`<p class="lede-note">${L('헬다이버와 적에게 걸리는 상태 이상입니다.', 'Status effects that hit Helldivers and enemies.')}</p>
