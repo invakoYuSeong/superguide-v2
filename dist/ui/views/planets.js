@@ -130,15 +130,8 @@ const duration = minutes => {
 };
 
 function timeTab() {
-  return html`<p class="lede-note">${L(`행성마다 현지 시각이 흐르는 빠르기가 다릅니다. 배율은 실제 1분 동안 행성 시각이 몇 분 흐르는지입니다. 위키에 없는 자료라 ${planetTimeMeasuredAt}에 전선이 열려 있던 행성 ${planetTimeScales.length}곳을 은하 지도의 행성 시각(SEST)으로 직접 잰 값입니다.`,
-      `Each planet's local clock runs at its own speed. The rate is how many minutes of planet time pass in one real minute. The wiki has no such data, so these are our own readings of the galaxy map's planet clock (SEST) for the ${planetTimeScales.length} planets with an open front on ${planetTimeMeasuredAt}.`)}</p>
-    <ul class="info-list time-notes"><li class="info-item plain"><div class="info-body">
-      <p class="info-detail">${L('낮은 06시~18시, 밤은 18시~06시입니다. 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.', 'Day runs 06:00-18:00 and night 18:00-06:00; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
-      <p class="info-detail">${L('빠른 행성은 실제 30분 안팎에 하루가 지나고, 느린 행성은 실제 하루보다 깁니다. 같은 생물군계라도 행성마다 다릅니다.', 'On fast planets a whole day passes in about half a real hour; on slow ones it lasts longer than a real day. Planets of the same biome can differ.')}</p>
-      <p class="info-detail">${L('헤르손 세쿤두스와 블리스티카는 시각이 거꾸로 흐릅니다.', 'On Herthon Secundus and Blistica the clock runs backwards.')}</p>
-      <p class="info-detail">${L('하루 안에서도 빠르기가 조금씩 바뀝니다(애스페로스 프라임은 20~24배). 그래서 15~60분 뒤 다시 읽어 낸 평균을 쓰고, 3배 미만으로 느린 행성은 45초 간격으로 두 번 읽은 값입니다.', 'The speed also shifts a little through the day (Asperoth Prime 20-24x), so the table uses the average over a second reading 15-60 minutes later; planets slower than 3x use two readings 45 seconds apart.')}</p>
-      <p class="info-detail">${L('표에 없는 행성은 은하 지도에서 그 행성 시각을 1분 간격으로 두 번 읽으면 잴 수 있습니다.', 'For a planet not listed, read its clock on the galaxy map twice, one minute apart.')}</p>
-    </div></li></ul>
+  return html`<p class="lede-note">${L('행성마다 현지 시각이 흐르는 빠르기가 다릅니다. 낮은 06시~18시, 밤은 18시~06시입니다. 은하 지도의 시각 옆 해·달 아이콘이 이때 바뀝니다.',
+      'Each planet\'s local clock runs at its own speed. Day runs 06:00-18:00 and night 18:00-06:00; the sun and moon icon beside the galaxy map clock switches at those hours.')}</p>
     <div class="compare-scroll" role="region" aria-label="${L('행성별 시간 배율', 'Clock speed by planet')}" tabindex="0"><table class="compare-table time-table">
       <thead><tr><th scope="col">${L('행성', 'Planet')}</th><th scope="col">${L('생물군계', 'Biome')}</th><th scope="col">${L('배율', 'Rate')}</th><th scope="col">${L('하루 (실제)', 'Day (real time)')}</th><th scope="col">${L('낮 12시간 (실제)', '12 h daylight (real time)')}</th></tr></thead>
       <tbody>${planetTimeScales.map(item => {
