@@ -35,6 +35,8 @@ export const armorPassives = [
       {"name":"치명적 대미지에도 50% 확률로 사망하지 않습니다.","en":"50% chance to not die when taking lethal damage."},
       {"name":"흉부 출혈 시 출혈로 인한 모든 대미지를 방지합니다.","en":"Prevents all damage from bleeding if chest hemorrhages."}
     ],
+    "tips": ["치명상을 버티면 체력 1이 남고 잠깐 무적이 되며, 다시 발동하려면 0.5초가 지나야 합니다."],
+    "tipsEn": ["A lethal hit you survive leaves you at 1 health with a moment of invulnerability, and it can trigger again after 0.5 seconds."],
     "source": "https://helldivers.wiki.gg/wiki/Democracy_Protects",
     "revision": 139484,
     "revisionTimestamp": "2026-10-21T01:06:29Z"
@@ -50,6 +52,8 @@ export const armorPassives = [
       {"name":"투척 거리가 30% 증가합니다.","en":"Increases throwing range by 30%."},
       {"name":"+50%의 사지 체력을 제공합니다.","en":"Provides +50% limb health."}
     ],
+    "tips": ["투척물이 날아가는 속도가 30% 빨라지는 효과로, 스트라타젬을 평지에서 약 45m 대신 약 65m까지 던질 수 있습니다."],
+    "tipsEn": ["Throws fly 30% faster, so a stratagem beacon reaches about 65 m on flat ground instead of about 45 m."],
     "source": "https://helldivers.wiki.gg/wiki/Servo-Assisted",
     "revision": 139483,
     "revisionTimestamp": "2026-10-21T01:05:37Z"
@@ -124,6 +128,8 @@ export const armorPassives = [
     "effects": [
       {"name":"아크 대미지에 대한 저항력을 95% 제공합니다.","en":"Provides 95% resistance to arc damage."}
     ],
+    "tips": ["아크에 맞을 때의 경직도 95% 줄지만, 기절에 의한 감속은 그대로입니다."],
+    "tipsEn": ["Arc stagger drops by 95% too, but the slow from stun stays."],
     "source": "https://helldivers.wiki.gg/wiki/Electrical_Conduit",
     "revision": 139476,
     "revisionTimestamp": "2026-10-21T00:56:59Z"
@@ -198,6 +204,8 @@ export const armorPassives = [
       {"name":"주 무기의 재장전 속도가 30% 증가합니다.","en":"Increases reload speed of primary weapons by 30%."},
       {"name":"모든 무기의 탄약 용량이 20% 증가합니다. 무기 배낭에는 영향을 주지 않습니다.","en":"Increases ammo capacity of all weapons by 20%. Does not affect weapon backpacks."}
     ],
+    "tips": ["늘어나는 탄약의 소수점은 올림이고, 보조 무기와 탄약 배낭을 쓰지 않는 지원 무기에도 적용됩니다. 얼티메이텀과 원투의 유탄 발사기는 예외입니다."],
+    "tipsEn": ["Extra ammo rounds up, and it also covers sidearms and support weapons without an ammo backpack. The Ultimatum and the One-Two's grenade launcher are left out."],
     "source": "https://helldivers.wiki.gg/wiki/Siege-Ready",
     "revision": 139468,
     "revisionTimestamp": "2026-10-21T00:51:09Z"
@@ -291,6 +299,8 @@ export const armorPassives = [
       {"name":"각성제 지속 시간이 2.0초 증가합니다.","en":"Increases stim effect duration by 2.0s."},
       {"name":"아크 대미지에 대한 저항력을 50% 제공합니다.","en":"Provides 50% resistance to arc damage."}
     ],
+    "tips": ["되살아난 뒤 다른 피해가 없으면 약 6초(생명력 증진 부스터와 함께면 약 10초) 버팁니다. 몸이 산산조각 나거나 사지가 잘리면 되살아나지 않습니다."],
+    "tipsEn": ["After the revive you last about 6 seconds with no other damage (about 10 with Vitality Enhancement). Being blown apart or losing a limb means no revive."],
     "source": "https://helldivers.wiki.gg/wiki/Adreno-Defibrillator",
     "revision": 139460,
     "revisionTimestamp": "2026-10-21T00:40:23Z"

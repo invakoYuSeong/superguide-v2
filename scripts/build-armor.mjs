@@ -68,7 +68,7 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds, game 
     passiveIds.set(title, id);
     return {
       id, name: gameName ?? ko.name ?? title, en: title, nameStatus: gameName || ko.name != null ? 'confirmed' : UNCONFIRMED, ...(gameName ? { nameSource: 'game' } : {}),
-      order: parsed.order, icon: parsed.icon, effects,
+      order: parsed.order, icon: parsed.icon, effects, ...(ko.tips && { tips: ko.tips.ko, tipsEn: ko.tips.en }),
       source: page.source, revision: page.revision, revisionTimestamp: page.revisionTimestamp,
     };
   });

@@ -27,7 +27,7 @@ import warbondText from './en/warbonds.js';
 import armorText from './en/armor.js';
 
 // Armor: set and passive names, the wiki's own effect lines, their exact values and the acquisition names.
-const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passive => passive.effects), ...armorPassives.flatMap(passive => passive.effects).filter(effect => effect.exact).map(effect => ({ name: effect.exact, en: effect.exactEn })), ...armors.map(armor => armor.source)];
+const armorNames = [...armors, ...armorPassives, ...armorPassives.flatMap(passive => passive.effects), ...armorPassives.flatMap(passive => passive.effects).filter(effect => effect.exact).map(effect => ({ name: effect.exact, en: effect.exactEn })), ...armorPassives.flatMap(passive => (passive.tips ?? []).map((line, i) => ({ name: line, en: passive.tipsEn[i] }))), ...armors.map(armor => armor.source)];
 // Warbond tiles: Korean cosmetic and booster names (`ko`) with the wiki's English name. Listed first so
 // a Korean name shared with something else keeps that meaning (자유의 종복 is a warbond and a title);
 // the board itself shows these names with L(), not through the dictionary.
