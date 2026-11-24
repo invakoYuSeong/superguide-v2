@@ -60,7 +60,8 @@ export function buildArmor(snapshot, namu, korean, warbondList = warbonds, game 
       const exact = ko.exact?.[i];
       if (!exact) return { name: ko.effects[i], en };
       if (numbersOf(exact[0]).join() !== numbersOf(exact[1]).join()) throw new Error(`${title}: numbers differ between exact "${exact[0]}" and "${exact[1]}"`);
-      const missing = numbersOf(exact[1]).filter(number => !pageNumbers.has(number));
+      // exactRounded: a number the user chose to round from a wiki range, with that range ({ '55': '54-56' }).
+      const missing = numbersOf(exact[1]).filter(number => !pageNumbers.has(number) && !ko.exactRounded?.[number]?.split('-').every(end => pageNumbers.has(end)));
       if (missing.length) throw new Error(`${title}: exact "${exact[1]}" has ${missing.join(', ')}, not on the wiki page`);
       return { name: ko.effects[i], en, exact: exact[0], exactEn: exact[1] };
     });

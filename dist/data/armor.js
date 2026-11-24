@@ -314,7 +314,7 @@ export const armorPassives = [
     "icon": "Feet First Armor Passive Icon.svg",
     "effects": [
       {"name":"착용하면 이동 시 소음이 50% 만큼 줄어듭니다.","en":"Wearer makes 50% less noise when moving."},
-      {"name":"관심 지점 인식 범위가 30% 만큼 증가합니다.","en":"Increases point-of-interest identification range by 30%.","exact":"약 54~56m에서 약 70~72m로 늘어남(목표가 걸린 관심 지점만, 전리품만 있는 곳은 그대로)","exactEn":"From about 54-56 m to about 70-72 m (objective places only; loot-only spots stay the same)"},
+      {"name":"관심 지점 인식 범위가 30% 만큼 증가합니다.","en":"Increases point-of-interest identification range by 30%.","exact":"약 55m에서 약 70m로 늘어남(목표가 걸린 관심 지점만, 전리품만 있는 곳은 그대로)","exactEn":"From about 55 m to about 70 m (objective places only; loot-only spots stay the same)"},
       {"name":"다리 부상에 면역이 생깁니다.","en":"Provides immunity to leg injuries."}
     ],
     "source": "https://helldivers.wiki.gg/wiki/Feet_First",
