@@ -351,7 +351,7 @@ const kindIcon = (kind, item) => BLAST_KINDS.includes(kind) ? 'ico-blast' : kind
 function fallbackRows(profile, value) {
   const top = key => profile.modes.map(mode => mode[key]).filter(force => force != null)
     .reduce((best, force) => best == null || (typeof force === 'number' ? force : force.max) > (typeof best === 'number' ? best : best.max) ? force : best, null);
-  const rows = [['direct', L('직격', 'Direct')], ['explosion', html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발', 'Blast')}`]].map(([key, label]) => [label, top(key)]).filter(([, force]) => force != null)
+  const rows = [['direct', L('직격 효과', 'Direct effects')], ['explosion', html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발 효과', 'Blast effects')}`]].map(([key, label]) => [label, top(key)]).filter(([, force]) => force != null)
     .map(([label, force]) => ({ label, text: html`<span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${value(force)}</span>` }));
   return rows.length ? rows : [{ label: L('철거력', 'Demolition'), text: html`<span class="force-line dim">${L('확인 중', 'Unverified')}</span>` }];
 }
@@ -361,10 +361,11 @@ const MODE_LABELS = { flak: L('대공포탄 모드', 'Flak mode'), cluster: L('�
 // variant: a mode tab whose datamine record(s) it names (variant.record: one SEAF Artillery shell, a vehicle's weapon); it
 // shows its own records plus any record no tab claims (e.g. a launcher's backblast). Without one, every attack.
 const recordsOf = variant => [variant?.record ?? []].flat();
-function specialBlock(item, profile, variant = null) {
+// Cells at the end of the key stats (user request 2026-11-24: no separate block); [] when there is nothing to show.
+function specialCells(item, profile, variant = null) {
   const claimed = (item.variants ?? []).flatMap(recordsOf);
   const forces = (stratagemStats[item.id]?.forces ?? []).filter(group => !variant || recordsOf(variant).includes(group.attack) || !claimed.includes(group.attack));
-  if (!profile?.modes?.length && !forces.length) return '';
+  if (!profile?.modes?.length && !forces.length) return [];
   const value = force => force == null ? '?' : typeof force === 'number' ? num(force) : `${num(force.min)}~${num(force.max)}`;
   // Where the demolition data keeps a range (sources disagree), show that range instead of the datamine number.
   const range = kind => profile?.modes?.map(mode => kind === 'blast' ? mode.explosion : mode.direct).find(force => force && typeof force === 'object');
@@ -377,16 +378,15 @@ function specialBlock(item, profile, variant = null) {
   const chosen = [strongest(parts.filter(part => DIRECT_KINDS.includes(part.kind))), strongest(parts.filter(part => part.kind === 'blast')), strongest(parts.filter(part => part.kind === 'overcharge')), strongest(parts.filter(part => part.kind === 'backblast')), strongest(parts.filter(part => part.kind === 'wreck'))].filter(Boolean);
   const rows = forces.length
     ? (chosen.length ? chosen : parts.slice(0, 1)).map(part => ({
-      label: kindIcon(part.kind, item) ? html`<span class="${kindIcon(part.kind, item)}" aria-hidden="true"></span>${FORCE_KIND[part.kind]}` : FORCE_KIND[part.kind],
+      label: html`${kindIcon(part.kind, item) ? html`<span class="${kindIcon(part.kind, item)}" aria-hidden="true"></span>` : ''}${FORCE_KIND[part.kind]}${L(' 효과', ' effects')}`,
       text: html`${line(range(part.kind) ? value(range(part.kind)) : value(part.demo), part.stun, part.push)}${part.kind === 'overcharge' ? html`<span class="force-note">${L('탄이 아니라 과충전하면 무기가 터지는 폭발입니다. 사용자도 죽습니다.', 'Not a shot: the weapon blows up when overcharged, killing the user too.')}</span>` : ''}${part.kind === 'backblast' ? html`<span class="force-note">${L('탄이 아니라 쏠 때 무기 뒤쪽으로 나오는 후폭풍입니다. 뒤에 선 아군이 넘어지거나 다칠 수 있습니다.', 'Not a shot: the blast out of the back of the launcher when it fires. Teammates standing behind can be knocked down or hurt.')}</span>` : ''}${part.kind === 'wreck' ? html`<span class="force-note">${L(`차량이 파괴될 때 연료 탱크가 터지는 폭발입니다. 피해 ${num(part.damage)}, 중심 ${num(part.inner)}m에서 ${num(part.outer)}m까지 줄어들고 충격파는 ${num(part.shockwave)}m까지로 이글 500kg 폭탄과 같은 크기이며, 타고 있던 헬다이버는 죽습니다. 화염방사기 연료가 다 떨어진 뒤에는 일반 차량 폭발로 바뀝니다.`, `Not a shot: the fuel tank blows up when the vehicle is destroyed. ${num(part.damage)} damage out to ${num(part.inner)} m, falling off to ${num(part.outer)} m, with a shockwave out to ${num(part.shockwave)} m, the same size as an Eagle 500kg Bomb, and it kills anyone inside. Once the flamethrower's fuel runs out, it becomes an ordinary vehicle explosion.`)}</span>` : ''}${DIRECT_KINDS.includes(part.kind) && item.directCaution ? html`<span class="force-note">${item.directCaution}</span>` : ''}`,
     }))
     // No attack records in the datamine: the highest direct and blast demolition force of the demolition data.
     : fallbackRows(profile, value);
-  return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
-    <dl class="detail-grid">${rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`)}</dl>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>
-  </section>`;
+  return rows.map(row => html`<div><dt>${row.label}</dt><dd class="force-lines">${row.text}</dd></div>`);
 }
+// The key stats grid with the special effect cells at its end, and their note under it.
+const statsWithEffects = (shown, cells) => html`${statGrid(shown, cells)}${cells.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>` : ''}`;
 
 // The detail grid: the card stats plus durable damage, ammo and fire rate (data-support.js), a support
 // weapon's ergonomics and sway (datamine) and the ship unlock (level and Requisition Slips, wiki infobox).
@@ -394,7 +394,7 @@ function specialBlock(item, profile, variant = null) {
 // handling, unlock. A stat the item does not have at all (no blast, '—' on utility gear) is left out;
 // an unverified one stays as 미확인.
 const statCell = stat => html`<div><dt>${stat.icon ? html`<span class="ico-${stat.icon}" aria-hidden="true"></span>` : ''}${stat.label}</dt><dd class="${stat.dim ? 'dim' : ''}">${stat.text}${stat.unit ? html`<small>${stat.unit}</small>` : ''}</dd>${stat.caption ? html`<div class="caption">${stat.caption}</div>` : ''}${stat.warn ? html`<div class="caption force-note">${stat.warn}</div>` : ''}</div>`;
-const statGrid = item => {
+const statGrid = (item, effects = []) => {
   const [direct, blast, ap, reach] = stats(item);
   const [durable, ...ammo] = ammoCells(item);
   const { ergonomics, sway, unlock, times, body } = stratagemStats[item.id] ?? {};
@@ -449,7 +449,7 @@ const statGrid = item => {
     .map(cell => statCell({ label: cell.label, icon: cell.icon, text: typeof cell.value === 'number' ? num(cell.value) : cell.value, unit: lang === 'en' ? UNIT_EN[cell.unit] ?? cell.unit : cell.unit, caption: cell.caption }));
   // A direct hit that practically never happens (a carrier shell bursting in the air) is flagged in orange.
   if (item.directWarn) direct.warn = item.directWarn;
-  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}</dl>`;
+  return html`<dl class="detail-grid">${[direct, blast].filter(stat => !absent(stat)).map(statCell)}${durable}${absent(ap) ? '' : statCell(ap)}${extra('damage')}${unverifiedArea ? '' : statCell(reach)}${extra('reach')}${ammo}${extra('ammo')}${rateCell(item)}${sentryCells.map(statCell)}${timeCells.map(statCell)}${bodyCells.map(statCell)}${handling.map(statCell)}${effects}</dl>`;
 };
 
 export function stratagemDetail(item, { demolition = false, force = null, header = null, titleId = 'sheet-title', variant = state.variant, compare = true } = {}) {
@@ -468,13 +468,12 @@ export function stratagemDetail(item, { demolition = false, force = null, header
     <p style="font-size:16px">${item.summary}</p>
     ${firingModesBlock(item)}
     ${variants ? html`<div class="variant-tabs"><h3>${item.variantLabel || L('모드별 수치', 'Stats by mode')}</h3><div class="segmented" role="group" aria-label="${item.variantLabel || L('모드 선택', 'Mode')}">${variants.map(v => html`<button type="button" data-variant="${v.id}" aria-pressed="${String(v === current)}">${v.tab || v.name}</button>`)}</div></div>
-      ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statGrid(withVariant(item, v))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
-      : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${statGrid(item)}</section>${blastFigure(item)}`}
+      ${variants.map(v => html`<div class="variant-panel" data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${statsWithEffects(withVariant(item, v), specialCells(item, force, variants.some(x => x.record) ? v : null))}${blastFigure(withVariant(item, v))}${v.note ? html`<p class="variant-note">${v.note}</p>` : ''}</div>`)}`
+      : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${statsWithEffects(item, specialCells(item, force))}</section>${blastFigure(item)}`}
     ${spreadBlock(item)}
     ${timingBlock(item)}
     ${durabilityBlock(item)}
     ${defenseBlock(item)}
-    ${variants?.some(v => v.record) ? variants.map(v => html`<div data-variant-panel="${v.id}" ${v === current ? '' : raw('hidden')}>${specialBlock(item, force, v)}</div>`) : specialBlock(item, force)}
     ${ballisticsBlock(Object.entries(supportProjectileRecords[item.id] || {}).map(([modeId, record]) => ({ label: T(item.variants?.find(v => v.id === modeId)?.name) ?? MODE_LABELS[modeId] ?? item.name, record, propelled: propelledModes[item.id]?.includes(modeId) })), recoilStats(`arsenal/${item.id}`))}
     ${changesBlock(item)}
     <section class="block"><h3>${L('이렇게 쓰세요', 'How to use it')}</h3><p>${item.usage}</p></section>

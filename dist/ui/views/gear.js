@@ -276,7 +276,7 @@ function variantTable(w) {
     </table></div></section>`;
 }
 
-const detailGrid = w => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.icon ? html`<span class="ico-${row.icon}" aria-hidden="true"></span>` : ''}${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}</dl>`;
+const detailGrid = (w, extra = []) => html`<dl class="detail-grid">${detailRows(w).map(row => html`<div><dt>${row.icon ? html`<span class="ico-${row.icon}" aria-hidden="true"></span>` : ''}${row.label}</dt><dd class="${row.dim ? 'dim' : ''}">${row.text}${row.unit ? html`<small>${row.unit}</small>` : ''}</dd>${row.caption ? html`<div class="caption">${row.caption}</div>` : ''}</div>`)}${extra}</dl>`;
 
 // An underbarrel attachment has its own ammo, fire rate and reload; a mode the
 // shot calculator skips starts with no damage numbers of its own.
@@ -307,7 +307,7 @@ function modeTabs(w, modes, current) {
     ${modes.map(m => {
       const v = modeView(w, m);
       return html`<div class="variant-panel" data-variant-panel="${m.id}" ${m === current ? '' : raw('hidden')}>${v
-        ? html`${detailGrid(v)}${blastFigure(v)}${v.modeNotes?.length ? html`<ul class="notes">${v.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`
+        ? html`${statsWithEffects(v, w)}${blastFigure(v)}${v.modeNotes?.length ? html`<ul class="notes">${v.modeNotes.map(note => html`<li>${note}</li>`)}</ul>` : ''}`
         : html`<p class="variant-note">${m.unsupported}</p>`}</div>`;
     })}`;
 }
@@ -363,8 +363,9 @@ export function attachmentTable(w) {
   </details>`;
 }
 
-// Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields).
-function specialBlock(w) {
+// Special effects: demolition, stagger and push force of each attack record (db/weapons.js datamine fields), as
+// cells at the end of the key stats (user request 2026-11-24: no separate block).
+function specialCells(w) {
   // Only the strongest direct hit and the strongest blast (user decision 2026-11-19): highest
   // demolition, then stagger, then push. A record delivered as an explosion counts as a blast; a shot that
   // explodes on impact (Evictor, Eruptor, Exploding Crossbow...) adds its explosion as a blast of its own.
@@ -377,14 +378,15 @@ function specialBlock(w) {
   ]);
   const top = list => strongest(list.map(row => ({ ...row, demo: row.demolition })));
   const rows = [top(all.filter(row => !row.blast)), top(all.filter(row => row.blast))].filter(Boolean);
-  if (!rows.length) return '';
-  const cell = row => html`<div><dt>${row.blast ? html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발', 'Blast')}` : L('직격', 'Direct')}</dt><dd class="force-lines">
-    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`;
-  return html`<section class="block"><h3>${L('특수 효과', 'Special effects')}</h3>
-    <dl class="detail-grid">${rows.map(cell)}</dl>
-    <p class="faint" style="font-size:12.5px;margin-top:8px">${L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.', 'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach the structure threshold in a single hit or blast; hits do not add up.')}</p>
-  </section>`;
+  return rows.map(row => html`<div><dt>${row.blast ? html`<span class="ico-blast" aria-hidden="true"></span>${L('폭발 효과', 'Blast effects')}` : L('직격 효과', 'Direct effects')}</dt><dd class="force-lines">
+    <span class="force-line"><b>${L('철거력', 'Demolition')}</b> ${row.demolition ?? '?'} · <b>${L('저지력', 'Stagger')}</b> ${row.stun ?? '?'} · <b>${L('넉백', 'Push')}</b> ${row.push ?? '?'}</span></dd></div>`);
 }
+const FORCE_NOTE = L('저지력은 적의 동작을 끊는 힘(적마다 기준값이 다름), 넉백은 밀어내는 힘입니다. 철거력은 한 번의 명중이나 폭발이 시설의 필요 철거력 이상이어야 하며, 여러 번 맞혀도 합산되지 않습니다.', 'Stagger force interrupts an enemy (each enemy has its own threshold); push force knocks it back. Demolition force must reach the structure threshold in a single hit or blast; hits do not add up.');
+// The key stats grid with the special effect cells at its end, and their note under it.
+const statsWithEffects = (v, w) => {
+  const cells = specialCells(w);
+  return html`${detailGrid(v, cells)}${cells.length ? html`<p class="faint" style="font-size:12.5px;margin-top:8px">${FORCE_NOTE}</p>` : ''}`;
+};
 
 export function weaponDetail(w, { header = null, titleId = 'sheet-title', variant = state.variant } = {}) {
   const group = groupOf(w.category);
@@ -397,8 +399,7 @@ export function weaponDetail(w, { header = null, titleId = 'sheet-title', varian
     ${weaponArt(w, 'gear-art large')}
     <div class="detail-id gear-id"><div><h2 id="${titleId}">${displayName(w)}</h2><p>${lang === 'en' ? '' : w.en}</p>
       <div class="chips" style="margin-top:6px">${badge(group.name, 'outline')}${badge(typeName(w.type))}${warbondChip('gear', w.id)}${apOf(w) != null ? badge(`${apText(w)} · ${apBandOf({ ap: apOf(w) })?.name}`, 'accent') : ''}${traits(w)}</div>${holeTier(w) === 'conditional' ? html`<p class="note" style="margin-top:6px">${HOLE_CONDITIONS[w.id]}</p>` : ''}</div></div>
-    ${modes.length > 1 ? modeTabs(w, modes, current) : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${detailGrid(w)}</section>${blastFigure(w)}${variantTable(w)}`}
-    ${specialBlock(w)}
+    ${modes.length > 1 ? modeTabs(w, modes, current) : html`<section class="block"><h3>${L('기본 수치', 'Key stats')}</h3>${statsWithEffects(w, w)}</section>${blastFigure(w)}${variantTable(w)}`}
     ${ballisticsBlock([...modes.map(m => ({ label: T(m.name), record: m.record })), { label: L('기본 사격', 'Standard shot'), record: w.record }, ...(w.variants || []).filter(v => v.id !== 'shrapnel').map(v => ({ label: v.displayName, record: v.record }))], recoilCells(w))}
     ${attachmentTable(w)}
     ${conflicts.length ? html`<div class="callout warn"><h3>${L('위키 페이지 표시값과 다름', 'Differs from the wiki page')}</h3><p>${conflicts.map(c => L(`${c.label || CONFLICT_FIELDS[c.field]?.[0] || c.field}: 데이터 ${Array.isArray(c.db) ? c.db.join('~') : c.db} / 페이지 ${c.raw ?? c.infobox}`, `${T(c.label) || CONFLICT_FIELDS[c.field]?.[1] || c.field}: data ${Array.isArray(c.db) ? c.db.join('~') : c.db} / page ${c.raw ?? c.infobox}`)).join(' · ')}. ${L('더 최신인 게임 데이터 값을 표시합니다.', 'The newer game data value is shown.')}</p></div>` : ''}
