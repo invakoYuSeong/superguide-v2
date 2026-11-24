@@ -134,7 +134,7 @@ for (const [id, profile] of multiMode) {
       ok(shows(p, '한 번에 발사', num(m.ammoPerShot)) && p.includes(`모두 맞으면 ${num(m.standard * perRound * m.ammoPerShot)}`), `${where}: rounds fired at once and their total`);
     }
     if (m.id === 'underbarrel') ok(!p.includes('<dt>예비 탄창') && (extra?.rpm != null || !p.includes('<dt>연사')), `${where}: no spare magazines or fire rate borrowed from the main gun`);
-    if (extra?.spareRounds != null) ok(shows(p, '예비탄', num(extra.spareRounds)), `${where}: own spare rounds`);
+    if (extra?.spareRounds != null) ok(p.includes(`예비탄 ${num(extra.spareRounds)}발`), `${where}: own spare rounds`);
     if (extra?.rpm != null) ok(shows(p, '연사', num(extra.rpm)), `${where}: own fire rate`);
     if (extra?.reload != null) ok(shows(p, '재장전', num(extra.reload)), `${where}: own reload`);
     if (extra?.fuel) ok(shows(p, '연료', num(extra.magazine)) && p.includes(`AP ${extra.ap}`) && !p.includes('<dt>직격 피해'), `${where}: fuel and AP, no main-barrel damage`);
@@ -226,11 +226,14 @@ if (caltrops) {
     else if (item.rpm != null) ok(shows(grid, '연사', num(item.rpm)), `${item.id}: fire rate shown`);
     else ok(!grid.includes('<dt>연사'), `${item.id}: no fire rate row without a fire rate`);
     const durable = item.variants?.length > 1 ? item.variants[0].durable : item.durable;
-    const cells = [['내구 피해', durable], [item.fuel ? '연료' : '탄창', item.magazine], [item.fuel ? '예비 연료통' : '예비 탄창', item.spareMags], ['예비탄', item.spareRounds]];
+    const cells = [['내구 피해', durable], [item.fuel ? '연료' : '탄창', item.magazine]];
     for (const [label, value] of cells) {
       if (value != null) ok(shows(grid, label, num(value)), `${item.id}: ${label} ${value} shown`);
       else ok(!grid.includes(`<dt>${label}</dt>`), `${item.id}: no ${label} cell without a value`);
     }
+    // Spare ammo is the magazine cell's second line, not a cell of its own.
+    const spareLine = item.spareMags != null ? `${item.fuel ? '예비 연료통' : '예비 탄창'} ${num(item.spareMags)}개` : item.spareRounds != null ? `예비탄 ${num(item.spareRounds)}발` : null;
+    if (spareLine && item.magazine != null) ok(grid.includes(spareLine) && !grid.includes('<dt>예비 탄창</dt>') && !grid.includes('<dt>예비탄</dt>'), `${item.id}: ${spareLine} under the magazine`);
   }
 }
 // Firing modes picked on a stratagem weapon (Airburst cluster/flak, W.A.S.P. burst/artillery): one button and

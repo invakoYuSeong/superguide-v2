@@ -206,13 +206,15 @@ function spreadBlock(item) {
 // Durable damage, magazine and spare ammo from the datamine (see data-support.js).
 function ammoCells(item) {
   const cell = (label, text, unit, caption) => html`<div><dt>${label}</dt><dd>${text}${unit ? html`<small>${unit}</small>` : ''}</dd>${caption ? html`<div class="caption">${caption}</div>` : ''}</div>`;
-  const spare = L('최대 보유', 'Maximum carried');
+  // Spare ammo is the magazine cell's second line (user request 2026-11-24), as in the gear details.
+  const spare = item.spareMags != null ? (item.fuel ? L(`예비 연료통 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare tanks`) : L(`예비 탄창 ${num(item.spareMags)}개`, `${num(item.spareMags)} spare magazines`))
+    : item.spareRounds != null ? L(`예비탄 ${num(item.spareRounds)}발`, `${num(item.spareRounds)} spare rounds`) : '';
+  const wikiNote = item.magazineWiki != null ? L(`게임 데이터 기준 · 위키 표기 ${num(item.magazineWiki)}`, `Game data · wiki says ${num(item.magazineWiki)}`) : '';
   return [
     item.durable != null ? cell(L('내구 피해', 'Durable damage'), num(item.durable), item.damageKind === 'dps' ? '/s' : '', L('단단한 부위에 들어가는 피해', 'Damage against durable parts')) : '',
-    item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : L('발', ''),
-      item.magazineWiki != null ? L(`게임 데이터 기준 · 위키 표기 ${num(item.magazineWiki)}`, `Game data · wiki says ${num(item.magazineWiki)}`) : '') : '',
-    item.spareMags != null ? cell(item.fuel ? L('예비 연료통', 'Spare tanks') : L('예비 탄창', 'Spare magazines'), num(item.spareMags), L('개', ''), spare) : '',
-    item.spareRounds != null ? cell(L('예비탄', 'Spare rounds'), num(item.spareRounds), L('발', ''), spare) : '',
+    item.magazine != null ? cell(item.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(item.magazine), item.fuel ? '' : L('발', ''), [spare, wikiNote].filter(Boolean).join(' · ')) : '',
+    item.magazine == null && item.spareMags != null ? cell(item.fuel ? L('예비 연료통', 'Spare tanks') : L('예비 탄창', 'Spare magazines'), num(item.spareMags), L('개', ''), L('최대 보유', 'Maximum carried')) : '',
+    item.magazine == null && item.spareRounds != null ? cell(L('예비탄', 'Spare rounds'), num(item.spareRounds), L('발', ''), L('최대 보유', 'Maximum carried')) : '',
   ];
 }
 

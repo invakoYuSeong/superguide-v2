@@ -186,6 +186,10 @@ function renderBrowse() {
 // Recoil for the detailed stats: the wiki's own recoil cell (EXTRA_STATS) and the base kick and climb (weapon-recoil.js).
 const recoilCells = w => [...(w.extraStats ?? []).filter(cell => cell.label === '반동').map(cell => ({ label: L('반동 수치', 'Recoil rating'), text: num(cell.value), unit: cell.unit, caption: cell.caption })), ...recoilStats(`gear/${w.id}`)];
 
+// The spare ammo line under the magazine: spare magazines (or fuel tanks), or rounds loaded one at a time.
+const spareText = w => w.spareMags != null ? (w.fuel ? L(`예비 연료통 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare tanks`) : L(`예비 탄창 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare magazines`))
+  : w.spareRounds != null ? L(`예비탄 ${num(w.spareRounds)}발 · 한 발씩 장전`, `${num(w.spareRounds)} spare rounds · loaded one at a time`) : '';
+
 function detailRows(w) {
   const rows = [];
   // Numbers show at full strength; words (a fuse type, raw wiki text) are dimmed.
@@ -220,11 +224,16 @@ function detailRows(w) {
     add(L('실드 반경', 'Shield radius'), num(w.shield.radius), 'm', L('전방위', 'All around'));
     add(L('재생 대기', 'Regen delay'), num(w.shield.regenDelay), s, L(`맞은 뒤 · 깨지면 ${num(w.shield.brokenDelay)}초`, `After a hit · ${num(w.shield.brokenDelay)} s once broken`));
   }
-  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''));
-  if (w.spareMags != null) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
+  // Spare ammo is the magazine cell's second line (user request 2026-11-24); a heat weapon has no magazine,
+  // so its spare heatsinks go under 'until overheat' instead.
+  const spare = spareText(w), heat = w.heatCapacity?.raw;
+  if (w.magazine != null) add(w.fuel ? L('연료', 'Fuel') : L('탄창', 'Magazine'), num(w.magazine), w.fuel ? '' : L('발', ''), spare);
+  else if (w.spareMags != null && !heat) add(L('예비 탄창', 'Spare magazines'), num(w.spareMags), L('개', ''), L('최대 보유', 'Maximum carried'));
   extra('ammo');
-  if (w.spareRounds != null) add(L('예비탄', 'Spare rounds'), num(w.spareRounds), L('발', ''), L('한 발씩 장전', 'Loaded one at a time'));
-  if (w.heatCapacity?.raw) add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · 방열판 교체로 재장전`, `About ${w.heatCapacity.shots} shots · reload by swapping the heatsink`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink'));
+  if (heat) {
+    const heatsinks = w.magazine == null && w.spareMags != null ? L(`예비 방열판 ${num(w.spareMags)}개`, `${num(w.spareMags)} spare heatsinks`) : L('방열판 교체로 재장전', 'Reload by swapping the heatsink');
+    add(L('과열까지', 'Until overheat'), w.heatCapacity.seconds != null ? num(w.heatCapacity.seconds) : w.heatCapacity.raw, w.heatCapacity.seconds != null ? s : '', w.heatCapacity.shots ? L(`약 ${w.heatCapacity.shots}발 · `, `About ${w.heatCapacity.shots} shots · `) + heatsinks : heatsinks);
+  }
   if (w.rpmModes?.length > 1) add(L('연사 모드', 'Fire rate modes'), w.rpmModes.map(num).join(' / '), '', L('분당 발수', 'Rounds per minute'));
   else if (w.rpm != null) add(L('연사', 'Fire rate'), num(w.rpm), '', L('분당 발수', 'Rounds per minute'));
   if (w.swingsPerMinute != null) add(L('휘두르기', 'Swings'), num(w.swingsPerMinute), L('/분', '/min'));
