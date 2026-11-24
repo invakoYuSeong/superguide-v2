@@ -81,12 +81,12 @@ export const conditions = [
   ],
   "detail": [
    "연사 속도가 약 10% 느려집니다.",
-   "게임 설명과 달리 과열되는 무기가 더 빨리 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 짧아집니다(위키가 인용한 실험 영상 기준).",
+   "과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 33% 짧아집니다.",
    "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
   ],
   "detailEn": [
    "Rate of fire drops by about 10%.",
-   "Despite the game description, heat-based weapons cool down faster: after overheating they are ready again usually 33% sooner (per the test video the wiki cites).",
+   "After overheating, weapons are ready to fire again 33% sooner.",
    "It turns on and off with the time of day and the weather, and stays on for good on some planets."
   ],
   "revision": 116130
