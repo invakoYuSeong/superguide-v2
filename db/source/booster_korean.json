@@ -37,6 +37,6 @@
   "surplus-eat-allocation": { "name": "Surplus EAT Allocation", "description": "Grants two free uses of the Expendable Anti-Tank (EAT) Stratagem per mission; enough to grant a full squad one single-use rocket launcher each, provided squad members employ the proper equipment distribution protocol.",
    "detail": { "ko": "임무마다 EAT-17을 2번 무료로 부를 수 있어 4명이 1개씩 가질 수 있습니다.", "en": "Two free EAT-17 call-ins per mission, enough for one launcher each for 4 Helldivers." } },
   "integrated-extinguishers": { "name": "Integrated Extinguishers", "description": "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering maneuvers.",
-   "detail": { "ko": "몸에 붙은 불이 저절로 빨리 꺼져서 다이빙하거나 엎드리지 않아도 됩니다. 불이 저절로 꺼지기까지 걸리는 시간이 3초에서 1.5초로 줄어듭니다.", "en": "Flames on you go out quickly on their own, so you no longer have to dive or go prone. Burning goes out by itself in 1.5 seconds instead of 3." } }
+   "detail": { "ko": "불이 저절로 꺼지기까지 걸리는 시간이 3초에서 1.5초로 줄어듭니다.", "en": "Burning goes out by itself in 1.5 seconds instead of 3." } }
  }
 }
