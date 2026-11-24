@@ -1,5 +1,5 @@
 // Planet tab: environmental conditions, operation modifiers, biomes and status effects.
-//   #/planets?tab=<conditions|hazards|modifiers|biomes|time|status>&b=<id>   (b: scroll to and mark one card of that tab, e.g. a biome)
+//   #/planets?tab=<dss|conditions|hazards|modifiers|biomes|time|status>&b=<id>   (no tab: the first, dss)   (b: scroll to and mark one card of that tab, e.g. a biome)
 import { conditions, gloomLevels, specialEffects, operationModifiers, eventEffects, eventKinds, biomes, statusEffects, hazards, planetsCheckedAt, playablePlanetCount } from '../../data/planets.js';
 import { planetTimeScales, planetTimeMeasuredAt } from '../../data/planet-time.js';
 import { biomeImages } from '../../data/biome-images.js';
@@ -8,6 +8,7 @@ import { html, render, $, $$, badge, external, icon } from '../dom.js';
 import { L, T, lang } from '../../core/i18n.js';
 
 const TABS = [
+  { id: 'dss', name: L('민주주의 우주 정거장', 'Democracy Space Station'), icon: 'tab-dss' },
   { id: 'conditions', name: L('환경 조건', 'Environment'), icon: 'tab-conditions' },
   { id: 'hazards', name: L('환경 위험 요소', 'Hazards'), icon: 'tab-hazards' },
   { id: 'modifiers', name: L('작전 제한 조건', 'Operation modifiers'), icon: 'tab-modifiers' },
@@ -21,7 +22,7 @@ const FACTIONS = [
   { id: 'automaton', name: L('오토마톤', 'Automatons') },
   { id: 'illuminate', name: L('일루미닛', 'Illuminate') },
 ];
-const state = { tab: 'conditions', biome: '', timeSort: 'asc' }; // timeSort: rotation period order on the clock speed tab
+const state = { tab: 'dss', biome: '', timeSort: 'asc' }; // timeSort: rotation period order on the clock speed tab
 let root, ctx;
 
 const conditionById = new Map(conditions.map(item => [item.id, item]));
@@ -70,9 +71,12 @@ function conditionsTab() {
     <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('exostorm')).map(effectCard)}</ul>
     <h2 class="planet-sub">SEAF</h2>
     <p class="lede-note">${L('슈퍼 지구 세력의 지원 효과로, 어느 세력의 행성에서든 붙을 수 있습니다.', 'A Super Earth support effect that can appear on a planet of any faction.')}</p>
-    <ul class="info-list">${specialEffects.filter(item => item.id === 'heavy-seaf-presence').map(effectCard)}</ul>
-    <h2 class="planet-sub">${L('민주주의 우주 정거장', 'Democracy Space Station')}</h2>
-    <p class="lede-note">${L('헬다이버들이 투표로 옮기는 슈퍼 지구의 우주 정거장입니다. 정거장이 머무는 행성에는 기본 효과 2개가 늘 붙고, 기부로 충전한 전술 행동이 24시간 동안 켜집니다.', 'A Super Earth space station the Helldivers move by vote. The planet it orbits always gets its two base effects, plus a Tactical Action charged by donations for 24 hours.')}</p>
+    <ul class="info-list">${specialEffects.filter(item => item.id === 'heavy-seaf-presence').map(effectCard)}</ul>`;
+}
+
+// Democracy Space Station: the first planet tab (user request 2026-11-24).
+function dssTab() {
+  return html`<p class="lede-note">${L('헬다이버들이 투표로 옮기는 슈퍼 지구의 우주 정거장입니다. 정거장이 머무는 행성에는 기본 효과 2개가 늘 붙고, 기부로 충전한 전술 행동이 24시간 동안 켜집니다.', 'A Super Earth space station the Helldivers move by vote. The planet it orbits always gets its two base effects, plus a Tactical Action charged by donations for 24 hours.')}</p>
     <ul class="info-list">${specialEffects.filter(item => item.id.startsWith('dss')).map(effectCard)}</ul>`;
 }
 
@@ -161,22 +165,22 @@ function statusTab() {
     </li>`)}</ul>`;
 }
 
-const BODIES = { conditions: conditionsTab, hazards: hazardsTab, modifiers: modifiersTab, biomes: biomesTab, time: timeTab, status: statusTab };
+const BODIES = { dss: dssTab, conditions: conditionsTab, hazards: hazardsTab, modifiers: modifiersTab, biomes: biomesTab, time: timeTab, status: statusTab };
 
 function renderTab() {
   for (const button of $$('[data-planet-tab]', root)) button.setAttribute('aria-pressed', String(button.dataset.planetTab === state.tab));
-  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`행성 ${playablePlanetCount}개 중 ${planetTimeScales.length}개를 게임 은하 지도에서 직접 실측(위키에 없음) · ${planetTimeMeasuredAt}`, `${planetTimeScales.length} of ${playablePlanetCount} planets measured on the in-game galaxy map (not on the wiki) · ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
+  $('.planet-checked', root).textContent = state.tab === 'time' ? L(`행성 ${playablePlanetCount}개 중 ${planetTimeScales.length}개를 직접 실측 · ${planetTimeMeasuredAt}`, `${planetTimeScales.length} of ${playablePlanetCount} planets measured in game · ${planetTimeMeasuredAt}`) : L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`);
   render($('#planet-body', root), BODIES[state.tab]());
   const marked = state.biome && ($(`#biome-${state.biome}`, root) || $(`#planet-${state.biome}`, root));
   if (marked) requestAnimationFrame(() => marked.scrollIntoView({ block: 'center' }));
 }
 
-const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab === 'conditions' ? '' : state.tab, b: state.biome } });
+const syncUrl = () => ctx.replace({ view: 'planets', query: { tab: state.tab === 'dss' ? '' : state.tab, b: state.biome } });
 
 export function mount(container, context) {
   root = container; ctx = context;
   render(root, html`<div class="page-head"><div><div class="eyebrow">Planets</div><h1>${L('행성', 'Planets')}</h1>
-    <p>${L('출격할 행성의 환경 조건, 환경 위험 요소, 작전 제한 조건, 생물군계, 시간 배율, 상태 이상을 정리했습니다.', 'Environmental conditions, hazards, operation modifiers, biomes, clock speeds and status effects of the planets you drop on.')}</p></div></div>
+    <p>${L('출격할 행성의 민주주의 우주 정거장, 환경 조건, 환경 위험 요소, 작전 제한 조건, 생물군계, 시간 배율, 상태 이상을 정리했습니다.', 'The Democracy Space Station, environmental conditions, hazards, operation modifiers, biomes, clock speeds and status effects of the planets you drop on.')}</p></div></div>
     <div class="planet-head"><div class="segmented planet-tabs" role="group" aria-label="${L('행성 정보', 'Planet info')}">${TABS.map(tab => html`<button type="button" data-planet-tab="${tab.id}">${icon(tab.icon, 16)} ${tab.name}</button>`)}</div>
       <span class="planet-checked">${L(`자료 확인 ${planetsCheckedAt}`, `Checked ${planetsCheckedAt}`)}</span></div>
     <div id="planet-body"></div>`);
@@ -196,7 +200,7 @@ export function mount(container, context) {
 
 export function update(route) {
   const q = route.query;
-  state.tab = TABS.some(tab => tab.id === q.tab) ? q.tab : 'conditions';
+  state.tab = TABS.some(tab => tab.id === q.tab) ? q.tab : 'dss';
   state.biome = focusIds.has(q.b) ? q.b : '';
   renderTab();
 }
