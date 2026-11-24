@@ -234,13 +234,19 @@ function reloadCell(item) {
   const r = stratagemStats[item.id]?.reload;
   if (!r || (r.time == null && r.tactical == null)) return '';
   const s = L('초', 's');
+  // With ship modules on, the wiki's upgraded values (Payroll Management System, -10%); off, the base ones.
+  const on = modulesOn();
+  const v = key => on ? r[`${key}Upgraded`] ?? r[key] : r[key];
+  const main = r.time != null ? 'time' : 'tactical';
+  const moduleNote = !on ? L('함선 모듈 미적용', 'Without ship modules') : r[`${main}Upgraded`] != null ? L(`기본 ${num(r[main])}초`, `Base ${num(r[main])}s`) : L('함선 모듈 반영값 미확인', 'Ship module value unverified');
   const parts = [
-    r.time != null && r.tactical != null ? L(`탄이 남았을 때 ${num(r.tactical)}초`, `${num(r.tactical)}s with rounds left`) : r.time == null ? L('탄이 남았을 때', 'With rounds left') : L('탄창을 비웠을 때', 'From empty'),
-    r.clipFirst != null ? L(`클립 하나씩 장전 ${num(r.clipFirst)}초, 다음 클립 ${num(r.clipRest)}초`, `Clip by clip: ${num(r.clipFirst)}s, then ${num(r.clipRest)}s each`) : '',
+    moduleNote,
+    r.time != null && r.tactical != null ? L(`탄이 남았을 때 ${num(v('tactical'))}초`, `${num(v('tactical'))}s with rounds left`) : r.time == null ? L('탄이 남았을 때', 'With rounds left') : L('탄창을 비웠을 때', 'From empty'),
+    r.clipFirst != null ? L(`클립 하나씩 장전 ${num(v('clipFirst'))}초, 다음 클립 ${num(v('clipRest'))}초`, `Clip by clip: ${num(v('clipFirst'))}s, then ${num(v('clipRest'))}s each`) : '',
     r.assisted != null ? L(`동료가 장전하면 ${num(r.assisted)}초`, `${num(r.assisted)}s when a teammate loads it`) : '',
     r.stationary ? L('정지 재장전: 장전하는 동안 움직일 수 없음', 'Stationary reload: you cannot move while reloading') : '',
   ].filter(Boolean).join(' · ');
-  return html`<div><dt>${L('재장전', 'Reload')}</dt><dd>${num(r.time ?? r.tactical)}<small>${s}</small></dd><div class="caption">${parts}</div></div>`;
+  return html`<div><dt>${L('재장전', 'Reload')}</dt><dd>${num(v(main))}<small>${s}</small></dd><div class="caption">${parts}</div></div>`;
 }
 
 // Fire rate from the wiki infobox, or the rates the player picks between.

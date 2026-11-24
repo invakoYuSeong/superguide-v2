@@ -123,9 +123,11 @@ export function reloadOf(entry) {
   const line = key => new RegExp(`\\|\\s*${key}\\s*=\\s*([^\\n]*)`).exec(box)?.[1] ?? '';
   // Clip-fed weapons (Autocannon) give the full reload and each clip instead: rounds_reload_full_time / _first / _rest.
   const full = reloadParts(line('reload_time') || line('rounds_reload_full_time')), tac = reloadParts(line('tac_reload_time'));
-  const clipFirst = reloadParts(line('rounds_reload_first')).base, clipRest = reloadParts(line('rounds_reload_rest')).base;
+  const first = reloadParts(line('rounds_reload_first')), rest = reloadParts(line('rounds_reload_rest'));
   const stationary = /Stationary Reload/i.test(line('traits'));
-  const out = { ...(full.base != null && { time: full.base }), ...(tac.base != null && { tactical: tac.base }), ...(full.assisted != null && { assisted: full.assisted }), ...(clipFirst != null && { clipFirst }), ...(clipRest != null && { clipRest }), ...(stationary && { stationary }) };
+  // *Upgraded: the wiki's value with the ship module (shown while ship modules are on, user request 2026-11-24).
+  const pair = (key, parts) => ({ ...(parts.base != null && { [key]: parts.base }), ...(parts.upgraded != null && { [`${key}Upgraded`]: parts.upgraded }) });
+  const out = { ...pair('time', full), ...pair('tactical', tac), ...(full.assisted != null && { assisted: full.assisted }), ...pair('clipFirst', first), ...pair('clipRest', rest), ...(stationary && { stationary }) };
   return Object.keys(out).length ? out : null;
 }
 export const swayOf = found => Number.isFinite(found?.entry?.sway) ? found.entry.sway : null;
