@@ -244,7 +244,7 @@ function detailRows(w) {
   if (w.reload != null) add(L('재장전', 'Reload'), num(w.reload), s, w.reloadTactical != null ? L(`탄이 남았을 때 ${num(w.reloadTactical)}초`, `${num(w.reloadTactical)}s with rounds left`) : L('탄창을 비웠을 때', 'From empty'));
   // Customizable weapons (an attachment table) read with the level 1 attachments; others have no 'base' to name.
   const customizable = w.category === 'primary' && weaponAttachments[w.id]?.length;
-  if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', customizable ? L('1레벨 부착물 기준 · 높을수록 조준이 빨리 따라옴', 'With level 1 attachments · higher = the aim follows faster') : L('높을수록 조준이 빨리 따라옴', 'Higher = the aim follows faster'));
+  if (w.ergonomics != null) add(L('인체공학성', 'Ergonomics'), num(w.ergonomics), '', customizable ? L('1레벨 부착물 기준 · 높을수록 조준이 빠름', 'With level 1 attachments · higher = faster aim') : L('높을수록 조준이 빠름', 'Higher = faster aim'));
   // Sway only where it differs from the standard 100% (user decision 2026-11-19).
   if (w.sway != null && w.sway !== 1) add(L('흔들림', 'Sway'), num(Math.round(w.sway * 100)), '%', L('표준 100% · 낮을수록 덜 흔들림', 'Standard 100% · lower sways less'));
   if (w.throwableCapacity != null) add(L('소지 수', 'Carried'), num(w.throwableCapacity), L('개', ''), w.throwableStart != null ? L(`출격 시 ${w.throwableStart}개`, `${w.throwableStart} at deployment`) : '');
