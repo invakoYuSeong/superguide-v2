@@ -7,27 +7,147 @@ export const planetsGameBuild = "26568081";
 export const playablePlanetCount = 262;
 export const conditions = [
  {
-  "id": "acid-storms",
-  "name": "산성 폭풍",
-  "en": "Acid Storms",
-  "description": "부식성 산성 폭풍으로 적과 아군 유닛 모두 방어구 효과가 일시적으로 감소합니다.",
-  "descriptionEn": "Corrosive acid storms temporarily reduce armor effectiveness for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Acid_Storms",
+  "id": "extreme-cold",
+  "name": "혹한",
+  "en": "Extreme Cold",
+  "description": "차가운 기온이 지속되는 동안 연사율이 감소하고 무기의 과열 속도가 지연됩니다.",
+  "descriptionEn": "Periods of freezing temperatures reduce rate of fire and delay heat buildup in weapons.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Extreme_Cold",
   "icon": {
-   "src": "./assets/conditions/acid-storms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Acid_Storms_Environmental_Condition_Icon.svg",
-   "sha256": "4b7b01678619265894cdb69683a1ad1bee0254125da3fccbe896cd9008bc0ebe"
+   "src": "./assets/conditions/extreme-cold.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Extreme_Cold_Environmental_Condition_Icon.svg",
+   "sha256": "b9881b9eea7c0ff7f1ec7810a86ac2d2dd719f3bf72a252c7daabb985dd5ccf4"
   },
   "biomes": [
-   "acidic-badlands"
+   "icy-glaciers",
+   "boneyard",
+   "desert-dunes",
+   "moon",
+   "cyberstan-megafactory"
   ],
   "detail": [
-   "헬다이버와 적 모두 방어구 수치가 1 낮아집니다."
+   "연사 속도가 약 10% 느려집니다.",
+   "과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 33% 짧아집니다.",
+   "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
   ],
   "detailEn": [
-   "Helldivers and enemies alike lose 1 armor value."
+   "Rate of fire drops by about 10%.",
+   "After overheating, weapons are ready to fire again 33% sooner.",
+   "It turns on and off with the time of day and the weather, and stays on for good on some planets."
   ],
-  "revision": 107572
+  "revision": 116130
+ },
+ {
+  "id": "intense-heat",
+  "name": "혹서",
+  "en": "Intense Heat",
+  "description": "높은 기온이 지속되는 동안 스태미나 소모가 증가하고 무기의 과열 속도가 가속됩니다.",
+  "descriptionEn": "Periods of high temperatures increase stamina drain and speed up heat buildup in weapons.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Intense_Heat",
+  "icon": {
+   "src": "./assets/conditions/intense-heat.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Intense_Heat_Environmental_Condition_Icon.svg",
+   "sha256": "bd67b75cedc431346ae448840ea2d1241b5ffc4a6def4d8aac62faabb7a89f7d"
+  },
+  "biomes": [
+   "desert-dunes",
+   "desert-cliffs",
+   "scorched-moor",
+   "magma-desert",
+   "desert-oasis"
+  ],
+  "detail": [
+   "최대 기력이 절반이 됩니다. 회복 속도는 같아서 가득 차는 시간도 절반입니다.",
+   "게임 설명과 달리 과열되는 무기가 더 느리게 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 길어집니다(위키가 인용한 실험 영상 기준).",
+   "낮밤과 날씨에 따라 켜지고 꺼집니다. 화염 토네이도 행성에서는 토네이도 폭풍이 부는 동안만 켜집니다."
+  ],
+  "detailEn": [
+   "Maximum stamina is halved. It regenerates at the same rate, so it also refills in half the time.",
+   "Despite the game description, heat-based weapons cool down slower: after overheating they take usually 33% longer to be ready again (per the test video the wiki cites).",
+   "It turns on and off with the time of day and the weather. On Fire Tornado planets it is only on while a tornado storm lasts."
+  ],
+  "revision": 119909
+ },
+ {
+  "id": "rainstorms",
+  "name": "폭풍우",
+  "en": "Rainstorms",
+  "description": "폭풍우로 가시성이 감소합니다.",
+  "descriptionEn": "Torrential rainstorms reduce visibility.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Rainstorms",
+  "icon": {
+   "src": "./assets/conditions/rainstorms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Rainstorms_Environmental_Condition_Icon.svg",
+   "sha256": "67b9bfec422977f1e5cb99cf684fdcd5df750bed31f243a4239c11481165c714"
+  },
+  "biomes": [
+   "volcanic-jungle",
+   "basic-swamp",
+   "plains",
+   "super-earth-metropolis"
+  ],
+  "detail": [
+   "구름 밀도에 따라 시야가 달라집니다. 평균 35m, 짙을 때는 25m까지 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility depends on cloud density: 35 m on average, down to 25 m at worst."
+  ],
+  "revision": 135713
+ },
+ {
+  "id": "thick-fog",
+  "name": "짙은 안개",
+  "en": "Thick Fog",
+  "description": "짙은 안개로 적과 아군 모두 가시성이 약간 감소합니다.",
+  "descriptionEn": "Dense fog lightly reduces visibility for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Thick_Fog",
+  "icon": {
+   "src": "./assets/conditions/thick-fog.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Thick_Fog_Environmental_Condition_Icon.svg",
+   "sha256": "bfb0ba83342bc793ae1215420e0c67e8c5b7ad1227e6fc7c54dab713d7b1e9fa"
+  },
+  "biomes": [
+   "haunted-swamp",
+   "deadlands"
+  ],
+  "detail": [
+   "시야가 약 50m로 줄어듭니다. 적의 탐지 거리도 50m에서 30m로 줄어듭니다."
+  ],
+  "detailEn": [
+   "Visibility drops to about 50 m, and enemy detection range from 50 m to 30 m."
+  ],
+  "revision": 130624
+ },
+ {
+  "id": "sandstorms",
+  "name": "모래 폭풍",
+  "en": "Sandstorms",
+  "description": "짙은 모래 폭풍으로 적과 아군 모두 기동성이 감소하고 가시성이 크게 감소합니다.",
+  "descriptionEn": "Dense sandstorms reduce mobility and greatly reduce visibility for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Sandstorms",
+  "icon": {
+   "src": "./assets/conditions/sandstorms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Sandstorms_Environmental_Condition_Icon.svg",
+   "sha256": "c14e5e794c9ad23d9859eb8ac9ac9b10492964c89b40329f13cc9ee6803646fb"
+  },
+  "biomes": [
+   "desert-dunes"
+  ],
+  "detail": [
+   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
+   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
+   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
+   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
+   "눈보라와 효과가 같습니다."
+  ],
+  "detailEn": [
+   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
+   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
+   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
+   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
+   "Works exactly like Blizzards."
+  ],
+  "revision": 90346
  },
  {
   "id": "blizzards",
@@ -61,95 +181,27 @@ export const conditions = [
   "revision": 90433
  },
  {
-  "id": "extreme-cold",
-  "name": "혹한",
-  "en": "Extreme Cold",
-  "description": "차가운 기온이 지속되는 동안 연사율이 감소하고 무기의 과열 속도가 지연됩니다.",
-  "descriptionEn": "Periods of freezing temperatures reduce rate of fire and delay heat buildup in weapons.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Extreme_Cold",
+  "id": "acid-storms",
+  "name": "산성 폭풍",
+  "en": "Acid Storms",
+  "description": "부식성 산성 폭풍으로 적과 아군 유닛 모두 방어구 효과가 일시적으로 감소합니다.",
+  "descriptionEn": "Corrosive acid storms temporarily reduce armor effectiveness for both enemy and friendly units.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Acid_Storms",
   "icon": {
-   "src": "./assets/conditions/extreme-cold.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Extreme_Cold_Environmental_Condition_Icon.svg",
-   "sha256": "b9881b9eea7c0ff7f1ec7810a86ac2d2dd719f3bf72a252c7daabb985dd5ccf4"
+   "src": "./assets/conditions/acid-storms.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Acid_Storms_Environmental_Condition_Icon.svg",
+   "sha256": "4b7b01678619265894cdb69683a1ad1bee0254125da3fccbe896cd9008bc0ebe"
   },
   "biomes": [
-   "icy-glaciers",
-   "boneyard",
-   "desert-dunes",
-   "moon",
-   "cyberstan-megafactory"
+   "acidic-badlands"
   ],
   "detail": [
-   "연사 속도가 약 10% 느려집니다.",
-   "과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 33% 짧아집니다.",
-   "낮밤과 날씨에 따라 켜지고 꺼지며, 늘 켜져 있는 행성도 있습니다."
+   "헬다이버와 적 모두 방어구 수치가 1 낮아집니다."
   ],
   "detailEn": [
-   "Rate of fire drops by about 10%.",
-   "After overheating, weapons are ready to fire again 33% sooner.",
-   "It turns on and off with the time of day and the weather, and stays on for good on some planets."
+   "Helldivers and enemies alike lose 1 armor value."
   ],
-  "revision": 116130
- },
- {
-  "id": "fire-tornados",
-  "name": "화염 토네이도",
-  "en": "Fire Tornados",
-  "description": "위협적인 화염 토네이도는 행성을 황폐화합니다.",
-  "descriptionEn": "Planet is ravaged by deadly fire tornados.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Fire_Tornados",
-  "icon": {
-   "src": "./assets/conditions/fire-tornados.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Fire_Tornados_Environmental_Condition_Icon.svg",
-   "sha256": "ffec26e3665bd6ed5695c18450c22ed03e0ece9cd8767f6838fe21f874920480"
-  },
-  "biomes": [
-   "scorched-moor"
-  ],
-  "detail": [
-   "토네이도가 지나간 자리에 길이 30m, 폭 10m의 불길이 30초 동안 남습니다. 토네이도나 불길에 닿으면 불이 붙고, 다이브하면 꺼집니다.",
-   "폭풍이 부는 동안에는 혹서가 함께 켜지고 적의 시야가 줄어듭니다. 헬다이버의 시야는 그대로입니다.",
-   "철거력이 없어 울타리 같은 구조물은 부수지 못합니다. 다만 로켓 센트리 같은 설비는 고도화된 구조 모듈이 없으면 불 피해를 버티지 못합니다.",
-   "적 순찰대처럼 걸어 다닐 수 있는 곳으로만 움직입니다. 바위 절벽이나 도시의 건물 위로 올라가면 안전합니다."
-  ],
-  "detailEn": [
-   "Each tornado leaves a trail of flames 30 m long and 10 m wide that burns for 30 seconds. Touching the tornado or its trail sets you on fire, and diving puts it out.",
-   "While the storm lasts, Intense Heat is on as well and enemy vision is reduced. Helldiver vision is unaffected.",
-   "It has no demolition force, so fences and other structures survive. Emplacements such as the Rocket Sentry, though, cannot survive its fire damage without the Advanced Construction module.",
-   "It only goes where a patrol could walk. Climbing a rocky cliff or a city building keeps you safe."
-  ],
-  "revision": 133891
- },
- {
-  "id": "intense-heat",
-  "name": "혹서",
-  "en": "Intense Heat",
-  "description": "높은 기온이 지속되는 동안 스태미나 소모가 증가하고 무기의 과열 속도가 가속됩니다.",
-  "descriptionEn": "Periods of high temperatures increase stamina drain and speed up heat buildup in weapons.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Intense_Heat",
-  "icon": {
-   "src": "./assets/conditions/intense-heat.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Intense_Heat_Environmental_Condition_Icon.svg",
-   "sha256": "bd67b75cedc431346ae448840ea2d1241b5ffc4a6def4d8aac62faabb7a89f7d"
-  },
-  "biomes": [
-   "desert-dunes",
-   "desert-cliffs",
-   "scorched-moor",
-   "magma-desert",
-   "desert-oasis"
-  ],
-  "detail": [
-   "최대 기력이 절반이 됩니다. 회복 속도는 같아서 가득 차는 시간도 절반입니다.",
-   "게임 설명과 달리 과열되는 무기가 더 느리게 식습니다. 과열된 뒤 다시 쏠 수 있을 때까지 걸리는 시간이 보통 33% 길어집니다(위키가 인용한 실험 영상 기준).",
-   "낮밤과 날씨에 따라 켜지고 꺼집니다. 화염 토네이도 행성에서는 토네이도 폭풍이 부는 동안만 켜집니다."
-  ],
-  "detailEn": [
-   "Maximum stamina is halved. It regenerates at the same rate, so it also refills in half the time.",
-   "Despite the game description, heat-based weapons cool down slower: after overheating they take usually 33% longer to be ready again (per the test video the wiki cites).",
-   "It turns on and off with the time of day and the weather. On Fire Tornado planets it is only on while a tornado storm lasts."
-  ],
-  "revision": 119909
+  "revision": 107572
  },
  {
   "id": "ion-storms",
@@ -213,85 +265,62 @@ export const conditions = [
   "revision": 90432
  },
  {
-  "id": "rainstorms",
-  "name": "폭풍우",
-  "en": "Rainstorms",
-  "description": "폭풍우로 가시성이 감소합니다.",
-  "descriptionEn": "Torrential rainstorms reduce visibility.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Rainstorms",
+  "id": "volcanic-activity",
+  "name": "화산 활동",
+  "en": "Volcanic Activity",
+  "description": "화산은 행성 곳곳에 불타는 암석을 날립니다.",
+  "descriptionEn": "Volcanos throw burning rocks around this planet.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Volcanic_Activity",
   "icon": {
-   "src": "./assets/conditions/rainstorms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Rainstorms_Environmental_Condition_Icon.svg",
-   "sha256": "67b9bfec422977f1e5cb99cf684fdcd5df750bed31f243a4239c11481165c714"
+   "src": "./assets/conditions/volcanic-activity.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
+   "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
   },
   "biomes": [
-   "volcanic-jungle",
-   "basic-swamp",
-   "plains",
-   "super-earth-metropolis"
+   "volcanic-jungle"
   ],
   "detail": [
-   "구름 밀도에 따라 시야가 달라집니다. 평균 35m, 짙을 때는 25m까지 줄어듭니다."
+   "바위 직격: 피해 50, 관통 8, 철거력 10.",
+   "폭발: 중심 1m까지 피해 700, 7.5m까지 점점 줄어들고, 충격파는 15m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
+   "떨어질 자리가 낮에는 붉게, 밤에는 떨어지기 직전까지 하얗게 표시됩니다. 떨어진 자리에는 불이 남습니다.",
+   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
   ],
   "detailEn": [
-   "Visibility depends on cloud density: 35 m on average, down to 25 m at worst."
+   "Direct hit: 50 damage, penetration 8, demolition force 10.",
+   "Explosion: 700 damage out to 1 m, falling off to 7.5 m, with a shockwave out to 15 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
+   "Impact spots show red by day and white at night until just before impact. Patches of fire stay where rocks land.",
+   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
   ],
-  "revision": 135713
+  "revision": 90351
  },
  {
-  "id": "sandstorms",
-  "name": "모래 폭풍",
-  "en": "Sandstorms",
-  "description": "짙은 모래 폭풍으로 적과 아군 모두 기동성이 감소하고 가시성이 크게 감소합니다.",
-  "descriptionEn": "Dense sandstorms reduce mobility and greatly reduce visibility for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Sandstorms",
+  "id": "fire-tornados",
+  "name": "화염 토네이도",
+  "en": "Fire Tornados",
+  "description": "위협적인 화염 토네이도는 행성을 황폐화합니다.",
+  "descriptionEn": "Planet is ravaged by deadly fire tornados.",
+  "wiki": "https://helldivers.wiki.gg/wiki/Fire_Tornados",
   "icon": {
-   "src": "./assets/conditions/sandstorms.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Sandstorms_Environmental_Condition_Icon.svg",
-   "sha256": "c14e5e794c9ad23d9859eb8ac9ac9b10492964c89b40329f13cc9ee6803646fb"
+   "src": "./assets/conditions/fire-tornados.svg",
+   "source": "https://helldivers.wiki.gg/wiki/File:Fire_Tornados_Environmental_Condition_Icon.svg",
+   "sha256": "ffec26e3665bd6ed5695c18450c22ed03e0ece9cd8767f6838fe21f874920480"
   },
   "biomes": [
-   "desert-dunes"
+   "scorched-moor"
   ],
   "detail": [
-   "5m 밖은 잘 보이지 않고, 25m 밖은 아예 보이지 않습니다.",
-   "적의 탐지 거리와 스트라타젬의 표적 탐지 거리가 약 60% 줄어듭니다(로버는 30m에서 12m로). 스피어·워런트 같은 유도 무기의 락온 거리는 그대로입니다.",
-   "걷기와 달리기가 느려집니다. 달리기를 이어 갈 수 있는 시간은 그대로입니다.",
-   "방어막 생성 팩과 방어막 생성 릴레이의 방어막 안으로는 들어오지 않습니다.",
-   "눈보라와 효과가 같습니다."
+   "토네이도가 지나간 자리에 길이 30m, 폭 10m의 불길이 30초 동안 남습니다. 토네이도나 불길에 닿으면 불이 붙고, 다이브하면 꺼집니다.",
+   "폭풍이 부는 동안에는 혹서가 함께 켜지고 적의 시야가 줄어듭니다. 헬다이버의 시야는 그대로입니다.",
+   "철거력이 없어 울타리 같은 구조물은 부수지 못합니다. 다만 로켓 센트리 같은 설비는 고도화된 구조 모듈이 없으면 불 피해를 버티지 못합니다.",
+   "적 순찰대처럼 걸어 다닐 수 있는 곳으로만 움직입니다. 바위 절벽이나 도시의 건물 위로 올라가면 안전합니다."
   ],
   "detailEn": [
-   "Things past 5 m are hard to see, and past 25 m they are not visible at all.",
-   "Enemy detection range and the targeting range of stratagems shrink by about 60% (the Rover goes from 30 m to 12 m). Lock-on range of guided weapons such as the Spear and Warrant is unchanged.",
-   "Walking and sprinting slow down. How long you can keep sprinting is unchanged.",
-   "It does not get inside the shield of a Shield Generator Pack or Shield Generator Relay.",
-   "Works exactly like Blizzards."
+   "Each tornado leaves a trail of flames 30 m long and 10 m wide that burns for 30 seconds. Touching the tornado or its trail sets you on fire, and diving puts it out.",
+   "While the storm lasts, Intense Heat is on as well and enemy vision is reduced. Helldiver vision is unaffected.",
+   "It has no demolition force, so fences and other structures survive. Emplacements such as the Rocket Sentry, though, cannot survive its fire damage without the Advanced Construction module.",
+   "It only goes where a patrol could walk. Climbing a rocky cliff or a city building keeps you safe."
   ],
-  "revision": 90346
- },
- {
-  "id": "thick-fog",
-  "name": "짙은 안개",
-  "en": "Thick Fog",
-  "description": "짙은 안개로 적과 아군 모두 가시성이 약간 감소합니다.",
-  "descriptionEn": "Dense fog lightly reduces visibility for both enemy and friendly units.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Thick_Fog",
-  "icon": {
-   "src": "./assets/conditions/thick-fog.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Thick_Fog_Environmental_Condition_Icon.svg",
-   "sha256": "bfb0ba83342bc793ae1215420e0c67e8c5b7ad1227e6fc7c54dab713d7b1e9fa"
-  },
-  "biomes": [
-   "haunted-swamp",
-   "deadlands"
-  ],
-  "detail": [
-   "시야가 약 50m로 줄어듭니다. 적의 탐지 거리도 50m에서 30m로 줄어듭니다."
-  ],
-  "detailEn": [
-   "Visibility drops to about 50 m, and enemy detection range from 50 m to 30 m."
-  ],
-  "revision": 130624
+  "revision": 133891
  },
  {
   "id": "tremors",
@@ -320,35 +349,6 @@ export const conditions = [
    "It strikes a wide area around one random Helldiver, not the whole map."
   ],
   "revision": 90350
- },
- {
-  "id": "volcanic-activity",
-  "name": "화산 활동",
-  "en": "Volcanic Activity",
-  "description": "화산은 행성 곳곳에 불타는 암석을 날립니다.",
-  "descriptionEn": "Volcanos throw burning rocks around this planet.",
-  "wiki": "https://helldivers.wiki.gg/wiki/Volcanic_Activity",
-  "icon": {
-   "src": "./assets/conditions/volcanic-activity.svg",
-   "source": "https://helldivers.wiki.gg/wiki/File:Volcanic_Activity_Environmental_Condition_Icon.svg",
-   "sha256": "2f520627fc578d7f8af911cd23d86a0fa1a8490303de951163659df88c61d2e5"
-  },
-  "biomes": [
-   "volcanic-jungle"
-  ],
-  "detail": [
-   "바위 직격: 피해 50, 관통 8, 철거력 10.",
-   "폭발: 중심 1m까지 피해 700, 7.5m까지 점점 줄어들고, 충격파는 15m까지 퍼집니다. 관통은 중심 6, 바깥 5, 철거력 50.",
-   "떨어질 자리가 낮에는 붉게, 밤에는 떨어지기 직전까지 하얗게 표시됩니다. 떨어진 자리에는 불이 남습니다.",
-   "맵 전체에 떨어지므로 헬다이버와 멀리 떨어진 목표를 대신 부수기도 합니다."
-  ],
-  "detailEn": [
-   "Direct hit: 50 damage, penetration 8, demolition force 10.",
-   "Explosion: 700 damage out to 1 m, falling off to 7.5 m, with a shockwave out to 15 m. Penetration 6 at the center and 5 beyond it, demolition force 50.",
-   "Impact spots show red by day and white at night until just before impact. Patches of fire stay where rocks land.",
-   "It falls across the whole map, so it can destroy objectives far from the Helldivers."
-  ],
-  "revision": 90351
  }
 ];
 export const gloomLevels = [
