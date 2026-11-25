@@ -2,6 +2,7 @@
 
 - 마지막 갱신은 2026-11-24, Claude Code 담당.
 - 사이트 변경은 PR #14와 2026-11-24 기능 묶음(`work/wiki-features`, PR로 반영)까지 `master`에 반영된다.
+- 게임 데이터 시트 PR(`game-data-sheets`, 2026-11-25): 게임 파일에서 뽑은 수치(`db/source/game_sheets/`)와 가져오기·비교 스크립트, 안내 문서(`db/GAME_DATA.md`)만 넣었고 사이트 값은 그대로다. 다음 단계는 `db/GAME_DATA.md` '바꾸는 길'(사용자 확인 뒤 한 화면씩).
 
 ## 끝난 일
 

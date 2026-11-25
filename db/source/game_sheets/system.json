@@ -1,0 +1,2201 @@
+{
+ "설명": "도구/game_sheets.py 가 게임 데이터 표에서 만듦(직접 고치지 않음). 칸 뜻은 소스/자료/게임시트/README.md",
+ "game_build": "26568081",
+ "은하_효과": [
+  {
+   "번호": 1001,
+   "en": "MERIDIAN BLACK HOLE",
+   "ko": "메리디아 블랙홀",
+   "설명_en": "The prosperous Meridia was corrupted into a Terminid Supercolony, necessitating its destruction using the mysterious Dark Fluid. This galactic scar is all that remains.",
+   "설명_ko": "번영했던 메리디아가 테르미니드 슈퍼식민지로 전락함에 따라, 수수께끼의 다크 플루이드를 사용해 행성을 파괴해야 합니다. 은하계에 남은 흉터입니다."
+  },
+  {
+   "번호": 1001,
+   "en": "HIVE WORLD",
+   "ko": "하이브 월드",
+   "설명_en": "This planet has been completely infested by the Terminids, transformed inside and out into a hive of Tyranny. It is a source of Gloom spores.",
+   "설명_ko": "한때 아름다웠던 이 행성은 테르미니드가 완전히 확산하면서 폭정의 둥지로 완전히 변모했습니다. 이 행성은 글룸 포자의 근원입니다."
+  },
+  {
+   "번호": 1001,
+   "en": "FRACTURED PLANET",
+   "ko": "붕괴된 행성",
+   "설명_en": "All that remains of a planet torn apart by the Meridian singularity. A solemn reminder of the desolation Tyranny leaves in its wake.",
+   "설명_ko": "메리디아 특이점에 의해 파괴된 행성의 잔해입니다. 폭정이 남기고 간 황무지를 엄숙하게 상기시킵니다."
+  },
+  {
+   "번호": 1001,
+   "en": "CONVENTIONAL BLACK HOLE",
+   "ko": "일반적인 블랙홀",
+   "설명_en": "This former planet is now nothing but a normal, stable black hole.",
+   "설명_ko": "한때 행성이었던 이 천체는 이제 평범하고 안정적인 블랙홀에 불과합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "GLOOM RESEARCH EXPEDITION",
+   "ko": "글룸 연구 원정대",
+   "설명_en": "A limited-time expedition is being conducted into the Gloom on this planet, at significant cost.",
+   "설명_ko": "이 행성에 위치한 글룸 탐사는 그 기간이 제한되어 있으며, 수행 비용도 상당합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "The Great Host",
+   "ko": "위대한 주인",
+   "설명_en": "The Illuminate invasion fleet, constructed in secret behind the veil of the Meridian Wormhole. It is headed for Super Earth itself.",
+   "설명_ko": "메리디아 웜홀 뒤에서 비밀리에 구축된 일루미닛의 침공 함대. 현재 슈퍼지구를 향해 이동 중입니다."
+  },
+  {
+   "번호": 1001,
+   "en": "VOID GATEWAY",
+   "ko": "공허 게이트웨이",
+   "설명_en": "This planet serves as a connective point between this galaxy and the Void, allowing travel between the two spaces.",
+   "설명_ko": "이 행성은 이 은하계와 공허를 연결하는 지점 역할을 하며, 두 공간 사이를 이동할 수 있게 해줍니다."
+  },
+  {
+   "번호": 1001,
+   "en": "UNIDENTIFIED PLANET",
+   "ko": "미확인 행성",
+   "설명_en": "Due to Void interference, no data can be gathered about this planet. There is a high probability of its probable existence.",
+   "설명_ko": "공허의 간섭으로 인해 이 행성에 대한 데이터를 수집할 수 없습니다. 해당 행성이 존재할 가능성이 매우 높습니다."
+  },
+  {
+   "번호": 1001,
+   "en": "CLASS 1 EXOSTORM",
+   "ko": "클래스 1 엑소스톰",
+   "설명_en": "Isolated Exostorm pockets are materializing across the planet and rapidly gaining momentum.",
+   "설명_ko": "고립된 엑소스톰 포켓이 행성 전역에 나타나며 빠르게 탄력을 받고 있습니다."
+  },
+  {
+   "번호": 1001,
+   "en": "LIBERTY DAY CELEBRATION",
+   "ko": "자유의 날 기념",
+   "설명_en": "Super Earth, our home, is the center of Liberty Day Festivities. Together, all citizens can watch on television the annual Defense Parade, the Justice Executions, and of course, the Freedom Fireworks. \n\nOn this special day, Helldivers are encouraged to visit Super Earth and watch this year's fireworks from their Super Destroyers.",
+   "설명_ko": "우리의 고향 슈퍼지구가 자유의 날 축제의 중심이 되었습니다. 모든 시민이 함께 텔레비전을 통해 연례 방위 퍼레이드, 사법 처형, 그리고 물론 자유 불꽃놀이를 시청할 수 있습니다. \n\n이 특별한 날, 헬다이버는 슈퍼지구를 방문하여 슈퍼 구축함에서 올해의 불꽃놀이를 감상해 보기를 권고합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "HEAVY ORDNANCE DISTRIBUTION",
+   "ko": "대형 포탄 보급",
+   "설명_en": "The DSS Logistics Armada supplies all Super Destroyers orbiting the planet with surplus 380mm shells. Ordnance support is also provided to SEAF operations, accelerating liberation efforts.",
+   "설명_ko": "DSS 물류 함대가 행성 궤도에 있는 모든 슈퍼 구축함에 잉여 380mm 탄을 공급합니다. 또한, SEAF 작전에 포탄을 제공해 해방 속도를 가속합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "ORBITAL BLOCKADE",
+   "ko": "궤도 봉쇄",
+   "설명_en": "The DSS activates its Zero G Anti-Ship Missile System, targeting all large enemy spacecraft attempting to exit the planet's atmosphere. In addition, diverts excess manpower to Super Destroyer logistical support. ",
+   "설명_ko": "민주주의 우주 정거장은 무중력 대함선 미사일 시스템을 작동하여 행성의 대기권에서 탈출하려는 모든 적 대형 우주선을 표적으로 삼습니다. 또한, 초과 인력을 슈퍼 구축함 물류 지원으로 전환합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "PLANETARY BOMBARDMENT",
+   "ko": "행성 폭격",
+   "설명_en": "The DSS fires nonstop orbital bombardments from its suite of 77 PRESIDENTIAL-Class Cannons, providing planetwide artillery support and accelerating liberation efforts. Temporarily, also increases Reinforcement Budget by +1 per squad member and augments all loadouts with FX-12 Shield Generator Relay Stratagem.",
+   "설명_ko": "민주주의 우주 정거장은 77정의 대통령급 캐넌에서 끊임없이 궤도 폭격을 가해 행성 전역에 포격을 지원하며 해방 속도를 가속합니다. 또한 일시적으로 증원 예산이 분대원당 1씩 증가하며 FX-12 방어막 생성 릴레이 스트라타젬으로 모든 장비구성을 증강합니다."
+  },
+  {
+   "번호": 1001,
+   "en": "TERMINID CONTROL SYSTEM+",
+   "ko": "테르미니드 통제 시스템+",
+   "설명_en": "On this planet, a network of Termicide-dispensing towers repels Terminids emerging from the Gloom.",
+   "설명_ko": "이 행성에는 글룸에서 발생하는 테르미니드를 퇴치하기 위해 테르미사이드 살포 타워 네트워크가 설치되어 있습니다."
+  },
+  {
+   "번호": 1041,
+   "en": "GLOOM RESEARCH EXPEDITION",
+   "ko": "글룸 연구 원정대",
+   "설명_en": "A limited-time expedition is being conducted into the Gloom on this planet, at significant cost.",
+   "설명_ko": "이 행성에 위치한 글룸 탐사는 그 기간이 제한되어 있으며, 수행 비용도 상당합니다."
+  },
+  {
+   "번호": 1041,
+   "en": "HIVE WORLD",
+   "ko": "하이브 월드",
+   "설명_en": "This planet has been completely infested by the Terminids, transformed inside and out into a hive of Tyranny. It is a source of Gloom spores.",
+   "설명_ko": "한때 아름다웠던 이 행성은 테르미니드가 완전히 확산하면서 폭정의 둥지로 완전히 변모했습니다. 이 행성은 글룸 포자의 근원입니다."
+  },
+  {
+   "번호": 1046,
+   "en": "MERIDIAN BLACK HOLE",
+   "ko": "메리디아 블랙홀",
+   "설명_en": "The prosperous Meridia was corrupted into a Terminid Supercolony, necessitating its destruction using the mysterious Dark Fluid. This galactic scar is all that remains.",
+   "설명_ko": "번영했던 메리디아가 테르미니드 슈퍼식민지로 전락함에 따라, 수수께끼의 다크 플루이드를 사용해 행성을 파괴해야 합니다. 은하계에 남은 흉터입니다."
+  },
+  {
+   "번호": 1055,
+   "en": "CYBORGS",
+   "ko": "사이보그",
+   "설명_en": "Cyborgs are deployed to the battlefield of this planet, leading their Automaton armies. Expect to encounter vile propagandists trained in both ranged and melee combat.",
+   "설명_ko": "사이보그가 이 행성의 전장에 배치되어 오토마톤 군대를 이끌고 있습니다. 원거리 및 근접 전투 훈련을 받은 악랄한 선동가들을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "DEVASTATOR SURGE",
+   "ko": "데버스테이터 급증",
+   "설명_en": "The Automatons have deployed high numbers of Devastators to this planet. Prepare to encounter heavily armored enemies.",
+   "설명_ko": "오토마톤은 이 행성에 수많은 데버스테이터를 배치했습니다. 중장갑 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "HULK SURGE",
+   "ko": "헐크 급증",
+   "설명_en": "High numbers of enemy Hulks have been reported on this planet. Prepare to encounter heavily armored enemies.",
+   "설명_ko": "이 행성에서 다수의 적 헐크가 목격되었다는 보고가 있습니다. 중장갑 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "TANK SURGE",
+   "ko": "탱크 급증",
+   "설명_en": "The enemy has flooded this planet with Automaton Tanks. Expect increased encounters with heavy armor.",
+   "설명_ko": "적군은 이 행성에 오토마톤탱크를 대량으로 투입했습니다. 중장갑 적과의 전투가 증가할 것으로 예상됩니다."
+  },
+  {
+   "번호": 1055,
+   "en": "HEAVY ARMOR SURGE",
+   "ko": "중장갑 적 급증",
+   "설명_en": "The Automatons are deploying an abnormal amount of War Striders and Tanks to this planet. Prepare to encounter high numbers of heavily armored enemies",
+   "설명_ko": "오토마톤은 이 행성에 비정상적으로 많은 수의 워 스트라이더와 탱크를 배치하고 있습니다.  대량의 중장갑 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "THE INCINERATION CORPS",
+   "ko": "소각대",
+   "설명_en": "An Automaton unit equipped with flame throwers and incendiary ammunition is active on this planet. Prepare to face wanton arsonists who will not rest until they have razed all that humankind holds dear.",
+   "설명_ko": "이 행성에는 화염방사기와 소이탄으로 무장한 오토마톤 유닛이 활동하고 있습니다. 인류가 소중히 여기는 모든 것을 파괴하기 전까지 멈추지 않을 이 악질 방화범들을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "CAUSTIC STRAIN",
+   "ko": "커스틱 변종",
+   "설명_en": "A strain of Terminids with highly alkaline bile sacs have infested this planet. Prepare to face enemies that discharge corrosive fluids and burst violently upon death.",
+   "설명_ko": "강알칼리성 담즙낭을 지닌 테르미니드 변종이 이 행성에 창궐했습니다. 부식성 액체를 분비하고 죽을 때에는 격렬하게 폭발하는 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "RUPTURE STRAIN",
+   "ko": "럽처 변종",
+   "설명_en": "A deadly strain of ground-bursting Terminids is present on this planet. Prepare to face burrowing enemies.",
+   "설명_ko": "이 행성에는 대지를 파괴하는 치명적인 테르미니드 변종이 존재합니다. 대지를 파고드는 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "NOXIOUS STRAIN",
+   "ko": "녹셔스 변종",
+   "설명_en": "A strain of Terminids with toxin-secreting glands is lurking on this planet. Prepare to face enemies that strike with incapacitating venom.",
+   "설명_ko": "독소를 분비하는 샘을 가진 테르미니드 변종이 이 행성에 도사리고 있습니다. 무력화시키는 독으로 공격하는 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "DRAGONROACHES",
+   "ko": "드래곤로치",
+   "설명_en": "Terminid Dragonroaches menace the skies of this planet. Prepare to encounter airborne enemies.",
+   "설명_ko": "테르미니드 드래곤로치가 이 행성의 하늘을 위협하고 있습니다. 공중에서 전투하는 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "SPORE BURST STRAIN",
+   "ko": "스포어 버스트 변종",
+   "설명_en": "A mutation causes Terminids on this planet to generate excess hormonal spores, which drive other similarly mutated Terminids into a frenzy. Prepare to face enemies that bolster each others' speed.",
+   "설명_ko": "이 행성의 테르미니드는 돌연변이로 인해 과도한 호르몬 포자를 생성하며, 이는 유사한 변종 테르미니드 개체들을 광란 상태에 빠뜨립니다. 서로의 속도를 높여주는 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "HIVE LORDS",
+   "ko": "하이브로드",
+   "설명_en": "Terminid Hive Lords have been detected on this planet. Prepare to face massive burrowing enemies.",
+   "설명_ko": "이 행성에서 테르미니드 하이브로드가 발견되었습니다. 대지를 파고드는 거대한 적을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "PREDATOR STRAIN",
+   "ko": "프레데터 변종",
+   "설명_en": "A mutated strain of Terminids has been reported on this planet. Expect to encounter cunning hunter bugs.",
+   "설명_ko": "이 행성에서 테르미니드의 변종이 보고되었습니다. 교활한 헌터 버그를 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "THE JET BRIGADE",
+   "ko": "제트 여단",
+   "설명_en": "The Automatons have deployed a series of specialized models on this planet. Prepare to face bots upgraded with stolen Jump Pack technology.",
+   "설명_ko": "오토마톤은 이 행성에 특화된 봇 모델 시리즈를 배치했습니다. 훔쳐 간 점프 팩 기술을 활용해 업그레이드한 봇을 상대할 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "VOTE SNATCHERS",
+   "ko": "보트 스내처",
+   "설명_en": "The Illuminate have unleashed the next wave of their democratically voided thralls on this planet. Expect violent voter suppression tactics.",
+   "설명_ko": "일루미닛은 민주적 절차를 무효화한 놈들의 노예 무리를 다시 한번 배치했습니다. 폭력적인 투표 방해 전술이 예상됩니다."
+  },
+  {
+   "번호": 1055,
+   "en": "APPROPRIATORS",
+   "ko": "적임자",
+   "설명_en": "The Illuminate are deploying only their own kind to this planet, a clear indication of the operation's importance and/or xenophobic nature. Prepare to face foot soldiers, drones, and piloted mechanical constructs.",
+   "설명_ko": "일루미닛이 놈들과 같은 종족만 이 행성에 배치했다는 점은, 놈들이 이번 작전을 중요하게 여긴다는 것과 동시에 외계인 혐오적인 본질을 명확히 보여줍니다. 보병, 드론, 조종되는 기계 구조물과 맞설 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "MINDLESS MASSES",
+   "ko": "무분별한 대중",
+   "설명_en": "The Illuminate are converting large numbers of Super Earth citizens into Voteless-type enemies on this planet. Prepare to face a twisted, indoctrinated horde.",
+   "설명_ko": "일루미닛은 이 행성에서 많은 슈퍼지구 시민들을 무권자와 같은 유형의 적으로 변질시키고 있습니다. 뒤틀리고 세뇌된 무리와 맞설 준비를 하십시오."
+  },
+  {
+   "번호": 1055,
+   "en": "INVASION FLEET",
+   "ko": "침공 함대",
+   "설명_en": "The main invasion fleet of the Illuminate, from arrogant Overseers to throngs of brainwashed Super Earth civilians, are present on this planet. Exterminate on sight or else risk violent resistance, or worse, treasonous propaganda.",
+   "설명_ko": "오만한 오버시어와 세뇌당한 슈퍼지구 시민 무리 등으로 구성된 일루미닛의 주력 침공 함대가 이 행성에 주둔하고 있습니다. 발견 즉시 사살하십시오. 그렇지 않으면 폭력적인 저항 또는 반역적인 선전 활동에 노출될 것입니다."
+  },
+  {
+   "번호": 1058,
+   "en": "MERIDIAN BLACK HOLE",
+   "ko": "메리디아 블랙홀",
+   "설명_en": "The prosperous Meridia was corrupted into a Terminid Supercolony, necessitating its destruction using the mysterious Dark Fluid. This galactic scar is all that remains. Advisory: volatile spacetime fluctuations currently prohibit FTL travel to the Meridian Black Hole.",
+   "설명_ko": "번영했던 메리디아가 테르미니드 슈퍼식민지로 전락함에 따라, 수수께끼의 다크 플루이드를 사용해 행성을 파괴해야 합니다. 은하계에 남은 흉터입니다. 경고: 현재 시공간 변동성이 불안정하여 메리디아 블랙홀로 초광속 이동을 할 수 없습니다."
+  },
+  {
+   "번호": 1061,
+   "en": "MERIDIAN SINGULARITY",
+   "ko": "메리디아 특이점",
+   "설명_en": "The Illuminate are moving the Meridian Singularity toward Super Earth. Anything caught in its path will be torn apart.",
+   "설명_ko": "일루미닛은 메리디아 특이점을 슈퍼지구를 향해 이동시키고 있습니다. 메리디아 특이점은 경로에 있는 모든 것을 파괴할 것입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "TYRANNY PARK 2",
+   "ko": "폭정의 공원 2",
+   "설명_en": "The extensive Terminid enclosures here allow scientists to study Terminid behavior, and civilians to take pictures with Brood Commanders.",
+   "설명_ko": "이 광활한 테르미니드 구역에서 과학자들은 테르미니드의 행동을 연구하며, 민간인들은 브루드 커맨더와 함께 사진을 찍을 수 있습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "CENTER FOR CIVILIAN SURVEILLANCE AND SAFETY",
+   "ko": "시민 감시 및 안전 센터",
+   "설명_en": "The Ministry of Truth analyzes citizens' activity, speech, data, DNA, RNA, and neural topology here.",
+   "설명_ko": "진리부가 시민의 활동, 언어, 데이터, DNA, RNA, 신경 위상수학을 분석하는 곳입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "DSS LOGISTICS HUB",
+   "ko": "DSS 물류 허브",
+   "설명_en": "Parts for the Democracy Space Station are prefabricated all over the Galaxy, then shipped here to await assembly.",
+   "설명_ko": "민주주의 우주 정거장의 부품은 은하계 전역에서 미리 제작된 뒤, 이곳으로 운송되어 조립을 기다립니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SITE FOR VENGEFUL CONTEMPLATION OF TYRANNY'S CRIMES",
+   "ko": "폭정 범죄에 대한 복수심에 찬 성찰 현장",
+   "설명_en": "The Meridian Wormhole was created by the Illuminate and wielded to destroy entire planets and threaten Super Earth itself. Here, authorized visitors may view the destructive singularity and remind themselves why our enemies deserve total annihilation.",
+   "설명_ko": "일루미닛이 만들어낸 메리디아 웜홀은 행성 전체를 파괴하고 슈퍼지구 자체를 위협하는 데 사용되었습니다. 허가 받은 방문객은 이곳에서 파괴적인 특이점을 관찰하고 우리의 적들이 완전히 멸망해야 하는 이유를 깨달을 수 있을 것입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "NEW ASPIRATION CITY",
+   "ko": "뉴 애스퍼레이션 시티",
+   "설명_en": "One of 3 Maximum Security Cities. Impregnable to Tyranny; the future of the Federation.",
+   "설명_ko": "최대 보안 도시 3곳 중 한 곳입니다. 폭정에 함락되지 않는 연방의 미래입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "NEW HOPE CITY",
+   "ko": "뉴 호프 시티",
+   "설명_en": "The flagship Maximum Security City. Impregnable to Tyranny; the future of the Federation.",
+   "설명_ko": "대표격 최대 보안 도시입니다. 폭정에 함락되지 않는 연방의 미래입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "NEW YEARNING CITY",
+   "ko": "뉴 여닝 시티",
+   "설명_en": "One of 3 Maximum Security Cities. Impregnable to Tyranny; the future of the Federation.",
+   "설명_ko": "최대 보안 도시 3곳 중 한 곳입니다. 폭정에 함락되지 않는 연방의 미래입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "DARK FLUID SYNTHESIS LABORATORY",
+   "ko": "다크 플루이드 합성 연구소",
+   "설명_en": "An experimental lab has been constructed on this planet to synthesize Dark Fluid from E-711.",
+   "설명_ko": "이 행성에는 E-711에서 다크 플루이드를 합성하기 위한 실험 연구소가 건설되었습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "CENTER FOR THE CONFINEMENT OF DISSIDENCE (CECOD)",
+   "ko": "반체제 인사 구속 센터(CECOD)",
+   "설명_en": "This planet-wide, ultra-high-security facility provides ample space for the secure confinement of terrorist dissidents until they are fully rehabilitated and re-educated.",
+   "설명_ko": "이 행성 전역의 초고도 보안 시설은 테러 반체제 인사들이 완벽히 교정되어 재교육을 마칠 때까지 안전하게 감금할 수 있는 충분한 공간을 제공합니다."
+  },
+  {
+   "번호": 1063,
+   "en": "PANDORA BASE",
+   "ko": "판도라 기지",
+   "설명_en": "The top-secret site where augmentations to the DSS are constructed.",
+   "설명_ko": "민주주의 우주 정거장 증강물을 구축하는 최고 기밀 시설입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "GREAT EXPEDITIONARY FLEET YARD",
+   "ko": "위대한 원정 함대 조선소",
+   "설명_en": "A new fleet of Super Destroyers is under construction here.",
+   "설명_ko": "이곳에서 새로운 슈퍼구축함 함대가 만들어지고 있습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "OUTPOST ALPHA",
+   "ko": "알파 전초기지",
+   "설명_en": "The first manned site established in Gloom-infested space.",
+   "설명_ko": "글룸에 감염된 우주에서 최초로 건설된 유인 기지입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "OUTPOST ALPHA II",
+   "ko": "알파 전초기지 II",
+   "설명_en": "The first manned site established in Gloom-infested space, standing steadfast against all forces who would tear it down.",
+   "설명_ko": "파괴하려는 모든 세력에 맞서 굳건히 버티고 있는 글룸에 감염된 우주에서 최초로 건설된 유인 기지입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "GLOOM BASE ALPHA",
+   "ko": "알파 글룸 기지",
+   "설명_en": "Enables an extensive logistics network to operate within the Gloom, negating adverse Gloom effects on surrounding planets.",
+   "설명_ko": "이 시설을 통해 글룸 내에서 확장된 물류 네트워크를 운용할 수 있게 되어, 주변 행성에 미치는 글룸의 부정적인 영향을 무효화합니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SUPER GLOOM BASE ALPHA",
+   "ko": "알파 슈퍼 글룸 기지",
+   "설명_en": "This fully-upgraded facility enables deep operations within the Gloom. Operations on surrounding planets will be significantly supported.",
+   "설명_ko": "완벽하게 업그레이드된 이 시설을 통해 글룸 안에서 심층적인 작전을 수행할 수 있습니다. 주변 행성에서 작전 수행 시 상당한 지원을 받을 수 있을 것입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "GLOOM OUTPOST BRAVO",
+   "ko": "브라보 글룸 전초기지",
+   "설명_en": "The second manned site established in Gloom-infested space.",
+   "설명_ko": "글룸에 감염된 우주에서 두 번째로 건설된 유인 현장입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "GLOOM BASE BRAVO",
+   "ko": "브라보 글룸 기지",
+   "설명_en": "Enables an extensive logistics network to operate within the Gloom, negating adverse Gloom effects on surrounding planets.",
+   "설명_ko": "이 시설을 통해 글룸 내에서 확장된 물류 네트워크를 운용할 수 있게 되어, 주변 행성에 미치는 글룸의 부정적인 영향을 무효화합니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SUPER GLOOM BASE BRAVO",
+   "ko": "브라보 슈퍼 글룸 기지",
+   "설명_en": "This fully-upgraded facility enables deep operations within the Gloom. Operations on surrounding planets will be significantly supported.",
+   "설명_ko": "완벽하게 업그레이드된 이 시설을 통해 글룸 안에서 심층적인 작전을 수행할 수 있습니다. 주변 행성에서 작전 수행 시 상당한 지원을 받을 수 있을 것입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SEAF MILITARY OUTPOST",
+   "ko": "SEAF 군사 전초기지",
+   "설명_en": "A significant SEAF military outpost is present on this planet.",
+   "설명_ko": "주요 SEAF 군사 전초기지가 있는 행성입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SHUTTLE REPAIR BAYS",
+   "ko": "수송선 수리 이착륙장",
+   "설명_en": "There is a SEAF aircraft repair facility present on this planet.",
+   "설명_ko": "SEAF 항공기 수리 시설이 있는 행성입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "TERMINID RESEARCH PRESERVE",
+   "ko": "테르미니드 연구 보호 구역",
+   "설명_en": "Terminids are held safely within massive compounds on this planet for study and E-710 extraction.",
+   "설명_ko": "연구 및 E-710 추출을 위해 테르미니드를 안전하게 사육하고 있는 대규모 시설입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "XENOENTOMOLOGY CENTER",
+   "ko": "외계곤충학 센터",
+   "설명_en": "Those who study Terminid behavior, ecology and E-710 potential gather here for cross-disciplinary research.",
+   "설명_ko": "테르미니드의 행동, 생태, E-710의 잠재력을 연구하는 사람들이 여러 학문 분야에 걸친 연구를 위해 이곳에 모입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "CENTER OF SCIENCE",
+   "ko": "과학 센터",
+   "설명_en": "On this planet, the Ministry of Science’s best and brightest work on their next breakthrough.",
+   "설명_ko": "이 행성에서는 과학부의 가장 뛰어난 최고의 인재들이 다음 획기적인 연구를 위해 노력하고 있습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "GLOOM RESEARCH FACILITIES",
+   "ko": "글룸 연구 시설",
+   "설명_en": "The Ministry of Science has relocated its best and brightest here to study the interstellar spore cloud known as The Gloom.",
+   "설명_ko": "과학부는 '글룸'이라 불리는 성간 포자 구름의 연구를 위해 가장 뛰어난 최고의 인재들을 이곳으로 파견했습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "CENTER OF SCIENCE (DESTROYED)",
+   "ko": "과학 센터 (파괴됨)",
+   "설명_en": "The former site of the Center of Science. Once a beacon of technology, it now lies in ruins following a violent Terminid assault.",
+   "설명_ko": "과학 센터가 있던 자리입니다. 한때 기술의 등불과도 같았던 이곳은 테르미니드의 잔혹한 공격으로 이제 폐허가 되었습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "CENTER FOR CITIZEN SURVEILLANCE (DESTROYED)",
+   "ko": "시민 감시 센터 (파괴됨)",
+   "설명_en": "The former site of the Center for Citizen Surveillance. The tragic loss of the facility further evidences the critical imperative of comprehensive domestic surveillance.",
+   "설명_ko": "시민 감시 센터가 있던 자리입니다. 비극적으로 이 시설을 잃음으로써, 포괄적인 국내 감시가 중요하다는 것을 더욱 분명히 알 수 있게 되었습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "XENOENTOMOLOGY CENTER (DESTROYED)",
+   "ko": "외계곤충학 센터 (파괴됨)",
+   "설명_en": "The former site of the Xenoentomology Center, destroyed by the Terminids. Many scientists were horrifically massacred in the unprovoked attack.",
+   "설명_ko": "외계곤충학 센터가 있던 자리였지만, 테르미니드에 의해 파괴되었습니다. 많은 과학자들이 이유도 없이 끔찍하게 살해되었습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "HELLDIVER TRAINING FACILITIES",
+   "ko": "헬다이버 훈련 시설",
+   "설명_en": "Here, the best of the best go through the rigorous Helldiver training that will earn them their capes.",
+   "설명_ko": "최고의 실력자들이 엄격한 헬다이버 훈련을 거쳐 자신들의 망토를 얻어가는 곳입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "SEAF BASIC TRAINING FACILITIES",
+   "ko": "SEAF 기초 훈련 시설",
+   "설명_en": "Here, fresh-faced recruits learn what it takes to defend Super Earth and her values.",
+   "설명_ko": "신병들은 슈퍼지구와 가치를 수호하기 위해 필요한 것을 배우는 곳입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "NEGATIVE ENERGY LABORATORY",
+   "ko": "부정적 에너지 연구소",
+   "설명_en": "Scientists without fear of implosion or spaghettification study negative energy here.",
+   "설명_ko": "폭발이나 스파게티화를 두려워하지 않는 과학자들이 이곳에서 부정적인 에너지를 연구하고 있습니다."
+  },
+  {
+   "번호": 1063,
+   "en": "VOTELESS PROCESSING PLANT",
+   "ko": "무권자 처리 시설",
+   "설명_en": "At this research facility, recovered Voteless are given a fresh chance to aid Managed Democracy. Through processing and analysis of their biomass, our understanding of the Void stands to be significantly advanced.",
+   "설명_ko": "이 연구 시설에서는 무권자 상태였던 사람들이 회복되어 통제된 민주주의를 도울 수 있는 새로운 기회를 얻게 됩니다. 바이오매스 처리 및 분석을 통해 우리는 공허에 대한 이해를 상당히 높일 수 있을 것입니다."
+  },
+  {
+   "번호": 1063,
+   "en": "Heavy SEAF Presence",
+   "ko": "SEAF 영향력 증가",
+   "설명_en": "Conventional SEAF forces are heavily deployed across this planet, and may directly support Helldiver missions. ",
+   "설명_ko": "해당 행성 전역에 SEAF의 정규군이 대규모 배치되어 있으며, 헬다이버 임무를 직접 지원할 수도 있습니다. "
+  },
+  {
+   "번호": 1064,
+   "en": "ANOMALY LOCATION",
+   "ko": "이상 현상 위치",
+   "설명_en": "All readings, or the notable lack thereof, indicate that the source of the Void anomaly is located here. All effort must go to enabling FTL travel to these coordinates.",
+   "설명_ko": "모든 수치, 그리고 측정할 수 있는 수치 자체가 눈에 띄게 적은 현상은 공허 이상 현상의 근원지가 이곳에 있다는 것을 시사합니다. 이 좌표까지 초광속 이동을 할 수 있도록 모든 노력을 기울여야 합니다."
+  },
+  {
+   "번호": 1064,
+   "en": "CLASS 2 EXOSTORM",
+   "ko": "클래스 2 엑소스톰",
+   "설명_en": "Exostorm fronts are coalescing into a dense system that threatens to engulf the entire planet.",
+   "설명_ko": "여러 엑소스톰 전선이 합쳐져 행성 전체를 집어삼킬 듯이 밀집된 구조를 형성하고 있습니다."
+  },
+  {
+   "번호": 1064,
+   "en": "CLASS 3 EXOSTORM",
+   "ko": "클래스 3 엑소스톰",
+   "설명_en": "The Exostorm has reached critical mass, enveloping the planet in an ominous tempest that defies atmospheric physics.",
+   "설명_ko": "엑소스톰이 치명적인 규모로 성장하면서, 대기 물리 법칙을 무시하는 이 불길한 폭풍이 행성을 뒤덮어 버렸습니다."
+  },
+  {
+   "번호": 1067,
+   "en": "COMMUNICATIONS ARRAY",
+   "ko": "통신 어레이",
+   "설명_en": "The relay towers on this planet are important to Automaton communications.",
+   "설명_ko": "이 행성의 릴레이 탑은 오토마톤 통신에 중요한 역할을 합니다."
+  },
+  {
+   "번호": 1067,
+   "en": "DATA CENTER",
+   "ko": "데이터 센터",
+   "설명_en": "The Automatons store large amounts of encrypted information here.",
+   "설명_ko": "오토마톤이 많은 양의 암호화된 정보를 저장하는 곳입니다."
+  },
+  {
+   "번호": 1067,
+   "en": "JET BRIGADE FACTORIES",
+   "ko": "제트 여단 공장",
+   "설명_en": "Vertically enhanced Jet Brigade soldiers are produced here.",
+   "설명_ko": "수직 기동을 강화한 제트 여단 병사가 생산되는 곳입니다."
+  },
+  {
+   "번호": 1067,
+   "en": "E-710 RICH STRAIN",
+   "ko": "E-710 고함량 품종",
+   "설명_en": "The Terminids on this planet have evolved to yield more E-710 than other specimens.",
+   "설명_ko": "이 행성의 테르미니드는 다른 종에 비해 더 많은 양의 E-710을 생산하도록 진화했습니다."
+  },
+  {
+   "번호": 1068,
+   "en": "NEW ASPIRATION CONSTRUCTION SITE",
+   "ko": "뉴 애스퍼레이션 시티 건설 현장",
+   "설명_en": "On this planet, workers are constructing one of 3 Maximum Security Cities: impregnable bastions against Tyranny.",
+   "설명_ko": "인부들이 폭정을 막는 난공불락의 보루인 최대 보안 도시 3곳 중 한 곳을 이 행성에 건설하고 있습니다. "
+  },
+  {
+   "번호": 1068,
+   "en": "NEW HOPE CONSTRUCTION SITE",
+   "ko": "뉴 호프 시티 건설 현장",
+   "설명_en": "On this planet, workers are constructing one of 3 Maximum Security Cities: impregnable bastions against Tyranny.",
+   "설명_ko": "인부들이 폭정을 막는 난공불락의 보루인 최대 보안 도시 3곳 중 한 곳을 이 행성에 건설하고 있습니다. "
+  },
+  {
+   "번호": 1068,
+   "en": "NEW YEARNING CONSTRUCTION SITE",
+   "ko": "뉴 여닝 시티 건설 현장",
+   "설명_en": "On this planet, workers are constructing one of 3 Maximum Security Cities: impregnable bastions against Tyranny.",
+   "설명_ko": "인부들이 폭정을 막는 난공불락의 보루인 최대 보안 도시 3곳 중 한 곳을 이 행성에 건설하고 있습니다. "
+  },
+  {
+   "번호": 1068,
+   "en": "FACTORY HUB (DESTROYED)",
+   "ko": "공장 허브 (파괴됨)",
+   "설명_en": "The former site of the AM Defense Factory Hub. AM Defense was fortuitously able to reclaim its losses through insurance; the lives that were lost, however, can never be adequately compensated for.",
+   "설명_ko": "AM 디펜스 공장 허브가 있던 자리입니다. 다행히도 AM 디펜스는 보험을 통해 손실을 메꿀 수 있었습니다. 그러나 인명 피해에 대한 보상은 억만금을 받는다 해도 충분하지 않을 것입니다."
+  },
+  {
+   "번호": 1068,
+   "en": "E-711 EXTRACTION FACILITY",
+   "ko": "E-711 추출 시설",
+   "설명_en": "Extensive mining and drilling operations are taking place to comb this former Hive World for all traces of the highly valuable substance known as E-711.",
+   "설명_ko": "매우 가치가 높은 물질인 E-711의 흔적을 찾기 위해 이전의 하이브 월드를 샅샅이 뒤지면서 광범위한 채굴과 굴착 작업이 진행 중입니다."
+  },
+  {
+   "번호": 1068,
+   "en": "E-710 FARMS",
+   "ko": "E-710 농장",
+   "설명_en": "A highly secure facility for the safe growth and breeding of Terminids and low-risk extraction of E-710 is located here.",
+   "설명_ko": "이곳에는 테르미니드의 안전한 성장과 번식, 그리고 저위험 E-710 추출을 위한 보안이 철저한 시설이 위치해 있습니다."
+  },
+  {
+   "번호": 1068,
+   "en": "DEEP MANTLE FORGE COMPLEX",
+   "ko": "심부 맨틀 제철 단지",
+   "설명_en": "The smelters and refineries on this planet turn crude materials into usable hardware.",
+   "설명_ko": "이 행성의 제련소와 정유소에서 원자재를 사용 가능한 장비로 탈바꿈합니다."
+  },
+  {
+   "번호": 1068,
+   "en": "DEEP MANTLE FORGE COMPLEX (DESTROYED)",
+   "ko": "심부 맨틀 제철 단지 (파괴됨)",
+   "설명_en": "The former site of the Deep Mantle Forge Complex, stolen by the Automatons and destroyed.",
+   "설명_ko": "오토마톤이 훔쳐간 뒤 파괴한 심부 맨틀 제철 단지가 있던 자리입니다."
+  },
+  {
+   "번호": 1068,
+   "en": "FACTORY HUB",
+   "ko": "공장 허브",
+   "설명_en": "The hard workers on this planet produce goods vital to the war effort, as well as to the prosperity of Super Earth.",
+   "설명_ko": "이 행성의 성실한 노동자들은 전쟁 활동에 필수적인 물품을 비롯한 슈퍼지구의 번영에도 필수적인 물품을 생산합니다."
+  },
+  {
+   "번호": 1068,
+   "en": "E-711 WELLSPRING",
+   "ko": "E-711 원천",
+   "설명_en": "An abundant source of E-711, carefully harvested by experienced hands.",
+   "설명_ko": "숙련된 인력이 세심하게 수확한 E-711의 풍부한 원천입니다."
+  },
+  {
+   "번호": 1068,
+   "en": "ULTRAMAFIC MINE",
+   "ko": "초염기성암 광산",
+   "설명_en": "A mine extracting platinum from deep-seated deposits of igneous rock.",
+   "설명_ko": "깊은 곳에 있는 화성암에서 백금을 추출하는 광산입니다."
+  },
+  {
+   "번호": 1068,
+   "en": "EXTREME TEMPERATURE EXTRACTION PLANT",
+   "ko": "극한 온도 추출 플랜트",
+   "설명_en": "Here, citizens in well-insulated worksuits operate facilities liberated from the Automatons, and repurposed to sustainably extract rare materials from the highly volcanic planet.",
+   "설명_ko": "이곳에서는 단열성이 뛰어난 작업복을 입은 시민들이 오토마톤으로부터 해방된 시설을 운영하며, 화산 활동이 활발한 이 행성에서 희귀한 재료를 지속 가능한 방식으로 추출할 수 있도록 해당 시설들의 용도를 변경했습니다."
+  },
+  {
+   "번호": 1072,
+   "en": "DEMOCRACY SPACE STATION",
+   "ko": "민주주의 우주 정거장",
+   "설명_en": "A Helldiver-operated weapon of mass liberation. Paid for with the blood of soldiers and the credits of taxpayers, this technological marvel is Democracy made manifest.",
+   "설명_ko": "헬다이버가 운용하는 대량 해방 무기입니다. 군인의 피와 납세자의 크레딧이라는 비용을 들인 이 경이로운 기술은 민주주의 그 자체입니다."
+  },
+  {
+   "번호": 1072,
+   "en": "DSS CONSTRUCTION SITE - PHASE 1",
+   "ko": "DSS 건설 현장 - 1단계",
+   "설명_en": "Construction has begun on the Democracy Space Station. The local populace is honored to host thousands of construction crews for this historic event.",
+   "설명_ko": "민주주의 우주 정거장 건설이 시작되었습니다. 지역 주민들은 영광스럽게 이 역사적인 일을 해낼 수천 명의 건설 인력을 맞이합니다."
+  },
+  {
+   "번호": 1072,
+   "en": "DSS CONSTRUCTION SITE - PHASE 2",
+   "ko": "DSS 건설 현장 - 2단계",
+   "설명_en": "Democracy Space Station construction is well underway. The local economy is flourishing as the planet’s populace has centupled, and all the Galaxy can feel their democratic fervor.",
+   "설명_ko": "민주주의 우주 정거장 건설이 순조롭게 진행되고 있습니다. 행성 인구가 100배로 늘어나면서 지역 경제가 번창하고 있으며, 은하계 전체에서 민주적인 열의가 느껴집니다."
+  },
+  {
+   "번호": 1072,
+   "en": "DSS CONSTRUCTION SITE - PHASE 3",
+   "ko": "DSS 건설 현장 - 3단계",
+   "설명_en": "Construction of the Democracy Space Station is nearing completion. This project, which has employed millions, will soon take its place among the greatest achievements of Democracy.",
+   "설명_ko": "민주주의 우주 정거장 건설이 거의 완료되었습니다. 수백만 명의 사람이 동원된 이 프로젝트는 곧 민주주의의 가장 위대한 업적 중 하나가 될 것입니다."
+  },
+  {
+   "번호": 1074,
+   "en": "HUB OF INDETERMINATE PURPOSE",
+   "ko": "알 수 없는 목적의 허브",
+   "설명_en": "This planet shows clear signs of Illuminate construction.",
+   "설명_ko": "이 행성에서는 일루미닛 건축물의 뚜렷한 징후가 보입니다."
+  },
+  {
+   "번호": 1074,
+   "en": "INTER-GALACTIC NETWORK NODE",
+   "ko": "은하 간 네트워크 노드",
+   "설명_en": "The structures on this planet allow the Illuminate to communicate outside the galaxy.",
+   "설명_ko": "이 행성의 구조물을 통해 일루미닛이 은하계 바깥과 통신할 수 있습니다."
+  },
+  {
+   "번호": 1074,
+   "en": "CONCERNING NUMBER OF MONOLITHS",
+   "ko": "우려할 만한 수준의 모노리스 개수",
+   "설명_en": "The Illuminate have erected more monoliths than usual on this planet.",
+   "설명_ko": "일루미닛이 이 행성에 일반적인 경우보다 많은 모노리스를 세웠습니다."
+  },
+  {
+   "번호": 1074,
+   "en": "GRAVITATIONAL ANCHOR",
+   "ko": "중력 앵커",
+   "설명_en": "The Illuminate monoliths on this planet use Dark Fluid to affect the gravity of other celestial bodies.",
+   "설명_ko": "이 행성의 일루미닛 모노리스는 다크 플루이드를 사용하여 다른 천체의 중력에 영향을 미칩니다."
+  },
+  {
+   "번호": 1074,
+   "en": "IRREGULAR VOTELESS BEHAVIOR",
+   "ko": "무권자 이상 행동",
+   "설명_en": "The number of Voteless on this planet appears to increase more quickly than on other planets.",
+   "설명_ko": "이 행성의 무권자 수는 다른 행성보다 더 빨리 증가하는 것으로 보입니다."
+  },
+  {
+   "번호": 1074,
+   "en": "VOTELESS PROCESSING PLANT",
+   "ko": "무권자 처리 시설",
+   "설명_en": "The facilities on this planet help the Illuminate turn citizens into Voteless.",
+   "설명_ko": "이 행성에서 일루미닛이 시민을 무권자로 만드는 시설입니다."
+  },
+  {
+   "번호": 1084,
+   "en": "EAGLE STORM",
+   "ko": "이글 폭풍",
+   "설명_en": "DSS crews maintain deployment of a 24-hour rotating fleet of Eagle Fighters from the massive three-tiered Convocation Bay, supporting all Helldiver operations on the planet with close air support and halting enemy offensives for a short time. ",
+   "설명_ko": "민주주의 우주 정거장의 승무원들은 3단계로 구성된 대규모 집결 베이에서 24시간 교대로 배치된 이글 파이터 함대의 유지 관리와 근접 항공을 지원하고, 적의 공세를 둔화시키는 등 행성의 모든 헬다이버 작전을 지원합니다. "
+  }
+ ],
+ "행성_지역": [
+  {
+   "en": "ABUNDANCE",
+   "ko": "어번던스"
+  },
+  {
+   "en": "ABUNDANCE BLUFF",
+   "ko": "어번던스 블러프"
+  },
+  {
+   "en": "ACCOUNTANT GRAEBER",
+   "ko": "어카운턴트 그레이버"
+  },
+  {
+   "en": "ADAM PARK",
+   "ko": "아담 파크"
+  },
+  {
+   "en": "ADMINISTRATIVE CENTER 02",
+   "ko": "어드미니스트레이티브 센터 02"
+  },
+  {
+   "en": "ADNAN",
+   "ko": "아드난"
+  },
+  {
+   "en": "ADVENTURE",
+   "ko": "어드벤처"
+  },
+  {
+   "en": "AGARTHA",
+   "ko": "아가르타"
+  },
+  {
+   "en": "AIDESVILLE",
+   "ko": "에이드빌"
+  },
+  {
+   "en": "ALIGNMENT",
+   "ko": "얼라인먼트"
+  },
+  {
+   "en": "ALTONBURG",
+   "ko": "알톤부르크"
+  },
+  {
+   "en": "ANDROS DELTA",
+   "ko": "안드로스 델타"
+  },
+  {
+   "en": "ANDROS GAMMA",
+   "ko": "아드로스 감마"
+  },
+  {
+   "en": "ANNE'S VIGIL",
+   "ko": "앤스 비질"
+  },
+  {
+   "en": "ANNWN",
+   "ko": "아눈"
+  },
+  {
+   "en": "ANTBOOT",
+   "ko": "안트부트"
+  },
+  {
+   "en": "APPROVAL CITY",
+   "ko": "어프루벌 시티"
+  },
+  {
+   "en": "ASPEN HILLS",
+   "ko": "애스펜 힐즈"
+  },
+  {
+   "en": "AUTONOMY",
+   "ko": "오토노미"
+  },
+  {
+   "en": "BARRACKSBURG",
+   "ko": "배럭스버그"
+  },
+  {
+   "en": "BARREN WARD",
+   "ko": "배런 워드"
+  },
+  {
+   "en": "BASE CAMP 8",
+   "ko": "베이스 캠프 8"
+  },
+  {
+   "en": "BATU BELIG",
+   "ko": "바투 벨리그"
+  },
+  {
+   "en": "BEACHVIEW",
+   "ko": "비치뷰"
+  },
+  {
+   "en": "BEEFBURG",
+   "ko": "비프버그"
+  },
+  {
+   "en": "BENEVOLENCE",
+   "ko": "비네벌런스"
+  },
+  {
+   "en": "BIRCHVILLE",
+   "ko": "버치빌"
+  },
+  {
+   "en": "BIRTH",
+   "ko": "벌스"
+  },
+  {
+   "en": "BLACKVEIN MINES",
+   "ko": "블랙베인 마인"
+  },
+  {
+   "en": "BLESTRAIL",
+   "ko": "블레스트레일"
+  },
+  {
+   "en": "BLIGHTSMURK",
+   "ko": "블라잇츠머크"
+  },
+  {
+   "en": "BOPSFIELD",
+   "ko": "봅스필드"
+  },
+  {
+   "en": "BRAVERY",
+   "ko": "브레이버리"
+  },
+  {
+   "en": "BRAWFERMLAND",
+   "ko": "브로우펌랜드"
+  },
+  {
+   "en": "BRIGHT WING",
+   "ko": "브라이트 윙"
+  },
+  {
+   "en": "BRNO",
+   "ko": "브르노"
+  },
+  {
+   "en": "BROKER'S WEALTH",
+   "ko": "브로커스 웰스"
+  },
+  {
+   "en": "BUCU'S REST",
+   "ko": "부쿠스 레스트"
+  },
+  {
+   "en": "BUJU",
+   "ko": "부주"
+  },
+  {
+   "en": "CAMP LEIGHTON",
+   "ko": "캠프 레이튼"
+  },
+  {
+   "en": "CAMRAT FOR",
+   "ko": "캠럿 포"
+  },
+  {
+   "en": "CARBONDALE",
+   "ko": "카본대일"
+  },
+  {
+   "en": "CELEBRATION",
+   "ko": "셀레브레이션"
+  },
+  {
+   "en": "CHAIRMAN OKOTE",
+   "ko": "체어맨 오코테"
+  },
+  {
+   "en": "CHAIRMAN OYESLLO",
+   "ko": "체어맨 웨슬로"
+  },
+  {
+   "en": "CHATOYANT",
+   "ko": "샤토얀트"
+  },
+  {
+   "en": "CLE ELUM REDIVIVA",
+   "ko": "클리 엘럼 레디비바"
+  },
+  {
+   "en": "CLOCKSTOP",
+   "ko": "클락스탑"
+  },
+  {
+   "en": "COMMUNEFALLS",
+   "ko": "커뮤니폴즈"
+  },
+  {
+   "en": "CONSENSUS",
+   "ko": "컨센서스"
+  },
+  {
+   "en": "CONVENIENCE",
+   "ko": "컨비니언스"
+  },
+  {
+   "en": "CORNUCOPOLIS",
+   "ko": "콜누코폴리스"
+  },
+  {
+   "en": "COUNCILLOR RORA",
+   "ko": "카운슬러 로라"
+  },
+  {
+   "en": "COZY FLATS",
+   "ko": "코지 플랫"
+  },
+  {
+   "en": "CRYSTAL SLOPES",
+   "ko": "크리스털 슬로프"
+  },
+  {
+   "en": "CURRENCY",
+   "ko": "커런시"
+  },
+  {
+   "en": "DARKWELL",
+   "ko": "다크웰"
+  },
+  {
+   "en": "DARROWSHOME",
+   "ko": "대로우쇼움"
+  },
+  {
+   "en": "DEBTOR'S DOWNS",
+   "ko": "뎁터즈 다운"
+  },
+  {
+   "en": "DEEPWELL",
+   "ko": "딥웰"
+  },
+  {
+   "en": "DEMOCRACY ALWAYS",
+   "ko": "데모크라시 올웨이즈"
+  },
+  {
+   "en": "DEMOCRACY'S LANDING",
+   "ko": "데모크레시즈 랜딩"
+  },
+  {
+   "en": "DIGITI",
+   "ko": "디지티"
+  },
+  {
+   "en": "DIPLOMACY",
+   "ko": "디플로머시"
+  },
+  {
+   "en": "DISCOVERY GLEN",
+   "ko": "디스커버리 글렌"
+  },
+  {
+   "en": "DIVER'S GLORY",
+   "ko": "다이버즈 글로리"
+  },
+  {
+   "en": "DIVER'S REST",
+   "ko": "다이버스 레스트"
+  },
+  {
+   "en": "DOGTOWN",
+   "ko": "도그타운"
+  },
+  {
+   "en": "DOSTOINSTVO",
+   "ko": "도스토인스트보"
+  },
+  {
+   "en": "DOWNPOUR",
+   "ko": "다운푸어"
+  },
+  {
+   "en": "DRYWELL",
+   "ko": "드라이웰"
+  },
+  {
+   "en": "DYER STREETS",
+   "ko": "다이어 스트리트"
+  },
+  {
+   "en": "DYN ALPHA 534-2",
+   "ko": "DYN 알파 534-2"
+  },
+  {
+   "en": "EAGLE'S LIKENESS",
+   "ko": "이글스 라이크니스"
+  },
+  {
+   "en": "EAGLECRY",
+   "ko": "이글크라이"
+  },
+  {
+   "en": "EAGLEMOUNT",
+   "ko": "이글마운트"
+  },
+  {
+   "en": "EAGLEOPOLIS",
+   "ko": "이글오폴리스"
+  },
+  {
+   "en": "EAGLESTAR ETERNAL",
+   "ko": "이글스타 이터널"
+  },
+  {
+   "en": "EAST EMBANKMENT",
+   "ko": "이스트 임뱅크먼트"
+  },
+  {
+   "en": "EAST REST",
+   "ko": "이스트 레스트"
+  },
+  {
+   "en": "EASTCLEFT",
+   "ko": "이스트클레프트"
+  },
+  {
+   "en": "EDWARD'S GRAVE",
+   "ko": "에드워즈 그레이브"
+  },
+  {
+   "en": "EIGHTRINGS",
+   "ko": "에잇링스"
+  },
+  {
+   "en": "EPH",
+   "ko": "에프"
+  },
+  {
+   "en": "EQUALITY-ON-SEA",
+   "ko": "이퀄리티 온 시"
+  },
+  {
+   "en": "ERIDANI",
+   "ko": "에리다니"
+  },
+  {
+   "en": "ERSATZ",
+   "ko": "에르사츠"
+  },
+  {
+   "en": "ESCAPADE",
+   "ko": "에스카페이드"
+  },
+  {
+   "en": "EVOLUTION PLATS",
+   "ko": "에볼루션 플라츠"
+  },
+  {
+   "en": "EXALT",
+   "ko": "익설트"
+  },
+  {
+   "en": "EXCITEMENT",
+   "ko": "익사이트먼트"
+  },
+  {
+   "en": "EXO CITY",
+   "ko": "엑소 시티"
+  },
+  {
+   "en": "FAMEWOLF PEAK",
+   "ko": "패임울프 픽"
+  },
+  {
+   "en": "FAMILY GROVE",
+   "ko": "패밀리 그로브"
+  },
+  {
+   "en": "FARMHANDSTOWN",
+   "ko": "팜핸즈타운"
+  },
+  {
+   "en": "FEARLESS HOLLOW",
+   "ko": "피어리스 할로우"
+  },
+  {
+   "en": "FILIBUSTER",
+   "ko": "필리버스터"
+  },
+  {
+   "en": "FIREFLY MEADOWS",
+   "ko": "파이어플라이 메도우즈"
+  },
+  {
+   "en": "FODDER GORGE",
+   "ko": "포더 골지"
+  },
+  {
+   "en": "FORT BOUNTY",
+   "ko": "포트 바운티"
+  },
+  {
+   "en": "FORT SANGUINE",
+   "ko": "포트 생귄"
+  },
+  {
+   "en": "FORTITUDE",
+   "ko": "포티튜드"
+  },
+  {
+   "en": "FOUNDRY",
+   "ko": "파운드리"
+  },
+  {
+   "en": "FOUR CROWNS",
+   "ko": "포 크라운즈"
+  },
+  {
+   "en": "FREE APARTMENTS",
+   "ko": "프리 아파트먼트"
+  },
+  {
+   "en": "FREE TRADE",
+   "ko": "프리 트레이드"
+  },
+  {
+   "en": "FREECREST",
+   "ko": "프리크레스트"
+  },
+  {
+   "en": "FREEDOM ETERNAL",
+   "ko": "프리덤 이터널"
+  },
+  {
+   "en": "FREEDOM'S TORCH",
+   "ko": "프리덤스 토치"
+  },
+  {
+   "en": "FRESH ORCHARDS",
+   "ko": "프레시 오처드"
+  },
+  {
+   "en": "FROSTOWN",
+   "ko": "프로스타운"
+  },
+  {
+   "en": "FUTURE PRIDE",
+   "ko": "퓨처 프라이드"
+  },
+  {
+   "en": "FUTURIA",
+   "ko": "퓨처리아"
+  },
+  {
+   "en": "GARAGE DUNE",
+   "ko": "가라지 듄"
+  },
+  {
+   "en": "GEM LICKET",
+   "ko": "젬 리켓"
+  },
+  {
+   "en": "GENE",
+   "ko": "진"
+  },
+  {
+   "en": "GENERATORSVILLE",
+   "ko": "제너레이터빌"
+  },
+  {
+   "en": "GIRD",
+   "ko": "걸드"
+  },
+  {
+   "en": "GIRI",
+   "ko": "기리"
+  },
+  {
+   "en": "GLOBULUS",
+   "ko": "글로뷸러스"
+  },
+  {
+   "en": "GOTHENBURG III",
+   "ko": "예테보리 III"
+  },
+  {
+   "en": "GRACIOUS LIBERTY",
+   "ko": "그레이시우스 리버티"
+  },
+  {
+   "en": "GRAFSART",
+   "ko": "그래프살트"
+  },
+  {
+   "en": "GRAFSEAD",
+   "ko": "그래프시드"
+  },
+  {
+   "en": "GRAFSWALLIT",
+   "ko": "그래프스왈릿"
+  },
+  {
+   "en": "GRAPESHOT",
+   "ko": "그레이프샷"
+  },
+  {
+   "en": "GRAVITAS",
+   "ko": "그라비타스"
+  },
+  {
+   "en": "GREATER ATLANTEAN POWER PLANT",
+   "ko": "그레이터 아틀란티언 파워 플랜트"
+  },
+  {
+   "en": "GREATER INVESTMENT",
+   "ko": "그레이터 인베스트먼트"
+  },
+  {
+   "en": "GREATER STOROUSE",
+   "ko": "그레이터 스토루스"
+  },
+  {
+   "en": "GREATWOOD MILLS",
+   "ko": "그레이트우드 밀즈"
+  },
+  {
+   "en": "GROWL",
+   "ko": "그라울"
+  },
+  {
+   "en": "GUNPOWDER MEADOWS",
+   "ko": "건파우더 메도우즈"
+  },
+  {
+   "en": "GYEONGSEONG",
+   "ko": "경성"
+  },
+  {
+   "en": "HABITAT RED-2",
+   "ko": "해비탯 레드-2"
+  },
+  {
+   "en": "HAERSTVIK",
+   "ko": "해어스트비크"
+  },
+  {
+   "en": "HAKU CITY",
+   "ko": "하쿠 시티"
+  },
+  {
+   "en": "HANDAKAS",
+   "ko": "한다카스"
+  },
+  {
+   "en": "HANGAR 6",
+   "ko": "행거 6"
+  },
+  {
+   "en": "HARDY",
+   "ko": "하디"
+  },
+  {
+   "en": "HAVEN",
+   "ko": "헤이븐"
+  },
+  {
+   "en": "HEART FLATS",
+   "ko": "하트 플랫"
+  },
+  {
+   "en": "HEATHERFIELD",
+   "ko": "헤더필드"
+  },
+  {
+   "en": "HILDOARA CENTRAL",
+   "ko": "힐도아라 센트럴"
+  },
+  {
+   "en": "HILJAISUUS",
+   "ko": "힐자이수스"
+  },
+  {
+   "en": "HOLL",
+   "ko": "호올"
+  },
+  {
+   "en": "HOMESTEAD HILL",
+   "ko": "홈스테드 힐"
+  },
+  {
+   "en": "HOPESHIRE",
+   "ko": "호프샤이어"
+  },
+  {
+   "en": "HOT GATES",
+   "ko": "핫 게이츠"
+  },
+  {
+   "en": "HUMAN WILL",
+   "ko": "휴먼 윌"
+  },
+  {
+   "en": "HUMANITY",
+   "ko": "휴머니티"
+  },
+  {
+   "en": "HUNTER'S BLUFF",
+   "ko": "헌터즈 블러프"
+  },
+  {
+   "en": "ICE BEND",
+   "ko": "아이스 벤드"
+  },
+  {
+   "en": "INDEPENDENCE",
+   "ko": "인디펜던스"
+  },
+  {
+   "en": "INDUSTRY ALLATEED",
+   "ko": "인더스트리 앨러티드"
+  },
+  {
+   "en": "INTEREST",
+   "ko": "인터레스트"
+  },
+  {
+   "en": "INTREPIDNESS",
+   "ko": "인트레피드너스"
+  },
+  {
+   "en": "INVESTMENT",
+   "ko": "인베스트먼트"
+  },
+  {
+   "en": "ISEGORIA",
+   "ko": "이세고리아"
+  },
+  {
+   "en": "KALASATAMA",
+   "ko": "칼라사타마"
+  },
+  {
+   "en": "KALASATAMA PORT",
+   "ko": "칼라사타마 포트"
+  },
+  {
+   "en": "KELLA METAMORPH",
+   "ko": "켈라 메타모프"
+  },
+  {
+   "en": "KESUMA",
+   "ko": "케수마"
+  },
+  {
+   "en": "KILLJOY TOWN",
+   "ko": "킬조이 타운"
+  },
+  {
+   "en": "KINABATANGAN",
+   "ko": "키나바탄간"
+  },
+  {
+   "en": "KNIGHT'S HONOR",
+   "ko": "나이츠 아너"
+  },
+  {
+   "en": "KODIAK FALLS",
+   "ko": "코디악 폴스"
+  },
+  {
+   "en": "KURRI KURRI",
+   "ko": "쿠리 쿠리"
+  },
+  {
+   "en": "LACED STRAIT",
+   "ko": "레이스드 스트레이트"
+  },
+  {
+   "en": "LAELIA",
+   "ko": "레일리아"
+  },
+  {
+   "en": "LAGERLÖF CITY",
+   "ko": "래거뢰프 시티"
+  },
+  {
+   "en": "LASTOME",
+   "ko": "라스토메"
+  },
+  {
+   "en": "LEMURIA RISING",
+   "ko": "레무리아 라이징"
+  },
+  {
+   "en": "LIBER-TEA TOWNSHIP",
+   "ko": "리버 티 타운십"
+  },
+  {
+   "en": "LIFEBLOOD",
+   "ko": "라이프블러드"
+  },
+  {
+   "en": "LIFESWORTH",
+   "ko": "라이프스워스"
+  },
+  {
+   "en": "LIGHT-OF-LIBERTY",
+   "ko": "라이트 오브 리버티"
+  },
+  {
+   "en": "LIL'OME",
+   "ko": "릴옴"
+  },
+  {
+   "en": "LLANFAIRPWLLGWYNGYLLGOGERYCHWYRNDROBWLLLLANTYSILIOGOGOGOCH II",
+   "ko": "LLANFAIRPWLLGWYNGYLLGOGERYCHWYRNDROBWLLLLANTYSILIOGOGOGOCH II"
+  },
+  {
+   "en": "LOGISTICS HUB 188-B",
+   "ko": "로지스틱스 허브 188-B"
+  },
+  {
+   "en": "LOGISTICS HUB 232-B",
+   "ko": "로지스틱스 허브 232-B"
+  },
+  {
+   "en": "LOKAHEIM",
+   "ko": "로카헤임"
+  },
+  {
+   "en": "LOOKOUT",
+   "ko": "룩아웃"
+  },
+  {
+   "en": "LURZA",
+   "ko": "루르자"
+  },
+  {
+   "en": "LUSCIOUS LIBERTY",
+   "ko": "루시우스 리버티"
+  },
+  {
+   "en": "LUXE POINT",
+   "ko": "룩세 포인트"
+  },
+  {
+   "en": "MAGNITUDE",
+   "ko": "매그니튜드"
+  },
+  {
+   "en": "MAJOSYRI",
+   "ko": "마조시리"
+  },
+  {
+   "en": "MALLSTRIP NODES",
+   "ko": "몰스트립 노드"
+  },
+  {
+   "en": "MALMBERGET",
+   "ko": "말름베르예트"
+  },
+  {
+   "en": "MASKIN",
+   "ko": "마스킨"
+  },
+  {
+   "en": "MEGACORPUS",
+   "ko": "메가콜푸스"
+  },
+  {
+   "en": "MEMORIALS",
+   "ko": "메모리얼즈"
+  },
+  {
+   "en": "MESSAGER'S MESA",
+   "ko": "메신저스 메사"
+  },
+  {
+   "en": "MINE 902",
+   "ko": "마인 902"
+  },
+  {
+   "en": "MINERAL REFINEMENT WORKS",
+   "ko": "미네랄 리파인먼트 워크스"
+  },
+  {
+   "en": "MINERAL'S END",
+   "ko": "미네랄즈 엔드"
+  },
+  {
+   "en": "MIRAGE",
+   "ko": "미라지"
+  },
+  {
+   "en": "MOBERG'S DREAM",
+   "ko": "모버그스 드림"
+  },
+  {
+   "en": "MOGO PLAINS",
+   "ko": "모고 플레인"
+  },
+  {
+   "en": "MORSKIE OKO",
+   "ko": "모르스케 오코"
+  },
+  {
+   "en": "MT MONUMENT",
+   "ko": "마운트 모뉴먼트"
+  },
+  {
+   "en": "MUNITION CITY",
+   "ko": "뮤니션 시티"
+  },
+  {
+   "en": "NEKK POND",
+   "ko": "네크 폰드"
+  },
+  {
+   "en": "NEW ABERDEEN",
+   "ko": "뉴 애버딘"
+  },
+  {
+   "en": "NEW ALEXANDRIA",
+   "ko": "뉴 알렉산드리아"
+  },
+  {
+   "en": "NEW ASPIRATION CITY",
+   "ko": "뉴 애스퍼레이션 시티"
+  },
+  {
+   "en": "NEW COB",
+   "ko": "뉴 콥"
+  },
+  {
+   "en": "NEW DA NANG",
+   "ko": "뉴 다낭"
+  },
+  {
+   "en": "NEW EAGLE",
+   "ko": "뉴 이글"
+  },
+  {
+   "en": "NEW HEARTH CITY",
+   "ko": "뉴 허스 시티"
+  },
+  {
+   "en": "NEW HOPE CITY",
+   "ko": "뉴 호프 시티"
+  },
+  {
+   "en": "NEW KATHMANDU",
+   "ko": "뉴 카트만두"
+  },
+  {
+   "en": "NEW NEWTONVILLE",
+   "ko": "뉴 뉴턴빌"
+  },
+  {
+   "en": "NEW PARADISE",
+   "ko": "뉴 파라다이스"
+  },
+  {
+   "en": "NEW PENG",
+   "ko": "뉴 펭"
+  },
+  {
+   "en": "NEW STOROUSE",
+   "ko": "뉴 스토루스"
+  },
+  {
+   "en": "NEW TOKYO",
+   "ko": "뉴 도쿄"
+  },
+  {
+   "en": "NEW VICTORY",
+   "ko": "뉴 빅토리"
+  },
+  {
+   "en": "NEW YEARNING CITY",
+   "ko": "뉴 여닝 시티"
+  },
+  {
+   "en": "NO COMPOUND",
+   "ko": "노 컴파운드"
+  },
+  {
+   "en": "NON-PARTISAN",
+   "ko": "논 파티잔"
+  },
+  {
+   "en": "NUOVA ROMA",
+   "ko": "누오바 로마"
+  },
+  {
+   "en": "NYA SKELLEFTEA",
+   "ko": "니야 셸레프테오"
+  },
+  {
+   "en": "OBEDIENCE",
+   "ko": "오비디언스"
+  },
+  {
+   "en": "OBSERVATORY 6",
+   "ko": "옵저버토리 6"
+  },
+  {
+   "en": "OL' OLDHAM",
+   "ko": "올 올드햄"
+  },
+  {
+   "en": "OLD BRANCH",
+   "ko": "올드 브랜치"
+  },
+  {
+   "en": "OLD CHEMLAND",
+   "ko": "올드 켐랜드"
+  },
+  {
+   "en": "OLD CONUNDRUM",
+   "ko": "올드 코넌드럼"
+  },
+  {
+   "en": "OLD DOVE",
+   "ko": "올드 도브"
+  },
+  {
+   "en": "OLD HEARTH CITY",
+   "ko": "올드 허스 시티"
+  },
+  {
+   "en": "OLD INTERNMENTS",
+   "ko": "올드 인턴먼트"
+  },
+  {
+   "en": "OLUFSEN'S FOOTPRINT",
+   "ko": "올루프센즈 풋프린트"
+  },
+  {
+   "en": "OMA PEMMA",
+   "ko": "오마 펨마"
+  },
+  {
+   "en": "OMNIPARITUS",
+   "ko": "옴니패리터스"
+  },
+  {
+   "en": "ON-EARSAHOU",
+   "ko": "온 에어사후"
+  },
+  {
+   "en": "ONSEN",
+   "ko": "온센"
+  },
+  {
+   "en": "ORBSHAM",
+   "ko": "오브샴"
+  },
+  {
+   "en": "ORESINK",
+   "ko": "오레싱크"
+  },
+  {
+   "en": "OTARU'S PLEDGE",
+   "ko": "오타루스 플레지"
+  },
+  {
+   "en": "PADOSAN",
+   "ko": "파도산"
+  },
+  {
+   "en": "PARRHESIA",
+   "ko": "파레시아"
+  },
+  {
+   "en": "PEDIS",
+   "ko": "페디스"
+  },
+  {
+   "en": "PENSCEWT",
+   "ko": "펜슈트"
+  },
+  {
+   "en": "PEOPLE'S HAND",
+   "ko": "피플즈 핸드"
+  },
+  {
+   "en": "PERIWINKLE MILLS",
+   "ko": "페리윙클 밀스"
+  },
+  {
+   "en": "PERMACURIS",
+   "ko": "펄마큐리스"
+  },
+  {
+   "en": "PERSEVERANCE",
+   "ko": "펄서베런스"
+  },
+  {
+   "en": "PERSISTENCE",
+   "ko": "퍼시스턴스"
+  },
+  {
+   "en": "PERSISTENCE GATE",
+   "ko": "퍼시스턴스 게이트"
+  },
+  {
+   "en": "PHAM'S SITE",
+   "ko": "팜스 사이트"
+  },
+  {
+   "en": "PILOT'S BERTH",
+   "ko": "파일럿츠 벌스"
+  },
+  {
+   "en": "PINESWOLD",
+   "ko": "파인스올드"
+  },
+  {
+   "en": "PIONEER'S DREAM",
+   "ko": "파이오니어스 드림"
+  },
+  {
+   "en": "PIT 8",
+   "ko": "피트 8"
+  },
+  {
+   "en": "PLETHORA",
+   "ko": "플레소라"
+  },
+  {
+   "en": "PO'S RAVENNA",
+   "ko": "포스 라벤나"
+  },
+  {
+   "en": "PORT MERCY",
+   "ko": "포트 머시"
+  },
+  {
+   "en": "PORTE LIBERTÉ",
+   "ko": "뽀뜨 리베르떼"
+  },
+  {
+   "en": "PORUGU",
+   "ko": "포루구"
+  },
+  {
+   "en": "PRAVOGRAD",
+   "ko": "프라보그라드"
+  },
+  {
+   "en": "PROGRESS",
+   "ko": "프로그레스"
+  },
+  {
+   "en": "PROMINENCE",
+   "ko": "프로미넌스"
+  },
+  {
+   "en": "PROSPERITY",
+   "ko": "프로스페러티"
+  },
+  {
+   "en": "PROSPERITY CITY",
+   "ko": "프로스페러티 시티"
+  },
+  {
+   "en": "PSEUDOTOPIA",
+   "ko": "슈도토피아"
+  },
+  {
+   "en": "QUASAR",
+   "ko": "퀘이사"
+  },
+  {
+   "en": "QUELLED DISSENT",
+   "ko": "퀠드 디센트"
+  },
+  {
+   "en": "QUENCH",
+   "ko": "퀜치"
+  },
+  {
+   "en": "QZ-4",
+   "ko": "QZ-4"
+  },
+  {
+   "en": "REBELSGRAVE",
+   "ko": "레벨스그레이브"
+  },
+  {
+   "en": "RECON HEIGHTS",
+   "ko": "리콘 하이츠"
+  },
+  {
+   "en": "REDFIELD",
+   "ko": "레드필드"
+  },
+  {
+   "en": "REFORMED-BY-TRUTH",
+   "ko": "리폼드 바이 트루스"
+  },
+  {
+   "en": "REGISTER",
+   "ko": "레지스터"
+  },
+  {
+   "en": "REMEMBRANCE",
+   "ko": "리멤버런스"
+  },
+  {
+   "en": "REQUIEM",
+   "ko": "레퀴엠"
+  },
+  {
+   "en": "RESILIENCE",
+   "ko": "리질리언스"
+  },
+  {
+   "en": "RESOLVE",
+   "ko": "리졸브"
+  },
+  {
+   "en": "RESPITE",
+   "ko": "리스파이트"
+  },
+  {
+   "en": "REWA",
+   "ko": "레와"
+  },
+  {
+   "en": "RINKTOWN",
+   "ko": "링크타운"
+  },
+  {
+   "en": "RIZIO'S VISION",
+   "ko": "리지오즈 비전"
+  },
+  {
+   "en": "SAMEN-STARK",
+   "ko": "사멘-스타크"
+  },
+  {
+   "en": "SAORSA GLEN",
+   "ko": "사오르사 글렌"
+  },
+  {
+   "en": "SAPPHIRE LAKE",
+   "ko": "사파이어 레이크"
+  },
+  {
+   "en": "SAPPORO",
+   "ko": "삿포로"
+  },
+  {
+   "en": "SARAH SWIFT DAM",
+   "ko": "사라 스위프트 댐"
+  },
+  {
+   "en": "SCALD",
+   "ko": "스칼드"
+  },
+  {
+   "en": "SCARLET HAVEN",
+   "ko": "스칼렛 헤이븐"
+  },
+  {
+   "en": "SCHOLAR'S MOOR",
+   "ko": "스칼러스 무어"
+  },
+  {
+   "en": "SEASSEFYRE",
+   "ko": "시세파이어"
+  },
+  {
+   "en": "SENATOR PEAKS",
+   "ko": "세네터 피크"
+  },
+  {
+   "en": "SEORAKSAN",
+   "ko": "설악산"
+  },
+  {
+   "en": "SEQUIM",
+   "ko": "세큄"
+  },
+  {
+   "en": "SERENITY SUMMIT",
+   "ko": "세레니티 서밋"
+  },
+  {
+   "en": "SERVITUDE",
+   "ko": "서비튜드"
+  },
+  {
+   "en": "SETTLEMENT 7",
+   "ko": "세틀먼트 7"
+  },
+  {
+   "en": "SETTLER'S HONOR",
+   "ko": "세틀러즈 아너"
+  },
+  {
+   "en": "SEVENSEAL",
+   "ko": "세븐실"
+  },
+  {
+   "en": "SEVERITY",
+   "ko": "세버리티"
+  },
+  {
+   "en": "SHADY OAKS",
+   "ko": "셰이디 오크스"
+  },
+  {
+   "en": "SHED",
+   "ko": "셰드"
+  },
+  {
+   "en": "SHELTER",
+   "ko": "셸터"
+  },
+  {
+   "en": "SHOTGUN SUMMIT",
+   "ko": "샷건 서밋"
+  },
+  {
+   "en": "SILO A",
+   "ko": "사일로 A"
+  },
+  {
+   "en": "SKAR'S GARDENS",
+   "ko": "스카즈 가든"
+  },
+  {
+   "en": "SLAYER CITY",
+   "ko": "슬레이어 시티"
+  },
+  {
+   "en": "SOLIDARITET",
+   "ko": "솔리다리테트"
+  },
+  {
+   "en": "SONGGUO CUN",
+   "ko": "송구어 컨"
+  },
+  {
+   "en": "STACY",
+   "ko": "스테이시"
+  },
+  {
+   "en": "STAR KIELD",
+   "ko": "스타 킬드"
+  },
+  {
+   "en": "STARPASS",
+   "ko": "스타패스"
+  },
+  {
+   "en": "STEEL RESOLVE",
+   "ko": "스틸 리졸브"
+  },
+  {
+   "en": "STRENGTH",
+   "ko": "스트렌스"
+  },
+  {
+   "en": "STRONGFORT",
+   "ko": "스트롱포트"
+  },
+  {
+   "en": "SUPERIORITY",
+   "ko": "슈피리오리티"
+  },
+  {
+   "en": "SYCAMORE GARDENS",
+   "ko": "시카모어 가든"
+  },
+  {
+   "en": "SYZYGY",
+   "ko": "시지지"
+  },
+  {
+   "en": "TECHNOLOCKIA ALLATEED",
+   "ko": "테크놀로키아 앨러티드"
+  },
+  {
+   "en": "TECHOLOCKY",
+   "ko": "테크놀로키"
+  },
+  {
+   "en": "THE VILLAS",
+   "ko": "더 빌라"
+  },
+  {
+   "en": "TIMELY",
+   "ko": "타임리"
+  },
+  {
+   "en": "TOIL",
+   "ko": "토일"
+  },
+  {
+   "en": "TOPSOIL",
+   "ko": "탑소일"
+  },
+  {
+   "en": "TRAITOR'S END",
+   "ko": "트레이터스 엔드"
+  },
+  {
+   "en": "TRANSCENDENCE",
+   "ko": "트랜스센던스"
+  },
+  {
+   "en": "TVENNE BOTTOMS",
+   "ko": "벤느 바텀"
+  },
+  {
+   "en": "UNANIMITY",
+   "ko": "유나니미티"
+  },
+  {
+   "en": "UNDERVATTEN",
+   "ko": "언더바텐"
+  },
+  {
+   "en": "UNGU",
+   "ko": "웅구"
+  },
+  {
+   "en": "UNISON",
+   "ko": "유니슨"
+  },
+  {
+   "en": "URSOOT NINE",
+   "ko": "어르수트 나인"
+  },
+  {
+   "en": "UTOPIA VAREN",
+   "ko": "유토피아 바렌"
+  },
+  {
+   "en": "VANQUISHMENT",
+   "ko": "밴퀴시먼트"
+  },
+  {
+   "en": "VAULT CITY",
+   "ko": "볼트 시티"
+  },
+  {
+   "en": "VENERATION",
+   "ko": "베너레이션"
+  },
+  {
+   "en": "VERVE",
+   "ko": "벌브"
+  },
+  {
+   "en": "VIBRANCY",
+   "ko": "바이브런시"
+  },
+  {
+   "en": "VICTORY",
+   "ko": "빅토리"
+  },
+  {
+   "en": "VILHELMINA DOROTHEA FREDRIKA",
+   "ko": "빌헬미나 도로시아 프레데리카"
+  },
+  {
+   "en": "VOTER'S FALLOW",
+   "ko": "보터즈 팰로우"
+  },
+  {
+   "en": "VOTING DISTRICT F-012357",
+   "ko": "보팅 디스트릭트 F-012357"
+  },
+  {
+   "en": "VÁHTJER",
+   "ko": "배처"
+  },
+  {
+   "en": "WALKAWAY",
+   "ko": "워크웨이"
+  },
+  {
+   "en": "WALNUT ACRES",
+   "ko": "월넛 에이커즈"
+  },
+  {
+   "en": "WASTEMOUNT",
+   "ko": "웨이스트마운트"
+  },
+  {
+   "en": "WEST BROKER",
+   "ko": "웨스트 브로커"
+  },
+  {
+   "en": "WEST MANAGEMENT",
+   "ko": "웨스트 매니지먼트"
+  },
+  {
+   "en": "WORKHOUSE 239-C",
+   "ko": "워크하우스 239-C"
+  },
+  {
+   "en": "WORKSONG",
+   "ko": "워크송"
+  },
+  {
+   "en": "XIAMEN ANEW",
+   "ko": "샤먼 어뉴"
+  },
+  {
+   "en": "XIN FUZHOU",
+   "ko": "신 푸저우"
+  },
+  {
+   "en": "XIRAN'S CLAIM",
+   "ko": "시란즈 클레임"
+  },
+  {
+   "en": "YATAKHANE 263",
+   "ko": "야타카네 263"
+  },
+  {
+   "en": "YDINKESKUSTA",
+   "ko": "이딘케스쿠스타"
+  },
+  {
+   "en": "YORK SUPREME",
+   "ko": "요크 슈프림"
+  },
+  {
+   "en": "ZENITH",
+   "ko": "제니스"
+  },
+  {
+   "en": "ZONE 3",
+   "ko": "존 3"
+  },
+  {
+   "en": "ÖDESHÖGRE",
+   "ko": "외데스회예"
+  }
+ ],
+ "정책": [
+  {
+   "en": "FREEDOM PARTY POLICY T101",
+   "ko": "",
+   "설명_en": "As long as the alien menace thrives, we can never be truly free.",
+   "설명_ko": ""
+  },
+  {
+   "en": "FREEDOM PARTY POLICY T201",
+   "ko": "",
+   "설명_en": "A gun in every hand means a soldier in every home.",
+   "설명_ko": ""
+  },
+  {
+   "en": "FREEDOM PARTY POLICY T301",
+   "ko": "",
+   "설명_en": "There exists nothing in this galaxy more powerful than a well-armed citizen of Super of Earth.",
+   "설명_ko": ""
+  },
+  {
+   "en": "JUSTICE PARTY POLICY T101",
+   "ko": "",
+   "설명_en": "Justice for all cannot exist without the \"all.\"",
+   "설명_ko": ""
+  },
+  {
+   "en": "JUSTICE PARTY POLICY T201",
+   "ko": "",
+   "설명_en": "By focusing on medical advancement, you can get more \"you\" out of you.",
+   "설명_ko": ""
+  },
+  {
+   "en": "JUSTICE PARTY POLICY T301",
+   "ko": "",
+   "설명_en": "Super Earth can defeat any foe, so long as its citizens are dedicated to the cause. Your vote, our protection.",
+   "설명_ko": ""
+  },
+  {
+   "en": "PROSPERITY PARTY POLICY T101",
+   "ko": "",
+   "설명_en": "When we expand, we earn. When we earn, we expand.",
+   "설명_ko": ""
+  },
+  {
+   "en": "PROSPERITY PARTY POLICY T201",
+   "ko": "",
+   "설명_en": "In knowledge lies power. In power lies prosperity. In prosperity lies freedom.",
+   "설명_ko": ""
+  },
+  {
+   "en": "PROSPERITY PARTY POLICY T301",
+   "ko": "",
+   "설명_en": "Prosperity means better weapons, better medicine, better Democracy.",
+   "설명_ko": ""
+  }
+ ]
+}

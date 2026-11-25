@@ -1,0 +1,4003 @@
+{
+ "설명": "도구/game_sheets.py 가 게임 데이터 표에서 만듦(직접 고치지 않음). 칸 뜻은 소스/자료/게임시트/README.md",
+ "game_build": "26568081",
+ "스트라타젬": [
+  {
+   "표": 0,
+   "종류_번호": 104,
+   "en": "Supply Pack",
+   "ko": "보급 팩",
+   "설명_en": "Supply boxes containing ammunition, with a backpack that allows the user to distribute boxes to fellow Helldivers.",
+   "설명_ko": "군수품이 담긴 보급품 상자로, 상자를 동료 헬다이버에게 배분할 수 있는 배낭도 제공됩니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 99,
+   "en": "Ballistic Shield Backpack",
+   "ko": "탄도 방패 배낭",
+   "설명_en": "A backpack which can be wielded as a one-handed ballistic shield, protecting against small arms fire.",
+   "설명_ko": "한 손용 탄도 방패로 기능하는 배낭으로, 소형 화기 사격으로부터 보호합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "아래",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "down",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 240.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 70,
+   "en": "Directional Shield",
+   "ko": "방향 방패",
+   "설명_en": "A one-handed device that deploys a wide energy barrier in front of the user. The barrier is semipermeable and blocks high-speed projectiles from the outside only, leaving the user free to shoot through it.",
+   "설명_ko": "사용자 앞에 넓은 에너지 장벽을 펼치는 한 손 장치입니다. 반투과성 장벽은 외부에서 오는 고속 투사체만 막아주며, 사용자는 장벽을 뚫고 총을 쏠 수 있습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 44,
+   "en": "Shield Generator Pack",
+   "ko": "방어막 생성 팩",
+   "설명_en": "Encloses the wearer in a spherical shield which blocks high-speed projectiles.",
+   "설명_ko": "고속 발사체를 차단하는 구형 방어막으로 착용자를 감쌉니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 137,
+   "en": "Jump Pack",
+   "ko": "점프 팩",
+   "설명_en": "Enables the user to jump higher than 'gravity' and 'safety' would normally allow. Must be charged before use.",
+   "설명_ko": "사용자가 '중력'과 '안전'이 일반적으로 허용하는 것보다 높이 점프할 수 있게 합니다. 사용하기 전에 충전해야 합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 57,
+   "en": "HOVER PACK",
+   "ko": "호버 팩",
+   "설명_en": "Offers its user brief fixed-height flight, stable enough for pinpoint marksmanship.",
+   "설명_ko": "사용하면 짧은 시간 동안 정확한 사격을 할 수 있을 만큼 안정적으로 고정된 높이로 떠 있을 수 있습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "아래",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "down",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 76,
+   "en": "Guard Dog",
+   "ko": "가드 독",
+   "설명_en": "An autonomous drone equipped with a Liberator assault rifle, providing 360° cover. Returns to backpack to rearm.",
+   "설명_ko": "리버레이터 돌격소총을 장비해 360°를 커버하는 자율형 드론입니다. 배낭으로 복귀해서 쿨다운합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "up",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 118,
+   "en": "Rover",
+   "ko": "로버",
+   "설명_en": "An autonomous drone equipped with a laser rifle, providing 360° cover. Returns to backpack to cool down.",
+   "설명_ko": "레이저 소총을 장비해 360°를 커버하는 자율형 드론입니다. 배낭으로 복귀해서 쿨다운합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "up",
+    "right",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 146,
+   "en": "Dog Breath",
+   "ko": "독 브레스",
+   "설명_en": "A drone that defends its user by firing caustic gas at nearby enemies, blinding and slowing them temporarily. Returns to backpack to refill.",
+   "설명_ko": "인근의 적에게 부식성 가스를 발사하여 사용자를 보호하는 드론입니다. 일시적으로 대부분의 적의 시야를 가리고 느리게 만듭니다. 가스를 보충할 때는 배낭으로 돌아갑니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "up",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 59,
+   "en": "Hot Dog",
+   "ko": "핫도그",
+   "설명_en": "An autonomous drone equipped with a flamethrower. Returns to backpack to refill fuel canisters.",
+   "설명_ko": "화염방사기를 장비한 자동 조종 드론입니다. 연료통을 재충전할 때는 배낭으로 돌아갑니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "위",
+    "왼쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "up",
+    "left",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 123,
+   "en": "Portable Hellbomb",
+   "ko": "휴대용 지옥폭탄",
+   "설명_en": "A backpack-mounted Hellbomb that can be armed by the wearer or an ally, starting a countdown. Users are recommended to remove the backpack before the countdown reaches zero.",
+   "설명_ko": "배낭에 장착하여 착용자 또는 아군이 무장할 수 있는 지옥폭탄으로, 사용 시 카운트다운을 시작합니다. 사용자는 카운트다운이 끝나기 전에 배낭을 제거하는 것이 좋습니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 24,
+   "en": "Warp Pack",
+   "ko": "워프 팩",
+   "설명_en": "A Dark Fluid-powered backpack that generates a portable micro-wormhole. This safe and well-understood technology allows the wearer to warp short distances. Warning: do not use while pack is overloaded.",
+   "설명_ko": "다크 플루이드를 동력으로 하여 휴대용 초소형 웜홀을 생성하는 배낭입니다. 착용자는 안전하고 뛰어난 기술로 인하여 짧은 거리를 워프할 수 있습니다.  경고: 배낭이 과열되었을 때는 사용하지 마십시오.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "down",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 0,
+   "종류_번호": 2,
+   "en": "K-9",
+   "ko": "K-9",
+   "설명_en": "A humane, autonomous drone equipped with a modified Arc Thrower. Capable of projecting arcs of lightning through multiple targets. Does not need to recharge between shots.",
+   "설명_ko": "개조형 아크 발사기를 장비한 인도적인 자동 조종 드론입니다. 여러 표적을 통과하는 번개를 투사할 수 있습니다. 발사 사이에 재충전할 필요가 없습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "up",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 1,
+   "종류_번호": 34,
+   "en": "Resupply",
+   "ko": "재보급",
+   "설명_en": "A Hellpod containing four supply packs, to replenish personal ammunition and stims in the field.",
+   "설명_ko": "야전에서 개인 탄약과 각성제를 보충할 수 있도록 4개의 보급 팩이 담긴 헬포드입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 7.5,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 1,
+   "종류_번호": 80,
+   "en": "Medical Supplies",
+   "ko": "의료물품",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 2,
+   "종류_번호": 31,
+   "en": "Eagle Strafing Run",
+   "ko": "이글 기총소사",
+   "설명_en": "A strafing run of the battlefield to clear small targets, delivered almost instantly.",
+   "설명_ko": "전장에서 기총소사로 소형 표적을 소탕하며, 거의 즉시 실행됩니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "right"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4
+  },
+  {
+   "표": 2,
+   "종류_번호": 3,
+   "en": "Eagle 500kg Bomb",
+   "ko": "이글 500kg 폭탄",
+   "설명_en": "A large bomb obliterating almost any target close to impact. Make sure to clear the area.",
+   "설명_ko": "충격 지점 근방의 거의 모든 표적을 파괴하는 대형 폭탄입니다. 폭발 범위에서 반드시 벗어나십시오.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "아래",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "down",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 2,
+   "종류_번호": 143,
+   "en": "Eagle 110mm Rocket Pods",
+   "ko": "이글 110mm 로켓 포드",
+   "설명_en": "A barrage of rocket pods, which the Eagle pilot will release on the largest target near the stratagem beacon.",
+   "설명_ko": "이글 파일럿이 스트라타젬 신호기 근처의 가장 큰 표적에 퍼붓는 로켓 포드 폭격입니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 2,
+   "종류_번호": 18,
+   "en": "Eagle Airstrike",
+   "ko": "이글 공중타격",
+   "설명_en": "A barrage of bombs creating a non-targeted carpet of explosions.",
+   "설명_ko": "폭탄을 퍼부어 비표적 융단 폭격을 합니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 2,
+   "종류_번호": 136,
+   "en": "Eagle Napalm Airstrike",
+   "ko": "이글 네이팜 공중타격",
+   "설명_en": "A barrage of napalm bombs, creating a wall of fire which will stop the enemy in their tracks.",
+   "설명_ko": "네이팜 폭탄을 퍼부어 화염의 벽을 만들어 적을 저지합니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 2,
+   "종류_번호": 68,
+   "en": "Eagle Cluster Bomb",
+   "ko": "이글 집속탄",
+   "설명_en": "A targeted air strike unable to destroy buildings, but efficient at clearing smaller targets.",
+   "설명_ko": "건물을 파괴할 수는 없지만 소형 표적 소탕에 효과적인 표적 공습입니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "아래",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "down",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4
+  },
+  {
+   "표": 2,
+   "종류_번호": 39,
+   "en": "Eagle Smoke Strike",
+   "ko": "이글 연막 타격",
+   "설명_en": "A barrage of smoke grenades, creating a thick smoke screen to block enemies' line of sight.",
+   "설명_ko": "연막탄을 퍼부어 짙은 연막으로 적의 시야를 차단합니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 2,
+   "종류_번호": 129,
+   "en": "Eagle Gas Airstrike ",
+   "ko": "이글 가스 공중타격 ",
+   "설명_en": "A barrage of gas bombs that leave a corrosive gas cloud in their wake.",
+   "설명_ko": "이동 경로에 부식성 가스 구름을 남기는 가스 폭탄으로 폭격합니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 2,
+   "종류_번호": 51,
+   "en": "Eagle Rearm",
+   "ko": "이글 재무장",
+   "설명_en": "Order the Eagle Fighter to return to the ship, where it can restock its armaments.",
+   "설명_ko": "이글 파이터에게 함선으로 귀환하여 무장을 재보급하도록 명령하십시오.",
+   "코드": [
+    "위",
+    "위",
+    "왼쪽",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "up",
+    "left",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 150.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 2,
+   "종류_번호": 36,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "오른쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "right"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 2,
+   "종류_번호": 150,
+   "en": "Eagle Air-to-Air Missiles",
+   "ko": "이글 공대공 미사일",
+   "설명_en": "Aspect-seeking air-to-air missiles, to eliminate most flying targets in the vicinity.",
+   "설명_ko": "유도 공대공 미사일로, 대부분의 인근 비행 표적을 제거합니다.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 3,
+   "종류_번호": 61,
+   "en": "Grenadier Battlement",
+   "ko": "척탄 흉벽",
+   "설명_en": "A stationary ballistic cover with a mounted grenade launcher. Can protect multiple Helldivers from small arms fire.",
+   "설명_ko": "유탄 발사기가 장착된 고정형 탄도 엄폐를 제공합니다. 복수의 헬다이버를 소형 화기 공격으로부터 보호할 수 있습니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "down",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 22,
+   "en": "Shield Generator Relay",
+   "ko": "방어막 생성 릴레이",
+   "설명_en": "A stationary energy shield which provides cover against projectiles. Has a limited lifetime once deployed.",
+   "설명_ko": "발사체를 방어하는 고정형 에너지 방어막입니다. 전개 후 수명이 한정적입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "right",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 90.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 148,
+   "en": "HMG Emplacement",
+   "ko": "중기관총 거치포",
+   "설명_en": "A manned gun emplacement offering superior firepower against lightly armored targets. Slow to turn, so place it wisely.",
+   "설명_ko": "경장갑 표적을 상대할 때 막강한 화력을 제공하는 유인 거치포입니다. 회전 속도가 느리니 방향을 신중하게 결정하십시오.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 122,
+   "en": "Anti-Personnel Minefield",
+   "ko": "대인 지뢰 매설 지역",
+   "설명_en": "Deploys a defensive anti-personnel minefield, to halt enemy advance.",
+   "설명_ko": "적의 진격을 지체시키는 대인 방어 지뢰 매설 지역을 전개합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 142,
+   "en": "Incendiary Mines",
+   "ko": "소이 지뢰",
+   "설명_en": "Deploys a defensive incendiary minefield, which will set both terrain and targets alight when triggered.",
+   "설명_ko": "발동 시 지형과 표적 모두에 불을 붙이는 방어용 소이 지뢰 매설 지역을 전개합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 12,
+   "en": "Anti-tank Mines",
+   "ko": "대전차 지뢰",
+   "설명_en": "Scatters powerful anti-tank mines that deal heavy, armor-penetrating damage. Minefield is less densely packed relative to smaller mines.",
+   "설명_ko": "강력한 장갑 관통 대미지를 가하는 대전차 지뢰를 뿌립니다. 소형 지뢰에 비해 지뢰 매설 지역의 밀집도가 낮습니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 47,
+   "en": "Gas Mines",
+   "ko": "가스 지뢰",
+   "설명_en": "Deploys mines that release gas on activation, temporarily blinding and slowing most enemies.",
+   "설명_ko": "발동 시 가스를 방출하는 지뢰를 배치합니다. 일시적으로 대부분의 적의 시야를 가리고 느리게 만듭니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 107,
+   "en": "Tesla Tower",
+   "ko": "테슬라 탑",
+   "설명_en": "A turret which fires electrical charges at targets in close range. To avoid friendly fire, remain prone.",
+   "설명_ko": "근거리의 표적에게 전하를 발사하는 포탑입니다. 아군의 오사격을 피할 수 있도록 포복 자세를 유지하십시오.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 3,
+   "종류_번호": 9,
+   "en": "Anti-Tank Emplacement",
+   "ko": "대전차 거치포",
+   "설명_en": "A powerful manned gun emplacement, capable of taking out armored targets at long ranges.",
+   "설명_ko": "원거리에서 장갑형 적을 제압할 수 있는 강력한 유인 거치포입니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "right",
+    "right"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 4,
+   "종류_번호": 50,
+   "en": "Eagle Fly By",
+   "ko": "이글 비행",
+   "설명_en": "A display of Democratic power as Eagles fly overhead. Provides morale support in the field.",
+   "설명_ko": "이글이 상공에서 비행하며 민주주의의 힘을 보여줍니다. 전장의 사기를 북돋아줍니다.",
+   "코드": [
+    "위",
+    "아래",
+    "아래",
+    "위",
+    "위",
+    "아래",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "down",
+    "up",
+    "up",
+    "down",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 5
+  },
+  {
+   "표": 4,
+   "종류_번호": 145,
+   "en": "Orbital Confetti",
+   "ko": "궤도 컨페티",
+   "설명_en": "A display of brightly colored confetti. Good for Democratic morale, but provides no strategic value.",
+   "설명_ko": "밝은 색상의 컨페티를 뿌립니다. 민주주의의 사기를 높일 수 있으나, 전략적 가치는 없습니다.",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "아래",
+    "위",
+    "위",
+    "아래",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "down",
+    "up",
+    "up",
+    "down",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 80.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 81,
+   "en": "TACTICAL VIDEO CAMERA",
+   "ko": "전술용 비디오 카메라",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "아래",
+    "위",
+    "왼쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "down",
+    "up",
+    "left",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 10.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 79,
+   "en": "SSSD Delivery",
+   "ko": "SSSD 전달",
+   "설명_en": "A Hellpod containing a Super Solid State Drive, the peak of secure data storage. Used by Helldivers for everything from transfer of patriotic data to the sabotage of enemy mainframes.",
+   "설명_ko": "보안 데이터 저장 공간의 정점인 슈퍼 솔리드 스테이트 드라이브(SSSD)가 장착된 헬포드입니다. 애국적 데이터 전송에서부터 적 메인프레임 파괴에 이르기까지, 헬다이버가 다양한 용도로 사용합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "아래",
+    "아래",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "down",
+    "down",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 10.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 82,
+   "en": "SSSD Delivery",
+   "ko": "SSSD 전달",
+   "설명_en": "A Hellpod containing a Super Solid State Drive, the peak of secure data storage. Used by Helldivers for everything from transfer of patriotic data to the sabotage of enemy mainframes.",
+   "설명_ko": "보안 데이터 저장 공간의 정점인 슈퍼 솔리드 스테이트 드라이브(SSSD)가 장착된 헬포드입니다. 애국적 데이터 전송에서부터 적 메인프레임 파괴에 이르기까지, 헬다이버가 다양한 용도로 사용합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 10.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 132,
+   "en": "Drilling Charge",
+   "ko": "드릴링 충전",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 10.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 152,
+   "en": "Extraction Beacon",
+   "ko": "탈출 신호기",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "위",
+    "위",
+    "아래",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "up",
+    "up",
+    "down",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 120.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 43,
+   "en": "Hellbomb",
+   "ko": "지옥폭탄",
+   "설명_en": "The Hellbomb is a tactical nuke powerful enough to destroy any perceivable target in its blast zone. For safety and budgetary reasons, it has to be armed manually once deployed.",
+   "설명_ko": "지옥폭탄은 폭발 반경 내의 인지 가능한 모든 표적을 파괴할 수 있는 위력의 전술핵입니다. 안전과 예산상의 이유로 투입 후에 수동으로 기폭 해야 합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "down",
+    "up",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 75,
+   "en": "HIVE BREAKER DRILL",
+   "ko": "하이브 브레이커 드릴",
+   "설명_en": "A drill capable of piercing the tough walls of Terminid hives, and deploying a nuclear charge to collapse all tunnels.",
+   "설명_ko": "테르미니드 둥지의 단단한 벽을 뚫고 핵폭탄을 투입해서 터널 전체를 붕괴시킬 수 있는 드릴입니다.",
+   "코드": [
+    "왼쪽",
+    "위",
+    "아래",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "up",
+    "down",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 74,
+   "en": "CARGO CONTAINER",
+   "ko": "화물 컨테이너",
+   "설명_en": "Call in a large container to load up with liberated goods for secure extraction.",
+   "설명_ko": "안전한 탈출을 위해 해방된 물품을 실을 대형 컨테이너를 호출하십시오.",
+   "코드": [
+    "위",
+    "위",
+    "아래",
+    "아래",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "up",
+    "down",
+    "down",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 141,
+   "en": "CARGO CONTAINER",
+   "ko": "화물 컨테이너",
+   "설명_en": "Call in a large container to load up with liberated goods for secure extraction.",
+   "설명_ko": "안전한 탈출을 위해 해방된 물품을 실을 대형 컨테이너를 호출하십시오.",
+   "코드": [
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "아래",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "left",
+    "down",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 105,
+   "en": "PORTABLE COMMS RELAY",
+   "ko": "휴대용 통신 릴레이",
+   "설명_en": "A compact comms relay hub that can be effortlessly deployed on demand.",
+   "설명_ko": "필요시 간편하게 배치할 수 있는 소형 통신 릴레이 허브입니다.",
+   "코드": [
+    "위",
+    "위",
+    "아래",
+    "아래",
+    "오른쪽",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "up",
+    "down",
+    "down",
+    "right",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 125,
+   "en": "Spire Sterilizer",
+   "ko": "스파이어 소독기",
+   "설명_en": "Add a description here!!",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "아래",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "down",
+    "left",
+    "right",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 11,
+   "en": "Super Earth Flag",
+   "ko": "슈퍼지구 깃발",
+   "설명_en": "The main ingredient in Super Earth liberation.",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 88,
+   "en": "Super Earth Flag",
+   "ko": "슈퍼지구 깃발",
+   "설명_en": "The main ingredient in Super Earth liberation.",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 17,
+   "en": "Thumper",
+   "ko": "섬퍼",
+   "설명_en": "The thumper is equipped with a piston, used for sending out strong vibrations into the ground, which disrupt nearby bug nests.",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 73,
+   "en": "Prospecting Drill",
+   "ko": "탐광 드릴",
+   "설명_en": "An advanced, mostly self-operating prospecting drill fitted into a Hellpod. Handles soil sample extraction, analysis and data upload with minimal necessary input from an operator.",
+   "설명_ko": "헬포드에 장착되어 거의 자동으로 작동하는 고성능 탐광 드릴. 최소한의 명령으로 토양 샘플 추출, 분석, 그리고 데이터 업로드를 수행합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 19,
+   "en": "Seismic Probe",
+   "ko": "지진 탐지기",
+   "설명_en": "A Seismic Probe fitted into a Hellpod. Is preprogrammed so that only the simplest calibration and execution secuence is needed once deployed to the surface.",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "up",
+    "left",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 111,
+   "en": "Scrambler",
+   "ko": "교란기",
+   "설명_en": "SCRAMBLER",
+   "설명_ko": "교란기",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "오른쪽",
+    "아래",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "right",
+    "down",
+    "down",
+    "left",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 7,
+   "en": "Extraction",
+   "ko": "탈출",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "left",
+    "up",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 7.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 114,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "left",
+    "left",
+    "left",
+    "left",
+    "left",
+    "left",
+    "left",
+    "left"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 7.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 101,
+   "en": "Extraction",
+   "ko": "탈출",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "left",
+    "up",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 127,
+   "en": "Reinforce",
+   "ko": "증원",
+   "설명_en": "A replacement for a fallen comrade.",
+   "설명_ko": "전사한 동료를 대체합니다.",
+   "코드": [
+    "위",
+    "아래",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 6.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 5,
+   "en": "Orbital Illumination Flare",
+   "ko": "궤도 조명탄",
+   "설명_en": "A flare that illuminates the battlefield.",
+   "설명_ko": "전장을 밝히는 조명탄입니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "왼쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "left",
+    "left"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 149,
+   "en": "SOS Beacon",
+   "ko": "SOS 신호기",
+   "설명_en": "Call in an emergency beacon to show other Helldivers that you need assistance.",
+   "설명_ko": "긴급 신호기를 호출해 동료 헬다이버에게 도움이 필요함을 알립니다.",
+   "코드": [
+    "위",
+    "아래",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 5,
+   "종류_번호": 131,
+   "en": "Upload Data",
+   "ko": "데이터 업로드",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "오른쪽",
+    "위",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "right",
+    "up",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 1.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 135,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "up",
+    "left",
+    "right",
+    "down",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 1200.0,
+   "발동_지연_초": 4.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 5,
+   "종류_번호": 106,
+   "en": "Carpet Bomb",
+   "ko": "융단 폭격",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "오른쪽",
+    "위",
+    "오른쪽",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "right",
+    "up",
+    "right",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 900.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 5,
+   "종류_번호": 89,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "위",
+    "왼쪽",
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "left",
+    "down",
+    "down",
+    "left",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 87,
+   "en": "Jammed Piñata",
+   "ko": "끼인 피냐타",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 0.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 5,
+   "종류_번호": 29,
+   "en": "SEAF Artillery",
+   "ko": "SEAF 야포",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "오른쪽",
+    "위",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "up",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 30,
+   "en": "DARK FLUID VESSEL",
+   "ko": "다크 플루이드 용기",
+   "설명_en": "An experimental vessel containing 40 grams of weapons-grade Dark Fluid suspended in a magnetic field.",
+   "설명_ko": "자기장 내에 현탁액 상태의 무기 등급 다크 플루이드가 40그램 정도 담긴 실험 용기입니다.",
+   "코드": [
+    "위",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "left",
+    "right",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 20.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 67,
+   "en": "TECTONIC DRILL",
+   "ko": "지각 표면 드릴",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "위",
+    "아래",
+    "위",
+    "아래",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "up",
+    "down",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 49,
+   "en": "Data Jack",
+   "ko": "데이터 잭",
+   "설명_en": "This Data Jack is carefully engineered to slot seamlessly into Illuminate Access Nodes. Once engaged, it initiates a sophisticated system disruption sequence, requiring little more than user confirmation.",
+   "설명_ko": "이 데이터 잭은 일루미닛 액세스 노드에 완벽하게 장착되도록 세심하게 설계되었습니다. 일단 작동되면, 간단한 사용자의 확인 과정만을 거쳐 정교한 시스템 교란 시퀀스가 ​​시작됩니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "down",
+    "left",
+    "up",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 15.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 32,
+   "en": "Portable Hellbomb",
+   "ko": "휴대용 지옥폭탄",
+   "설명_en": "A backpack-mounted Hellbomb that can be armed by the wearer or an ally, starting a countdown. Users are recommended to remove the backpack before the countdown reaches zero.",
+   "설명_ko": "배낭에 장착하여 착용자 또는 아군이 무장할 수 있는 지옥폭탄으로, 사용 시 카운트다운을 시작합니다. 사용자는 카운트다운이 끝나기 전에 배낭을 제거하는 것이 좋습니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 37,
+   "en": "ACTIVATE DRILL",
+   "ko": "드릴 활성화하기",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "왼쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "left",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 20.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 5,
+   "종류_번호": 126,
+   "en": "CALL IN SUPER DESTROYER",
+   "ko": "슈퍼 구축함 호출",
+   "설명_en": "Call in your Super Destroyer, enabling the usage of stratagems for a limited time. One use per mission.",
+   "설명_ko": "슈퍼 구축함을 호출해 제한된 시간 동안 스트라타젬을 사용할 수 있게 됩니다. 임무 당 한 번만 사용할 수 있습니다.",
+   "코드": [
+    "위",
+    "위",
+    "아래",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "up",
+    "up",
+    "down",
+    "down",
+    "left",
+    "right",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 5,
+   "종류_번호": 97,
+   "en": "AQUIFER DRILL",
+   "ko": "대수층 드릴",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "왼쪽",
+    "왼쪽",
+    "위",
+    "아래",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "left",
+    "left",
+    "up",
+    "down",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 121,
+   "en": "Orbital Precision Strike",
+   "ko": "궤도 정밀 타격",
+   "설명_en": "A single precision shot from the Destroyer's 'ATLAS' cannon.",
+   "설명_ko": "구축함의 '아틀라스' 캐넌으로 발사하는 정밀한 단발 사격입니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 80.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 42,
+   "en": "Orbital Gas Strike",
+   "ko": "궤도 가스 타격",
+   "설명_en": "A projectile which releases a cloud of caustic gas, blinding and slowing most enemies.",
+   "설명_ko": "대부분의 적의 시야를 가리고 느리게 만드는 부식성 가스 구름을 방출하는 발사체입니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 75.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 86,
+   "en": "Orbital Airburst Strike",
+   "ko": "궤도 공중폭발 타격",
+   "설명_en": "A projectile which explodes while airborne, creating a deadly rain of shrapnel. Not effective against heavy armor.",
+   "설명_ko": "공중에서 기폭하여 치명적인 유산탄을 비처럼 퍼붓는 발사체입니다. 중장갑을 상대로는 효과적이지 않습니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "right"
+   ],
+   "재사용_대기_초": 90.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 4,
+   "en": "Orbital Gatling Barrage",
+   "ko": "궤도 개틀링 폭격",
+   "설명_en": "A barrage of high explosive rounds, fired from the Destroyer's high speed rotary autocannons.",
+   "설명_ko": "구축함의 고속 로터리 오토캐넌으로 발사하는 고폭탄 폭격입니다.",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "left",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 70.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 139,
+   "en": "Orbital 120mm HE Barrage",
+   "ko": "궤도 120mm 고폭 폭격",
+   "설명_en": "A precision artillery salvo over a small area, perfect for taking out concentrated enemy units.",
+   "설명_ko": "작은 지역에 정밀 포격을 하여 밀집된 적 유닛을 처리하기에 적합합니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "down",
+    "left",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 109,
+   "en": "Orbital Napalm Barrage",
+   "ko": "궤도 네이팜 폭격",
+   "설명_en": "Launches a prolonged barrage of napalm shells over a wide area, setting a swath of land ablaze in mere moments.",
+   "설명_ko": "넓은 지역에 네이팜탄을 장시간 폭격하여 순식간에 대지를 불태웁니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "down",
+    "left",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 240.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 128,
+   "en": "Orbital 380mm HE Barrage",
+   "ko": "궤도 380mm 고폭 폭격",
+   "설명_en": "A prolonged barrage, wreaking extended destruction over a large area. Communication with teammates is advised.",
+   "설명_ko": "지속적인 폭격으로 넓은 지역에 광범위한 파괴를 초래합니다. 팀원과의 의사소통을 권장합니다.",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "위",
+    "위",
+    "왼쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "up",
+    "up",
+    "left",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 240.0,
+   "발동_지연_초": 6.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 21,
+   "en": "Orbital Walking Barrage",
+   "ko": "궤도 이동 폭격",
+   "설명_en": "A linear artillery barrage which moves at intervals, driving the enemy out from cover while allowing an advance.",
+   "설명_ko": "일정 간격으로 이동하는 선형 포격 폭격으로, 적을 엄폐물에서 몰아내면서 전진할 수 있습니다.",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "오른쪽",
+    "아래",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "right",
+    "down",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 240.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 64,
+   "en": "Orbital Walking Barrage Smoke",
+   "ko": "궤도 이동 폭격 연막",
+   "설명_en": "A linear artillery barrage which moves at intervals while firing smoke bombs to obscure enemy visibility.",
+   "설명_ko": "일정 간격으로 이동하는 선형 포격 폭격으로, 연막탄을 발사하여 적의 시야를 방해합니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "왼쪽",
+    "위",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "left",
+    "up",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 77,
+   "en": "Orbital Smoke Strike",
+   "ko": "궤도 연막 타격",
+   "설명_en": "Creates a large, thick smoke screen to block targets' line of sight.",
+   "설명_ko": "크고 두꺼운 연막을 생성하여 적의 시야를 차단합니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 75.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 35,
+   "en": "Orbital EMS Strike",
+   "ko": "궤도 EMS 타격",
+   "설명_en": "A \"compliance weapon\" to modify enemy behavior. The projectile temporarily stuns all targets within the strike radius.",
+   "설명_ko": "적의 행동을 제한하는 '무력화 무기'입니다. 발사체가 타격 범위 내의 모든 표적을 일시적으로 기절시킵니다.",
+   "코드": [
+    "오른쪽",
+    "오른쪽",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "right",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 75.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 6,
+   "종류_번호": 110,
+   "en": "Orbital Laser",
+   "ko": "궤도 레이저",
+   "설명_en": "The Destroyer's laser cannon will sweep over the designated area, vaporizing all targets within the effective radius.",
+   "설명_ko": "구축함의 레이저 캐넌이 지정 지역을 쓸어버리며 효과 범위 내의 모든 표적을 기화시킵니다.",
+   "코드": [
+    "오른쪽",
+    "아래",
+    "위",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "right",
+    "down",
+    "up",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 6,
+   "종류_번호": 60,
+   "en": "Orbital Railcannon Strike",
+   "ko": "궤도 레일캐넌 타격",
+   "설명_en": "A high-velocity railcannon round fired at the largest target in close proximity to the beacon. Targeting is automatic.",
+   "설명_ko": "신호기 인근의 가장 큰 표적에게 고속 레일캐넌 탄을 발사합니다. 자동으로 목표를 지정합니다.",
+   "코드": [
+    "오른쪽",
+    "위",
+    "아래",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "right",
+    "up",
+    "down",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 1.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 7,
+   "종류_번호": 112,
+   "en": "Resupply",
+   "ko": "재보급",
+   "설명_en": "A Hellpod containing four supply packs, to replenish personal ammunition and stims in the field.",
+   "설명_ko": "야전에서 개인 탄약과 각성제를 보충할 수 있도록 4개의 보급 팩이 담긴 헬포드입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 7,
+   "종류_번호": 93,
+   "en": "Medical Supplies",
+   "ko": "의료물품",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 30.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 7,
+   "종류_번호": 38,
+   "en": "Patriot Exosuit",
+   "ko": "애국자 엑소슈트",
+   "설명_en": "An Exosuit equipped with a rocket launcher and a gatling gun, offering reliable flexibility against both heavy units and swarms of small targets.",
+   "설명_ko": "중장갑 유닛과 소형 목표물 무리 모두를 유연하게 상대할 수 있는 로켓 발사기와 개틀링 건을 탑재하고 있는 엑소슈트입니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "up",
+    "left",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 600.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 7,
+   "종류_번호": 20,
+   "en": "MEDIC BACKPACK",
+   "ko": "의무병 배낭",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 600.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 7,
+   "종류_번호": 147,
+   "en": "Jump Pack",
+   "ko": "점프 팩",
+   "설명_en": "Enables the user to jump higher than 'gravity' and 'safety' would normally allow. Must be charged before use.",
+   "설명_ko": "사용자가 '중력'과 '안전'이 일반적으로 허용하는 것보다 높이 점프할 수 있게 합니다. 사용하기 전에 충전해야 합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 90.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 7,
+   "종류_번호": 72,
+   "en": "Rocket Sentry",
+   "ko": "로켓 센트리",
+   "설명_en": "A powerful automated turret, effective against armored targets. The turret will primarily aim at larger enemies.",
+   "설명_ko": "장갑을 지닌 표적에게 효과적인 강력한 자동화 포탑입니다. 이 포탑은 대형 적을 우선 조준합니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 45.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 7,
+   "종류_번호": 85,
+   "en": "Machine Gun",
+   "ko": "기관총",
+   "설명_en": "A machine gun designed for stationary use. Trades higher power for increased recoil and reduced accuracy.",
+   "설명_ko": "고정된 위치에서 사용하도록 설계된 기관총입니다. 공격력이 높은 대신, 반동이 심하고 정확도가 떨어집니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 600.0,
+   "발동_지연_초": 5.0,
+   "이글_재무장당_사용": 1
+  },
+  {
+   "표": 8,
+   "종류_번호": 25,
+   "en": "Autocannon",
+   "ko": "오토캐넌",
+   "설명_en": "A fully-automatic cannon effective against light vehicle armor. Includes support backpack required for reloading.",
+   "설명_ko": "경장갑 차량에 효과적인 전자동 캐넌입니다. 재장전에 필요한 지원 배낭이 포함됩니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 83,
+   "en": "Grenade Launcher",
+   "ko": "유탄 발사기",
+   "설명_en": "A grenade launcher effective against armored infantry. Not intended for use against vehicle armor or fortified buildings.",
+   "설명_ko": "장갑을 지닌 보병에게 효과적인 유탄 발사기입니다. 차량 장갑이나 요새화된 건물에는 적합하지 않습니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 134,
+   "en": "De-Escalator",
+   "ko": "디에스컬레이터",
+   "설명_en": "A humane grenade launcher firing high-powered arc grenades.",
+   "설명_ko": "높은 위력의 아크 수류탄을 발사하는 인도적인 유탄 발사기입니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 130,
+   "en": "Belt-Fed Grenade Launcher",
+   "ko": "벨트식 유탄 발사기",
+   "설명_en": "A grenade launcher that can be fired continuously to deliver a nonstop barrage of explosives.",
+   "설명_ko": "연속 발사가 가능하여 폭발물을 끊임없이 폭격할 수 있는 유탄 발사기입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "왼쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "left",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 58,
+   "en": "Railgun",
+   "ko": "레일건",
+   "설명_en": "An experimental weapon which prioritizes armor penetration. Must be charged between shots - so choose targets carefully.",
+   "설명_ko": "장갑 관통을 우선시한 실험적인 무기입니다. 사격할 때마다 충전해야 하니, 표적을 신중하게 고르십시오.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "down",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 116,
+   "en": "Speargun",
+   "ko": "작살총",
+   "설명_en": "A speargun firing heavy-duty projectiles. These projectiles release a cloud of gas on impact, and must be carefully loaded one at a time.",
+   "설명_ko": "강력한 발사체를 발사하는 작살총입니다. 이 발사체는 충격을 받으면 가스 구름을 방출하므로 반드시 한 번에 한 개씩 주의하며 장전해야 합니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "down",
+    "left",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 133,
+   "en": "Recoilless Rifle",
+   "ko": "무반동포",
+   "설명_en": "A recoilless rifle effective against vehicle armor. Includes support backpack required for reloading.",
+   "설명_ko": "차량 장갑에 효과적인 무반동포입니다. 재장전에 필요한 지원 배낭이 포함됩니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 65,
+   "en": "Laser Cannon",
+   "ko": "레이저 캐넌",
+   "설명_en": "A laser weapon firing a continuous beam. Doesn't require ammunition, but will need heat sink replaced if it overheats.",
+   "설명_ko": "지속적인 광선을 발사하는 레이저 무기입니다. 탄약이 필요하지 않지만, 과열되면 방열판을 교체해야 합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 153,
+   "en": "Quasar Cannon",
+   "ko": "퀘이사 캐넌",
+   "설명_en": "Charges up to fire a powerful, explosive energy burst. Has a long cooldown period after firing.",
+   "설명_ko": "충전 후 강력한 폭발성 에너지를 방출합니다. 발사 후 긴 쿨다운 시간이 적용됩니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 144,
+   "en": "Anti-Materiel Rifle",
+   "ko": "대물소총",
+   "설명_en": "A high-caliber sniper rifle effective over long distances against light vehicle armor. This rifle must be aimed downscope.",
+   "설명_ko": "원거리의 경장갑 차량에 효과적인 대구경 저격소총입니다. 이 소총은 반드시 조준경으로 조준해야 합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 151,
+   "en": "Expendable Anti-Tank",
+   "ko": "일회성 대전차",
+   "설명_en": "A single-use weapon specialized for damaging vehicle armor. Discarded after every use.",
+   "설명_ko": "차량 장갑 파괴에 특화된 일회용 무기입니다. 한 번 사용하면 폐기합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 70.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 15,
+   "en": "Expendable Anti-Tank",
+   "ko": "일회성 대전차",
+   "설명_en": "A single-use weapon specialized for damaging vehicle armor. Discarded after every use.",
+   "설명_ko": "차량 장갑 파괴에 특화된 일회용 무기입니다. 한 번 사용하면 폐기합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 0.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 2
+  },
+  {
+   "표": 8,
+   "종류_번호": 40,
+   "en": "Expendable Napalm",
+   "ko": "일회성 네이팜",
+   "설명_en": "A single-use weapon that fires a missile containing napalm cluster bombs that release upon impact.",
+   "설명_ko": "충격 시 폭발하는 네이팜 집속탄을 탑재한 미사일을 발사하는 일회성 무기입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 140.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 16,
+   "en": "Leveller",
+   "ko": "평탄화기",
+   "설명_en": "A single-use weapon firing a high-yield missile. Discarded after every use.",
+   "설명_ko": "고위력 미사일을 발사하는 일회용 무기입니다. 한 번 사용하면 폐기합니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "왼쪽",
+    "위",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "left",
+    "up",
+    "down"
+   ],
+   "재사용_대기_초": 140.0,
+   "발동_지연_초": 2.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 6,
+   "en": "Commando",
+   "ko": "코만도",
+   "설명_en": "An expendable missile launcher equipped with four laser-guided missiles.",
+   "설명_ko": "레이저 유도 미사일이 4기 장착된 일회용 미사일 발사기입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 115,
+   "en": "Flamethrower",
+   "ko": "화염방사기",
+   "설명_en": "An incendiary weapon for close range. Will ignite targets, terrain, and any flammable teammates.",
+   "설명_ko": "근거리용 소이 무기로, 표적, 지형, 인화성 팀원을 발화시킵니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 33,
+   "en": "Heavy Machine Gun",
+   "ko": "중기관총",
+   "설명_en": "A very powerful but difficult-to-wield machine gun with intense recoil.",
+   "설명_ko": "강력한 화력을 자랑하지만 반동이 큰 중기관총입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 95,
+   "en": "Machine Gun",
+   "ko": "기관총",
+   "설명_en": "A machine gun designed for stationary use. Trades higher power for increased recoil and reduced accuracy.",
+   "설명_ko": "고정된 위치에서 사용하도록 설계된 기관총입니다. 공격력이 높은 대신, 반동이 심하고 정확도가 떨어집니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 13,
+   "en": "Stalwart",
+   "ko": "스털워트",
+   "설명_en": "A compact, low caliber machine gun. Trades power for ease of use, with faster reloading than heavier machine guns.",
+   "설명_ko": "소형 소구경 기관총입니다. 사용 편의성이 높은 대신 공격력이 낮으며, 중기관총에 비해 장전이 빠릅니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "up",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 102,
+   "en": "Bullet Storm",
+   "ko": "불릿 스톰",
+   "설명_en": "A single-use weapon sporting caseless ammunition stacked in multiple barrels. An electrical firing mechanism releases the rounds in rapid succession upon firing, after which the weapon is to be discarded.",
+   "설명_ko": "다수의 총열에 탄피가 없는 탄약을 장전하여 사용하는 일회용 무기입니다. 발사 시 전기식 발사 장치가 탄약을 연속으로 빠르게 발사하며, 발사 후에는 무기를 폐기해야 합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "down",
+    "right",
+    "up",
+    "left"
+   ],
+   "재사용_대기_초": 70.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 56,
+   "en": "Airburst Rocket Launcher",
+   "ko": "공중폭발 로켓 발사기",
+   "설명_en": "Fires a rocket that detonates within proximity of a target, and deploys a cluster of explosive bomblets.",
+   "설명_ko": "표적 인근에서 기폭하여 집속탄을 전개하는 로켓을 발사합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 14,
+   "en": "C4 Pack",
+   "ko": "C4 팩",
+   "설명_en": "A backpack containing six adhesive C4 charges and a handheld wireless electronic detonator. Charges can be deployed and detonated individually, or as multiple simultaneous blasts.",
+   "설명_ko": "점착식 C4 폭탄 6개와 휴대용 무선 전자 폭발 장치가 들어 있는 배낭입니다. 폭탄은 개별적으로 배치하고 기폭할 수도 있으며, 동시에 여러 번 폭발시킬 수도 있습니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "위",
+    "위",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "up",
+    "up",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 92,
+   "en": "Solo Silo",
+   "ko": "솔로 사일로",
+   "설명_en": "A silo that fits one single, powerful missile. Comes with a handheld targeting remote.",
+   "설명_ko": "강력한 단일 미사일을 탑재한 사일로입니다. 손에 들 수 있는 원격 조준기와 함께 사용합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 78,
+   "en": "Spear",
+   "ko": "스피어",
+   "설명_en": "An anti-tank homing missile which must lock onto its target before launch. Effective against large and armored enemies.",
+   "설명_ko": "발사 전에 표적에 록온해야 하는 대전차 유도 미사일입니다. 대형 적과 장갑을 지닌 적에게 효과적입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 100,
+   "en": "W.A.S.P. Launcher",
+   "ko": "W.A.S.P. 발사기",
+   "설명_en": "A versatile missile launcher loaded with seven lock-on homing missiles. These can either be fired from the launcher directly or as an airburst. Includes support backpack required for reloading.\nProduced by Stål Arms.",
+   "설명_ko": "7개의 록온 유도 미사일을 탑재한 다용도 미사일 발사기입니다. 발사기로 직접 발사하거나 또는 공중폭발로 발사할 수도 있습니다. 재장전에 필요한 지원 배낭이 포함됩니다.\n스탈 암즈에서 생산된 무기입니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "위",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "up",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 71,
+   "en": "Arc Thrower",
+   "ko": "아크 발사기",
+   "설명_en": "Projects an arc of lightning at close range. Charges up to project bolts, and may discharge through multiple targets.",
+   "설명_ko": "근거리에서 번개 아크를 투사합니다. 충전하면 볼트를 발사하여 복수의 표적에게 방출할 수 있습니다.",
+   "코드": [
+    "아래",
+    "오른쪽",
+    "아래",
+    "위",
+    "왼쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "right",
+    "down",
+    "up",
+    "left",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 63,
+   "en": "Sterilizer",
+   "ko": "스터릴라이저",
+   "설명_en": "Atomizes caustic chemicals into a fine mist that liquifies sensitive electronics and tissues. Blinds and slows most enemies.",
+   "설명_ko": "부식성 화학 물질을 원자 단위의 미세한 안개 형태로 분사하여 민감한 전자기기와 생체 조직을 액화시킵니다. 대부분의 적의 시야를 가리고 느리게 만듭니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "아래",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "down",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 117,
+   "en": "One True Flag",
+   "ko": "원 트루 플래그",
+   "설명_en": "The eternal colors of Super Earth can never be tainted. Only quenched, by the blood of its enemies.",
+   "설명_ko": "슈퍼지구를 상징하는 색은 영원하며 절대 바래지 않습니다. 단지 적의 피를 마실 뿐입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 53,
+   "en": "Defoliation Tool",
+   "ko": "고엽 도구",
+   "설명_en": "A useful field-clearing tool for removing trees, obstacles, and unlucky foes.",
+   "설명_ko": "나무, 장애물, 운이 나쁜 적을 제거하는 데 유용한 전장 정비 도구입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 103,
+   "en": "Breaching Hammer",
+   "ko": "벽 폭파 망치",
+   "설명_en": "A sledgehammer that can be wielded with or without an explosive charge attached to its head.",
+   "설명_ko": "폭발물을 망치 머리에 부착해서 사용하거나, 부착하지 않고 휘두를 수 있는 대형 망치입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 46,
+   "en": "Epoch",
+   "ko": "에포크",
+   "설명_en": "A powerful plasma weapon that fires one blast at a time, each blast exploding on impact. Must be charged to fire. Warning: do not overcharge.",
+   "설명_ko": "한 번에 한 발씩 블래스트를 발사하는 강력한 플라스마 무기입니다. 각 블래스트는 충격 시 폭발합니다. 발사하려면 반드시 충전해야 합니다. 경고: 과충전하지 마십시오.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 113,
+   "en": "Maxigun",
+   "ko": "맥시건",
+   "설명_en": "A belt-fed minigun with an exceptional ammo capacity. Cannot be reloaded with standard non-belted munitions.",
+   "설명_ko": "탄약 용량이 뛰어난 벨트 공급식 미니건입니다. 표준 비벨트식 탄약은 재장전할 수 없습니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 90,
+   "en": "Cremator",
+   "ko": "크리메이터",
+   "설명_en": "Incendiary support fed by a massive backpack fuel tank. This heavy flamethrower enables a continuous column of fire to cleanse the battlefield.",
+   "설명_ko": "대형 배낭형 연료 탱크를 사용해 화염 공격을 지원하는 무기입니다. 이 중형 화염방사기는 지속적으로 화염 기둥을 뿜어내 전장을 정화할 수 있습니다.",
+   "코드": [
+    "아래",
+    "아래",
+    "오른쪽",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "down",
+    "right",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 84,
+   "en": "Meltagun",
+   "ko": "멜타건",
+   "설명_en": "Fires a short-ranged superheated blast of thermal energy that melts the heaviest armor and thickest chitin into slag. \n\nProduced by ST Construction.",
+   "설명_ko": "근거리에서 초고온의 열에너지를 발사하여 두꺼운 장갑과 키틴질을 녹여 찌꺼기로 만들어 버립니다. \n\nST 컨스트럭션에서 생산된 무기입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "위",
+    "왼쪽",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "up",
+    "left",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 28,
+   "en": "Apex",
+   "ko": "에이펙스",
+   "설명_en": "A colossal anti-materiel sniper rifle. While its immense kinetic recoil mandates its user crouch or lie prone, its backpack-fed 20mm rounds deliver final, un-appealable verdicts to armored threats.",
+   "설명_ko": "거대한 대물 저격소총입니다. 운동 에너지 반동이 강력하기 때문에 사용자는 웅크리거나 엎드려야 하지만, 배낭형 급탄 방식의 20mm 탄환은 장갑을 두른 적에게 결정적인 일격을 가합니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "왼쪽",
+    "위",
+    "아래",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "left",
+    "up",
+    "down",
+    "left"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 8,
+   "종류_번호": 66,
+   "en": "Nova",
+   "ko": "노바",
+   "설명_en": "A sleek energy rifle requiring a brief charge cycle to fire a high-precision, non-explosive thermal projectile. Features infinite ammunition and an optimised cooldown cycle enabled by venting steam after each discharge.",
+   "설명_ko": "짧은 충전 주기만으로 고정밀 비폭발성 열 발사체를 사격할 수 있는 날렵한 에너지 소총입니다. 무한 탄약과 발사 후 증기를 배출함으로써 최적화된 쿨다운 주기가 특징입니다.",
+   "코드": [
+    "아래",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "left",
+    "right",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 124,
+   "en": "Machine Gun Sentry",
+   "ko": "기관총 센트리",
+   "설명_en": "An agile automated machine gun turret. Will fire at targets even if Helldivers will be caught in the crossfire.",
+   "설명_ko": "기민한 자동 기관총 포탑입니다. 헬다이버들이 십자포화에 휘말리더라도 표적에게 사격합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "오른쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "right",
+    "up"
+   ],
+   "재사용_대기_초": 90.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 69,
+   "en": "Gatling Sentry",
+   "ko": "개틀링 센트리",
+   "설명_en": "An automated turret with an extremely high rate of fire. Caution: does not check if friendly units are in line of fire.",
+   "설명_ko": "극단적인 연사율의 자동화 포탑입니다. 주의: 사선에 아군 병력이 있는지 확인하지 않습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 150.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 120,
+   "en": "Mortar Sentry",
+   "ko": "박격포 센트리",
+   "설명_en": "A turret firing powerful shells in a high arc. Effective at long ranges, and able to strike at targets behind cover.",
+   "설명_ko": "높은 호를 그리며 강력한 탄을 발사하는 포탑입니다. 원거리에서 효과적이며, 엄폐물 뒤에 있는 표적을 타격할 수 있습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "오른쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "right",
+    "down"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 45,
+   "en": "EMS Mortar Sentry",
+   "ko": "EMS 박격포 센트리",
+   "설명_en": "A turret firing static field generators that slow the advance of enemies.",
+   "설명_ko": "포탑이 적의 진격을 느리게 하는 전자기장 생성기를 발사합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "down",
+    "right"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 54,
+   "en": "Gas Mortar Sentry",
+   "ko": "가스 박격포 센트리",
+   "설명_en": "An automated turret that fires gas shells. Its targeting system prioritizes hostiles not yet exhibiting symptoms caused by gas inhalation. Users are advised to stay significantly upwind of the resulting crowd control.",
+   "설명_ko": "가스탄을 발사하는 자동 포탑입니다. 이 시스템의 조준 기능은 가스 흡입 증상을 보이지 않는 적을 먼저 공격합니다. 적 군중 제어를 위해 사용 시에는 바람이 불어오는 반대 방향에 있어야 합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "down",
+    "left"
+   ],
+   "재사용_대기_초": 180.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 55,
+   "en": "Rocket Sentry",
+   "ko": "로켓 센트리",
+   "설명_en": "A powerful automated turret, effective against armored targets. The turret will primarily aim at larger enemies.",
+   "설명_ko": "장갑을 지닌 표적에게 효과적인 강력한 자동화 포탑입니다. 이 포탑은 대형 적을 우선 조준합니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "오른쪽",
+    "왼쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "right",
+    "left"
+   ],
+   "재사용_대기_초": 150.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 140,
+   "en": "Autocannon Sentry",
+   "ko": "오토캐넌 센트리",
+   "설명_en": "An automated cannon turret firing anti-tank ammunition over long ranges. Sacrifices agility for range and power.",
+   "설명_ko": "원거리에 대전차 탄을 발사하는 자동화 캐넌 포탑입니다. 사거리와 공격력을 얻은 대신 기동성을 희생했습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "up",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 150.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 8,
+   "en": "Flame Sentry",
+   "ko": "화염 센트리",
+   "설명_en": "An automated flamethrower turret. Warning: fuel canister prone to explosion when ruptured.",
+   "설명_ko": "자동화된 화염방사기 포탑입니다. 경고: 연료통에 파열이 생기면 폭발 위험이 높습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 100.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 9,
+   "종류_번호": 23,
+   "en": "Laser Sentry",
+   "ko": "레이저 센트리",
+   "설명_en": "A turret firing powerful and precise laser beams. Warning: overloading heat sink may cause adverse effects.",
+   "설명_ko": "강력하고 정확한 레이저 광선을 발사하는 포탑입니다. 경고: 방열판에 과부하가 걸리면 악영향이 있을 수 있습니다.",
+   "코드": [
+    "아래",
+    "위",
+    "오른쪽",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "down",
+    "up",
+    "right",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 150.0,
+   "발동_지연_초": 3.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 10,
+   "종류_번호": 96,
+   "en": "Reinforce",
+   "ko": "증원",
+   "설명_en": "A replacement for a fallen comrade.",
+   "설명_ko": "전사한 동료를 대체합니다.",
+   "코드": [
+    "위",
+    "아래",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "up",
+    "down",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 6.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 10,
+   "종류_번호": 41,
+   "en": "Extraction Beacon",
+   "ko": "탈출 신호기",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "위",
+    "위",
+    "아래",
+    "왼쪽",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "up",
+    "up",
+    "down",
+    "left",
+    "down"
+   ],
+   "재사용_대기_초": 300.0,
+   "발동_지연_초": 120.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 108,
+   "en": "GUNNER FRV",
+   "ko": "포격 FRV",
+   "설명_en": "A lightly-armored Fast Recon Vehicle mounted with a heavy machinegun. ",
+   "설명_ko": "경징갑과 중기관총을 장착한 고속 정찰 차량입니다. ",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "아래",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "down",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 26,
+   "en": "Supply FRV",
+   "ko": "보급 고속 정찰 차량",
+   "설명_en": "A high-speed Fast Recon Vehicle equipped with an automated defense turret and a mounted supply rack, allowing frontline personnel to fully replenish ammunition and medical supplies on the move.",
+   "설명_ko": "자동 방어 포탑과 보급대를 탑재한 고속 정찰 차량으로, 이를 통해 최전선 병력이 이동 중에도 탄약과 의료품을 완벽하게 보충할 수 있습니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "왼쪽",
+    "왼쪽",
+    "아래",
+    "위",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "left",
+    "left",
+    "down",
+    "up",
+    "right"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 138,
+   "en": "Incinerator FRV",
+   "ko": "소각형 고속 정찰 차량",
+   "설명_en": "A specialized Fast Recon Vehicle equipped with heavier armor, a spiked ramming grille, and a roof-mounted heavy flamethrower at the expense of seating; this FRV can enable up to three Helldivers to deliver high-speed Justice, and forcefully clear obstructed transport routes.",
+   "설명_ko": "이 특수 설계된 고속 정찰 차량은 좌석 수를 줄이는 대신 더 두꺼운 장갑, 가시가 달린 충각 그릴, 그리고 지붕에 장착된 중화염방사기를 갖추고 있습니다. 이 차량에는 헬다이버가 최대 3명 탑승할 수 있으며, 고속으로 적에게 정의를 구현하고 막힌 수송로를 무력으로 돌파할 수 있습니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "왼쪽",
+    "아래",
+    "위",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "left",
+    "down",
+    "up",
+    "up"
+   ],
+   "재사용_대기_초": 480.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 27,
+   "en": "Patriot Exosuit",
+   "ko": "애국자 엑소슈트",
+   "설명_en": "An Exosuit equipped with a rocket launcher and a gatling gun, offering reliable flexibility against both heavy units and swarms of small targets.",
+   "설명_ko": "중장갑 유닛과 소형 목표물 무리 모두를 유연하게 상대할 수 있는 로켓 발사기와 개틀링 건을 탑재하고 있는 엑소슈트입니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "아래",
+    "아래"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "up",
+    "left",
+    "down",
+    "down"
+   ],
+   "재사용_대기_초": 420.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 11,
+   "종류_번호": 10,
+   "en": "Emancipator Exosuit",
+   "ko": "해방자 엑소슈트",
+   "설명_en": "An Exosuit equipped with dual autocannons, designed for sustained explosive firepower.",
+   "설명_ko": "지속적인 폭발력을 발휘하도록 듀얼 오토캐넌을 탑재하고 있는 엑소슈트입니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "위",
+    "왼쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "up",
+    "left",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 420.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 11,
+   "종류_번호": 94,
+   "en": "Lumberer Exosuit",
+   "ko": "벌목꾼 엑소슈트",
+   "설명_en": "A modern reinvention of the Lumberers of the first Galactic War, this Exosuit is equipped with a flamethrower and an anti-tank cannon. ",
+   "설명_ko": "제1차 은하계 전쟁 당시 사용되던 벌목꾼 모델을 현대적으로 재해석한 이 엑소슈트는 화염방사기와 대전차 캐넌을 장착하고 있습니다. ",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "위",
+    "오른쪽",
+    "왼쪽",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "up",
+    "right",
+    "left",
+    "up"
+   ],
+   "재사용_대기_초": 420.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 11,
+   "종류_번호": 91,
+   "en": "Breakthrough Exosuit",
+   "ko": "돌파구 엑소슈트",
+   "설명_en": "An Exosuit equipped with a flak cannon and ballistic shield, optimized for mid-to-close combat range.",
+   "설명_ko": "대공포와 방탄 방패를 장착한 엑소슈트로, 중거리에서 근거리 전투에 최적화되어 있습니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "left",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 420.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 3
+  },
+  {
+   "표": 11,
+   "종류_번호": 119,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 120.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 1,
+   "en": "Bastion Mk XVI",
+   "ko": "바스티온 Mk XVI",
+   "설명_en": "A heavily-armored tank destroyer armed with a 120mm high-velocity cannon and a heavy coaxial machinegun.",
+   "설명_ko": "120mm 고속포와 중형 동축 기관총을 장착한 중장갑 구축전차입니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "down",
+    "left",
+    "down",
+    "up",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 780.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 52,
+   "en": "Maelstrom",
+   "ko": "마엘스트롬",
+   "설명_en": "A heavily-armored Infantry Fighting Vehicle (IFV) armed with front-mounted dual Gatling guns, equipped with a deployable smoke screen, and featuring rear-mounted missile silos—its projectiles laser-guided by the gunner's turret.",
+   "설명_ko": "전방에 장착된 이중 개틀링 기관총으로 무장한 중장갑 보병전투차(IFV)는 전개 가능한 연막탄을 갖추고 있으며, 후방에는 미사일 격납고가 장착되어 있고, 사수 포탑에서 레이저 유도 발사체를 발사합니다.",
+   "코드": [
+    "왼쪽",
+    "아래",
+    "오른쪽",
+    "아래",
+    "왼쪽",
+    "아래",
+    "위",
+    "왼쪽",
+    "오른쪽"
+   ],
+   "코드_en": [
+    "left",
+    "down",
+    "right",
+    "down",
+    "left",
+    "down",
+    "up",
+    "left",
+    "right"
+   ],
+   "재사용_대기_초": 780.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 48,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "오른쪽",
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "right",
+    "left",
+    "right",
+    "left",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 6.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 98,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "오른쪽",
+    "왼쪽",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "right",
+    "left",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 6.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  },
+  {
+   "표": 11,
+   "종류_번호": 62,
+   "en": "",
+   "ko": "",
+   "설명_en": "",
+   "설명_ko": "",
+   "코드": [
+    "왼쪽",
+    "왼쪽",
+    "오른쪽",
+    "오른쪽",
+    "아래",
+    "위"
+   ],
+   "코드_en": [
+    "left",
+    "left",
+    "right",
+    "right",
+    "down",
+    "up"
+   ],
+   "재사용_대기_초": 6.0,
+   "발동_지연_초": 0.0,
+   "이글_재무장당_사용": 4294967295
+  }
+ ]
+}
